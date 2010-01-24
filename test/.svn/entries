@@ -1,0 +1,67 @@
+8
+
+dir
+511
+http://repo.molecular.com/svn/xddev/Starting_Template/test
+http://repo.molecular.com/svn/xddev
+
+
+
+2009-03-27T15:03:31.734535Z
+259
+pirish
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+fd5aeeb1-0291-4f93-9407-5ed5f7a31071
+
+qunit
+dir
+
+index.html
+file
+
+
+
+
+2010-01-24T18:00:36.000000Z
+1bb2b55f372af39ed0f56302894bd55a
+2009-03-20T18:10:18.105488Z
+258
+pirish
+
+jquery-1.2.6.js
+file
+
+
+
+
+2010-01-24T18:00:36.000000Z
+343607636acfee88faa2b638330a3370
+2009-03-20T17:38:56.287772Z
+256
+pirish
+
+tests.js
+file
+
+
+
+
+2010-01-24T18:00:36.000000Z
+2dadd2d2c13f6e614151de3f2358e442
+2009-03-20T17:55:52.176532Z
+257
+pirish
+

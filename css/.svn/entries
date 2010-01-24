@@ -1,0 +1,52 @@
+8
+
+dir
+511
+http://repo.molecular.com/svn/xddev/Starting_Template/css
+http://repo.molecular.com/svn/xddev
+
+
+
+2009-11-06T20:45:01.002605Z
+509
+pirish
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+fd5aeeb1-0291-4f93-9407-5ed5f7a31071
+
+style.css
+file
+
+
+
+
+2010-01-24T18:00:36.000000Z
+9b73e77cdf1417bbfc4a5fe7c4924331
+2009-11-06T20:45:01.002605Z
+509
+pirish
+
+reset.css
+file
+
+
+
+
+2010-01-24T18:00:36.000000Z
+55d22d5931eac44c133f104236a06c87
+2009-11-06T20:45:01.002605Z
+509
+pirish
+

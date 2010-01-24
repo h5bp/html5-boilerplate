@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/xddev/!svn/ver/259/Starting_Template/test/qunit
+END
+testsuite.css
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/xddev/!svn/ver/256/Starting_Template/test/qunit/testsuite.css
+END
+testrunner.js
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/xddev/!svn/ver/259/Starting_Template/test/qunit/testrunner.js
+END
