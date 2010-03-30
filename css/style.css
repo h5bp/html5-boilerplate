@@ -1,0 +1,7 @@
+@media screen and (max-device-width: 480px) {
+/* All iPhone and Android only CSS goes here */
+  html {
+    -webkit-text-size-adjust:none;    
+  }
+
+}
