@@ -1,3 +1,35 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+::-moz-selection{
+    background: #FF5E99; color:#fff;
+}
+
+::selection {
+    background:#FF5E99; color:#fff;
+}
+a:link { -webkit-tap-highlight-color: #FF5E99; }
+
+
+
+
 @media screen and (max-device-width: 480px) {
 /* All iPhone and Android only CSS goes here */
   html {
