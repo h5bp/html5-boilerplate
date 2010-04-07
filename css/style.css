@@ -23,7 +23,13 @@
 a:link { -webkit-tap-highlight-color: #FF5E99; } /* http://j.mp/webkit-tap-highlight-color */
 
 
+@media all and (orientation:portrait) { 
+  /* Style adjustments for portrait mode goes here */
+}
 
+@media all and (orientation:landscape) { 
+  /* Style adjustments for landscape mode goes here */
+}
 
 @media screen and (max-device-width: 480px) {
   /* All Capable Mobile Browser (Opera Mobile, iPhone Safari, Android Chrome) CSS goes here */
