@@ -126,7 +126,8 @@ button {  width: auto;   overflow: visible; }
    original author: paul irish
    TODO: consider: http://developer.yahoo.com/yui/base/ */
  
-body, select, input, textarea { font-family: "lucida sans unicode","lucida sans", Arial,Sans-Serif }
+body, select, input, textarea { font-family: "lucida sans unicode","lucida sans", Arial,Sans-Serif;
+color:#444; /* looks better than black: http://twitter.com/H_FJ/statuses/11800719859 */ }
  
 strong, th, h1,h2,h3,h4,h5,h6 { font-weight: bold;  }
  
