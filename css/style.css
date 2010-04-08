@@ -24,12 +24,15 @@
 a:link { -webkit-tap-highlight-color: #FF5E99; } 
 
 
+@media all and (orientation:portrait) { 
+  /* Style adjustments for portrait mode goes here */
+}
 
+@media all and (orientation:landscape) { 
+  /* Style adjustments for landscape mode goes here */
+}
 
 @media screen and (max-device-width: 480px) {
-/* All iPhone and Android only CSS goes here */
-  html {
-    -webkit-text-size-adjust:none;    
-  }
-
+  /* All Capable Mobile Browser (Opera Mobile, iPhone Safari, Android Chrome) CSS goes here */
+  html { -webkit-text-size-adjust:none; } /* Prevent iPhone from adjusting font size */
 }

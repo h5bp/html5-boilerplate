@@ -10,7 +10,14 @@
   <meta name="description" content="">
   <meta name="author" content="" >
 
-	<!--iPhone/iPad Viewport Fix -->
+	<!--iPhone/iPad/Opera Mobile Viewport Fix: 
+	
+	device-width : Make sure webpages occupy full width of the screen in its current orientation (portrait or landscape)
+	initial-scale = 1.0 retains dimensions of the page instead of zooming out if page height is larger than device height
+	maximum-scale = 1.0 retains dimensions of the page instead of zooming in if page width is smaller than device width
+	  
+  More at: http://j.mp/mobileviewport
+	 -->
 	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" >
 	
   
@@ -24,6 +31,9 @@
   <link rel="stylesheet" type="text/css" media="screen" href="css/reset.css" >
   <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" >
 	<link rel="stylesheet" type="text/css" media="print" href="css/print.css" > 
+	                         
+  <!-- For the less-enabled mobile browsers like Opera Mini -->	
+	<link rel="stylesheet" type="text/css" media="handheld" href="css/mobile.css" > 	
       
 	
   <!-- JavaScript at the bottom -->
