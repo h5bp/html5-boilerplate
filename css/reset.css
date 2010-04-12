@@ -18,7 +18,7 @@ b, i,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, dialog, figure, footer, header, 
+article, aside, figure, footer, header, 
 hgroup, menu, nav, section, menu,
 time, mark, audio, video {
 	margin:0;
@@ -32,7 +32,7 @@ time, mark, audio, video {
 
 body { line-height:1; }
 
-article, aside, dialog, figure, footer, header, 
+article, aside, figure, footer, header, 
 hgroup, nav, section { display:block; }
 
 nav ul { list-style:none; }
@@ -127,8 +127,8 @@ td img { vertical-align:top; }
 	===================================
 */
 .clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
-.clearfix {display: inline-block;}
+.clearfix { display: inline-block; }
 /* Hides from IE-mac \*/
-* html .clearfix {height: 1%;}
-.clearfix {display: block;}
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
 /* End hide from IE-mac */
