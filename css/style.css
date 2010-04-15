@@ -18,7 +18,7 @@
 
 
 
-::-moz-selection{ background: #FF5E99; color:#fff;}
+::-moz-selection{ background: #FF5E99; color:#fff; text-shadow: none; }
 ::selection { background:#FF5E99; color:#fff; text-shadow: none; } /* http://twitter.com/miketaylr/status/12228805301 */
 /* http://j.mp/webkit-tap-highlight-color */
 a:link { -webkit-tap-highlight-color: #FF5E99; } 
