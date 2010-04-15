@@ -1,8 +1,9 @@
 
 # http://hacks.mozilla.org/2009/07/cross-site-xmlhttprequest-with-cors/
-<IfModule mod_headers.c>
-  Header set Access-Control-Allow-Origin "*"
-</IfModule>
+# Disabled. Uncomment to serve cross-domain ajax requests
+#<IfModule mod_headers.c>
+#  Header set Access-Control-Allow-Origin "*"
+#</IfModule>
 
 
 
@@ -19,37 +20,21 @@
 
 
 
-
+# compression. svg, woff, ttf, otf could all be added here.
 <Location />
-    # Insert filter
     AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript text/javascript text/javascript
 </Location>
 
 
 # expires headers
-
 ExpiresActive on
-<IfModule mod_cache.c>
-
-  CacheIgnoreHeaders Set-Cookie
-  CacheIgnoreCacheControl On
-  
-    <IfModule mod_disk_cache.c>
-        CacheEnable disk /
-        CacheDisable /assets
-        CacheDisable /downloads
-        CacheDisable /flv
-        CacheDisable /img
-        CacheDisable /fonts
-        CacheDisable /include
-        CacheDisable /swf
-    </IfModule>
-</IfModule>
 
 <Location />
     FileETag Size  #can this be moved outside of the Location block?
 </Location>
 
+
+# all of these expires times can be pumped way up.
 <Location /favicon.ico>
     ExpiresDefault "now plus 1 day"
 </Location>
@@ -65,9 +50,4 @@ ExpiresActive on
 <Location /img>
     ExpiresDefault "now plus 1 day"
 </Location>
-
-
-
-# neccessary mimetypes
-AddType text/javascript .js
 
