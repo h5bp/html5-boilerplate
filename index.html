@@ -17,6 +17,7 @@
 	maximum-scale = 1.0 retains dimensions of the page instead of zooming in if page width is smaller than device width
 	  
   More at: http://j.mp/mobileviewport
+           http://davidbcalhoun.com/2010/viewport-metatag
 	 -->
 	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" >
 	
@@ -46,10 +47,15 @@
   </script>
   
 </head>
-<!--[if lt IE 7 ]> <body class="ie6 "> <![endif]--> 
-<!--[if IE 7 ]>    <body class="ie7 "> <![endif]--> 
-<!--[if IE 8 ]>    <body class="ie8 "> <![endif]--> 
-<!--[if !IE]><!--> <body> <!--<![endif]-->
+
+<!-- http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+
+<!--[if lt IE 7 ]> <body class="ie6"> <![endif]--> 
+<!--[if IE 7 ]>    <body class="ie7"> <![endif]--> 
+<!--[if IE 8 ]>    <body class="ie8"> <![endif]--> 
+<!--[if IE 9 ]>    <body class="ie9"> <![endif]--> 
+<!--[if gt IE 9]>  <body>             <![endif]-->
+<!--[if !IE]><!--> <body>         <!--<![endif]-->
 
 
   <div id="container">
@@ -75,8 +81,8 @@
     <script src="js/dd_belatedpng.js" ></script>	
   <![endif]-->
   
-  <!-- yui profiler and profileviewer - remove for production -->
   
+  <!-- yui profiler and profileviewer - remove for production -->
   <script src="js/profiling/yahoo-profiling.min.js"></script> 
   <script src="js/profiling/config.js"></script> 
   <!-- end profiling code -->
