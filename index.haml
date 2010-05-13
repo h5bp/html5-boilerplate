@@ -1,0 +1,61 @@
+!!! 5
+%html.no-js{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "content-type"}/
+    %meta{:content => "IE=8;chrome=1", "http-equiv" => "X-UA-Compatible"}/
+    %title
+    %meta{:content => "index, follow", :name => "robots"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "author"}/
+    /
+      iPhone/iPad/Opera Mobile Viewport Fix:
+      
+      device-width : Make sure webpages occupy full width of the screen in its current orientation (portrait or landscape)
+      initial-scale = 1.0 retains dimensions of the page instead of zooming out if page height is larger than device height
+      maximum-scale = 1.0 retains dimensions of the page instead of zooming in if page width is smaller than device width
+      
+      More at: http://j.mp/mobileviewport
+      http://davidbcalhoun.com/2010/viewport-metatag
+    %meta{:content => "width=device-width; initial-scale=1.0; maximum-scale=1.0;", :name => "viewport"}/
+    /
+      Place favicon.ico and apple-touch-icon.png in the root of your domain
+      and delete these references
+    %link{:href => "", :rel => "shortcut icon"}/
+    %link{:href => "", :rel => "apple-touch-icon"}/
+    / CSS : implied media="all"    %link{:href => "css/style.css", :rel => "stylesheet"}/
+    / For the less-enabled mobile browsers like Opera Mini    %link{:href => "css/mobile.css", :media => "handheld", :rel => "stylesheet"}/
+    / JavaScript at the bottom    
+    :javascript
+      // http://paulirish.com/2009/avoiding-the-fouc-v3/ && http://remysharp.com/2009/01/07/html5-enabling-script
+      // alternatively using Moderizr does both of these.
+      (function(B,C){B[C]=B[C].replace(/\bno-js\b/,'js');if(!/*@cc_on!@*/0)return;var e = "abbr,article,aside,audio,canvas,datalist,details,dialog,eventsource,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,time,video".split(','),i=e.length;while(i--){document.createElement(e[i])}})(document.documentElement,'className');
+        / http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/  
+  /[if lt IE 7] 
+    %body{:class=>"ie6"}  
+  /[if IE 7] 
+    %body{:class=>"ie7"}  
+  /[if IE 8] 
+    %body{:class=>"ie8"}  
+  /[if IE 9] 
+    %body{:class=>"ie9"}  
+  /[if gt IE 9] 
+    %body
+  :plain
+    <!--[if !IE]><!--> 
+  %body
+    :plain
+       <!--<![endif]-->
+    #container
+      #header
+      #body
+      #footer
+    / JavaScript    
+    %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"}
+    %script{:src => "js/plugins.js"}
+    %script{:src => "js/script.js"}
+    /[if lt IE 7 ]
+      %script{:src => "js/dd_belatedpng.js"}
+    / yui profiler and profileviewer - remove for production    
+    %script{:src => "js/profiling/yahoo-profiling.min.js"}
+    %script{:src => "js/profiling/config.js"}
+    / end profiling code
