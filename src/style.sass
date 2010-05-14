@@ -1,0 +1,102 @@
+@import reset.sass
+
+@import fonts.sass
+
+@import colors.sass
+
+// for image replacement 
+.ir 
+  display: block 
+  text-indent: -999px 
+  overflow: hidden 
+  background-repeat: none
+
+// Hide for both screenreaders and browsers
+.hidden
+  display: none
+  visibility: hidden 
+  
+// Hide only visually, but have it available for screenreaders http://www.webaim.org/techniques/css/invisiblecontent/  
+.visuallyhidden
+  position: absolute 
+  left: -10000px 
+  top: auto 
+  width: 1px 
+  height: 1px 
+  overflow: hidden 
+  
+.invisible
+  visibility: hidden
+
+ 
+// bicubic resizing for non-native sized IMG: http://code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
+.ie7 img
+  -ms-interpolation-mode: bicubic
+
+ 
+//===================================
+//>> CSS BUG HACKS <<
+//===================================
+.clearfix:after
+  content: "."
+  display: block
+  height: 0
+  clear: both
+  visibility: hidden
+  
+.clearfix 
+  display: inline-block /* Hides from IE-mac \*/
+
+* html .clearfix
+  height: 1%
+  
+.clearfix
+  display: block
+
+
+
+/* inline'd print styles avoid required HTTP connection http://www.phpied.com/delay-loading-your-print-css/ */
+@media print
+  * 
+    background: transparent !important
+    color: #444 !important
+    text-shadow: none
+
+  a, a:visited
+    color: #444 !important
+    text-decoration: underline
+
+  a:after
+    content: " (" attr(href) ")" 
+
+  abbr:after
+    content: " (" attr(title) ")"
+
+  pre, blockquote
+    border: 1px solid #999
+    page-break-inside: avoid  
+
+  @page
+    margin: 0.5cm
+
+  p, h2, h3
+    orphans: 3
+    widows: 3
+
+  h2, h3
+    page-break-after: avoid
+
+
+@media all and (orientation:portrait) 
+  // Style adjustments for portrait mode goes here 
+
+
+@media all and (orientation:landscape) 
+  // Style adjustments for landscape mode goes here 
+
+
+@media screen and (max-device-width: 480px)
+  //All Capable Mobile Browser (Opera Mobile, iPhone Safari, Android Chrome) CSS goes here 
+  html                            
+    // Prevent iPhone from adjusting font size  
+    -webkit-text-size-adjust: none 

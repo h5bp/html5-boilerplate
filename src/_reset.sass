@@ -1,0 +1,102 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, figure, footer, header, 
+hgroup, menu, nav, section, menu,
+time, mark, audio, video
+  margin: 0
+  padding: 0
+  border: 0
+  outline: 0
+  font-size: 100%
+  vertical-align: baseline
+  background: transparent              
+
+/* always force a scrollbar in non-IE */
+html
+  overflow-y: scroll
+
+article, aside, figure, footer, header, hgroup, nav, section
+  display: block 
+
+nav ul
+  list-style: none
+
+blockquote, q
+  quotes: none
+
+blockquote:before, blockquote:after,
+q:before, q:after
+  content: ''
+  content: none
+
+a 
+  margin: 0
+  padding: 0
+  border: 0
+  font-size: 100%
+  vertical-align: baseline
+  background: transparent  
+  
+  /* http://j.mp/webkit-tap-highlight-color */
+  &:link
+    -webkit-tap-highlight-color: rgba(200,0,0,0.4)
+
+ins
+  background-color: #ff9
+  color: #000
+  text-decoration: none
+
+mark 
+  @extend ins
+  font-style: italic
+  font-weight: bold
+
+del
+  text-decoration: line-through  
+
+abbr[title], dfn[title]
+  border-bottom: 1px dotted #000 
+  cursor: help
+
+table
+  border-collapse: collapse
+  border-spacing: 0
+
+hr 
+  display: block
+  height: 1px
+  border: 0
+  border-top: 1px solid #ccc
+  margin: 1em 0
+  padding: 0
+
+input, select
+  vertical-align: middle
+
+ul
+  margin-left: 30px
+ol
+  margin-left: 30px
+  list-style-type: decimal
+
+td, td img
+  vertical-align: top
+ 
+/* make buttons play nice in IE: http://www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
+button 
+  width: auto
+  overflow: visible
+
+::-moz-selection,
+::selection
+  background: #FF5E99
+  color: #fff
+  // http://twitter.com/miketaylr/status/12228805301
+  text-shadow: none 
