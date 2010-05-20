@@ -8,7 +8,6 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 nav ul, nav ol { list-style: none; }
 
 blockquote, q { quotes: none; }
-
 blockquote:before, blockquote:after, q:before, q:after { content: ""; content: none; }
 
 a { margin: 0; padding: 0; border: 0; font-size: 100%; vertical-align: baseline; background: transparent; }

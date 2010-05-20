@@ -26,7 +26,6 @@ time, mark, audio, video
 body
   line-height: 1
 
-
 article,aside,canvas,details,figcaption,figure,
 footer,header,hgroup,menu,nav,section,summary 
   display: block
@@ -37,10 +36,9 @@ nav ul
 blockquote, q
   quotes: none   
 
-blockquote:before, blockquote:after,
-q:before, q:after
-  content: ''
-  content: none  
+  &:before, &:after
+    content: ''
+    content: none  
 
 a
   margin: 0
