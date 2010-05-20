@@ -1,84 +1,12 @@
-html, body, div, span, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-abbr, address, cite, code,
-del, dfn, em, img, ins, kbd, q, samp,
-small, strong, sub, sup, var,
-b, i,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, figure, footer, header, 
-hgroup, menu, nav, section, menu,
-time, mark, audio, video
-  margin: 0
-  padding: 0
-  border: 0
-  outline: 0
-  font-size: 100%
-  vertical-align: baseline
-  background: transparent              
+/* 
+  reset.css contains both a reset and some base styles. */
 
-/* always force a scrollbar in non-IE */
-html
-  overflow-y: scroll
+@import _html5reset.sass
 
-article, aside, figure, footer, header, hgroup, nav, section
-  display: block 
-
-nav ul
-  list-style: none
-
-blockquote, q
-  quotes: none
-
-blockquote:before, blockquote:after,
-q:before, q:after
-  content: ''
-  content: none
-
-a 
-  margin: 0
-  padding: 0
-  border: 0
-  font-size: 100%
-  vertical-align: baseline
-  background: transparent  
   
-  /* http://j.mp/webkit-tap-highlight-color */
-  &:link
-    -webkit-tap-highlight-color: rgba(200,0,0,0.4)
-
-ins
-  background-color: #ff9
-  color: #000
-  text-decoration: none
-
-mark 
-  @extend ins
-  font-style: italic
-  font-weight: bold
-
-del
-  text-decoration: line-through  
-
-abbr[title], dfn[title]
-  border-bottom: 1px dotted #000 
-  cursor: help
-
-table
-  border-collapse: collapse
-  border-spacing: 0
-
-hr 
-  display: block
-  height: 1px
-  border: 0
-  border-top: 1px solid #ccc
-  margin: 1em 0
-  padding: 0
-
-input, select
-  vertical-align: middle
+/* http://j.mp/webkit-tap-highlight-color */
+a:link
+  -webkit-tap-highlight-color: rgba(200,0,0,0.4)
 
 ul
   margin-left: 30px
@@ -88,15 +16,25 @@ ol
 
 td, td img
   vertical-align: top
+
+/* always force a scrollbar in non-IE: http://css-tricks.com/eliminate-jumps-in-horizontal-centering-by-forcing-a-scroll-bar/ */
+html
+  overflow-y: scroll
  
 /* make buttons play nice in IE: http://www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
 button 
   width: auto
   overflow: visible
 
-::-moz-selection,
-::selection
+::-moz-selection
   background: #FF5E99
   color: #fff
   // http://twitter.com/miketaylr/status/12228805301
   text-shadow: none 
+
+::selection
+  @extend ::-moz-selection
+  
+/* bicubic resizing for non-native sized IMG: http://code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+.ie7 img
+  -ms-interpolation-mode: bicubic

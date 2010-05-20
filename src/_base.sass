@@ -1,0 +1,57 @@
+/* styling the basics.  
+   original author: paul irish
+   TODO: consider: http://developer.yahoo.com/yui/base/ */
+ 
+
+// looks better than black: http://twitter.com/H_FJ/statuses/11800719859 
+$bodytextcolor: #444
+$linkcolor: #607890
+$linkhovercolor: #036
+
+body, select, input, textarea
+  color: $bodytextcolor
+
+a, a:active, a:visited
+  color: $linkcolor 
+
+a:hover
+  color: $linkhovercolor 
+  
+strong, th, h1,h2,h3,h4,h5,h6
+  font-weight: bold
+ 
+h5
+  font-size: 85%
+  margin: 8px 0 1px
+h4
+  font-size: 92%
+  margin: 10px 0 2px
+h3
+  font-size: 107%
+  margin: 13px 0 3px
+   
+h2
+  font-size: 122%
+  margin: 15px 0 3px
+h1
+  font-size: 136%
+  margin: 0 0 10px 
+ 
+p
+  margin: 15px 0 10px
+ 
+ul
+  margin-left: 30px
+ol
+  @extend ul
+  list-style-type: decimal
+
+small
+  font-size: 85%
+
+td,
+td img
+  vertical-align: top
+
+
+  

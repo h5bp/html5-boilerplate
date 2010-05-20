@@ -1,18 +1,21 @@
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, mark, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, menu, time, mark, audio, video { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
+/* reset.css contains both a reset and some base styles. */
+/* html5doctor.com Reset Stylesheet */
+/* v1.4.1 */
+/* 2010-03-01 */
+/* Author: Richard Clark - http://richclarkdesign.com */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, mark, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, ol, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
 
-/* always force a scrollbar in non-IE */
-html { overflow-y: scroll; }
+body { line-height: 1; }
 
-article, aside, figure, footer, header, hgroup, nav, section { display: block; }
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary { display: block; }
 
-nav ul { list-style: none; }
+nav ul, nav ol { list-style: none; }
 
 blockquote, q { quotes: none; }
 
 blockquote:before, blockquote:after, q:before, q:after { content: ""; content: none; }
 
-a { margin: 0; padding: 0; border: 0; font-size: 100%; vertical-align: baseline; background: transparent; /* http://j.mp/webkit-tap-highlight-color */ }
-a:link { -webkit-tap-highlight-color: rgba(200, 0, 0, 0.4); }
+a { margin: 0; padding: 0; border: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
 
 ins, mark { background-color: #ffff99; color: black; text-decoration: none; }
 
@@ -28,25 +31,35 @@ hr { display: block; height: 1px; border: 0; border-top: 1px solid #cccccc; marg
 
 input, select { vertical-align: middle; }
 
-ul { margin-left: 30px; }
+/* http://j.mp/webkit-tap-highlight-color */
+a:link { -webkit-tap-highlight-color: rgba(200, 0, 0, 0.4); }
+
+ul, ol { margin-left: 30px; }
 
 ol { margin-left: 30px; list-style-type: decimal; }
 
 td, td img { vertical-align: top; }
+
+/* always force a scrollbar in non-IE: http://css-tricks.com/eliminate-jumps-in-horizontal-centering-by-forcing-a-scroll-bar/ */
+html { overflow-y: scroll; }
 
 /* make buttons play nice in IE: http://www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
 button { width: auto; overflow: visible; }
 
 ::-moz-selection, ::selection { background: #ff5e99; color: white; text-shadow: none; }
 
-/*fonts.css from the YUI Library: http://developer.yahoo.com/yui/ refer to http://developer.yahoo.com/yui/fonts/ for font sizing */
-body { font: 13px arial, helvetica, "Nimbus Sans L", "Bitstream Vera Sans", sans-serif; line-height: 1.22em; *font-size: small; *font: x-small; }
+/* bicubic resizing for non-native sized IMG: http://code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+.ie7 img { -ms-interpolation-mode: bicubic; }
+
+/* fonts.css from the YUI Library: http://developer.yahoo.com/yui/ */
+/* refer to http://developer.yahoo.com/yui/fonts/ for font sizing */
+body { font: 13px/1.231 arial, helvetica, sans-serif; *font-size: small; *font: x-small; }
+
+select, input, button, textarea, button { font: 99% arial, helvetica, sans-serif; }
 
 table { font-size: inherit; font: 100%; }
 
-select, input, textarea { font: 99% arial, helvetica, "Nimbus Sans L", "Bitstream Vera Sans", sans-serif; }
-
-pre, code { font: 115% monospace; *font-size: 100%; }
+pre, code, kbd, samp, tt { font-family: monospace; *font-size: 108%; line-height: 100%; }
 
 /* styling the basics. original author: paul irish */
 strong, th, h1, h2, h3, h4, h5, h6 { font-weight: bold; }
@@ -65,11 +78,32 @@ p { margin: 15px 0 10px; }
 
 small { font-size: 85%; }
 
+/* styling the basics. original author: paul irish TODO: consider: http://developer.yahoo.com/yui/base/ */
 body, select, input, textarea { color: #444444; }
 
 a, a:active, a:visited { color: #607890; }
 
 a:hover { color: #003366; }
+
+strong, th, h1, h2, h3, h4, h5, h6 { font-weight: bold; }
+
+h5 { font-size: 85%; margin: 8px 0 1px; }
+
+h4 { font-size: 92%; margin: 10px 0 2px; }
+
+h3 { font-size: 107%; margin: 13px 0 3px; }
+
+h2 { font-size: 122%; margin: 15px 0 3px; }
+
+h1 { font-size: 136%; margin: 0 0 10px; }
+
+p { margin: 15px 0 10px; }
+
+ul, ol { margin-left: 30px; }
+
+ol { list-style-type: decimal; }
+
+small { font-size: 85%; }
 
 /* for image replacement */
 .ir { display: block; text-indent: -999px; overflow: hidden; background-repeat: none; }
