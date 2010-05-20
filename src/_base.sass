@@ -15,7 +15,13 @@ a, a:active, a:visited
   color: $linkcolor 
 
 a:hover
-  color: $linkhovercolor 
+  color: $linkhovercolor
+
+/* http://j.mp/webkit-tap-highlight-color */
+a:link
+  -webkit-tap-highlight-color: rgba(200,0,0,0.4)
+
+   
   
 strong, th, h1,h2,h3,h4,h5,h6
   font-weight: bold
@@ -53,5 +59,74 @@ td,
 td img
   vertical-align: top
 
+/* always force a scrollbar in non-IE: http://css-tricks.com/eliminate-jumps-in-horizontal-centering-by-forcing-a-scroll-bar/ 
+html
+  overflow-y: scroll
 
-  
+/* make buttons play nice in IE: http://www.viget.com/inspire/styling-the-button-element-in-internet-explorer/
+button 
+  width: auto
+  overflow: visible
+
+::-moz-selection
+  background: #FF5E99
+  color: #fff
+  // http://twitter.com/miketaylr/status/12228805301
+  text-shadow: none 
+
+/* Needs to be separate from moz-selection https://developer.mozilla.org/En/CSS/::selection#Browser_compatibility 
+::selection
+  background: #FF5E99
+  color: #fff
+  // http://twitter.com/miketaylr/status/12228805301
+  text-shadow: none 
+
+
+/* bicubic resizing for non-native sized IMG: http://code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+.ie7 img
+  -ms-interpolation-mode: bicubic
+
+/* for image replacement 
+.ir 
+  display: block 
+  text-indent: -999px 
+  overflow: hidden 
+  background-repeat: none
+
+/* Hide for both screenreaders and browsers 
+.hidden
+  display: none
+  visibility: hidden 
+
+/* Hide only visually, but have it available for screenreaders http://www.webaim.org/techniques/css/invisiblecontent/ 
+.visuallyhidden
+  position: absolute 
+  left: -10000px 
+  top: auto 
+  width: 1px 
+  height: 1px 
+  overflow: hidden 
+
+.invisible
+  visibility: hidden
+
+
+/*===================================
+/* CSS BUG HACKS <<
+/*===================================
+
+.clearfix:after
+  content: "."
+  display: block
+  height: 0
+  clear: both
+  visibility: hidden
+
+.clearfix 
+  display: inline-block /* Hides from IE-mac \*/
+
+* html .clearfix
+  height: 1%
+
+.clearfix
+  display: block  
