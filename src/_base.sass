@@ -22,7 +22,6 @@ a:link
   -webkit-tap-highlight-color: rgba(200,0,0,0.4)
 
    
-  
 strong, th, h1,h2,h3,h4,h5,h6
   font-weight: bold
  
@@ -115,18 +114,18 @@ button
 /* CSS BUG HACKS <<
 /*===================================
 
-.clearfix:after
-  content: "."
-  display: block
-  height: 0
-  clear: both
-  visibility: hidden
-
 .clearfix 
   display: inline-block /* Hides from IE-mac \*/
-
-* html .clearfix
-  height: 1%
-
-.clearfix
   display: block  
+  
+  &:after
+    content: "."
+    display: block
+    height: 0
+    clear: both
+    visibility: hidden
+
+  * html &
+    height: 1%
+
+

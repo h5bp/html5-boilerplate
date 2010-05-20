@@ -96,13 +96,9 @@ button { width: auto; overflow: visible; }
 /*=================================== */
 /* CSS BUG HACKS << */
 /*=================================== */
+.clearfix { display: inline-block; display: block; }
 .clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
-
-.clearfix { display: inline-block; }
-
 * html .clearfix { height: 1%; }
-
-.clearfix { display: block; }
 
 /* inline'd print styles avoid required HTTP connection http://www.phpied.com/delay-loading-your-print-css/ */
 @media print { * { background: transparent !important; color: #444444 !important; text-shadow: none; }
