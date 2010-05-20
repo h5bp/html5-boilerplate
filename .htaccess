@@ -7,8 +7,27 @@
 
 
 
-# allow combining from within js files 
-# e.g. <!--#include file="jquery-1.4.2.js" -->
+
+# allow access from all domains for webfonts
+# alternatively you could only whitelist
+#   your subdomains like "sub.domain.com"
+
+<FilesMatch "\.(ttf|otf|eot|woff|font.css)$">
+  <IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+  </IfModule>
+</FilesMatch>
+
+
+
+
+# allow concatenation from within specific js and css files 
+
+# e.g. Inside of script.combined.js you could have
+#   <!--#include file="jquery-1.4.2.js" -->
+#   <!--#include file="jquery.idletimer.js" -->
+# and they would be included into this single file
+
 <FilesMatch "\.combined\.js">
         Options +Includes
         SetOutputFilter INCLUDES
@@ -20,34 +39,36 @@
 
 
 
-# compression. svg, woff, ttf, otf could all be added here.
+# gzip compression.
 <Location />
-    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript text/javascript text/javascript
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript text/javascript text/javascript application/javascript application/json
 </Location>
+<FilesMatch "\.(ttf|otf|woff|eot|svg)$" >
+    SetOutputFilter DEFLATE
+</FilesMatch>
 
 
-# expires headers
-ExpiresActive on
-
+# eTags
 <Location />
     FileETag Size  #can this be moved outside of the Location block?
 </Location>
 
 
-# all of these expires times can be pumped way up.
-<Location /favicon.ico>
-    ExpiresDefault "now plus 1 day"
-</Location>
 
-<Location /css>
-    ExpiresDefault "now plus 1 hour"
-</Location>
+# these are pretty far-future expires headers
+# they assume you control versioning with something like
+#   <script src="application.js?20100608">
+# if you don't do that, lower the css and js to 
+#   "access plus 1 week" or so
 
-<Location /js>
-    ExpiresDefault "now plus 1 hour"
-</Location>
-
-<Location /img>
-    ExpiresDefault "now plus 1 day"
-</Location>
-
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/png "access plus 1 year"
+ExpiresByType image/gif "access plus 1 year"
+ExpiresByType image/jpeg "access plus 1 year"
+ExpiresByType image/vnd.microsoft.icon "access plus 1 week" #favicon.ico
+ExpiresByType text/css "access plus 1 year"
+ExpiresByType application/x-javascript "access plus 1 year"
+ExpiresByType application/javascript "access plus 1 year"
+ExpiresByType text/javascript "access plus 1 year"
+</IfModule>
