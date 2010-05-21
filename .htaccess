@@ -50,7 +50,8 @@
 
 # eTags
 <Location />
-    FileETag Size  #can this be moved outside of the Location block?
+    #can this be moved outside of the Location block? i'm not sure..
+    FileETag Size  
 </Location>
 
 
@@ -63,10 +64,16 @@
 
 <IfModule mod_expires.c>
 ExpiresActive On
+
+# images
 ExpiresByType image/png "access plus 1 year"
 ExpiresByType image/gif "access plus 1 year"
 ExpiresByType image/jpeg "access plus 1 year"
-ExpiresByType image/vnd.microsoft.icon "access plus 1 week" #favicon.ico
+
+# favicon.ico
+ExpiresByType image/vnd.microsoft.icon "access plus 1 week" 
+
+# css and javascript
 ExpiresByType text/css "access plus 1 year"
 ExpiresByType application/x-javascript "access plus 1 year"
 ExpiresByType application/javascript "access plus 1 year"
