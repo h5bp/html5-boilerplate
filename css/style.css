@@ -111,7 +111,9 @@ button { width: auto; overflow: visible; }
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3 { page-break-after: avoid; } }
 
-@media all and (orientation:portrait) {}
-@media all and (orientation:landscape) {}
+@media all and (orientation:portrait) { /* Style adjustments for portrait mode goes here */ }
+
+@media all and (orientation:landscape) { /* Style adjustments for landscape mode goes here */ }
+
 @media screen and (max-device-width: 480px) { /* All Capable Mobile Browser (Opera Mobile, iPhone Safari, Android Chrome) CSS goes here */
-  html { -webkit-text-size-adjust: none; } }
+  html { /* Prevent iPhone from adjusting font size */ -webkit-text-size-adjust: none; } }
