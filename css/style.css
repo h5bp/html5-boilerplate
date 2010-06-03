@@ -96,11 +96,13 @@ body, select, input, textarea { color:#444; }
  
 strong, th, h1,h2,h3,h4,h5,h6 { font-weight: bold; }
 
-h5 { font-size:85%; margin:8px 0 1px; }
-h4 { font-size:92%; margin:10px 0 2px; } 
-h3 { font-size:107%; margin:13px 0 3px; } 
-h2 { font-size:122%; margin:15px 0 3px; }
-h1 { font-size:136%; margin:0 0 10px; } 
+/* disable because you'll override these anyhow 
+  h5 { font-size:85%; margin:8px 0 1px; }
+  h4 { font-size:92%; margin:10px 0 2px; } 
+  h3 { font-size:107%; margin:13px 0 3px; } 
+  h2 { font-size:122%; margin:15px 0 3px; }
+  h1 { font-size:136%; margin:0 0 10px; } 
+*/ 
  
 p { margin:15px 0 10px; }
  
@@ -163,6 +165,7 @@ a:link { -webkit-tap-highlight-color: #FF5E99; }
 
 
 /* inline'd print styles avoid required HTTP connection http://www.phpied.com/delay-loading-your-print-css/ */
+/* Original Author: Divya Manian */
 @media print {
 	* { background:transparent !important; color:#444 !important; text-shadow:none; }
 
