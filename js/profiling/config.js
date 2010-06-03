@@ -9,7 +9,7 @@ var PROFILE = {
   	// define what objects, constructors and functions you want to profile
   	// documentation here: http://developer.yahoo.com/yui/profiler/
   	
-  	YAHOO.tool.Profiler.registerObject("FOO", FOO, true);
+  	YAHOO.tool.Profiler.registerObject("jQuery", jQuery, true);
   	
   	// the following would profile all methods within constructor's prototype
     // YAHOO.tool.Profiler.registerConstructor("Person");
