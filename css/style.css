@@ -1,119 +1,201 @@
-/* html5doctor.com Reset Stylesheet v1.4.1  2010-03-01 Author: Richard Clark - http://richclarkdesign.com  */
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, mark, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, ol, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
+/* 
+  style.css contains a reset, font normalization and some base styles.
+*/
 
-body { line-height: 1; }
+/* 
+  html5doctor.com Reset Stylesheet
+  v1.4 2009-07-27
+  http://html5doctor.com/html-5-reset-stylesheet/
+  Author: Richard Clark - http://richclarkdesign.com
+*/
 
-article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary { display: block; }
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, figure, footer, header, 
+hgroup, menu, nav, section, menu,
+time, mark, audio, video {
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	font-size:100%;
+	vertical-align:baseline;
+	background:transparent;
+}                  
 
-nav ul, nav ol { list-style: none; }
+article, aside, figure, footer, header, 
+hgroup, nav, section { display:block; }
 
-blockquote, q { quotes: none; }
-blockquote:before, blockquote:after, q:before, q:after { content: ""; content: none; }
+nav ul { list-style:none; }
 
-a { margin: 0; padding: 0; border: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
+blockquote, q { quotes:none; }
 
-ins, mark { background-color: #ffff99; color: black; text-decoration: none; }
+blockquote:before, blockquote:after,
+q:before, q:after { content:''; content:none; }
 
-mark { font-style: italic; font-weight: bold; }
+a { margin:0; padding:0; border:0; font-size:100%; vertical-align:baseline; background:transparent; }
+
+ins { background-color:#ff9; color:#000; text-decoration:none; }
+
+mark { background-color:#ff9; color:#000;	font-style:italic; font-weight:bold; }
 
 del { text-decoration: line-through; }
 
-abbr[title], dfn[title] { border-bottom: 1px dotted black; cursor: help; }
+abbr[title], dfn[title] { border-bottom:1px dotted #000; cursor:help; }
 
-table { border-collapse: collapse; border-spacing: 0; }
+table { border-collapse:collapse; border-spacing:0; }
 
-hr { display: block; height: 1px; border: 0; border-top: 1px solid #cccccc; margin: 1em 0; padding: 0; }
+hr { display:block; height:1px; border:0;	border-top:1px solid #ccc; margin:1em 0; padding:0; }
 
-input, select { vertical-align: middle; }
+input, select { vertical-align:middle; }
+/* END RESET CSS */
 
-/* fonts.css from the YUI Library: http://developer.yahoo.com/yui/ */
-/* refer to http://developer.yahoo.com/yui/fonts/ for font sizing */
-body { font: 13px/1.231 arial, helvetica, sans-serif; *font-size: small; *font: x-small; }
 
-select, input, button, textarea, button { font: 99% arial, helvetica, sans-serif; }
+/*
+fonts.css from the YUI Library: http://developer.yahoo.com/yui/
+refer to http://developer.yahoo.com/yui/fonts/ for font sizing
+*/
+body { font:13px arial,helvetica,"Nimbus Sans L", "Bitstream Vera Sans", sans-serif; *font-size:small; *font:x-small; }
 
-table { font-size: inherit; font: 100%; }
+table { font-size:inherit; font:100%; }
 
-pre, code, kbd, samp, tt { font-family: monospace; *font-size: 108%; line-height: 100%; }
+select, input, textarea { font:99% arial,helvetica,"Nimbus Sans L", "Bitstream Vera Sans", sans-serif; }
 
-/* styling the basics. original author: paul irish TODO: consider: http://developer.yahoo.com/yui/base/ */
-body, select, input, textarea { color: #444444; }
+pre, code { font:115% monospace; *font-size:100%; }
 
-a, a:active, a:visited { color: #607890; }
+body * { line-height:1.22em; }
+ 
 
-a:hover { color: #003366; }
-
-/* http://j.mp/webkit-tap-highlight-color */
-a:link { -webkit-tap-highlight-color: rgba(200, 0, 0, 0.4); }
-
-strong, th, h1, h2, h3, h4, h5, h6 { font-weight: bold; }
-
-h5 { font-size: 85%; margin: 8px 0 1px; }
-
-h4 { font-size: 92%; margin: 10px 0 2px; }
-
-h3 { font-size: 107%; margin: 13px 0 3px; }
-
-h2 { font-size: 122%; margin: 15px 0 3px; }
-
-h1 { font-size: 136%; margin: 0 0 10px; }
-
-p { margin: 15px 0 10px; }
-
-ul, ol { margin-left: 30px; }
-
-ol { list-style-type: decimal; }
-
-small { font-size: 85%; }
-
-td, td img { vertical-align: top; }
-
-/* always force a scrollbar in non-IE: http://css-tricks.com/eliminate-jumps-in-horizontal-centering-by-forcing-a-scroll-bar/ */
+/* always force a scrollbar in non-IE */
 html { overflow-y: scroll; }
 
-/* make buttons play nice in IE: http://www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
-button { width: auto; overflow: visible; }
+/* make buttons play nice in IE:    
+   http://www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
+button {  width: auto; overflow: visible; }
+ 
 
-::-moz-selection { background: #ff5e99; color: white; text-shadow: none; }
-
-/* Needs to be separate from moz-selection https://developer.mozilla.org/En/CSS/::selection#Browser_compatibility */
-::selection { background: #ff5e99; color: white; text-shadow: none; }
-
-/* bicubic resizing for non-native sized IMG: http://code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+/* bicubic resizing for non-native sized IMG: 
+   http://code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
 .ie7 img { -ms-interpolation-mode: bicubic; }
 
+
+
+/* styling the basics.  
+   original author: paul irish
+   TODO: consider: http://developer.yahoo.com/yui/base/ */
+
+/* #444 looks better than black: http://twitter.com/H_FJ/statuses/11800719859 */ 
+body, select, input, textarea { color:#444; }
+ 
+strong, th, h1,h2,h3,h4,h5,h6 { font-weight: bold; }
+
+h5 { font-size:85%; margin:8px 0 1px; }
+h4 { font-size:92%; margin:10px 0 2px; } 
+h3 { font-size:107%; margin:13px 0 3px; } 
+h2 { font-size:122%; margin:15px 0 3px; }
+h1 { font-size:136%; margin:0 0 10px; } 
+ 
+p { margin:15px 0 10px; }
+ 
+a, a:active { color:#607890; }
+a:visited  { color:#607890; }
+a:hover { color:#036; }
+ 
+ul { margin-left:30px; }
+ol { margin-left:30px; list-style-type: decimal; }
+
+small { font-size:85%; }
+
+td { vertical-align:top; }
+td img { vertical-align:top; }
+
 /* for image replacement */
-.ir { display: block; text-indent: -999px; overflow: hidden; background-repeat: none; }
+.ir { display:block; text-indent:-999px; overflow:hidden; background-repeat: none; }
 
 /* Hide for both screenreaders and browsers */
-.hidden { display: none; visibility: hidden; }
+.hidden { display:none; visibility:hidden; } 
 
-/* Hide only visually, but have it available for screenreaders http://www.webaim.org/techniques/css/invisiblecontent/ */
-.visuallyhidden { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
-
+/* Hide only visually, but have it available for screenreaders 
+   http://www.webaim.org/techniques/css/invisiblecontent/ */
+.visuallyhidden { position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden; }
+ 
 .invisible { visibility: hidden; }
 
-/*=================================== */
-/* CSS BUG HACKS << */
-/*=================================== */
-.clearfix { display: inline-block; display: block; }
+
+/* >> CLEARFIX << */
 .clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+.clearfix { display: inline-block; }
+/* Hides from IE-mac \*/
 * html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* End clearfix */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* These selection declarations have to be separate.
+   No text-shadow http://twitter.com/miketaylr/status/12228805301 */
+::-moz-selection{ background: #FF5E99; color:#fff; text-shadow: none; }
+::selection { background:#FF5E99; color:#fff; text-shadow: none; } 
+
+/* http://j.mp/webkit-tap-highlight-color */
+a:link { -webkit-tap-highlight-color: #FF5E99; } 
+
 
 /* inline'd print styles avoid required HTTP connection http://www.phpied.com/delay-loading-your-print-css/ */
-/* Original Author: Divya Manian */
-@media print { * { background: transparent !important; color: #444444 !important; text-shadow: none; }
-  a, a:visited { color: #444444 !important; text-decoration: underline; }
-  a:after { content: " (" attr(href) ")"; }
-  abbr:after { content: " (" attr(title) ")"; }
-  pre, blockquote { border: 1px solid #999999; page-break-inside: avoid; }
-  @page { margin: 0.5cm; }
-  p, h2, h3 { orphans: 3; widows: 3; }
-  h2, h3 { page-break-after: avoid; } }
+@media print {
+	* { background:transparent !important; color:#444 !important; text-shadow:none; }
 
-@media all and (orientation:portrait) { /* Style adjustments for portrait mode goes here */ }
+	a, a:visited { color:#444 !important; text-decoration:underline; }
 
-@media all and (orientation:landscape) { /* Style adjustments for landscape mode goes here */ }
+	a:after { content:" (" attr(href) ")"; } 
 
-@media screen and (max-device-width: 480px) { /* All Capable Mobile Browser (Opera Mobile, iPhone Safari, Android Chrome) CSS goes here */
-  html { /* Prevent iPhone from adjusting font size */ -webkit-text-size-adjust: none; } }
+	abbr:after { content: " (" attr(title) ")"; }
+
+	pre, blockquote { border:1px solid #999; page-break-inside:avoid; }
+
+	@page { margin: 0.5cm; }
+
+	p, h2, h3 { orphans:3; widows:3; }
+
+	h2, h3{ page-break-after:avoid; }
+}
+
+
+
+
+
+@media all and (orientation:portrait) { 
+  /* Style adjustments for portrait mode goes here */
+}
+
+@media all and (orientation:landscape) { 
+  /* Style adjustments for landscape mode goes here */
+}
+
+@media screen and (max-device-width: 480px) {
+  /* All Capable Mobile Browser (Opera Mobile, iPhone Safari, Android Chrome) CSS goes here */
+  
+  html { -webkit-text-size-adjust:none; } /* Prevent iPhone from adjusting font size */
+}
+
