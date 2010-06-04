@@ -85,3 +85,11 @@ ExpiresByType application/x-javascript "access plus 1 year"
 ExpiresByType application/javascript "access plus 1 year"
 ExpiresByType text/javascript "access plus 1 year"
 </IfModule>
+
+
+
+# allow cookies to be set from iframes (for IE only)
+#<IfModule mod_headers.c>
+#Header set P3P "policyref=\"/w3c/p3p.xml\", CP=\"IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT""
+#</IfModule>
+
