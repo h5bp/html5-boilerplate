@@ -14,33 +14,31 @@
   <meta name="author" content="">
   <meta name="robots" content="index, follow">
 
-	<!--  iPhone/iPad/Opera Mobile Viewport Fix:
-	device-width : Make sure webpages occupy full width of the screen in its current orientation (portrait or landscape)
-	initial-scale = 1.0 retains dimensions of the page instead of zooming out if page height is larger than device height
-	maximum-scale = 1.0 retains dimensions of the page instead of zooming in if page width is smaller than device width
-	
-  More at: http://j.mp/mobileviewport
-           http://davidbcalhoun.com/2010/viewport-metatag 	 -->
-	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+  <!--  iPhone/iPad/Opera Mobile Viewport Fix:
+  device-width : Make sure webpages occupy full width of the screen in its current orientation (portrait or landscape)
+  initial-scale = 1.0 retains dimensions of the page instead of zooming out if page height is larger than device height
+  maximum-scale = 1.0 retains dimensions of the page instead of zooming in if page width is smaller than device width
+  
+  More at: http://j.mp/mobileviewport & http://davidbcalhoun.com/2010/viewport-metatag   -->
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
 
 
-  <!-- Place favicon.ico and apple-touch-icon.png in the root of your domain
-       and delete these references -->
+  <!-- Place favicon.ico and apple-touch-icon.png in the root of your domain and delete these references -->
   <link rel="shortcut icon" href="">
-	<link rel="apple-touch-icon" href="">
+  <link rel="apple-touch-icon" href="">
 
 
   <!-- CSS : implied media="all"-->
   <link rel="stylesheet" href="css/style.css">
 
   <!-- For the less-enabled mobile browsers like Opera Mini -->
-	<link rel="stylesheet" media="handheld" href="css/mobile.css">
+  <link rel="stylesheet" media="handheld" href="css/mobile.css">
 
 
   <!-- All JavaScript at the bottom, except for.. -->
   
   <script>
-  // http://paulirish.com/2009/avoiding-the-fouc-v3/ && http://remysharp.com/2009/01/07/html5-enabling-script
+  // http://paulirish.com/2009/avoiding-the-fouc-v3/ & http://remysharp.com/2009/01/07/html5-enabling-script
   // alternatively using Modernizr does both of these.
   (function(B,C){B[C]=B[C].replace(/\bno-js\b/,'js');if(!/*@cc_on!@*/0)return;var e = "abbr article aside audio canvas command datalist details figure figcaption footer header hgroup mark meter nav output progress section summary time video".split(' '),i=e.length;while(i--){document.createElement(e[i])}})(document.documentElement,'className');
   </script>
