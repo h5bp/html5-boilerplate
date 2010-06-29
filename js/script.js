@@ -33,7 +33,7 @@ window.log = function(){
   if(window.console){
       try{
        console.log.apply(window,Array.prototype.slice.call(arguments));
-        } catch(e){ console.log(arguments) }
+      } catch(e){ console.log(arguments) }
   }
 };
 

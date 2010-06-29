@@ -93,7 +93,10 @@ button {  width: auto; overflow: visible; }
 /* #444 looks better than black: http://twitter.com/H_FJ/statuses/11800719859 */ 
 body, select, input, textarea { color:#444; }
  
-strong, th, h1,h2,h3,h4,h5,h6 { font-weight: bold; }
+/* http://www.aestheticallyloyal.com/public/optimize-legibility/ */ 
+h1,h2,h3,h4,h5,h6 { font-weight: bold; text-rendering: optimizeLegibility; }
+
+strong, th { font-weight: bold; }
 
 /* disable because you'll override these anyhow 
   h5 { font-size:85%; margin:8px 0 1px; }
