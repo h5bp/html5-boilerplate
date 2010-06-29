@@ -61,15 +61,13 @@ input, select { vertical-align:middle; }
 fonts.css from the YUI Library: http://developer.yahoo.com/yui/
 refer to http://developer.yahoo.com/yui/fonts/ for font sizing
 */
-body { font:13px arial,helvetica,"Nimbus Sans L", "Bitstream Vera Sans", sans-serif; *font-size:small; *font:x-small; }
+body { font:13px arial,helvetica,"Nimbus Sans L", "Bitstream Vera Sans", sans-serif; *font-size:small; *font:x-small; line-height:1.22em; }
 
 table { font-size:inherit; font:100%; }
 
 select, input, textarea { font:99% arial,helvetica,"Nimbus Sans L", "Bitstream Vera Sans", sans-serif; }
 
 pre, code { font:115% monospace; *font-size:100%; }
-
-body * { line-height:1.22em; }
  
 
 /* always force a scrollbar in non-IE */
@@ -108,8 +106,7 @@ strong, th { font-weight: bold; }
  
 p { margin:15px 0 10px; }
  
-a, a:active { color:#607890; }
-a:visited  { color:#607890; }
+a, a:active, a:visited { color:#607890; }
 a:hover { color:#036; }
  
 ul { margin-left:30px; }
@@ -117,8 +114,7 @@ ol { margin-left:30px; list-style-type: decimal; }
 
 small { font-size:85%; }
 
-td { vertical-align:top; }
-td img { vertical-align:top; }
+td, td img { vertical-align:top; } 
 
 /* for image replacement */
 .ir { display:block; text-indent:-999px; overflow:hidden; background-repeat: none; }
