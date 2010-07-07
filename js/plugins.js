@@ -1,15 +1,15 @@
 
-
+// usage: log('inside coolFunc',this,arguments);
 // http://paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/
 window.log = function(){
   log.history = log.history || [];   // store logs to an array for reference
   log.history.push(arguments);
-  if(window.console){
-      try{
-       console.log.apply(window,Array.prototype.slice.call(arguments));
-      } catch(e){ console.log(arguments) }
+  if(this.console){
+    console.log( Array.prototype.slice.call(arguments) );
   }
 };
+
+
 
 // catch all document.write() calls
 document._write = document.write;
