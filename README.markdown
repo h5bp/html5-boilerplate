@@ -1,4 +1,4 @@
-###  HTML5 Markup zygote
+###  HTML5 Boilerplate
 
 ## INSTALLATION:
 
