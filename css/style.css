@@ -59,9 +59,11 @@ input, select { vertical-align:middle; }
 
 /*
 fonts.css from the YUI Library: http://developer.yahoo.com/yui/
-refer to http://developer.yahoo.com/yui/fonts/ for font sizing
+          refer to http://developer.yahoo.com/yui/fonts/ for font sizing
+
+There is a custom edit to make the line-height relative and unit-less
 */
-body { font:13px arial,helvetica,"Nimbus Sans L", "Bitstream Vera Sans", sans-serif; *font-size:small; *font:x-small; line-height:1.22em; }
+body { font:13px arial,helvetica,"Nimbus Sans L", "Bitstream Vera Sans", sans-serif; *font-size:small; *font:x-small; line-height:1.22; }
 
 table { font-size:inherit; font:100%; }
 
