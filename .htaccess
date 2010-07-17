@@ -45,7 +45,7 @@ AddType image/svg+xml svg svgz
 
 # gzip compression.
 <Location />
-    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript text/javascript text/javascript application/javascript application/json 
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript text/javascript application/javascript application/json 
 </Location>
 # html, xml, css, and js above. webfonts and svg below.
 <FilesMatch "\.(ttf|otf|woff|eot|svg|svgz)$" >
