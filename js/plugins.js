@@ -1,4 +1,21 @@
 
+// remap jQuery to $
+(function($){
+
+ 
+
+
+
+
+
+ 
+
+
+
+})(window.jQuery);
+
+
+
 // usage: log('inside coolFunc',this,arguments);
 // http://paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/
 window.log = function(){
@@ -22,19 +39,3 @@ document.write = function(q){
 // background image cache bug for ie6.  via: http://www.mister-pixel.com/#Content__state=
 /*@cc_on   @if (@_win32) { document.execCommand("BackgroundImageCache",false,true) }   @end @*/
 
-
-
-// remap jQuery to $
-(function($){
-
- 
-
-
-
-
-
- 
-
-
-
-})(jQuery);
