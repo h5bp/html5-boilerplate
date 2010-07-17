@@ -44,21 +44,13 @@ AddType image/svg+xml svg svgz
 
 
 # gzip compression.
-<Location />
-    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript text/javascript application/javascript application/json 
-</Location>
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript text/javascript application/javascript application/json 
+
 # html, xml, css, and js above. webfonts and svg below.
 <FilesMatch "\.(ttf|otf|woff|eot|svg|svgz)$" >
     SetOutputFilter DEFLATE
 </FilesMatch>
 
-
-
-# eTags
-<Location />
-    #can this be moved outside of the Location block? i'm not sure..
-    FileETag Size  
-</Location>
 
 
 
