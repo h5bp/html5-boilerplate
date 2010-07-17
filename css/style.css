@@ -4,7 +4,7 @@
 
 /* 
   html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
-  v1.4 2009-07-27 | Author: Richard Clark
+  v1.4 2009-07-27 | Authors: Eric Meyer & Richard Clark
   http://html5doctor.com/html-5-reset-stylesheet/
 */
 
@@ -71,6 +71,7 @@ select, input, textarea { font:99% arial,helvetica,"Nimbus Sans L", "Bitstream V
 
 pre, code { font:115% monospace; *font-size:100%; }
  
+ 
 
 /* always force a scrollbar in non-IE */
 html { overflow-y: scroll; }
@@ -92,20 +93,16 @@ button {  width: auto; overflow: visible; }
 
 /* #444 looks better than black: http://twitter.com/H_FJ/statuses/11800719859 */ 
 body, select, input, textarea { color:#444; }
+
+
+/* Headers (h1,h2,etc) have no default font-size or margin,
+   you'll want to define those yourself. */ 
  
 /* http://www.aestheticallyloyal.com/public/optimize-legibility/ */ 
 h1,h2,h3,h4,h5,h6 { font-weight: bold; text-rendering: optimizeLegibility; }
 
 strong, th { font-weight: bold; }
 
-/* disable because you'll override these anyhow 
-  h5 { font-size:85%; margin:8px 0 1px; }
-  h4 { font-size:92%; margin:10px 0 2px; } 
-  h3 { font-size:107%; margin:13px 0 3px; } 
-  h2 { font-size:122%; margin:15px 0 3px; }
-  h1 { font-size:136%; margin:0 0 10px; } 
-*/ 
- 
 p { margin:15px 0 10px; }
  
 a, a:active, a:visited { color:#607890; }
@@ -118,42 +115,6 @@ small { font-size:85%; }
 
 td, td img { vertical-align:top; } 
 
-/* for image replacement */
-.ir { display:block; text-indent:-999px; overflow:hidden; background-repeat: none; }
-
-/* Hide for both screenreaders and browsers */
-.hidden { display:none; visibility:hidden; } 
-
-/* Hide only visually, but have it available for screenreaders 
-   http://www.webaim.org/techniques/css/invisiblecontent/ */
-.visuallyhidden { position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden; }
- 
-.invisible { visibility: hidden; }
-
-
-/* >> CLEARFIX << */
-.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
-.clearfix { display: inline-block; }
-/* Hides from IE-mac \*/
-* html .clearfix { height: 1%; }
-.clearfix { display: block; }
-/* End clearfix */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* These selection declarations have to be separate.
    No text-shadow http://twitter.com/miketaylr/status/12228805301 */
@@ -162,6 +123,49 @@ td, td img { vertical-align:top; }
 
 /* http://j.mp/webkit-tap-highlight-color */
 a:link { -webkit-tap-highlight-color: #FF5E99; } 
+
+
+
+/* Non-semantic helper classes */
+
+/* for image replacement */
+.ir { display:block; text-indent:-999px; overflow:hidden; background-repeat: none; }
+
+/* Hide for both screenreaders and browsers
+   http://css-discuss.incutio.com/wiki/Screenreader_Visibility */
+.hidden { display:none; visibility:hidden; } 
+
+/* Hide only visually, but have it available for screenreaders 
+   http://www.webaim.org/techniques/css/invisiblecontent/ */
+.visuallyhidden { position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden; }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
+
+
+/* >> The Magnificent CLEARFIX << */
+.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+.clearfix { display: inline-block; }
+* html .clearfix { height: 1%; } /* Hides from IE-mac \*/
+.clearfix { display: block; }
+
+
+
+
+
+ /* Primary Styles
+    Author: 
+ */
+
+
+
+
+
+
+
+
+
+
 
 
 /* inline'd print styles avoid required HTTP connection http://www.phpied.com/delay-loading-your-print-css/ */
@@ -190,15 +194,18 @@ a:link { -webkit-tap-highlight-color: #FF5E99; }
 
 @media all and (orientation:portrait) { 
   /* Style adjustments for portrait mode goes here */
+  
 }
 
 @media all and (orientation:landscape) { 
   /* Style adjustments for landscape mode goes here */
+  
 }
 
 @media screen and (max-device-width: 480px) {
   /* All Capable Mobile Browser (Opera Mobile, iPhone Safari, Android Chrome) CSS goes here */
   
-  html { -webkit-text-size-adjust:none; } /* Prevent iPhone from adjusting font size */
+  /* Prevent iOS, WinMobile from adjusting font size */
+  html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } 
 }
 
