@@ -136,8 +136,11 @@ a:link { -webkit-tap-highlight-color: #FF5E99; }
 .hidden { display:none; visibility:hidden; } 
 
 /* Hide only visually, but have it available for screenreaders 
-   http://www.webaim.org/techniques/css/invisiblecontent/ */
-.visuallyhidden { position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden; }
+   http://www.webaim.org/techniques/css/invisiblecontent/ 
+   Soln from: http://j.mp/visuallyhidden Thanks Jonathan Neal! */
+.visuallyhidden { position:absolute !important;    
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px); }
 
 /* Hide visually and from screenreaders, but maintain layout */
 .invisible { visibility: hidden; }
