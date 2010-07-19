@@ -23,6 +23,9 @@
 # http://twitter.com/FontSquirrel/status/14855840545
 AddType image/svg+xml svg svgz 
 
+# Proper app cache serving.
+# http://diveintohtml5.org/offline.html#manifest
+AddType text/cache-manifest .manifest
 
 
 # allow concatenation from within specific js and css files 
