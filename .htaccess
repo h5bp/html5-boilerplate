@@ -87,6 +87,14 @@ ExpiresByType text/javascript "access plus 1 year"
 
 
 
+# Configure ETag format to remove inode in case this site
+# is being hosed cloudfully.
+# http://developer.yahoo.com/performance/rules.html#etags
+FileETag MTime Size
+
+
+
+
 # Allow cookies to be set from iframes (for IE only)
 # If needed, uncomment and specify a path or regex in the Location directive
 
