@@ -25,8 +25,11 @@ AddType image/svg+xml svg svgz
 
 # Proper app cache serving.
 # http://diveintohtml5.org/offline.html#manifest
-AddType text/cache-manifest .manifest
+AddType text/cache-manifest manifest
 
+# video
+AddType video/ogg ogg ogv
+AddType video/mp4 mp4
 
 # allow concatenation from within specific js and css files 
 
