@@ -126,7 +126,7 @@ Some design defaults inspired from http://camendesign.com/design/
 video, div>img, article>img, section>img { display: block; }
 code { font-family: Menlo, Monaco, Consolas, monospace; }    
 pre { padding: 15px; }
-p+p { text-indent: 15px;}
+p+p { text-indent: 15px; }
 li>p { text-indent: 0; }
 
 
