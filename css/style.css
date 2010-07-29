@@ -102,18 +102,32 @@ body, select, input, textarea { color:#444; }
 h1,h2,h3,h4,h5,h6 { font-weight: bold; text-rendering: optimizeLegibility; }
 
 strong, th { font-weight: bold; }
-
-p { margin:15px 0 10px; }
  
 a, a:active, a:visited { color:#607890; }
 a:hover { color:#036; }
- 
+
+p, pre, video, div>img, article>img, section>img { margin:15px 0 10px; }   
+
 ul { margin-left:30px; }
 ol { margin-left:30px; list-style-type: decimal; }
 
-small { font-size:85%; }
+small, code { font-size:85%; }
 
 td, td img { vertical-align:top; } 
+   
+   
+/* 
+
+Some design defaults inspired from http://camendesign.com/design/
+
+*/                              
+
+/* Assumes all images direct children of article/section are full-width images */
+video, div>img, article>img, section>img { display: block; }
+code { font-family: Menlo, Monaco, Consolas, monospace; }    
+pre { padding: 15px; }
+p+p { text-indent: 15px;}
+li>p { text-indent: 0; }
 
 
 /* These selection declarations have to be separate.
@@ -174,21 +188,25 @@ a:link { -webkit-tap-highlight-color: #FF5E99; }
 /* inline'd print styles avoid required HTTP connection http://www.phpied.com/delay-loading-your-print-css/ */
 /* Original Author: Divya Manian */
 @media print {
-	* { background:transparent !important; color:#444 !important; text-shadow:none; }
+	* { background: transparent !important; color: #444 !important; text-shadow: none; }
 
-	a, a:visited { color:#444 !important; text-decoration:underline; }
+	a, a:visited { color: #444 !important; text-decoration: underline; }
 
-	a:after { content:" (" attr(href) ")"; } 
+	a:after { content: " (" attr(href) ")"; } 
 
 	abbr:after { content: " (" attr(title) ")"; }
-
-	pre, blockquote { border:1px solid #999; page-break-inside:avoid; }
+  
+  .ir a:after { content: ""; }  /* Don't show links for images */
+  
+	pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+	
+	img { page-break-inside: avoid; }
 
 	@page { margin: 0.5cm; }
 
-	p, h2, h3 { orphans:3; widows:3; }
+	p, h2, h3 { orphans: 3; widows: 3; }
 
-	h2, h3{ page-break-after:avoid; }
+	h2, h3{ page-break-after: avoid; }
 }
 
 
