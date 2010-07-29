@@ -31,6 +31,7 @@ AddType text/cache-manifest manifest
 AddType video/ogg ogg ogv
 AddType video/mp4 mp4
 
+
 # allow concatenation from within specific js and css files 
 
 # e.g. Inside of script.combined.js you could have
@@ -49,13 +50,18 @@ AddType video/mp4 mp4
 
 
 
+
 # gzip compression.
+<IfModule mod_deflate.c>
+
+# html, xml, css, and js:
 AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript text/javascript application/javascript application/json 
 
-# html, xml, css, and js above. webfonts and svg below.
+# webfonts and svg:
 <FilesMatch "\.(ttf|otf|woff|eot|svg|svgz)$" >
     SetOutputFilter DEFLATE
 </FilesMatch>
+</IfModule>
 
 
 
@@ -83,6 +89,7 @@ ExpiresByType application/x-javascript "access plus 1 year"
 ExpiresByType application/javascript "access plus 1 year"
 ExpiresByType text/javascript "access plus 1 year"
 </IfModule>
+
 
 
 
