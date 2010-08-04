@@ -119,6 +119,14 @@ AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application
 
 
 
+# Since we're sending far-future expires, we don't need ETags for
+# static content.
+# http://developer.yahoo.com/performance/rules.html#etags
+FileETag None
+
+
+
+
 # Allow cookies to be set from iframes (for IE only)
 # If needed, uncomment and specify a path or regex in the Location directive
 

@@ -5,7 +5,7 @@
 /* 
   html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
   v1.4 2009-07-27 | Authors: Eric Meyer & Richard Clark
-  http://html5doctor.com/html-5-reset-stylesheet/
+  html5doctor.com/html-5-reset-stylesheet/
 */
 
 html, body, div, span, object, iframe,
@@ -58,10 +58,12 @@ input, select { vertical-align:middle; }
 
 
 /*
-fonts.css from the YUI Library: http://developer.yahoo.com/yui/
-          refer to http://developer.yahoo.com/yui/fonts/ for font sizing
+fonts.css from the YUI Library: developer.yahoo.com/yui/
+          refer to developer.yahoo.com/yui/fonts/ for font sizing
 
-There is a custom edit to make the line-height relative and unit-less
+There are two custom edits:
+ * make the line-height relative and unit-less
+ * remove the pre,code styles as we use a recommendation from Eric Meyer instead
 */
 body { font:13px arial,helvetica,"Nimbus Sans L", "Bitstream Vera Sans", sans-serif; *font-size:small; *font:x-small; line-height:1.22; }
 
@@ -69,36 +71,39 @@ table { font-size:inherit; font:100%; }
 
 select, input, textarea { font:99% arial,helvetica,"Nimbus Sans L", "Bitstream Vera Sans", sans-serif; }
 
-pre, code { font:115% monospace; *font-size:100%; }
- 
+
+/* normalize monospace sizing 
+ * meyerweb.com/eric/thoughts/2010/02/12/fixed-monospace-sizing/
+ */
+code, pre { font-family: "Courier New", monospace, serif; font-size: 1em; }
  
 
 /* always force a scrollbar in non-IE */
 html { overflow-y: scroll; }
 
 /* make buttons play nice in IE:    
-   http://www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
+   www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
 button {  width: auto; overflow: visible; }
  
 
 /* bicubic resizing for non-native sized IMG: 
-   http://code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+   code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
 .ie7 img { -ms-interpolation-mode: bicubic; }
 
 
 
 /* styling the basics.  
    original author: paul irish
-   TODO: consider: http://developer.yahoo.com/yui/base/ */
+   TODO: consider: developer.yahoo.com/yui/base/ */
 
-/* #444 looks better than black: http://twitter.com/H_FJ/statuses/11800719859 */ 
+/* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */ 
 body, select, input, textarea { color:#444; }
 
 
 /* Headers (h1,h2,etc) have no default font-size or margin,
    you'll want to define those yourself. */ 
  
-/* http://www.aestheticallyloyal.com/public/optimize-legibility/ */ 
+/* www.aestheticallyloyal.com/public/optimize-legibility/ */ 
 h1,h2,h3,h4,h5,h6 { font-weight: bold; text-rendering: optimizeLegibility; }
 
 strong, th { font-weight: bold; }
@@ -114,11 +119,23 @@ ol { margin-left:30px; list-style-type: decimal; }
 small, code { font-size:85%; }
 
 td, td img { vertical-align:top; } 
-   
+
+sub { vertical-align: sub; font-size: smaller; }
+sup { vertical-align: super; font-size: smaller; }
+
+
+/* align checkboxes, radios, text inputs with their label
+   by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css  */
+input[type="radio"] { vertical-align: text-bottom; }
+input[type="checkbox"] { vertical-align: bottom; *vertical-align: baseline; }
+.ie6 input { vertical-align: text-bottom; }
+
+
+
    
 /* 
 
-Some design defaults inspired from http://camendesign.com/design/
+Some design defaults inspired from camendesign.com/design/
 
 */                              
 
@@ -130,11 +147,11 @@ p+p { text-indent: 15px; }
 
 
 /* These selection declarations have to be separate.
-   No text-shadow http://twitter.com/miketaylr/status/12228805301 */
+   No text-shadow twitter.com/miketaylr/status/12228805301 */
 ::-moz-selection{ background: #FF5E99; color:#fff; text-shadow: none; }
 ::selection { background:#FF5E99; color:#fff; text-shadow: none; } 
 
-/* http://j.mp/webkit-tap-highlight-color */
+/*  j.mp/webkit-tap-highlight-color */
 a:link { -webkit-tap-highlight-color: #FF5E99; } 
 
 
@@ -145,12 +162,12 @@ a:link { -webkit-tap-highlight-color: #FF5E99; }
 .ir { display:block; text-indent:-999px; overflow:hidden; background-repeat: none; }
 
 /* Hide for both screenreaders and browsers
-   http://css-discuss.incutio.com/wiki/Screenreader_Visibility */
+   css-discuss.incutio.com/wiki/Screenreader_Visibility */
 .hidden { display:none; visibility:hidden; } 
 
 /* Hide only visually, but have it available for screenreaders 
-   http://www.webaim.org/techniques/css/invisiblecontent/ 
-   Soln from: http://j.mp/visuallyhidden Thanks Jonathan Neal! */
+   www.webaim.org/techniques/css/invisiblecontent/ 
+   Solution from: j.mp/visuallyhidden - Thanks Jonathan Neal! */
 .visuallyhidden { position:absolute !important;    
   clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px); }
@@ -184,7 +201,7 @@ a:link { -webkit-tap-highlight-color: #FF5E99; }
 
 
 
-/* inline'd print styles avoid required HTTP connection http://www.phpied.com/delay-loading-your-print-css/ */
+/* inline'd print styles avoid required HTTP connection www.phpied.com/delay-loading-your-print-css/ */
 /* Original Author: Divya Manian */
 @media print {
 	* { background: transparent !important; color: #444 !important; text-shadow: none; }
