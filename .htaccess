@@ -88,6 +88,10 @@ AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application
   ExpiresActive on
   ExpiresDefault                          "access plus 1 month"
 
+# cache.manifest needs re-reqeusts in FF 3.6 (thx Remy ~Introducing HTML5)
+  ExpiresByType text/cache-manifest       "access plus 0 seconds"
+
+
 # your document html (Last Modified should be fine)
 # ExpiresByType text/html                 "access plus 1 hour"
 
