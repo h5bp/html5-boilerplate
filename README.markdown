@@ -1,5 +1,10 @@
 ###  HTML5 Boilerplate
 
+## LICENSE:
+
+Copyright Paul Irish
+Dual licensed under MIT and GPL
+
 ## INSTALLATION:
 
 This is a set of files that a front-end developer can use to get started on a website, with following included:
