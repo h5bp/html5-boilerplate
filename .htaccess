@@ -38,13 +38,19 @@
 </FilesMatch>
 
 
-# Proper svg serving. Required for svg webfonts on iPad
-#   twitter.com/FontSquirrel/status/14855840545
-AddType image/svg+xml svg svgz 
-
 # video
 AddType video/ogg ogg ogv
 AddType video/mp4 mp4
+
+# Proper svg serving. Required for svg webfonts on iPad
+#   twitter.com/FontSquirrel/status/14855840545
+AddType image/svg+xml                 svg svgz 
+
+# webfonts
+AddType application/vnd.ms-fontobject eot
+AddType font/ttf                      ttf
+AddType font/otf                      otf
+AddType font/x-woff                   woff
 
 
 # allow concatenation from within specific js and css files 
