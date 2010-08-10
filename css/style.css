@@ -104,7 +104,7 @@ h1,h2,h3,h4,h5,h6 { font-weight: bold; text-rendering: optimizeLegibility; }
 html { -webkit-font-smoothing: antialiased; }
 
  
-/* people.opera.com/patrickl/experiments/keyboard/test */
+/* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
 a:active { outline: none; }
 a:focus { outline: thin dotted; }
 
