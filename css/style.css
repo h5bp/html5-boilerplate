@@ -106,6 +106,7 @@ html { -webkit-font-smoothing: antialiased; }
  
 /* people.opera.com/patrickl/experiments/keyboard/test */
 a:active { outline: none; }
+a:focus { outline: thin dotted; }
 
 a, a:active, a:visited { color:#607890; }
 a:hover { color:#036; }
