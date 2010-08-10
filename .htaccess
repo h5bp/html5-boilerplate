@@ -7,7 +7,7 @@
 
 # Force the latest IE version, in various cases when it may fall back to IE7 mode
 #  github.com/rails/rails/commit/123eb25#commitcomment-118920
-# use ChromeFrame, if its installed for a better experience for the poor IE folk
+# Use ChromeFrame if it's installed for a better experience for the poor IE folk
 <IfModule mod_setenvif.c>
   <IfModule mod_headers.c>
     BrowserMatch MSIE ie
@@ -41,13 +41,6 @@
 # Proper svg serving. Required for svg webfonts on iPad
 # http://twitter.com/FontSquirrel/status/14855840545
 AddType image/svg+xml svg svgz 
-
-# Proper app cache serving.
-AddType text/cache-manifest manifest
-<FilesMatch "\.manifest$">
-  ExpiresActive On
-  ExpiresDefault "access"
-</FilesMatch>
 
 # video
 AddType video/ogg ogg ogv
