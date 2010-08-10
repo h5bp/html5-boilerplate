@@ -79,10 +79,14 @@ AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application
 
 
 # these are pretty far-future expires headers
-# they assume you control versioning with something like
+# they assume you control versioning with cachebusting query params like
 #   <script src="application.js?20100608">
-# if you don't do that, lower the css and js to 
+# additionally, consider that outdated proxies may miscache 
+#   www.stevesouders.com/blog/2008/08/23/revving-filenames-dont-use-querystring/
+
+# if you don't use filenames to version, lower the css and js to something like
 #   "access plus 1 week" or so
+
 <IfModule mod_expires.c>
   Header set cache-control: public
   ExpiresActive on
@@ -110,14 +114,14 @@ AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application
   ExpiresByType video/mp4                 "access plus 1 month"
   
 # webfonts
-  ExpiresByType font/ttf                  "access plus 1 year"
-  ExpiresByType font/woff                 "access plus 1 year"
-  ExpiresByType image/svg+xml             "access plus 1 year"
+  ExpiresByType font/ttf                  "access plus 1 month"
+  ExpiresByType font/woff                 "access plus 1 month"
+  ExpiresByType image/svg+xml             "access plus 1 month"
   
 # css and javascript
-  ExpiresByType text/css                  "access plus 1 year"
-  ExpiresByType application/javascript    "access plus 1 year"
-  ExpiresByType text/javascript           "access plus 1 year"
+  ExpiresByType text/css                  "access plus 1 month"
+  ExpiresByType application/javascript    "access plus 1 month"
+  ExpiresByType text/javascript           "access plus 1 month"
 </IfModule>
 
 
