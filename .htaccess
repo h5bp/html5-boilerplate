@@ -13,7 +13,7 @@
     BrowserMatch MSIE ie
     Header set X-UA-Compatible "IE=Edge" env=ie
     BrowserMatch chromeframe gcf
-    Header append X-UA-Compatible ";chrome=1" env=gcf
+    Header append X-UA-Compatible "chrome=1" env=gcf
   </IfModule>
 </IfModule>
 
@@ -39,7 +39,7 @@
 
 
 # Proper svg serving. Required for svg webfonts on iPad
-# http://twitter.com/FontSquirrel/status/14855840545
+#   twitter.com/FontSquirrel/status/14855840545
 AddType image/svg+xml svg svgz 
 
 # video
@@ -133,7 +133,7 @@ AddType video/mp4 mp4
 
 # Since we're sending far-future expires, we don't need ETags for
 # static content.
-# http://developer.yahoo.com/performance/rules.html#etags
+#   developer.yahoo.com/performance/rules.html#etags
 FileETag None
 
 
@@ -150,14 +150,14 @@ FileETag None
 
 
 # you probably want www.example.com to forward to example.com -- shorter URLs are sexier.
-# http://no-www.org/faq.php?q=class_b
+#   no-www.org/faq.php?q=class_b
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
 RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 
 
 # without -MultiViews, Apache will give a 404 for a rewrite if a folder of the same name does not exist (e.g. “/blog/hello”)
-# webmasterworld.com/apache/3808792.htm
+#   webmasterworld.com/apache/3808792.htm
 Options -MultiViews 
 # -Indexes will have Apache block users from browsing folders without a default document
 # Options -Indexes
