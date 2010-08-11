@@ -59,6 +59,9 @@ AddType font/x-woff                   woff
 #   <!--#include file="jquery.idletimer.js" -->
 # and they would be included into this single file
 
+# this is not in use in the boilerplate as it stands. you may
+#   choose to name your files in this way for this advantage
+#   or concatenate and minify them manually.
 <FilesMatch "\.combined\.js">
         Options +Includes
         SetOutputFilter INCLUDES
