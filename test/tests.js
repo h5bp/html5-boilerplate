@@ -3,27 +3,33 @@
 
 
 module("example tests");
-test('Molecular is sweet',function(){
+test('HTML5 Boilerplate is sweet',function(){
   expect(1);
-  equals('molecular'.replace('molecular','sweet'),'sweet','Yes. Molecular is, in fact, sweet');
+  equals('boilerplate'.replace('boilerplate','sweet'),'sweet','Yes. HTML5 Boilerplate is, in fact, sweet');
   
 })
 
-// these test things from script.js
+// these test things from plugins.js
 test('Environment is good',function(){
   expect(3);
-  equals( $.browser.ie6, ($.browser.msie && jQuery.browser.version < 7),'$.browser.ie6 is set and correct'   );
-  ok( (typeof document._write === 'function'),'document write is remapped to _write' )
-  ok( (document._write != document.write),'document write is different than _write' )
+  ok( !!window.log, 'log function present');
+  
+  var history = log.history && log.history.length || 0;
+  log('logging from the test suite.')
+  equals( log.history.length - history, 1, 'log history keeps track' )
+  
+  ok( !!window.Modernizr, 'Modernizr global is present')
 })
 
 
 
 
 // below are example tests from qunit itself
+// feel free to learn from them, and remove 'em
 module("equiv");
+
+
 test("Primitive types and constants", function () {
-  	expect(60);
     equals(QUnit.equiv(null, null), true, "null");
     equals(QUnit.equiv(null, {}), false, "null");
     equals(QUnit.equiv(null, undefined), false, "null");
@@ -91,10 +97,42 @@ test("Primitive types and constants", function () {
     equals(QUnit.equiv('', false), false, "string");
     equals(QUnit.equiv('', null), false, "string");
     equals(QUnit.equiv('', undefined), false, "string");
+    
+    // Short annotation VS new annotation
+    equals(QUnit.equiv(0, new Number()), true, "short annotation VS new annotation");
+    equals(QUnit.equiv(new Number(), 0), true, "short annotation VS new annotation");
+    equals(QUnit.equiv(1, new Number(1)), true, "short annotation VS new annotation");
+    equals(QUnit.equiv(new Number(1), 1), true, "short annotation VS new annotation");
+    equals(QUnit.equiv(new Number(0), 1), false, "short annotation VS new annotation");
+    equals(QUnit.equiv(0, new Number(1)), false, "short annotation VS new annotation");
+
+    equals(QUnit.equiv(new String(), ""), true, "short annotation VS new annotation");
+    equals(QUnit.equiv("", new String()), true, "short annotation VS new annotation");
+    equals(QUnit.equiv(new String("My String"), "My String"), true, "short annotation VS new annotation");
+    equals(QUnit.equiv("My String", new String("My String")), true, "short annotation VS new annotation");
+    equals(QUnit.equiv("Bad String", new String("My String")), false, "short annotation VS new annotation");
+    equals(QUnit.equiv(new String("Bad String"), "My String"), false, "short annotation VS new annotation");
+
+    equals(QUnit.equiv(false, new Boolean()), true, "short annotation VS new annotation");
+    equals(QUnit.equiv(new Boolean(), false), true, "short annotation VS new annotation");
+    equals(QUnit.equiv(true, new Boolean(true)), true, "short annotation VS new annotation");
+    equals(QUnit.equiv(new Boolean(true), true), true, "short annotation VS new annotation");
+    equals(QUnit.equiv(true, new Boolean(1)), true, "short annotation VS new annotation");
+    equals(QUnit.equiv(false, new Boolean(false)), true, "short annotation VS new annotation");
+    equals(QUnit.equiv(new Boolean(false), false), true, "short annotation VS new annotation");
+    equals(QUnit.equiv(false, new Boolean(0)), true, "short annotation VS new annotation");
+    equals(QUnit.equiv(true, new Boolean(false)), false, "short annotation VS new annotation");
+    equals(QUnit.equiv(new Boolean(false), true), false, "short annotation VS new annotation");
+
+    equals(QUnit.equiv(new Object(), {}), true, "short annotation VS new annotation");
+    equals(QUnit.equiv({}, new Object()), true, "short annotation VS new annotation");
+    equals(QUnit.equiv(new Object(), {a:1}), false, "short annotation VS new annotation");
+    equals(QUnit.equiv({a:1}, new Object()), false, "short annotation VS new annotation");
+    equals(QUnit.equiv({a:undefined}, new Object()), false, "short annotation VS new annotation");
+    equals(QUnit.equiv(new Object(), {a:undefined}), false, "short annotation VS new annotation");
 });
 
 test("Objects Basics.", function() {
-  	expect(15);
     equals(QUnit.equiv({}, {}), true);
     equals(QUnit.equiv({}, null), false);
     equals(QUnit.equiv({}, undefined), false);
@@ -130,7 +168,7 @@ test("Objects Basics.", function() {
 
 
 test("Arrays Basics.", function() {
-    expect(20);
+
     equals(QUnit.equiv([], []), true);
 
     // May be a hard one, can invoke a crash at execution.
@@ -307,7 +345,6 @@ test("Arrays Basics.", function() {
 });
 
 test("Functions.", function() {
-  expect(10);
     var f0 = function () {};
     var f1 = function () {};
 
@@ -332,7 +369,6 @@ test("Functions.", function() {
 
 
 test("Date instances.", function() {
-  expect(3);
     // Date, we don't need to test Date.parse() because it returns a number.
     // Only test the Date instances by setting them a fix date.
     // The date use is midnight January 1, 1970
@@ -355,7 +391,6 @@ test("Date instances.", function() {
 
 
 test("RegExp.", function() {
-  expect(26);
     // Must test cases that imply those traps:
     // var a = /./;
     // a instanceof Object;        // Oops
@@ -438,8 +473,6 @@ test("RegExp.", function() {
 
 test("Complex Objects.", function() {
 
-    expect(15);
-    
     function fn1() {
         return "fn1";
     }
@@ -937,7 +970,7 @@ test("Complex Objects.", function() {
 
 
 test("Complex Arrays.", function() {
-    expect(7);
+
     function fn() {
     }
 
@@ -1123,7 +1156,6 @@ test("Complex Arrays.", function() {
 
 
 test("Prototypal inheritance", function() {
-  expect(7);
     function Gizmo(id) {
         this.id = id;
     }
@@ -1173,7 +1205,6 @@ test("Prototypal inheritance", function() {
 
 
 test("Instances", function() {
-  expect(7);
     function A() {} 
     var a1 = new A(); 
     var a2 = new A(); 
@@ -1229,7 +1260,6 @@ test("Instances", function() {
 
 
 test("Complex Instances Nesting (with function value in literals and/or in nested instances)", function() {
-  expect(6);
     function A(fn) {
         this.a = {};
         this.fn = fn;
@@ -1350,18 +1380,57 @@ test("Complex Instances Nesting (with function value in literals and/or in neste
 });
 
 
-test("Test that must be done at the end because they extend some primitive's prototype", function() {
-  expect(2);
-    // Try that a function looks like our regular expression.
-    // This tests if we check that a and b are really both instance of RegExp
-    Function.prototype.global = true;
-    Function.prototype.multiline = true;
-    Function.prototype.ignoreCase = false;
-    Function.prototype.source = "my regex";
-    var re = /my regex/gm;
-    equals(QUnit.equiv(re, function () {}), false, "A function that looks that a regex isn't a regex");
-    // This test will ensures it works in both ways, and ALSO especially that we can make differences
-    // between RegExp and Function constructor because typeof on a RegExpt instance is "function"
-    equals(QUnit.equiv(function () {}, re), false, "Same conversely, but ensures that function and regexp are distinct because their constructor are different");
+test('object with references to self wont loop', function(){
+    var circularA = {
+        abc:null
+    }, circularB = {
+        abc:null
+    };
+    circularA.abc = circularA;
+    circularB.abc = circularB;
+    equals(QUnit.equiv(circularA, circularB), true, "Should not repeat test on object (ambigous test)");
+    
+    circularA.def = 1;
+    circularB.def = 1;
+    equals(QUnit.equiv(circularA, circularB), true, "Should not repeat test on object (ambigous test)");
+    
+    circularA.def = 1;
+    circularB.def = 0;
+    equals(QUnit.equiv(circularA, circularB), false, "Should not repeat test on object (unambigous test)");
+});
+
+test('array with references to self wont loop', function(){
+    var circularA = [], 
+        circularB = [];
+    circularA.push(circularA);
+    circularB.push(circularB);
+    equals(QUnit.equiv(circularA, circularB), true, "Should not repeat test on array (ambigous test)");
+    
+    circularA.push( 'abc' );
+    circularB.push( 'abc' );
+    equals(QUnit.equiv(circularA, circularB), true, "Should not repeat test on array (ambigous test)");
+    
+    circularA.push( 'hello' );
+    circularB.push( 'goodbye' );
+    equals(QUnit.equiv(circularA, circularB), false, "Should not repeat test on array (unambigous test)");
+});
+
+test('mixed object/array with references to self wont loop', function(){
+    var circularA = [{abc:null}], 
+        circularB = [{abc:null}];
+    circularA[0].abc = circularA;
+    circularB[0].abc = circularB;
+    
+    circularA.push(circularA);
+    circularB.push(circularB);
+    equals(QUnit.equiv(circularA, circularB), true, "Should not repeat test on object/array (ambigous test)");
+    
+    circularA[0].def = 1;
+    circularB[0].def = 1;
+    equals(QUnit.equiv(circularA, circularB), true, "Should not repeat test on object/array (ambigous test)");
+    
+    circularA[0].def = 1;
+    circularB[0].def = 0;
+    equals(QUnit.equiv(circularA, circularB), false, "Should not repeat test on object/array (unambigous test)");
 });
 
