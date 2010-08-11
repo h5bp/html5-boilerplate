@@ -39,8 +39,9 @@
 
 
 # video
-AddType video/ogg ogg ogv
-AddType video/mp4 mp4
+AddType video/ogg  ogg ogv
+AddType video/mp4  mp4
+AddType video/webm webm
 
 # Proper svg serving. Required for svg webfonts on iPad
 #   twitter.com/FontSquirrel/status/14855840545
@@ -79,7 +80,7 @@ AddType font/x-woff                   woff
   AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript text/javascript application/javascript application/json 
 
 # webfonts and svg:
-  <FilesMatch "\.(ttf|otf|eot|svg)$" >
+  <FilesMatch "\.(ttf|otfs|eot|svg)$" >
     SetOutputFilter DEFLATE
   </FilesMatch>
 </IfModule>
