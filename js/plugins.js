@@ -29,13 +29,13 @@ window.log = function(){
 
 
 // catch all document.write() calls
-(function(){
-  var docwrite = document.write;
-  document.write = function(q){ 
-    log('document.write(): ',q); 
-    if (/docwriteregexwhitelist/.test(q)) docwrite(q);  
-  }
-})();
+(function(doc){
+  var write = doc.write;
+  doc.write = function(q){ 
+    log('document.write(): ',arguments); 
+    if (/docwriteregexwhitelist/.test(q)) write.apply(doc,arguments);  
+  };
+})(document);
 
 
 // background image cache bug for ie6. www.mister-pixel.com/#Content__state=
