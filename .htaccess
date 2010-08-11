@@ -79,7 +79,7 @@ AddType font/x-woff                   woff
   AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript text/javascript application/javascript application/json 
 
 # webfonts and svg:
-  <FilesMatch "\.(ttf|otf|woff|eot|svg|svgz)$" >
+  <FilesMatch "\.(ttf|otf|eot|svg)$" >
     SetOutputFilter DEFLATE
   </FilesMatch>
 </IfModule>
