@@ -38,6 +38,3 @@ window.log = function(){
 })(document);
 
 
-// background image cache bug for ie6. www.mister-pixel.com/#Content__state=
-/*@cc_on   @if (@_win32) { document.execCommand("BackgroundImageCache",false,true) }   @end @*/
-
