@@ -11,9 +11,7 @@
 <IfModule mod_setenvif.c>
   <IfModule mod_headers.c>
     BrowserMatch MSIE ie
-    Header set X-UA-Compatible "IE=Edge" env=ie
-    BrowserMatch chromeframe gcf
-    Header append X-UA-Compatible "chrome=1" env=gcf
+    Header set X-UA-Compatible "IE=Edge,chrome=1" env=ie
   </IfModule>
 </IfModule>
 
