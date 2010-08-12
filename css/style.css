@@ -215,7 +215,7 @@ button {  width: auto; overflow: visible; }
  * inlined to avoid required HTTP connection www.phpied.com/delay-loading-your-print-css/ 
  */
 @media print {
-  * { background: transparent !important; color: #444 !important; text-shadow: none; }
+  * { background: transparent !important; color: #444 !important; text-shadow: none !important; }
 
   a, a:visited { color: #444 !important; text-decoration: underline; }
 
