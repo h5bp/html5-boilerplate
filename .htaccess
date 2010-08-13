@@ -62,14 +62,13 @@ AddType font/x-woff                   woff
 # this is not in use in the boilerplate as it stands. you may
 #   choose to name your files in this way for this advantage
 #   or concatenate and minify them manually.
-<FilesMatch "\.combined\.js">
-        Options +Includes
-        SetOutputFilter INCLUDES
-</FilesMatch>
-<FilesMatch "\.combined\.css">
-        Options +Includes
-        SetOutputFilter INCLUDES
-</FilesMatch>
+# Disabled by default.
+
+# <FilesMatch "\.combined\.(js|css)$">
+#         Options +IncludesNOEXEC
+#         SetOutputFilter INCLUDES
+# </FilesMatch>
+
 
 
 
