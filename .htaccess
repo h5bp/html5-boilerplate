@@ -81,7 +81,7 @@ AddType font/x-woff                   woff
   AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript text/javascript application/javascript application/json 
 
 # webfonts and svg:
-  <FilesMatch "\.(ttf|otfs|eot|svg)$" >
+  <FilesMatch "\.(ttf|otf|eot|svg)$" >
     SetOutputFilter DEFLATE
   </FilesMatch>
 </IfModule>
@@ -152,7 +152,7 @@ FileETag None
 
 # <IfModule mod_headers.c>
 #   <Location />
-#     Header set P3P "policyref=\"/w3c/p3p.xml\", CP=\"IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT""
+#     Header set P3P "policyref=\"/w3c/p3p.xml\", CP=\"IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT\""
 #   </Location>
 # </IfModule>
 
