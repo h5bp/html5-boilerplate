@@ -71,7 +71,7 @@ fonts.css from the YUI Library: developer.yahoo.com/yui/
 There are three custom edits:
  * remove arial, helvetica from explicit font stack
  * make the line-height relative and unit-less
- * remove the pre,code styles as we use a recommendation from Eric Meyer instead
+ * remove the pre, code styles
 */
 body { font:13px sans-serif; *font-size:small; *font:x-small; line-height:1.22; }
 
@@ -81,9 +81,9 @@ select, input, textarea { font:99% sans-serif; }
 
 
 /* normalize monospace sizing 
- * meyerweb.com/eric/thoughts/2010/02/12/fixed-monospace-sizing/
+ * en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome
  */
-code, pre { font-family: "Courier New", monospace, serif; font-size: 1em; }
+pre, code, kbd, samp { font-family: monospace, sans-serif; }
  
 
 
