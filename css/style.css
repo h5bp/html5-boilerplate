@@ -68,15 +68,16 @@ input, select { vertical-align:middle; }
 fonts.css from the YUI Library: developer.yahoo.com/yui/
           Please refer to developer.yahoo.com/yui/fonts/ for font sizing percentages
 
-There are two custom edits:
+There are three custom edits:
+ * remove arial, helvetica from explicit font stack
  * make the line-height relative and unit-less
  * remove the pre,code styles as we use a recommendation from Eric Meyer instead
 */
-body { font:13px arial,helvetica,"Nimbus Sans L", "Bitstream Vera Sans", sans-serif; *font-size:small; *font:x-small; line-height:1.22; }
+body { font:13px sans-serif; *font-size:small; *font:x-small; line-height:1.22; }
 
 table { font-size:inherit; font:100%; }
 
-select, input, textarea { font:99% arial,helvetica,"Nimbus Sans L", "Bitstream Vera Sans", sans-serif; }
+select, input, textarea { font:99% sans-serif; }
 
 
 /* normalize monospace sizing 
