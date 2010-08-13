@@ -1,4 +1,4 @@
-#  [HTML5 Boilerplate](http://html5boilerplate.com)
+#  HTML5 Boilerplate [http://html5boilerplate.com](http://html5boilerplate.com)
 
 
 ## License:
@@ -17,6 +17,7 @@
 * Apache config bugfixes
 * Conditional body tag class combined 
 * dd_belatedPNG updated to 0.0.8. Redundant BackgroundImageCache fix removed.
+
 [View full diff and commit history](http://github.com/paulirish/html5-boilerplate/compare/v0.9...v0.9.1)
 
 ##### Thanks:
