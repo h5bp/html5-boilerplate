@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<project name="Sample Build" default="build" basedir=".">
+  <property file="tools/build.properties"/>
+  <property name="build.number" value="${build.number}"/>
+  <target name="current-number">
+    <echo>Current build number:${build.number}</echo>
+  </target>
+  <target name="rev">
+    <propertyfile  file="tools/build.properties">
+      <entry key="build.number" type="int" operation="+" value="1" pattern="000"/>
+    </propertyfile>
+  </target>
+  <target name="clean">
+    <delete dir="publish/"/>
+  </target>
+  <target name="copy" depends="clean" >
+    <copy todir="publish">
+      <fileset dir=".">
+	  <exclude name=".gitignore"/>
+	    <exclude name="build.xml"/>
+	    <exclude name="**/.git/**"/>
+        <exclude name="**/tools/**"/>
+        <exclude name="**/test/**"/>
+		<exclude name="**/demo/**"/>
+      </fileset>
+    </copy>
+  </target>
+  <target name="scripts" depends="copy">
+    <concat destfile="publish/js/${build.number}.js">
+      <fileset file="js/jquery-1.4.2.js" />
+      <fileset file="js/plugins.js" />
+	  <fileset file="js/script.js" />
+    </concat>
+    <apply executable="java" parallel="false">
+      <fileset dir="publish/js/" includes="${build.number}.js"/>
+      <arg line="-jar"/>
+      <arg path="tools/yuicompressor-2.4.2.jar"/>
+      <srcfile/>
+      <arg line="-o"/>
+      <mapper type="glob" from="${build.number}.js" to="publish/js/min-${build.number}.js"/>
+      <targetfile/>
+    </apply>
+	<replaceregexp match="&lt;!--@@SCRIPTS[\d\w\s\W]*?ENDSCRIPTS@@--&gt;" file="publish/index.html" replace="&lt;script src='js/min-${build.number}.js\'&gt;&lt;/script&gt;" flags="m" >
+	</replaceregexp>
+	
+	<replaceregexp match="&lt;!-- yui profiler[\d\w\s\W]*?end profiling code --&gt;" file="publish/index.html" replace=" " flags="m" >
+	</replaceregexp>
+    <delete file="publish/js/${build.number}.js"/>
+  </target>
+  <target name="css">
+    <apply executable="java" parallel="false">
+      <fileset dir="publish/css/" includes="style.css"/>
+      <arg line="-jar"/>
+      <arg path="tools/yuicompressor-2.4.2.jar"/>
+      <srcfile/>
+      <arg line="-o"/>
+      <mapper type="glob" from="style.css" to="publish/css/min-${build.number}.css"/>
+      <targetfile/>
+    </apply>
+    <replace token="css/style.css" value="css/min-${build.number}.css" file="publish/index.html" />
+   <delete file="publish/css/${build.number}.css"/>
+  </target>
+  <target name="build" depends="current-number,clean,rev,copy,scripts,css" description="Concats files, runs YUI Compressor on them and makes magic happen." ></target>
+</project>
