@@ -2,11 +2,12 @@
 
 ## CHANGELOG:
 
-v0.9 -August 10th, 2010 - Initial release
+v0.9.1 August 13th, 2010 - [View commit history](http://github.com/paulirish/html5-boilerplate/commits/master) (for now) for changes. (Proper changelog coming)
+v0.9  August 10th, 2010 - Initial release
 
 ## LICENSE:
 
-The Unlicense (aka: public domain) http://unlicense.org
+[The Unlicense](http://unlicense.org) (aka: public domain) 
 
 ## INSTALLATION:
 
