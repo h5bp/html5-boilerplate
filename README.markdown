@@ -6,9 +6,7 @@ v0.9 -August 10th, 2010 - Initial release
 
 ## LICENSE:
 
-Copyright Paul Irish
-
-Dual licensed under MIT and GPL
+The Unlicense (aka: public domain) http://unlicense.org
 
 ## INSTALLATION:
 

@@ -59,14 +59,16 @@ AddType font/x-woff                   woff
 #   <!--#include file="jquery.idletimer.js" -->
 # and they would be included into this single file
 
-<FilesMatch "\.combined\.js">
-        Options +Includes
-        SetOutputFilter INCLUDES
-</FilesMatch>
-<FilesMatch "\.combined\.css">
-        Options +Includes
-        SetOutputFilter INCLUDES
-</FilesMatch>
+# this is not in use in the boilerplate as it stands. you may
+#   choose to name your files in this way for this advantage
+#   or concatenate and minify them manually.
+# Disabled by default.
+
+# <FilesMatch "\.combined\.(js|css)$">
+#         Options +IncludesNOEXEC
+#         SetOutputFilter INCLUDES
+# </FilesMatch>
+
 
 
 
@@ -78,7 +80,7 @@ AddType font/x-woff                   woff
   AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript text/javascript application/javascript application/json 
 
 # webfonts and svg:
-  <FilesMatch "\.(ttf|otfs|eot|svg)$" >
+  <FilesMatch "\.(ttf|otf|eot|svg)$" >
     SetOutputFilter DEFLATE
   </FilesMatch>
 </IfModule>
@@ -149,7 +151,7 @@ FileETag None
 
 # <IfModule mod_headers.c>
 #   <Location />
-#     Header set P3P "policyref=\"/w3c/p3p.xml\", CP=\"IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT""
+#     Header set P3P "policyref=\"/w3c/p3p.xml\", CP=\"IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT\""
 #   </Location>
 # </IfModule>
 
