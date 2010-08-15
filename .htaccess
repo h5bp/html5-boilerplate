@@ -52,6 +52,8 @@ AddType font/otf                      otf
 AddType font/x-woff                   woff
 
 AddType text/cache-manifest           manifest
+AddType text/x-component              htc
+
 
 # allow concatenation from within specific js and css files 
 
