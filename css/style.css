@@ -73,11 +73,11 @@ There are three custom edits:
  * make the line-height relative and unit-less
  * remove the pre, code styles
 */
-body { font:13px sans-serif; *font-size:small; *font:x-small; line-height:1.22; }
+body { font: 13px sans-serif; *font-size:small; *font:x-small; line-height:1.22; }
 
-table { font-size:inherit; font:100%; }
+table { font-size:inherit; font: 100%; }
 
-select, input, textarea { font:99% sans-serif; }
+select, input, textarea { font: 99% sans-serif; }
 
 
 /* normalize monospace sizing 
@@ -93,7 +93,7 @@ pre, code, kbd, samp { font-family: monospace, sans-serif; }
 
 
 /* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */ 
-body, select, input, textarea { color:#444; }
+body, select, input, textarea { color: #444; }
 
 /* Headers (h1,h2,etc) have no default font-size or margin,
    you'll want to define those yourself. */ 
@@ -101,24 +101,28 @@ body, select, input, textarea { color:#444; }
 /* www.aestheticallyloyal.com/public/optimize-legibility/ */ 
 h1,h2,h3,h4,h5,h6 { font-weight: bold; text-rendering: optimizeLegibility; }
 
-/* maxvoltar.com/archive/-webkit-font-smoothing */
-html { -webkit-font-smoothing: antialiased; }
+html { 
+  /* maxvoltar.com/archive/-webkit-font-smoothing */ 
+  -webkit-font-smoothing: antialiased; 
+  /* always force a scrollbar in non-IE */ 
+  overflow-y: scroll;
+}
 
  
 /* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
 a:hover, a:active { outline: none; }
 
-a, a:active, a:visited { color:#607890; }
-a:hover { color:#036; }
+a, a:active, a:visited { color: #607890; }
+a:hover { color: #036; }
 
 
-ul { margin-left:30px; }
-ol { margin-left:30px; list-style-type: decimal; }
+ul { margin-left: 30px; }
+ol { margin-left: 30px; list-style-type: decimal; }
 
-small { font-size:85%; }
+small { font-size: 85%; }
 strong, th { font-weight: bold; }
 
-td, td img { vertical-align:top; } 
+td, td img { vertical-align: top; } 
 
 sub { vertical-align: sub; font-size: smaller; }
 sup { vertical-align: super; font-size: smaller; }
@@ -152,10 +156,6 @@ label, input[type=button], input[type=submit], button { cursor: pointer; }
 /*  j.mp/webkit-tap-highlight-color */
 a:link { -webkit-tap-highlight-color: #FF5E99; } 
 
-
-/* always force a scrollbar in non-IE */
-html { overflow-y: scroll; }
-
 /* make buttons play nice in IE:    
    www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
 button {  width: auto; overflow: visible; }
@@ -171,16 +171,16 @@ button {  width: auto; overflow: visible; }
  */
 
 /* for image replacement */
-.ir { display:block; text-indent:-999em; overflow:hidden; background-repeat: no-repeat; }
+.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; }
 
 /* Hide for both screenreaders and browsers
    css-discuss.incutio.com/wiki/Screenreader_Visibility */
-.hidden { display:none; visibility:hidden; } 
+.hidden { display: none; visibility: hidden; } 
 
 /* Hide only visually, but have it available for screenreaders 
    www.webaim.org/techniques/css/invisiblecontent/ 
    Solution from: j.mp/visuallyhidden - Thanks Jonathan Neal! */
-.visuallyhidden { position:absolute !important;    
+.visuallyhidden { position: absolute !important;    
   clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px); }
 
