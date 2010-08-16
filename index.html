@@ -65,11 +65,14 @@
 
   <!-- Javascript at the bottom for fast page loading -->
 
-<!--@@SCRIPTS@@-->
-  <script src="js/jquery-1.4.2.min.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/script.js"></script>
-<!--@@ENDSCRIPTS@@-->
+	<!-- scripts concatenated and minified via ant
+		 add new scripts to taget#scriots > concat > fileset
+         don't delete these comments or you'll bust the build script :)
+	-->
+  	<script src="js/jquery-1.4.2.min.js"></script>
+  	<script src="js/plugins.js"></script>
+  	<script src="js/script.js"></script>
+	<!-- end concatenated and minified scripts-->
   
   <!--[if lt IE 7 ]>
     <script src="js/dd_belatedpng.js?v=1"></script>

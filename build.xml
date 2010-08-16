@@ -40,7 +40,7 @@
       <mapper type="glob" from="${build.number}.js" to="publish/js/min-${build.number}.js"/>
       <targetfile/>
     </apply>
-	<replaceregexp match="&lt;!--@@SCRIPTS[\d\w\s\W]*?ENDSCRIPTS@@--&gt;" file="publish/index.html" replace="&lt;script src='js/min-${build.number}.js\'&gt;&lt;/script&gt;" flags="m" >
+	<replaceregexp match="&lt;!-- scripts concatenated [\d\w\s\W]*?!-- end concatenated and minified scripts--&gt;" file="publish/index.html" replace="&lt;script src='js/min-${build.number}.js\'&gt;&lt;/script&gt;" flags="m" >
 	</replaceregexp>
 	
 	<replaceregexp match="&lt;!-- yui profiler[\d\w\s\W]*?end profiling code --&gt;" file="publish/index.html" replace=" " flags="m" >
