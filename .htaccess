@@ -52,6 +52,8 @@ AddType font/otf                      otf
 AddType font/x-woff                   woff
 
 AddType text/cache-manifest           manifest
+AddType text/x-component              htc
+
 
 # allow concatenation from within specific js and css files 
 
@@ -77,8 +79,8 @@ AddType text/cache-manifest           manifest
 # gzip compression.
 <IfModule mod_deflate.c>
 
-# html, xml, css, and js:
-  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript text/javascript application/javascript application/json 
+# html, txt, css, js, json, xml, htc:
+  AddOutputFilterByType DEFLATE text/html text/plain text/css application/x-javascript text/javascript application/javascript application/json text/xml application/xml text/x-component
 
 # webfonts and svg:
   <FilesMatch "\.(ttf|otf|eot|svg)$" >
@@ -109,7 +111,13 @@ AddType text/cache-manifest           manifest
   ExpiresByType text/cache-manifest       "access plus 0 seconds"
 
 # your document html 
-  ExpiresByType text/html                  "access"
+  ExpiresByType text/html                 "access plus 0 seconds"
+  
+# data
+  ExpiresByType text/xml                  "access plus 0 seconds"
+  ExpiresByType application/xml           "access plus 0 seconds"
+  ExpiresByType application/json          "access plus 0 seconds"
+
 
 # rss feed
   ExpiresByType application/rss+xml       "access plus 1 hour"

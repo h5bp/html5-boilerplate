@@ -23,8 +23,8 @@ b, i,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, figure, footer, header, 
-hgroup, menu, nav, section, menu,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
 time, mark, audio, video {
   margin:0;
   padding:0;
@@ -35,8 +35,10 @@ time, mark, audio, video {
   background:transparent;
 }                  
 
-article, aside, figure, footer, header, 
-hgroup, nav, section { display:block; }
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary { 
+    display:block;
+}
 
 nav ul { list-style:none; }
 
@@ -64,21 +66,18 @@ input, select { vertical-align:middle; }
 /* END RESET CSS */
 
 
-/*
-fonts.css from the YUI Library: developer.yahoo.com/yui/
-          Please refer to developer.yahoo.com/yui/fonts/ for font sizing percentages
+/* fonts.css from the YUI Library: developer.yahoo.com/yui/
+   Please refer to developer.yahoo.com/yui/fonts/ for font sizing percentages
 
-There are three custom edits:
- * remove arial, helvetica from explicit font stack
- * make the line-height relative and unit-less
- * remove the pre, code styles
+  There are two custom edits:
+   * remove arial, helvetica from explicit font stack
+   * we normalize monospace styles ourselves
 */
-body { font: 13px sans-serif; *font-size:small; *font:x-small; line-height:1.22; }
+body { font:13px/1.231 sans-serif; *font-size:small; } /* hack retained to preserve specificity */
 
 table { font-size:inherit; font: 100%; }
 
-select, input, textarea { font: 99% sans-serif; }
-
+select, input, textarea, button { font:99% sans-serif; }
 
 /* normalize monospace sizing 
  * en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome
@@ -97,9 +96,7 @@ body, select, input, textarea { color: #444; }
 
 /* Headers (h1,h2,etc) have no default font-size or margin,
    you'll want to define those yourself. */ 
- 
-/* www.aestheticallyloyal.com/public/optimize-legibility/ */ 
-h1,h2,h3,h4,h5,h6 { font-weight: bold; text-rendering: optimizeLegibility; }
+h1,h2,h3,h4,h5,h6 { font-weight: bold; }
 
 html { 
   /* maxvoltar.com/archive/-webkit-font-smoothing */ 
