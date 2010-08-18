@@ -79,8 +79,8 @@ AddType text/x-component              htc
 # gzip compression.
 <IfModule mod_deflate.c>
 
-# html, xml, css, and js:
-  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript text/javascript application/javascript application/json 
+# html, txt, css, js, json, xml, htc:
+  AddOutputFilterByType DEFLATE text/html text/plain text/css application/x-javascript text/javascript application/javascript application/json text/xml application/xml text/x-component
 
 # webfonts and svg:
   <FilesMatch "\.(ttf|otf|eot|svg)$" >
