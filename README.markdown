@@ -1,5 +1,5 @@
-HTML5 Boilerplate Wordpress Template
-====================================
+HTML5 Boilerplate for Wordpress
+===============================
 
 This is template based on the [HTML5 Boilerplate](http://html5boilerplate.com/) by Paul Irish and Divya Manian, and Bruce Lawson's [Designing a Blog with HTML5](http://html5doctor.com/designing-a-blog-with-html5/)
 
@@ -13,7 +13,7 @@ It's a very bare layout, including only the base styles that come with the boile
 
 Getting Started
 ---------------
-1. Add the html-boilerplate-forl-wordpress folder to your wp-content/themes folder.
+1. Add the html-boilerplate-for-wordpress folder to your wp-content/themes folder.
 2. Activate the theme. WP-Admin > Appearance > Themes
 2. Add the items in the "root" folder to the root of your website (read the Root Files section below).
 3. Style away, knowing that you're building on a super solid base with HTML5 awesomeness.
