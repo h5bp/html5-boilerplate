@@ -4,4 +4,5 @@
   color: #000;
 }
 
+/* Slightly reducing font size to reduce need to scroll */
 body { font-size: 80%; }
