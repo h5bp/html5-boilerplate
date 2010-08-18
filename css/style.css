@@ -184,11 +184,10 @@ button {  width: auto; overflow: visible; }
 /* Hide visually and from screenreaders, but maintain layout */
 .invisible { visibility: hidden; }
 
-/* >> The Magnificent CLEARFIX << */
-.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
-.clearfix { display: inline-block; }
-* html .clearfix { height: 1%; } /* Hides from IE-mac \*/
-.clearfix { display: block; }
+/* >> The Magnificent CLEARFIX << j.mp/phayesclearfix */
+.clearfix:after  { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+.clearfix { zoom: 1; }
+
 
 
 
