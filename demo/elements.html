@@ -54,6 +54,9 @@
            
            and the bluetrip project
            http://bluetrip.org/  
+           
+           and peter beverloo
+           http://peter.sh/examples/?/html/meter-progress.html
       -->
            
            
@@ -363,7 +366,124 @@
     </form>
 
 
+    <!-- thx peter beverloo: http://peter.sh/examples/?/html/meter-progress.html -->
 
+
+    <p id="no-support" style="color: red; margin-bottom: 12px;"> 
+       Your browser does not support these elements yet! Consider downloading a <a href="http://tools.peter.sh/download-latest-chromium.php">Chromium Nightly</a>.<br /> 
+      
+     </p> 
+     
+     <h3>&lt;progress&gt;</h3> 
+     <p> 
+       The progress element (spec: <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-progress-element">4.10.16</a>) represents the completion progress of a task and can be both indeterminate as determinate.
+     </p> 
+     <ul class="compact"> 
+       <li> 
+         <label>Indeterminate</label> 
+         <progress max="100"></progress> 
+       </li> 
+       <li> 
+         <label>Progress: 0%</label> 
+         <progress max="10" value="0"></progress> 
+       </li> 
+       <li> 
+         <label>Progress: 100%</label> 
+         <progress max="3254" value="3254"></progress> 
+       </li> 
+       <li> 
+         <label>Progress: 57%</label> 
+         <progress max="0.7" value="0.4"></progress> 
+       </li> 
+       <li> 
+         <label>Javascript</label> 
+         <progress id="progress-javascript-example"></progress> 
+       </li> 
+     </ul> 
+     
+     <h3>&lt;meter&gt;</h3> 
+     <p> 
+       Displaying a scalar measurement within a known range, like hard drive usage, can be done using the meter element (spec: <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-meter-element">4.10.17</a>)
+     </p> 
+     <ul class="compact"> 
+       <li> 
+         <label>Meter: empty</label> 
+         <meter value="0"></meter> 
+       </li> 
+       <li> 
+         <label>Meter: full</label> 
+         <meter value="1"></meter> 
+       </li> 
+       <li> 
+         <label>Meter: "a bit"</label> 
+         <meter min=".34" max=".41" value=".36"></meter> 
+       </li> 
+       <li> 
+         <label>Preferred usage</label> 
+         <meter min="50" max="250" low="100" high="200" value="120"></meter> 
+       </li> 
+       <li> 
+         <label>Too much traffic</label> 
+         <meter min="1024" max="10240" low="2048" high="8192" value="9216"></meter> 
+       </li> 
+       <li> 
+         <label>Optimum value</label> 
+         <meter value=".5" optimum=".8"></meter> 
+       </li> 
+       <li> 
+         <label>Javascript</label> 
+         <meter id="meter-javascript-example" value="0"></progress> 
+       </li> 
+     </ul> 
+
+     <script> 
+       (function () {
+           if (! ('position' in document.createElement ('progress'))) {
+               var elements = document.querySelectorAll ('meter, progress');
+               for (var i = 0, j = elements.length; i < j; i++) {
+                 elements [i].style.border = "1px solid red";
+                 elements [i].style.height = "12px";
+                 elements [i].style.display = "inline-block";
+                 elements [i].style.webkitAppearance = "none";
+               }
+               
+               return ;
+           }
+           
+           document.getElementById ('no-support').style.display = 'none';
+           
+           /** Setup the <progress> JavaScript example **/
+           var progressExample = document.getElementById ('progress-javascript-example');
+           progressExample.min = 50;
+           progressExample.max = 122;
+               
+           setInterval (function ()
+           {
+               progressExample.value = progressExample.min + Math.random () * (progressExample.max - progressExample.min);
+           
+           }, 1000);
+           
+           /** We'd like some fancy <meter> examples too **/
+           var meterExample = document.getElementById ('meter-javascript-example');
+           meterExample.min = 0;
+           meterExample.max = 100;
+           meterExample.value = 50;
+           meterExample.low  = 20;
+           meterExample.high = 80;
+           meterExample.optimum = 65;
+               
+           setInterval (function ()
+           {
+               meterExample.value   = meterExample.min + Math.random () * (meterExample.max - meterExample.min);
+               meterExample.optimum = 65 + (5 - Math.random () * 10);
+           
+           }, 1000);
+           
+       })();
+     </script>
+     
+     
+     
     </div>
 
     <footer>
