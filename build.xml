@@ -60,5 +60,13 @@
     <replace token="css/style.css" value="css/min-${build.number}.css" file="publish/index.html" />
    <delete file="publish/css/${build.number}.css"/>
   </target>
-  <target name="build" depends="current-number,clean,rev,copy,scripts,css" description="Concats files, runs YUI Compressor on them and makes magic happen." ></target>
+<target name="images">
+<apply executable="optipng">
+  <arg value="-o7"/>
+  <fileset dir="./publish/images">
+  </fileset>
+ 
+</apply>
+</target>
+  <target name="build" depends="current-number,clean,rev,copy,scripts,css,images" description="Concats files, runs YUI Compressor on them and makes magic happen." ></target>
 </project>
