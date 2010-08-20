@@ -113,8 +113,8 @@ a, a:active, a:visited { color: #607890; }
 a:hover { color: #036; }
 
 
-ul { margin-left: 30px; }
-ol { margin-left: 30px; list-style-type: decimal; }
+ul, ol { margin-left: 1.8em; }
+ol { list-style-type: decimal; }
 
 small { font-size: 85%; }
 strong, th { font-weight: bold; }
