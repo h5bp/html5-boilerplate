@@ -49,7 +49,7 @@ This is a set of files that a front-end developer can use to get started on a we
 
 ## Releases 
 
-There will be two releases: a documented release, which is exactly what you see here, and a production release, with most of the descriptive comments stripped out.
+There are two releases: a documented release, which is exactly what you see here, and a "stripped" release, with most of the descriptive comments stripped out.
 
 Watch the [current tickets](http://github.com/paulirish/html5-boilerplate/issues) to view the areas of active development.
 
