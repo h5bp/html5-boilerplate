@@ -144,6 +144,9 @@ input[type="checkbox"] { vertical-align: bottom; }
 /* hand cursor on clickable input elements */
 label, input[type=button], input[type=submit], button { cursor: pointer; }
 
+/* colors for form validity */
+input:invalid { background-color: #f0dddd; }
+input:valid   { background-color: #ddf0dd; }
 
 /* These selection declarations have to be separate.
    No text-shadow: twitter.com/miketaylr/status/12228805301 
