@@ -68,7 +68,7 @@ AddType text/x-component              htc
 # Disabled by default.
 
 # <FilesMatch "\.combined\.(js|css)$">
-#         Options +IncludesNOEXEC
+#         Options +Includes
 #         SetOutputFilter INCLUDES
 # </FilesMatch>
 
