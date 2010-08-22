@@ -6,17 +6,17 @@
     <echo>Current build number:${build.number}</echo>
   </target>
   <target name="rev">
-	<echo message="Rev the build number"/>
+	<echo message="Rev the build number..."/>
 	<propertyfile  file="tools/build.properties">
       <entry key="build.number" type="int" operation="+" value="1" pattern="000"/>
     </propertyfile>
   </target>
   <target name="clean">
-  	<echo message="cleaning up previous build directory"/>
+  	<echo message="Cleaning up previous build directory..."/>
     <delete dir="publish/"/>
   </target>
   <target name="copy" depends="clean" >
-    <echo message="copying over new files..."/>
+    <echo message="Copying over new files..."/>
     <copy todir="publish">
       <fileset dir=".">
         <exclude name=".gitignore"/>
@@ -29,7 +29,7 @@
     </copy>
   </target>
   <target name="scripts" depends="copy">
-  	<echo message="concatenating and minifying javascript"/>
+  	<echo message="Concatenating and minifying javascript"/>
     <concat destfile="publish/js/${build.number}.js">
       <fileset file="js/jquery-1.4.2.js" />
       <fileset file="js/plugins.js" />
@@ -47,7 +47,7 @@
     <delete file="publish/js/${build.number}.js"/>
   </target>
   <target name="css" depends="copy">
-  	<echo message="minifying css..."/>
+  	<echo message="Minifying css..."/>
     <apply executable="java" parallel="false">
       <fileset dir="publish/css/" includes="style.css"/>
       <arg line="-jar"/>
@@ -61,7 +61,7 @@
     <delete file="publish/css/${build.number}.css"/>
   </target>
   <target name="images" depends="copy">
-    <echo message="optimizing images"/>
+    <echo message="Optimizing images"/>
 	<apply executable="optipng" osfamily="unix">
       <arg value="-o7"/>
       <fileset dir="./publish/images">
@@ -80,7 +80,7 @@
         <exclude name="*.jpg"/>
       </fileset>
     </apply>
-    <echo message="clean up those jpgs"/>
+    <echo message="Clean up those jpgs..."/>
 	<apply executable="jpegtran" osfamily="unix">
 	  <fileset dir="./publish/images/" includes="*.jpg"/>
       <arg value="-copy"/>
@@ -116,10 +116,10 @@
     </apply>
   </target>
   <target name="html" depends="scripts">
-    <echo message="clean up the html"/>
+    <echo message="Clean up the html..."/>
 	<replaceregexp match="&lt;!-- scripts concatenated [\d\w\s\W]*?!-- end concatenated and minified scripts--&gt;" file="publish/index.html" replace="&lt;script src='js/min-${build.number}.js\'&gt;&lt;/script&gt;" flags="m" ></replaceregexp>
     <replaceregexp match="&lt;!-- yui profiler[\d\w\s\W]*?end profiling code --&gt;" file="publish/index.html" replace=" " flags="m" ></replaceregexp>
-  <!--minification goes here-->
+  <!--minification goes here, if you're into that kind of thing -->
   </target>
   <target name="text" depends="current-number,clean,rev,copy,scripts,css,html" description="Concats files, runs YUI Compressor on them and makes magic happen." ></target>
   <target name="build" depends="current-number,clean,rev,copy,scripts,css,images,html" description="Concats files, runs YUI Compressor, optimizes images. There is much rejoicing." ></target>
