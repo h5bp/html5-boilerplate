@@ -126,6 +126,7 @@ AddType text/x-component              htc
   ExpiresByType image/vnd.microsoft.icon  "access plus 1 week" 
 
 # media: images, video, audio
+  ExpiresByType image/gif                 "access plus 1 month"
   ExpiresByType image/png                 "access plus 1 month"
   ExpiresByType image/jpg                 "access plus 1 month"
   ExpiresByType image/jpeg                "access plus 1 month"
