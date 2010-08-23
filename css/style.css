@@ -113,8 +113,8 @@ a, a:active, a:visited { color: #607890; }
 a:hover { color: #036; }
 
 
-ul { margin-left: 30px; }
-ol { margin-left: 30px; list-style-type: decimal; }
+ul, ol { margin-left: 1.8em; }
+ol { list-style-type: decimal; }
 
 small { font-size: 85%; }
 strong, th { font-weight: bold; }
@@ -137,12 +137,16 @@ pre {
 /* align checkboxes, radios, text inputs with their label
    by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css  */
 input[type="radio"] { vertical-align: text-bottom; }
-input[type="checkbox"] { vertical-align: bottom; *vertical-align: baseline; }
+input[type="checkbox"] { vertical-align: bottom; }
+.ie7 input[type="checkbox"] { vertical-align: baseline; }
 .ie6 input { vertical-align: text-bottom; }
 
 /* hand cursor on clickable input elements */
 label, input[type=button], input[type=submit], button { cursor: pointer; }
 
+/* colors for form validity */
+input:invalid { background-color: #f0dddd; }
+input:valid   { background-color: #ddf0dd; }
 
 /* These selection declarations have to be separate.
    No text-shadow: twitter.com/miketaylr/status/12228805301 
@@ -168,7 +172,7 @@ button {  width: auto; overflow: visible; }
  */
 
 /* for image replacement */
-.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; }
+.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
 
 /* Hide for both screenreaders and browsers
    css-discuss.incutio.com/wiki/Screenreader_Visibility */

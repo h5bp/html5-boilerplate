@@ -351,7 +351,12 @@
       <fieldset>
         <legend>Form legend</legend>
 
-        <div><label for="f1">Text input:</label><input type="text" id="f1" value="input text" /></div>
+        <div><label for="f1">Optional Text input:</label><input type="text" id="f1" value="input text" /></div>
+        <div><label for="rt1">Required Text input:</label><input type="text" id="rt1" required /></div>
+        <div><label for="twp1">Text input with pattern requirement and placeholder:</label><input type="text" pattern="\d{5}(-\d{4})?" title="a US Zip code, with or without the +4 exension" placeholder="12345-6789"/></div>
+        <div><label for="s1">Search input:</label><input type="search" id="s1" /></div>
+        <div><label for="e1">Email input:</label><input type="email" id="e1" /></div>
+        <div><label for="u1">URL input:</label><input type="url" id="u1" /></div>
         <div><label for="pw">Password input:</label><input type="password" id="pw" value="password" /></div>
         <div><label for="f2">Radio input:</label><input type="radio" id="f2" /></div>
 
@@ -360,7 +365,9 @@
 
         <div><label for="f5">Textarea:</label><textarea id="f5" cols="30" rows="5" >Textarea text</textarea></div>
         <div><label for="f6">Input Button:</label> <input type="button" id="f6" value="button text" /></div>
-       
+
+        <div><label for="f7">Submit Button:</label> <input type="submit" id="f7" value="button text" /></div>
+
       </fieldset>
 
     </form>
