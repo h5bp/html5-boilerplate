@@ -147,11 +147,13 @@ label, input[type=button], input[type=submit], button { cursor: pointer; }
 /* colors for form validity */
 input:valid   {  }
 input:invalid { 
-  border: 0px inset ;
-    -moz-box-shadow: 0px 0px 4px #f0dddd; 
- -webkit-box-shadow: 4px 0px 2px #f0dddd; 
-         box-shadow: 0px 0px 4px #f0dddd;
+      border-radius: 1px;
+    -moz-box-shadow: 0px 0px 5px red; 
+ -webkit-box-shadow: 0px 0px 5px red; 
+         box-shadow: 0px 0px 5px red;
 }
+.no-boxshadow input:invalid { background-color: #f0dddd; }
+
 
 /* These selection declarations have to be separate.
    No text-shadow: twitter.com/miketaylr/status/12228805301 
