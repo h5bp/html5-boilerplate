@@ -145,8 +145,15 @@ input[type="checkbox"] { vertical-align: bottom; }
 label, input[type=button], input[type=submit], button { cursor: pointer; }
 
 /* colors for form validity */
-input:invalid { background-color: #f0dddd; }
-input:valid   { background-color: #ddf0dd; }
+input:valid   {  }
+input:invalid { 
+      border-radius: 1px;
+    -moz-box-shadow: 0px 0px 5px red; 
+ -webkit-box-shadow: 0px 0px 5px red; 
+         box-shadow: 0px 0px 5px red;
+}
+.no-boxshadow input:invalid { background-color: #f0dddd; }
+
 
 /* These selection declarations have to be separate.
    No text-shadow: twitter.com/miketaylr/status/12228805301 
