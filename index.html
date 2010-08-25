@@ -59,13 +59,16 @@
 
   <!-- Javascript at the bottom for fast page loading -->
 
+  <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
+  <script>!window.jQuery && document.write('<script src="js/jquery-1.4.2.js"><\/script>')</script>
+  
 	<!-- scripts concatenated and minified via ant
-		 add new scripts to taget#scriots > concat > fileset
-         don't delete these comments or you'll bust the build script :)
+		   add new scripts to target#scripts > concat > fileset
+       don't delete these comments or you'll bust the build script :)
 	-->
-  	<script src="js/jquery-1.4.2.min.js"></script>
-  	<script src="js/plugins.js"></script>
-  	<script src="js/script.js"></script>
+	<script src="js/plugins.js"></script>
+	<script src="js/script.js"></script>
 	<!-- end concatenated and minified scripts-->
   
   <!--[if lt IE 7 ]>
