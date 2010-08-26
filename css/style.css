@@ -99,8 +99,6 @@ body, select, input, textarea { color: #444; }
 h1,h2,h3,h4,h5,h6 { font-weight: bold; }
 
 html { 
-  /* maxvoltar.com/archive/-webkit-font-smoothing */ 
-  -webkit-font-smoothing: antialiased; 
   /* always force a scrollbar in non-IE */ 
   overflow-y: scroll;
 }
