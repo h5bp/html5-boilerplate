@@ -49,8 +49,8 @@ AddEncoding gzip                      svgz
 
 # webfonts
 AddType application/vnd.ms-fontobject eot
-AddType font/ttf                      ttf
-AddType font/otf                      otf
+AddType font/truetype                 ttf
+AddType font/opentype                 otf
 AddType font/woff                     woff
 
 AddType text/cache-manifest           manifest
