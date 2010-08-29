@@ -141,7 +141,8 @@ AddType text/x-component              htc
   ExpiresByType video/webm                "access plus 1 month"
   
 # webfonts
-  ExpiresByType font/ttf                  "access plus 1 month"
+  ExpiresByType font/truetype             "access plus 1 month"
+  ExpiresByType font/opentype             "access plus 1 month"
   ExpiresByType font/woff                 "access plus 1 month"
   ExpiresByType image/svg+xml             "access plus 1 month"
   ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
