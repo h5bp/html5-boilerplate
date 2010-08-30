@@ -18,8 +18,9 @@
 
 # Because X-UA-Compatible isn't sent to non-IE (to save header bytes),
 #   We need to inform proxies that content changes based on UA
-Header append Vary User-Agent
-
+<IfModule mod_headers.c>
+  Header append Vary User-Agent
+</IfModule>
 
 # hacks.mozilla.org/2009/07/cross-site-xmlhttprequest-with-cors/
 # Disabled. Uncomment to serve cross-domain ajax requests
