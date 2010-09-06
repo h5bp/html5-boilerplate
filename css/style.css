@@ -120,7 +120,10 @@ ol li { *display:list-item; }
 small { font-size: 85%; }
 strong, th { font-weight: bold; }
 
-td, td img { vertical-align: top; } 
+td, td img { vertical-align: top; }
+
+thead { *display: table-header-group; }
+tfoot { *display: table-footer-group; }
 
 sub { vertical-align: sub; font-size: smaller; }
 sup { vertical-align: super; font-size: smaller; }
