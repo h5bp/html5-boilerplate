@@ -152,6 +152,8 @@ input:invalid {
 }
 .no-boxshadow input:invalid { background-color: #f0dddd; }
 
+/* Remove margins on form elements */
+button, input, optgroup, select, textarea { margin: 0; }
 
 /* These selection declarations have to be separate.
    No text-shadow: twitter.com/miketaylr/status/12228805301 
