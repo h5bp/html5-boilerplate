@@ -115,6 +115,8 @@ a:hover { color: #036; }
 ul, ol { margin-left: 1.8em; }
 ol { list-style-type: decimal; }
 
+ol li { *display:list-item; }
+
 small { font-size: 85%; }
 strong, th { font-weight: bold; }
 
