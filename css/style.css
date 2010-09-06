@@ -173,6 +173,9 @@ a:link { -webkit-tap-highlight-color: #FF5E99; }
 /* make buttons play nice in IE:    
    www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
 button {  width: auto; overflow: visible; }
+
+button:focus                   { outline-width:1px; outline-style:dotted; }
+button::-moz-focus-inner       { padding:0; border:0; }
  
 /* bicubic resizing for non-native sized IMG: 
    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
