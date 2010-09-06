@@ -75,7 +75,7 @@ input, select { vertical-align:middle; }
 */
 body { font:13px/1.231 sans-serif; *font-size:small; } /* hack retained to preserve specificity */
 
-table { font-size:inherit; font: 100%; }
+table { font-size:inherit; font: 100% sans-serif; }
 
 select, input, textarea, button { font:99% sans-serif; }
 
