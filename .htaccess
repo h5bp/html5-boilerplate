@@ -1,8 +1,9 @@
 # Apache configuration file
 # httpd.apache.org/docs/2.2/mod/quickreference.html
 
-# Techniques in here adapted from all over, 
-#   including Kroc Camen: camendesign.com/.htaccess
+# Techniques in here adapted from all over, including:
+#   Kroc Camen: camendesign.com/.htaccess
+#   perishablepress.com/press/2006/01/10/stupid-htaccess-tricks/
 
 
 # Force the latest IE version, in various cases when it may fall back to IE7 mode
@@ -15,6 +16,11 @@
   </IfModule>
 </IfModule>
 
+# Because X-UA-Compatible isn't sent to non-IE (to save header bytes),
+#   We need to inform proxies that content changes based on UA
+<IfModule mod_headers.c>
+  Header append Vary User-Agent
+</IfModule>
 
 # hacks.mozilla.org/2009/07/cross-site-xmlhttprequest-with-cors/
 # Disabled. Uncomment to serve cross-domain ajax requests
@@ -43,13 +49,14 @@ AddType video/webm webm
 
 # Proper svg serving. Required for svg webfonts on iPad
 #   twitter.com/FontSquirrel/status/14855840545
-AddType image/svg+xml                 svg svgz 
+AddType     image/svg+xml             svg svgz 
+AddEncoding gzip                      svgz
 
 # webfonts
 AddType application/vnd.ms-fontobject eot
-AddType font/ttf                      ttf
-AddType font/otf                      otf
-AddType font/x-woff                   woff
+AddType font/truetype                 ttf
+AddType font/opentype                 otf
+AddType font/woff                     woff
 
 AddType text/cache-manifest           manifest
 AddType text/x-component              htc
@@ -87,7 +94,6 @@ AddType text/x-component              htc
     SetOutputFilter DEFLATE
   </FilesMatch>
 </IfModule>
-
 
 
 
@@ -136,10 +142,12 @@ AddType text/x-component              htc
   ExpiresByType video/webm                "access plus 1 month"
   
 # webfonts
-  ExpiresByType font/ttf                  "access plus 1 month"
+  ExpiresByType font/truetype             "access plus 1 month"
+  ExpiresByType font/opentype             "access plus 1 month"
   ExpiresByType font/woff                 "access plus 1 month"
   ExpiresByType image/svg+xml             "access plus 1 month"
-  
+  ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
+    
 # css and javascript
   ExpiresByType text/css                  "access plus 1 month"
   ExpiresByType application/javascript    "access plus 1 month"
@@ -172,6 +180,7 @@ FileETag None
 #   no-www.org/faq.php?q=class_b
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  RewriteCond %{HTTPS} !=on
   RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
   RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 </IfModule>
@@ -193,6 +202,11 @@ ErrorDocument 404 /404.html
 AddDefaultCharset utf-8
 # force utf-8 for a number of file formats
 AddCharset utf-8 .html .css .js .xml .json .rss
+
+
+
+# We don't need to tell everyone we're apache.
+ServerSignature Off
 
 
 
