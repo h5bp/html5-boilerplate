@@ -84,8 +84,6 @@ select, input, textarea, button { font:99% sans-serif; }
  */
 pre, code, kbd, samp { font-family: monospace, sans-serif; }
  
-
-
 /* 
  * minimal base styles 
  */
@@ -131,6 +129,10 @@ pre {
   white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
   word-wrap: break-word; /* IE */
 }
+ 
+textarea { overflow: auto; } /* thnx ivannikolic! www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
+
+.ie6 legend, .ie7 legend { margin-left: -7px; } /* thnx ivannikolic! */
 
 /* align checkboxes, radios, text inputs with their label
    by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css  */
