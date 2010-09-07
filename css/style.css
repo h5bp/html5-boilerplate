@@ -69,9 +69,10 @@ input, select { vertical-align:middle; }
 /* fonts.css from the YUI Library: developer.yahoo.com/yui/
    Please refer to developer.yahoo.com/yui/fonts/ for font sizing percentages
 
-  There are two custom edits:
+  There are three custom edits:
    * remove arial, helvetica from explicit font stack
    * we normalize monospace styles ourselves
+   * table font-size is reset in the HTML5 reset above so there is no need to repeat
 */
 body { font:13px/1.231 sans-serif; *font-size:small; } /* hack retained to preserve specificity */
 
