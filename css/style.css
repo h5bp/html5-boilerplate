@@ -196,7 +196,8 @@ button {  width: auto; overflow: visible; }
 .invisible { visibility: hidden; }
 
 /* >> The Magnificent CLEARFIX << j.mp/phayesclearfix */
-.clearfix:after  { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+.clearfix:after  { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+/* Fix clearfix: blueprintcss.lighthouseapp.com/projects/15318/tickets/5-extra-margin-padding-bottom-of-page */
 .clearfix { zoom: 1; }
 
 
