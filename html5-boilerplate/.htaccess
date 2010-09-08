@@ -1,6 +1,3 @@
-# BEGIN HTML5 Boilerplate <html5boilerplate.com>
-# Add this after the "# END WordPress" in your .htaccess
-
 # Apache configuration file
 # httpd.apache.org/docs/2.2/mod/quickreference.html
 
@@ -175,9 +172,8 @@ Options -MultiViews
 
 
 
-# custom 404 page 
-# Wordpress handles these through the template
-# ErrorDocument 404 /404.html
+# custom 404 page
+ErrorDocument 404 /404.html
 
 
 
@@ -187,5 +183,4 @@ AddDefaultCharset utf-8
 AddCharset utf-8 .html .css .js .xml .json .rss
 
 
-# END HTML5 Boilerplate
 

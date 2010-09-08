@@ -4,7 +4,7 @@
  * @subpackage HTML5_Boilerplate
  */
 ?>
-<nav id="sidebar" role="complementary">
+<aside id="sidebar">
   <?php   /* Widgetized sidebar, if you have the plugin installed. */
       if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar() ) : ?>
 
@@ -50,7 +50,7 @@
   </section>
   <?php }?>
   
-  <section role="navigation">
+  <nav role="navigation">
     <?php wp_list_pages('title_li=<h2>Pages</h2>' ); ?>
 
     <h2>Archives</h2>
@@ -59,9 +59,9 @@
     </ul>
 
     <?php wp_list_categories('show_count=1&title_li=<h2>Categories</h2>'); ?>
-  </section>
+  </nav>
 
-  <section>
+  <nav>
     <ul>
       <?php /* If this is the frontpage */ if ( is_home() || is_page() ) { ?>
         <?php wp_list_bookmarks(); ?>
@@ -80,6 +80,6 @@
 
       <?php endif; ?>
     </ul>
-  </section>
-</nav>
+  </nav>
+</aside>
 

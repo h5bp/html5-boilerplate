@@ -20,35 +20,28 @@
 
   <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-  <script>!window.jQuery && document.write('<script src="<?php echo $template_url; ?>/js/jquery-1.4.2.min.js"><\/script>')</script>
+  <script>!window.jQuery && document.write('<script src="<?= $GLOBALS["TEMPLATE_RELATIVE_URL"] ?>html5-boilerplate/js/jquery-1.4.2.min.js"><\/script>')</script>
 
 
-  <script src="<?php echo $template_url; ?>/js/plugins.js?v=1"></script>
-  <script src="<?php echo $template_url; ?>/js/script.js?v=1"></script>
+  <?= versioned_javascript($GLOBALS["TEMPLATE_RELATIVE_URL"]."html5-boilerplate/js/plugins.js") ?>
+  <?= versioned_javascript($GLOBALS["TEMPLATE_RELATIVE_URL"]."html5-boilerplate/js/script.js") ?>
+
 
   <!--[if lt IE 7 ]>
-    <script src="<?php echo $template_url; ?>/js/dd_belatedpng.js?v=1"></script>
+    <?= versioned_javascript($GLOBALS["TEMPLATE_RELATIVE_URL"]."html5-boilerplate/js/dd_belatedpng.js") ?>
   <![endif]-->
 
 
   <!-- yui profiler and profileviewer - remove for production -->
-  <script src="<?php echo $template_url; ?>/js/profiling/yahoo-profiling.min.js?v=1"></script>
-  <script src="<?php echo $template_url; ?>/js/profiling/config.js?v=1"></script>
+  <!-- <?= versioned_javascript($GLOBALS["TEMPLATE_RELATIVE_URL"]."html5-boilerplate/js/profiling/yahoo-profiling.min.js") ?>
+    <?= versioned_javascript($GLOBALS["TEMPLATE_RELATIVE_URL"]."html5-boilerplate/js/profiling/config.js") ?> -->
   <!-- end profiling code -->
 
 
   <!-- asynchronous google analytics: mathiasbynens.be/notes/async-analytics-snippet
        change the UA-XXXXX-X to be your site's ID -->
-  <script>
-   var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
-   (function(d, t) {
-    var g = d.createElement(t),
-        s = d.getElementsByTagName(t)[0];
-    g.async = true;
-    g.src = '//www.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g, s);
-   })(document, 'script');
-  </script>
+  <!-- WordPress does not allow Google Analytics code to be built into themes they host. 
+       Add this section from HTML Boilerplate manually (html5-boilerplate/index.html), or use a Google Analytics WordPress Plugin-->
 
   <?php wp_footer(); ?>
 

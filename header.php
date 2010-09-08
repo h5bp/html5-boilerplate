@@ -3,11 +3,6 @@
  * @package WordPress
  * @subpackage HTML5_Boilerplate
  */
-
-  // http://html5doctor.com/designing-a-blog-with-html5/
-
- $template_url = get_bloginfo('template_url');
-
 ?>
 <!doctype html>
 <html lang="en" class="no-js">
@@ -20,6 +15,7 @@
   <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
        Remove this if you use the .htaccess -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <!-- Does not currently validate. Known issue with the Boilerplate. -->
 
   <title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
   <meta name="description" content="">
@@ -38,13 +34,13 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
   <!-- CSS : implied media="all" -->
-  <link rel="stylesheet" href="<?php echo $template_url; ?>/css/style.css?v=1">
+  <?= versioned_stylesheet($GLOBALS["TEMPLATE_RELATIVE_URL"]."html5-boilerplate/css/style.css") ?>
 
   <!-- For the less-enabled mobile browsers like Opera Mini -->
-  <link rel="stylesheet" media="handheld" href="<?php echo $template_url; ?>/css/handheld.css?v=1">
+  <?= versioned_stylesheet($GLOBALS["TEMPLATE_RELATIVE_URL"]."html5-boilerplate/css/handheld.css", 'media="handheld"') ?>
 
   <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
-  <script src="<?php echo $template_url; ?>/js/modernizr-1.5.min.js"></script>
+  <?= versioned_javascript($GLOBALS["TEMPLATE_RELATIVE_URL"]."html5-boilerplate/js/modernizr-1.5.min.js") ?>
 
   <!-- Wordpress Head Items -->
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />

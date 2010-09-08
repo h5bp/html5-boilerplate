@@ -10,7 +10,7 @@ get_header(); ?>
   <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
   <article class="post" id="post-<?php the_ID(); ?>">
     <header>
-      <h2><?php the_title(); ?></a></h2>
+      <h2><?php the_title(); ?></h2>
     </header>
   
     <?php the_content('<p class="serif">Read the rest of this page &raquo;</p>'); ?>
