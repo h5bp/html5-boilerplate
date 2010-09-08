@@ -16,10 +16,13 @@
   </IfModule>
 </IfModule>
 
+<IfModule mod_headers.c>
 # Because X-UA-Compatible isn't sent to non-IE (to save header bytes),
 #   We need to inform proxies that content changes based on UA
-<IfModule mod_headers.c>
   Header append Vary User-Agent
+# Ensure proxy caching, since gzip is accept-encoding dependent.
+  Header append Vary Accept-Encoding
+# Cache control is set only if mod_headers is enabled, so that's unncessary to declare
 </IfModule>
 
 # hacks.mozilla.org/2009/07/cross-site-xmlhttprequest-with-cors/
