@@ -83,22 +83,25 @@ select, input, textarea, button { font:99% sans-serif; }
  */
 pre, code, kbd, samp { font-family: monospace, sans-serif; }
  
+
 /* 
  * minimal base styles 
  */
 
 
-/* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */ 
-body, select, input, textarea { color: #444; }
+body, select, input, textarea { 
+  /* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */ 
+  color: #444; 
+  /* set your base font here, to apply evenly 
+  /* font-family: Georgia, serif;  */   
+}
 
 /* Headers (h1,h2,etc) have no default font-size or margin,
    you'll want to define those yourself. */ 
 h1,h2,h3,h4,h5,h6 { font-weight: bold; }
 
-html { 
-  /* always force a scrollbar in non-IE */ 
-  overflow-y: scroll;
-}
+/* always force a scrollbar in non-IE */ 
+html { overflow-y: scroll; }
 
  
 /* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
@@ -144,14 +147,15 @@ input[type="checkbox"] { vertical-align: bottom; }
 label, input[type=button], input[type=submit], button { cursor: pointer; }
 
 /* colors for form validity */
-input:valid   {  }
-input:invalid { 
+input:valid, textarea:valid   {  }
+input:invalid, textarea:invalid { 
       border-radius: 1px;
     -moz-box-shadow: 0px 0px 5px red; 
  -webkit-box-shadow: 0px 0px 5px red; 
          box-shadow: 0px 0px 5px red;
 }
-.no-boxshadow input:invalid { background-color: #f0dddd; }
+.no-boxshadow input:invalid, 
+.no-boxshadow textarea:invalid { background-color: #f0dddd; }
 
 
 /* These selection declarations have to be separate.
