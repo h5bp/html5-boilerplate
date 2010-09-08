@@ -48,12 +48,12 @@ $GLOBALS["TEMPLATE_RELATIVE_URL"] = wp_make_link_relative($GLOBALS["TEMPLATE_URL
 
 // Add ?v=[last modified time] to style sheets
 function versioned_stylesheet($relative_url, $add_attributes=""){
-  return '<link rel="stylesheet" href="'.versioned_resource($relative_url).'" '.$add_attributes.'>'."\n";
+  echo '<link rel="stylesheet" href="'.versioned_resource($relative_url).'" '.$add_attributes.'>'."\n";
 }
 
 // Add ?v=[last modified time] to javascripts
 function versioned_javascript($relative_url, $add_attributes=""){
-  return '<script src="'.versioned_resource($relative_url).'" '.$add_attributes.'></script>'."\n";
+  echo '<script src="'.versioned_resource($relative_url).'" '.$add_attributes.'></script>'."\n";
 }
 
 // Add ?v=[last modified time] to a file url
