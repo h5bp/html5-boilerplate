@@ -131,8 +131,6 @@ pre {
  
 textarea { overflow: auto; } /* thnx ivannikolic! www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
 
-input, textarea, select { font-family: inherit; font-weight: inherit; } /* To make IE6/7 inherit the font styles from parent selectors */
-
 .ie6 legend, .ie7 legend { margin-left: -7px; } /* thnx ivannikolic! */
 
 /* align checkboxes, radios, text inputs with their label
