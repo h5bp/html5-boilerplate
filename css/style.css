@@ -64,9 +64,6 @@ hr { display:block; height:1px; border:0; border-top:1px solid #ccc; margin:1em 
 
 input, select { vertical-align:middle; }
 
-/* remove default outline in Firefox */
-* {outline:none;}
-
 /* END RESET CSS */
 
 
@@ -282,4 +279,3 @@ button {  width: auto; overflow: visible; }
      j.mp/textsizeadjust 
   html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } */
 }
-

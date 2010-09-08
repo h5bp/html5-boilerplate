@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+
+  <!-- www.phpied.com/conditional-comments-block-downloads/ -->
+  <!--[if IE]><![endif]-->
+
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame 
+       Remove this if you use the .htaccess -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title></title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--  Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+  <!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+  <!-- CSS : implied media="all" -->
+  <link rel="stylesheet" href="../css/style.css?v=1">
+
+  <!-- For the less-enabled mobile browsers like Opera Mini -->
+  <link rel="stylesheet" media="handheld" href="../css/handheld.css?v=1">
+	<link rel="stylesheet" href="hack2.css">
+ 
+  <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+  <script src="../js/modernizr-1.5.min.js"></script>
+</head>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+
+<!--[if lt IE 7 ]> <body class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <body class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <body class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <body class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <body> <!--<![endif]-->
+
+  <div id="container">
+    <header>
+				<br /><br /><h1>HTML5 Boilerplate CSS Hack Sheet</h1><br /><br />
+    </header>
+    
+    <div id="main" style="display:block;">
+			<dl>
+				<dt>Hack 01 - Set default color</dt>
+					<dd>
+						HTML5 Boilerplaters believe that font default color looks better when set to #444 instead of #000.<br />
+						<span style="color:black;">Web font default color</span>
+					</dd>
+				
+				<dt>Hack 02 - Vertical Scroll Bar</dt>
+					<dd>
+						click <a href="#" id="shorten">shorten</a> | <a href="#" id="expand">expand</a> to see how we always force a scrollbar in non-IE.
+					</dd>
+
+				<dt>Hack 03 - Accessible focus treatment</dt>
+					<dd>
+						Remove dotted outline around 'a' tag when hover and on focus in certain browsers
+						<br /><br />
+						<span href="#" class="show">With Boilerplate CSS</span> | <span href="#" class="hide">Without Boilerplate CSS</span>
+						<br /><br />
+						<a href="#" class="preventDefault">Click me</a>
+					</dd>
+			
+				<dt>Hack 04 - Pre Wrapping</dt>
+					<dd>
+						Default CSS 'pre' tag doesn't wrap text properly in many browsers. Here is the hack without Boilerplate that tackles the issue. 
+						<br /><br />
+						<span href="#" class="show">With Boilerplate CSS</span> | <span href="#" class="hide">Without Boilerplate CSS</span>
+						<br /><br />
+						with wrapping:<br /><br />
+						<div class="wrapper">
+						<pre>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</pre>
+						</div><br />
+						without wrapping:<br /><br />
+						<div class="wrapper">
+							aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+						</div>
+					</dd>
+					
+				<dt>Hack 05 - Remove default textarea scrollbar</dt>
+					<dd>
+						<span href="#" class="show">With Boilerplate CSS</span> | <span href="#" class="hide">Without Boilerplate CSS</span>
+						<br /><br />
+						<form>
+							<textarea></textarea>
+						</form>
+					</dd>				
+			
+				<dt>Hack 06 - IE6,7 legend margin</dt>
+					<dd>
+						Left align form legend to the inner text in IE6,7.<br /><br />
+						<span href="#" class="show">With Boilerplate CSS</span> | <span href="#" class="hide">Without Boilerplate CSS</span>
+						<br /><br />
+						<form>
+							<fieldset>
+								<legend>Personalia:</legend><br />
+								Name: <input type="text" size="30" /><br />
+								Email: <input type="text" size="30" /><br />
+								Date of birth: <input type="text" size="10" />
+							</fieldset>
+						</form>
+					</dd>
+				
+				<dt>Hack 07 - Vertically align checkboxes, radios, text inputs with their label</dt>
+					<dd>
+						<span href="#" class="show">With Boilerplate CSS</span> | <span href="#" class="hide">Without Boilerplate CSS</span>
+						<br /><br />
+						<input type="radio" /> Option A <br /><br />
+						<input type="checkbox" /> Item B <br /><br />
+						Name: <input type="text" />
+					</dd>
+						
+				<dt>Hack 08 - Hand cursor on clickable input elements</dt>
+					<dd>
+						<span href="#" class="show">With Boilerplate CSS</span> | <span href="#" class="hide">Without Boilerplate CSS</span>
+						<br /><br />
+						Input with type submit <input type="submit" value="submit" />
+					</dd>
+					
+					
+				<dt>Hack 09 - Webkit browsers form elements margin</dt>
+					<dd>
+						Webkit browsers add a 2px margin outside the chrome of form elements<br /><br />
+						<span href="#" class="show">With Boilerplate CSS</span> | <span href="#" class="hide">Without Boilerplate CSS</span>
+						<br /><br />
+						<form>
+						<input type="submit" value="submit" /><br /><br />
+						<button type="button">Click Me!</button><br /><br />
+						<select><option>Default</option></select>
+						</form>
+					</dd>
+					
+				<dt>Hack 10 - Make buttons width rendered correctly</dt>
+					<dd>
+						IE decides to stack the padding of a button depending on the width of the content inside the button. HTML5 Boilerplate fixes the problem. <br /><br />
+						<span href="#" class="show">With Boilerplate CSS</span> | <span href="#" class="hide">Without Boilerplate CSS</span>
+						<br /><br />
+						<form>
+							<button type="button">Click Me!</button>
+							<button type="button">This is a really long button</button>
+						</form>
+					</dd>
+				
+				<dt>Hack 11 - Bicubic resizing for non-native sized IMG</dt>
+					<dd>
+						IE7 hack to reduce distortion caused by image resizing <br /><br />
+						<span href="#" class="show">With Boilerplate CSS</span> | <span href="#" class="hide">Without Boilerplate CSS</span>
+						<br /><br />
+						<img src="../apple-touch-icon.png" width="27" /><br />
+						<img src="../apple-touch-icon.png" width="57" /><br />
+						<img src="../apple-touch-icon.png" width="157" /><br />
+					</dd>
+				
+				<dt>Hack 12 - Hide visually</dt>
+					<dd>
+						Hide element visually, but have it available for screenreaders
+						<br /><br />
+						<span href="#" class="show">With Boilerplate CSS</span> | <span href="#" class="hide">Without Boilerplate CSS</span>
+						<br /><br />
+						<div class="visuallyhidden">showing</div>
+					</dd>
+				
+				<dt>Hack 13 - Image text replacement</dt>
+					<dd>
+						Image Replacement method used to make web page SEO-friendly.
+						<br /><br />
+						<span href="#" class="show">With Boilerplate CSS</span> | <span href="#" class="hide">Without Boilerplate CSS</span>
+						<br /><br />
+						
+						<div class="ir" style="background:url('../apple-touch-icon.png'); width:57px; height:57px;">Apple Touch Icon</div>
+						
+					</dd>	
+
+				<dt>Hack 14 - Clear Floats Without Structural Markup</dt>
+					<dd>
+						Clear Floats Without Structural Markup and prevent extra margin/padding at bottom of page.
+						<br /><br />
+						<span href="#" class="show">With Boilerplate CSS</span> | <span href="#" class="hide">Without Boilerplate CSS</span>
+						<br /><br />
+						<div id="clear-demo" class="clearfix">
+							<div id="clear-demo-l">text float left</div><div id="clear-demo-r">text float right</div>
+						</div>
+						<div id="clear-demo-b">text bottom</div>
+					</dd>		
+			</dl>
+    </div>
+    <footer>
+    </footer>
+  </div> <!--! end of #container -->
+
+
+  <!-- Javascript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script>!window.jQuery && document.write('<script src="../js/jquery-1.4.2.min.js"><\/script>')</script>
+  <script>
+    $('#expand').click(function() {
+      $('dl').css('height','auto');
+			$('dl').css('overflow','hidden');
+			return false;
+    });
+		
+		$('#shorten').click(function() {
+      $('dl').css('height','400px');
+			$('dl').css('overflow','hidden');
+			return false;
+    });
+		
+		$('#atag').click(function() {
+			return false;
+    });
+		
+		$('.show').click(function(){
+			showStyle();
+			return false;
+		});
+		$('.hide').click(function(){
+			hideStyle();
+			return false;
+		});
+		
+		var linkTags = $('link');
+		function hideStyle() {
+			$('link').attr('href','');
+			$('link').eq(2).attr('href','hack.css');
+			linkTags.eq(4).attr('href','hack2.css');
+		}
+		function showStyle() {
+			linkTags.eq(0).attr('href','/favicon.ico');
+			linkTags.eq(1).attr('href','/apple-touch-icon.png');
+			linkTags.eq(2).attr('href','../css/style.css');
+			linkTags.eq(3).attr('href','../css/handheld.css');
+			linkTags.eq(4).attr('href','hack2.css');
+		}
+		$('dt').click(function() {
+			$('dd').slideUp();
+			$(this).next().slideDown();
+			return false;
+		});
+		
+		$('.preventDefault').click(function() {
+			return false;
+		});
+  </script>
+  <script src="../js/plugins.js?v=1"></script>
+  <script src="../js/script.js?v=1"></script>
+
+  <!--[if lt IE 7 ]>
+    <script src="../js/dd_belatedpng.js?v=1"></script>
+  <![endif]-->
+
+
+  <!-- yui profiler and profileviewer - remove for production -->
+  <script src="../js/profiling/yahoo-profiling.min.js?v=1"></script>
+  <script src="../js/profiling/config.js?v=1"></script>
+  <!-- end profiling code -->
+
+
+  <!-- asynchronous google analytics: mathiasbynens.be/notes/async-analytics-snippet 
+       change the UA-XXXXX-X to be your site's ID -->
+  <script>
+   var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
+   (function(d, t) {
+    var g = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+    g.async = true;
+    g.src = '//www.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g, s);
+   })(document, 'script');
+  </script>
+
+</body>
+</html>
