@@ -87,7 +87,7 @@ AddType text/x-component              htc
 <IfModule mod_deflate.c>
 
 # html, txt, css, js, json, xml, htc:
-  AddOutputFilterByType DEFLATE text/html text/plain text/css application/x-javascript text/javascript application/javascript application/json text/xml application/xml text/x-component
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json text/xml application/xml text/x-component
 
 # webfonts and svg:
   <FilesMatch "\.(ttf|otf|eot|svg)$" >
