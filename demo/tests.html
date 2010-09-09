@@ -189,14 +189,31 @@
 							<div id="clear-demo-l">text floated left</div><div id="clear-demo-r">text floated right</div>
 						</div>
 						<div id="clear-demo-b">unfloated text</div>
-					</dd>		
+					</dd>	
+					
+					
+					<dt>Hack 15 - PNG fix</dt>
+					<dd>fix pngs for correct display in IE6
+					  <br /> <br />
+					  
+					  <div style="position:relative">
+					    
+					    <!-- wassup gradient. -->
+					    <div style="position:absolute; height: 55px; background-color: #444444; background-image: -moz-linear-gradient(top, #444444, #999999);  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #444444),color-stop(1, #999999));  filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#444444', EndColorStr='#999999');  ">
+					      
+					      
+  					  <div class="png_bg" style="border:1px solid #ddd; width:100px; padding:10px 10px 10px 50px; margin:10px 0; display:inline-block; background:url(test_tubes.png) no-repeat 5px center;">
+                <img src="internet_explorer.png" alt="IE is so awesome" />
+              </div>
+            </div>
+					  
+					</dd>	
 			</dl>
     </div>
     <footer>
     </footer>
   </div> <!--! end of #container -->
-
-
+  
   <!-- Javascript at the bottom for fast page loading -->
 
   <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
@@ -251,6 +268,9 @@
 
   <!--[if lt IE 7 ]>
     <script src="../js/dd_belatedpng.js?v=1"></script>
+    <script>
+      DD_belatedPNG.fix('img, .png_bg');
+    </script>
   <![endif]-->
 
 
