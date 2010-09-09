@@ -21,7 +21,7 @@ body { font:13px/1.231 sans-serif; *font-size:small; } /* hack retained to prese
 		
 		dl {margin:0 auto; width:900px;}
 		dt {background-color:#ccc; margin-bottom:20px; cursor:pointer; cursor:hand; padding:5px; font-weight:bold; }
-		dd {display:none; margin-bottom:30px;}
+		dd {margin-bottom:30px;}
 		
 #clear-demo {width:500px; border:1px solid black;}
 #clear-demo-l {width:200px; border:1px solid black; float:left;}
