@@ -75,8 +75,10 @@
 						<span href="#" class="show">With Boilerplate CSS</span> | <span href="#" class="hide">Without Boilerplate CSS</span>
 						<br /><br />
 						with wrapping:<br /><br />
-						<div class="wrapper">
-						<pre>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</pre>
+						<div style="height:115px;">
+  						<div class="wrapper">
+  						  <pre>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</pre>
+  						</div>
 						</div><br />
 						without wrapping:<br /><br />
 						<div class="wrapper">
@@ -221,14 +223,12 @@
   <script>!window.jQuery && document.write('<script src="../js/jquery-1.4.2.min.js"><\/script>')</script>
   <script>
     $('#expand').click(function() {
-      $('dl').css('height','auto');
-			$('dl').css('overflow','hidden');
+      $('#container').css('height','auto').css('overflow','');
 			return false;
     });
 		
 		$('#shorten').click(function() {
-      $('dl').css('height','400px');
-			$('dl').css('overflow','hidden');
+      $('#container').css('height','300px').css('overflow','hidden');
 			return false;
     });
 		
@@ -241,6 +241,12 @@
 			return false;
 		});
 		$('.hide').click(function(){
+		  
+		  // freeze the size of each tests so the page doesnt jump.
+		  $('dd').each(function(){
+        $(this).height( $(this).height() );
+      });
+      
 			hideStyle();
 			return false;
 		});
