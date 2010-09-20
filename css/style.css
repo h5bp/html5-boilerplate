@@ -67,7 +67,7 @@ input, select { vertical-align:middle; }
 
 
 /* fonts.css from the YUI Library: developer.yahoo.com/yui/
-   Please refer to developer.yahoo.com/yui/fonts/ for font sizing percentages
+   Refer to developer.yahoo.com/yui/3/cssfonts/ for font sizing percentages
 
   There are three custom edits:
    * remove arial, helvetica from explicit font stack
