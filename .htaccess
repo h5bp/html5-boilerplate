@@ -117,7 +117,7 @@ AddType text/x-component              htc
 # Perhaps better to whitelist expires rules? Perhaps.
   ExpiresDefault                          "access plus 1 month"
 
-# cache.manifest needs re-reqeusts in FF 3.6 (thx Remy ~Introducing HTML5)
+# cache.manifest needs re-requests in FF 3.6 (thx Remy ~Introducing HTML5)
   ExpiresByType text/cache-manifest       "access plus 0 seconds"
 
 # your document html 
