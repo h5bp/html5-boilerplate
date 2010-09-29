@@ -92,7 +92,7 @@ pre, code, kbd, samp { font-family: monospace, sans-serif; }
 body, select, input, textarea { 
   /* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */ 
   color: #444; 
-  /* set your base font here, to apply evenly 
+  /* set your base font here, to apply evenly */
   /* font-family: Georgia, serif;  */   
 }
 
