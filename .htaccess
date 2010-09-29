@@ -16,10 +16,11 @@
   </IfModule>
 </IfModule>
 
+<IfModule mod_headers.c>
 # Because X-UA-Compatible isn't sent to non-IE (to save header bytes),
 #   We need to inform proxies that content changes based on UA
-<IfModule mod_headers.c>
   Header append Vary User-Agent
+# Cache control is set only if mod_headers is enabled, so that's unncessary to declare
 </IfModule>
 
 # hacks.mozilla.org/2009/07/cross-site-xmlhttprequest-with-cors/
@@ -87,7 +88,8 @@ AddType text/x-component              htc
 <IfModule mod_deflate.c>
 
 # html, txt, css, js, json, xml, htc:
-  AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json text/xml application/xml text/x-component
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json
+  AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
 
 # webfonts and svg:
   <FilesMatch "\.(ttf|otf|eot|svg)$" >
@@ -107,13 +109,13 @@ AddType text/x-component              htc
 #   "access plus 1 week" or so
 
 <IfModule mod_expires.c>
-  Header set cache-control: public
+  Header set Cache-Control "public"
   ExpiresActive on
 
 # Perhaps better to whitelist expires rules? Perhaps.
   ExpiresDefault                          "access plus 1 month"
 
-# cache.manifest needs re-reqeusts in FF 3.6 (thx Remy ~Introducing HTML5)
+# cache.manifest needs re-requests in FF 3.6 (thx Remy ~Introducing HTML5)
   ExpiresByType text/cache-manifest       "access plus 0 seconds"
 
 # your document html 
@@ -184,8 +186,8 @@ FileETag None
   RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 </IfModule>
 
-# without -MultiViews, Apache will give a 404 for a rewrite if a folder of the same name does not exist (e.g. “/blog/hello”)
-#   webmasterworld.com/apache/3808792.htm
+# without -MultiViews, Apache will give a 404 for a rewrite if a folder of the same name does not exist 
+#   e.g. /blog/hello : webmasterworld.com/apache/3808792.htm
 Options -MultiViews 
 # -Indexes will have Apache block users from browsing folders without a default document
 # Options -Indexes

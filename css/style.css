@@ -67,7 +67,7 @@ input, select { vertical-align:middle; }
 
 
 /* fonts.css from the YUI Library: developer.yahoo.com/yui/
-   Please refer to developer.yahoo.com/yui/fonts/ for font sizing percentages
+   Refer to developer.yahoo.com/yui/3/cssfonts/ for font sizing percentages
 
   There are three custom edits:
    * remove arial, helvetica from explicit font stack
@@ -145,6 +145,9 @@ input[type="checkbox"] { vertical-align: bottom; }
 
 /* hand cursor on clickable input elements */
 label, input[type=button], input[type=submit], button { cursor: pointer; }
+ 
+/* webkit browsers add a 2px margin outside the chrome of form elements */  
+button, input, select, textarea { margin: 0; }
 
 /* colors for form validity */
 input:valid, textarea:valid   {  }
