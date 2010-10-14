@@ -36,6 +36,8 @@ else
     
     #copy to new project directory
     #http://en.wikipedia.org/wiki/Cpio#Copy
+    #http://cybertiggyr.com/cpio-howto/
+    #http://www.cyberciti.biz/faq/how-do-i-use-cpio-command-under-linux/
     find . -depth -print0 | cpio -0pdmv $DST
     
 
@@ -46,7 +48,12 @@ else
     cd $DST
     
     #cleanup
-    sudo rm -r .git && sudo rm -r html5-boilerplate && sudo rm -r createproject.sh
+    sudo rm -r .git && sudo rm -r createproject.sh
+    
+    if [ -d "$DST/html5-boilerplate" ]
+    then
+        sudo rm -r html5-boilerplate
+    fi        
       
 fi
 
