@@ -1,12 +1,16 @@
- #!/bin/bash         
+#!/usr/bin/env bash
+
+#Generate a new project from your HTML5 Boilerplate repo clone
+#Created 2010-10-13, Rick Waldron
+
 
 ##first run
-#cd  html5-boilerplate
-#sudo chmod a+x createproject.sh && ./createproject.sh
+# $ cd  html5-boilerplate
+# $ sudo chmod a+x makep.sh && ./makep.sh
 
 ##usage
-#cd  html5-boilerplate
-#./createproject.sh
+# $ cd  html5-boilerplate
+# $ ./makep.sh
 
 echo "To create a new html5-boilerplate project, enter a new directory name:"
 
@@ -51,9 +55,9 @@ else
         sudo rm -r html5-boilerplate
     fi        
     
-    if [ -e "$DST/createproject.sh" ]
+    if [ -e "$DST/makep.sh" ]
     then
-        sudo rm -r createproject.sh
+        sudo rm -r makep.sh
     fi  
     
     if [ -e "$DST/.git" ]
@@ -62,7 +66,5 @@ else
     fi  
 
 fi
-
-cd $webroot"/"$name
 
 
