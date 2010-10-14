@@ -1,5 +1,15 @@
  #!/bin/bash         
 
+##first run
+#cd  html5-boilerplate
+#sudo chmod a+x createproject.sh && ./createproject.sh
+
+##usage
+#cd  html5-boilerplate
+#./createproject.sh
+
+
+
 clear
 echo "To create a new html5-boilerplate project, enter a new directory name:"
 
