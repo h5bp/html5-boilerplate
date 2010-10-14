@@ -50,6 +50,9 @@ else
     #cleanup
     sudo rm -r .git && sudo rm -r createproject.sh
     
+    #in Bourne Again Shell, the cpio was copying 
+    #the whole dir into the new project, along with 
+    #the contents
     if [ -d "$DST/html5-boilerplate" ]
     then
         sudo rm -r html5-boilerplate
