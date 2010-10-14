@@ -8,9 +8,6 @@
 #cd  html5-boilerplate
 #./createproject.sh
 
-
-
-clear
 echo "To create a new html5-boilerplate project, enter a new directory name:"
 
 read name
@@ -47,17 +44,23 @@ else
     #move into new project
     cd $DST
     
-    #cleanup
-    sudo rm -r .git && sudo rm -r createproject.sh
-    
     #in Bourne Again Shell, the cpio was copying 
-    #the whole dir into the new project, along with 
-    #the contents
+    #the whole dir into the new project, along with the contents
     if [ -d "$DST/html5-boilerplate" ]
     then
         sudo rm -r html5-boilerplate
     fi        
-      
+    
+    if [ -e "$DST/createproject.sh" ]
+    then
+        sudo rm -r createproject.sh
+    fi  
+    
+    if [ -e "$DST/.git" ]
+    then
+        sudo rm -r .git
+    fi  
+
 fi
 
 cd $webroot"/"$name
