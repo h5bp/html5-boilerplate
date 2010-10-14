@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+	<!--
+		Document : wurfl-config.xml Created on : January 16, 2008, 7:07 PM
+		Description: Sample Configuration for wurfl-config. ALL the path are
+		or absolute or relative to the WURFL dir. taking e.g absolute path ->
+		/home/fanta/resources/wurfl.xml CACHE: provider : cache provider
+		specifies the caching implementation to use to store the
+		$request->$deviceID values possible values are: - null -> no caching
+		will be used - file -> it will use the file system( it will use the
+		directory specified by dir element) - memcache - apc params : specify
+		the parameteres for the provider: e.g if you choose file system
+		caching you need to specify the cache dir PERSISTANCE: It is used for
+		saving the parsed wurf devices possible values are: - file -> it will
+		use the file system( it will use the directory specified by dir
+		parameter) e.g. <params>dir=../cache</params> - memcache -> it will
+		use the memcache module( specify the server ip to connect to lik:
+		<params>serverIp=127.0.0.1</params>) - apc params : specify the
+		parameteres for the provider: e.g if you choose file system caching
+		you need to specify the cache dir
+	-->
+
+<wurfl-config>
+	<wurfl>
+		<main-file>wurfl.xml</main-file>
+		<patches>
+			<patch>web_browsers_patch.xml</patch>
+		</patches>
+	</wurfl>
+	<persistence>
+		<provider>file</provider>
+		<params>dir=./cache</params>
+	</persistence>
+	
+	<!-- 
+	<persistence>
+		<provider>memcache</provider>
+		<params>host=127.0.0.1,port=11211</params>
+	</persistence>
+	 -->
+</wurfl-config>

@@ -1,0 +1,56 @@
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+  <start>
+    <element name="wurfl_patch">
+      <!-- occurrences: 1 -->
+      <element name="devices">
+        <!-- occurrences: 1 -->
+        <oneOrMore>
+          <element name="device">
+            <!-- occurrences: 2772 -->
+            <group>
+              <group>
+                <attribute name="id">
+                  <text/>
+                </attribute>
+                <attribute name="user_agent">
+                  <text/>
+                </attribute>
+                <attribute name="fall_back">
+                  <text/>
+                </attribute>
+                <optional>
+                  <attribute name="actual_device_root">
+                    <text/>
+                  </attribute>
+                </optional>
+              </group>
+              <zeroOrMore>
+                <element name="group">
+                  <!-- occurrences: 142 -->
+                  <group>
+                    <attribute name="id">
+                      <text/>
+                    </attribute>
+                    <oneOrMore>
+                      <element name="capability">
+                        <!-- occurrences: 198 -->
+                        <group>
+                          <attribute name="value">
+                            <text/>
+                          </attribute>
+                          <attribute name="name">
+                            <text/>
+                          </attribute>
+                        </group>
+                      </element>
+                    </oneOrMore>
+                  </group>
+                </element>
+              </zeroOrMore>
+            </group>
+          </element>
+        </oneOrMore>
+      </element>
+    </element>
+  </start>
+</grammar>

@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wurfl_patch>
+	<devices>
+		<device fall_back="generic" id="crawlerboy" user_agent="CrawlerBoy Pinpoint.com">
+		</device>
+		<device fall_back="generic" id="fast_wireless_crawler_ver1"
+			user_agent="EricssonR320/R1A (Fast Wireless Crawler)">
+		</device>
+		<device fall_back="bloody_transcoder" id="google_wireless_transcoder_ver1"
+			user_agent="Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; Google Wireless Transcoder;)">
+			<group id="product_info">
+				<capability name="can_skip_aligned_link_row" value="true" />
+				<capability name="model_name" value="Wireless Transcoder" />
+				<capability name="is_wireless_device" value="false" />
+				<capability name="brand_name" value="Google" />
+				<capability name="unique" value="false" />
+			</group>
+			<group id="display">
+				<capability name="resolution_height" value="128" />
+				<capability name="max_image_height" value="128" />
+			</group>
+			<group id="transcoding">
+				<capability name="transcoder_ua_header" value="x-original-user-agent" />
+			</group>
+		</device>
+		<device fall_back="bloody_transcoder" id="stupid_novarra_proxy"
+			user_agent="Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.0.7) Gecko/20060909 Firefox/1.5.0.7 MG (Novarra-Vision/6.1)">
+			<group id="product_info">
+				<capability name="model_name" value="CTS reformatting proxy" />
+				<capability name="is_wireless_device" value="false" />
+				<capability name="brand_name" value="Novarra" />
+				<capability name="unique" value="false" />
+			</group>
+			<group id="xhtml_ui">
+				<capability name="accept_third_party_cookie" value="false" />
+			</group>
+			<group id="transcoding">
+				<capability name="transcoder_ua_header" value="X-Device-User-Agent" />
+			</group>
+		</device>
+		<device fall_back="generic_xhtml" id="stupid_novarra_nweb_generic"
+			user_agent="Novarra/5.">
+			<group id="product_info">
+				<capability name="mobile_browser" value="Novarra nWeb" />
+				<capability name="model_name" value="nWeb Browser" />
+				<capability name="brand_name" value="Novarra" />
+			</group>
+		</device>
+		<device fall_back="stupid_novarra_nweb_generic" id="stupid_novarra_nweb_generic_gu900"
+			user_agent="Novarra/5.2.25.1.11lgu900(J2ME-OPT)">
+			<group id="product_info">
+				<capability name="model_name" value="U900" />
+				<capability name="brand_name" value="LG" />
+				<capability name="release_date" value="2008_october" />
+			</group>
+		</device>
+		<device fall_back="stupid_novarra_nweb_generic" id="stupid_novarra_nweb_genreric_samsungp910"
+			user_agent="Novarra/5.2.25.1.11samsungp910(J2ME-OPT)">
+		</device>
+		<device fall_back="stupid_novarra_proxy" id="stupid_novarra_proxy_sub73"
+			user_agent="Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.0.7) Gecko/20060909 Firefox/1.5.0.7 Novarra-Vision/7.3">
+		</device>
+		<device fall_back="stupid_novarra_proxy_sub73" id="stupid_novarra_proxy_sub73_mg"
+			user_agent="Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.0.7) Gecko/20060909 Firefox/1.5.0.7 MG(Novarra-Vision/7.3)">
+		</device>
+		<device fall_back="google_wireless_transcoder_ver1" id="google_wireless_transcoder_ver1_subua"
+			user_agent="Mozilla/5.0 (en-us) AppleWebKit/525.13 (KHTML, like Gecko; Google Wireless Transcoder) Version/3.1 Safari/525.13">
+		</device>
+
+		<!-- Bots and crawlers -->
+		<device user_agent="Mozilla/5.0 (compatible; Googlebot"
+			fall_back="generic_web_browser" id="generic_web_crawler">
+			<group id="product_info">
+				<capability name="brand_name" value="Robot" />
+				<capability name="model_name" value="Bot or Crawler" />
+			</group>
+			<group id="image_format">
+				<capability name="wbmp" value="false" />
+				<capability name="bmp" value="false" />
+				<capability name="epoc_bmp" value="false" />
+				<capability name="gif" value="false" />
+				<capability name="gif_animated" value="false" />
+				<capability name="jpg" value="false" />
+				<capability name="png" value="false" />
+				<capability name="tiff" value="false" />
+				<capability name="svgt_1_1" value="false" />
+				<capability name="svgt_1_1_plus" value="false" />
+				<capability name="greyscale" value="false" />
+				<capability name="colors" value="2" />
+			</group>
+			<group id="object_download">
+				<capability name="picture" value="false" />
+				<capability name="video" value="false" />
+			</group>
+		</device>
+
+		<device user_agent="Mozilla/2.0 (compatible; Ask Jeeves/Teoma"
+			fall_back="generic_web_crawler" id="AskJeeves_Teoma" />
+
+		<device user_agent="Mozilla/5.0 (compatible; Googlebot/"
+			fall_back="generic_web_crawler" id="Googlebot" />
+		<device user_agent="Mozilla/5.0 (compatible; Yahoo! Slurp"
+			fall_back="generic_web_crawler" id="Yahoo_Slurp" />
+		<device user_agent="Mozilla/4.0 (compatible; Netcraft Web Server Survey"
+			fall_back="generic_web_crawler" id="Netcraft" />
+		<device user_agent="Mozilla/4.0 (compatible; Google Desktop"
+			fall_back="generic_web_crawler" id="Google_Desktop" />
+
+		<device id="curl_generic" fall_back="generic_web_crawler"
+			user_agent="curl/" />
+		<device id="curl_ver7_sub7123" fall_back="curl_generic"
+			user_agent="curl/7.12.3 (i686-pc-linux-gnu) libcurl/7.12.3 OpenSSL/0.9.6c zlib/1.2.2" />
+
+		<device id="funwebproducts" fall_back="generic_web_crawler"
+			user_agent="Fun Web Products" />
+		<!--
+			<device id="funwebproducts_ver1" fall_back="funwebproducts"
+			user_agent="Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1;
+			FunWebProducts)"/> <device id="funwebproducts_ver2"
+			fall_back="funwebproducts" user_agent="Mozilla/4.0 (compatible; MSIE
+			6.0; Windows NT 5.1; SV1; FunWebProducts; .NET CLR 1.1.4322)"/>
+			<device id="funwebproducts_ver3" fall_back="funwebproducts"
+			user_agent="Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;
+			FunWebProducts; SV1)"/> <device id="funwebproducts_ver4"
+			fall_back="funwebproducts" user_agent="Mozilla/4.0 (compatible; MSIE
+			6.0; Windows 98; Win 9x 4.90; FunWebProducts; .NET CLR 1.1.4322)"/>
+		-->
+
+		<device id="google" fall_back="generic_web_crawler" user_agent="Mediapartners-Google/2.1" />
+
+
+		<!--
+			<device id="spamblockerutility_ver1" fall_back="generic_web_crawler"
+			user_agent="Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;
+			MaxiFilesTB; MaxiFiles; iebar; acc=wssshared; acc=none; (none);
+			SpamBlockerUtility 4.7.1)"/>
+		-->
+
+		<device id="nsplayer_ver1" fall_back="generic_web_crawler"
+			user_agent="NSPlayer/9.0.0.3250" />
+		<device id="nsplayer_ver2" fall_back="generic_web_crawler"
+			user_agent="NSPlayer/9.0.0.3250 WMFSDK/9.0" />
+
+		<device id="mimanet" fall_back="generic_web_crawler"
+			user_agent="MIMAnet! Webtools (http://www.mimanet.com/scripts/webtools.html)" />
+
+		<!-- GetRight -->
+		<device user_agent="GetRight" fall_back="generic" id="getright_ver1">
+			<group id="product_info">
+				<capability name="is_wireless_device" value="false" />
+				<capability name="device_claims_web_support" value="true" />
+			</group>
+		</device>
+
+		<!-- http://lucene.apache.org/nutch/bot.html -->
+		<device user_agent="NutchCVS" fall_back="generic" id="nutchbot_ver1">
+			<group id="product_info">
+				<capability name="brand_name" value="Apache" />
+				<capability name="model_name" value="Nutch bot" />
+				<capability name="is_wireless_device" value="false" />
+				<capability name="device_claims_web_support" value="true" />
+			</group>
+		</device>
+
+		<!-- vobsub -->
+		<device user_agent="vobsub" fall_back="generic" id="vobsubcrawler_ver1">
+			<group id="product_info">
+				<capability name="is_wireless_device" value="false" />
+				<capability name="device_claims_web_support" value="true" />
+			</group>
+		</device>
+
+		<!-- enteos customer care customerca -->
+		<device user_agent="enteos customer care" fall_back="generic"
+			id="enteos_ver1">
+			<group id="product_info">
+				<capability name="is_wireless_device" value="false" />
+				<capability name="device_claims_web_support" value="true" />
+			</group>
+		</device>
+
+		<!-- Windows Media Player -->
+		<device user_agent="Windows-Media-Player/9" fall_back="generic_web_crawler"
+			id="windows_mediaplayer_ver9">
+			<group id="product_info">
+				<capability name="brand_name" value="Microsoft" />
+				<capability name="model_name" value="Windows Media Player 9" />
+			</group>
+		</device>
+		<device user_agent="Windows-Media-Player/9.00.00.3250"
+			fall_back="windows_mediaplayer_ver9" id="windows_mediaplayer_ver9_sub900003250" />
+		<device user_agent="Windows-Media-Player/9.00.00.2980"
+			fall_back="windows_mediaplayer_ver9" id="windows_mediaplayer_ver9_sub900002980" />
+		<device user_agent="Windows-Media-Player/9.00.00.3344"
+			fall_back="windows_mediaplayer_ver9" id="windows_mediaplayer_ver9_sub900003344" />
+		<device user_agent="Windows-Media-Player/10" fall_back="windows_mediaplayer_ver9"
+			id="windows_mediaplayer_ver10">
+			<group id="product_info">
+				<capability name="model_name" value="Windows Media Player 10" />
+			</group>
+		</device>
+		<device user_agent="Windows-Media-Player/10.00.00.3990"
+			fall_back="windows_mediaplayer_ver10" id="windows_mediaplayer_ver10_sub10000003990" />
+
+		<!-- WebTrends -->
+		<device user_agent="WebTrends" fall_back="generic" id="webtrends">
+			<group id="product_info">
+				<capability name="is_wireless_device" value="false" />
+				<capability name="device_claims_web_support" value="true" />
+			</group>
+		</device>
+		<device user_agent="WebTrends/3.0 (WinNT)" fall_back="webtrends"
+			id="webtrends_ver3" />
+
+		<!-- Bots from Anders Magnus Andersen -->
+
+		<!--  Mobiletech Bot   -->
+		<device user_agent="Mobiletech.HTTPChecker.pl/2.1.0 - May 2007"
+			fall_back="generic_web_crawler" id="mobiletechbot_v2_1_0">
+			<group id="product_info">
+				<capability name="brand_name" value="Robot" />
+				<capability name="model_name" value="Mobiletch HttpChecker" />
+			</group>
+		</device>
+		<!--  alpha.headedout  -->
+		<device user_agent="alpha.headedout" fall_back="generic_web_crawler"
+			id="alpha_headedout">
+			<group id="product_info">
+				<capability name="brand_name" value="Robot" />
+				<capability name="model_name" value="Alpha Headedout/Anonymouse" />
+			</group>
+		</device>
+		<device user_agent="http://alpha.headedout.com/docz/index.htm"
+			fall_back="alpha_headedout" id="alpha.headedout_1" />
+		<device user_agent="http://Anonymouse.org/ (Unix)" fall_back="alpha_headedout"
+			id="anonymouse_1" />
+		<!--  FAST  -->
+		<device user_agent="fast_crawler" fall_back="generic_web_crawler"
+			id="fast_robot">
+			<group id="product_info">
+				<capability name="brand_name" value="Robot" />
+				<capability name="model_name" value="Fast" />
+			</group>
+		</device>
+		<device user_agent="Nokia6230/2.0 FAST Crawler" fall_back="fast_robot"
+			id="fast_robot_Nokia6230" />
+		<device user_agent="Nokia6230i/subindex.jsp?id=1505. FAST Crawler"
+			fall_back="fast_robot" id="fast_robot_Nokia6230subindex" />
+		<device user_agent="FAST EnterpriseCrawler 6" fall_back="fast_robot"
+			id="fast_crawler_1" />
+		<device user_agent="FAST Enterprise Crawler 6 used by FAST (admin@fast.no)"
+			fall_back="fast_robot" id="fast_crawler_2" />
+		<device
+			user_agent="schibstedsokbot (compatible; Mozilla/5.0; MSIE 5.0; FAST FreshCrawler 6; +http://www.schibstedsok.no/bot/)"
+			fall_back="fast_robot" id="schibstedsokbot_crawler_1" />
+		<device
+			user_agent="schibstedsokbot (compatible; Mozilla/5.0; MSIE 5.0; FAST Crawler 6; +http://www.schibstedsok.no/bot/)"
+			fall_back="fast_robot" id="schibstedsokbot_crawler_2" />
+		<device user_agent="FAST Enterprise Crawler 6 used by a (a@b)"
+			fall_back="fast_robot" id="fastbot3" />
+		<device
+			user_agent="nokia6610I/1.0 (4.10) Profile/MIDP-1.0 Configuration/CLDC-1.0 (FAST WAP Proxy/1.0)"
+			fall_back="fast_robot" id="fastbot4" />
+		<!--   FINDEXA   -->
+		<device user_agent="findexa_crawler" fall_back="generic_web_crawler"
+			id="findexa_robot">
+			<group id="product_info">
+				<capability name="brand_name" value="Robot" />
+				<capability name="model_name" value="Findexa" />
+			</group>
+		</device>
+		<device
+			user_agent="Findexa Crawler (http://www.findexa.no/gulesider/article26548.ece)"
+			fall_back="findexa_robot" id="findexa_gulesider" />
+		<!--  GOOGLE  -->
+		<device user_agent="Googlebot" fall_back="generic_web_crawler"
+			id="google_robot">
+			<group id="product_info">
+				<capability name="brand_name" value="Robot" />
+				<capability name="model_name" value="Google" />
+			</group>
+		</device>
+		<device
+			user_agent="Generic Mobile Phone (compatible; Googlebot-Mobile/2.1; +http://www.google.com/bot.html)"
+			fall_back="google_robot" id="google_generic" />
+		<device
+			user_agent="Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8) Gecko/20051204 Googlebot 2.1"
+			fall_back="google_robot" id="google_generic2" />
+		<device
+			user_agent="Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
+			fall_back="google_robot" id="google_generic3" />
+		<device user_agent="GoogleBot/." fall_back="google_robot" id="googlebot2" />
+		<device user_agent="Googlebot-Image/1.0" fall_back="google_robot"
+			id="googlebot3" />
+		<!--  Look.su  -->
+		<device user_agent="Look.su" fall_back="generic_web_crawler"
+			id="look_su">
+			<group id="product_info">
+				<capability name="brand_name" value="Robot" />
+				<capability name="model_name" value="Look.su" />
+			</group>
+		</device>
+		<device user_agent="DoCoMo/1.0/N505i/c20/TB/W20H10 (compatible; Look.su bot/2.0)"
+			fall_back="look_su" id="look_su1" />
+		<!--  GIRFABOT -->
+		<device user_agent="girfabot" fall_back="generic_web_crawler"
+			id="girfabot">
+			<group id="product_info">
+				<capability name="brand_name" value="Robot" />
+				<capability name="model_name" value="Girfa" />
+			</group>
+		</device>
+		<device
+			user_agent="Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; Girafabot; girafabot at girafa dot com; http://www.girafa.com)"
+			fall_back="girfabot" id="girfabot_msie50" />
+		<device
+			user_agent="Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 4.0; Girafabot; girafabot at girafa dot com; http://www.girafa.com)"
+			fall_back="girfabot" id="girfabot_msie60" />
+		<!--  GOOGLE PROXY  -->
+		<device user_agent="GoogleProxy" fall_back="generic"
+			actual_device_root="true" id="google_proxy">
+			<group id="product_info">
+				<capability name="brand_name" value="Google" />
+				<capability name="model_name" value="Proxy" />
+			</group>
+		</device>
+		<!--  JAVA  -->
+		<device user_agent="Java" fall_back="generic_web_browser" id="javabot">
+			<group id="product_info">
+				<capability name="brand_name" value="Java" />
+			</group>
+		</device>
+		<device user_agent="Java/1.5.0_03" fall_back="javabot" id="java15_03">
+			<group id="product_info">
+				<capability name="model_name" value="1.5_03" />
+			</group>
+		</device>
+		<device user_agent="Java/1.5.0_05" fall_back="javabot" id="java15_05">
+			<group id="product_info">
+				<capability name="model_name" value="1.5_05" />
+			</group>
+		</device>
+		<device user_agent="Java/1.4" fall_back="javabot" id="java14">
+			<group id="product_info">
+				<capability name="model_name" value="1.4" />
+			</group>
+		</device>
+		<device user_agent="Java/1.4.1-rc" fall_back="java14" id="java141rc" />
+		<device user_agent="Java/1.4.1_04" fall_back="java14" id="java14104" />
+		<!--  JAVA  -->
+		<device user_agent="Jakarta Commons-HttpClient/" fall_back="generic_web_browser"
+			id="jakarta_commons">
+			<group id="product_info">
+				<capability name="brand_name" value="Jakarta Commons" />
+				<capability name="model_name" value="HttpClient/3.0" />
+			</group>
+		</device>
+		<device user_agent="Jakarta Commons-HttpClient/3.0" fall_back="jakarta_commons"
+			id="jakarta_commons_3_0" />
+		<!--  GIGABOT  -->
+		<device user_agent="Gigabot" fall_back="generic_web_crawler"
+			id="gigabot_robot">
+			<group id="product_info">
+				<capability name="brand_name" value="Robot" />
+				<capability name="model_name" value="Gigabot" />
+			</group>
+		</device>
+		<device user_agent="Gigabot/2.0/gigablast.com/spider.html"
+			fall_back="gigabot_robot" id="gigablast" />
+		<!--  VAGABONDO  -->
+		<device user_agent="Vagabondo" fall_back="generic_web_crawler"
+			id="vagabondo_robot">
+			<group id="product_info">
+				<capability name="brand_name" value="Robot" />
+				<capability name="model_name" value="Vagabondo" />
+			</group>
+		</device>
+		<device
+			user_agent="Vagabondo-WAP/2.0 (webcrawler at wise-guys dot nl; http://webagent.wise-guys.nl/)/1.0 Profile"
+			fall_back="vagabondo_robot" id="vagabondo_2" />
+		<device user_agent="Vagabondo/3.0 (webagent at wise-guys dot nl)"
+			fall_back="vagabondo_robot" id="vagabondo_3" />
+		<device user_agent="webcrawler" fall_back="generic_web_crawler"
+			id="webcrawler">
+			<group id="product_info">
+				<capability name="brand_name" value="Robot" />
+				<capability name="model_name" value="webcrawler" />
+			</group>
+		</device>
+		<!--  Theca  -->
+		<device user_agent="Theca" fall_back="generic_web_crawler" id="theca_robot">
+			<group id="product_info">
+				<capability name="brand_name" value="Robot" />
+				<capability name="model_name" value="Theca" />
+			</group>
+		</device>
+		<device user_agent="ThecaCrawlerEngine" fall_back="theca_robot"
+			id="theca_crawler" />
+		<!--  YAHOO   -->
+		<device user_agent="Yahoo" fall_back="generic_web_crawler" id="yahoo_robot">
+			<group id="product_info">
+				<capability name="brand_name" value="Robot" />
+				<capability name="model_name" value="Yahoo" />
+			</group>
+		</device>
+		<device
+			user_agent="Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)"
+			fall_back="yahoo_robot" id="yahoo_crawler" />
+		<!--  MSN   -->
+		<device user_agent="MSN" fall_back="generic_web_crawler" id="msn_robot">
+			<group id="product_info">
+				<capability name="brand_name" value="Robot" />
+				<capability name="model_name" value="MSN" />
+			</group>
+		</device>
+		<device user_agent="msnbot/1.0 (+http://search.msn.com/msnbot.htm)"
+			fall_back="msn_robot" id="msnbot_1" />
+		<device user_agent="msnbot/0.9 (+http://search.msn.com/msnbot.htm)"
+			fall_back="msn_robot" id="msnbot_2" />
+		<device user_agent="msnbot-media/1.0 (+http://search.msn.com/msnbot.htm)"
+			fall_back="msn_robot" id="msnbot_3" />
+		<!--  Startsiden   -->
+		<device user_agent="Startsiden" fall_back="generic_web_crawler"
+			id="startsiden_robot">
+			<group id="product_info">
+				<capability name="brand_name" value="Robot" />
+				<capability name="model_name" value="Startsiden" />
+			</group>
+		</device>
+		<device user_agent="startsidenbot (http://www.startsiden.no/bot/)"
+			fall_back="startsiden_robot" id="startsiden/bot" />
+		<device
+			user_agent="startsidenbot (http://www.startsiden.no/bot/subindex.jsp?id=1505)"
+			fall_back="startsiden_robot" id="startsiden/bot1505" />
+		<!--  WISENut   -->
+		<device user_agent="WISENut" fall_back="generic_web_crawler"
+			id="WISENut_robot">
+			<group id="product_info">
+				<capability name="brand_name" value="Robot" />
+				<capability name="model_name" value="WISENut" />
+			</group>
+		</device>
+		<device
+			user_agent="Mozilla/4.0 compatible ZyBorg/1.0 (wn-14.zyborg@looksmart.net; http://www.WISEnutbot.com)"
+			fall_back="WISENut_robot" id="WISENut/bot14" />
+		<device
+			user_agent="Mozilla/4.0 compatible ZyBorg/1.0 (wn-16.zyborg@looksmart.net; http://www.WISEnutbot.com)"
+			fall_back="WISENut_robot" id="WISENut/bot16" />
+		<device
+			user_agent="Mozilla/4.0 compatible ZyBorg/1.0 Dead Link Checker (wn.dlc@looksmart.net; http://www.WISEnutbot.com)"
+			fall_back="WISENut_robot" id="WISENut/linkchecker" />
+		<!--  Ask Jeeves   -->
+		<device user_agent="AskJeeves" fall_back="generic_web_crawler"
+			id="AskJeeves_robot">
+			<group id="product_info">
+				<capability name="brand_name" value="Robot" />
+				<capability name="model_name" value="AskJeeves" />
+			</group>
+		</device>
+		<device
+			user_agent="Mozilla/2.0 (compatible; Ask Jeeves/Teoma; +http://sp.ask.com/docs/about/tech_crawling.html)"
+			fall_back="AskJeeves_robot" id="AskJeeves/bot" />
+		<!--  Motionbot   -->
+		<device user_agent="Motionbot" fall_back="generic_web_crawler"
+			id="Motionbot_robot">
+			<group id="product_info">
+				<capability name="brand_name" value="Robot" />
+				<capability name="model_name" value="Motionbot" />
+			</group>
+		</device>
+		<!--  www.MyFamily.inc   -->
+		<device user_agent="Mozilla/4.0 (compatible; MyFamilyBot"
+			fall_back="generic_web_crawler" id="myfamily_robot">
+			<group id="product_info">
+				<capability name="brand_name" value="Robot" />
+				<capability name="model_name" value="MyFamily" />
+			</group>
+		</device>
+		<device
+			user_agent="Mozilla/4.0 (compatible; MyFamilyBot/1.0; http://www.myfamilyinc.com)"
+			fall_back="myfamily_robot" id="myfamily10" />
+		<!--  www.peterz.info   -->
+		<device user_agent="www.peterz.info" fall_back="generic_web_crawler"
+			id="peterz">
+			<group id="product_info">
+				<capability name="brand_name" value="Robot" />
+				<capability name="model_name" value="Peterz" />
+			</group>
+		</device>
+		<!--  VALIDATOR  -->
+		<device user_agent="Validator6630" fall_back="nokia_6630_ver1"
+			id="validator_Nokia6630">
+			<group id="product_info">
+				<capability name="brand_name" value="Validator" />
+			</group>
+		</device>
+		<device user_agent="ValidatorT610" fall_back="sonyericsson_t610_ver1"
+			id="validator_SonyEricssonT610">
+			<group id="product_info">
+				<capability name="brand_name" value="Validator" />
+			</group>
+		</device>
+
+		<!-- End of Bots and crawlers -->
+
+	</devices>
+</wurfl_patch>

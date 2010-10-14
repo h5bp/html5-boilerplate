@@ -1,0 +1,134 @@
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+  <start>
+    <element name="wurfl">
+      <group>
+        <element name="version">
+          <interleave>
+			<optional>
+            	<element name="ver">
+              <text/>
+            </element>
+			</optional>
+			<optional>							
+            	<element name="last_updated">
+              <text/>
+            </element>
+			</optional>
+			<optional>
+            	<element name="official_url">
+              <text/>
+            </element>
+			</optional>
+			<optional>
+            	<element name="maintainers">
+              <oneOrMore>
+                <element name="maintainer">
+                  <group>
+                    <attribute name="home_page">
+                      <text/>
+                    </attribute>
+                    <attribute name="email">
+                      <text/>
+                    </attribute>
+                    <attribute name="name">
+                      <text/>
+                    </attribute>
+                  </group>
+                </element>
+              </oneOrMore>
+            </element>
+			</optional>
+			<optional>
+            	<element name="authors">
+              <oneOrMore>
+                <element name="author">
+                  <interleave>
+                    <attribute name="home_page">
+                      <text/>
+                    </attribute>
+                    <attribute name="email">
+                      <text/>
+                    </attribute>
+                    <attribute name="name">
+                      <text/>
+                    </attribute>
+                  </interleave>
+                </element>
+              </oneOrMore>
+            </element>
+			</optional>
+			<optional>
+            	<element name="contributors">
+              		<oneOrMore>
+                <element name="contributor">
+                  <interleave>
+                    <attribute name="email">
+                      <text/>
+                    </attribute>
+                    <attribute name="name">
+                      <text/>
+                    </attribute>
+                  </interleave>
+                </element>
+              </oneOrMore>
+            </element>
+			</optional>
+			<optional>
+            	<element name="statement">
+              <!-- occurrences: 1 -->
+              <text/>
+            </element>
+			</optional>
+          </interleave>
+        </element>
+      
+  		<element name="devices">
+          <oneOrMore>
+            <element name="device">
+              <interleave>
+                <interleave>
+                  <attribute name="id">
+                    <text/>
+                  </attribute>
+                  <attribute name="user_agent">
+                    <text/>
+                  </attribute>
+                  <attribute name="fall_back">
+                    <text/>
+                  </attribute>
+                  <optional>
+                    <attribute name="actual_device_root">
+                      <text/>
+                    </attribute>
+                  </optional>
+                </interleave>
+                <zeroOrMore>
+                  <element name="group">
+                    <interleave>
+                      <attribute name="id">
+                        <text/>
+                      </attribute>
+                      <oneOrMore>
+                        <element name="capability">
+                          <interleave>
+                            <attribute name="value">
+                              <text/>
+                            </attribute>
+                            <attribute name="name">
+                              <text/>
+                            </attribute>
+                          </interleave>
+                        </element>
+                      </oneOrMore>
+                    </interleave>
+                  </element>
+                </zeroOrMore>
+              </interleave>
+            </element>
+          </oneOrMore>
+        </element>
+
+      </group>
+    </element>
+  </start>
+</grammar>

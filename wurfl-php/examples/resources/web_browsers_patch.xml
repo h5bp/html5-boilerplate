@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wurfl_patch>
+	<devices>
+		<!-- Web browsers -->
+		<device user_agent="Mozilla/4.0" fall_back="generic" id="generic_web_browser">
+			<group id="product_info">
+				<capability name="brand_name" value="generic web browser"/>
+				<capability name="model_name" value=""/>				
+				<capability name="is_wireless_device" value="false"/>
+			</group>
+			<group id="display">
+				<capability name="resolution_width" value="800"/>
+				<capability name="resolution_height" value="600"/>
+			</group>
+			<group id="markup">
+				<capability name="xhtml_support_level" value="4"/>
+				<capability name="preferred_markup" value="html_web_4_0"/>
+			</group>			
+		</device>
+
+		<device id="mozilla_ver5" user_agent="Mozilla/5.0" fall_back="generic_web_browser"/>
+
+		<!-- Firefox -->
+		<device user_agent="Firefox" fall_back="generic_web_browser" id="firefox">
+			<group id="product_info">
+				<capability name="brand_name" value="firefox" />
+			</group>
+		</device>
+
+		<device user_agent="Firefox/1.0" fall_back="firefox" id="firefox_1">
+			<group id="product_info">
+				<capability name="model_name" value="1.0" />
+			</group>
+		</device>
+		<device user_agent="Firefox/1.5" fall_back="firefox" id="firefox_1_5">
+			<group id="product_info">
+				<capability name="model_name" value="1.5" />
+			</group>
+		</device>
+		<device user_agent="Firefox/2.0" fall_back="firefox" id="firefox_2">
+			<group id="product_info">
+				<capability name="model_name" value="2.0" />
+			</group>
+		</device>
+		<device user_agent="Firefox/3.0" fall_back="firefox" id="firefox_3">
+			<group id="product_info">
+				<capability name="model_name" value="3.0" />
+			</group>
+		</device>
+		<device user_agent="Firefox/3.5" fall_back="firefox" id="firefox_3_5">
+			<group id="product_info">
+				<capability name="model_name" value="3.5" />
+			</group>
+		</device>
+
+
+
+		<!--  Opera -->
+		<device user_agent="Opera" fall_back="generic_web_browser" id="opera">
+			<group id="product_info">
+				<capability name="brand_name" value="opera" />
+			</group>
+		</device>
+		
+		<device user_agent="Opera/7" fall_back="opera" id="opera_7">
+			<group id="product_info">
+				<capability name="model_name" value="7" />
+			</group>
+		</device>
+		
+		<device user_agent="Opera/8" fall_back="opera" id="opera_8">
+			<group id="product_info">
+				<capability name="model_name" value="8" />
+			</group>
+		</device>
+		
+				
+		<device user_agent="Opera/9" fall_back="opera" id="opera_9">
+			<group id="product_info">
+				<capability name="model_name" value="9" />
+			</group>
+		</device>
+		
+		<device user_agent="Opera/10" fall_back="opera" id="opera_10">
+			<group id="product_info">
+				<capability name="model_name" value="10" />
+			</group>
+		</device>
+
+		<!--  Safari -->
+		<device user_agent="Safari/" fall_back="generic_web_browser"
+			id="safari">
+			<group id="product_info">
+				<capability name="brand_name" value="safari" />
+			</group>
+		</device>
+		<device user_agent="Safari/525" fall_back="safari" id="safari_525">
+			<group id="product_info">
+				<capability name="model_name" value="525" />
+			</group>
+		</device>
+		<device user_agent="Safari/530" fall_back="safari" id="safari_530">
+			<group id="product_info">
+				<capability name="model_name" value="530" />
+			</group>
+		</device>
+		
+		<device user_agent="Mozilla/5.0 (Macintosh; U; Safari/525" fall_back="safari_525"  id="safari_525_mac_osx" />	
+		<device user_agent="Mozilla/5.0 (Windows; U; Safari/525" fall_back="safari_525"  id="safari_525_win" />
+		<device user_agent="Mozilla/5.0 (Macintosh; U; Safari/530" fall_back="safari_530"  id="safari_530_mac_osx" />	
+		<device user_agent="Mozilla/5.0 (Windows; U; Safari/530" fall_back="safari_530"  id="safari_530_win" />
+
+		<!-- Internet Explorer -->
+		<device user_agent="Mozilla/4.0 (compatible; MSIE" fall_back="generic_web_browser"
+			id="msie">
+			<group id="product_info">
+				<capability name="brand_name" value="internet explorer" />
+			</group>
+		</device>
+		<device user_agent="Mozilla/4.0 (compatible; MSIE 4.0;"
+			fall_back="msie" id="msie_4">
+			<group id="product_info">
+				<capability name="model_name" value="4.0" />
+			</group>
+		</device>
+
+		<device user_agent="Mozilla/4.0 (compatible; MSIE 5.0;"
+			fall_back="msie" id="msie_5">
+			<group id="product_info">
+				<capability name="model_name" value="5.0" />
+			</group>
+		</device>
+
+		<device user_agent="Mozilla/4.0 (compatible; MSIE 5.5;"
+			fall_back="msie" id="msie_5_5">
+			<group id="product_info">
+				<capability name="model_name" value="5.5" />
+			</group>
+		</device>
+
+		<device user_agent="Mozilla/4.0 (compatible; MSIE 6.0;"
+			fall_back="msie" id="msie_6">
+			<group id="product_info">
+				<capability name="model_name" value="6.0" />
+			</group>
+		</device>
+		<device user_agent="Mozilla/4.0 (compatible; MSIE 7.0;"
+			fall_back="msie" id="msie_7">
+			<group id="product_info">
+				<capability name="model_name" value="7.0" />
+			</group>
+		</device>
+		<device user_agent="Mozilla/4.0 (compatible; MSIE 8.0;"
+			fall_back="msie" id="msie_8">
+			<group id="product_info">
+				<capability name="model_name" value="8.0" />
+			</group>
+		</device>
+
+
+		<!-- Google Chrome -->
+		<device user_agent="Chrome" fall_back="generic_web_browser"
+			id="google_chrome">
+			<group id="product_info">
+				<capability name="brand_name" value="chrome" />
+			</group>
+		</device>
+
+		<device user_agent="Chrome/0" fall_back="google_chrome" id="google_chrome_0">
+			<group id="product_info">
+				<capability name="model_name" value="0" />
+			</group>
+		</device>
+
+		<device user_agent="Chrome/1" fall_back="google_chrome" id="google_chrome_1">
+			<group id="product_info">
+				<capability name="model_name" value="1.0" />
+			</group>
+		</device>
+
+		<device user_agent="Chrome/2" fall_back="google_chrome" id="google_chrome_2">
+			<group id="product_info">
+				<capability name="model_name" value="2.0" />
+			</group>
+		</device>
+
+
+		<!-- Konqueror -->
+		<device user_agent="Konqueror" fall_back="generic_web_browser"
+			id="konqueror">
+			<group id="product_info">
+				<capability name="brand_name" value="konqueror" />
+			</group>
+		</device>
+
+		<device user_agent="Konqueror/2" fall_back="konqueror" id="konqueror_2">
+			<group id="product_info">
+				<capability name="model_name" value="2" />
+			</group>
+		</device>
+
+		<device user_agent="Konqueror/3" fall_back="konqueror" id="konqueror_3">
+			<group id="product_info">
+				<capability name="model_name" value="3" />
+			</group>
+		</device>
+
+		<device user_agent="Konqueror/4" fall_back="konqueror" id="konqueror_4">
+			<group id="product_info">
+				<capability name="model_name" value="4" />
+			</group>
+		</device>
+	</devices>
+</wurfl_patch>
