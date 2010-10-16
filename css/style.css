@@ -1,3 +1,12 @@
+/*
+ * Base
+ */
+
+/* Mobile phones will adjust text size when the screen orientation changes unless you include a special CSS parameter */
+body {
+    -webkit-text-size-adjust: none;
+}
+
 /* 
  * Helper classes 
  */
