@@ -1,3 +1,11 @@
+/*!
+ * jQuery Mobile
+ * http://jquerymobile.com/
+ *
+ * Copyright 2010, jQuery Project
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ */
 // test whether a CSS media type or query applies
 $.media = (function() {
 	// TODO: use window.matchMedia once at least one UA implements it
