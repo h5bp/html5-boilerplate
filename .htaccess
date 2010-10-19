@@ -61,6 +61,7 @@ AddType font/woff                     woff
 
 AddType text/cache-manifest           manifest
 AddType text/x-component              htc
+AddType application/x-chrome-extension crx
 
 
 # allow concatenation from within specific js and css files 
