@@ -201,7 +201,7 @@ button {  width: auto; overflow: visible; }
 /* Hide visually and from screenreaders, but maintain layout */
 .invisible { visibility: hidden; }
 
-/* >> The Magnificent CLEARFIX: Updated to prevent margin-collapsing on children elements << j.mp/bestclearfix */
+/* >> The Magnificent CLEARFIX: Updated to prevent margin-collapsing on child elements << j.mp/bestclearfix */
 .clearfix:before, .clearfix:after {
   content: "\0020"; display: block; height: 0; visibility: hidden;	
 }
