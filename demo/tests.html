@@ -88,7 +88,7 @@
 					
 				<dt>Hack 05 - Remove default textarea scrollbar in IE</dt>
 					<dd>                 
-					  IE shows a disabled scrollbar on empty <code>textarea</code>.
+					  IE shows a disabled scrollbar on empty <code>textarea</code>.<br><br>
 						<span href="#" class="show">With Boilerplate CSS</span> | <span href="#" class="hide">Without Boilerplate CSS</span>
 						<br /><br />
 						<form>
@@ -237,11 +237,14 @@
     });
 		
 		$('.show').click(function(){
+		  $('.show').addClass('current')
+		  $('.hide').removeClass('current');
 			showStyle();
 			return false;
 		});
 		$('.hide').click(function(){
-		  
+		  $('.hide').addClass('current')
+		  $('.show').removeClass('current');
 		  // freeze the size of each tests so the page doesnt jump.
 		  $('dd').each(function(){
         $(this).height( $(this).height() );
@@ -268,6 +271,10 @@
 		$('.preventDefault').click(function() {
 			return false;
 		});
+		
+		$(function(){
+		  $('.show').addClass('current');
+		})
   </script>
   <script src="../js/plugins.js?v=1"></script>
   <script src="../js/script.js?v=1"></script>
