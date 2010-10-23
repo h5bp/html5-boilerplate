@@ -10,7 +10,7 @@
 
   <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame 
        Remove this if you use the .htaccess -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
 
   <title></title>
   <meta name="description" content="">
@@ -25,14 +25,14 @@
 
 
   <!-- CSS : implied media="all" -->
-  <link rel="stylesheet" href="css/style.css?v=1">
+  <link rel="stylesheet" href="css/style.css">
 
   <!-- Uncomment if you are specifically targeting less enabled mobile browsers
   <link rel="stylesheet" media="handheld" href="css/handheld.css?v=1">  -->
 
  
   <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
-  <script src="js/modernizr-1.5.min.js"></script>
+  <script src="js/helpers/modernizr-1.5.min.js"></script>
 
 </head>
 
@@ -58,11 +58,16 @@
   <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="js/jquery-1.4.2.min.js"%3E%3C/script%3E'))</script>
-
-
-  <script src="js/plugins.js?v=1"></script>
-  <script src="js/script.js?v=1"></script>
-
+  
+	<!-- scripts concatenated and minified via ant
+		   add new scripts to target#scripts > concat > fileset
+       don't delete these comments or you'll bust the build script :)
+	-->
+	<script src="js/plugins.js"></script>
+	<script src="js/script.js"></script>
+	<!-- end concatenated and minified scripts-->
+  
+  
   <!--[if lt IE 7 ]>
     <script src="js/dd_belatedpng.js"></script>
     <script> DD_belatedPNG.fix('img, .png_bg'); //fix any <img> or .png_bg background-images </script>
