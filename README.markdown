@@ -1,22 +1,5 @@
 #  HTML5 Boilerplate [http://html5boilerplate.com](http://html5boilerplate.com)
 
-
-## License:
-
-Major components:
-
-* Modernizr: MIT/BSD license
-* jQuery: MIT/GPL license
-* DD_belatedPNG: MIT license
-* YUI Profiling: BSD license
-* HTML5Doctor CSS reset: Creative Commons 3.0 BY
-* CSS Reset Reloaded: Public Domain
-
-Everything else:
-
-* [The Unlicense](http://unlicense.org) (aka: public domain) 
-
-
 ## Changelog:
 
 ### v.0.9.5 : October 25th, 2010
@@ -84,6 +67,23 @@ Shi Chuan, Paul Neave, Weston Ruter, Jeffrey Barke, Robert Meissner, SirFunk, Ph
 voodootikigod, garowetz, fearphage, christopherjacob, mathias byenens, daniel harttman, rse, chris dary, erik dahlstrom, timwillison, ken nordahl, riddle, elcuervo, andreas kuckartz, 3rdEden, riley willis, majic3
 
 ### v0.9 : August 10th, 2010 - Initial release
+
+
+## License:
+
+Major components:
+
+* Modernizr: MIT/BSD license
+* jQuery: MIT/GPL license
+* DD_belatedPNG: MIT license
+* YUI Profiling: BSD license
+* HTML5Doctor CSS reset: Creative Commons 3.0 BY
+* CSS Reset Reloaded: Public Domain
+
+Everything else:
+
+* [The Unlicense](http://unlicense.org) (aka: public domain) 
+
 
 ## Summary:
 
