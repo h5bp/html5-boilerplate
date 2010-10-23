@@ -19,6 +19,53 @@ Everything else:
 
 ## Changelog:
 
+### v.0.9.5 : October 25th, 2010
+
+#### General
+* Updated Modernizr to 1.6 (smaller and faster)
+* Added web.config file for Microsoft IIS. Now forcing latest IE version and ChromeFrame, if installed.
+* Added favicon and default icon for iOS.
+* Updated crossdomain.xml wording for better security guidelines ( #124 ).
+* Expires value for nginx.conf corrected.
+* License clarified.
+
+#### style.css
+* Removed -webkit-font-smoothing: antialiased; as it made monospace too thin.
+* Updated fonts normalization to YUI 3.2.0 PR1.
+* Table Header set explicitly for IE6 and table row now has page-break: avoid in print CSS.
+* text-shadow:none !important set for all text in print css.
+* Removed scrollbar from textareas in IE.
+* Fixed textarea stylings and form field treatment for validity. Added default background-color.
+* New robust clearfix solution without IE 5.5 hack ( #45 #126 ).
+* Margins for form-elements explicitly set to 0 as webkit adds 2px space around form elements' chrome. 
+* Dropped text-rendering: optimizeLegibility as it breaks small-caps and looks odd on Linux machines. 
+* Lists now have a left margin of 1.8em. Default list-style-type for ordered list is decimal.
+* Image Replacement now works with right-to-left text ( #68 ).
+* Removed "Star Hack" for checkboxes in favor of .ie7 selector.
+
+#### index.html
+* IE conditional classes have moved from the <body> tag to the <html> tag ( #44 ).
+* Added a IE6 call for the minified dd_belatedpng.
+* Google Analytics script will now work with SSL in IE6.
+* Added protocol independent absolute path for cdn jquery, with improved fallback-to-local code to protect against edge case IE bug.
+* Commented out handheld CSS ( #73 ).
+* Mobile viewport and textsize styles adjusted per group feedback ( #37 ).
+
+#### .htaccess
+* More files are served via gzip like .htc ( #55 ).
+* Added Expires header for content types image/gif and video/webm.
+* Fixed favicon display in IE6 ( #113 ).
+* Corrected mimetypes for fonts.
+* Removed caching for files of type json/xml.
+* Better use of ifmodule for more stability in different Apache environments.
+
+[View full diff and commit history](http://github.com/paulirish/html5-boilerplate/compare/v0.9.1)
+
+
+#### Contributors
+Shi Chuan, Paul Neave, Weston Ruter, Jeffrey Barke, Robert Meissner, SirFunk, Philip von Bargen, Kroc Camen, Andreas Madsen, Marco d'Itri, Adeelejaz, James Rosen, Dave DeSandro, Ken Newman, Swaroop C H, Yann Mainier, Joe Sak, Irakli, Rob Flaherty, Ivan Nikolić, Jeff Starr, Mike Lamb, Holek, Aaron Peters, Kaelig, Meander, Charlie Ussery, Ciney, Région Wallonne and Paul Hayes.
+
+
 ### v.0.9.1 : August 13th, 2010
 * HTML5 Boilerplate is now in the Public Domain
 * Nginx configuration added
