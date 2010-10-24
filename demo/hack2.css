@@ -17,6 +17,7 @@ body { font:13px/1.231 sans-serif; *font-size:small; } /* hack retained to prese
 
     .current { background: #ccc; }
     header span { padding: 0.2em 0.5em; display: inline-block; }
+    dd, h1, body, html { margin: 0;}
     
 
 		a, a:active, a:visited { color: #607890; }
