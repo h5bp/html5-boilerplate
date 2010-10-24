@@ -44,24 +44,29 @@
 
 
 # video
-AddType video/ogg  ogg ogv
-AddType video/mp4  mp4
-AddType video/webm webm
+AddType video/ogg                      ogg ogv
+AddType video/mp4                      mp4
+AddType video/webm                     webm
 
 # Proper svg serving. Required for svg webfonts on iPad
 #   twitter.com/FontSquirrel/status/14855840545
-AddType     image/svg+xml             svg svgz 
-AddEncoding gzip                      svgz
+AddType     image/svg+xml              svg svgz 
+AddEncoding gzip                       svgz
+                                       
+# webfonts                             
+AddType application/vnd.ms-fontobject  eot
+AddType font/truetype                  ttf
+AddType font/opentype                  otf
+AddType font/woff                      woff
 
-# webfonts
-AddType application/vnd.ms-fontobject eot
-AddType font/truetype                 ttf
-AddType font/opentype                 otf
-AddType font/woff                     woff
-
-AddType text/cache-manifest           manifest
-AddType text/x-component              htc
+# assorted types                                      
+AddType image/vnd.microsoft.icon       ico
+AddType image/webp                     webp
+AddType text/cache-manifest            manifest
+AddType text/x-component               htc
 AddType application/x-chrome-extension crx
+
+
 
 
 # allow concatenation from within specific js and css files 
