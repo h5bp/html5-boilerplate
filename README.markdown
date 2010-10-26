@@ -46,7 +46,7 @@
 
 
 #### Contributors
-Shi Chuan, Paul Neave, Weston Ruter, Jeffrey Barke, Robert Meissner, SirFunk, Philip von Bargen, Kroc Camen, Andreas Madsen, Marco d'Itri, Adeelejaz, James Rosen, Dave DeSandro, Ken Newman, Swaroop C H, Yann Mainier, Joe Sak, Irakli, Rob Flaherty, Ivan Nikolić, Jeff Starr, Mike Lamb, Holek, Aaron Peters, Kaelig, Meander, Charlie Ussery, Ciney, Région Wallonne and Paul Hayes.
+Shi Chuan, Paul Neave, Weston Ruter, Jeffrey Barke, Robert Meissner, SirFunk, Philip von Bargen, Kroc Camen, Andreas Madsen, Marco d'Itri, Adeelejaz, James Rosen, Dave DeSandro, Ken Newman, Swaroop C H, Yann Mainier, Joe Sak, Irakli, Rob Flaherty, Ivan Nikolić, Jeff Starr, Mike Lamb, Holek, Aaron Peters, Kaelig, Meander, Charlie Ussery, Ciney, Région Wallonne, Sirupsen, and Paul Hayes.
 
 
 ### v.0.9.1 : August 13th, 2010
