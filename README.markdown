@@ -16,7 +16,6 @@ Major changes:
 <li>Added <code>web.config</code> file for Microsoft IIS</li>
 <li>Beta release of the <a href="http://github.com/paulirish/html5-boilerplate/wiki/Build-script ">Build Script</a> (this is HUGE)</li>
 <li>New project scaffolding <a href="http://github.com/paulirish/html5-boilerplate/wiki/makep.sh">bash script</a>.</li>
-<li><a href="http://github.com/paulirish/html5-boilerplate/blob/master/README.markdown">.... and over 100 other fixes and improvements.</a></li>
 </ul>
 
 #### General
@@ -57,11 +56,11 @@ Major changes:
 * Removed caching for files of type json/xml.
 * Better use of ifmodule for more stability in different Apache environments.
 
-[View full diff and commit history](http://github.com/paulirish/html5-boilerplate/compare/v0.9.1)
+[View full diff and commit history](http://github.com/paulirish/html5-boilerplate/compare/v0.9.1...v0.9.5)
 
 
 #### Contributors
-Shi Chuan, Rob Larsen, Ivan Nikolić, Mikko Tikkanen, Paul Neave, Weston Ruter, Jeffrey Barke, Robert Meissner, SirFunk, Philip von Bargen, Kroc Camen, Andreas Madsen, Marco d'Itri, Adeelejaz, James Rosen, Dave DeSandro, Ken Newman, Swaroop C H, Yann Mainier, Joe Sak, Irakli, Rob Flaherty, Jeff Starr, Mike Lamb, Holek, Aaron Peters, Kaelig, Meander, Charlie Ussery, Ciney, Région Wallonne, Sirupsen, and Paul Hayes.
+Shi Chuan, Rob Larsen, Ivan Nikolić, Mikko Tikkanen, Paul Neave, Weston Ruter, Jeffrey Barke, Robert Meissner, SirFunk, Philip von Bargen, Kroc Camen, Rick Waldron, Andreas Madsen, Marco d'Itri, Adeelejaz, James Rosen, Dave DeSandro, Ken Newman, Swaroop C H, Yann Mainier, Joe Sak, Irakli, Rob Flaherty, Jeff Starr, Mike Lamb, Holek, Aaron Peters, Kaelig, Meander, Charlie Ussery, Ciney, Région Wallonne, Sirupsen, and Paul Hayes.
 
 
 
