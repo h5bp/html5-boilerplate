@@ -4,3 +4,4 @@ build/buildinfo.properties
 .DS_Store
 .hg/
 thumb.db
+.idea
