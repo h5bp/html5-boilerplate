@@ -4,6 +4,21 @@
 
 ### v.0.9.5 : October 25th, 2010
 
+Major changes:
+
+<ul>
+<li>Removed <code>-webkit-font-smoothing: antialiased;</code> it makes monospace too thin.</li>
+<li>IE conditional classes have moved from the <code>&lt;body&gt;</code> tag to the <code>&lt;html&gt;</code> tag ( #44 ).</li>
+<li>Dropped <code>text-rendering: <a href="http://www.aestheticallyloyal.com/public/optimize-legibility/">optimizeLegibility</a></code> as it breaks small-caps, looks odd on Linux machines, and goes invisible on WebOS.</li> 
+<li>Added a IE6 call for the minified <code>dd_belatedpng</code>.</li>
+<li>Revised viewport declaration to allow user scaling and clear Webkit console errors ( #37 ).</li>
+<li>Updated Modernizr to 1.6 </li>
+<li>Added <code>web.config</code> file for Microsoft IIS</li>
+<li>Beta release of the <a href="http://github.com/paulirish/html5-boilerplate/wiki/Build-script ">Build Script</a> (this is HUGE)</li>
+<li>New project scaffolding <a href="http://github.com/paulirish/html5-boilerplate/wiki/makep.sh">bash script</a>.</li>
+<li><a href="http://github.com/paulirish/html5-boilerplate/blob/master/README.markdown">.... and over 100 other fixes and improvements.</a></li>
+</ul>
+
 #### General
 * Updated Modernizr to 1.6 (smaller and faster)
 * Added web.config file for Microsoft IIS. Now forcing latest IE version and ChromeFrame, if installed.
@@ -46,7 +61,8 @@
 
 
 #### Contributors
-Shi Chuan, Paul Neave, Weston Ruter, Jeffrey Barke, Robert Meissner, SirFunk, Philip von Bargen, Kroc Camen, Andreas Madsen, Marco d'Itri, Adeelejaz, James Rosen, Dave DeSandro, Ken Newman, Swaroop C H, Yann Mainier, Joe Sak, Irakli, Rob Flaherty, Ivan Nikolić, Jeff Starr, Mike Lamb, Holek, Aaron Peters, Kaelig, Meander, Charlie Ussery, Ciney, Région Wallonne, Sirupsen, and Paul Hayes.
+Shi Chuan, Rob Larsen, Ivan Nikolić, Mikko Tikkanen, Paul Neave, Weston Ruter, Jeffrey Barke, Robert Meissner, SirFunk, Philip von Bargen, Kroc Camen, Andreas Madsen, Marco d'Itri, Adeelejaz, James Rosen, Dave DeSandro, Ken Newman, Swaroop C H, Yann Mainier, Joe Sak, Irakli, Rob Flaherty, Jeff Starr, Mike Lamb, Holek, Aaron Peters, Kaelig, Meander, Charlie Ussery, Ciney, Région Wallonne, Sirupsen, and Paul Hayes.
+
 
 
 ### v.0.9.1 : August 13th, 2010
