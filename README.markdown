@@ -60,7 +60,7 @@ Major changes:
 
 
 #### Contributors
-Shi Chuan, Rob Larsen, Ivan Nikolić, Mikko Tikkanen, Paul Neave, Weston Ruter, Jeffrey Barke, Robert Meissner, SirFunk, Philip von Bargen, Kroc Camen, Rick Waldron, Andreas Madsen, Marco d'Itri, Adeelejaz, James Rosen, Dave DeSandro, Ken Newman, Swaroop C H, Yann Mainier, Joe Sak, Irakli, Rob Flaherty, Jeff Starr, Mike Lamb, Holek, Aaron Peters, Kaelig, Meander, Charlie Ussery, Ciney, Région Wallonne, Sirupsen, and Paul Hayes.
+Shi Chuan, Rob Larsen, Ivan Nikolić, Mikko Tikkanen, Velir, Paul Neave, Weston Ruter, Jeffrey Barke, Robert Meissner, SirFunk, Philip von Bargen, Kroc Camen, Rick Waldron, Andreas Madsen, Marco d'Itri, Adeelejaz, James Rosen, Dave DeSandro, Ken Newman, Daniel Lenz, Swaroop C H, Yann Mainier, Joe Sak, Irakli, Rob Flaherty, Jeff Starr, Mike Lamb, Holek, Aaron Peters, Kaelig, Meander, Charlie Ussery, Ciney, Région Wallonne, Sirupsen, and Paul Hayes.
 
 
 
