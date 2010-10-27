@@ -59,11 +59,11 @@ types {
     audio/midi                            mid midi kar;
     audio/mpeg                            mp3;
     audio/x-realaudio                     ra;
-    audio/ogg                             oga;
+    audio/ogg                             oga ogg;
 
     video/3gpp                            3gpp 3gp;
     video/mpeg                            mpeg mpg;
-    video/ogg                             ogg ogv;
+    video/ogg                             ogv;
     video/quicktime                       mov;
     video/webm                            webm;
     video/x-flv                           flv;
