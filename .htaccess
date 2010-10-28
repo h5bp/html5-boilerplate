@@ -43,8 +43,11 @@
 </FilesMatch>
 
 
+# audio
+AddType audio/ogg                      oga ogg
+
 # video
-AddType video/ogg                      ogg ogv
+AddType video/ogg                      ogv
 AddType video/mp4                      mp4
 AddType video/webm                     webm
 
