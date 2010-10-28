@@ -1,46 +1,42 @@
-<!doctype html>
-<html lang="en" class="no-js">
+<!doctype html>  
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ --> 
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-
-  <!-- www.phpied.com/conditional-comments-block-downloads/ -->
-  <!--[if IE]><![endif]-->
 
   <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame 
        Remove this if you use the .htaccess -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title></title>
+  <title>Element Consistency Tests</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
   <!--  Mobile viewport optimized: j.mp/bplateviewport -->
-  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+  <!-- Place favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 
   <!-- CSS : implied media="all" -->
-  <link rel="stylesheet" href="../css/style.css?v=1">
+  <link rel="stylesheet" href="../css/style.css?v=2">
 
-  <!-- For the less-enabled mobile browsers like Opera Mini -->
-  <link rel="stylesheet" media="handheld" href="../css/handheld.css?v=1">
-
+  <!-- Uncomment if you are specifically targeting less enabled mobile browsers
+  <link rel="stylesheet" media="handheld" href="../css/handheld.css?v=2">  -->
  
   <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
-  <script src="../js/modernizr-1.5.min.js"></script>
+  <script src="../js/libs/modernizr-1.6.min.js"></script>
 
 </head>
 
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-
-<!--[if lt IE 7 ]> <body class="ie6"> <![endif]-->
-<!--[if IE 7 ]>    <body class="ie7"> <![endif]-->
-<!--[if IE 8 ]>    <body class="ie8"> <![endif]-->
-<!--[if IE 9 ]>    <body class="ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <body> <!--<![endif]-->
+<body>
 
   <div id="container">
     <header>
@@ -63,7 +59,7 @@
 
       <h1>Title 01 Heading</h1>
       <hr />
-      <h3>Level 03 Heading</h3>
+      <h2>Level 02 Heading</h2>
       <p>Lorem ipsum <em>emphasised text</em> dolor sit amet, <strong>strong text</strong> 
       consectetur adipisicing elit, <abbr title="">abbreviated text</abbr> sed do eiusmod tempor 
        incididunt ut labore et dolore magna aliqua. Ut 
@@ -351,7 +347,12 @@
       <fieldset>
         <legend>Form legend</legend>
 
-        <div><label for="f1">Text input:</label><input type="text" id="f1" value="input text" /></div>
+        <div><label for="f1">Optional Text input:</label><input type="text" id="f1" value="input text" /></div>
+        <div><label for="rt1">Required Text input:</label><input type="text" id="rt1" required /></div>
+        <div><label for="twp1">Text input with pattern requirement and placeholder:</label><input type="text" pattern="\d{5}(-\d{4})?" title="a US Zip code, with or without the +4 exension" placeholder="12345-6789"/></div>
+        <div><label for="s1">Search input:</label><input type="search" id="s1" /></div>
+        <div><label for="e1">Email input:</label><input type="email" id="e1" /></div>
+        <div><label for="u1">URL input:</label><input type="url" id="u1" /></div>
         <div><label for="pw">Password input:</label><input type="password" id="pw" value="password" /></div>
         <div><label for="f2">Radio input:</label><input type="radio" id="f2" /></div>
 
@@ -360,7 +361,9 @@
 
         <div><label for="f5">Textarea:</label><textarea id="f5" cols="30" rows="5" >Textarea text</textarea></div>
         <div><label for="f6">Input Button:</label> <input type="button" id="f6" value="button text" /></div>
-       
+
+        <div><label for="f7">Submit Button:</label> <input type="submit" id="f7" value="button text" /></div>
+
       </fieldset>
 
     </form>
@@ -486,45 +489,49 @@
      
     </div>
 
-    <footer>
 
-    </footer>
-  </div> <!--! end of #container -->
+  <footer>
 
-
-  <!-- Javascript at the bottom for fast page loading -->
-
-  <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-  <script>!window.jQuery && document.write('<script src="../js/jquery-1.4.2.min.js"><\/script>')</script>
+  </footer>
+</div> <!--! end of #container -->
 
 
-  <script src="../js/plugins.js?v=1"></script>
-  <script src="../js/script.js?v=1"></script>
+<!-- Javascript at the bottom for fast page loading -->
 
-  <!--[if lt IE 7 ]>
-    <script src="../js/dd_belatedpng.js?v=1"></script>
-  <![endif]-->
-
-
-  <!-- yui profiler and profileviewer - remove for production -->
-  <script src="../js/profiling/yahoo-profiling.min.js?v=1"></script>
-  <script src="../js/profiling/config.js?v=1"></script>
-  <!-- end profiling code -->
+<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
+<script>!window.jQuery && document.write(unescape('%3Cscript src="../js/libs/jquery-1.4.2.js"%3E%3C/script%3E'))</script>
 
 
-  <!-- asynchronous google analytics: mathiasbynens.be/notes/async-analytics-snippet 
-       change the UA-XXXXX-X to be your site's ID -->
-  <script>
-   var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
-   (function(d, t) {
-    var g = d.createElement(t),
-        s = d.getElementsByTagName(t)[0];
-    g.async = true;
-    g.src = '//www.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g, s);
-   })(document, 'script');
-  </script>
+<!-- scripts concatenated and minified via ant build script-->
+<script src="../js/plugins.js"></script>
+<script src="../js/script.js"></script>
+<!-- end concatenated and minified scripts-->
+
+
+<!--[if lt IE 7 ]>
+  <script src="../js/libs/dd_belatedpng.js"></script>
+  <script> DD_belatedPNG.fix('img, .png_bg'); //fix any <img> or .png_bg background-images </script>
+<![endif]-->
+
+<!-- yui profiler and profileviewer - remove for production -->
+<script src="../js/profiling/yahoo-profiling.min.js"></script>
+<script src="../js/profiling/config.js"></script>
+<!-- end profiling code -->
+
+
+<!-- asynchronous google analytics: mathiasbynens.be/notes/async-analytics-snippet 
+     change the UA-XXXXX-X to be your site's ID -->
+<script>
+ var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
+ (function(d, t) {
+  var g = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+  g.async = true;
+  g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g, s);
+ })(document, 'script');
+</script>
 
 </body>
 </html>

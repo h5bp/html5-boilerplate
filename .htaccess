@@ -1,8 +1,9 @@
 # Apache configuration file
 # httpd.apache.org/docs/2.2/mod/quickreference.html
 
-# Techniques in here adapted from all over, 
-#   including Kroc Camen: camendesign.com/.htaccess
+# Techniques in here adapted from all over, including:
+#   Kroc Camen: camendesign.com/.htaccess
+#   perishablepress.com/press/2006/01/10/stupid-htaccess-tricks/
 
 
 # Force the latest IE version, in various cases when it may fall back to IE7 mode
@@ -15,6 +16,12 @@
   </IfModule>
 </IfModule>
 
+<IfModule mod_headers.c>
+# Because X-UA-Compatible isn't sent to non-IE (to save header bytes),
+#   We need to inform proxies that content changes based on UA
+  Header append Vary User-Agent
+# Cache control is set only if mod_headers is enabled, so that's unncessary to declare
+</IfModule>
 
 # hacks.mozilla.org/2009/07/cross-site-xmlhttprequest-with-cors/
 # Disabled. Uncomment to serve cross-domain ajax requests
@@ -36,23 +43,33 @@
 </FilesMatch>
 
 
+# audio
+AddType audio/ogg                      oga ogg
+
 # video
-AddType video/ogg  ogg ogv
-AddType video/mp4  mp4
-AddType video/webm webm
+AddType video/ogg                      ogv
+AddType video/mp4                      mp4
+AddType video/webm                     webm
 
 # Proper svg serving. Required for svg webfonts on iPad
 #   twitter.com/FontSquirrel/status/14855840545
-AddType image/svg+xml                 svg svgz 
+AddType     image/svg+xml              svg svgz 
+AddEncoding gzip                       svgz
+                                       
+# webfonts                             
+AddType application/vnd.ms-fontobject  eot
+AddType font/truetype                  ttf
+AddType font/opentype                  otf
+AddType font/woff                      woff
 
-# webfonts
-AddType application/vnd.ms-fontobject eot
-AddType font/ttf                      ttf
-AddType font/otf                      otf
-AddType font/x-woff                   woff
+# assorted types                                      
+AddType image/vnd.microsoft.icon       ico
+AddType image/webp                     webp
+AddType text/cache-manifest            manifest
+AddType text/x-component               htc
+AddType application/x-chrome-extension crx
 
-AddType text/cache-manifest           manifest
-AddType text/x-component              htc
+
 
 
 # allow concatenation from within specific js and css files 
@@ -80,14 +97,15 @@ AddType text/x-component              htc
 <IfModule mod_deflate.c>
 
 # html, txt, css, js, json, xml, htc:
-  AddOutputFilterByType DEFLATE text/html text/plain text/css application/x-javascript text/javascript application/javascript application/json text/xml application/xml text/x-component
+  AddOutputFilterByType DEFLATE text/html text/plain text/css application/json
+  AddOutputFilterByType DEFLATE text/javascript application/javascript application/x-javascript 
+  AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
 
 # webfonts and svg:
   <FilesMatch "\.(ttf|otf|eot|svg)$" >
     SetOutputFilter DEFLATE
   </FilesMatch>
 </IfModule>
-
 
 
 
@@ -101,13 +119,13 @@ AddType text/x-component              htc
 #   "access plus 1 week" or so
 
 <IfModule mod_expires.c>
-  Header set cache-control: public
+  Header set Cache-Control "public"
   ExpiresActive on
 
 # Perhaps better to whitelist expires rules? Perhaps.
   ExpiresDefault                          "access plus 1 month"
 
-# cache.manifest needs re-reqeusts in FF 3.6 (thx Remy ~Introducing HTML5)
+# cache.manifest needs re-requests in FF 3.6 (thx Remy ~Introducing HTML5)
   ExpiresByType text/cache-manifest       "access plus 0 seconds"
 
 # your document html 
@@ -126,18 +144,22 @@ AddType text/x-component              htc
   ExpiresByType image/vnd.microsoft.icon  "access plus 1 week" 
 
 # media: images, video, audio
+  ExpiresByType image/gif                 "access plus 1 month"
   ExpiresByType image/png                 "access plus 1 month"
   ExpiresByType image/jpg                 "access plus 1 month"
   ExpiresByType image/jpeg                "access plus 1 month"
   ExpiresByType video/ogg                 "access plus 1 month"
   ExpiresByType audio/ogg                 "access plus 1 month"
   ExpiresByType video/mp4                 "access plus 1 month"
+  ExpiresByType video/webm                "access plus 1 month"
   
 # webfonts
-  ExpiresByType font/ttf                  "access plus 1 month"
+  ExpiresByType font/truetype             "access plus 1 month"
+  ExpiresByType font/opentype             "access plus 1 month"
   ExpiresByType font/woff                 "access plus 1 month"
   ExpiresByType image/svg+xml             "access plus 1 month"
-  
+  ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
+    
 # css and javascript
   ExpiresByType text/css                  "access plus 1 month"
   ExpiresByType application/javascript    "access plus 1 month"
@@ -169,12 +191,13 @@ FileETag None
 #   no-www.org/faq.php?q=class_b
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  RewriteCond %{HTTPS} !=on
   RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
   RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 </IfModule>
 
-# without -MultiViews, Apache will give a 404 for a rewrite if a folder of the same name does not exist (e.g. “/blog/hello”)
-#   webmasterworld.com/apache/3808792.htm
+# without -MultiViews, Apache will give a 404 for a rewrite if a folder of the same name does not exist 
+#   e.g. /blog/hello : webmasterworld.com/apache/3808792.htm
 Options -MultiViews 
 # -Indexes will have Apache block users from browsing folders without a default document
 # Options -Indexes
@@ -190,6 +213,11 @@ ErrorDocument 404 /404.html
 AddDefaultCharset utf-8
 # force utf-8 for a number of file formats
 AddCharset utf-8 .html .css .js .xml .json .rss
+
+
+
+# We don't need to tell everyone we're apache.
+ServerSignature Off
 
 
 
