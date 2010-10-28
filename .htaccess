@@ -23,11 +23,12 @@
 # Cache control is set only if mod_headers is enabled, so that's unncessary to declare
 </IfModule>
 
-# hacks.mozilla.org/2009/07/cross-site-xmlhttprequest-with-cors/
-# Disabled. Uncomment to serve cross-domain ajax requests
-#<IfModule mod_headers.c>
-#  Header set Access-Control-Allow-Origin "*"
-#</IfModule>
+# Serve cross-domain ajax requests, disabled.   
+# enable-cors.org
+# http://code.google.com/p/html5security/wiki/CrossOriginRequestSecurity
+#  <IfModule mod_headers.c>
+#    Header set Access-Control-Allow-Origin "*"
+#  </IfModule>
 
 
 
