@@ -55,6 +55,7 @@ types {
     application/octet-stream              dmg;
     application/octet-stream              iso img;
     application/octet-stream              msi msp msm;
+    application/octet-stream              safariextz
 
     audio/midi                            mid midi kar;
     audio/mpeg                            mp3;

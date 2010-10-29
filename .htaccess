@@ -69,7 +69,8 @@ AddType image/webp                     webp
 AddType text/cache-manifest            manifest
 AddType text/x-component               htc
 AddType application/x-chrome-extension crx
-
+AddType application/x-xpinstall        xpi
+AddType application/octet-stream       safariextz
 
 
 
