@@ -21,6 +21,9 @@ body {
   white-space: nowrap;
 }
 
+/* A hack for HTML5 contenteditable attribute on mobile */
+textarea.contenteditable {-webkit-appearance: none;}
+
 /*
  * Media queries for responsive design
  */
