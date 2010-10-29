@@ -25,7 +25,7 @@
 
 # Serve cross-domain ajax requests, disabled.   
 # enable-cors.org
-# http://code.google.com/p/html5security/wiki/CrossOriginRequestSecurity
+# code.google.com/p/html5security/wiki/CrossOriginRequestSecurity
 #  <IfModule mod_headers.c>
 #    Header set Access-Control-Allow-Origin "*"
 #  </IfModule>
