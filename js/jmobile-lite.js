@@ -1,4 +1,30 @@
 /*!
+ * Autogrowing Textareas
+ * http://www.blog.highub.com/
+ * by Shi Chuan
+ */
+
+(function( $ ){
+
+  $.fn.growingTextarea = function() {
+    return this.each(function() {
+		var $this = $(this);
+		var TEXTAREA_LINE_HEIGHT = 13;
+		$this.keyup(function(e){
+			var newHeight = $this.attr("scrollHeight");
+			var currentHeight = $this.attr("clientHeight");
+			if (newHeight > currentHeight) {
+				$this.css('height', newHeight + 2 * TEXTAREA_LINE_HEIGHT + 'px');
+			}
+		});
+    });
+
+  };
+})( jQuery );
+
+
+
+/*!
  * jQuery Mobile
  * http://jquerymobile.com/
  *
