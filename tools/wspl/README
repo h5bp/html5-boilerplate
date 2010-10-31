@@ -1,0 +1,27 @@
+How to run the tests:
+
+* The tests themselves assume that jsunit is in a sibling directory
+to the one containing the distrbution. If this is not so, it is sufficient
+to edit the paths in the test files. (On UNIX, symlinks may be your 
+friend if this is not convenient.)
+
+* jsmock.js (available from http://jsmock.sourceforge.net/) should
+be placed in the distribution directory.
+
+* Specify the test files via a URL parameter. (This might be an issue
+with jsunit: http://digitalmihailo.blogspot.com/2008/06/make-jsunit-work-in-firefox-30.html)
+
+For example, if the root of your downloaded of the distribution is /mypath:
+
+file:///mypath/jsunit/testRunner.html?testpage=mypath/webstorageportabilitylayer/dbwrapper_gears_test.html
+file:///mypath/jsunit/testRunner.html?testpage=mypath/webstorageportabilitylayer/dbwrapper_html5_test.html
+file:///mypath/jsunit/testRunner.html?testpage=mypath/webstorageportabilitylayer/dbwrapperapi_test.html
+
+NB: the leading / in a UNIX path is not included in mypath so setting
+it via pwd will not deliver the desired effect.
+
+
+
+
+
+

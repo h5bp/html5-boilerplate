@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2009 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<html>
+<head>
+<title>Database wrapper api</title>
+<script type="text/javascript" src="../jsunit/app/jsUnitCore.js"></script>
+<script type="text/javascript" src="jsmock.js"></script>
+<script type="text/javascript" src="global_functions.js"></script>
+<script type="text/javascript" src="dbwrapperapi.js"></script>
+</head>
+<body>
+<script type='text/javascript'>
+
+function subStatementTest(stm) {
+  assertEquals('statement not set correctly', 'bar', stm.sql);
+  assertEquals('first param not set correctly', 1, stm.params[0]);
+  assertEquals('second param not set correctly', 2, stm.params[1]);
+}
+
+function testConstructStatement() {
+  var stm = new google.wspl.Statement('foo');
+  assertEquals('statement not set correctly', 'foo', stm.sql);
+
+  var stm = new google.wspl.Statement('bar', [1,2]);
+  subStatementTest(stm);
+}
+
+function testConstructStatementFromTemplate() {
+  var temp = new google.wspl.Statement('bar');
+  var stm = temp.createStatement([1,2]);
+  subStatementTest(stm);
+}
+
+</script>
+</body>
+</html>

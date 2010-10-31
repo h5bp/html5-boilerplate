@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2009 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<!--
+
+  A simple application showing the use of the web storage portability layer
+  code and cache pattern for offline web application.
+
+-->
+<html>
+<head>
+  <title>SimpleNotes Demo</title>
+  <link href="styles.css" rel="stylesheet" type="text/css" />
+  <script src="../global_functions.js" language="javascript"
+      type="text/javascript"></script>
+  <script src="../dbwrapperapi.js" language="javascript"
+      type="text/javascript"></script>
+  <script src="../dbwrapper_html5.js" language="javascript"
+      type="text/javascript"></script>
+  <script src="../databasefactory.js" language="javascript"
+      type="text/javascript"></script>
+  <script src="template.js" language="javascript"
+      type="text/javascript"></script>
+  <script src="simplenotes.js" language="javascript"
+      type="text/javascript"></script>
+</head>
+<body>
+
+<div id="list-note" class="screen list-note-screen" >
+  <div class="title-bar">Note List</div>
+  <div class="top command-bar">
+    <button id="view-note-new">New</button>
+  </div>
+  <div class="status-bar">status bar</div>
+  <div class="list-note-container-empty" style="display:none;"></div>
+  <div class="list-note-container" style="display:none;">
+    <div class="list-note-item">
+      <a href="javascript:showNote(%noteKey%);">%subject%</a>
+    </div>
+  </div>
+  <div class="top command-bar">
+    <button id="view-note-new">New</button>
+  </div>
+</div>
+
+<div id="view-note" class="screen view-note-screen" style="display:none;">
+  <div class="title-bar">View Note</div>
+  <div class="top command-bar">
+    <button id="view-note-back">Back</button>
+    <button id="view-note-edit">Edit Note</button>
+  </div>
+  <div class="status-bar">status bar</div>
+  <div class="view-note-container" style="display:none;">
+    <div class="subject">%subject%</div>
+    <div class="body">%body%</div>
+  </div>
+  <div class="bottom command-bar">
+    <button id="view-note-back">Back</button>
+    <button id="view-note-edit">Edit Note</button>
+  </div>
+</div>
+
+<div id="edit-note" class="screen edit-note-screen" style="display:none;">
+  <div class="title-bar">Edit Note</div>
+  <div class="top command-bar">
+    <button id="edit-back-save">Save Note</button>
+    <button id="edit-back-revert">Revert Note</button>
+  </div>
+  <div class="status-bar">status bar</div>
+  <div>Subject:</div>
+  <textarea rows="1" style="width:100%;" id="edit-note-subject"></textarea>
+  <br>
+  <div>Note:</div>
+  <textarea rows="20"  style="width:100%;" id="edit-note-body"></textarea>
+  <div class="bottom command-bar">
+    <button id="edit-back-save">Save Note</button>
+    <button id="edit-back-revert">Revert Note</button>
+  </div>
+</div>
+
+</body>
+<script>
+
+/**
+ * Tests the given DOM element for a specific CSS class.
+ * @param {Object} e A DOM element.
+ * @param {string} css A CSS class identifier to match.
+ * @return {boolean} true if the element has the CSS class.
+ */
+function hasCssClass(e, css) {
+  return e && e.className && e.className.search(css + '( |$)') > -1;
+};
+
+/**
+ * Finds the parent element of a given element that has
+ * the specified CSS class.
+ * @param {Object} e A DOM element.
+ * @param {string} css A CSS class identifier to match.
+ * @param {Object} opt_stop A parent DOM element to stop at.
+ * @return {Object} A DOM element parent of e or null.
+ */
+function findParentOfClass(e, css, opt_stop) {
+  var stop = opt_stop || document;
+  while (e && e != stop && !hasCssClass(e, css)) {
+    e = e.parentElement;
+  }
+  return hasCssClass(e, css) ? e : null;
+};
+
+/**
+ * Navigates to the note creation screen.
+ */
+function editNote(event) {
+  google.logger('editNote: <' + currentNote.subject + '>');
+  hideBlock('#edit-note .status-bar');
+
+  var subject = document.getElementById('edit-note-subject');
+  var body = document.getElementById('edit-note-body');
+  subject.value = currentNote.subject;
+  body.value = currentNote.body;
+
+  google.logger('end of editNote');
+}
+
+/**
+ * Saves a note.
+ */
+function saveNote(event) {
+  google.logger('saveNote: do database or other activity here');
+  // Copy contents from fields and save.
+  var subject = document.getElementById('edit-note-subject');
+  var body = document.getElementById('edit-note-body');
+
+  cache.applyUiChange(currentNote.noteKey, subject.value,
+      body.value, showNote);
+  google.logger('saveNote');
+}
+
+/**
+ * Abandons the note.
+ */
+function abandonNote(event) {
+  google.logger('abandonNote: do database or other activity here');
+  showNote(currentNote.noteKey);
+  google.logger('abandonNote');
+}
+
+/**
+ * Prepares to edit a new note.
+ */
+function newNote(event) {
+  google.logger('newNote: do database or other activity here');
+  alert('not implemented');
+  // grab the contents and inject into the database.
+  var subject = document.getElementById('edit-note-subject');
+  var body = document.getElementById('edit-note-body');
+  subject.value = '';
+  body.value = '';
+  google.logger('newNote');
+}
+
+/**
+ * Maps button names to customizer functions.
+ */
+var buttonHandlerSpecification = {
+  'view-note-new': ['edit-note', newNote],
+  'view-note-back': ['list-note', showNoteList],
+  'view-note-edit': ['edit-note', editNote],
+  'edit-back-save': ['view-note', saveNote],
+  'edit-back-revert': ['view-note', abandonNote]
+};
+
+/**
+ * Hides a block specified by a CSS selector and parent node.
+ * @param {string} selector A CSS selector string.
+ * @param {Object} opt_el A DOM element.
+ */
+function hideBlock(selector, opt_el) {
+  var el = opt_el || document;
+  var targetEl = el.querySelector(selector);
+  targetEl.style.display = 'none';
+}
+
+/**
+ * Shows a block specified by a CSS selector and parent node, inserting
+ * the specified string as the innerHTML property of the selected block.
+ * @param {string} selector A CSS selector
+ * @param {string} html String to assign to the innerHTML property.
+ * @param {Object} opt_el A DOM element.
+ */
+function showBlock(selector, html, opt_el) {
+  var el = opt_el || document;
+  var targetEl = el.querySelector(selector);
+  if (html) targetEl.innerHTML = html;
+  targetEl.style.display = 'block';
+}
+
+/**
+ * Handles all button events.
+ */
+function buttonHandler(event) {
+  google.logger('clicked on: ' + event.target.id);
+
+  var currentScreen = findParentOfClass(event.target, 'screen');
+  var nextScreen = document.getElementById(
+      buttonHandlerSpecification[event.target.id][0]);
+  var helperFunction = buttonHandlerSpecification[event.target.id][1];
+
+  // All button handlers have a common implementation.
+  // 1. hide current screen
+  currentScreen.style.display = 'none';
+
+  // 2. show new screen
+  nextScreen.style.display = 'block';
+
+  // 3. Activate status
+  showBlock('.status-bar', 'Working...', nextScreen);
+
+  // 4. Call customizer function (which will probably query the model
+  // stored in the cache.
+  helperFunction(event);
+
+  // 5. A (possibly asynchronous) callback from the customizer will
+  // finish the action by running the appropriate view function.
+  google.logger('end of button Handler');
+}
+
+/**
+ * Call back from a specific JavaScript url to show a specific
+ * note.
+ * @param {number} noteKey
+ * @return {boolean}
+ */
+function showNote(noteKey) {
+  hideBlock('#list-note');
+  showBlock('#view-note .status-bar', 'Working...');
+  showBlock('#view-note');
+  cache.getValues('fullnote', [noteKey], renderFullNote);
+  return false;
+}
+
+/**
+ * Generates HTML for a note and display it.
+ * @param {Object} oneNote
+ * @param {boolean} complete True if the note has been provided or
+ *     if an updated note is arriving. (Necessary for future support for
+ *     sub-note updates.)
+ */
+function renderFullNote(oneNote, complete) {
+  google.logger('renderFullNote');
+
+  showBlock('.view-note-container', noteViewTemplate.process(oneNote));
+  if (complete) {
+    hideBlock('#view-note .status-bar');
+  }
+  currentNote = oneNote;
+  google.logger('done renderFullNote');
+}
+
+/**
+ * Generates HTML for a note list and display it.
+ * @param {Array.<Object>} noteHeaders
+ * @param {boolean} complete True if all in-existence notes that lie
+ *     in the query range have been provided even if less than what was
+ *     requested.
+ */
+function renderNoteList(noteHeaders, complete) {
+  google.logger('renderNoteList: ' + noteHeaders.length);
+
+  if (noteHeaders.length == 0) {
+    showBlock('.list-note-container-empty', 'No notes');
+  } else {
+    var notes = noteHeaders.map(function(n) {
+      return noteListTemplate.process(n);
+    });
+    showBlock('.list-note-container', notes.join());
+  }
+  if (complete) {
+    hideBlock('#list-note .status-bar');
+  }
+  google.logger('done renderNoteList');
+}
+
+/**
+ * Query for an updated note list.
+ */
+function showNoteList() {
+  google.logger('showNoteList');
+  cache.getValues('list', [0,20], renderNoteList);
+  currentNote = undefined;
+  google.logger('end of showNoteList');
+}
+
+/**
+ * A constructor for the controller. Sets up the UI and
+ * queries the cache for initial notelist contents.
+ */
+function createController() {
+  google.logger('createController:');
+  var buttons = document.querySelectorAll('.command-bar button');
+  Array.prototype.forEach.call(buttons, function(b) {
+    b.addEventListener('click', buttonHandler);
+  });
+  google.logger('controller is live');
+  showNoteList();
+}
+
+google.logger('about to fetch the template');
+var currentNote = undefined;
+
+var noteListTemplate = new google.wspl.simplenotes.Template(
+    document.querySelector('.list-note-container').innerHTML);
+
+var noteViewTemplate = new google.wspl.simplenotes.Template(
+    document.querySelector('.view-note-container').innerHTML);
+
+// var noteEditTemplate = new google.wspl.simplenotes.Template();
+
+google.logger('created the template');
+
+// debugging code... tear out...
+// test the template construction...
+// showBlock('.list-note-container', noteListTemplate.process(
+//    {noteKey: 123, subject: 'hi rob'}));
+
+
+google.logger('loaded database');
+var cache = new google.wspl.simplenotes.Cache();
+cache.startCache(createController);
+
+google.logger('finished loading page');
+</script>
+</html>

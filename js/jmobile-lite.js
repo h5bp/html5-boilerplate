@@ -23,7 +23,6 @@
 })( jQuery );
 
 
-
 /*!
  * jQuery Mobile
  * http://jquerymobile.com/
@@ -83,8 +82,6 @@ $.extend( $.support, {
 
 fakeBody.remove();
 
-//for ruling out shadows via css
-if( !$.support.boxShadow ){ $('html').addClass('ui-mobile-nosupport-boxshadow'); }// add new event shortcuts
 $.each( "touchstart touchmove touchend orientationchange tap taphold swipe swipeleft swiperight scrollstart scrollstop".split( " " ), function( i, name ) {
 	$.fn[ name ] = function( fn ) {
 		return fn ? this.bind( name, fn ) : this.trigger( name );
@@ -297,3 +294,54 @@ $.each({
 		$html.addClass( jQuery.event.special.orientationchange.orientation( $window ) );
 	});
 })( jQuery, this );
+
+
+// Simple list of gesture events (vanilla javascript) for A grade browsers
+// Sample Apple documentation: http://developer.apple.com/library/safari/#documentation/appleapplications/reference/SafariWebContent/HandlingEvents/HandlingEvents.html#//apple_ref/doc/uid/TP40006511-SW23
+
+/*
+* On touchcancel event
+*/ 
+document.addEventListener('touchcancel', function(event) {
+
+}, false);
+
+/*
+* On gesturestart event
+*/
+document.addEventListener('gesturestart', function(event) {
+	// Usually you'll want to disable the default behoavior
+    event.preventDefault(); // Prevent default zoom
+	
+	// Example of event object
+	event.rotation;		// amount of rotation
+	event.scale;		// amount of scale
+}, false);
+
+/*
+* On gesturechange event
+*/
+document.addEventListener('gesturechange', function(event) {
+
+}, false);
+
+/*
+* On gestureend event
+*/
+document.addEventListener('gestureend', function(event) {
+
+}, false);
+
+/*
+* On gesturechange event
+*/
+document.addEventListener('gesturechange', function(event) {
+
+}, false);
+
+/*
+* On orientation change event
+*/
+document.addEventListener('orientationchange', function(event) {
+	
+}, false);

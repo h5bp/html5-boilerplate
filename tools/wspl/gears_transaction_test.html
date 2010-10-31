@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2009 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<html>
+<head>
+<title>Gears transaction tests</title>
+<script type="text/javascript" src="../jsunit/app/jsUnitCore.js"></script>
+<script type="text/javascript" src="jsmock.js"></script>
+<script type="text/javascript" src="global_functions.js"></script>
+<script type="text/javascript" src="dbwrapperapi.js"></script>
+<script type="text/javascript" src="gears_resultset.js"></script>
+<script type="text/javascript" src="gears_transaction.js"></script>
+</head>
+<body>
+<script type='text/javascript'>
+
+var mockControl;
+var callbackMock;
+var dbMock;
+
+function setUp() {
+  mockControl = new MockControl();
+  callbackMock = mockControl.createMock({
+    onSuccess: function(){},
+    onFailure: function(){}
+  });
+  dbMock = mockControl.createMock({
+    doBegin: function(){},
+    doCommit: function(){},
+    doRollback: function(){},
+    doExecute: function(){}
+  });
+}
+
+function testConstructTransaction() {
+  var trans = new google.wspl.gears.Transaction(10, 'foo');
+  assertEquals('foo', trans.db_);
+  assertEquals(10, trans.id_);
+}
+
+function testExecuteAll_noStatements() {
+  var trans = new google.wspl.gears.Transaction(27, dbMock);
+
+  try {
+    trans.executeAll([], callbackMock);
+    fail('Should never get here');
+  } catch(e) {
+    if (e.isJsUnitException) {
+      throw e;
+    }
+    assertEquals('did not exception fault on empty statement list',
+        'Error: Possibly silly attempt to execute empty statement list.',
+        e.toString());
+  }
+  mockControl.verify();
+}
+
+function testExecuteAll_noCallback() {
+  var stat1 = new google.wspl.Statement('stat1');
+  var stat2 = new google.wspl.Statement('stat2', [1]);
+  var stat3 = new google.wspl.Statement('stat3', [2, 3]);
+  var transactionId = 27;
+  var callbackId = 1;
+  var trans = new google.wspl.gears.Transaction(transactionId, dbMock);
+
+  dbMock.expects().doBegin(transactionId);
+  dbMock.expects().doExecute([stat1, stat2, stat3], callbackId, transactionId);
+  dbMock.expects().doCommit(transactionId);
+
+  trans.executeAll([stat1, stat2, stat3]);
+  trans.success('resultset1', callbackId);
+  trans.success('resultset2', callbackId);
+  trans.success('resultset3', callbackId);
+}
+
+function testExecuteAll_success() {
+  var stat1 = new google.wspl.Statement('stat1');
+  var stat2 = new google.wspl.Statement('stat2', [1]);
+  var stat3 = new google.wspl.Statement('stat3', [2, 3]);
+  var transactionId = 27;
+  var callbackId = 1;
+  var trans = new google.wspl.gears.Transaction(transactionId, dbMock);
+
+  dbMock.expects().doBegin(transactionId);
+  dbMock.expects().doExecute([stat1, stat2, stat3], callbackId, transactionId);
+  callbackMock.expect().onSuccess(trans, 'resultset1');
+  callbackMock.expect().onSuccess(trans, 'resultset2');
+  callbackMock.expect().onSuccess(trans, 'resultset3');
+  dbMock.expects().doCommit(transactionId);
+
+  trans.executeAll([stat1, stat2, stat3], callbackMock);
+  trans.success('resultset1', callbackId);
+  trans.success('resultset2', callbackId);
+  trans.success('resultset3', callbackId);
+
+  mockControl.verify();
+}
+
+function testExecuteAll_failure() {
+  var stat1 = new google.wspl.Statement('stat1');
+  var stat2 = new google.wspl.Statement('stat2', [1]);
+  var stat3 = new google.wspl.Statement('stat3', [2, 3]);
+  var stat4 = new google.wspl.Statement('stat4', [4, 5]);
+  var transactionId = 27;
+  var callbackId = 1;
+  var trans = new google.wspl.gears.Transaction(transactionId, dbMock);
+
+  dbMock.expects().doBegin(transactionId);
+  dbMock.expects().doExecute([stat1, stat2, stat3, stat4], callbackId,
+      transactionId);
+
+  callbackMock.expect().onSuccess(trans, 'resultset1');
+  callbackMock.expect().onFailure('sql error');
+  dbMock.expects().doRollback(transactionId);
+
+  trans.executeAll([stat1, stat2, stat3, stat4], callbackMock);
+  trans.success('resultset1', callbackId);
+  trans.failure('sql error', callbackId);
+
+  // These should do nothing.
+  trans.success('resultset3', callbackId);
+  trans.failure('sql error', callbackId);
+
+  mockControl.verify();
+}
+
+function testExecuteAll_multipleCalls() {
+  var stat1 = new google.wspl.Statement('stat1');
+  var stat2 = new google.wspl.Statement('stat2', [1]);
+  var stat3 = new google.wspl.Statement('stat3', [2, 3]);
+  var stat4 = new google.wspl.Statement('stat4', [4, 5]);
+  var transactionId = 27;
+  var callbackId_1 = 1;
+  var callbackId_2 = 2;
+  var callbackId_3 = 3;
+  var trans = new google.wspl.gears.Transaction(transactionId, dbMock);
+
+  dbMock.expects().doBegin(transactionId);
+  dbMock.expects().doExecute([stat1, stat2], callbackId_1, transactionId);
+  dbMock.expects().doExecute([stat3], callbackId_2, transactionId);
+  callbackMock.expects().onSuccess(trans, 'resultset1').andStub(function() {
+    trans.executeAll([stat4], callbackMock);
+  });
+  dbMock.expects().doExecute([stat4], callbackId_3, transactionId);
+  callbackMock.expects().onSuccess(trans, 'resultset2').andStub(function() {});
+  callbackMock.expects().onSuccess(trans, 'resultset3');
+  callbackMock.expects().onSuccess(trans, 'resultset4');
+  dbMock.expects().doCommit(transactionId);
+
+  trans.executeAll([stat1, stat2], callbackMock);
+  trans.executeAll([stat3], callbackMock);
+  trans.success('resultset1', callbackId_1);
+  trans.success('resultset2', callbackId_1);
+  trans.success('resultset3', callbackId_2);
+  trans.success('resultset4', callbackId_3);
+
+  mockControl.verify();
+}
+
+function testOnSuccess() {
+  var transactionId = 27;
+  var callbackId = 3;
+  var trans = new google.wspl.gears.Transaction(transactionId, dbMock);
+
+  callbackMock.expects().onSuccess(trans, 'result2');
+  callbackMock.expects().onSuccess(trans, 'result3');
+  dbMock.expects().doCommit(transactionId);
+
+  trans.numActiveExecutes_ = 1;
+  trans.activeExecutes_[callbackId] = {
+    statements: ['s1', 's2', 's3'],
+    currentStatement: 1,
+    callback: callbackMock
+  };
+  trans.success('result2', callbackId);
+  trans.success('result3', callbackId);
+  assertUndefined('activeExecute not removed',
+      trans.activeExecutes_[callbackId]);
+  mockControl.verify();
+}
+
+function testOnFailure() {
+  var transactionId = 27;
+  var callbackId = 5;
+  callbackMock.expects().onFailure(TypeOf.isA(Error)).andStub(function() {
+    assertEquals('error not returned', 'error', arguments[0].message);
+  });
+  dbMock.expects().doRollback(transactionId);
+  var trans = new google.wspl.gears.Transaction(transactionId, dbMock);
+
+  trans.numActiveExecutes_ = 1;
+  trans.activeExecutes_[callbackId] = {
+    statements: ['s1', 's2', 's3'],
+    currentStatement: 1,
+    callback: callbackMock
+  };
+
+  trans.failure(Error('error'), callbackId);
+  trans.success('result3', callbackId);
+  assertUndefined('activeExecute not removed',
+      trans.activeExecutes_[callbackId]);
+  mockControl.verify();
+}
+
+</script>
+</body>
+</html>

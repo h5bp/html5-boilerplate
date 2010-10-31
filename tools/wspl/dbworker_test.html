@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2009 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<html>
+<head>
+<title>Gears worker tests</title>
+<script type="text/javascript" src="../jsunit/app/jsUnitCore.js"></script>
+<script type="text/javascript" src="jsmock.js"></script>
+<script type="text/javascript" src="global_functions.js"></script>
+<script type="text/javascript" src="gearsutils.js"></script>
+<script type="text/javascript" src="dbworker.js"></script>
+</head>
+<body>
+<script type='text/javascript'>
+
+var mockControl;
+var db;
+var wp;
+var factory;
+var callbackId = 10;
+var transactionId = 15;
+var name = 'name';
+var userId = 'userId';
+var utils;
+
+function setUp() {
+  mockControl = new MockControl();
+
+  // Mock the Gears factory.
+  factory = mockControl.createMock();
+  factory.addMockMethod('create');
+
+  // Mock Google Gears.
+  google.gears = {};
+  google.gears.factory = {};
+  google.gears.factory.create = factory.create;
+
+  // Mock the Gears workerpool object.
+  wp = mockControl.createMock({
+    allowCrossOrigin: function(){},
+    sendMessage: function(){}
+  });
+
+  // Mock the Gears database object.
+  db = mockControl.createMock({
+    execute: function(){},
+    open: function(){},
+    close: function(){},
+    remove: function(){}
+  });
+
+  // Mock the Gears utility classes
+ utils = mockControl.createMock({
+    openDatabase: function(){},
+  });
+
+  google.wspl = google.wspl || {};
+  google.wspl.GearsUtils = google.wspl.GearsUtils || {};
+  google.wspl.GearsUtils.openDatabase = utils.openDatabase;
+  google.wspl.GearsUtils.resultSetToObjectArray = function(rs) {
+    return rs;
+  };
+}
+
+function buildWorker() {
+  wp.expects().sendMessage(TypeOf.isA(Object), 0).andStub(
+      function() {
+    var msg = arguments[0];
+    assertEquals('Wrong message type.',
+        google.wspl.gears.DbWorker.ReplyTypes.STARTED, msg.type);
+  });
+  var worker = new google.wspl.gears.DbWorker(wp);
+  worker.db_ = db;
+  worker.log_ = function() {};
+
+  return worker;
+}
+
+function testConstruction() {
+  var worker = buildWorker();
+  mockControl.verify();
+}
+
+function testHandleExecute_success() {
+  var worker = buildWorker();
+  var stat1 = {sql: 'sql1', params: [1, 2]};
+  var stat2 = {sql: 'sql2', params: [3, 4]};
+  var statements = [stat1, stat2];
+  var type = google.wspl.gears.DbWorker.ReplyTypes.RESULT;
+
+  db.expects().execute(stat1.sql, stat1.params).andReturn('result1');
+  db.expects().execute(stat2.sql, stat2.params).andReturn('result2');
+  wp.expects().sendMessage(TypeOf.isA(Object), worker.senderId_).andStub(
+      function() {
+    var msg = arguments[0];
+    assertEquals('Wrong message type.', type, msg.type);
+    assertEquals('Wrong results.length', 2, msg.results.length);
+    assertEquals('Wrong results[0].', 'result1', msg.results[0]);
+    assertEquals('Wrong results[1].', 'result2', msg.results[1]);
+    assertEquals('Wrong callbackId.', callbackId, msg.callbackId);
+    assertEquals('Wrong transactionId.', transactionId, msg.transactionId);
+  });
+
+  worker.handleExecute_(statements, callbackId, transactionId);
+  mockControl.verify();
+}
+
+function testHandleExecute_failure() {
+  var worker = buildWorker();
+  var stat1 = {sql: 'sql1', params: [1, 2]};
+  var stat2 = {sql: 'sql2', params: [3, 4]};
+  var stat3 = {sql: 'sql3', params: [5, 6]};
+  var statements = [stat1, stat2, stat3];
+  var type1 = google.wspl.gears.DbWorker.ReplyTypes.RESULT;
+  var type2 = google.wspl.gears.DbWorker.ReplyTypes.FAILURE;
+  var error = 'sql error';
+
+  db.expects().execute(stat1.sql, stat1.params).andReturn('result1');
+  db.expects().execute(stat2.sql, stat2.params).andThrow(error);
+  wp.expects().sendMessage(TypeOf.isA(Object), worker.senderId_).andStub(
+      function() {
+    var msg = arguments[0];
+    assertEquals('Wrong message type.', type2, msg.type);
+    assertEquals('Wrong result.', error, msg.error.message);
+    assertEquals('Wrong callbackId.', callbackId, msg.callbackId);
+    assertEquals('Wrong transactionId.', transactionId, msg.transactionId);
+  });
+
+  worker.handleExecute_(statements, callbackId, transactionId);
+  mockControl.verify();
+}
+
+function testHandleBegin() {
+  var worker = buildWorker();
+
+  // Expecting two transactions to begin.
+  db.expects().execute('BEGIN IMMEDIATE');
+  db.expects().execute('BEGIN IMMEDIATE');
+
+  worker.handleBegin_(transactionId);
+  worker.handleBegin_(22);
+
+  assertEquals('Did not save first transaction id', transactionId,
+      worker.transactions_[0]);
+  assertEquals('Did not save second transaction id', 22,
+      worker.transactions_[1]);
+
+  mockControl.verify();
+}
+
+function testHandleCommit() {
+  var worker = buildWorker();
+  db.expects().execute('COMMIT');
+  worker.handleCommit_(transactionId);
+  mockControl.verify();
+}
+
+function testHandleRollback() {
+  var worker = buildWorker();
+  db.expects().execute('ROLLBACK');
+  worker.handleRollback_(transactionId);
+  mockControl.verify();
+}
+
+function testHandleOpen_success() {
+  var worker = buildWorker();
+  worker.db_ = null;
+
+  factory.expects().create('beta.database', '1.0').andReturn(db);
+  utils.expects().openDatabase(userId, name, db, worker.log_).andReturn(db);
+  wp.expects().sendMessage(TypeOf.isA(Object), worker.senderId_).andStub(
+      function(msg) {
+    assertEquals('Type not set correctly.',
+        google.wspl.gears.DbWorker.ReplyTypes.OPEN_SUCCESSFUL, msg.type);
+  });
+
+  worker.handleOpen_(userId, name);
+  assertEquals('Database wrongly set', db, worker.db_);
+  mockControl.verify();
+}
+
+function testHandleOpen_failure_gearsfactory() {
+  var worker = buildWorker();
+  worker.db_ = null;
+
+  factory.expects().create('beta.database', '1.0').andThrow('blah!');
+  wp.expects().sendMessage(TypeOf.isA(Object), worker.senderId_).andStub(
+      function(msg) {
+    assertEquals('Type not set correctly.',
+        google.wspl.gears.DbWorker.ReplyTypes.OPEN_FAILED, msg.type);
+  });
+
+  worker.handleOpen_(userId, name);
+  mockControl.verify();
+}
+
+function testHandleOpen_failure_dbopen() {
+  var worker = buildWorker();
+  worker.db_ = null;
+
+  factory.expects().create('beta.database', '1.0').andReturn(null);
+  utils.expects().openDatabase(userId, name, null, worker.log_).andThrow('blah!');
+  wp.expects().sendMessage(TypeOf.isA(Object), worker.senderId_).andStub(
+      function(msg) {
+    assertEquals('Type not set correctly.',
+        google.wspl.gears.DbWorker.ReplyTypes.OPEN_FAILED, msg.type);
+  });
+
+  worker.handleOpen_(userId, name);
+  mockControl.verify();
+}
+
+function testPostCommit() {
+  var worker = buildWorker();
+  worker.transactions_ = [4, 5];
+
+  wp.expects().sendMessage(TypeOf.isA(Object), worker.senderId_).andStub(
+      function() {
+    var msg = arguments[0];
+    assertEquals('Type not set correctly.',
+        google.wspl.gears.DbWorker.ReplyTypes.COMMIT, msg.type);
+    assertEquals('Transaction id not set correctly.',
+        5, msg.transactionId);
+  });
+
+  wp.expects().sendMessage(TypeOf.isA(Object), worker.senderId_).andStub(
+      function() {
+    var msg = arguments[0];
+    assertEquals('Type not set correctly.',
+        google.wspl.gears.DbWorker.ReplyTypes.COMMIT, msg.type);
+    assertEquals('Transaction id not set correctly.',
+        4, msg.transactionId);
+  });
+
+  worker.postCommit_();
+  assertEquals('Did not clear the transactions.', 0,
+      worker.transactions_.length);
+  mockControl.verify();
+}
+
+function testPostRollback() {
+  var worker = buildWorker();
+  worker.transactions_ = [4, 5];
+
+  wp.expects().sendMessage(TypeOf.isA(Object), worker.senderId_).andStub(
+      function() {
+    var msg = arguments[0];
+    assertEquals('Type not set correctly.',
+        google.wspl.gears.DbWorker.ReplyTypes.ROLLBACK, msg.type);
+    assertEquals('Transaction id not set correctly.',
+        5, msg.transactionId);
+  });
+
+  wp.expects().sendMessage(TypeOf.isA(Object), worker.senderId_).andStub(
+      function() {
+    var msg = arguments[0];
+    assertEquals('Type not set correctly.',
+        google.wspl.gears.DbWorker.ReplyTypes.ROLLBACK, msg.type);
+    assertEquals('Transaction id not set correctly.',
+        4, msg.transactionId);
+  });
+
+  worker.postRollback_();
+  assertEquals('Did not clear the transactions.', 0,
+      worker.transactions_.length);
+  mockControl.verify();
+}
+
+function testOnmessage() {
+  var messageObject = {sender: 123, body: {}};
+  var worker = buildWorker();
+  worker.onMessage_(null, null, messageObject);
+
+  assertEquals('Wrong sender ID.', 123, worker.senderId_);
+
+  mockControl.verify();
+}
+
+function testOnmessage_open() {
+  var messageObject = {sender: 123, body: {
+    type: google.wspl.gears.DbWorker.CommandTypes.OPEN,
+    name: name,
+    userId: userId
+  }};
+
+  var worker = buildWorker();
+  var handler = mockControl.createMock();
+  handler.addMockMethod('open');
+  worker.handleOpen_ = handler.open;
+  handler.expects().open(userId, name);
+
+  worker.onMessage_(null, null, messageObject);
+  mockControl.verify();
+}
+
+function testOnmessage_execute() {
+  var worker = buildWorker();
+  var statements = ['stat1', 'stat2'];
+  var messageObject = {sender: 123, body: {
+    type: google.wspl.gears.DbWorker.CommandTypes.EXECUTE,
+    statements: statements,
+    callbackId: callbackId,
+    transactionId: transactionId
+  }};
+  var called = false;
+
+  worker.handleExecute_ = function(stat, call, trans) {
+    called = true;
+    assertEquals('Wrong statements.', statements, stat);
+    assertEquals('Wrong callback id.', callbackId, call);
+    assertEquals('Wrong transaction id.', transactionId, trans);
+  };
+
+  worker.onMessage_(null, null, messageObject);
+  assertTrue('handleExecute_ not called.', called);
+
+  mockControl.verify();
+}
+
+function testOnmessage_begin() {
+  var worker = buildWorker();
+  var messageObject = {sender: 123, body: {
+    type: google.wspl.gears.DbWorker.CommandTypes.BEGIN,
+    transactionId: transactionId
+  }};
+  var called = false;
+
+  worker.handleBegin_ = function(trans) {
+    called = true;
+    assertEquals('Wrong transaction id.', transactionId, trans);
+  };
+
+  worker.onMessage_(null, null, messageObject);
+  assertTrue('handleBegin_ not called.', called);
+
+  mockControl.verify();
+}
+
+function testOnmessage_commit() {
+  var worker = buildWorker();
+  var messageObject = {sender: 123, body: {
+    type: google.wspl.gears.DbWorker.CommandTypes.COMMIT,
+    transactionId: transactionId
+  }};
+  var called = false;
+
+  worker.handleCommit_ = function(trans) {
+    called = true;
+    assertEquals('Wrong transaction id.', transactionId, trans);
+  };
+
+  worker.onMessage_(null, null, messageObject);
+  assertTrue('handleCommit_ not called.', called);
+
+  mockControl.verify();
+}
+
+function testOnmessage_rollback() {
+  var worker = buildWorker();
+  var messageObject = {sender: 123, body: {
+    type: google.wspl.gears.DbWorker.CommandTypes.ROLLBACK,
+    transactionId: transactionId
+  }};
+  var called = false;
+
+  worker.handleRollback_ = function(trans) {
+    called = true;
+    assertEquals('Wrong transaction id.', transactionId, trans);
+  };
+
+  worker.onMessage_(null, null, messageObject);
+  assertTrue('handleRollback_ not called.', called);
+
+  mockControl.verify();
+}
+
+</script>
+</body>
+</html>

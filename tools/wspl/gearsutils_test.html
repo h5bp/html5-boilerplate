@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2009 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<html>
+<head>
+<title>Gears Utilities Tests</title>
+<script type="text/javascript" src="../jsunit/app/jsUnitCore.js"></script>
+<script type="text/javascript" src="jsmock.js"></script>
+<script type="text/javascript" src="global_functions.js"></script>
+<script type="text/javascript" src="gearsutils.js"></script>
+</head>
+<body>
+<script type='text/javascript'>
+
+var mockControl;
+var mockGearsDb;
+var mockLogger;
+
+function setUp() {
+  mockControl = new MockControl();
+  mockGearsDb = mockControl.createMock({
+    execute: function(){},
+    open: function(){},
+    close: function(){},
+    remove: function(){}
+  });
+
+  mockLogger = mockControl.createMock({
+    info: function(){}
+  });
+
+}
+
+function  testMakeSafeFileName() {
+  assertEquals('simple name wrongly modified', 'ABCDEFGHIJKLMNOPQRSTUVXYZ',
+      google.wspl.GearsUtils.makeSafeFileName_('ABCDEFGHIJKLMNOPQRSTUVXYZ'));
+  assertEquals('simple name wrongly modified', 'abcdefghijklmnopqrstuvxyz',
+      google.wspl.GearsUtils.makeSafeFileName_('abcdefghijklmnopqrstuvxyz'));
+  assertEquals('simple name wrongly modified', '.-@_',
+      google.wspl.GearsUtils.makeSafeFileName_('.-@_'));
+
+  var longName = 'abcdefghijklmnopqrstuvxyz' + 'abcdefghijklmnopqrstuvxyz' +
+      'abcdefghijklmnopqrstuvxyz';
+  assertEquals('long name not truncated',
+      google.wspl.GearsUtils.MAX_FILE_NAME_LENGTH_,
+      google.wspl.GearsUtils.makeSafeFileName_(longName).length);
+
+  assertEquals('forbidden character not stripped', 'abc',
+      google.wspl.GearsUtils.makeSafeFileName_('a#b$()//c'));
+}
+
+function testCreateDatabase_success() {
+  mockGearsDb.expects().open('hello-there');
+  google.wspl.GearsUtils.openDatabase('hello', 'there', mockGearsDb,
+      mockLogger);
+  mockControl.verify();
+}
+
+function testCreateDatabase_invalidname() {
+  mockLogger.expects().info('database name foo/bar-ranch->foobar-ranch');
+  mockGearsDb.expects().open('foobar-ranch');
+  assertEquals('bad return value', mockGearsDb,
+      google.wspl.GearsUtils.openDatabase('foo/bar', 'ranch',
+      mockGearsDb, mockLogger.info));
+  mockControl.verify();
+}
+
+</script>
+</body>
+</html>

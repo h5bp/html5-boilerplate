@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2009 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<html>
+<head>
+<title>Database wrapper tests</title>
+<script type="text/javascript" src="../jsunit/app/jsUnitCore.js"></script>
+<script type="text/javascript" src="jsmock.js"></script>
+<script type="text/javascript" src="global_functions.js"></script>
+<script type="text/javascript" src="dbwrapperapi.js"></script>
+<script type="text/javascript" src="dbwrapper_html5.js"></script>
+</head>
+<body>
+<script type='text/javascript'>
+
+var mockControl;
+var html5Tx;
+var callbackMock;
+var html5Window;
+var html5Db;
+var populateMock;
+
+function setUp() {
+  mockControl = new MockControl();
+  html5Tx = mockControl.createMock({executeSql: function(){}});
+  callbackMock = mockControl.createMock({onSuccess: function(){},
+      onFailure: function(){}});
+  html5Window = mockControl.createMock({openDatabase: function(){}});
+  html5Db = mockControl.createMock({transaction: function(){}});
+  populateMock = mockControl.createMock({populate: function(){}});
+
+  dbTx = mockControl.createMock({execute: function(){}, executeAll:
+      function(){}});
+  dbRows = mockControl.createMock({item: function(){}});
+}
+
+function testConstructTransaction() {
+  var trans = new google.wspl.html5.Transaction('foo');
+  assertEquals('transaction instance not set correctly', 'foo', trans.tx_);
+}
+
+function testTransactionExecuteAll() {
+  var trans = new google.wspl.html5.Transaction(html5Tx);
+
+  try {
+    trans.executeAll([], callbackMock);
+    fail('Should never get here');
+  } catch(e) {
+    assertEquals(
+        'did not exception fault on empty statement list',
+        'Error: Possibly silly attempt to execute empty statement list.',
+        e.toString());
+  }
+  mockControl.verify();
+}
+
+/*
+  The sequence of digits at the end of the test names indicate as boolean
+  variables the success or failure of each statement.
+*/
+function testTransactionExecuteAll_1() {
+  var stat1 = new google.wspl.Statement('stat1');
+
+  var trans = new google.wspl.html5.Transaction(html5Tx);
+
+  var successCallback = null;
+  var failureCallback = null;
+  html5Tx.expects().executeSql('stat1', TypeOf.isA(Array),
+      TypeOf.isA(Function), TypeOf.isA(Function)).andStub(function() {
+        successCallback = arguments[2];
+      });
+
+  callbackMock.expects().onSuccess(trans,
+      TypeOf.isA(google.wspl.html5.ResultSet)).andStub(function() {
+    assertEquals('result not returned', 'resultset', arguments[1].result_)});
+
+  trans.executeAll([stat1], callbackMock);
+  successCallback(html5Tx, 'resultset');
+  mockControl.verify();
+}
+
+function testTransactionExecuteAll_11() {
+  var stat1 = new google.wspl.Statement('stat1');
+  var stat2 = new google.wspl.Statement('stat2', [1]);
+
+  var trans = new google.wspl.html5.Transaction(html5Tx);
+
+  var successCallback1 = null;
+  var successCallback2 = null;
+  var failureCallback = null;
+
+  html5Tx.expects().executeSql('stat1', TypeOf.isA(Array),
+      TypeOf.isA(Function), TypeOf.isA(Function)).andStub(function() {
+        successCallback1 = arguments[2];
+      });
+
+  html5Tx.expects().executeSql('stat2', TypeOf.isA(Array),
+      TypeOf.isA(Function), TypeOf.isA(Function)).andStub(function() {
+        successCallback2 = arguments[2];
+        var params = arguments[1];
+        assertEquals('incorrect params to sql', 1, params[0]);
+      });
+
+  callbackMock.expects().onSuccess(trans,
+      TypeOf.isA(google.wspl.html5.ResultSet)).andStub(function() {
+    assertEquals('result not returned', 'resultset1', arguments[1].result_)});
+
+  callbackMock.expects().onSuccess(trans,
+      TypeOf.isA(google.wspl.html5.ResultSet)).andStub(function() {
+    assertEquals('result not returned', 'resultset2', arguments[1].result_)});
+
+  trans.executeAll([stat1, stat2], callbackMock);
+  successCallback1(html5Tx, 'resultset1');
+  successCallback2(html5Tx, 'resultset2');
+  mockControl.verify();
+}
+
+function testTransactionExecuteAll_111() {
+  var stat1 = new google.wspl.Statement('stat1');
+  var stat2 = new google.wspl.Statement('stat2', [1]);
+  var stat3 = new google.wspl.Statement('stat3', [2,  3]);
+
+  var trans = new google.wspl.html5.Transaction(html5Tx);
+
+  var successCallback1 = null;
+  var successCallback2 = null;
+  var successCallback3 = null;
+  var failureCallback = null;
+
+  html5Tx.expects().executeSql('stat1', TypeOf.isA(Array),
+      TypeOf.isA(Function), TypeOf.isA(Function)).andStub(function() {
+        successCallback1 = arguments[2];
+      });
+
+  html5Tx.expects().executeSql('stat2', TypeOf.isA(Array),
+      TypeOf.isA(Function), TypeOf.isA(Function)).andStub(function() {
+        successCallback2 = arguments[2];
+        var params = arguments[1];
+        assertEquals('incorrect params to sql', 1, params[0]);
+      });
+
+  html5Tx.expects().executeSql('stat3', TypeOf.isA(Array),
+      TypeOf.isA(Function), TypeOf.isA(Function)).andStub(function() {
+        successCallback3 = arguments[2];
+        var params = arguments[1];
+        assertEquals('incorrect params to sql', 2, params[0]);
+        assertEquals('incorrect params to sql', 3, params[1]);
+      });
+
+  callbackMock.expects().onSuccess(trans,
+      TypeOf.isA(google.wspl.html5.ResultSet)).andStub(function() {
+    assertEquals('result not returned', 'resultset1', arguments[1].result_)});
+
+  callbackMock.expects().onSuccess(trans,
+      TypeOf.isA(google.wspl.html5.ResultSet)).andStub(function() {
+    assertEquals('result not returned', 'resultset2', arguments[1].result_)});
+
+  callbackMock.expects().onSuccess(trans,
+      TypeOf.isA(google.wspl.html5.ResultSet)).andStub(function() {
+    assertEquals('result not returned', 'resultset3', arguments[1].result_)});
+
+  trans.executeAll([stat1, stat2, stat3], callbackMock);
+  successCallback1(html5Tx, 'resultset1');
+  successCallback2(html5Tx, 'resultset2');
+  successCallback3(html5Tx, 'resultset3');
+  mockControl.verify();
+}
+
+function testTransactionExecuteAll_noCallback_111() {
+  var stat1 = new google.wspl.Statement('stat1');
+  var stat2 = new google.wspl.Statement('stat2', [1]);
+  var stat3 = new google.wspl.Statement('stat3', [2,  3]);
+
+  var trans = new google.wspl.html5.Transaction(html5Tx);
+
+  var successCallback1 = null;
+  var successCallback2 = null;
+  var successCallback3 = null;
+  var failureCallback = null;
+
+  html5Tx.expects().executeSql('stat1', TypeOf.isA(Array),
+      TypeOf.isA(Function), TypeOf.isA(Function)).andStub(function() {
+        successCallback1 = arguments[2];
+      });
+
+  html5Tx.expects().executeSql('stat2', TypeOf.isA(Array),
+      TypeOf.isA(Function), TypeOf.isA(Function)).andStub(
+      function() { successCallback2 = arguments[2];
+          var params = arguments[1];
+          assertEquals('incorrect params to sql', 1, params[0]);
+      });
+
+  html5Tx.expects().executeSql('stat3', TypeOf.isA(Array),
+      TypeOf.isA(Function), TypeOf.isA(Function)).andStub(
+      function() { successCallback3 = arguments[2];
+          var params = arguments[1];
+          assertEquals('incorrect params to sql', 2, params[0]);
+          assertEquals('incorrect params to sql', 3, params[1]);
+     });
+
+  trans.executeAll([stat1, stat2, stat3]);
+  successCallback1(html5Tx, 'resultset1');
+  successCallback2(html5Tx, 'resultset2');
+  successCallback3(html5Tx, 'resultset3');
+  mockControl.verify();
+}
+
+function testTransactionExecuteAll_110() {
+  var stat1 = new google.wspl.Statement('stat1');
+  var stat2 = new google.wspl.Statement('stat2', [1]);
+  var stat3 = new google.wspl.Statement('stat3', [2,  3]);
+
+  var trans = new google.wspl.html5.Transaction(html5Tx);
+
+  var successCallback1 = null;
+  var successCallback2 = null;
+  var successCallback3 = null;
+  var failureCallback3 = null;
+
+  html5Tx.expects().executeSql('stat1', TypeOf.isA(Array),
+      TypeOf.isA(Function), TypeOf.isA(Function)).andStub(function() {
+        successCallback1 = arguments[2];
+      });
+
+  html5Tx.expects().executeSql('stat2', TypeOf.isA(Array),
+      TypeOf.isA(Function), TypeOf.isA(Function)).andStub(function() {
+        successCallback2 = arguments[2];
+        var params = arguments[1];
+        assertEquals('incorrect params to sql', 1, params[0]);
+      });
+
+  html5Tx.expects().executeSql('stat3', TypeOf.isA(Array),
+      TypeOf.isA(Function), TypeOf.isA(Function)).andStub(function() {
+        successCallback3 = arguments[2];
+        failureCallback3 = arguments[3];
+        var params = arguments[1];
+        assertEquals('incorrect params to sql', 2, params[0]);
+        assertEquals('incorrect params to sql', 3, params[1]);
+      });
+
+  callbackMock.expects().onSuccess(trans,
+      TypeOf.isA(google.wspl.html5.ResultSet)).andStub(function() {
+    assertEquals('result not returned', 'resultset1', arguments[1].result_)});
+
+  callbackMock.expects().onSuccess(trans,
+      TypeOf.isA(google.wspl.html5.ResultSet)).andStub(function() {
+    assertEquals('result not returned', 'resultset2', arguments[1].result_)});
+
+  callbackMock.expects().onFailure('error3');
+
+  trans.executeAll([stat1, stat2, stat3], callbackMock);
+  successCallback1(html5Tx, 'resultset1');
+  successCallback2(html5Tx, 'resultset2');
+  assertTrue('failure case callback not terminating transaction',
+      failureCallback3(html5Tx, 'error3'));
+  mockControl.verify();
+}
+
+function testTransactionExecute_nocallback() {
+  var stat1 = new google.wspl.Statement('stat1');
+
+  var trans = new google.wspl.html5.Transaction(html5Tx);
+
+  var successCallback = null;
+  var failureCallback = null;
+  html5Tx.expects().executeSql('stat1', TypeOf.isA(Array),
+      TypeOf.isA(Function), TypeOf.isA(Function)).andStub(function() {
+        successCallback = arguments[2];
+      });
+
+  trans.execute(stat1);
+  successCallback(html5Tx, 'resultset');
+  mockControl.verify();
+}
+
+function buildDatabase() {
+  html5Window.expects().openDatabase('name', '', 'name',
+      google.wspl.LARGEST_SUPPORTED_DATABASE).
+      andReturn(html5Db);
+  return new google.wspl.html5.Database('name', html5Window);
+}
+
+function testConstructDatabase() {
+  var db = buildDatabase();
+  mockControl.verify();
+  assertEquals('did not set db_ correctly', db.db_, html5Db);
+}
+
+function testConstructDatabase_null() {
+  html5Window.expects().openDatabase('name', '', 'name',
+      google.wspl.LARGEST_SUPPORTED_DATABASE).
+      andReturn(null);
+  try {
+    var db = google.wspl.html5.Database('name', html5Window);
+    fail('Should never get here');
+  } catch (e) {
+    if (e.isJsUnitException) {
+      throw e;
+    }
+  }
+  mockControl.verify();
+}
+
+function testConstructDatabase_undefined() {
+  html5Window.expects().openDatabase('name', '', 'name',
+      google.wspl.LARGEST_SUPPORTED_DATABASE).
+      andReturn(undefined);
+  try {
+    var db = google.wspl.html5.Database('name', html5Window);
+    fail('Should never get here');
+  } catch (e) {
+    if (e.isJsUnitException) {
+      throw e;
+    }
+  }
+  mockControl.verify();
+}
+
+function createTransactionCore() {
+  var db = buildDatabase();
+  var fun1 = null;
+  var failure = null;
+  var success = null;
+  html5Db.expects().transaction(TypeOf.isA(Function), TypeOf.isA(Function),
+      TypeOf.isA(Function)).andStub(function() {
+        fun1 = arguments[0];
+        failure = arguments[1];
+        success = arguments[2];
+      });
+
+  var tx = null;
+  var populateMock = function(txa) {
+    tx = txa;
+  };
+
+  db.createTransaction(populateMock, callbackMock);
+  fun1('transactionTest');
+
+  assertEquals('transaction not saved', 'transactionTest', tx.tx_);
+  assertEquals('did not set db_ correctly', db.db_, html5Db);
+
+  return {failure: failure, success: success};
+}
+
+function testCreateTransaction_success() {
+  cbs = createTransactionCore();
+  callbackMock.expects().onSuccess();
+  cbs.success('success');
+  mockControl.verify();
+}
+
+function testCreateTransaction_failure() {
+  cbs = createTransactionCore();
+  callbackMock.expects().onFailure('error');
+  cbs.failure('error');
+  mockControl.verify();
+}
+
+function testCreateTransaction_onlyPopulate() {
+  cbs = createTransactionCore();
+  mockControl.verify();
+}
+
+function testDatabaseExecute_nocallback() {
+  var db = buildDatabase();
+
+  dbTx.expects().execute('statementText', null);
+  db.execute('statementText');
+}
+
+function testDatabaseExecute_nocallback() {
+  var db = buildDatabase();
+
+  dbTx.expects().execute('statementText', null);
+  db.execute('statementText');
+}
+
+function testDatabaseExecuteAll() {
+  var db = buildDatabase();
+  dbTx.expects().executeAll(TypeOf.isA(Array));
+}
+
+function testResultSetNext() {
+  var res = {rows: {length: 4}};
+  var result = new google.wspl.html5.ResultSet(res);
+
+  for (var i = 0; i < 4; i++) {
+    assertTrue('expected valid row', result.isValidRow());
+    result.next();
+  }
+  assertFalse('expected invalid row', result.isValidRow());
+}
+
+function testResultSetIsValidRow() {
+  var res = {rows: {length: 0}};
+  var result = new google.wspl.html5.ResultSet(res);
+
+  assertFalse('expected invalid row', result.isValidRow());
+  res.rows.length = 1;
+  assertTrue('expected valid row', result.isValidRow());
+  result.next();
+  assertFalse('expected invalid row', result.isValidRow());
+}
+
+function testResultSetGetRow() {
+  var res = {rows: {
+    length: 3,
+    item: function(index) {
+      assertEquals('expected index of 1', 1, index);
+      return {h0: 'value0', h1: 'value1', h2: 'value2'};
+    }
+  }};
+
+  var result = new google.wspl.html5.ResultSet(res);
+  result.next();
+  var row = result.getRow();
+  assertEquals('first field is not valid', 'value0', row.h0);
+  assertEquals('first field is not valid', 'value1', row.h1);
+  assertEquals('first field is not valid', 'value2', row.h2);
+}
+
+function testHasInflightTransactions() {
+  var fakeTime = 1000;
+  var db = buildDatabase();
+  var dummyPopulate = function() {};
+  db.getCurrentTime = function() {return fakeTime;};
+
+  // Create a transaction, make sure it's kept track of.
+  var transId = db.sequenceNum_;
+  db.createTransaction(dummyPopulate);
+  assertEquals('There should be an inflight request.',
+      fakeTime, db.inflightTransactions_[transId]);
+
+  // Haven't advanced time, so hasInflightTransactions should return false.
+  assertFalse('Expected hasInflightTransactions=false.',
+      db.hasInflightTransactions(100));
+
+  // Advance time, now hasInflightTransactions should return true.
+  fakeTime += 10000;
+  var faqs = db.hasInflightTransactions(100);
+  assertTrue('Expected hasInflightTransactions=true.',
+      db.hasInflightTransactions(100));
+
+  // Now now have the transaction completed, hasInflightTransactions
+  // should return false.
+  delete db.inflightTransactions_[transId];
+  assertFalse('Expected hasInflightTransactions=false.',
+      db.hasInflightTransactions(100));
+
+};
+
+</script>
+</body>
+</html>

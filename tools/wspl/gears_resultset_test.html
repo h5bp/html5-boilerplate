@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2009 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<html>
+<head>
+<title>Gears resultset tests</title>
+<script type="text/javascript" src="../jsunit/app/jsUnitCore.js"></script>
+<script type="text/javascript" src="jsmock.js"></script>
+<script type="text/javascript" src="global_functions.js"></script>
+<script type="text/javascript" src="dbwrapperapi.js"></script>
+<script type="text/javascript" src="gears_resultset.js"></script>
+</head>
+<body>
+<script type='text/javascript'>
+
+var resultArray;
+
+function setUp() {
+  var obj1 = {
+    field1: 'a',
+    field2: 2,
+    field3: 'c'
+  };
+
+  var obj2 = {
+    field1: 'd',
+    field2: 4,
+    field3: 'f'
+  };
+
+  var obj3 = {
+    field1: 'g',
+    field2: 6,
+    field3: 'i'
+  };
+
+  resultArray = [obj1, obj2, obj3];
+}
+
+function testResultSetNext() {
+  var result = new google.wspl.gears.ResultSet(resultArray);
+  assertEquals('incorrect value for current', 0, result.current_);
+  result.next();
+  assertEquals('incorrect value for current', 1, result.current_);
+  result.next();
+  assertEquals('incorrect value for current', 2, result.current_);
+}
+
+function testResultSetIsValidRow() {
+  var result = new google.wspl.gears.ResultSet(resultArray);
+  assertTrue('incorrect return from isValidRow', result.isValidRow());
+  result.next();
+  assertTrue('incorrect return from isValidRow', result.isValidRow());
+  result.next();
+  assertTrue('incorrect return from isValidRow', result.isValidRow());
+  result.next();
+  assertFalse('incorrect return from isValidRow', result.isValidRow());
+}
+
+function testResultSetGetRow() {
+  var result = new google.wspl.gears.ResultSet(resultArray);
+  result.next();
+
+  var row = result.getRow();
+  assertEquals('first field is not valid', 'd', row.field1);
+  assertEquals('first field is not valid', 4, row.field2);
+  assertEquals('first field is not valid', 'f', row.field3);
+}
+
+</script>
+</body>
+</html>

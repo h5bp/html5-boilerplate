@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2009 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<html>
+<head>
+<title>Gears database wrapper tests</title>
+<script type="text/javascript" src="../jsunit/app/jsUnitCore.js"></script>
+<script type="text/javascript" src="jsmock.js"></script>
+<script type="text/javascript" src="global_functions.js"></script>
+<script type="text/javascript" src="gearsutils.js"></script>
+<script type="text/javascript" src="dbwrapperapi.js"></script>
+<script type="text/javascript" src="gears_resultset.js"></script>
+<script type="text/javascript" src="gears_transaction.js"></script>
+<script type="text/javascript" src="dbworker.js"></script>
+<script type="text/javascript" src="dbwrapper_gears.js"></script>
+</head>
+<body>
+<script type='text/javascript'>
+
+var mockControl;
+var callbackMock;
+var dbMock;
+var wp;
+var workerId = 123;
+var transMock;
+
+function setUp() {
+  mockControl = new MockControl();
+
+  callbackMock = mockControl.createMock({
+    onSuccess: function(){},
+    onFailure: function(){}
+  });
+
+  transMock = mockControl.createMock({
+    success: function(){},
+    failure: function(){}
+  });
+
+  wp = mockControl.createMock({
+    allowCrossOrigin: function(){},
+    createWorkerFromUrl: function(){},
+    sendMessage: function(){}
+  });
+
+  dbMock = mockControl.createMock({
+    execute: function(){},
+    open: function(){},
+    close: function(){},
+    remove: function(){}
+  });
+
+  google.wspl.GearsUtils.resultSetToObjectArray = function(rs) {
+    return rs;
+  };
+}
+
+function buildSyncDatabase() {
+  var database = new google.wspl.gears.Database(true);
+  database.userId_ = 'userId';
+  database.name_ = 'name';
+  database.db_ = dbMock;
+  return database;
+}
+
+function buildDatabase() {
+  var database = buildSyncDatabase();
+
+  var type = google.wspl.gears.DbWorker.CommandTypes.OPEN;
+  wp.expects().createWorkerFromUrl('workerUrl').andReturn(workerId);
+  wp.expects().sendMessage(TypeOf.isA(Object), workerId).andStub(function() {
+    assertEquals('Wrong message type.', type, arguments[0].type);
+    assertEquals('Incorrect name.', 'name', arguments[0].name);
+    assertEquals('Incorrect user id.', 'userId', arguments[0].userId);
+  });
+
+  database.startWorker(wp, 'workerUrl', 0);
+  database.handleStarted_();
+  database.handleOpenSuccessful_();
+  database.useWorker_ = true;
+  return database;
+}
+
+function testConstructor() {
+  var db = buildSyncDatabase();
+  mockControl.verify();
+}
+
+function testStartWorker() {
+  var db = buildDatabase();
+  assertTrue('Expected worker to be ready.', db.workerReady_);
+  mockControl.verify();
+}
+
+function testCreateTransaction() {
+  var db = buildDatabase();
+  var tx;
+  var populateMock = function(txa) {
+    tx = txa;
+    var transactions = db.transactions_;
+    assertEquals('missing transaction', tx, transactions[tx.id_].transaction);
+    assertEquals('missing callback', callbackMock,
+        transactions[tx.id_].callback);
+    assertEquals('database not saved', db, tx.db_);
+    assertTrue('database should be locked', db.locked_);
+  };
+
+  callbackMock.expects().onSuccess();
+
+  var transactions = db.transactions_;
+  db.createTransaction(populateMock, callbackMock);
+  assertEquals('failed to clean up transaction', undefined,
+      transactions[tx.id_]);
+  assertFalse('database should not be locked', db.locked_);
+
+  mockControl.verify();
+}
+
+function testMultipleTransactions() {
+  var db = buildDatabase();
+  var handler = mockControl.createMock();
+  handler.addMockMethod('populate');
+  handler.addMockMethod('onSuccess');
+  handler.addMockMethod('onFailure');
+
+  var trans;
+  handler.expects().populate(TypeOf.isA(google.wspl.gears.Transaction)).andStub(
+      function(tx) {
+        trans = tx;
+        tx.numActiveExecutes_ = 1;
+      });
+
+  db.createTransaction(handler.populate, handler);
+  db.createTransaction(handler.populate, handler);
+  mockControl.verify();
+
+  handler.expects().onSuccess();
+  handler.expects().populate(TypeOf.isA(google.wspl.gears.Transaction)).andStub(
+      function(tx) {
+        trans = tx;
+        tx.numActiveExecutes_ = 1;
+      });
+
+  db.handleCommit_(trans.id_);
+  mockControl.verify();
+
+  handler.expects().onFailure(undefined).andStub(function() {
+    db.createTransaction(handler.populate, handler);
+  });
+  handler.expects().populate(TypeOf.isA(google.wspl.gears.Transaction)).andStub(
+      function(tx) {
+        trans = tx;
+        tx.numActiveExecutes_ = 1;
+      });
+
+  db.handleRollback_(trans.id_);
+  mockControl.verify();
+
+  handler.expects().onSuccess();
+
+  db.handleCommit_(trans.id_);
+  mockControl.verify();
+}
+
+function testDoBegin() {
+  var db = buildDatabase();
+  var transactionId = 10;
+  var type = google.wspl.gears.DbWorker.CommandTypes.BEGIN;
+  wp.expects().sendMessage(TypeOf.isA(Object), workerId).andStub(function() {
+    assertEquals('wrong message type', type, arguments[0].type);
+    assertNotUndefined('Missing transaction id.', arguments[0].transactionId);
+  });
+  db.doBegin(transactionId);
+  mockControl.verify();
+}
+
+function testSynchronousBegin() {
+  var db = buildSyncDatabase();
+  dbMock.expects().execute('BEGIN IMMEDIATE');
+  db.doBegin(1);
+  mockControl.verify();
+}
+
+function testDoExecute() {
+  var statements = [{sql: 's1', params: 'p1'},
+                    {sql: 's2', params: 'p2'},
+                    {sql: 's3', params: 'p3'}];
+  var callbackId = 5;
+  var transactionId = 10;
+  var db = buildDatabase();
+  var type = google.wspl.gears.DbWorker.CommandTypes.EXECUTE;
+  wp.expects().sendMessage(TypeOf.isA(Object), workerId).andStub(function() {
+    assertEquals('wrong message type', type, arguments[0].type);
+    assertEquals('statements do not match', statements.length,
+        arguments[0].statements.length);
+    for (var i = 0; i < statements.length; i++) {
+      assertEquals('a statement sql does not match', statements[i].sql,
+          arguments[0].statements[i].sql);
+      assertEquals('a statement params does not match', statements[i].params,
+          arguments[0].statements[i].params);
+    }
+    assertEquals('missing callback id', callbackId, arguments[0].callbackId);
+    assertEquals('missing trans id', transactionId, arguments[0].transactionId);
+  });
+  db.doExecute(statements, callbackId, transactionId);
+  mockControl.verify();
+}
+
+function testSynchronousExecute() {
+  var statements = [{sql: 's1', params: 'p1'},
+                    {sql: 's2', params: 'p2'},
+                    {sql: 's3', params: 'p3'}];
+  var callbackId = 5;
+  var transactionId = 10;
+  var db = buildSyncDatabase();
+
+  for (var i = 0; i < 3; i++) {
+    var stat = statements[i];
+    dbMock.expects().execute(stat.sql, stat.params).andReturn('result' + i);
+  }
+
+  var handler = mockControl.createMock();
+  handler.addMockMethod('handleResult_');
+  db.handleResult_ = handler.handleResult_;
+  handler.expects().handleResult_(
+      TypeOf.isA(Array), callbackId, transactionId).andStub(function(results) {
+        var expected = ['result0', 'result1', 'result2'];
+        assertArrayEquals('Wrong results.', expected, results);
+      });
+
+  db.doExecute(statements, callbackId, transactionId);
+  mockControl.verify();
+}
+
+function testSynchronousExecute_failure() {
+  var statements = [{sql: 's1', params: 'p1'},
+                    {sql: 's2', params: 'p2'},
+                    {sql: 's3', params: 'p3'}];
+  var callbackId = 5;
+  var transactionId = 10;
+  var db = buildSyncDatabase();
+
+  dbMock.expects().execute('s1', 'p1').andReturn('result0');
+  dbMock.expects().execute('s2', 'p2').andThrow(Error('db error'));
+
+  var handler = mockControl.createMock();
+  handler.addMockMethod('handleFailure_');
+  db.handleFailure_ = handler.handleFailure_;
+  handler.expects().handleFailure_(
+      TypeOf.isA(Error), callbackId, transactionId);
+
+  db.doExecute(statements, callbackId, transactionId);
+  mockControl.verify();
+}
+
+function testDoCommit() {
+  var transactionId = 10;
+  var db = buildDatabase();
+  var type = google.wspl.gears.DbWorker.CommandTypes.COMMIT;
+  wp.expects().sendMessage(TypeOf.isA(Object), workerId).andStub(function() {
+    assertEquals('wrong message type', type, arguments[0].type);
+    assertEquals('missing trans id', transactionId, arguments[0].transactionId);
+  });
+  db.doCommit(transactionId);
+  mockControl.verify();
+}
+
+function testSynchronousCommit() {
+  var db = buildSyncDatabase();
+  dbMock.expects().execute('COMMIT');
+  db.doCommit(1);
+  mockControl.verify();
+}
+
+function testDoRollback() {
+  var transactionId = 10;
+  var db = buildDatabase();
+  var type = google.wspl.gears.DbWorker.CommandTypes.ROLLBACK;
+  wp.expects().sendMessage(TypeOf.isA(Object), workerId).andStub(function() {
+    assertEquals('wrong message type', type, arguments[0].type);
+    assertEquals('missing trans id', transactionId, arguments[0].transactionId);
+  });
+  db.doRollback(transactionId);
+  mockControl.verify();
+}
+
+function testSynchronousRollback() {
+  var db = buildSyncDatabase();
+  dbMock.expects().execute('ROLLBACK');
+  db.doRollback(1);
+  mockControl.verify();
+}
+
+function testHandleCommit() {
+  var db = buildDatabase();
+  db.transactions_[5] = {transaction: 'tx', callback: callbackMock};
+  callbackMock.expects().onSuccess();
+  db.handleCommit_(5);
+  assertUndefined('failed to remove transaction', db.transactions_[5]);
+  mockControl.verify();
+}
+
+function testHandleRollback() {
+  var db = buildDatabase();
+  db.transactions_[5] = {
+    transaction: 'tx',
+    callback: callbackMock,
+    error: Error('error')
+  };
+  callbackMock.expects().onFailure(TypeOf.isA(Error)).andStub(function() {
+    assertEquals('did not pass error', 'error', arguments[0].message);
+  });
+  db.handleRollback_(5);
+  assertUndefined('failed to remove transaction', db.transactions_[5]);
+  mockControl.verify();
+}
+
+function testHandleResult() {
+  var db = buildDatabase();
+  transMock.expects().success(TypeOf.isA(google.wspl.gears.ResultSet),
+      22).andStub(function() {
+        assertEquals('result not set', 'result1', arguments[0].resultArray_);
+      });
+  transMock.expects().success(TypeOf.isA(google.wspl.gears.ResultSet),
+      22).andStub(function() {
+        assertEquals('result not set', 'result2', arguments[0].resultArray_);
+      });
+  db.transactions_[5] = {transaction: transMock, callback: 'cb'};
+
+  db.handleResult_(['result1', 'result2'], 22, 5);
+  mockControl.verify();
+}
+
+function testHandleFailure() {
+  var db = buildDatabase();
+  transMock.expects().failure(TypeOf.isA(Error), 22).andStub(function() {
+      assertEquals('error not set', 'error', arguments[0].message);
+  });
+  db.transactions_[5] = {transaction: transMock, callback: 'cb'};
+
+  db.handleFailure_(Error('error'), 22, 5);
+  assertEquals('failed to save error', 'error',
+      db.transactions_[5].error.message);
+  mockControl.verify();
+}
+
+function testHandleStarted() {
+  var db = buildDatabase();
+  var type = google.wspl.gears.DbWorker.CommandTypes.OPEN;
+  wp.expects().sendMessage(TypeOf.isA(Object), workerId).andStub(function() {
+    assertEquals('wrong message type', type, arguments[0].type);
+    assertEquals('wrong db userId', 'userId', arguments[0].userId);
+    assertEquals('wrong db name', 'name', arguments[0].name);
+  });
+  db.handleStarted_();
+  mockControl.verify();
+}
+
+function testHandleStarted_afterTimeout() {
+  var db = buildDatabase();
+  db.handleTimeout_();
+
+  // This should do nothing.
+  db.handleStarted_();
+
+  mockControl.verify();
+}
+
+function testHandleTimeout() {
+  var db = buildDatabase();
+  db.handleTimeout_();
+  mockControl.verify();
+}
+
+function testHandleOpenSuccessful() {
+  var db = buildDatabase();
+  db.handleOpenSuccessful_();
+  assertTrue('Worker should be ready.', db.workerReady_);
+  mockControl.verify();
+}
+
+function testHandleOpenFailed() {
+  var db = buildDatabase();
+  db.handleOpenFailed_('error');
+  mockControl.verify();
+}
+
+</script>
+</body>
+</html>
