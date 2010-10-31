@@ -6,15 +6,30 @@
 
 (function( $ ){
 
-  $.fn.growingTextarea = function() {
+  $.fn.growingTextarea = function( options ) {
+	
+	var settings = {
+      'lineHeight' : 12
+    };
+	
     return this.each(function() {
+		if ( options ) { 
+			$.extend( settings, options );
+		}
 		var $this = $(this);
-		var TEXTAREA_LINE_HEIGHT = $this.css("line-height");
+		var textLineHeight = $this.css("line-height");
+		alert(textLineHeight);
+		if (textLineHeight.indexOf("px") == -1) {
+			textLineHeight = settings.lineHeight;
+		} else {
+			textLineHeight = parseInt(textLineHeight, 10);
+		}
+		alert(textLineHeight);
 		$this.keyup(function(e){
 			var newHeight = $this.attr("scrollHeight");
 			var currentHeight = $this.attr("clientHeight");
 			if (newHeight > currentHeight) {
-				$this.css('height', newHeight + 2 * TEXTAREA_LINE_HEIGHT + 'px');
+				$this.css('height', newHeight + 2 * textLineHeight + 'px');
 			}
 		});
     });
