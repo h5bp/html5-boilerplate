@@ -9,7 +9,7 @@
   $.fn.growingTextarea = function() {
     return this.each(function() {
 		var $this = $(this);
-		var TEXTAREA_LINE_HEIGHT = 13;
+		var TEXTAREA_LINE_HEIGHT = $this.css("line-height");
 		$this.keyup(function(e){
 			var newHeight = $this.attr("scrollHeight");
 			var currentHeight = $this.attr("clientHeight");
