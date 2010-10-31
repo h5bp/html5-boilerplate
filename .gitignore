@@ -20,7 +20,7 @@ thumb.db
 # Folders to ignore
 .hg
 .svn
-publsh
+publish
 .idea
 
 # files
