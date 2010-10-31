@@ -1,6 +1,9 @@
 # Apache configuration file
 # httpd.apache.org/docs/2.2/mod/quickreference.html
 
+# NOTE      .htaccess files are an overhead, this logic should be in your apache config if at all possible
+# see http://httpd.apache.org/docs/2.0/howto/htaccess.html for more information
+
 # Techniques in here adapted from all over, including:
 #   Kroc Camen: camendesign.com/.htaccess
 #   perishablepress.com/press/2006/01/10/stupid-htaccess-tricks/
