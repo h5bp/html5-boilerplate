@@ -18,18 +18,18 @@
 		}
 		var $this = $(this);
 		var textLineHeight = $this.css("line-height");
-		alert(textLineHeight);
+		
 		if (textLineHeight.indexOf("px") == -1) {
 			textLineHeight = settings.lineHeight;
 		} else {
 			textLineHeight = parseInt(textLineHeight, 10);
 		}
-		alert(textLineHeight);
+		$this.css('overflow','hidden');
 		$this.keyup(function(e){
 			var newHeight = $this.attr("scrollHeight");
 			var currentHeight = $this.attr("clientHeight");
 			if (newHeight > currentHeight) {
-				$this.css('height', newHeight + 2 * textLineHeight + 'px');
+				$this.css('height', newHeight + 3 * textLineHeight + 'px');
 			}
 		});
     });
@@ -309,6 +309,7 @@ $.each({
 		$html.addClass( jQuery.event.special.orientationchange.orientation( $window ) );
 	});
 })( jQuery, this );
+
 
 
 // Simple list of gesture events (vanilla javascript) for A grade browsers
