@@ -121,7 +121,6 @@ AddType application/octet-stream       safariextz
 #   "access plus 1 week" or so
 
 <IfModule mod_expires.c>
-  Header set Cache-Control "public"
   ExpiresActive on
 
 # Perhaps better to whitelist expires rules? Perhaps.
@@ -166,6 +165,8 @@ AddType application/octet-stream       safariextz
   ExpiresByType text/css                  "access plus 1 month"
   ExpiresByType application/javascript    "access plus 1 month"
   ExpiresByType text/javascript           "access plus 1 month"
+
+  Header append Cache-Control "public"
 </IfModule>
 
 
