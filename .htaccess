@@ -6,6 +6,13 @@
 #   perishablepress.com/press/2006/01/10/stupid-htaccess-tricks/
 
 
+# Apache module - mod_pagespeed, developed by Google, used to get websites hosted on Apache web servers to load twice faster on average.
+<IfModule pagespeed_module>
+# Official guide at: 
+# http://code.google.com/speed/page-speed/docs/using_mod.html
+</IfModule>
+
+
 # Force the latest IE version, in various cases when it may fall back to IE7 mode
 #  github.com/rails/rails/commit/123eb25#commitcomment-118920
 # Use ChromeFrame if it's installed for a better experience for the poor IE folk
@@ -23,11 +30,12 @@
 # Cache control is set only if mod_headers is enabled, so that's unncessary to declare
 </IfModule>
 
-# hacks.mozilla.org/2009/07/cross-site-xmlhttprequest-with-cors/
-# Disabled. Uncomment to serve cross-domain ajax requests
-#<IfModule mod_headers.c>
-#  Header set Access-Control-Allow-Origin "*"
-#</IfModule>
+# Serve cross-domain ajax requests, disabled.   
+# enable-cors.org
+# code.google.com/p/html5security/wiki/CrossOriginRequestSecurity
+#  <IfModule mod_headers.c>
+#    Header set Access-Control-Allow-Origin "*"
+#  </IfModule>
 
 
 
@@ -43,24 +51,34 @@
 </FilesMatch>
 
 
+# audio
+AddType audio/ogg                      oga ogg
+
 # video
-AddType video/ogg  ogg ogv
-AddType video/mp4  mp4
-AddType video/webm webm
+AddType video/ogg                      ogv
+AddType video/mp4                      mp4
+AddType video/webm                     webm
 
 # Proper svg serving. Required for svg webfonts on iPad
 #   twitter.com/FontSquirrel/status/14855840545
-AddType     image/svg+xml             svg svgz 
-AddEncoding gzip                      svgz
+AddType     image/svg+xml              svg svgz 
+AddEncoding gzip                       svgz
+                                       
+# webfonts                             
+AddType application/vnd.ms-fontobject  eot
+AddType font/truetype                  ttf
+AddType font/opentype                  otf
+AddType font/woff                      woff
 
-# webfonts
-AddType application/vnd.ms-fontobject eot
-AddType font/truetype                 ttf
-AddType font/opentype                 otf
-AddType font/woff                     woff
+# assorted types                                      
+AddType image/vnd.microsoft.icon       ico
+AddType image/webp                     webp
+AddType text/cache-manifest            manifest
+AddType text/x-component               htc
+AddType application/x-chrome-extension crx
+AddType application/x-xpinstall        xpi
+AddType application/octet-stream       safariextz
 
-AddType text/cache-manifest           manifest
-AddType text/x-component              htc
 
 
 # allow concatenation from within specific js and css files 
@@ -87,19 +105,10 @@ AddType text/x-component              htc
 # gzip compression.
 <IfModule mod_deflate.c>
 
-  # html, txt, css, js, json, xml, htc:
-  <IfModule mod_filter.c>
-    FilterDeclare COMPRESS
-    FilterProvider COMPRESS DEFLATE resp=Content-Type $text/(html|plain|css|javascript|xml|x\-component)
-    FilterProvider COMPRESS DEFLATE resp=Content-Type $application/(javascript|json|xml)
-    FilterChain COMPRESS
-    FilterProtocol COMPRESS change=yes;byteranges=no
-  </IfModule>
-
-  # Disabled. AddOutputFilterByType is deprecated in Apache 2.1 and later
-  # Uncomment if you are using a legacy version
-  # AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json
-  # AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
+# html, txt, css, js, json, xml, htc:
+  AddOutputFilterByType DEFLATE text/html text/plain text/css application/json
+  AddOutputFilterByType DEFLATE text/javascript application/javascript application/x-javascript 
+  AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
 
 # webfonts and svg:
   <FilesMatch "\.(ttf|otf|eot|svg)$" >
@@ -119,7 +128,6 @@ AddType text/x-component              htc
 #   "access plus 1 week" or so
 
 <IfModule mod_expires.c>
-  Header set Cache-Control "public"
   ExpiresActive on
 
 # Perhaps better to whitelist expires rules? Perhaps.
@@ -164,6 +172,8 @@ AddType text/x-component              htc
   ExpiresByType text/css                  "access plus 1 month"
   ExpiresByType application/javascript    "access plus 1 month"
   ExpiresByType text/javascript           "access plus 1 month"
+
+  Header append Cache-Control "public"
 </IfModule>
 
 

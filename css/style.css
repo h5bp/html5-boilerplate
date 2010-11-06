@@ -1,8 +1,10 @@
 /* 
+  HTML5 ✰ Boilerplate 
+  
   style.css contains a reset, font normalization and some base styles.
   
   credit is left where credit is due.
-  additionally, much inspiration was taken from these projects:
+  much inspiration was taken from these projects:
     yui.yahooapis.com/2.8.1/build/base/base.css
     camendesign.com/design/
     praegnanz.de/weblog/htmlcssjs-kickstart
@@ -63,6 +65,7 @@ table { border-collapse:collapse; border-spacing:0; }
 hr { display:block; height:1px; border:0; border-top:1px solid #ccc; margin:1em 0; padding:0; }
 
 input, select { vertical-align:middle; }
+
 /* END RESET CSS */
 
 
@@ -92,7 +95,7 @@ pre, code, kbd, samp { font-family: monospace, sans-serif; }
 body, select, input, textarea { 
   /* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */ 
   color: #444; 
-  /* set your base font here, to apply evenly 
+  /* set your base font here, to apply evenly */
   /* font-family: Georgia, serif;  */   
 }
 
@@ -100,7 +103,8 @@ body, select, input, textarea {
    you'll want to define those yourself. */ 
 h1,h2,h3,h4,h5,h6 { font-weight: bold; }
 
-/* always force a scrollbar in non-IE */ 
+/* always force a scrollbar in non-IE: */ 
+/* Double scrollbars occur in Opera <= 10.11alpha, if used along with height: 100% */
 html { overflow-y: scroll; }
 
  
@@ -113,6 +117,9 @@ a:hover { color: #036; }
 
 ul, ol { margin-left: 1.8em; }
 ol { list-style-type: decimal; }
+
+/* Remove margins for navigation lists */
+nav ul, nav li { margin: 0; } 
 
 small { font-size: 85%; }
 strong, th { font-weight: bold; }
@@ -144,7 +151,7 @@ input[type="checkbox"] { vertical-align: bottom; }
 .ie6 input { vertical-align: text-bottom; }
 
 /* hand cursor on clickable input elements */
-label, input[type=button], input[type=submit], button { cursor: pointer; }
+label, input[type="button"], input[type="submit"], input[type="image"], button { cursor: pointer; }
  
 /* webkit browsers add a 2px margin outside the chrome of form elements */  
 button, input, select, textarea { margin: 0; }
@@ -192,8 +199,7 @@ button {  width: auto; overflow: visible; }
 .hidden { display: none; visibility: hidden; } 
 
 /* Hide only visually, but have it available for screenreaders 
-   www.webaim.org/techniques/css/invisiblecontent/ 
-   Solution from: j.mp/visuallyhidden - Thanks Jonathan Neal! */
+   www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden  */
 .visuallyhidden { position: absolute !important;    
   clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px); }
@@ -201,8 +207,12 @@ button {  width: auto; overflow: visible; }
 /* Hide visually and from screenreaders, but maintain layout */
 .invisible { visibility: hidden; }
 
-/* >> The Magnificent CLEARFIX << j.mp/phayesclearfix */
-.clearfix:after  { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+/* >> The Magnificent CLEARFIX: Updated to prevent margin-collapsing on child elements << j.mp/bestclearfix */
+.clearfix:before, .clearfix:after {
+  content: "\0020"; display: block; height: 0; visibility: hidden;	
+} 
+
+.clearfix:after { clear: both; }
 /* Fix clearfix: blueprintcss.lighthouseapp.com/projects/15318/tickets/5-extra-margin-padding-bottom-of-page */
 .clearfix { zoom: 1; }
 
@@ -225,38 +235,13 @@ button {  width: auto; overflow: visible; }
 
 
 
-/* 
- * print styles
- * inlined to avoid required HTTP connection www.phpied.com/delay-loading-your-print-css/ 
- */
-@media print {
-  * { background: transparent !important; color: #444 !important; text-shadow: none !important; }
 
-  a, a:visited { color: #444 !important; text-decoration: underline; }
-
-  a:after { content: " (" attr(href) ")"; } 
-
-  abbr:after { content: " (" attr(title) ")"; }
-  
-  .ir a:after { content: ""; }  /* Don't show links for images */
-  
-  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
-  
-  thead { display: table-header-group; } /* css-discuss.incutio.com/wiki/Printing_Tables */ 
-  
-  tr, img { page-break-inside: avoid; }
-
-  @page { margin: 0.5cm; }
-
-  p, h2, h3 { orphans: 3; widows: 3; }
-
-  h2, h3{ page-break-after: avoid; }
-}
 
 
 
 /*
  * Media queries for responsive design
+ * These follow after primary styles so they will successfully override. 
  */
 
 @media all and (orientation:portrait) { 
@@ -277,5 +262,23 @@ button {  width: auto; overflow: visible; }
   /* Uncomment if you don't want iOS and WinMobile to mobile-optimize the text for you
      j.mp/textsizeadjust 
   html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } */
+}
+
+/* 
+ * print styles
+ * inlined to avoid required HTTP connection www.phpied.com/delay-loading-your-print-css/ 
+ */
+@media print {
+  * { background: transparent !important; color: #444 !important; text-shadow: none !important; }
+  a, a:visited { color: #444 !important; text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after { content: ""; }  /* Don't show links for images */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* css-discuss.incutio.com/wiki/Printing_Tables */ 
+  tr, img { page-break-inside: avoid; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3{ page-break-after: avoid; }
 }
 

@@ -12,7 +12,7 @@
 
 
 
-})(window.jQuery);
+})(this.jQuery);
 
 
 
