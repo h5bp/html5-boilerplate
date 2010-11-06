@@ -104,7 +104,6 @@ body, select, input, textarea {
 h1,h2,h3,h4,h5,h6 { font-weight: bold; }
 
 /* always force a scrollbar in non-IE: */ 
-/* Double scrollbars occur in Opera <= 10.11alpha, if used along with height: 100% */
 html { overflow-y: scroll; }
 
  
