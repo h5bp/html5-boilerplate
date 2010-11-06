@@ -106,9 +106,20 @@ AddType application/octet-stream       safariextz
 <IfModule mod_deflate.c>
 
 # html, txt, css, js, json, xml, htc:
+<IfModule mod_filter.c>
+  FilterDeclare COMPRESS
+  FilterProvider COMPRESS DEFLATE resp=Content-Type $\btext/(html|plain|css|javascript|xml|x-component)\b
+  FilterProvider COMPRESS DEFLATE resp=Content-Type $\bapplication/(javascript|json|xml|x-javascript)\b
+  FilterChain COMPRESS
+  FilterProtocol COMPRESS change=yes;byteranges=no
+</IfModule>
+
+<IfModule !mod_filter.c>
+  # Legacy versions of Apache
   AddOutputFilterByType DEFLATE text/html text/plain text/css application/json
   AddOutputFilterByType DEFLATE text/javascript application/javascript application/x-javascript 
   AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
+</IfModule>
 
 # webfonts and svg:
   <FilesMatch "\.(ttf|otf|eot|svg)$" >
