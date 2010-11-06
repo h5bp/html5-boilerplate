@@ -79,7 +79,7 @@ input, select { vertical-align:middle; }
 */
 body { font:13px/1.231 sans-serif; *font-size:small; } /* hack retained to preserve specificity */
 
-select, input, textarea, button { font:99% sans-serif; }
+select, input, textarea, button { font:99% sans-serif; margin: 0; } /* webkit browsers add a 2px margin outside the chrome of form elements */
 
 /* normalize monospace sizing 
  * en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome
@@ -151,9 +151,6 @@ input[type="checkbox"] { vertical-align: bottom; }
 
 /* hand cursor on clickable input elements */
 label, input[type=button], input[type=submit], input[type=image], button { cursor: pointer; }
- 
-/* webkit browsers add a 2px margin outside the chrome of form elements */  
-button, input, select, textarea { margin: 0; }
 
 /* colors for form validity */
 input:valid, textarea:valid   {  }
