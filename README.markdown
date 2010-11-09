@@ -14,7 +14,7 @@ Major changes:
 <li>Revised viewport declaration to allow user scaling and clear Webkit console errors ( #37 ).</li>
 <li>Updated Modernizr to 1.6 </li>
 <li>Added <code>web.config</code> file for Microsoft IIS</li>
-<li>Beta release of the <a href="http://github.com/paulirish/html5-boilerplate/wiki/Build-script ">Build Script</a> (this is HUGE)</li>
+<li>Beta release of the <a href="http://github.com/paulirish/html5-boilerplate/wiki/Build-script">Build Script</a> (this is HUGE)</li>
 <li>New project scaffolding <a href="http://github.com/paulirish/html5-boilerplate/wiki/makep.sh">bash script</a>.</li>
 </ul>
 
