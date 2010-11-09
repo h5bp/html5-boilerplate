@@ -1,8 +1,10 @@
 /*!
- * Autogrowing Textareas
+ * Autogrowing Textareas, Hide URL Bar
  * http://www.blog.highub.com/
  * by Shi Chuan
  */
+ 
+
 
 (function( $ ){
 
@@ -36,6 +38,17 @@
 
   };
 })( jQuery );
+
+
+/*!
+ * Hide URL Bar
+ * http://www.blog.highub.com/
+ * by Shi Chuan
+ */
+ 
+function hideURLbar(){
+	setTimeout(scrollTo, 0, 0, 1);
+}
 
 
 /*!
