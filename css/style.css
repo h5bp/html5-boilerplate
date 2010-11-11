@@ -110,7 +110,12 @@ html { overflow-y: scroll; }
 /* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
 a:hover, a:active { outline: none; }
 
-a, a:active, a:visited { color: #607890; }
+a, a:active, a:visited { color: #607890;
+/* sweetest hover: twitter.com/calvein/status/29583126061 */
+	transition: all 0.1s ease-out;
+	-o-transition: all 0.1s ease-out;
+	-moz-transition: all 0.1s ease-out;
+	-webkit-transition: all 0.1s ease-out; }
 a:hover { color: #036; }
 
 
