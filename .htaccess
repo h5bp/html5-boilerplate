@@ -109,12 +109,13 @@ AddType application/octet-stream       safariextz
 <IfModule mod_deflate.c>
 
 # html, txt, css, js, json, xml, htc:
-<IfModule mod_filter.c>
-  FilterDeclare COMPRESS
-  FilterProvider COMPRESS DEFLATE resp=Content-Type $text/(html|plain|css|javascript|xml|x-component)
-  FilterProvider COMPRESS DEFLATE resp=Content-Type $application/(javascript|json|xml|x-javascript)
-  FilterChain COMPRESS
-  FilterProtocol COMPRESS change=yes;byteranges=no
+<IfModule filter_module>
+  FilterDeclare   COMPRESS
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type /text/(html|css|javascript|plain|x(ml|-component))/
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type /application/(json|javascript|((rss|atom)\+)?xml|vnd\.ms-fontobject)/
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type /image/svg\+xml|font/(true|open)type/
+  FilterChain     COMPRESS
+  FilterProtocol  COMPRESS  change=yes;byteranges=no
 </IfModule>
 
 <IfModule !mod_filter.c>
