@@ -1,11 +1,10 @@
 /*!
- * Autogrowing Textareas, Hide URL Bar
+ * Autogrowing Textareas, Hide URL Bar, Load stylesheet
  * http://www.blog.highub.com/
  * by Shi Chuan
  */
  
-
-
+// Autogrow
 (function( $ ){
 
   $.fn.growingTextarea = function( options ) {
@@ -40,14 +39,24 @@
 })( jQuery );
 
 
-/*!
- * Hide URL Bar
- * http://www.blog.highub.com/
- * by Shi Chuan
- */
- 
+
+// Hide URL Bar
 function hideURLbar(){
 	setTimeout(scrollTo, 0, 0, 1);
+}
+
+
+
+//loadStylesheet(file)
+//usage: loadStylesheet(filename.css);
+function loadStylesheet(filename) {
+	var link = $("<link>");
+	link.attr({
+			type: 'text/css',
+			rel: 'stylesheet',
+			href: filename
+	});
+	$("head").append( link );
 }
 
 
