@@ -1,2 +1,6 @@
-RewriteEngine on
-RewriteRule (v:[0-9]{1,2}\.[0-9]{1}\.[0-9]{0,4}/)(([/\w'-._0-9])*)$ /js/$2 [L,NC]
+# rewrites /js/v:0.0.0/script.js to /js/script.js this allows us to cache
+# resources aggressively without hurting proxies 
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	RewriteRule (v:[0-9]{1,4}\.[0-9]{1,4}\.[0-9]{1,4}/)(([\w'-._0-9])*)$ /js/$2 [NC]
+</IfModule>
