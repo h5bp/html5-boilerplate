@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule (version:[0-9]{1,2}\.[0-9]{1}\.[0-9]{0,4}/)(([\w'-._0-9])*)$ /css/$2 [NC]

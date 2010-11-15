@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule (v:[0-9]{1,2}\.[0-9]{1}\.[0-9]{0,4}/)(([/\w'-._0-9])*)$ /js/$2 [L,NC]
