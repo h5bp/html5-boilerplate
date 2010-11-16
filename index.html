@@ -64,10 +64,12 @@
   <script src="js/script.js"></script>
   <!-- end concatenated and minified scripts-->
   
-  
   <!--[if lt IE 7 ]>
-    <script src="js/libs/dd_belatedpng.js"></script>
-    <script> DD_belatedPNG.fix('img, .png_bg'); //fix any <img> or .png_bg background-images </script>
+    <script type="text/javascript">
+      $.getScript("js/libs/dd_belatedpng.js", function() {
+         DD_belatedPNG.fix('img, .png_bg'); 
+      });
+    </script>
   <![endif]-->
 
   <!-- yui profiler and profileviewer - remove for production -->
