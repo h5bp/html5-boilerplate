@@ -87,7 +87,7 @@ AddType application/octet-stream       safariextz
 # allow concatenation from within specific js and css files 
 
 # e.g. Inside of script.combined.js you could have
-#   <!--#include file="jquery-1.4.2.js" -->
+#   <!--#include file="jquery-1.4.4.js" -->
 #   <!--#include file="jquery.idletimer.js" -->
 # and they would be included into this single file
 
