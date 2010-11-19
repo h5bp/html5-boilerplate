@@ -71,10 +71,8 @@
   
   
   <!--[if lt IE 7 ]>
-    <script type="text/javascript">
-      $.getScript("js/libs/dd_belatedpng.js", function() {
-         DD_belatedPNG.fix('img, .png_bg'); 
-      });
+    <script> //fix any <img> or .png_bg background-images
+      $.getScript("js/libs/dd_belatedpng.js",function(){ DD_belatedPNG.fix('img, .png_bg'); });
     </script>
   <![endif]-->
 
