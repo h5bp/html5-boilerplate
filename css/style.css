@@ -271,7 +271,7 @@ button {  width: auto; overflow: visible; }
   * { background: transparent !important; color: black !important; text-shadow: none !important; } /* Black prints faster: sanbeiji.com/archives/953 */
   a, a:visited { color: #444 !important; text-decoration: underline; }
   a[href]:after { content: " (" attr(href) ")"; }
-  a[href^="javascript:"]:after { content: ""; }
+  a[href^="javascript:"]:after, a[href^="#"]:after  { content: ""; }
   abbr[title]:after { content: " (" attr(title) ")"; }
   .ir a:after { content: ""; }  /* Don't show links for images */
   pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
