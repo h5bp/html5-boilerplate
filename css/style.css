@@ -113,7 +113,7 @@ body {
 /* A hack for HTML5 contenteditable attribute on mobile */
 textarea.contenteditable {-webkit-appearance: none;}
 
-/* A workaround for S60 3.x and 5.0 devices which do not animated gif images if they have been set as display: none  */
+/* A workaround for S60 3.x and 5.0 devices which do not animated gif images if they have been set as display: none */
 .displaynone{position: absolute; left: -100%;}
 
 
