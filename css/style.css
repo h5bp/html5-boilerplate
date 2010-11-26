@@ -66,14 +66,10 @@ table { border-collapse:collapse; border-spacing:0; } /* Tables still need cells
    * we normalize monospace styles ourselves
    * table font-size is reset in the HTML5 reset above so there is no need to repeat
 */
+
 body { font:13px/1.231 sans-serif; *font-size:small; } /* hack retained to preserve specificity */
-
 select, input, textarea, button { font:99% sans-serif; }
-
-/* normalize monospace sizing 
- * en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome
- */
-pre, code, kbd, samp { font-family: monospace, sans-serif; }
+pre, code, kbd, samp { font-family: monospace, sans-serif; } /* normalize monospace sizing: goo.gl/IfGSd
  
 
 /* 
