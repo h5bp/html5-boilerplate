@@ -78,38 +78,30 @@ pre, code, kbd, samp { font-family: monospace, sans-serif; } /* normalize monosp
 
 
 body, select, input, textarea { 
-  /* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */ 
-  color: #444; 
+  color: #444; /* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */
+  
   /* set your base font here, to apply evenly */
   /* font-family: Georgia, serif;  */   
 }
 
-/* Headers (h1,h2,etc) have no default font-size or margin,
-   you'll want to define those yourself. */ 
+/* Headers have no default font-size or margin - you'll want to define those yourself */
 h1,h2,h3,h4,h5,h6 { font-weight: bold; }
 
 /* always force a scrollbar in non-IE: */ 
 html { overflow-y: scroll; }
 
- 
-/* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
+/* Accessible focus treatment: goo.gl/lrBVU */
 a:hover, a:active { outline: none; }
-
 a, a:active, a:visited { color: #607890; }
 a:hover { color: #036; }
 
-
+nav ul, nav li { margin: 0; } /* Remove margins for navigation lists */
 ul, ol { margin-left: 1.8em; }
 ol { list-style-type: decimal; }
 
-/* Remove margins for navigation lists */
-nav ul, nav li { margin: 0; } 
-
 small { font-size: 85%; }
 strong, th { font-weight: bold; }
-
 td, td img { vertical-align: top; } 
-
 sub { vertical-align: sub; font-size: smaller; }
 sup { vertical-align: super; font-size: smaller; }
 
@@ -123,12 +115,11 @@ pre {
   word-wrap: break-word; /* IE */
 }
  
-textarea { overflow: auto; } /* thnx ivannikolic! www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
+textarea { overflow: auto; } /* Remove unnecessary textarea scrollbars in IE (thanks ivannikolic!): goo.gl/3v5Jf */
 
 .ie6 legend, .ie7 legend { margin-left: -7px; } /* thnx ivannikolic! */
 
-/* align checkboxes, radios, text inputs with their label
-   by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css  */
+/* Align inputs with their labels (Thierry Koblentz): tjkdesign.com/ez-css/css/base.css */
 input[type="radio"] { vertical-align: text-bottom; }
 input[type="checkbox"] { vertical-align: bottom; }
 .ie7 input[type="checkbox"] { vertical-align: baseline; }
@@ -137,36 +128,35 @@ input[type="checkbox"] { vertical-align: bottom; }
 /* hand cursor on clickable input elements */
 label, input[type="button"], input[type="submit"], input[type="image"], button { cursor: pointer; }
  
-/* webkit browsers add a 2px margin outside the chrome of form elements */  
+/* Remove the 2px margin from form element chrome, which is added by Webkit browsers */  
 button, input, select, textarea { margin: 0; }
 
-/* colors for form validity */
-input:valid, textarea:valid   {  }
-input:invalid, textarea:invalid { 
-      border-radius: 1px;
-    -moz-box-shadow: 0px 0px 5px red; 
- -webkit-box-shadow: 0px 0px 5px red; 
-         box-shadow: 0px 0px 5px red;
+/* Styling for valid form inputs */
+input:valid, textarea:valid {}
+
+/* Styling for invalid form inputs */
+input:invalid, textarea:invalid {
+  border-radius: 1px;
+  -moz-box-shadow: 0px 0px 5px red; 
+  -webkit-box-shadow: 0px 0px 5px red; 
+  box-shadow: 0px 0px 5px red;
 }
-.no-boxshadow input:invalid, 
-.no-boxshadow textarea:invalid { background-color: #f0dddd; }
 
+/* Styling for invalid form inputs (in browsers that don't support boxshadow) */
+.no-boxshadow input:invalid, .no-boxshadow textarea:invalid { background-color: #f0dddd; }
 
-/* These selection declarations have to be separate.
-   No text-shadow: twitter.com/miketaylr/status/12228805301 
-   Also: hot pink. */
+/* Hot pink selection styles (these must be declared separately)
+   text-shadow removed: twitter.com/miketaylr/status/12228805301 */
 ::-moz-selection{ background: #FF5E99; color:#fff; text-shadow: none; }
-::selection { background:#FF5E99; color:#fff; text-shadow: none; } 
+::selection { background:#FF5E99; color:#fff; text-shadow: none; }
 
 /*  j.mp/webkit-tap-highlight-color */
 a:link { -webkit-tap-highlight-color: #FF5E99; } 
 
-/* make buttons play nice in IE:    
-   www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
+/* Make buttons play nice in IE: viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
 button {  width: auto; overflow: visible; }
  
-/* bicubic resizing for non-native sized IMG: 
-   code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+/* Bicubic resizing for non-native sized IMG: goo.gl/rTqYv */
 .ie7 img { -ms-interpolation-mode: bicubic; }
 
 
