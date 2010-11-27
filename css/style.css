@@ -1,8 +1,8 @@
-/* 
-  HTML5 ✰ Boilerplate 
-  
+/*
+  HTML5 ✰ Boilerplate
+
   style.css contains a reset, font normalization and some base styles.
-  
+
   credit is left where credit is due.
   much inspiration was taken from these projects:
     yui.yahooapis.com/2.8.1/build/base/base.css
@@ -10,7 +10,7 @@
     praegnanz.de/weblog/htmlcssjs-kickstart
 */
 
-/* 
+/*
   html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
   v1.6.1 2010-09-17 | Authors: Eric Meyer & Richard Clark
   html5doctor.com/html-5-reset-stylesheet/
@@ -24,7 +24,7 @@ small, strong, sub, sup, var, b, i,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figcaption, figure, 
+article, aside, canvas, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section, summary,
 time, mark, audio, video {
   margin:0;
@@ -34,10 +34,10 @@ time, mark, audio, video {
   font-size:100%;
   vertical-align:baseline;
   background:transparent;
-}                  
+}                
 
 article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section { 
+footer, header, hgroup, menu, nav, section {
     display:block;
 }
 
@@ -70,24 +70,24 @@ table { border-collapse:collapse; border-spacing:0; } /* Tables still need cells
 body { font:13px/1.231 sans-serif; *font-size:small; } /* hack retained to preserve specificity */
 select, input, textarea, button { font:99% sans-serif; }
 pre, code, kbd, samp { font-family: monospace, sans-serif; } /* normalize monospace sizing: goo.gl/IfGSd
- 
 
-/* 
- * minimal base styles 
+
+/*
+ * minimal base styles
  */
 
 
-body, select, input, textarea { 
+body, select, input, textarea {
   color: #444; /* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */
-  
+
   /* set your base font here, to apply evenly */
-  /* font-family: Georgia, serif;  */   
+  /* font-family: Georgia, serif; */
 }
 
 /* Headers have no default font-size or margin - you'll want to define those yourself */
 h1,h2,h3,h4,h5,h6 { font-weight: bold; }
 
-/* always force a scrollbar in non-IE: */ 
+/* always force a scrollbar in non-IE: */
 html { overflow-y: scroll; }
 
 /* Accessible focus treatment: goo.gl/lrBVU */
@@ -101,20 +101,20 @@ ol { list-style-type: decimal; }
 
 small { font-size: 85%; }
 strong, th { font-weight: bold; }
-td, td img { vertical-align: top; } 
+td, td img { vertical-align: top; }
 sub { vertical-align: sub; font-size: smaller; }
 sup { vertical-align: super; font-size: smaller; }
 
-pre { 
-  padding: 15px; 
-  
+pre {
+  padding: 15px;
+
   /* www.pathf.com/blogs/2008/05/formatting-quoted-code-in-blog-posts-css21-white-space-pre-wrap/ */
   white-space: pre; /* CSS2 */
   white-space: pre-wrap; /* CSS 2.1 */
   white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
   word-wrap: break-word; /* IE */
 }
- 
+
 textarea { overflow: auto; } /* Remove unnecessary textarea scrollbars in IE (thanks ivannikolic!): goo.gl/3v5Jf */
 
 .ie6 legend, .ie7 legend { margin-left: -7px; } /* thnx ivannikolic! */
@@ -127,8 +127,8 @@ input[type="checkbox"] { vertical-align: bottom; }
 
 /* hand cursor on clickable input elements */
 label, input[type="button"], input[type="submit"], input[type="image"], button { cursor: pointer; }
- 
-/* Remove the 2px margin from form element chrome, which is added by Webkit browsers */  
+
+/* Remove the 2px margin from form element chrome, which is added by Webkit browsers */
 button, input, select, textarea { margin: 0; }
 
 /* Styling for valid form inputs */
@@ -137,8 +137,8 @@ input:valid, textarea:valid {}
 /* Styling for invalid form inputs */
 input:invalid, textarea:invalid {
   border-radius: 1px;
-  -moz-box-shadow: 0px 0px 5px red; 
-  -webkit-box-shadow: 0px 0px 5px red; 
+  -moz-box-shadow: 0px 0px 5px red;
+  -webkit-box-shadow: 0px 0px 5px red;
   box-shadow: 0px 0px 5px red;
 }
 
@@ -151,29 +151,29 @@ input:invalid, textarea:invalid {
 ::selection { background:#FF5E99; color:#fff; text-shadow: none; }
 
 /*  j.mp/webkit-tap-highlight-color */
-a:link { -webkit-tap-highlight-color: #FF5E99; } 
+a:link { -webkit-tap-highlight-color: #FF5E99; }
 
 /* Make buttons play nice in IE: viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
 button {  width: auto; overflow: visible; }
- 
+
 /* Bicubic resizing for non-native sized IMG: goo.gl/rTqYv */
 .ie7 img { -ms-interpolation-mode: bicubic; }
 
 
 
-/* 
- * Non-semantic helper classes 
+/*
+ * Non-semantic helper classes
  */
 
 /* for image replacement */
 .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
 
 /* Hide for both screenreaders and browsers: goo.gl/xZl7H */
-.hidden { display: none; visibility: hidden; } 
+.hidden { display: none; visibility: hidden; }
 
 /* Hide visually but leave available for screenreaders: goo.gl/kvNCA  &  j.mp/visuallyhidden */
 .visuallyhidden {
-  position: absolute !important;    
+  position: absolute !important;
   clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px);
 }
@@ -189,8 +189,6 @@ button {  width: auto; overflow: visible; }
 
 
 
-
-
  /* Primary Styles
     Author: 
  */
@@ -198,45 +196,34 @@ button {  width: auto; overflow: visible; }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 /*
  * Media queries for responsive design
- * These follow after primary styles so they will successfully override. 
+ * These follow after primary styles so they will successfully override.
  */
 
-@media all and (orientation:portrait) { 
+@media all and (orientation:portrait) {
   /* Style adjustments for portrait mode goes here */
-  
+
 }
 
-@media all and (orientation:landscape) { 
+@media all and (orientation:landscape) {
   /* Style adjustments for landscape mode goes here */
-  
+
 }
 
-/* Grade-A Mobile Browsers (Opera Mobile, iPhone Safari, Android Chrome)  
+/* Grade-A Mobile Browsers (Opera Mobile, iPhone Safari, Android Chrome)
    Consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
 @media screen and (max-device-width: 480px) {
-  
-  
+
+
   /* Uncomment if you don't want iOS and WinMobile to mobile-optimize the text for you
-     j.mp/textsizeadjust 
+     j.mp/textsizeadjust
   html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } */
 }
 
-/* 
+/*
  * print styles
- * inlined to avoid required HTTP connection www.phpied.com/delay-loading-your-print-css/ 
+ * inlined to avoid required HTTP connection www.phpied.com/delay-loading-your-print-css/
  */
 @media print {
   * { background: transparent !important; color: black !important; text-shadow: none !important; } /* Black prints faster: sanbeiji.com/archives/953 */
@@ -245,7 +232,7 @@ button {  width: auto; overflow: visible; }
   abbr[title]:after { content: " (" attr(title) ")"; }
   .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
   pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
-  thead { display: table-header-group; } /* css-discuss.incutio.com/wiki/Printing_Tables */ 
+  thead { display: table-header-group; } /* css-discuss.incutio.com/wiki/Printing_Tables */
   tr, img { page-break-inside: avoid; }
   @page { margin: 0.5cm; }
   p, h2, h3 { orphans: 3; widows: 3; }
