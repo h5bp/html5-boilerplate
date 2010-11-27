@@ -69,13 +69,12 @@ table { border-collapse:collapse; border-spacing:0; } /* Tables still need cells
 
 body { font:13px/1.231 sans-serif; *font-size:small; } /* Hack retained to preserve specificity */
 select, input, textarea, button { font:99% sans-serif; }
-pre, code, kbd, samp { font-family: monospace, sans-serif; } /* Normalize monospace sizing: goo.gl/IfGSd
+pre, code, kbd, samp { font-family: monospace, sans-serif; } /* Normalize monospace sizing: goo.gl/IfGSd */
 
 
 /*
- * minimal base styles
+ * Minimal base styles
  */
-
 
 body, select, input, textarea {
   color: #444; /* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */
@@ -160,7 +159,6 @@ button {  width: auto; overflow: visible; }
 .ie7 img { -ms-interpolation-mode: bicubic; }
 
 
-
 /*
  * Non-semantic helper classes
  */
@@ -203,27 +201,26 @@ button {  width: auto; overflow: visible; }
 
 @media all and (orientation:portrait) {
   /* Style adjustments for portrait mode goes here */
-
 }
 
 @media all and (orientation:landscape) {
   /* Style adjustments for landscape mode goes here */
-
 }
 
-/* Grade-A Mobile Browsers (Opera Mobile, iPhone Safari, Android Chrome)
+/* Grade-A Mobile Browsers (Opera Mobile, Mobile Safari, Android Chrome)
    Consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
 @media screen and (max-device-width: 480px) {
 
-
-  /* Uncomment if you don't want iOS and WinMobile to mobile-optimize the text for you
-     j.mp/textsizeadjust
+  /* Uncomment if you don't want iOS and WinMobile to mobile-optimize the text for you: j.mp/textsizeadjust
   html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } */
 }
 
+
 /*
- * Print styles - in-line to avoid extra HTTP requests: www.phpied.com/delay-loading-your-print-css/
+ * Print styles
+ * In-line to avoid extra HTTP requests: www.phpied.com/delay-loading-your-print-css/
  */
+
 @media print {
   * { background: transparent !important; color: black !important; text-shadow: none !important; } /* Black prints faster: sanbeiji.com/archives/953 */
   a, a:visited { color: #444 !important; text-decoration: underline; }
