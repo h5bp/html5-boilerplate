@@ -94,29 +94,35 @@ a:hover, a:active { outline: none; }
 a, a:active, a:visited { color: #607890; }
 a:hover { color: #036; }
 
+/* Minimal list styles */
 nav ul, nav li { margin: 0; } /* Remove margins for navigation lists */
 ul, ol { margin-left: 1.8em; }
 ol { list-style-type: decimal; }
 
+/* Minimal marker element styles */
 small { font-size: 85%; }
 strong, th { font-weight: bold; }
-td, td img { vertical-align: top; }
+
+/* Subscript and superscript styles */
 sub { vertical-align: sub; font-size: smaller; }
 sup { vertical-align: super; font-size: smaller; }
 
-pre {
-  padding: 15px;
+td, td img { vertical-align: top; }
 
-  /* www.pathf.com/blogs/2008/05/formatting-quoted-code-in-blog-posts-css21-white-space-pre-wrap/ */
+/* www.pathf.com/blogs/2008/05/formatting-quoted-code-in-blog-posts-css21-white-space-pre-wrap/ */
+pre {
   white-space: pre; /* CSS2 */
   white-space: pre-wrap; /* CSS 2.1 */
   white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
   word-wrap: break-word; /* IE */
+  padding: 15px;
 }
 
-textarea { overflow: auto; } /* Remove unnecessary textarea scrollbars in IE (thanks ivannikolic!): goo.gl/3v5Jf */
+/* Remove unnecessary textarea scrollbars in IE (thanks ivannikolic!): goo.gl/3v5Jf */
+textarea { overflow: auto; }
 
-.ie6 legend, .ie7 legend { margin-left: -7px; } /* Thanks ivannikolic! */
+/* Remove 7px indent on legend in IE 6/7 (thanks ivannikolic!) */
+.ie6 legend, .ie7 legend { margin-left: -7px; }
 
 /* Align inputs with their labels (Thierry Koblentz): tjkdesign.com/ez-css/css/base.css */
 input[type="radio"] { vertical-align: text-bottom; }
