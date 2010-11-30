@@ -125,8 +125,27 @@ strong, th { font-weight: bold; }
 
 td, td img { vertical-align: top; } 
 
-sub { vertical-align: sub; font-size: smaller; }
-sup { vertical-align: super; font-size: smaller; }
+sup,
+sub {
+	height: 0;
+	line-height: 1;
+	vertical-align: baseline;
+	position: relative;
+	font-size: smaller;
+}
+
+.ie6 sup,
+.ie6 sub {
+	vertical-align: bottom;
+}
+
+sup {
+	bottom: 1ex;
+}
+
+sub {
+	top: 0.5ex;
+}
 
 pre { 
   padding: 15px; 
