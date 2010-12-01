@@ -1,4 +1,4 @@
-<!doctype html>  
+<!doctype html>
 
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ --> 
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
@@ -21,19 +21,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Place favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="shortcut icon" href="../src/favicon.ico">
+  <link rel="apple-touch-icon" href="../src/apple-touch-icon.png">
 
 
   <!-- CSS : implied media="all" -->
-  <link rel="stylesheet" href="../css/style.css?v=2">
-  <link rel="stylesheet" href="hack2.css">
+  <link rel="stylesheet" href="../src/css/style.css?v=2">
+  <link rel="stylesheet" href="css/hack2.css">
 
   <!-- Uncomment if you are specifically targeting less enabled mobile browsers
-  <link rel="stylesheet" media="handheld" href="../css/handheld.css?v=2">  -->
+  <link rel="stylesheet" media="handheld" href="../src/css/handheld.css?v=2">  -->
  
   <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
-  <script src="../js/libs/modernizr-1.6.min.js"></script>
+  <script src="../src/js/libs/modernizr-1.6.min.js"></script>
 
 </head>
 
@@ -157,9 +157,9 @@
 						IE7 hack to reduce distortion caused by image resizing <br /><br />
 						<span href="#" class="show">With Boilerplate CSS</span> | <span href="#" class="hide">Without Boilerplate CSS</span>
 						<br /><br />
-						<img src="../apple-touch-icon.png" width="27" /><br />
-						<img src="../apple-touch-icon.png" width="57" /><br />
-						<img src="../apple-touch-icon.png" width="157" /><br />
+						<img src="../src/apple-touch-icon.png" width="27" /><br />
+						<img src="../src/apple-touch-icon.png" width="57" /><br />
+						<img src="../src/apple-touch-icon.png" width="157" /><br />
 					</dd>
 				
 				<dt>Hack 12 - Hide visually</dt>
@@ -178,7 +178,7 @@
 						<span href="#" class="show">With Boilerplate CSS</span> | <span href="#" class="hide">Without Boilerplate CSS</span>
 						<br /><br />
 						
-						<div class="ir" style="background:url('../apple-touch-icon.png'); width:57px; height:57px;">Apple Touch Icon</div>
+						<div class="ir" style="background:url('../src/apple-touch-icon.png'); width:57px; height:57px;">Apple Touch Icon</div>
 						
 					</dd>	
 
@@ -205,8 +205,8 @@
 					    <div style="position:absolute; height: 40px; background-color: #444444; background-image: -moz-linear-gradient(top, #444444, #999999);  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #444444),color-stop(1, #999999));  filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#444444', EndColorStr='#999999');  ">
 					      
 					      
-  					  <div class="png_bg" style="border:1px solid #ddd; width:100px; padding:10px 10px 10px 50px;  display:inline-block; background:url(test_tubes.png) no-repeat 5px center;">
-                <img src="internet_explorer.png" alt="IE is so awesome" />
+  					  <div class="png_bg" style="border:1px solid #ddd; width:100px; padding:10px 10px 10px 50px;  display:inline-block; background:url(images/test_tubes.png) no-repeat 5px center;">
+                <img src="images/internet_explorer.png" alt="IE is so awesome" />
               </div>
             </div>
 					  
@@ -223,7 +223,7 @@
 
   <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="../js/libs/jquery-1.4.4.js"%3E%3C/script%3E'))</script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="../src/js/libs/jquery-1.4.4.js"%3E%3C/script%3E'))</script>
 
 
   <script>
@@ -279,19 +279,19 @@
 
 
   <!-- scripts concatenated and minified via ant build script-->
-  <script src="../js/plugins.js"></script>
-  <script src="../js/script.js"></script>
+  <script src="../src/js/plugins.js"></script>
+  <script src="../src/js/script.js"></script>
   <!-- end concatenated and minified scripts-->
 
 
   <!--[if lt IE 7 ]>
-    <script src="../js/libs/dd_belatedpng.js"></script>
+    <script src="../src/js/libs/dd_belatedpng.js"></script>
     <script> DD_belatedPNG.fix('img, .png_bg'); //fix any <img> or .png_bg background-images </script>
   <![endif]-->
 
   <!-- yui profiler and profileviewer - remove for production -->
-  <script src="../js/profiling/yahoo-profiling.min.js"></script>
-  <script src="../js/profiling/config.js"></script>
+  <script src="../src/js/profiling/yahoo-profiling.min.js"></script>
+  <script src="../src/js/profiling/config.js"></script>
   <!-- end profiling code -->
 
 
