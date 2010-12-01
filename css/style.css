@@ -125,8 +125,10 @@ strong, th { font-weight: bold; }
 
 td, td img { vertical-align: top; }
 
-sub { vertical-align: sub; font-size: smaller; }
-sup { vertical-align: super; font-size: smaller; }
+/* Set sub, sup without affecting line-height: gist.github.com/413930*/
+sub, sup { font-size: 75%; line-height: 0; position: relative; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
 
 pre {
   padding: 15px;
