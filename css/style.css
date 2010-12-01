@@ -198,10 +198,18 @@ button {  width: auto; overflow: visible; }
 .hidden { display: none; visibility: hidden; } 
 
 /* Hide only visually, but have it available for screenreaders 
-   www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden  */
-.visuallyhidden { position: absolute !important;    
-  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-  clip: rect(1px, 1px, 1px, 1px); }
+   www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden
+   Updated to ensure no other style overrides the styles defined in this rule */ 
+.visuallyHidden {
+    border: 0 !important;
+    clip: rect(0 0 0 0);
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+}  
 
 /* Hide visually and from screenreaders, but maintain layout */
 .invisible { visibility: hidden; }
