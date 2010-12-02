@@ -61,7 +61,9 @@ mark { background-color:#ff9; color:#000; font-style:italic; font-weight:bold; }
 del { text-decoration: line-through; }
 
 abbr[title], dfn[title] { border-bottom:1px dotted; cursor:help; }
-a abbr { cursor: pointer; }
+
+/* because the indicator for being clickable text is usually more important than the help cursor */
+a abbr, a dfn { cursor: pointer !important; }
 
 address { font-style: normal; }
 
