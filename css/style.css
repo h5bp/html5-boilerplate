@@ -51,6 +51,9 @@ q:before, q:after { content:''; content:none; }
 
 a { margin:0; padding:0; font-size:100%; vertical-align:baseline; background:transparent; }
 
+/* perhaps this is overdefining, but just to be really sure */
+a img {border: none; }
+
 ins { background-color:#ff9; color:#000; text-decoration:none; }
 
 mark { background-color:#ff9; color:#000; font-style:italic; font-weight:bold; }
@@ -58,6 +61,9 @@ mark { background-color:#ff9; color:#000; font-style:italic; font-weight:bold; }
 del { text-decoration: line-through; }
 
 abbr[title], dfn[title] { border-bottom:1px dotted; cursor:help; }
+a abbr { cursor: pointer; }
+
+address { font-style: normal; }
 
 /* tables still need cellspacing="0" in the markup */
 table { border-collapse:collapse; border-spacing:0; }
@@ -114,7 +120,8 @@ a, a:active, a:visited { color: #607890; }
 a:hover { color: #036; }
 
 
-ul, ol { margin-left: 1.8em; }
+/* by using a left margin of 2.1em there is enough room even for two digit numbers in ordered lists */
+ul, ol { margin-left: 2.1em; }
 ol { list-style-type: decimal; }
 
 /* remove margins for navigation lists */
@@ -125,8 +132,10 @@ strong, th { font-weight: bold; }
 
 td, td img { vertical-align: top; }
 
-sub { vertical-align: sub; font-size: smaller; }
-sup { vertical-align: super; font-size: smaller; }
+caption, th, td {text-align: left;}
+
+sub { position:relative; bottom:0.3em; vertical-align: baseline; font-size:75% !important; }
+sup { position:relative; bottom:-0.2em; vertical-align: baseline; font-size:75% !important; }
 
 pre {
   padding: 15px;
@@ -178,7 +187,7 @@ a:link { -webkit-tap-highlight-color: #FF5E99; }
 
 /* make buttons play nice in IE:
    www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
-button {  width: auto; overflow: visible; }
+button { width: auto; overflow: visible; }
 
 /* bicubic resizing for non-native sized IMG:
    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
@@ -189,6 +198,10 @@ button {  width: auto; overflow: visible; }
 /*
  * Non-semantic helper classes
  */
+
+/* to prevent automatic linebreak (as replacement for the <nobr> element),
+   can be used with a <span> element */
+.nobr {	white-space: nowrap; }
 
 /* for image replacement */
 .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
