@@ -114,7 +114,7 @@ a, a:active, a:visited { color: #607890; }
 a:hover { color: #036; }
 
 
-ul, ol { margin-left: 1.8em; }
+ul, ol { margin-left: 2em; }
 ol { list-style-type: decimal; }
 
 /* remove margins for navigation lists */
