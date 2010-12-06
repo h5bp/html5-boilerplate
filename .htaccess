@@ -1,6 +1,9 @@
 # Apache configuration file
 # httpd.apache.org/docs/2.2/mod/quickreference.html
 
+# Note .htaccess files are an overhead, this logic should be in your Apache config if possible
+# httpd.apache.org/docs/2.2/howto/htaccess.html
+
 # Techniques in here adapted from all over, including:
 #   Kroc Camen: camendesign.com/.htaccess
 #   perishablepress.com/press/2006/01/10/stupid-htaccess-tricks/
@@ -23,11 +26,12 @@
 # Cache control is set only if mod_headers is enabled, so that's unncessary to declare
 </IfModule>
 
-# hacks.mozilla.org/2009/07/cross-site-xmlhttprequest-with-cors/
-# Disabled. Uncomment to serve cross-domain ajax requests
-#<IfModule mod_headers.c>
-#  Header set Access-Control-Allow-Origin "*"
-#</IfModule>
+# Serve cross-domain ajax requests, disabled.   
+# enable-cors.org
+# code.google.com/p/html5security/wiki/CrossOriginRequestSecurity
+#  <IfModule mod_headers.c>
+#    Header set Access-Control-Allow-Origin "*"
+#  </IfModule>
 
 
 
@@ -43,30 +47,43 @@
 </FilesMatch>
 
 
+# audio
+AddType audio/ogg                      oga ogg
+
 # video
-AddType video/ogg  ogg ogv
-AddType video/mp4  mp4
-AddType video/webm webm
+AddType video/ogg                      ogv
+AddType video/mp4                      mp4
+AddType video/webm                     webm
 
 # Proper svg serving. Required for svg webfonts on iPad
 #   twitter.com/FontSquirrel/status/14855840545
-AddType     image/svg+xml             svg svgz 
-AddEncoding gzip                      svgz
+AddType     image/svg+xml              svg svgz 
+AddEncoding gzip                       svgz
+                                       
+# webfonts                             
+AddType application/vnd.ms-fontobject  eot
+AddType font/truetype                  ttf
+AddType font/opentype                  otf
+AddType font/woff                      woff
 
-# webfonts
-AddType application/vnd.ms-fontobject eot
-AddType font/truetype                 ttf
-AddType font/opentype                 otf
-AddType font/woff                     woff
+# assorted types                                      
+AddType image/vnd.microsoft.icon       ico
+AddType image/webp                     webp
+AddType text/cache-manifest            manifest
+AddType text/x-component               htc
+AddType application/x-chrome-extension crx
+AddType application/x-xpinstall        xpi
+AddType application/octet-stream       safariextz
 
-AddType text/cache-manifest           manifest
-AddType text/x-component              htc
+# blackberry types
+AddType application/x-bb-appworld      bbaw
+AddType text/vnd.rim.location.xloc     xloc
 
 
 # allow concatenation from within specific js and css files 
 
 # e.g. Inside of script.combined.js you could have
-#   <!--#include file="jquery-1.4.2.js" -->
+#   <!--#include file="jquery-1.4.4.js" -->
 #   <!--#include file="jquery.idletimer.js" -->
 # and they would be included into this single file
 
@@ -88,8 +105,20 @@ AddType text/x-component              htc
 <IfModule mod_deflate.c>
 
 # html, txt, css, js, json, xml, htc:
-  AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json
+<IfModule filter_module>
+  FilterDeclare   COMPRESS
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type /text/(html|css|javascript|plain|x(ml|-component))/
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type /application/(javascript|json|xml|x-javascript)/
+  FilterChain     COMPRESS
+  FilterProtocol  COMPRESS  change=yes;byteranges=no
+</IfModule>
+
+<IfModule !mod_filter.c>
+  # Legacy versions of Apache
+  AddOutputFilterByType DEFLATE text/html text/plain text/css application/json
+  AddOutputFilterByType DEFLATE text/javascript application/javascript application/x-javascript 
   AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
+</IfModule>
 
 # webfonts and svg:
   <FilesMatch "\.(ttf|otf|eot|svg)$" >
@@ -109,7 +138,6 @@ AddType text/x-component              htc
 #   "access plus 1 week" or so
 
 <IfModule mod_expires.c>
-  Header set Cache-Control "public"
   ExpiresActive on
 
 # Perhaps better to whitelist expires rules? Perhaps.
@@ -154,6 +182,10 @@ AddType text/x-component              htc
   ExpiresByType text/css                  "access plus 1 month"
   ExpiresByType application/javascript    "access plus 1 month"
   ExpiresByType text/javascript           "access plus 1 month"
+
+  <IfModule mod_headers.c>
+    Header append Cache-Control "public"
+  </IfModule>
 </IfModule>
 
 
@@ -208,6 +240,3 @@ AddCharset utf-8 .html .css .js .xml .json .rss
 
 # We don't need to tell everyone we're apache.
 ServerSignature Off
-
-
-
