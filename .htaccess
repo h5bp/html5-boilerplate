@@ -7,11 +7,18 @@
 # Techniques in here adapted from all over, including:
 #   Kroc Camen: camendesign.com/.htaccess
 #   perishablepress.com/press/2006/01/10/stupid-htaccess-tricks/
+#   Sample .htaccess file of CMS MODx: modxcms.com
 
+
+
+# ----------------------------------------------------------------------
+# Better website experience for IE users
+# ----------------------------------------------------------------------
 
 # Force the latest IE version, in various cases when it may fall back to IE7 mode
 #  github.com/rails/rails/commit/123eb25#commitcomment-118920
 # Use ChromeFrame if it's installed for a better experience for the poor IE folk
+
 <IfModule mod_setenvif.c>
   <IfModule mod_headers.c>
     BrowserMatch MSIE ie
@@ -26,15 +33,24 @@
 # Cache control is set only if mod_headers is enabled, so that's unncessary to declare
 </IfModule>
 
+
+# ----------------------------------------------------------------------
+# Cross-domain AJAX requests
+# ----------------------------------------------------------------------
+
 # Serve cross-domain ajax requests, disabled.   
 # enable-cors.org
 # code.google.com/p/html5security/wiki/CrossOriginRequestSecurity
+
 #  <IfModule mod_headers.c>
 #    Header set Access-Control-Allow-Origin "*"
 #  </IfModule>
 
 
 
+# ----------------------------------------------------------------------
+# Webfont access
+# ----------------------------------------------------------------------
 
 # allow access from all domains for webfonts
 # alternatively you could only whitelist
@@ -46,6 +62,11 @@
   </IfModule>
 </FilesMatch>
 
+
+
+# ----------------------------------------------------------------------
+# Proper MIME type for all files
+# ----------------------------------------------------------------------
 
 # audio
 AddType audio/ogg                      oga ogg
@@ -77,7 +98,9 @@ AddType application/octet-stream       safariextz
 
 
 
-# allow concatenation from within specific js and css files 
+# ----------------------------------------------------------------------
+# Allow concatenation from within specific js and css files 
+# ----------------------------------------------------------------------
 
 # e.g. Inside of script.combined.js you could have
 #   <!--#include file="jquery-1.4.4.js" -->
@@ -96,9 +119,10 @@ AddType application/octet-stream       safariextz
 
 
 
+# ----------------------------------------------------------------------
+# gzip compression
+# ----------------------------------------------------------------------
 
-
-# gzip compression.
 <IfModule mod_deflate.c>
 
 # html, txt, css, js, json, xml, htc:
@@ -125,6 +149,10 @@ AddType application/octet-stream       safariextz
 
 
 
+# ----------------------------------------------------------------------
+# Expires headers (for better cache control)
+# ----------------------------------------------------------------------
+
 # these are pretty far-future expires headers
 # they assume you control versioning with cachebusting query params like
 #   <script src="application.js?20100608">
@@ -150,7 +178,6 @@ AddType application/octet-stream       safariextz
   ExpiresByType text/xml                  "access plus 0 seconds"
   ExpiresByType application/xml           "access plus 0 seconds"
   ExpiresByType application/json          "access plus 0 seconds"
-
 
 # rss feed
   ExpiresByType application/rss+xml       "access plus 1 hour"
@@ -180,13 +207,14 @@ AddType application/octet-stream       safariextz
   ExpiresByType application/javascript    "access plus 1 month"
   ExpiresByType text/javascript           "access plus 1 month"
 
-  <IfModule mod_headers.c>
-    Header append Cache-Control "public"
-  </IfModule>
+  Header append Cache-Control "public"
 </IfModule>
 
 
 
+# ----------------------------------------------------------------------
+# ETag removal
+# ----------------------------------------------------------------------
 
 # Since we're sending far-future expires, we don't need ETags for
 # static content.
@@ -195,6 +223,24 @@ FileETag None
 
 
 
+# ----------------------------------------------------------------------
+# Stop screen flicker in IE on CSS rollovers
+# ----------------------------------------------------------------------
+
+# The following directives stop screen flicker in IE on CSS rollovers - in
+# combination with the "ExpiresByType" rules for images (see above). If
+# needed, un-comment the following rules.
+
+# BrowserMatch "MSIE" brokenvary=1
+# BrowserMatch "Mozilla/4.[0-9]{2}" brokenvary=1
+# BrowserMatch "Opera" !brokenvary
+# SetEnvIf brokenvary 1 force-no-vary
+
+
+
+# ----------------------------------------------------------------------
+# Cookie setting from iframes
+# ----------------------------------------------------------------------
 
 # Allow cookies to be set from iframes (for IE only)
 # If needed, uncomment and specify a path or regex in the Location directive
@@ -206,37 +252,143 @@ FileETag None
 # </IfModule>
 
 
-# you probably want www.example.com to forward to example.com -- shorter URLs are sexier.
-#   no-www.org/faq.php?q=class_b
+
+# ----------------------------------------------------------------------
+# Start rewrite engine
+# ----------------------------------------------------------------------
+
+# Turning on the rewrite engine is necessary for the following rules and features.
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
+</IfModule>
+
+
+
+# ----------------------------------------------------------------------
+# Suppress or force the "www." at the beginning of URLs
+# ----------------------------------------------------------------------
+
+# The same content should never be available under two different URLs - especially not with and
+# without "www." at the beginning, since this can cause SEO problems (duplicate content).
+# That's why you should choose one of the alternatives and redirect the other one.
+
+# By default option 1 (no "www.") is activated. Remember: Shorter URLs are sexier.
+# no-www.org/faq.php?q=class_b
+
+# If you rather want to use option 2, just comment out all option 1 lines
+# and uncomment option 2.
+# IMPORTANT: NEVER USE BOTH RULES AT THE SAME TIME!
+
+# ----------------------------------------------------------------------
+
+# Option 1:
+# To rewrite "www.domain.com -> domain.com" uncomment the following lines.
+
+<IfModule mod_rewrite.c>
   RewriteCond %{HTTPS} !=on
   RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
   RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 </IfModule>
 
+# ----------------------------------------------------------------------
+
+# Option 2:
+# To rewrite "domain.com -> www.domain.com" uncomment the following lines.
+# Be aware that the following rule might not be a good idea if you
+# use "real" subdomains for certain parts of your website.
+
+# <IfModule mod_rewrite.c>
+#   RewriteCond %{HTTPS} !=on
+#   RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
+#   RewriteCond %{HTTP_HOST} (.+)$ [NC]
+#   RewriteRule ^(.*)$ http://www.%1/$1 [R=301,L]
+# </IfModule>
+
+
+
+# ----------------------------------------------------------------------
+# Prevent SSL cert warnings
+# ----------------------------------------------------------------------
+
+# Rewrite secure requests properly to prevent SSL cert warnings, e.g. prevent 
+# https://www.domain.com when your cert only allows https://secure.domain.com
+# Uncomment the following lines to use this feature.
+
+# <IfModule mod_rewrite.c>
+#   RewriteCond %{SERVER_PORT} !^443
+#   RewriteRule (.*) https://example-domain-please-change.com.com/$1 [R=301,L]
+# </IfModule>
+
+
+
+# ----------------------------------------------------------------------
+# Prevent 404 errors for non-existing redirected folders
+# ----------------------------------------------------------------------
+
 # without -MultiViews, Apache will give a 404 for a rewrite if a folder of the same name does not exist 
 #   e.g. /blog/hello : webmasterworld.com/apache/3808792.htm
+
 Options -MultiViews 
-# -Indexes will have Apache block users from browsing folders without a default document
-# Options -Indexes
 
 
 
+# ----------------------------------------------------------------------
 # custom 404 page
+# ----------------------------------------------------------------------
+
 ErrorDocument 404 /404.html
 
 
 
+# ----------------------------------------------------------------------
+# UTF-8 encoding
+# ----------------------------------------------------------------------
+
 # use utf-8 encoding for anything served text/plain or text/html
 AddDefaultCharset utf-8
+
 # force utf-8 for a number of file formats
 AddCharset utf-8 .html .css .js .xml .json .rss
 
 
 
+# ----------------------------------------------------------------------
+# A little more security
+# ----------------------------------------------------------------------
+
 # We don't need to tell everyone we're apache.
 ServerSignature Off
 
+# "-Indexes" will have Apache block users from browsing folders without a default document
+# Usually you should leave this activated, because you should allow everybody to surf through
+# every folder on your server (which includes rather private places like CMS system folders).
+Options -Indexes
 
+# Prevent anybody from accessing the .htaccess file.
+<Files .htaccess>
+  order allow,deny
+  deny from all
+</Files>
 
+# If your server is not already configured as such, the following directive
+# should be uncommented in order to set PHP's register_globals option to OFF.
+# This closes a major security hole that is abused by most XSS (cross-site
+# scripting) attacks. For more information: http://php.net/register_globals
+#
+# To verify that this option has been set to OFF, open the Manager and choose
+# Reports -> System Info and then click the phpinfo() link. Do a Find on Page
+# for "register_globals". The Local Value should be OFF. If the Master Value
+# is OFF then you do not need this directive here.
+#
+# IF REGISTER_GLOBALS DIRECTIVE CAUSES 500 INTERNAL SERVER ERRORS :
+#
+# Your server does not allow PHP directives to be set via .htaccess. In that
+# case you must make this change in your php.ini file instead. If you are
+# using a commercial web host, contact the administrators for assistance in
+# doing this. Not all servers allow local php.ini files, and they should
+# include all PHP configurations (not just this one), or you will effectively
+# reset everything to PHP defaults. Consult www.php.net for more detailed
+# information about setting PHP directives.
+
+# php_flag register_globals Off
