@@ -79,6 +79,14 @@ AddType application/octet-stream       safariextz
 AddType application/x-bb-appworld      bbaw
 AddType text/vnd.rim.location.xloc     xloc
 
+# nokia types
+AddType application/octet-stream 	   		sisx
+AddType application/vnd.symbian.install 	sis
+ 
+AddType application/java-archive 			jar
+AddType application/x-java-archive 			jar
+AddType text/vnd.sun.j2me.app-descriptor 	jad
+
 
 # allow concatenation from within specific js and css files 
 
