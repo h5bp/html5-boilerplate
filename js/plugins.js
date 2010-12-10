@@ -16,16 +16,32 @@
 
 
 
-// usage: log('inside coolFunc',this,arguments);
-// paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/
-window.log = function(){
-  log.history = log.history || [];   // store logs to an array for reference
-  log.history.push(arguments);
-  if(this.console){
-    console.log( Array.prototype.slice.call(arguments) );
-  }
-};
-
+// this just makes sure leaving any console statements won't break your site
+(function () {
+    var noOp = function () {},
+        methods = [
+            'log',
+            'warn',
+            'count',
+            'debug',
+            'profile',
+            'profileEnd',
+            'trace',
+            'dir',
+            'dirxml',
+            'assert',
+            'time',
+            'profile',
+            'timeEnd',
+            'group',
+            'groupEnd'
+        ],
+        i = methods.length;
+    if (!this.console) this.console = {};
+    while (i--) {
+        if (this.console[methods[i]] === undefined) this.console[methods[i]] = noOp;
+    }
+})();
 
 
 // catch all document.write() calls
