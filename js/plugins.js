@@ -48,7 +48,7 @@
 (function(doc){
   var write = doc.write;
   doc.write = function(q){ 
-    log('document.write(): ',arguments); 
+    console.log('document.write(): ',arguments); 
     if (/docwriteregexwhitelist/.test(q)) write.apply(doc,arguments);  
   };
 })(document);
