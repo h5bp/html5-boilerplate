@@ -283,7 +283,7 @@ FileETag None
 # ----------------------------------------------------------------------
 
 # Option 1:
-# To rewrite "www.domain.com -> domain.com" uncomment the following lines.
+# Rewrite "www.domain.com -> domain.com" 
 
 <IfModule mod_rewrite.c>
   RewriteCond %{HTTPS} !=on
@@ -357,19 +357,13 @@ AddCharset utf-8 .html .css .js .xml .json .rss
 # A little more security
 # ----------------------------------------------------------------------
 
-# We don't need to tell everyone we're apache.
-ServerSignature Off
 
 # "-Indexes" will have Apache block users from browsing folders without a default document
-# Usually you should leave this activated, because you should allow everybody to surf through
+# Usually you should leave this activated, because you shouldn't allow everybody to surf through
 # every folder on your server (which includes rather private places like CMS system folders).
-Options -Indexes
+# Options -Indexes
 
-# Prevent anybody from accessing the .htaccess file.
-<Files .htaccess>
-  order allow,deny
-  deny from all
-</Files>
+
 
 # If your server is not already configured as such, the following directive
 # should be uncommented in order to set PHP's register_globals option to OFF.
@@ -392,3 +386,7 @@ Options -Indexes
 # information about setting PHP directives.
 
 # php_flag register_globals Off
+
+
+
+
