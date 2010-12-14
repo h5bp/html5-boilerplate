@@ -125,6 +125,13 @@ AddType application/octet-stream       safariextz
 
 <IfModule mod_deflate.c>
 
+
+# force deflate for mangled headers developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping/
+<IfModule mod_setenvif.c>
+  SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s,?\s(gzip|deflate)?|X{4,13}|~{4,13}|-{4,13})$ HAVE_Accept-Encoding
+  RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
+</IfModule>
+
 # html, txt, css, js, json, xml, htc:
 <IfModule filter_module>
   FilterDeclare   COMPRESS
