@@ -94,7 +94,7 @@ AddType font/opentype                  otf
 AddType font/woff                      woff
 
 # assorted types                                      
-AddType image/vnd.microsoft.icon       ico
+AddType image/x-icon                   ico
 AddType image/webp                     webp
 AddType text/cache-manifest            manifest
 AddType text/x-component               htc
@@ -196,7 +196,7 @@ AddType application/octet-stream       safariextz
   ExpiresByType application/rss+xml       "access plus 1 hour"
 
 # favicon (cannot be renamed)
-  ExpiresByType image/vnd.microsoft.icon  "access plus 1 week" 
+  ExpiresByType image/x-icon              "access plus 1 week" 
 
 # media: images, video, audio
   ExpiresByType image/gif                 "access plus 1 month"
