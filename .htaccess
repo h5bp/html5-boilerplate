@@ -10,6 +10,12 @@
 #   Sample .htaccess file of CMS MODx: modxcms.com
 
 
+###
+### If you run a webserver other than apache, consider:
+### github.com/paulirish/html5-boilerplate-server-configs
+###
+
+
 
 # ----------------------------------------------------------------------
 # Better website experience for IE users
