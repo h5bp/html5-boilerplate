@@ -92,7 +92,7 @@ Major components:
 * jQuery: MIT/GPL license
 * DD_belatedPNG: MIT license
 * YUI Profiling: BSD license
-* HTML5Doctor CSS reset: Creative Commons 3.0 BY
+* HTML5Doctor CSS reset: Public Domain
 * CSS Reset Reloaded: Public Domain
 
 Everything else:
