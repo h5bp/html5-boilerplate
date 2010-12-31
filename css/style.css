@@ -123,7 +123,7 @@ nav ul, nav li { margin: 0; }
 small { font-size: 85%; }
 strong, th { font-weight: bold; }
 
-td, td img { vertical-align: top; }
+td { vertical-align: top; }
 
 /* set sub, sup without affecting line-height: gist.github.com/413930*/
 sub, sup { font-size: 75%; line-height: 0; position: relative; }
