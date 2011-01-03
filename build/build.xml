@@ -308,9 +308,10 @@
             only do so if you own copyright to the image -->
       <arg value="all"/>
       <srcfile/>
-      <targetfile/>
       <!-- you may want to flag optimized images. If so, do it here. Otherwise change this to type="identity" -->
-      <mapper type="glob" from="*.jpg" to="../${dir.publish}/${dir.images}/*.jpg"/>
+      <redirector>
+          <outputmapper type="glob" from="*.jpg" to="./${dir.publish}/${dir.images}/*.jpg"/>
+      </redirector>
     </apply>
     <apply executable="jpegtran" osfamily="mac">
       <fileset dir="./${dir.publish}/${dir.images}/" includes="*.jpg"/>
