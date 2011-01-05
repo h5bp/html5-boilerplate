@@ -371,6 +371,11 @@ AddCharset utf-8 .html .css .js .xml .json .rss
 # ----------------------------------------------------------------------
 
 
+# Do we want to advertise the exact version number of Apache we're running?
+# Probably not.
+ServerTokens Prod
+
+
 # "-Indexes" will have Apache block users from browsing folders without a default document
 # Usually you should leave this activated, because you shouldn't allow everybody to surf through
 # every folder on your server (which includes rather private places like CMS system folders).
