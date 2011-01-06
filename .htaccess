@@ -388,11 +388,6 @@ ServerTokens Prod
 # This closes a major security hole that is abused by most XSS (cross-site
 # scripting) attacks. For more information: http://php.net/register_globals
 #
-# To verify that this option has been set to OFF, open the Manager and choose
-# Reports -> System Info and then click the phpinfo() link. Do a Find on Page
-# for "register_globals". The Local Value should be OFF. If the Master Value
-# is OFF then you do not need this directive here.
-#
 # IF REGISTER_GLOBALS DIRECTIVE CAUSES 500 INTERNAL SERVER ERRORS :
 #
 # Your server does not allow PHP directives to be set via .htaccess. In that
