@@ -151,6 +151,10 @@ label, input[type="button"], input[type="submit"], input[type="image"], button {
 /* webkit browsers add a 2px margin outside the chrome of form elements */
 button, input, select, textarea { margin: 0; }
 
+/* modify placeholder text styles for browsers that support it */
+/* TODO: Add IE9? */
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder, input:-moz-placeholder, textarea:-moz-placeholder{ color: #000; }
+
 /* colors for form validity */
 input:valid, textarea:valid   {  }
 input:invalid, textarea:invalid {
