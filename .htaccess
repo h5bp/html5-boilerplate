@@ -373,7 +373,8 @@ AddCharset utf-8 .html .css .js .xml .json .rss
 
 # Do we want to advertise the exact version number of Apache we're running?
 # Probably not.
-ServerTokens Prod
+## This can only be enabled if used in httpd.conf - It will not work in .htaccess
+# ServerTokens Prod
 
 
 # "-Indexes" will have Apache block users from browsing folders without a default document
