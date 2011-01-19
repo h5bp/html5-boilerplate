@@ -181,45 +181,6 @@ button {  width: auto; overflow: visible; }
 .ie7 img { -ms-interpolation-mode: bicubic; }
 
 
-
-/*
- * Non-semantic helper classes
- */
-
-/* for image replacement */
-.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
-
-/* Hide for both screenreaders and browsers
-   css-discuss.incutio.com/wiki/Screenreader_Visibility */
-.hidden { display: none; visibility: hidden; }
-
-/* Hide only visually, but have it available for screenreaders: by Jon Neal
-  www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden */
-.visuallyhidden {
-    border: 0 !important;
-    clip: rect(0 0 0 0);
-    height: 1px !important;
-    margin: -1px !important;
-    overflow: hidden !important;
-    padding: 0 !important;
-    position: absolute !important;
-    width: 1px !important;
-}
-
-/* Hide visually and from screenreaders, but maintain layout */
-.invisible { visibility: hidden; }
-
-/* >> The Magnificent CLEARFIX: Updated to prevent margin-collapsing on child elements << j.mp/bestclearfix */
-.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; visibility: hidden; }
-.clearfix:after { clear: both; }
-/* fix clearfix: blueprintcss.lighthouseapp.com/projects/15318/tickets/5-extra-margin-padding-bottom-of-page */
-.clearfix { zoom: 1; }
-
-
-
-
-
-
  /* Primary Styles
     Author:
  */
@@ -237,6 +198,40 @@ button {  width: auto; overflow: visible; }
 
 
 
+
+
+ /*
+  * Non-semantic helper classes: please define your styles before this section.
+  */
+
+ /* for image replacement */
+ .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
+
+ /* Hide for both screenreaders and browsers
+    css-discuss.incutio.com/wiki/Screenreader_Visibility */
+ .hidden { display: none; visibility: hidden; }
+
+ /* Hide only visually, but have it available for screenreaders: by Jon Neal
+   www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden */
+ .visuallyhidden {
+     border: 0;
+     clip: rect(0 0 0 0);
+     height: 1px;
+     margin: -1px;
+     overflow: hidden;
+     padding: 0;
+     position: absolute;
+     width: 1px;
+ }
+
+ /* Hide visually and from screenreaders, but maintain layout */
+ .invisible { visibility: hidden; }
+
+ /* >> The Magnificent CLEARFIX: Updated to prevent margin-collapsing on child elements << j.mp/bestclearfix */
+ .clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; visibility: hidden; }
+ .clearfix:after { clear: both; }
+ /* fix clearfix: blueprintcss.lighthouseapp.com/projects/15318/tickets/5-extra-margin-padding-bottom-of-page */
+ .clearfix { zoom: 1; }
 
 /*
  * media queries for responsive design
