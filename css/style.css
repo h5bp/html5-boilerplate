@@ -42,7 +42,7 @@ footer, header, hgroup, menu, nav, section {
     display:block;
 }
 
-nav ul { list-style:none; }
+nav ul { list-style:none; *list-style-image: none; }
 
 blockquote, q { quotes:none; }
 
