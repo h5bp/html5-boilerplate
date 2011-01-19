@@ -18,11 +18,8 @@
 
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-abbr, address, cite, code,
-del, dfn, em, img, ins, kbd, q, samp,
-small, strong, sub, sup, var,
-b, i,
-dl, dt, dd, ol, ul, li,
+abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, figcaption, figure,
@@ -31,7 +28,6 @@ time, mark, audio, video {
   margin:0;
   padding:0;
   border:0;
-  outline:0;
   font-size:100%;
   font: inherit;
   vertical-align:baseline;
@@ -42,14 +38,10 @@ footer, header, hgroup, menu, nav, section {
     display:block;
 }
 
-nav ul { list-style:none; }
-
 blockquote, q { quotes:none; }
 
 blockquote:before, blockquote:after,
 q:before, q:after { content:''; content:none; }
-
-a { margin:0; padding:0; font-size:100%; vertical-align:baseline; background:transparent; }
 
 ins { background-color:#ff9; color:#000; text-decoration:none; }
 
@@ -117,7 +109,7 @@ ul, ol { margin-left: 2em; }
 ol { list-style-type: decimal; }
 
 /* remove margins for navigation lists */
-nav ul, nav li { margin: 0; }
+nav ul, nav li { margin: 0; list-style:none; list-style-image: none; }
 
 small { font-size: 85%; }
 strong, th { font-weight: bold; }
@@ -181,45 +173,6 @@ button {  width: auto; overflow: visible; }
 .ie7 img { -ms-interpolation-mode: bicubic; }
 
 
-
-/*
- * Non-semantic helper classes
- */
-
-/* for image replacement */
-.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
-
-/* Hide for both screenreaders and browsers
-   css-discuss.incutio.com/wiki/Screenreader_Visibility */
-.hidden { display: none; visibility: hidden; }
-
-/* Hide only visually, but have it available for screenreaders: by Jon Neal
-  www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden */
-.visuallyhidden {
-    border: 0 !important;
-    clip: rect(0 0 0 0);
-    height: 1px !important;
-    margin: -1px !important;
-    overflow: hidden !important;
-    padding: 0 !important;
-    position: absolute !important;
-    width: 1px !important;
-}
-
-/* Hide visually and from screenreaders, but maintain layout */
-.invisible { visibility: hidden; }
-
-/* >> The Magnificent CLEARFIX: Updated to prevent margin-collapsing on child elements << j.mp/bestclearfix */
-.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; visibility: hidden; }
-.clearfix:after { clear: both; }
-/* fix clearfix: blueprintcss.lighthouseapp.com/projects/15318/tickets/5-extra-margin-padding-bottom-of-page */
-.clearfix { zoom: 1; }
-
-
-
-
-
-
  /* Primary Styles
     Author:
  */
@@ -237,6 +190,40 @@ button {  width: auto; overflow: visible; }
 
 
 
+
+
+ /*
+  * Non-semantic helper classes: please define your styles before this section.
+  */
+
+ /* for image replacement */
+ .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
+
+ /* Hide for both screenreaders and browsers
+    css-discuss.incutio.com/wiki/Screenreader_Visibility */
+ .hidden { display: none; visibility: hidden; }
+
+ /* Hide only visually, but have it available for screenreaders: by Jon Neal
+   www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden */
+ .visuallyhidden {
+     border: 0;
+     clip: rect(0 0 0 0);
+     height: 1px;
+     margin: -1px;
+     overflow: hidden;
+     padding: 0;
+     position: absolute;
+     width: 1px;
+ }
+
+ /* Hide visually and from screenreaders, but maintain layout */
+ .invisible { visibility: hidden; }
+
+ /* >> The Magnificent CLEARFIX: Updated to prevent margin-collapsing on child elements << j.mp/bestclearfix */
+ .clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; visibility: hidden; }
+ .clearfix:after { clear: both; }
+ /* fix clearfix: blueprintcss.lighthouseapp.com/projects/15318/tickets/5-extra-margin-padding-bottom-of-page */
+ .clearfix { zoom: 1; }
 
 /*
  * media queries for responsive design
