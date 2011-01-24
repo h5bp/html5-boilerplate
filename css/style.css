@@ -60,23 +60,13 @@ input, select { vertical-align:middle; }
 /* END RESET CSS */
 
 
-/* fonts.css from the YUI Library: developer.yahoo.com/yui/
-   refer to developer.yahoo.com/yui/3/cssfonts/ for font sizing percentages
-
-  there are three custom edits:
-   * remove arial, helvetica from explicit font stack
-   * we normalize monospace styles ourselves
-   * table font-size is reset in the HTML5 reset above so there is no need to repeat
-*/
+/* font normalization inspired by  from the YUI Library's fonts.css: developer.yahoo.com/yui/ */
 body { font:13px/1.231 sans-serif; *font-size:small; } /* hack retained to preserve specificity */
-
 select, input, textarea, button { font:99% sans-serif; }
 
 /* normalize monospace sizing
- * en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome
- */
+ * en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome */
 pre, code, kbd, samp { font-family: monospace, sans-serif; }
-
 
 /*
  * minimal base styles
@@ -90,8 +80,7 @@ body, select, input, textarea {
   /* font-family: Georgia, serif;  */
 }
 
-/* headers (h1,h2,etc) have no default font-size or margin,
-   you'll want to define those yourself. */
+/* headers (h1,h2,etc) have no default font-size or margin. define those yourself. */
 h1,h2,h3,h4,h5,h6 { font-weight: bold; }
 
 /* always force a scrollbar in non-IE: */
@@ -116,7 +105,7 @@ strong, th { font-weight: bold; }
 
 td { vertical-align: top; }
 
-/* set sub, sup without affecting line-height: gist.github.com/413930*/
+/* set sub, sup without affecting line-height: gist.github.com/413930 */
 sub, sup { font-size: 75%; line-height: 0; position: relative; }
 sup { top: -0.5em; }
 sub { bottom: -0.25em; }
@@ -146,13 +135,9 @@ button, input, select, textarea { margin: 0; }
 /* colors for form validity */
 input:valid, textarea:valid   {  }
 input:invalid, textarea:invalid {
-      border-radius: 1px;
-    -moz-box-shadow: 0px 0px 5px red;
- -webkit-box-shadow: 0px 0px 5px red;
-         box-shadow: 0px 0px 5px red;
+      border-radius: 1px; -moz-box-shadow: 0px 0px 5px red; -webkit-box-shadow: 0px 0px 5px red; box-shadow: 0px 0px 5px red;
 }
-.no-boxshadow input:invalid,
-.no-boxshadow textarea:invalid { background-color: #f0dddd; }
+.no-boxshadow input:invalid, .no-boxshadow textarea:invalid { background-color: #f0dddd; }
 
 
 /* These selection declarations have to be separate.
@@ -192,38 +177,31 @@ button {  width: auto; overflow: visible; }
 
 
 
- /*
-  * Non-semantic helper classes: please define your styles before this section.
-  */
+/*
+ * Non-semantic helper classes: please define your styles before this section.
+ */
 
- /* for image replacement */
- .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
+/* for image replacement */
+.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
 
- /* Hide for both screenreaders and browsers
-    css-discuss.incutio.com/wiki/Screenreader_Visibility */
- .hidden { display: none; visibility: hidden; }
+/* Hide for both screenreaders and browsers
+   css-discuss.incutio.com/wiki/Screenreader_Visibility */
+.hidden { display: none; visibility: hidden; }
 
- /* Hide only visually, but have it available for screenreaders: by Jon Neal
-   www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden */
- .visuallyhidden {
-     border: 0;
-     clip: rect(0 0 0 0);
-     height: 1px;
-     margin: -1px;
-     overflow: hidden;
-     padding: 0;
-     position: absolute;
-     width: 1px;
- }
+/* Hide only visually, but have it available for screenreaders: by Jon Neal
+  www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden */
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
 
- /* Hide visually and from screenreaders, but maintain layout */
- .invisible { visibility: hidden; }
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
 
- /* >> The Magnificent CLEARFIX: Updated to prevent margin-collapsing on child elements << j.mp/bestclearfix */
- .clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; visibility: hidden; }
- .clearfix:after { clear: both; }
- /* fix clearfix: blueprintcss.lighthouseapp.com/projects/15318/tickets/5-extra-margin-padding-bottom-of-page */
- .clearfix { zoom: 1; }
+/* >> The Magnificent CLEARFIX: Updated to prevent margin-collapsing on child elements << j.mp/bestclearfix */
+.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; visibility: hidden; }
+.clearfix:after { clear: both; }
+/* fix clearfix: blueprintcss.lighthouseapp.com/projects/15318/tickets/5-extra-margin-padding-bottom-of-page */
+.clearfix { zoom: 1; }
+
+
 
 /*
  * media queries for responsive design
