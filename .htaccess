@@ -385,6 +385,12 @@ AddCharset utf-8 .html .css .js .xml .json .rss
 # Options -Indexes
 
 
+# Block access to "hidden" directories whose names begin with a period. This
+# includes directories used by version control systems such as Subversion or Git.
+<IfModule mod_rewrite.c>
+  RewriteRule "(^|/)\." - [F]
+</IfModule>
+
 
 # If your server is not already configured as such, the following directive
 # should be uncommented in order to set PHP's register_globals option to OFF.
