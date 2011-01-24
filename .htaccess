@@ -221,8 +221,9 @@ AddType application/octet-stream       safariextz
   ExpiresByType text/css                  "access plus 2 months"
   ExpiresByType application/javascript    "access plus 2 months"
   ExpiresByType text/javascript           "access plus 2 months"
-
-  Header append Cache-Control "public"
+  <IfModule mod_headers.c>
+    Header append Cache-Control "public"
+  </IfModule>
 </IfModule>
 
 
