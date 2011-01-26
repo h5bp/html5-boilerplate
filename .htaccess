@@ -91,8 +91,7 @@ AddEncoding gzip                       svgz
 AddType application/vnd.ms-fontobject  eot
 AddType font/truetype                  ttf
 AddType font/opentype                  otf
-AddType font/opentype                  woff
-        # ^ hack to avoid chrome console warning: crbug.com/70283
+AddType application/x-font-woff              woff
 
 # assorted types                                      
 AddType image/x-icon                   ico
