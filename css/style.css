@@ -53,7 +53,7 @@ abbr[title], dfn[title] { border-bottom:1px dotted; cursor:help; }
 
 table { border-collapse:collapse; border-spacing:0; }
 
-hr { display:block; height:1px; border:0; border-top:1px solid #ccc; margin:1em 0; padding:0; }
+hr { display:block; height:1px; border:0; border-top:1px solid #ccc; margin:1em 0; padding:0; text-align:left;}
 
 input, select { vertical-align:middle; }
 
