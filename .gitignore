@@ -21,6 +21,9 @@ thumbs.db
 _notes
 dwsync.xml
 
+# Kommodo
+*.komodoproject
+
 # Folders to ignore
 .hg
 .svn
