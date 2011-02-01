@@ -2,7 +2,7 @@
 
 ## Changelog:
 
-### v.0.9.5 : October 25th, 2010
+### v.0.9.5.1 : October 25th, 2010
 
 Major changes:
 
