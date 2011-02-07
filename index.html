@@ -69,12 +69,10 @@
   <![endif]-->
 
 
-  <!-- mathiasbynens.be/notes/async-analytics-snippet Change UA-XXXXX-X to be your site's ID -->
+  <!-- mathiasbynens.be/notes/async-analytics-snippet , minified according to blog.gyoshev.net/2011/01/cutting-the-google-analytics-script-in-half/ -->
+  <!-- Change UA-XXXXX-X to be your site's ID -->
   <script>
-    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g,s)}(document,'script'));
+      var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-XXXXXX"],["_trackPageview"]),function(a){var b=a.createElement("script");b.type="text/javascript",b.async=!0,b.src="//google-analytics.com/ga.js",a.body.appendChild(b)}(document)
   </script>
   
 </body>
