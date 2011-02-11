@@ -210,6 +210,9 @@ AddType application/octet-stream       safariextz
   ExpiresByType video/mp4                 "access plus 1 month"
   ExpiresByType video/webm                "access plus 1 month"
   
+# htc files  (css3pie)
+  ExpiresByType text/x-component          "access plus 1 month"
+  
 # webfonts
   ExpiresByType font/truetype             "access plus 1 month"
   ExpiresByType font/opentype             "access plus 1 month"
@@ -221,9 +224,11 @@ AddType application/octet-stream       safariextz
   ExpiresByType text/css                  "access plus 2 months"
   ExpiresByType application/javascript    "access plus 2 months"
   ExpiresByType text/javascript           "access plus 2 months"
+  
   <IfModule mod_headers.c>
     Header append Cache-Control "public"
   </IfModule>
+  
 </IfModule>
 
 
