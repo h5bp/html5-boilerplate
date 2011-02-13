@@ -63,7 +63,7 @@ input, select { vertical-align: middle; }
  * Font normalization inspired by YUI Library's fonts.css: developer.yahoo.com/yui/
  */
 
-body { font:13px/1.231 sans-serif; *font-size:small; } /* Hack retained to preserve specificity. */
+body { font:13px/1.231 sans-serif; *font-size:small; } /* Hack retained to preserve specificity */
 select, input, textarea, button { font:99% sans-serif; }
 
 /* Normalize monospace sizing:
@@ -78,14 +78,14 @@ pre, code, kbd, samp { font-family: monospace, sans-serif; }
 body, select, input, textarea {
   /* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */
   color: #444;
-  /* Set your base font here, to apply evenly. */
+  /* Set your base font here, to apply evenly */
   /* font-family: Georgia, serif;  */
 }
 
-/* Headers (h1, h2, etc) have no default font-size or margin. Define those yourself. */
+/* Headers (h1, h2, etc) have no default font-size or margin; define those yourself */
 h1, h2, h3, h4, h5, h6 { font-weight: bold; }
 
-/* Always force a scrollbar in non-IE: */
+/* Always force a scrollbar in non-IE */
 html { overflow-y: scroll; }
 
 
@@ -99,7 +99,7 @@ a:hover { color: #036; }
 ul, ol { margin-left: 2em; }
 ol { list-style-type: decimal; }
 
-/* Remove margins for navigation lists. */
+/* Remove margins for navigation lists */
 nav ul, nav li { margin: 0; list-style:none; list-style-image: none; }
 
 small { font-size: 85%; }
@@ -120,7 +120,7 @@ pre {
 
 textarea { overflow: auto; } /* www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
 
-.ie6 legend, .ie7 legend { margin-left: -7px; } /* thnx ivannikolic! */
+.ie6 legend, .ie7 legend { margin-left: -7px; } 
 
 /* Align checkboxes, radios, text inputs with their label by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css  */
 input[type="radio"] { vertical-align: text-bottom; }
@@ -128,13 +128,13 @@ input[type="checkbox"] { vertical-align: bottom; }
 .ie7 input[type="checkbox"] { vertical-align: baseline; }
 .ie6 input { vertical-align: text-bottom; }
 
-/* Hand cursor on clickable input elements. */
+/* Hand cursor on clickable input elements */
 label, input[type="button"], input[type="submit"], input[type="image"], button { cursor: pointer; }
 
-/* Webkit browsers add a 2px margin outside the chrome of form elements. */
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
 button, input, select, textarea { margin: 0; }
 
-/* Colors for form validity. */
+/* Colors for form validity */
 input:valid, textarea:valid   {  }
 input:invalid, textarea:invalid {
       border-radius: 1px; -moz-box-shadow: 0px 0px 5px red; -webkit-box-shadow: 0px 0px 5px red; box-shadow: 0px 0px 5px red;
@@ -142,9 +142,9 @@ input:invalid, textarea:invalid {
 .no-boxshadow input:invalid, .no-boxshadow textarea:invalid { background-color: #f0dddd; }
 
 
-/* These selection declarations have to be separate.
+/* These selection declarations have to be separate
    No text-shadow: twitter.com/miketaylr/status/12228805301
-   Also: hot pink. */
+   Also: hot pink! */
 ::-moz-selection{ background: #FF5E99; color:#fff; text-shadow: none; }
 ::selection { background:#FF5E99; color:#fff; text-shadow: none; }
 
@@ -161,7 +161,7 @@ button {  width: auto; overflow: visible; }
 
 
 /**
- * Primary styles.
+ * Primary styles
  *
  * Author: 
  */
@@ -185,7 +185,7 @@ button {  width: auto; overflow: visible; }
  * Non-semantic helper classes: please define your styles before this section.
  */
 
-/* For image replacement. */
+/* For image replacement */
 .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
 
 /* Hide for both screenreaders and browsers:
@@ -195,8 +195,11 @@ button {  width: auto; overflow: visible; }
 /* Hide only visually, but have it available for screenreaders: by Jon Neal.
   www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden */
 .visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: drupal.org/node/897638 */
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
 
-/* Hide visually and from screenreaders, but maintain layout. */
+/* Hide visually and from screenreaders, but maintain layout */
 .invisible { visibility: hidden; }
 
 /* The Magnificent Clearfix: Updated to prevent margin-collapsing on child elements.
@@ -215,12 +218,12 @@ button {  width: auto; overflow: visible; }
  */
 
 @media all and (orientation:portrait) {
-  /* Style adjustments for portrait mode goes here. */
+  /* Style adjustments for portrait mode goes here */
 
 }
 
 @media all and (orientation:landscape) {
-  /* Style adjustments for landscape mode goes here. */
+  /* Style adjustments for landscape mode goes here */
 
 }
 
@@ -229,8 +232,7 @@ button {  width: auto; overflow: visible; }
 @media screen and (max-device-width: 480px) {
 
 
-  /* Uncomment if you don't want iOS and WinMobile to mobile-optimize the text for you:
-     j.mp/textsizeadjust */
+  /* Uncomment if you don't want iOS and WinMobile to mobile-optimize the text for you: j.mp/textsizeadjust */
   /* html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } */
 }
 
@@ -246,7 +248,7 @@ button {  width: auto; overflow: visible; }
   a, a:visited { color: #444 !important; text-decoration: underline; }
   a[href]:after { content: " (" attr(href) ")"; }
   abbr[title]:after { content: " (" attr(title) ")"; }
-  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links. */
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
   pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
   thead { display: table-header-group; } /* css-discuss.incutio.com/wiki/Printing_Tables */
   tr, img { page-break-inside: avoid; }
