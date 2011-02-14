@@ -14,6 +14,8 @@
 .cache
 .project
 .settings
+*.komodoproject
+.komodotools
 nbproject
 thumbs.db
 
@@ -22,7 +24,6 @@ _notes
 dwsync.xml
 
 # Kommodo
-*.komodoproject
 
 # Folders to ignore
 .hg
