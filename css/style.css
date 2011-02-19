@@ -75,26 +75,11 @@ pre, code, kbd, samp { font-family: monospace, sans-serif; }
  * Minimal base styles.
  */
 
-body, select, input, textarea {
-  /* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */
-  color: #444;
-  /* Set your base font here, to apply evenly */
-  /* font-family: Georgia, serif;  */
-}
-
-/* Headers (h1, h2, etc) have no default font-size or margin; define those yourself */
-h1, h2, h3, h4, h5, h6 { font-weight: bold; }
-
 /* Always force a scrollbar in non-IE */
 html { overflow-y: scroll; }
 
-
 /* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
 a:hover, a:active { outline: none; }
-
-a, a:active, a:visited { color: #607890; }
-a:hover { color: #036; }
-
 
 ul, ol { margin-left: 2em; }
 ol { list-style-type: decimal; }
@@ -158,6 +143,23 @@ button {  width: auto; overflow: visible; }
 /* Bicubic resizing for non-native sized IMG:
    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
 .ie7 img { -ms-interpolation-mode: bicubic; }
+
+/**
+ * You might tweak these..
+ */
+
+body, select, input, textarea {
+  /* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */
+  color: #444;
+  /* Set your base font here, to apply evenly */
+  /* font-family: Georgia, serif;  */
+}
+
+/* Headers (h1, h2, etc) have no default font-size or margin; define those yourself */
+h1, h2, h3, h4, h5, h6 { font-weight: bold; }
+
+a, a:active, a:visited { color: #607890; }
+a:hover { color: #036; }
 
 
 /**
