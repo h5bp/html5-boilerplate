@@ -122,7 +122,7 @@ button, input, select, textarea { margin: 0; }
 /* Colors for form validity */
 input:valid, textarea:valid   {  }
 input:invalid, textarea:invalid {
-      border-radius: 1px; -moz-box-shadow: 0px 0px 5px red; -webkit-box-shadow: 0px 0px 5px red; box-shadow: 0px 0px 5px red;
+   border-radius: 1px; -moz-box-shadow: 0px 0px 5px red; -webkit-box-shadow: 0px 0px 5px red; box-shadow: 0px 0px 5px red;
 }
 .no-boxshadow input:invalid, .no-boxshadow textarea:invalid { background-color: #f0dddd; }
 
