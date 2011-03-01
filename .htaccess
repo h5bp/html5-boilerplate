@@ -328,6 +328,39 @@ FileETag None
 
 
 # ----------------------------------------------------------------------
+# Add/remove trailing slash to (non-file) URLs
+# ----------------------------------------------------------------------
+
+# Google treats URLs with and without trailing slashes separately.
+# Forcing a trailing slash is usually preferred, but all that's really
+# important is that one correctly redirects to the other.
+
+# By default option 1 (force trailing slash) is activated.
+# http://googlewebmastercentral.blogspot.com/2010/04/to-slash-or-not-to-slash.html
+
+# ----------------------------------------------------------------------
+
+# Option 1:
+# Rewrite "domain.com/foo -> domain.com/foo/"
+
+<IfModule mod_rewrite.c>
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_URI} !(\.[a-zA-Z0-9]{1,5}|/|#(.*))$
+  RewriteRule ^(.*)$ /$1/ [R=301,L]
+</IfModule>
+
+# ----------------------------------------------------------------------
+
+# Option 2:
+# Rewrite "domain.com/foo/ -> domain.com/foo"
+
+#<IfModule mod_rewrite.c>
+#  RewriteRule ^(.*)/$ /$1 [R=301,L]
+#</IfModule>
+
+
+
+# ----------------------------------------------------------------------
 # Prevent SSL cert warnings
 # ----------------------------------------------------------------------
 
