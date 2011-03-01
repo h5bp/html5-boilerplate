@@ -337,6 +337,8 @@ FileETag None
 
 # By default option 1 (force trailing slash) is activated.
 # http://googlewebmastercentral.blogspot.com/2010/04/to-slash-or-not-to-slash.html
+# http://www.alistapart.com/articles/slashforward/
+# http://httpd.apache.org/docs/2.0/misc/rewriteguide.html#url Trailing Slash Problem
 
 # ----------------------------------------------------------------------
 
