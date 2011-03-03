@@ -144,6 +144,10 @@ button {  width: auto; overflow: visible; }
    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
 .ie7 img { -ms-interpolation-mode: bicubic; }
 
+/* Stop IE9 from obliterating rounded corners when -ms-filter was used for gradients in IE lte 8 (use SVG instead):
+   http://dl.dropbox.com/u/105727/web/toesteppin/index.html */
+.ie9 * { filter: none !important; -ms-filter: none !important; }
+
 /**
  * You might tweak these..
  */
