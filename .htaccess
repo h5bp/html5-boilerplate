@@ -450,6 +450,94 @@ AddCharset utf-8 .html .css .js .xml .json .rss
 
 # php_flag register_globals Off
 
+# ----------------------------------------------------------------------
+# Even more security
+# ----------------------------------------------------------------------
+
+# ----------------------------------------------------------------------
+# Prevent access to .svn folders
+# ----------------------------------------------------------------------
+
+# This will prevent access to .svn folders. For further details on the
+# risk .svn folders on public web servers: http://goo.gl/lcm7h
+
+RewriteRule ^(.*/)?\.svn/ - [F,L]
+
+# ----------------------------------------------------------------------
+# Prevent access using a blacklist
+# ----------------------------------------------------------------------
+
+# BLACKLIST EXAMPLE
+# To allow access to everyone except a few specific IP addresses
+# and/or domains, use the following:
+
+# <Limit GET POST PUT>
+#  order allow,deny
+#  allow from all
+#  deny from 12.345.67.891
+#  deny from 12.345.67.892
+#  deny from 12.345.67
+#  deny from .*domain\.com.*
+# </Limit>
+
+# We can block a range of IP addresses by omitting numerical data from the
+# targeted IP string, as can be seen in the example above (deny from 12.345.67).
+
+# ----------------------------------------------------------------------
+# Prevent access using a whitelist
+# ----------------------------------------------------------------------
+
+# WHITELIST EXAMPLE
+# To prevent acess to everyone except a few specific IP addresses
+# and/or domains, use the following:
+
+# <Limit GET POST PUT>
+#  order deny,allow
+#  deny from all
+#  allow from 12.345.67.891
+#  allow from 12.345.67.892
+#  allow from .*domain\.com.*
+# </Limit>
+
+# ----------------------------------------------------------------------
+# Protect against cookie exploits
+# ----------------------------------------------------------------------
+
+# Cookie-based protocols are vulnerable to a variety of exploits, such as
+# cookie poisoning, cross-site scripting, etc. By adding malicious characters,
+# scripts, and other content to cookies, attackers may find and exploit sensitive
+# vulnerabilities. We can use Apache’s HTTP_COOKIE variable to blacklist characters
+# known to be associated with malicious cookie exploits.
+ 
+# <IfModule mod_rewrite.c>
+#  RewriteEngine On
+#  RewriteCond %{HTTP_COOKIE} ^.*(<|>|'|%0A|%0D|%27|%3C|%3E|%00).* [NC]
+#  RewriteRule ^(.*)$ - [F,L]
+# </IfModule>
+
+# ----------------------------------------------------------------------
+# Protect against malicious activity by blocking URL requests
+# ----------------------------------------------------------------------
+
+# Using the REQUEST_URI variable, we can deny any URL request containing invalid
+# characters, including different types of brackets, various punctuational characters,
+# and some key hexadecimal equivalents.
+
+# <IfModule mod_rewrite.c>
+#   RewriteCond %{QUERY_STRING} \.\.\/    [NC,OR]
+#   RewriteCond %{QUERY_STRING} boot\.ini [NC,OR]
+#   RewriteCond %{QUERY_STRING} tag\=     [NC,OR]
+#   RewriteCond %{QUERY_STRING} ftp\:     [NC,OR]
+#   RewriteCond %{QUERY_STRING} http\:    [NC,OR]
+#   RewriteCond %{QUERY_STRING} https\:   [NC,OR]
+#   RewriteCond %{QUERY_STRING} mosConfig [NC,OR]
+#   RewriteCond %{QUERY_STRING} ^.*(%0|%A|%B|%C|%D|%E|%F|127\.0).* [NC,OR]
+#   RewriteCond %{QUERY_STRING} ^.*(,|;|:|<|>|">|"<|/|\\\.\.\\).* [NC,OR]
+#   RewriteCond %{QUERY_STRING} ^.*(\=|\@|\[|\]|\^|\`|\{|\}|\~).* [NC,OR]
+#   RewriteCond %{QUERY_STRING} ^.*(globals|encode|localhost|loopback).* [NC,OR]
+#   RewriteCond %{QUERY_STRING} ^.*(request|select|insert|union|declare|drop).* [NC]
+#   RewriteRule ^(.*)$ - [F,L]
+# </IfModule>
 
 
 
