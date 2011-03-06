@@ -363,6 +363,26 @@ FileETag None
 
 
 # ----------------------------------------------------------------------
+# Built-in filename-based cache busting
+# ----------------------------------------------------------------------
+
+# If you're not using the build script to manage your filename version revving,
+# you might want to consider enabling this, which will route requests for
+# /css/all.20110203.css to /res/all.css
+
+# To understand why this is important and a better idea than all.css?v1231,
+# read: github.com/paulirish/html5-boilerplate/wiki/Version-Control-with-Cachebusting
+
+# Uncomment to enable.
+# <IfModule mod_rewrite.c>
+#   RewriteCond %{REQUEST_FILENAME} !-f
+#   RewriteCond %{REQUEST_FILENAME} !-d
+#   RewriteRule ^(.+)\.(\d+)\.(js|css|png|jpg|gif)$ $1.$3 [L]
+# </IfModule>
+
+
+	
+# ----------------------------------------------------------------------
 # Prevent SSL cert warnings
 # ----------------------------------------------------------------------
 
@@ -372,7 +392,7 @@ FileETag None
 
 # <IfModule mod_rewrite.c>
 #   RewriteCond %{SERVER_PORT} !^443
-#   RewriteRule (.*) https://example-domain-please-change.com.com/$1 [R=301,L]
+#   RewriteRule (.*) https://example-domain-please-change-me.com/$1 [R=301,L]
 # </IfModule>
 
 
