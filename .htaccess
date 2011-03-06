@@ -91,7 +91,7 @@ AddEncoding gzip                       svgz
 AddType application/vnd.ms-fontobject  eot
 AddType font/truetype                  ttf
 AddType font/opentype                  otf
-AddType application/x-font-woff              woff
+AddType application/x-font-woff        woff
 
 # assorted types                                      
 AddType image/x-icon                   ico
@@ -215,7 +215,7 @@ AddType application/octet-stream       safariextz
 # webfonts
   ExpiresByType font/truetype             "access plus 1 month"
   ExpiresByType font/opentype             "access plus 1 month"
-  ExpiresByType font/woff                 "access plus 1 month"
+  ExpiresByType application/x-font-woff   "access plus 1 month"
   ExpiresByType image/svg+xml             "access plus 1 month"
   ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
     
