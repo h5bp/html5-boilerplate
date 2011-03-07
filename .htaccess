@@ -368,7 +368,7 @@ FileETag None
 
 # If you're not using the build script to manage your filename version revving,
 # you might want to consider enabling this, which will route requests for
-# /css/all.20110203.css to /res/all.css
+# /css/style.20110203.css to /css/style.css
 
 # To understand why this is important and a better idea than all.css?v1231,
 # read: github.com/paulirish/html5-boilerplate/wiki/Version-Control-with-Cachebusting
