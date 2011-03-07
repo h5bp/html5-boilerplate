@@ -5,69 +5,38 @@
 
 
 ##first run
-# $ cd  html5-boilerplate
-# $ sudo chmod a+x createproject.sh && ./createproject.sh
+# $ cd  html5-boilerplate/build
+# $ chmod +x createproject.sh && ./createproject.sh
 
 ##usage
 # $ cd  html5-boilerplate/build
 # $ ./createproject.sh
 
-echo "To create a new html5-boilerplate project, enter a new directory name:"
+# find project root (also ensure script is ran from within repo)
+src=$(git rev-parse --show-toplevel) || exit 1
 
-read name
+# get a name for new project
+while [[ -z $name ]]
+do
+    echo "To create a new html5-boilerplate project, enter a new directory name:"
+    read name || exit
+done
+dst=$src/../$name
 
-cd ..
-
-webroot=$PWD
-
-SRC=$webroot"/html5-boilerplate"
-DST=$webroot"/../"$name
-
-if [ -d "$DST" ]
+if [[ -d $dst ]]
 then
-    echo "$DST exists"
+    echo "$dst exists"
 else
     #create new project
-    mkdir $name
+    mkdir "$dst" || exit 1
 
     #sucess message
-    echo "Created Directory: $DST"
+    echo "Created Directory: $dst"
     
-    cd $SRC
-    
-    #copy to new project directory
-    #http://en.wikipedia.org/wiki/Cpio#Copy
-    #http://cybertiggyr.com/cpio-howto/
-    #http://www.cyberciti.biz/faq/how-do-i-use-cpio-command-under-linux/
-    find . -depth -print0 | cpio -0pdmv $DST
-    
+    cd "$src"
+    cp -vr css/ js/ img/ *.html *.xml *.txt *.png *.ico .htaccess "$dst"
 
     #sucess message
-    echo "Created Project: $DST"
-    
-    # delete that temporary folder
-    rm -r $name
-    
-    #move into new project
-    cd $DST
-    
-    #in Bourne Again Shell, the cpio was copying 
-    #the whole dir into the new project, along with the contents
-    if [ -d "$DST/html5-boilerplate" ]
-    then
-         rm -r html5-boilerplate
-    fi        
-    
-    if [ -e "$DST/createproject.sh" ]
-    then
-         rm -r createproject.sh
-    fi  
-    
-    if [ -e "$DST/.git" ]
-    then
-         rm -rf .git
-    fi
-
-
+    echo "Created Project: $dst"
 fi
 
