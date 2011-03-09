@@ -42,7 +42,7 @@ footer, header, hgroup, menu, nav, section {
 blockquote, q { quotes: none; }
 
 blockquote:before, blockquote:after,
-q:before, q:after { content: ''; content: none; }
+q:before, q:after { content: ""; content: none; }
 
 ins { background-color: #ff9; color: #000; text-decoration: none; }
 
