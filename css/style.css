@@ -154,7 +154,15 @@ body, select, input, textarea {
   /* Set your base font here, to apply evenly */
   /* font-family: Georgia, serif;  */
 }
-
+/* Default dark gray color for HTML5 input placeholder text.
+   Opera also supports the placeholder attribute, but currently not styling:
+   stackoverflow.com/questions/2610497/change-an-inputs-html5-placeholder-color-with-css/2610741#2610741 */
+input::-webkit-input-placeholder {
+    color: #A9A9A9;
+}
+input:-moz-placeholder {
+    color: #A9A9A9;
+}
 /* Headers (h1, h2, etc) have no default font-size or margin; define those yourself */
 h1, h2, h3, h4, h5, h6 { font-weight: bold; }
 
