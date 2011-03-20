@@ -406,9 +406,9 @@
         <!-- combine the 2 exclude properties -->
         <var name="excluded-files" value="${file.default.exclude}, ${file.exclude}"/>
 
-        <copy todir="./${dir.publish}">
-            <fileset dir="${dir.source}/" excludes="${excluded-files}"/>
-        </copy> 
+        <!--<copy todir="./${dir.publish}">-->
+            <!--<fileset dir="${dir.source}/" excludes="${excluded-files}"/>-->
+        <!--</copy> -->
     </target>
 	
     <target name="-prodcopy" depends="-load-build-info">
@@ -647,21 +647,44 @@
     <!-- CSS -->
     <target name="-css" depends="-load-build-info" description="Concatenates and Minifies any stylesheets listed in the file.stylesheets property">
         <echo message="Minifying css..."/>
+        <!---->
+        <!--<concat destfile="./${dir.publish}/${dir.css}/style-${build.number}.css">-->
+            <!--<filelist dir="./${dir.publish}/${dir.css}" files="${stylesheet-files}"/>-->
+        <!--</concat>-->
+           <java jar="./${dir.build.tools}/${tool.caffienecompressor}"
+                 fork="true"
+                 failonerror="true"
+                 maxmemory="128m">
+           <arg value="-p${basedir}/build/config/caffeine.properties"/>
+           <arg value="-d${basedir}"/>
+           <arg value="-b${build.number}"/>
+                 </java>
+        <!--<apply executable="java" parallel="false">-->
+            <!--<fileset dir="./${dir.publish}/${dir.js}">-->
+                <!--<include name="**/*.js"/>-->
+                <!--<exclude name="**/*.min.js"/>-->
+            <!--<exclude name="**/${dir.js.libs}/*.js"/>-->
+            <!--</fileset>-->
+            <!--<arg line="-jar"/>-->
+            <!--<arg path="./${dir.build.tools}/${tool.caffienecompressor}"/>-->
+            <!--<srcfile/>-->
+            <!--<arg line="-d"/>-->
+            <!--<arg line="${basedir}"/>-->
+            <!--<arg line="-o"/>-->
+            <!--<mapper type="glob" from="*.js" to="../${dir.publish}/${dir.js}/*.min.js"/>-->
+            <!--<targetfile/>-->
+        <!--</apply>-->
+        <!--<apply executable="php" parallel="false">-->
+            <!--<fileset dir="./${dir.publish}/${dir.css}/" includes="style-${build.number}.css"/>-->
+            <!--<arg line="-jar"/>-->
+            <!--<arg path="./${dir.build.tools}/${tool.csscompressor}"/>-->
+            <!--<srcfile/>-->
+            <!--<redirector>-->
+                <!--<outputmapper type="glob" from="style-${build.number}.css" to="./${dir.publish}/${dir.css}/style-${build.number}.min.css"/>-->
+            <!--</redirector>-->
+        <!--</apply>-->
         
-        <concat destfile="./${dir.publish}/${dir.css}/style-${build.number}.css">
-            <filelist dir="./${dir.publish}/${dir.css}" files="${stylesheet-files}"/>
-        </concat>
-        <apply executable="php" parallel="false">
-            <fileset dir="./${dir.publish}/${dir.css}/" includes="style-${build.number}.css"/>
-            <arg line="-f"/>
-            <arg path="./${dir.build.tools}/${tool.csscompressor}"/>
-            <srcfile/>
-            <redirector>
-                <outputmapper type="glob" from="style-${build.number}.css" to="./${dir.publish}/${dir.css}/style-${build.number}.min.css"/>
-            </redirector>
-        </apply>
-        
-        <replace token="style.css" value="style-${build.number}.min.css" dir="${dir.publish}" includes="${page-files}"/>
+        <!--<replace token="style.css" value="style-${build.number}.min.css" dir="${dir.publish}" includes="${page-files}"/>-->
     </target>
     
     
