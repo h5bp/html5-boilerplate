@@ -11,7 +11,7 @@
     </taskdef>
 
     <!-- load shell environment -->
-    <property environment="ENV" />
+    <property environment="ENV"/>
 
     <!-- load property files -->
     <property file="build/config/project.properties"/>
@@ -19,154 +19,153 @@
 
     <!-- merge the stylesheet properties -->
     <var name="stylesheet-files" value="${file.stylesheets}, ${file.default.stylesheets}"/>
-    
+
     <!-- merge the pages properties -->
     <var name="page-files" value="${file.pages}, ${file.pages.default.include}"/>
 
 
-    
     <!--
     *************************************************
     * BASE TARGETS                                  *
     *************************************************
     -->
     <target name="basics">
-    <if>
-        <equals arg1="${env}" arg2="dev"/>
-        <then>
-            <!-- Build a dev environment -->
-            <echo message="Building a Development Environment..."/>
-            <antcall target="-basics.dev"/>
-        </then>
-
-        <elseif>
-            <equals arg1="${env}" arg2="test"/>
+        <if>
+            <equals arg1="${env}" arg2="dev"/>
             <then>
-                <!-- Build a test environment -->
-                <echo message="Building a Test Environment..."/>
-                <antcall target="-basics.test"/>
+                <!-- Build a dev environment -->
+                <echo message="Building a Development Environment..."/>
+                <antcall target="-basics.dev"/>
             </then>
-        </elseif>
 
-        <else>
-            <!-- Build a production environment -->
-            <echo message="Building a Production Environment..."/>
-            <antcall target="-basics.production"/>
-        </else>
-    </if>
+            <elseif>
+                <equals arg1="${env}" arg2="test"/>
+                <then>
+                    <!-- Build a test environment -->
+                    <echo message="Building a Test Environment..."/>
+                    <antcall target="-basics.test"/>
+                </then>
+            </elseif>
+
+            <else>
+                <!-- Build a production environment -->
+                <echo message="Building a Production Environment..."/>
+                <antcall target="-basics.production"/>
+            </else>
+        </if>
     </target>
 
 
     <target name="text">
-    <if>
-        <equals arg1="${env}" arg2="dev"/>
-        <then>
-            <!-- Build a dev environment -->
-            <echo message="Building a Development Environment..."/>
-            <antcall target="-text.dev"/>
-        </then>
-
-        <elseif>
-            <equals arg1="${env}" arg2="test"/>
+        <if>
+            <equals arg1="${env}" arg2="dev"/>
             <then>
-                <!-- Build a test environment -->
-                <echo message="Building a Test Environment..."/>
-                <antcall target="-text.test"/>
+                <!-- Build a dev environment -->
+                <echo message="Building a Development Environment..."/>
+                <antcall target="-text.dev"/>
             </then>
-        </elseif>
 
-        <else>
-            <!-- Build a production environment -->
-            <echo message="Building a Production Environment..."/>
-            <antcall target="-text.production"/>
-        </else>
-    </if>
-    <!-- funky order due to jpegtran being a jerk. See comment at top of imagesjpg task -->
-    <antcall target="-jpgcopy"/>
+            <elseif>
+                <equals arg1="${env}" arg2="test"/>
+                <then>
+                    <!-- Build a test environment -->
+                    <echo message="Building a Test Environment..."/>
+                    <antcall target="-text.test"/>
+                </then>
+            </elseif>
+
+            <else>
+                <!-- Build a production environment -->
+                <echo message="Building a Production Environment..."/>
+                <antcall target="-text.production"/>
+            </else>
+        </if>
+        <!-- funky order due to jpegtran being a jerk. See comment at top of imagesjpg task -->
+        <antcall target="-jpgcopy"/>
     </target>
 
 
     <target name="buildkit">
-    <if>
-        <equals arg1="${env}" arg2="dev"/>
-        <then>
-            <!-- Build a dev environment -->
-            <echo message="Building a Development Environment..."/>
-            <antcall target="-buildkit.dev"/>
-        </then>
-
-        <elseif>
-            <equals arg1="${env}" arg2="test"/>
+        <if>
+            <equals arg1="${env}" arg2="dev"/>
             <then>
-                <!-- Build a test environment -->
-                <echo message="Building a Test Environment..."/>
-                <antcall target="-buildkit.test"/>
+                <!-- Build a dev environment -->
+                <echo message="Building a Development Environment..."/>
+                <antcall target="-buildkit.dev"/>
             </then>
-        </elseif>
 
-        <else>
-            <!-- Build a production environment -->
-            <echo message="Building a Production Environment..."/>
-            <antcall target="-buildkit.production"/>
-        </else>
-    </if>
+            <elseif>
+                <equals arg1="${env}" arg2="test"/>
+                <then>
+                    <!-- Build a test environment -->
+                    <echo message="Building a Test Environment..."/>
+                    <antcall target="-buildkit.test"/>
+                </then>
+            </elseif>
+
+            <else>
+                <!-- Build a production environment -->
+                <echo message="Building a Production Environment..."/>
+                <antcall target="-buildkit.production"/>
+            </else>
+        </if>
     </target>
 
 
     <target name="build">
-    <if>
-        <equals arg1="${env}" arg2="dev"/>
-        <then>
-            <!-- Build a dev environment -->
-            <echo message="Building a Development Environment..."/>
-            <antcall target="-build.dev" />
-        </then>
-
-        <elseif>
-            <equals arg1="${env}" arg2="test"/>
+        <if>
+            <equals arg1="${env}" arg2="dev"/>
             <then>
-                <!-- Build a test environment -->
-                <echo message="Building a Test Environment..."/>
-                <antcall target="-build.test" />
+                <!-- Build a dev environment -->
+                <echo message="Building a Development Environment..."/>
+                <antcall target="-build.dev"/>
             </then>
-        </elseif>
 
-        <else>
-            <!-- Build a production environment -->
-            <echo message="Building a Production Environment..."/>
-            <antcall target="-build.production" />
-        </else>
-    </if>
+            <elseif>
+                <equals arg1="${env}" arg2="test"/>
+                <then>
+                    <!-- Build a test environment -->
+                    <echo message="Building a Test Environment..."/>
+                    <antcall target="-build.test"/>
+                </then>
+            </elseif>
+
+            <else>
+                <!-- Build a production environment -->
+                <echo message="Building a Production Environment..."/>
+                <antcall target="-build.production"/>
+            </else>
+        </if>
     </target>
 
 
     <target name="minify">
-    <if>
-        <equals arg1="${env}" arg2="dev"/>
-        <then>
-            <!-- Build a dev environment -->
-            <echo message="Building a Development Environment..."/>
-            <antcall target="-minify.dev"/>
-        </then>
-
-        <elseif>
-            <equals arg1="${env}" arg2="test"/>
+        <if>
+            <equals arg1="${env}" arg2="dev"/>
             <then>
-                <!-- Build a test environment -->
-                <echo message="Building a Test Environment..."/>
-                <antcall target="-minify.test"/>
+                <!-- Build a dev environment -->
+                <echo message="Building a Development Environment..."/>
+                <antcall target="-minify.dev"/>
             </then>
-        </elseif>
 
-        <else>
-            <!-- Build a production environment -->
-            <echo message="Building a Production Environment..."/>
-            <antcall target="-minify.production"/>
-        </else>
-    </if>
+            <elseif>
+                <equals arg1="${env}" arg2="test"/>
+                <then>
+                    <!-- Build a test environment -->
+                    <echo message="Building a Test Environment..."/>
+                    <antcall target="-minify.test"/>
+                </then>
+            </elseif>
+
+            <else>
+                <!-- Build a production environment -->
+                <echo message="Building a Production Environment..."/>
+                <antcall target="-minify.production"/>
+            </else>
+        </if>
     </target>
-    
-    
+
+
     <!--
     *************************************************
     * BUILD TARGETS                                 *
@@ -372,107 +371,111 @@
     <target name="-load-build-info" description="(PRIVATE) Loads the build versioning information">
         <property file="./${dir.build}/config/${build.version.info}"/>
     </target>
-    
+
     <target name="-clean" description="(PRIVATE) Wipe the previous build (Deletes the dir.publish directory">
-    <!-- This is a private target -->
-    
+        <!-- This is a private target -->
+
         <echo message="Cleaning up previous build directory..."/>
         <delete dir="./${dir.publish}/"/>
     </target>
-    
-    
+
+
     <target name="-rev" description="(PRIVATE) Increase the current build number by one and set build date">
-    <!-- This is a private target -->
-    
+        <!-- This is a private target -->
+
         <echo message="Increasing the build number..."/>
-        <propertyfile file="./${dir.build}/config/${build.version.info}" comment="Build Information File - DO NOT CHANGE">
+        <propertyfile file="./${dir.build}/config/${build.version.info}"
+                      comment="Build Information File - DO NOT CHANGE">
             <entry key="build.number" type="int" default="0000" operation="+" pattern="0000"/>
             <entry key="build.date" type="date" value="now" pattern="dd.MM.yyyy HH:mm"/>
         </propertyfile>
         <property file="./${dir.build}/config/${build.version.info}"/>
         <echo>Creating build ${build.number}</echo>
     </target>
-    
-    
+
+
     <target name="current-number" depends="-load-build-info" description="(PUBLIC) Returns the current build number">
         <echo>Current build number: ${build.number}</echo>
     </target>
-    
-    
+
+
     <target name="-copy" depends="-load-build-info">
-    <!-- This is a private target -->
-    
+        <!-- This is a private target -->
+
         <echo message="Copying over new files..."/>
         <!-- combine the 2 exclude properties -->
         <var name="excluded-files" value="${file.default.exclude}, ${file.exclude}"/>
 
-        <!--<copy todir="./${dir.publish}">-->
-            <!--<fileset dir="${dir.source}/" excludes="${excluded-files}"/>-->
-        <!--</copy> -->
+        <copy todir="./${dir.publish}">
+            <fileset dir="${dir.source}/" excludes="${excluded-files}"/>
+        </copy>
     </target>
-	
+
     <target name="-prodcopy" depends="-load-build-info">
-    <!-- This is a private target -->
-    
+        <!-- This is a private target -->
+
         <echo message="Copying over new files..."/>
         <!-- combine the 2 exclude properties -->
         <var name="prod-excluded-files" value="${file.default.exclude}, ${file.jpg.exclude}, ${file.exclude}"/>
 
         <copy todir="./${dir.publish}">
             <fileset dir="${dir.source}/" excludes="${prod-excluded-files}"/>
-        </copy> 
+        </copy>
     </target>
-    
-    
+
+
     <!-- JAVASCRIPT -->
-    <target name="-js.main.concat" depends="-load-build-info" description="(PRIVATE) Concatenates the JS files in dir.js">
+    <target name="-js.main.concat" depends="-load-build-info"
+            description="(PRIVATE) Concatenates the JS files in dir.js">
         <echo message="Concatenating Main JS scripts..."/>
         <concat destfile="./${dir.publish}/${dir.js}/scripts-${build.number}.js">
             <fileset dir="./${dir.publish}/">
                 <include name="**/${dir.js.main}/*.min.js"/>
                 <exclude name="**/${dir.js.mylibs}/*.js"/>
                 <exclude name="**/${dir.js.libs}/*.js"/>
-            </fileset>      
+            </fileset>
         </concat>
     </target>
-    
-    
-    <target name="-js.mylibs.concat" depends="-load-build-info" description="(PRIVATE) Concatenates the JS files in dir.js.mylibs">
+
+
+    <target name="-js.mylibs.concat" depends="-load-build-info"
+            description="(PRIVATE) Concatenates the JS files in dir.js.mylibs">
         <echo message="Concatenating JS libraries"/>
         <concat destfile="./${dir.publish}/${dir.js}/libs-${build.number}.js">
             <fileset dir="./${dir.publish}/${dir.js.mylibs}/">
                 <include name="**/*.min.js"/>
-            </fileset>      
+            </fileset>
         </concat>
     </target>
-    
-    
+
+
     <target name="-js.scripts.concat" depends="-load-build-info" if="build.concat.scripts">
         <echo message="Concatenating library file with main script file"/>
         <concat destfile="./${dir.publish}/${dir.js}/scripts-${build.number}.min.js">
             <fileset dir="./${dir.publish}/${dir.js}/">
                 <include name="libs-${build.number}.js"/>
                 <include name="scripts-${build.number}.js"/>
-            </fileset>      
+            </fileset>
         </concat>
-        
+
         <echo message="Concatenating library file with main debug script file"/>
         <concat destfile="./${dir.publish}/${dir.js}/scripts-${build.number}-debug.min.js">
             <fileset dir="./${dir.publish}/${dir.js}/">
                 <include name="libs-${build.number}.js"/>
                 <include name="scripts-${build.number}-debug.js"/>
-            </fileset>      
+            </fileset>
         </concat>
     </target>
-    
-    
-    <target name="-js.all.minify" depends="-js.libs.minify" description="(PRIVATE) Minifies the scripts.js files created by js.scripts.concat">
+
+
+    <target name="-js.all.minify" depends="-js.libs.minify"
+            description="(PRIVATE) Minifies the scripts.js files created by js.scripts.concat">
         <echo message="Minifying concatenated script- and library-file"/>
         <apply executable="java" parallel="false">
             <fileset dir="./${dir.publish}/${dir.js}">
                 <include name="**/*.js"/>
                 <exclude name="**/*.min.js"/>
-            <exclude name="**/${dir.js.libs}/*.js"/>
+                <exclude name="**/${dir.js.libs}/*.js"/>
             </fileset>
             <arg line="-jar"/>
             <arg path="./${dir.build.tools}/${tool.yuicompressor}"/>
@@ -485,10 +488,11 @@
         </apply>
     </target>
 
-    
-    <target name="-js.libs.minify" depends="-load-build-info" description="(PRIVATE) Minifies the helper files in dir.js.libs">
+
+    <target name="-js.libs.minify" depends="-load-build-info"
+            description="(PRIVATE) Minifies the helper files in dir.js.libs">
         <echo message="Minifying helper JS files..."/>
-        
+
         <apply executable="java" parallel="false">
             <fileset dir="./${dir.publish}/${dir.js.libs}/" includes="*.js" excludes="*.min.js"/>
             <arg line="-jar"/>
@@ -499,9 +503,10 @@
             <targetfile/>
         </apply>
     </target>
-    
-    
-    <target name="-js.delete" depends="-load-build-info" description="(PRIVATE) Deletes the unoptimized js files from build if set">
+
+
+    <target name="-js.delete" depends="-load-build-info"
+            description="(PRIVATE) Deletes the unoptimized js files from build if set">
         <if>
             <equals arg1="${build.delete.unoptimized}" arg2="true"/>
             <then>
@@ -518,7 +523,7 @@
                 -->
             </then>
         </if>
-        
+
         <if>
             <and>
                 <equals arg1="${build.delete.unoptimized}" arg2="true"/>
@@ -530,21 +535,21 @@
             </then>
         </if>
     </target>
-    
-    
+
+
     <target name="-strip-console.log" description="(PRIVATE)Comments out any console.log statements">
         <echo message="Commenting out console.log lines"/>
 
 
-        <replaceregexp match="(console.log\(.*\))" replace="/\*\1\*/" flags="g" >
-          <fileset dir="./${dir.publish}/${dir.js}/">
+        <replaceregexp match="(console.log\(.*\))" replace="/\*\1\*/" flags="g">
+            <fileset dir="./${dir.publish}/${dir.js}/">
                 <include name="**/*.js"/>
                 <exclude name="**/*.min.js"/>
             </fileset>
         </replaceregexp>
     </target>
-    
-    
+
+
     <!-- HTML -->
     <target name="-usemin" depends="-serverconfig" description="(PRIVATE) Replaces references to non-minified scripts">
         <echo message="Switching to minified js files..."/>
@@ -556,13 +561,13 @@
         <!-- switch any google CDN reference to minified -->
         <replaceregexp match="(\d|\d(\.\d)+)\/jquery\.js" replace="\1/jquery.min.js" flags="">
             <fileset dir="./${dir.publish}" includes="${page-files}"/>
-        </replaceregexp>    
+        </replaceregexp>
 
         <echo>kill off those versioning flags: ?v=2</echo>
         <replaceregexp match='\?v=\d+">' replace='">' flags="">
             <fileset dir="./${dir.publish}" includes="${page-files}"/>
         </replaceregexp>
-        
+
         <echo>remove favicon reference if it is pointing to the root</echo>
         <replaceregexp match="&lt;link rel=&quot;shortcut icon&quot; href=&quot;/favicon\.ico&quot;&gt;" replace="">
             <fileset dir="./${dir.publish}" includes="${page-files}"/>
@@ -573,20 +578,22 @@
         </replace>
         -->
     </target>
-    
-    
+
+
     <target name="-html" depends="-load-build-info" description="(PRIVATE) Very basic clean up of the HTML">
         <echo message="Clean up the html..."/>
         <!-- style.css replacement handled as a replacetoken above -->
-        <replaceregexp match="&lt;!-- scripts concatenated [\d\w\s\W]*?!-- end ((scripts)|(concatenated and minified scripts))--&gt;" replace="&lt;script src='${dir.js}/scripts-${build.number}.min.js\'&gt;&lt;/script&gt;" flags="m">
+        <replaceregexp
+                match="&lt;!-- scripts concatenated [\d\w\s\W]*?!-- end ((scripts)|(concatenated and minified scripts))--&gt;"
+                replace="&lt;script src='${dir.js}/scripts-${build.number}.min.js\'&gt;&lt;/script&gt;" flags="m">
             <fileset dir="./${dir.publish}" includes="${page-files}"/>
         </replaceregexp>
         <!--[! use comments like this one to avoid having them get minified -->
     </target>
-    
-    
+
+
     <target name="-htmlclean">
-        <apply executable="java" parallel="false" force="true" dest="./${dir.publish}/" >
+        <apply executable="java" parallel="false" force="true" dest="./${dir.publish}/">
             <fileset dir="./${dir.publish}/" includes="${page-files}"/>
             <arg value="-jar"/>
             <arg path="./${dir.build}/tools/${tool.htmlcompressor}"/>
@@ -601,10 +608,10 @@
             <targetfile/>
         </apply>
     </target>
-    
-    
+
+
     <target name="-htmlbuildkit">
-        <apply executable="java" parallel="false" force="true" dest="./${dir.publish}/" >
+        <apply executable="java" parallel="false" force="true" dest="./${dir.publish}/">
             <fileset dir="./${dir.publish}/" includes="${page-files}"/>
             <arg value="-jar"/>
             <arg path="./${dir.build}/tools/${tool.htmlcompressor}"/>
@@ -619,10 +626,10 @@
             <targetfile/>
         </apply>
     </target>
-    
-    
+
+
     <target name="-htmlcompress">
-        <apply executable="java" parallel="false" force="true" dest="./${dir.publish}/" >
+        <apply executable="java" parallel="false" force="true" dest="./${dir.publish}/">
             <fileset dir="./${dir.publish}/" includes="${page-files}"/>
             <arg value="-jar"/>
             <arg path="./${dir.build}/tools/${tool.htmlcompressor}"/>
@@ -643,63 +650,34 @@
         <replace file="./${dir.publish}/${file.serverconfig}" token="access plus 2 months" value="access plus 1 year"/>
     </target>
 
-    
+
     <!-- CSS -->
-    <target name="-css" depends="-load-build-info" description="Concatenates and Minifies any stylesheets listed in the file.stylesheets property">
+    <target name="-css" depends="-load-build-info"
+            description="Concatenates and Minifies any stylesheets listed in the file.stylesheets property">
         <echo message="Minifying css..."/>
-        <!---->
-        <!--<concat destfile="./${dir.publish}/${dir.css}/style-${build.number}.css">-->
-            <!--<filelist dir="./${dir.publish}/${dir.css}" files="${stylesheet-files}"/>-->
-        <!--</concat>-->
-           <java jar="./${dir.build.tools}/${tool.caffienecompressor}"
-                 fork="true"
-                 failonerror="true"
-                 maxmemory="128m">
-           <arg value="-p${basedir}/build/config/caffeine.properties"/>
-           <arg value="-d${basedir}"/>
-           <arg value="-b${build.number}"/>
-                 </java>
-        <!--<apply executable="java" parallel="false">-->
-            <!--<fileset dir="./${dir.publish}/${dir.js}">-->
-                <!--<include name="**/*.js"/>-->
-                <!--<exclude name="**/*.min.js"/>-->
-            <!--<exclude name="**/${dir.js.libs}/*.js"/>-->
-            <!--</fileset>-->
-            <!--<arg line="-jar"/>-->
-            <!--<arg path="./${dir.build.tools}/${tool.caffienecompressor}"/>-->
-            <!--<srcfile/>-->
-            <!--<arg line="-d"/>-->
-            <!--<arg line="${basedir}"/>-->
-            <!--<arg line="-o"/>-->
-            <!--<mapper type="glob" from="*.js" to="../${dir.publish}/${dir.js}/*.min.js"/>-->
-            <!--<targetfile/>-->
-        <!--</apply>-->
-        <!--<apply executable="php" parallel="false">-->
-            <!--<fileset dir="./${dir.publish}/${dir.css}/" includes="style-${build.number}.css"/>-->
-            <!--<arg line="-jar"/>-->
-            <!--<arg path="./${dir.build.tools}/${tool.csscompressor}"/>-->
-            <!--<srcfile/>-->
-            <!--<redirector>-->
-                <!--<outputmapper type="glob" from="style-${build.number}.css" to="./${dir.publish}/${dir.css}/style-${build.number}.min.css"/>-->
-            <!--</redirector>-->
-        <!--</apply>-->
-        
-        <!--<replace token="style.css" value="style-${build.number}.min.css" dir="${dir.publish}" includes="${page-files}"/>-->
+        <java jar="./${dir.build.tools}/${tool.caffienecompressor}"
+              fork="true"
+              failonerror="true"
+              maxmemory="128m">
+            <arg value="-p${basedir}/build/config/default.properties"/>
+            <arg value="-d${basedir}"/>
+            <arg value="-b${build.number}"/>
+        </java>
     </target>
-    
-    
+
+
     <!-- IMAGES -->
     <target name="-imagespng" description="(PRIVATE) Optimizes .png images using optipng">
         <echo message="Optimizing images..."/>
         <echo message="This part might take a while. But the rest of everything is already done."/>
         <echo message="First, we run optipng on the .png files..."/>
-        
+
         <!-- osfamily=unix is actually true on OS X as well -->
         <!-- On *nix's and OS X, check for optipng and give a helpful message if it's not installed -->
         <if>
             <and>
-                <os family="unix" />
-                <available file="optipng" filepath="${ENV.PATH}" />
+                <os family="unix"/>
+                <available file="optipng" filepath="${ENV.PATH}"/>
             </and>
             <then>
                 <apply executable="optipng" osfamily="unix">
@@ -711,11 +689,11 @@
                 </apply>
             </then>
             <elseif>
-                <os family="unix" />
+                <os family="unix"/>
                 <then>
-                    <echo message="*** optipng NOT INSTALLED. SKIPPING OPTIMIZATION OF PNGs." />
-                    <echo message="*** Install optipng to enable png optimization." />
-                    <echo message="*** For instructions see 'Dependencies' at: http://html5boilerplate.com/docs/#Build-script#dependencies" />
+                    <echo message="*** optipng NOT INSTALLED. SKIPPING OPTIMIZATION OF PNGs."/>
+                    <echo message="*** Install optipng to enable png optimization."/>
+                    <echo message="*** For instructions see 'Dependencies' at: http://html5boilerplate.com/docs/#Build-script#dependencies"/>
                 </then>
             </elseif>
         </if>
@@ -732,11 +710,11 @@
 
     <target name="-imagesjpg" description="(PRIVATE) Optimizes .jpg images using jpegtan">
         <echo message="Now, we clean up those jpgs..."/>
-        
+
         <!-- jpegtran is a little weird in that it assumes a pre-existing file means it's already optimized.        -->
         <!-- why? good question. To combat this, we skipped copying over the ${dir.images}/*.jpg earlier in the     -->
         <!-- copy task. Now, we're using jpegtran to copy the files over while we crunch 'em.                       -->
-        
+
         <if>
             <equals arg1="${images.strip.metadata}" arg2="true"/>
             <then>
@@ -750,8 +728,8 @@
         <!-- On *nix's and OS X, check for jpegtran and give a helpful message if it's not installed -->
         <if>
             <and>
-                <os family="unix" />
-                <available file="jpegtran" filepath="${ENV.PATH}" />
+                <os family="unix"/>
+                <available file="jpegtran" filepath="${ENV.PATH}"/>
             </and>
             <then>
                 <apply executable="jpegtran" osfamily="unix">
@@ -767,11 +745,11 @@
                 </apply>
             </then>
             <elseif>
-                <os family="unix" />
+                <os family="unix"/>
                 <then>
-                    <echo message="*** jpegtran NOT INSTALLED. SKIPPING OPTIMIZATION OF JPEGs." />
-                    <echo message="*** Install jpegtran to enable jpeg optimization." />
-                    <echo message="*** For instructions see 'Dependencies' at: http://html5boilerplate.com/docs/#Build-script#dependencies" />
+                    <echo message="*** jpegtran NOT INSTALLED. SKIPPING OPTIMIZATION OF JPEGs."/>
+                    <echo message="*** Install jpegtran to enable jpeg optimization."/>
+                    <echo message="*** For instructions see 'Dependencies' at: http://html5boilerplate.com/docs/#Build-script#dependencies"/>
                 </then>
             </elseif>
         </if>
@@ -788,14 +766,14 @@
         </apply>
     </target>
 
-    
+
     <target name="-jpgcopy">
         <echo message="Copying over the unmodified jpegs."/>
-        
+
         <copy todir="./${dir.publish}/${dir.images}">
-            <fileset dir="${dir.source}/${dir.images}"  includes="*.jpg"/>
-        </copy> 
+            <fileset dir="${dir.source}/${dir.images}" includes="*.jpg"/>
+        </copy>
     </target>
 
-    
+
 </project>
