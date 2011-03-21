@@ -13,7 +13,7 @@
 
   <title></title>
   <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="author" content="chris hager" >
 
   <!-- Mobile viewport optimized: j.mp/bplateviewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,6 +22,12 @@
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
+  <!-- styles for development: will be concatenated and minified via ant build script
+       (if added to /static/build/config/project.properties), and removed from index.html  -->
+  <link rel="stylesheet" href="/css/html5reset.css?v=2">  
+  <link rel="stylesheet" href="/css/custom.css?v=2">  
+  <link rel="stylesheet" href="/css/html5footer.css?v=2">  
+  <!-- end styles for development -->
 
   <!-- CSS: implied media="all" -->
   <link rel="stylesheet" href="css/style.css?v=2">
@@ -54,7 +60,6 @@
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
   <script>window.jQuery || document.write("<script src='js/libs/jquery-1.5.1.min.js'>\x3C/script>")</script>
-
 
   <!-- scripts concatenated and minified via ant build script-->
   <script src="js/plugins.js"></script>

@@ -1,0 +1,18 @@
+/**
+ * Primary styles
+ *
+ * Author: 
+ */
+
+body, select, input, textarea {
+  /* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */
+  color: #333;
+  /*font-family: Georgia, serif;*/
+  font-family: 'Helvetica Neue', Helvetica, Arial, default;
+}
+
+/* Headers (h1, h2, etc) have no default font-size or margin; define those yourself */
+h1, h2, h3, h4, h5, h6 { font-weight: bold; }
+
+a, a:active, a:visited { color: #607890; }
+a:hover { color: #036; }
