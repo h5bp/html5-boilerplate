@@ -2,7 +2,7 @@
 
 ## Changelog:
 
-### v.1.0 : March 21st, 2010
+### v.1.0 : March 21st, 2011
 
 #### Build Script
 <ul>
