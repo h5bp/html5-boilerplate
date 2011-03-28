@@ -471,5 +471,8 @@ AddCharset utf-8 .html .css .js .xml .json .rss
 # php_flag register_globals Off
 
 
-
+# Increase cookie security
+<IfModule php5_module>
+php_value session.cookie_httponly true
+</IfModule>
 
