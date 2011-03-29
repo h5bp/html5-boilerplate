@@ -443,7 +443,7 @@ AddCharset utf-8 .html .css .js .xml .json .rss
 # "-Indexes" will have Apache block users from browsing folders without a default document
 # Usually you should leave this activated, because you shouldn't allow everybody to surf through
 # every folder on your server (which includes rather private places like CMS system folders).
-# Options -Indexes
+Options -Indexes
 
 
 # Block access to "hidden" directories whose names begin with a period. This
