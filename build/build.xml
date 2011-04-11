@@ -19,12 +19,12 @@
 
     <!-- merge the stylesheet properties -->
     <var name="stylesheet-files" value="${file.stylesheets}, ${file.default.stylesheets}"/>
-    
+
     <!-- merge the pages properties -->
     <var name="page-files" value="${file.pages}, ${file.pages.default.include}"/>
 
 
-    
+
     <!--
     *************************************************
     * BASE TARGETS                                  *
@@ -165,8 +165,8 @@
         </else>
     </if>
     </target>
-    
-    
+
+
     <!--
     *************************************************
     * BUILD TARGETS                                 *
@@ -197,12 +197,12 @@
                      -clean,
                      -copy,
                      -usemin,
+                     -strip-console.log,
                      -js.all.minify,
                      -js.main.concat,
                      -js.mylibs.concat,
                      -js.scripts.concat,
                      -js.delete,
-                     -strip-console.log,
                      -css,
                      -html"/>
 
@@ -231,12 +231,12 @@
                      -clean,
                      -copy,
                      -usemin,
+                     -strip-console.log,
                      -js.all.minify,
                      -js.main.concat,
                      -js.mylibs.concat,
                      -js.scripts.concat,
                      -js.delete,
-                     -strip-console.log,
                      -css,
                      -html,
                      -htmlclean"/>
@@ -270,12 +270,12 @@
                      -clean,
                      -prodcopy,
                      -usemin,
+                     -strip-console.log,
                      -js.all.minify,
                      -js.main.concat,
                      -js.mylibs.concat,
                      -js.scripts.concat,
                      -js.delete,
-                     -strip-console.log,
                      -css,
                      -html,
                      -htmlbuildkit,
@@ -311,12 +311,12 @@
                      -clean,
                      -prodcopy,
                      -usemin,
+                     -strip-console.log,
                      -js.all.minify,
                      -js.main.concat,
                      -js.mylibs.concat,
                      -js.scripts.concat,
                      -js.delete,
-                     -strip-console.log,
                      -css,
                      -html,
                      -htmlclean,
@@ -352,12 +352,12 @@
                      -clean,
                      -prodcopy,
                      -usemin,
+                     -strip-console.log,
                      -js.all.minify,
                      -js.main.concat,
                      -js.mylibs.concat,
                      -js.scripts.concat,
                      -js.delete,
-                     -strip-console.log,
                      -css,
                      -html,
                      -htmlcompress,
@@ -372,18 +372,18 @@
     <target name="-load-build-info" description="(PRIVATE) Loads the build versioning information">
         <property file="./${dir.build}/config/${build.version.info}"/>
     </target>
-    
+
     <target name="-clean" description="(PRIVATE) Wipe the previous build (Deletes the dir.publish directory">
     <!-- This is a private target -->
-    
+
         <echo message="Cleaning up previous build directory..."/>
         <delete dir="./${dir.publish}/"/>
     </target>
-    
-    
+
+
     <target name="-rev" description="(PRIVATE) Increase the current build number by one and set build date">
     <!-- This is a private target -->
-    
+
         <echo message="====================================================================="/>
         <echo message="Welcome to the HTML5 Boilerplate Build Script!"/>
         <echo message=" "/>
@@ -396,8 +396,8 @@
         <echo message="====================================================================="/>
         <echo message=" "/>
         <echo message=" "/>
-    
-    
+
+
         <echo message="Increasing the build number..."/>
         <propertyfile file="./${dir.build}/config/${build.version.info}" comment="Build Information File - DO NOT CHANGE">
             <entry key="build.number" type="int" default="0000" operation="+" pattern="0000"/>
@@ -406,42 +406,42 @@
         <property file="./${dir.build}/config/${build.version.info}"/>
         <echo>Creating build ${build.number}</echo>
     </target>
-    
-    
+
+
     <target name="current-number" depends="-load-build-info" description="(PUBLIC) Returns the current build number">
         <echo>Current build number: ${build.number}</echo>
     </target>
-    
-    
+
+
     <target name="-copy" depends="-load-build-info">
     <!-- This is a private target -->
-    
+
         <echo message="Copying over new files..."/>
         <!-- combine the 2 exclude properties -->
         <var name="excluded-files" value="${file.default.exclude}, ${file.exclude}"/>
 
         <copy todir="./${dir.publish}">
             <fileset dir="${dir.source}/" excludes="${excluded-files}"/>
-        </copy> 
-        
+        </copy>
+
         <echo message="A copy of all non-dev files are now in: ./${dir.publish}."/>
     </target>
-	
+
     <target name="-prodcopy" depends="-load-build-info">
     <!-- This is a private target -->
-    
+
         <echo message="Copying over new files..."/>
         <!-- combine the 2 exclude properties -->
         <var name="prod-excluded-files" value="${file.default.exclude}, ${file.jpg.exclude}, ${file.exclude}"/>
 
         <copy todir="./${dir.publish}">
             <fileset dir="${dir.source}/" excludes="${prod-excluded-files}"/>
-        </copy> 
-        
+        </copy>
+
         <echo message="A copy of all non-dev files are now in: ./${dir.publish}."/>
     </target>
-    
-    
+
+
     <!-- JAVASCRIPT -->
     <target name="-js.main.concat" depends="-load-build-info" description="(PRIVATE) Concatenates the JS files in dir.js">
         <echo message="Concatenating Main JS scripts..."/>
@@ -450,40 +450,40 @@
                 <include name="**/${dir.js.main}/*.min.js"/>
                 <exclude name="**/${dir.js.mylibs}/*.js"/>
                 <exclude name="**/${dir.js.libs}/*.js"/>
-            </fileset>      
+            </fileset>
         </concat>
     </target>
-    
-    
+
+
     <target name="-js.mylibs.concat" depends="-load-build-info" description="(PRIVATE) Concatenates the JS files in dir.js.mylibs">
         <echo message="Concatenating JS libraries"/>
         <concat destfile="./${dir.publish}/${dir.js}/libs-${build.number}.js">
             <fileset dir="./${dir.publish}/${dir.js.mylibs}/">
                 <include name="**/*.min.js"/>
-            </fileset>      
+            </fileset>
         </concat>
     </target>
-    
-    
+
+
     <target name="-js.scripts.concat" depends="-load-build-info" if="build.concat.scripts">
         <echo message="Concatenating library file with main script file"/>
         <concat destfile="./${dir.publish}/${dir.js}/scripts-${build.number}.min.js">
             <fileset dir="./${dir.publish}/${dir.js}/">
                 <include name="libs-${build.number}.js"/>
                 <include name="scripts-${build.number}.js"/>
-            </fileset>      
+            </fileset>
         </concat>
-        
+
         <echo message="Concatenating library file with main debug script file"/>
         <concat destfile="./${dir.publish}/${dir.js}/scripts-${build.number}-debug.min.js">
             <fileset dir="./${dir.publish}/${dir.js}/">
                 <include name="libs-${build.number}.js"/>
                 <include name="scripts-${build.number}-debug.js"/>
-            </fileset>      
+            </fileset>
         </concat>
     </target>
-    
-    
+
+
     <target name="-js.all.minify" depends="-js.libs.minify" description="(PRIVATE) Minifies the scripts.js files created by js.scripts.concat">
         <echo message="Minifying concatenated script- and library-file"/>
         <apply executable="java" parallel="false">
@@ -503,10 +503,10 @@
         </apply>
     </target>
 
-    
+
     <target name="-js.libs.minify" depends="-load-build-info" description="(PRIVATE) Minifies the helper files in dir.js.libs">
         <echo message="Minifying helper JS files..."/>
-        
+
         <apply executable="java" parallel="false">
             <fileset dir="./${dir.publish}/${dir.js.libs}/" includes="*.js" excludes="*.min.js"/>
             <arg line="-jar"/>
@@ -517,8 +517,8 @@
             <targetfile/>
         </apply>
     </target>
-    
-    
+
+
     <target name="-js.delete" depends="-load-build-info" description="(PRIVATE) Deletes the unoptimized js files from build if set">
         <if>
             <equals arg1="${build.delete.unoptimized}" arg2="true"/>
@@ -536,7 +536,7 @@
                 -->
             </then>
         </if>
-        
+
         <if>
             <and>
                 <equals arg1="${build.delete.unoptimized}" arg2="true"/>
@@ -548,8 +548,8 @@
             </then>
         </if>
     </target>
-    
-    
+
+
     <target name="-strip-console.log" description="(PRIVATE)Comments out any console.log statements">
         <echo message="Commenting out console.log lines"/>
 
@@ -561,8 +561,8 @@
             </fileset>
         </replaceregexp>
     </target>
-    
-    
+
+
     <!-- HTML -->
     <target name="-usemin" depends="-serverconfig" description="(PRIVATE) Replaces references to non-minified scripts">
         <echo message="Switching to minified js files..."/>
@@ -574,13 +574,13 @@
         <!-- switch any google CDN reference to minified -->
         <replaceregexp match="(\d|\d(\.\d)+)\/jquery\.js" replace="\1/jquery.min.js" flags="g">
             <fileset dir="./${dir.publish}" includes="${page-files}"/>
-        </replaceregexp>    
+        </replaceregexp>
 
         <echo>Kill off those versioning flags: ?v=2</echo>
         <replaceregexp match='\?v=\d+">' replace='">' flags="g">
             <fileset dir="./${dir.publish}" includes="${page-files}"/>
         </replaceregexp>
-        
+
         <echo>Remove favicon.ico reference if it is pointing to the root</echo>
         <replaceregexp match="&lt;link rel=&quot;shortcut icon&quot; href=&quot;/favicon\.ico&quot;&gt;" replace="">
             <fileset dir="./${dir.publish}" includes="${page-files}"/>
@@ -591,8 +591,8 @@
         </replace>
         -->
     </target>
-    
-    
+
+
     <target name="-html" depends="-load-build-info" description="(PRIVATE) Very basic clean up of the HTML">
         <echo message="Update the HTML to reference our concatenated script file: scripts-${build.number}.min.js"/>
         <!-- style.css replacement handled as a replacetoken above -->
@@ -601,8 +601,8 @@
         </replaceregexp>
         <!--[! use comments like this one to avoid having them get minified -->
     </target>
-    
-    
+
+
     <target name="-htmlclean">
         <echo message="Run htmlcompressor on the HTML"/>
         <echo message=" - maintaining whitespace"/>
@@ -623,8 +623,8 @@
             <targetfile/>
         </apply>
     </target>
-    
-    
+
+
     <target name="-htmlbuildkit">
         <echo message="Run htmlcompressor on the HTML"/>
         <echo message=" - maintaining whitespace"/>
@@ -645,8 +645,8 @@
             <targetfile/>
         </apply>
     </target>
-    
-    
+
+
     <target name="-htmlcompress">
         <echo message="Run htmlcompressor on the HTML"/>
         <echo message=" - removing unnecessary whitespace"/>
@@ -678,17 +678,17 @@
         </if>
     </target>
 
-    
+
     <!-- CSS -->
     <target name="-css" depends="-load-build-info" description="Concatenates and Minifies any stylesheets listed in the file.stylesheets property">
         <echo message="Concatenating css..."/>
-        
+
         <concat destfile="./${dir.publish}/${dir.css}/style-${build.number}.css">
             <filelist dir="./${dir.publish}/${dir.css}" files="${stylesheet-files}"/>
         </concat>
-        
+
         <echo message="Minifying css..."/>
-        
+
         <apply executable="java" parallel="false">
             <fileset dir="./${dir.publish}/${dir.css}/" includes="style-${build.number}.css"/>
             <arg line="-jar"/>
@@ -698,22 +698,22 @@
             <mapper type="glob" from="style-${build.number}.css" to="../${dir.publish}/${dir.css}/style-${build.number}.min.css"/>
             <targetfile/>
         </apply>
-        
+
         <echo message="Updating the HTML with the new css filename"/>
-        
+
         <replace token="style.css" value="style-${build.number}.min.css" dir="${dir.publish}" includes="${page-files}"/>
     </target>
-    
-    
+
+
     <!-- IMAGES -->
     <target name="-imagespng" description="(PRIVATE) Optimizes .png images using optipng">
         <echo message="Optimizing images..."/>
         <echo message="This part might take a while. But everything else is already done."/>
         <echo message=" "/>
-        
-        
+
+
         <echo message="First, we run optipng on the .png files..."/>
-        
+
         <!-- osfamily=unix is actually true on OS X as well -->
         <!-- On *nix's and OS X, check for optipng and give a helpful message if it's not installed -->
         <if>
@@ -752,11 +752,11 @@
 
     <target name="-imagesjpg" description="(PRIVATE) Optimizes .jpg images using jpegtan">
         <echo message="Now, we clean up those jpgs..."/>
-        
+
         <!-- jpegtran is a little weird in that it assumes a pre-existing file means it's already optimized.        -->
         <!-- why? good question. To combat this, we skipped copying over the ${dir.images}/*.jpg earlier in the     -->
         <!-- copy task. Now, we're using jpegtran to copy the files over while we crunch 'em.                       -->
-        
+
         <if>
             <equals arg1="${images.strip.metadata}" arg2="true"/>
             <then>
@@ -808,14 +808,14 @@
         </apply>
     </target>
 
-    
+
     <target name="-jpgcopy">
         <echo message="Copying over the unmodified jpegs."/>
-        
+
         <copy todir="./${dir.publish}/${dir.images}">
             <fileset dir="${dir.source}/${dir.images}"  includes="*.jpg"/>
-        </copy> 
+        </copy>
     </target>
 
-    
+
 </project>
