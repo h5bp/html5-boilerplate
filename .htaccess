@@ -348,7 +348,7 @@ FileETag None
 <IfModule mod_rewrite.c>
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_URI} !(\.[a-zA-Z0-9]{1,5}|/|#(.*))$
-  RewriteRule ^(.*)$ /$1/ [R=301,L]
+  RewriteRule ^(.*)$ $1/ [R=301,L]
 </IfModule>
 
 # ----------------------------------------------------------------------
@@ -357,7 +357,7 @@ FileETag None
 # Rewrite "domain.com/foo/ -> domain.com/foo"
 
 #<IfModule mod_rewrite.c>
-#  RewriteRule ^(.*)/$ /$1 [R=301,L]
+#  RewriteRule ^(.*)/$ $1 [R=301,L]
 #</IfModule>
 
 
