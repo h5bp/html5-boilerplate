@@ -123,7 +123,7 @@ label, input[type="button"], input[type="submit"], input[type="image"], button {
 /* 1) Make inputs and buttons play nice in IE: www.viget.com/inspire/styling-the-button-element-in-internet-explorer/
    2) WebKit browsers add a 2px margin outside the chrome of form elements. 
       Firefox adds a 1px margin above and below textareas */
-button, input, select, textarea { /*1*/ width: auto; overflow: visible; /*2*/ margin: 0; }
+button, input, select, textarea { width: auto; overflow: visible; margin: 0; }
 
 textarea { overflow: auto; } /* www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
 
