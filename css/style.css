@@ -78,8 +78,14 @@ pre, code, kbd, samp { font-family: monospace, sans-serif; }
 /* Always force a scrollbar in non-IE */
 html { overflow-y: scroll; }
 
+/* j.mp/webkit-tap-highlight-color */
+a:link { -webkit-tap-highlight-color: #FF5E99; }
+
 /* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
 a:hover, a:active { outline: none; }
+
+a, a:active, a:visited { color: #607890; }
+a:hover { color: #036; }
 
 ul, ol { margin-left: 2em; }
 ol { list-style-type: decimal; }
@@ -103,8 +109,6 @@ pre {
   padding: 15px;
 }
 
-textarea { overflow: auto; } /* www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
-
 .ie6 legend, .ie7 legend { margin-left: -7px; } 
 
 /* Align checkboxes, radios, text inputs with their label by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css  */
@@ -116,8 +120,16 @@ input[type="checkbox"] { vertical-align: bottom; }
 /* Hand cursor on clickable input elements */
 label, input[type="button"], input[type="submit"], input[type="image"], button { cursor: pointer; }
 
-/* Webkit browsers add a 2px margin outside the chrome of form elements */
-button, input, select, textarea { margin: 0; }
+/* 1) Make inputs and buttons play nice in IE: www.viget.com/inspire/styling-the-button-element-in-internet-explorer/
+   2) WebKit browsers add a 2px margin outside the chrome of form elements. 
+      Firefox adds a 1px margin above and below textareas */
+button, input, select, textarea { /*1*/ width: auto; overflow: visible; /*2*/ margin: 0; }
+
+textarea { overflow: auto; } /* www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
+
+/* Remove extra padding and inner border in Firefox */
+input::-moz-focus-inner,
+button::-moz-focus-inner { border: 0; padding: 0; }
 
 /* Colors for form validity */
 input:valid, textarea:valid   {  }
@@ -126,27 +138,16 @@ input:invalid, textarea:invalid {
 }
 .no-boxshadow input:invalid, .no-boxshadow textarea:invalid { background-color: #f0dddd; }
 
-
 /* These selection declarations have to be separate
    No text-shadow: twitter.com/miketaylr/status/12228805301
    Also: hot pink! */
 ::-moz-selection{ background: #FF5E99; color:#fff; text-shadow: none; }
 ::selection { background:#FF5E99; color:#fff; text-shadow: none; }
 
-/* j.mp/webkit-tap-highlight-color */
-a:link { -webkit-tap-highlight-color: #FF5E99; }
-
-/* Make buttons play nice in IE:
-   www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
-input, button {  width: auto; overflow: visible; }
-
-/* Remove extra padding and inner border in Firefox */
-input::-moz-focus-inner,
-button::-moz-focus-inner { border: 0; padding: 0; }
-
 /* Bicubic resizing for non-native sized IMG:
    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
 .ie7 img { -ms-interpolation-mode: bicubic; }
+
 
 /**
  * You might tweak these..
@@ -161,9 +162,6 @@ body, select, input, textarea {
 
 /* Headers (h1, h2, etc) have no default font-size or margin; define those yourself */
 h1, h2, h3, h4, h5, h6 { font-weight: bold; }
-
-a, a:active, a:visited { color: #607890; }
-a:hover { color: #036; }
 
 
 /**
