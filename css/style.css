@@ -153,11 +153,24 @@ input:invalid, textarea:invalid {
  * You might tweak these..
  */
 
+/* New bulletproof @font-face by fontspring:
+   http://www.fontspring.com/blog/further-hardening-of-the-bulletproof-syntax/ */
+@font-face {
+	font-family: 'MyFontFamily';
+	src: url('myfont-webfont.eot');							/* IE9 Compat Modes */
+	src: url('myfont-webfont.eot?iefix') format('eot'),		/* IE6-IE8 */
+		 url('myfont-webfont.woff') format('woff'),			/* Modern Browsers */
+		 url('myfont-webfont.ttf') format('truetype'),		/* Safari, Android, iOS */
+		 url('myfont-webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
 body, select, input, textarea {
   /* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */
   color: #444;
   /* Set your base font here, to apply evenly */
   /* font-family: Georgia, serif;  */
+  /* if using @font-face: */
+  /* font-family: MyFontFamily, Arial, serif; */
 }
 
 /* Headers (h1, h2, etc) have no default font-size or margin; define those yourself */
