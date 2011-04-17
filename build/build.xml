@@ -24,147 +24,61 @@
     <var name="page-files" value="${file.pages}, ${file.pages.default.include}"/>
 
 
+    <!-- set properties depending on env -->
+    <target name="init">
+        <condition property="dev">
+            <equals arg1="${env}" arg2="dev"/>
+        </condition>
+        <condition property="test">
+            <equals arg1="${env}" arg2="test"/>
+        </condition>
+        <condition property="production">
+            <and>
+                <not><isset property="dev"/></not>
+                <not><isset property="test"/></not>
+            </and>
+        </condition>
+    </target>
     
     <!--
     *************************************************
     * BASE TARGETS                                  *
     *************************************************
     -->
-    <target name="basics">
-    <if>
-        <equals arg1="${env}" arg2="dev"/>
-        <then>
-            <!-- Build a dev environment -->
-            <echo message="Building a Development Environment..."/>
-            <antcall target="-basics.dev"/>
-        </then>
+    <target name="basics" depends="init, basics-dev, basics-test, basics-production"/>
 
-        <elseif>
-            <equals arg1="${env}" arg2="test"/>
-            <then>
-                <!-- Build a test environment -->
-                <echo message="Building a Test Environment..."/>
-                <antcall target="-basics.test"/>
-            </then>
-        </elseif>
+    <!-- call correct target using dependencies instead of antcall -->
+    <target name="basics-dev" if="dev" depends="-basics.dev"/>
+    <target name="basics-test" if="test" depends="-basics.test"/>
+    <target name="basics-production" if="production" depends="-basics.production"/>
 
-        <else>
-            <!-- Build a production environment -->
-            <echo message="Building a Production Environment..."/>
-            <antcall target="-basics.production"/>
-        </else>
-    </if>
-    </target>
+    <target name="text" depends="init, text-dev, text-test, text-production, -jpgcopy"/>
 
+    <!-- call correct target using dependencies instead of antcall -->
+    <target name="text-dev" if="dev" depends="-text.dev"/>
+    <target name="text-test" if="test" depends="-text.test"/>
+    <target name="text-production" if="production" depends="-text.production"/>
 
-    <target name="text">
-    <if>
-        <equals arg1="${env}" arg2="dev"/>
-        <then>
-            <!-- Build a dev environment -->
-            <echo message="Building a Development Environment..."/>
-            <antcall target="-text.dev"/>
-        </then>
+    <target name="buildkit" depends="init, buildkit-dev, buildkit-test, buildkit-production"/>
 
-        <elseif>
-            <equals arg1="${env}" arg2="test"/>
-            <then>
-                <!-- Build a test environment -->
-                <echo message="Building a Test Environment..."/>
-                <antcall target="-text.test"/>
-            </then>
-        </elseif>
+    <!-- call correct target using dependencies instead of antcall -->
+    <target name="buildkit-dev" if="dev" depends="-buildkit.dev"/>
+    <target name="buildkit-test" if="test" depends="-buildkit.test"/>
+    <target name="buildkit-production" if="production" depends="-buildkit.production"/>
 
-        <else>
-            <!-- Build a production environment -->
-            <echo message="Building a Production Environment..."/>
-            <antcall target="-text.production"/>
-        </else>
-    </if>
-    <!-- funky order due to jpegtran being a jerk. See comment at top of imagesjpg task -->
-    <antcall target="-jpgcopy"/>
-    </target>
+    <target name="build" depends="init, build-dev, build-test, build-production"/>
 
+    <!-- call correct target using dependencies instead of antcall -->
+    <target name="build-dev" if="dev" depends="-build.dev"/>
+    <target name="build-test" if="test" depends="-build.test"/>
+    <target name="build-production" if="production" depends="-build.production"/>
 
-    <target name="buildkit">
-    <if>
-        <equals arg1="${env}" arg2="dev"/>
-        <then>
-            <!-- Build a dev environment -->
-            <echo message="Building a Development Environment..."/>
-            <antcall target="-buildkit.dev"/>
-        </then>
+    <target name="minify" depends="init, minify-dev, minify-test, minify-production"/>
 
-        <elseif>
-            <equals arg1="${env}" arg2="test"/>
-            <then>
-                <!-- Build a test environment -->
-                <echo message="Building a Test Environment..."/>
-                <antcall target="-buildkit.test"/>
-            </then>
-        </elseif>
-
-        <else>
-            <!-- Build a production environment -->
-            <echo message="Building a Production Environment..."/>
-            <antcall target="-buildkit.production"/>
-        </else>
-    </if>
-    </target>
-
-
-    <target name="build">
-    <if>
-        <equals arg1="${env}" arg2="dev"/>
-        <then>
-            <!-- Build a dev environment -->
-            <echo message="Building a Development Environment..."/>
-            <antcall target="-build.dev" />
-        </then>
-
-        <elseif>
-            <equals arg1="${env}" arg2="test"/>
-            <then>
-                <!-- Build a test environment -->
-                <echo message="Building a Test Environment..."/>
-                <antcall target="-build.test" />
-            </then>
-        </elseif>
-
-        <else>
-            <!-- Build a production environment -->
-            <echo message="Building a Production Environment..."/>
-            <antcall target="-build.production" />
-        </else>
-    </if>
-    </target>
-
-
-    <target name="minify">
-    <if>
-        <equals arg1="${env}" arg2="dev"/>
-        <then>
-            <!-- Build a dev environment -->
-            <echo message="Building a Development Environment..."/>
-            <antcall target="-minify.dev"/>
-        </then>
-
-        <elseif>
-            <equals arg1="${env}" arg2="test"/>
-            <then>
-                <!-- Build a test environment -->
-                <echo message="Building a Test Environment..."/>
-                <antcall target="-minify.test"/>
-            </then>
-        </elseif>
-
-        <else>
-            <!-- Build a production environment -->
-            <echo message="Building a Production Environment..."/>
-            <antcall target="-minify.production"/>
-        </else>
-    </if>
-    </target>
+    <!-- call correct target using dependencies instead of antcall -->
+    <target name="minify-dev" if="dev" depends="-minify.dev"/>
+    <target name="minify-test" if="test" depends="-minify.test"/>
+    <target name="minify-production" if="production" depends="-minify.production"/>
     
     
     <!--
