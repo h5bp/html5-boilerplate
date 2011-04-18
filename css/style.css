@@ -46,7 +46,8 @@ q:before, q:after { content: ""; content: none; }
 
 ins { background-color: #ff9; color: #000; text-decoration: none; }
 
-mark { background-color: #ff9; color: #000; font-style: italic; font-weight: bold; }
+em, i, mark { font-style: italic; }
+mark { background-color: #ff9; color: #000; font-weight: bold; }
 
 del { text-decoration: line-through; }
 
@@ -260,4 +261,3 @@ h1, h2, h3, h4, h5, h6 { font-weight: bold; }
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3{ page-break-after: avoid; }
 }
-
