@@ -213,6 +213,16 @@ h1, h2, h3, h4, h5, h6 { font-weight: bold; }
 /* Fix clearfix: blueprintcss.lighthouseapp.com/projects/15318/tickets/5-extra-margin-padding-bottom-of-page */
 .clearfix { zoom: 1; }
 
+/* Forces a word wrap */
+.wordwrap{
+	white-space: pre-wrap; /* CSS3 */
+	white-space: -moz-pre-wrap; /* Mozilla */
+	white-space: -pre-wrap; /* Opera 4-6 */
+	white-space: -o-pre-wrap; /* Opera 7 */
+	word-wrap: break-word; /* IE 5.5+ */
+}
+
+
 
 
 /**
