@@ -470,10 +470,42 @@ Options -Indexes
 # information about setting PHP directives.
 
 # php_flag register_globals Off
+
 # rename session cookie to something else, than PHPSESSID
 # php_value session.name sid
+
 # do not show you are using php
 # php_flag expose_php Off
+
+# level of log detail - log all errors
+# php_value error_reporting -1
+
+# write errors to log file
+# php_flag log_errors On
+
+# do not display errors in browser (production - Off, development - On)
+# php_flag display_errors Off
+
+# do not display startup errors (production - Off, development - On)
+# php_flag display_startup_errors Off
+
+# format errors in plain text
+# php_flag html_errors Off
+
+# show multiple occurrence of error
+# php_flag ignore_repeated_errors Off
+
+# show same errors from different sources
+# php_flag ignore_repeated_source Off
+
+# size limit for error messages
+# php_value log_errors_max_len 1024
+
+# don't precede error with string (doesn't accept empty string, use whitespace if you need)
+# php_value error_prepend_string " "
+
+# don't prepend to error (doesn't accept empty string, use whitespace if you need)
+# php_value error_append_string " "
 
 # Increase cookie security
 <IfModule php5_module>
