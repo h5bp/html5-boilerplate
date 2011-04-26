@@ -21,11 +21,16 @@ thumbs.db
 _notes
 dwsync.xml
 
+# Komodo
+*.komodoproject
+.komodotools
+
 # Folders to ignore
 .hg
 .svn
 publish
 .idea
 
-# files
+# build script local files
 build/buildinfo.properties
+build/config/buildinfo.properties

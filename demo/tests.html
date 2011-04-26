@@ -26,14 +26,14 @@
 
 
   <!-- CSS : implied media="all" -->
-  <link rel="stylesheet" href="../css/style.css?v=2">
+  <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="hack2.css">
 
   <!-- Uncomment if you are specifically targeting less enabled mobile browsers
-  <link rel="stylesheet" media="handheld" href="../css/handheld.css?v=2">  -->
+  <link rel="stylesheet" media="handheld" href="../css/handheld.css">  -->
  
   <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
-  <script src="../js/libs/modernizr-1.6.min.js"></script>
+  <script src="../js/libs/modernizr-1.7.min.js"></script>
 
 </head>
 
@@ -198,19 +198,25 @@
 					<dt>Hack 15 - PNG fix</dt>
 					<dd>fix pngs for correct display in IE6
 					  <br /> <br />
-					  
-					  <div style="position:relative">
-					    
-					    <!-- wassup gradient. -->
-					    <div style="position:absolute; height: 40px; background-color: #444444; background-image: -moz-linear-gradient(top, #444444, #999999);  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #444444),color-stop(1, #999999));  filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#444444', EndColorStr='#999999');  ">
-					      
-					      
-  					  <div class="png_bg" style="border:1px solid #ddd; width:100px; padding:10px 10px 10px 50px;  display:inline-block; background:url(test_tubes.png) no-repeat 5px center;">
-                <img src="internet_explorer.png" alt="IE is so awesome" />
-              </div>
-            </div>
-					  
-					</dd>	
+
+					<div style="position:relative">
+						
+						<!-- wassup gradient. -->
+						<div style="
+							position:absolute; height: 40px; background-color: #444444; background-image: -moz-linear-gradient(top, #444444, #999999);
+							background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #444444),color-stop(1, #999999));
+							filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#444444', EndColorStr='#999999');
+						">
+						  
+							<div class="png_bg" style="
+								border:1px solid #ddd; width:100px; padding:10px 10px 10px 50px;
+								display:inline-block; background:url(test_tubes.png) no-repeat 5px center;
+							">
+								<img src="internet_explorer.png" alt="IE is so awesome" />
+							</div>
+						</div>
+					</div>					  
+				</dd>	
 			</dl>
     </div>
     <footer>
@@ -222,36 +228,36 @@
   <!-- Javascript at the bottom for fast page loading -->
 
   <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="../js/libs/jquery-1.4.4.js"%3E%3C/script%3E'))</script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.js"></script>
+  <script>!window.jQuery && document.write(unescape("%3Cscript src='../js/libs/jquery-1.5.0.js'%3E%3C/script%3E"))</script>
 
 
   <script>
-    $('#expand').click(function() {
-      $('#container').css('height','auto').css('overflow','');
+    $("#expand").click(function() {
+      $("#container").css("height","auto").css("overflow","");
 			return false;
     });
 		
-		$('#shorten').click(function() {
-      $('#container').css('height','300px').css('overflow','hidden');
+		$("#shorten").click(function() {
+      $("#container").css("height","300px").css("overflow","hidden");
 			return false;
     });
 		
-		$('#atag').click(function() {
+		$("#atag").click(function() {
 			return false;
     });
 		
-		$('.show').click(function(){
-		  $('.show').addClass('current')
-		  $('.hide').removeClass('current');
+		$(".show").click(function(){
+		  $(".show").addClass("current")
+		  $(".hide").removeClass("current");
 			showStyle();
 			return false;
 		});
-		$('.hide').click(function(){
-		  $('.hide').addClass('current')
-		  $('.show').removeClass('current');
+		$(".hide").click(function(){
+		  $(".hide").addClass("current")
+		  $(".show").removeClass("current");
 		  // freeze the size of each tests so the page doesnt jump.
-		  $('dd').each(function(){
+		  $("dd").each(function(){
         $(this).height( $(this).height() );
       });
       
@@ -259,53 +265,48 @@
 			return false;
 		});
 		
-		var linkTags = $('link');
+		var linkTags = $("link");
 		function hideStyle() {
 		  // tee hee
-			$('link[href*=style.css]').attr('media','braille');
+			$("link[href*='style.css']").attr("media","braille");
 		}
 		function showStyle() {
-			$('link[href*=style.css]').attr('media','all');
+			$("link[href*='style.css']").attr("media","all");
 		}
 		
-		$('.preventDefault').click(function() {
+		$(".preventDefault").click(function() {
 			return false;
 		});
 		
 		$(function(){
-		  $('.show').addClass('current');
+		  $(".show").addClass("current");
 		})
   </script>
+
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.js"></script>
+  <script>window.jQuery || document.write("<script src='../js/libs/jquery-1.5.2.min.js'>\x3C/script>")</script>
 
 
   <!-- scripts concatenated and minified via ant build script-->
   <script src="../js/plugins.js"></script>
   <script src="../js/script.js"></script>
-  <!-- end concatenated and minified scripts-->
+  <!-- end scripts-->
 
 
   <!--[if lt IE 7 ]>
     <script src="../js/libs/dd_belatedpng.js"></script>
-    <script> DD_belatedPNG.fix('img, .png_bg'); //fix any <img> or .png_bg background-images </script>
+    <script> DD_belatedPNG.fix("img, .png_bg"); //fix any <img> or .png_bg background-images </script>
   <![endif]-->
 
-  <!-- yui profiler and profileviewer - remove for production -->
-  <script src="../js/profiling/yahoo-profiling.min.js"></script>
-  <script src="../js/profiling/config.js"></script>
-  <!-- end profiling code -->
 
-
-  <!-- asynchronous google analytics: mathiasbynens.be/notes/async-analytics-snippet 
-       change the UA-XXXXX-X to be your site's ID -->
+  <!-- mathiasbynens.be/notes/async-analytics-snippet Change UA-XXXXX-X to be your site's ID -->
   <script>
-   var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
-   (function(d, t) {
-    var g = d.createElement(t),
-        s = d.getElementsByTagName(t)[0];
-    g.async = true;
-    g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g, s);
-   })(document, 'script');
+    var _gaq=[["_setAccount","UA-XXXXX-X"],["_trackPageview"]];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+    g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
+    s.parentNode.insertBefore(g,s)}(document,"script"));
   </script>
 
   </body>
