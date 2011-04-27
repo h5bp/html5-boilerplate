@@ -1,0 +1,65 @@
+/*
+Theme Name: The HTML5 Boilerplate
+Theme URI: http://github.com/zencoder/html5-boilerplate-for-wordpress
+Description: Based on the <a href="http://html5boilerplate.com">HTML5 Boilerplate</a> and Bruce Lawson's <a href="http://html5doctor.com/designing-a-blog-with-html5/">Designing a Blog with HTML5</a>. The sole purpose of this theme is to save developers the time it takes to apply the HTML5 Boilerplate to WordPress. See the README for instructions. The "HTML5 Boilerplate" name is used with permission from Paul Irish.
+Version: 1.0
+Author: Steve Heffernan
+Author URI: http://steveheffernan.com/
+Tags: white, two-columns
+License: GNU General Public License v2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+*/
+
+/*
+HTML Boilerplate styles can be found in the html5-boilerplate/css directory.
+*/
+
+/* WordPress Required Styles */
+.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.alignleft {
+	float: left;
+}
+
+.alignright {
+	float: right;
+}
+
+.wp-caption {
+	border: 1px solid #ddd;
+	text-align: center;
+	background-color: #f3f3f3;
+	padding-top: 4px;
+	margin: 10px;
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.wp-caption img {
+	margin: 0;
+	padding: 0;
+	border: 0 none;
+}
+
+.wp-caption-dd {
+	font-size: 11px;
+	line-height: 17px;
+	padding: 0 4px 5px;
+	margin: 0;
+}
+
+.sticky {
+	background: #f7f7f7;
+	padding: 0 10px 10px;
+}
+	
+.sticky h2 {
+	padding-top: 10px;
+}

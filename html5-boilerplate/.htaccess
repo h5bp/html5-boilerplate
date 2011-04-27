@@ -1,0 +1,186 @@
+# Apache configuration file
+# httpd.apache.org/docs/2.2/mod/quickreference.html
+
+# Techniques in here adapted from all over, 
+#   including Kroc Camen: camendesign.com/.htaccess
+
+
+# Force the latest IE version, in various cases when it may fall back to IE7 mode
+#  github.com/rails/rails/commit/123eb25#commitcomment-118920
+# Use ChromeFrame if it's installed for a better experience for the poor IE folk
+<IfModule mod_setenvif.c>
+  <IfModule mod_headers.c>
+    BrowserMatch MSIE ie
+    Header set X-UA-Compatible "IE=Edge,chrome=1" env=ie
+  </IfModule>
+</IfModule>
+
+
+# hacks.mozilla.org/2009/07/cross-site-xmlhttprequest-with-cors/
+# Disabled. Uncomment to serve cross-domain ajax requests
+#<IfModule mod_headers.c>
+#  Header set Access-Control-Allow-Origin "*"
+#</IfModule>
+
+
+
+
+# allow access from all domains for webfonts
+# alternatively you could only whitelist
+#   your subdomains like "sub.domain.com"
+
+<FilesMatch "\.(ttf|otf|eot|woff|font.css)$">
+  <IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+  </IfModule>
+</FilesMatch>
+
+
+# video
+AddType video/ogg  ogg ogv
+AddType video/mp4  mp4
+AddType video/webm webm
+
+# Proper svg serving. Required for svg webfonts on iPad
+#   twitter.com/FontSquirrel/status/14855840545
+AddType image/svg+xml                 svg svgz 
+
+# webfonts
+AddType application/vnd.ms-fontobject eot
+AddType font/ttf                      ttf
+AddType font/otf                      otf
+AddType font/x-woff                   woff
+
+AddType text/cache-manifest           manifest
+
+# allow concatenation from within specific js and css files 
+
+# e.g. Inside of script.combined.js you could have
+#   <!--#include file="jquery-1.4.2.js" -->
+#   <!--#include file="jquery.idletimer.js" -->
+# and they would be included into this single file
+
+# this is not in use in the boilerplate as it stands. you may
+#   choose to name your files in this way for this advantage
+#   or concatenate and minify them manually.
+# Disabled by default.
+
+# <FilesMatch "\.combined\.(js|css)$">
+#         Options +IncludesNOEXEC
+#         SetOutputFilter INCLUDES
+# </FilesMatch>
+
+
+
+
+
+# gzip compression.
+<IfModule mod_deflate.c>
+
+# html, xml, css, and js:
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript text/javascript application/javascript application/json 
+
+# webfonts and svg:
+  <FilesMatch "\.(ttf|otf|eot|svg)$" >
+    SetOutputFilter DEFLATE
+  </FilesMatch>
+</IfModule>
+
+
+
+
+# these are pretty far-future expires headers
+# they assume you control versioning with cachebusting query params like
+#   <script src="application.js?20100608">
+# additionally, consider that outdated proxies may miscache 
+#   www.stevesouders.com/blog/2008/08/23/revving-filenames-dont-use-querystring/
+
+# if you don't use filenames to version, lower the css and js to something like
+#   "access plus 1 week" or so
+
+<IfModule mod_expires.c>
+  Header set cache-control: public
+  ExpiresActive on
+
+# Perhaps better to whitelist expires rules? Perhaps.
+  ExpiresDefault                          "access plus 1 month"
+
+# cache.manifest needs re-reqeusts in FF 3.6 (thx Remy ~Introducing HTML5)
+  ExpiresByType text/cache-manifest       "access plus 0 seconds"
+
+# your document html 
+  ExpiresByType text/html                  "access"
+
+# rss feed
+  ExpiresByType application/rss+xml       "access plus 1 hour"
+
+# favicon (cannot be renamed)
+  ExpiresByType image/vnd.microsoft.icon  "access plus 1 week" 
+
+# media: images, video, audio
+  ExpiresByType image/png                 "access plus 1 month"
+  ExpiresByType image/jpg                 "access plus 1 month"
+  ExpiresByType image/jpeg                "access plus 1 month"
+  ExpiresByType video/ogg                 "access plus 1 month"
+  ExpiresByType audio/ogg                 "access plus 1 month"
+  ExpiresByType video/mp4                 "access plus 1 month"
+  
+# webfonts
+  ExpiresByType font/ttf                  "access plus 1 month"
+  ExpiresByType font/woff                 "access plus 1 month"
+  ExpiresByType image/svg+xml             "access plus 1 month"
+  
+# css and javascript
+  ExpiresByType text/css                  "access plus 1 month"
+  ExpiresByType application/javascript    "access plus 1 month"
+  ExpiresByType text/javascript           "access plus 1 month"
+</IfModule>
+
+
+
+
+# Since we're sending far-future expires, we don't need ETags for
+# static content.
+#   developer.yahoo.com/performance/rules.html#etags
+FileETag None
+
+
+
+
+# Allow cookies to be set from iframes (for IE only)
+# If needed, uncomment and specify a path or regex in the Location directive
+
+# <IfModule mod_headers.c>
+#   <Location />
+#     Header set P3P "policyref=\"/w3c/p3p.xml\", CP=\"IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT\""
+#   </Location>
+# </IfModule>
+
+
+# you probably want www.example.com to forward to example.com -- shorter URLs are sexier.
+#   no-www.org/faq.php?q=class_b
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+
+# without -MultiViews, Apache will give a 404 for a rewrite if a folder of the same name does not exist (e.g. “/blog/hello”)
+#   webmasterworld.com/apache/3808792.htm
+Options -MultiViews 
+# -Indexes will have Apache block users from browsing folders without a default document
+# Options -Indexes
+
+
+
+# custom 404 page
+ErrorDocument 404 /404.html
+
+
+
+# use utf-8 encoding for anything served text/plain or text/html
+AddDefaultCharset utf-8
+# force utf-8 for a number of file formats
+AddCharset utf-8 .html .css .js .xml .json .rss
+
+
+

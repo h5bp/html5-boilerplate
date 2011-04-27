@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE cross-domain-policy SYSTEM "http://www.macromedia.com/xml/dtds/cross-domain-policy.dtd">
+<cross-domain-policy>
+    <!--
+        If you host a crossdomain.xml file with allow-access-from domain=“*” 
+        and don’t understand all of the points described here, you probably 
+        have a nasty security vulnerability. ~ simon willison 
+        
+        Please read: www.adobe.com/devnet/flashplayer/articles/cross_domain_policy.html
+    
+   <allow-access-from domain="*" to-ports="*" />
+   
+   -->
+</cross-domain-policy>
+
+
