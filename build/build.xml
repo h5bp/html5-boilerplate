@@ -581,15 +581,15 @@
         </apply>
     </target>
 
-
-    <target name="-serverconfig" description="(PRIVATE) Upgrades expires headers">
-        <echo message="Upgrading expires header timeouts for js/css to 1yr..."/>
-        <if>
+    <target name="-serverconfig.init">
+        <condition property="serverconfig">
             <available file="./${dir.publish}/${file.serverconfig}"/>
-            <then>
-                <replace file="./${dir.publish}/${file.serverconfig}" token="access plus 2 months" value="access plus 1 year"/>
-            </then>
-        </if>
+        </condtion>
+    </target>
+
+    <target name="-serverconfig" description="(PRIVATE) Upgrades expires headers" depends="-serverconfig.init" if="serverconfig">
+        <echo message="Upgrading expires header timeouts for js/css to 1yr..."/>
+        <replace file="./${dir.publish}/${file.serverconfig}" token="access plus 2 months" value="access plus 1 year"/>
     </target>
 
     
@@ -618,43 +618,56 @@
         <replace token="style.css" value="style-${build.number}.min.css" dir="${dir.publish}" includes="${page-files}"/>
     </target>
     
+
+    <target name="-opt.png.init" description="">
+        <condition property="unix">
+            <and>
+                <os family="unix"/>
+                <available file="optipng" filepath="${ENV.PATH}"/>
+            </and>
+        </condition>
+        <condition property="windows">
+            <os family="windows"/>
+        </condition>
+        <condition property="optpng">
+            <or>
+                <isset property="unix"/>
+                <isset property="windows"/>
+            </or>
+        </condition>
+        <condition property="nooptipng">
+            <and>
+                <not><isset property="unix"/></not>
+                <not><isset property="windows"/></not>
+            </and>
+        </condition>
+    </target>
     
     <!-- IMAGES -->
-    <target name="-imagespng" description="(PRIVATE) Optimizes .png images using optipng">
-        <echo message="Optimizing images..."/>
-        <echo message="This part might take a while. But everything else is already done."/>
-        <echo message=" "/>
-        
-        
-        <echo message="First, we run optipng on the .png files..."/>
-        
-        <!-- osfamily=unix is actually true on OS X as well -->
-        <!-- On *nix's and OS X, check for optipng and give a helpful message if it's not installed -->
-        <if>
-            <and>
-                <os family="unix" />
-                <available file="optipng" filepath="${ENV.PATH}" />
-            </and>
-            <then>
-                <apply executable="optipng" osfamily="unix">
-                    <arg value="-quiet"/>
-                    <arg value="-o7"/>
-                    <fileset dir="./${dir.publish}/">
-                        <include name="**/*.png"/>
-                    </fileset>
-                </apply>
-            </then>
-            <elseif>
-                <os family="unix" />
-                <then>
-                    <echo message="*** optipng NOT INSTALLED. SKIPPING OPTIMIZATION OF PNGs." />
-                    <echo message="*** Install optipng to enable png optimization." />
-                    <echo message="*** For instructions see 'Dependencies' at: http://html5boilerplate.com/docs/#Build-script#dependencies" />
-                </then>
-            </elseif>
-        </if>
+    <target name="-imagespng" description="(PRIVATE) Optimizes .png images using optipng" depends="-opt.png.init, -imagespng.unix, -imagespng.windows, -nooptipng"/>
 
-        <apply executable="tools/optipng-0.6.4-exe/optipng.exe" osfamily="windows">
+    <target name="-nooptipng" if="nooptipng">
+        <echo message="*** optipng NOT INSTALLED. SKIPPING OPTIMIZATION OF PNGs." />
+        <echo message="*** Install optipng to enable png optimization." />
+        <echo message="*** For instructions see 'Dependencies' at: http://html5boilerplate.com/docs/#Build-script#dependencies" />
+    </target>
+
+    <target name="-imagespng.unix" if="unix">
+        <echo message="Optimizing images...[optipng]"/>
+        <echo message="This part might take a while. But everything else is already done."/>
+        <apply executable="optipng">
+            <arg value="-quiet"/>
+            <arg value="-o7"/>
+            <fileset dir="./${dir.publish}/">
+                <include name="**/*.png"/>
+            </fileset>
+        </apply>
+    </target>
+
+    <target name="-imagespng.windows" if="windows">
+        <echo message="Optimizing images...[optipng]"/>
+        <echo message="This part might take a while. But everything else is already done."/>
+        <apply executable="tools/optipng-0.6.4-exe/optipng.exe">
             <arg value="-o7"/>
             <arg value="-quiet"/>
             <fileset dir="./${dir.publish}/">
@@ -662,7 +675,6 @@
             </fileset>
         </apply>
     </target>
-
 
     <target name="-imagesjpg" description="(PRIVATE) Optimizes .jpg images using jpegtan">
         <echo message="Now, we clean up those jpgs..."/>
