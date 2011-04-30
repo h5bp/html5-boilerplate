@@ -704,7 +704,7 @@
         <replace token="style.css" value="style-${build.number}.min.css" dir="${dir.publish}" includes="${page-files}"/>
 
         <!-- Remove CSS files specified in 'file.stylesheets' from HTML -->
-        <foreach list="${file.stylesheets}" param="css_file" target="-css-remove-concatenated-stylesheets" />
+        <foreach list="${file.stylesheets}" param="css_file" target="-css-remove-concatenated-stylesheets" trim="true" />
     </target>
 
     <target name="-css-remove-concatenated-stylesheets" description="Removes CSS file 'css_file' from all page files">
