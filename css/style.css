@@ -55,15 +55,12 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
 
-input, select { vertical-align: middle; }
-
 
 /**
  * Font normalization inspired by YUI Library's fonts.css: developer.yahoo.com/yui/
  */
 
 body { font:13px/1.231 sans-serif; *font-size:small; } /* Hack retained to preserve specificity */
-select, input, textarea, button { font:99% sans-serif; }
 
 /* Normalize monospace sizing:
    en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome */
@@ -110,31 +107,27 @@ pre {
 
 .ie6 legend, .ie7 legend { margin-left: -7px; } 
 
-/* Align checkboxes, radios, text inputs with their label by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css  */
-input[type="radio"] { vertical-align: text-bottom; }
-input[type="checkbox"] { vertical-align: bottom; }
-.ie7 input[type="checkbox"] { vertical-align: baseline; }
-.ie6 input { vertical-align: text-bottom; }
+/* 1) Make inputs and buttons play nice in IE: www.viget.com/inspire/styling-the-button-element-in-internet-explorer/
+   2) WebKit browsers add a 2px margin outside the chrome of form elements. 
+      Firefox adds a 1px margin above and below textareas 
+   3) Set font-size to match <body>'s, and font-family to sans-serif 
+   4) Align to baseline */
+button, input, select, textarea { width: auto; overflow: visible; margin: 0; font-size: 100%; font-family: sans-serif; vertical-align: baseline; }
+
+/* 1) Remove default scrollbar in IE: www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/
+   2) Align to text-top */
+textarea { overflow: auto; vertical-align:text-top; }
 
 /* Hand cursor on clickable input elements */
 label, input[type="button"], input[type="submit"], input[type="image"], button { cursor: pointer; }
-
-/* 1) Make inputs and buttons play nice in IE: www.viget.com/inspire/styling-the-button-element-in-internet-explorer/
-   2) WebKit browsers add a 2px margin outside the chrome of form elements. 
-      Firefox adds a 1px margin above and below textareas */
-button, input, select, textarea { width: auto; overflow: visible; margin: 0; }
-
-textarea { overflow: auto; } /* www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
 
 /* Remove extra padding and inner border in Firefox */
 input::-moz-focus-inner,
 button::-moz-focus-inner { border: 0; padding: 0; }
 
 /* Colors for form validity */
-input:valid, textarea:valid   {  }
-input:invalid, textarea:invalid {
-   border-radius: 1px; -moz-box-shadow: 0px 0px 5px red; -webkit-box-shadow: 0px 0px 5px red; box-shadow: 0px 0px 5px red;
-}
+input:valid, textarea:valid {  }
+input:invalid, textarea:invalid { border-radius: 1px; -moz-box-shadow: 0px 0px 5px red; -webkit-box-shadow: 0px 0px 5px red; box-shadow: 0px 0px 5px red; }
 .no-boxshadow input:invalid, .no-boxshadow textarea:invalid { background-color: #f0dddd; }
 
 /* Bicubic resizing for non-native sized IMG:
