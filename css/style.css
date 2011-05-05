@@ -63,8 +63,11 @@ input, select { vertical-align: middle; }
  * Font normalization inspired by YUI Library's fonts.css: developer.yahoo.com/yui/
  */
 
-body { font:13px/1.231 sans-serif; *font-size:small; } /* Hack retained to preserve specificity */
-select, input, textarea, button { font:99% sans-serif; }
+body, select, input, textarea, button { font: 100% sans-serif; /* Replace sans-serif with your font stack */ }
+
+/* Set your base font-size & line-height here */
+body { font-size: 13px; *font-size: small; } /* Hack retained to preserve specificity */
+body, textarea { line-height: 1.231; }
 
 /* Normalize monospace sizing:
    en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome */
