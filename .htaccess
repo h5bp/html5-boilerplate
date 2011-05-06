@@ -119,7 +119,7 @@ AddType text/x-vcard                   vcf
 #   or concatenate and minify them manually.
 # Disabled by default.
 
-# <FilesMatch "\.combined\.((pack\.|min\.)?js|css)$">
+# <FilesMatch "\.combined\.(js|css)$">
 #         Options +Includes
 #         SetOutputFilter INCLUDES
 # </FilesMatch>
@@ -384,7 +384,7 @@ FileETag None
 # <IfModule mod_rewrite.c>
 #   RewriteCond %{REQUEST_FILENAME} !-f
 #   RewriteCond %{REQUEST_FILENAME} !-d
-#   RewriteRule ^(.+)\.(\d+)\.(pack\.|min\.)?(js|css|png|jpg|gif)$ $1.$3$4 [L]
+#   RewriteRule ^(.+)\.(\d+)\.(js|css|png|jpg|gif)$ $1.$3 [L]
 # </IfModule>
 
 
