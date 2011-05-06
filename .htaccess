@@ -89,7 +89,7 @@ AddEncoding gzip                       svgz
                                        
 # webfonts                             
 AddType application/vnd.ms-fontobject  eot
-AddType font/truetype                  ttf
+AddType font/truetype                  ttf  # Google Web Fonts uses font/ttf, btw
 AddType font/opentype                  otf
 AddType application/x-font-woff        woff
 
@@ -119,7 +119,7 @@ AddType text/x-vcard                   vcf
 #   or concatenate and minify them manually.
 # Disabled by default.
 
-# <FilesMatch "\.combined\.(js|css)$">
+# <FilesMatch "\.combined\.((pack\.|min\.)?js|css)$">
 #         Options +Includes
 #         SetOutputFilter INCLUDES
 # </FilesMatch>
@@ -127,7 +127,7 @@ AddType text/x-vcard                   vcf
 
 
 # ----------------------------------------------------------------------
-# gzip compression
+# static asset compression
 # ----------------------------------------------------------------------
 
 <IfModule mod_deflate.c>
@@ -180,8 +180,8 @@ AddType text/x-vcard                   vcf
 <IfModule mod_expires.c>
   ExpiresActive on
 
-# Perhaps better to whitelist expires rules? Perhaps.
-  ExpiresDefault                          "access plus 1 month"
+# I wouldn't put a default expires, IMO, not that safe
+# (maybe I'm paranoid though...?)
 
 # cache.appcache needs re-requests in FF 3.6 (thx Remy ~Introducing HTML5)
   ExpiresByType text/cache-manifest       "access plus 0 seconds"
@@ -223,6 +223,7 @@ AddType text/x-vcard                   vcf
 # css and javascript
   ExpiresByType text/css                  "access plus 2 months"
   ExpiresByType application/javascript    "access plus 2 months"
+  ExpiresByType application/x-javascript  "access plus 2 months"
   ExpiresByType text/javascript           "access plus 2 months"
   
   <IfModule mod_headers.c>
@@ -241,6 +242,8 @@ AddType text/x-vcard                   vcf
 # static content.
 #   developer.yahoo.com/performance/rules.html#etags
 FileETag None
+# You could alternately say something like MTime Size, so you simply 304
+# if those haven't changed after the Expires time runs out
 
 
 
@@ -346,6 +349,9 @@ FileETag None
 # Option 1:
 # Rewrite "domain.com/foo -> domain.com/foo/"
 
+# REQUEST_URI should never contain the #hash, AFAIK
+# http://tools.ietf.org/html/rfc3986#section-3.4
+
 <IfModule mod_rewrite.c>
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_URI} !(\.[a-zA-Z0-9]{1,5}|/|#(.*))$
@@ -378,7 +384,7 @@ FileETag None
 # <IfModule mod_rewrite.c>
 #   RewriteCond %{REQUEST_FILENAME} !-f
 #   RewriteCond %{REQUEST_FILENAME} !-d
-#   RewriteRule ^(.+)\.(\d+)\.(js|css|png|jpg|gif)$ $1.$3 [L]
+#   RewriteRule ^(.+)\.(\d+)\.(pack\.|min\.)?(js|css|png|jpg|gif)$ $1.$3$4 [L]
 # </IfModule>
 
 
