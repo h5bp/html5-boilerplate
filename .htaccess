@@ -74,6 +74,10 @@
 # Proper MIME type for all files
 # ----------------------------------------------------------------------
 
+# JavaScript - normalize to standard type (it's sniffed in IE anyways)
+# http://tools.ietf.org/html/rfc4329#section-7.2
+AddType application/javascript         js
+
 # audio
 AddType audio/ogg                      oga ogg
 
@@ -143,8 +147,8 @@ AddType text/x-vcard                   vcf
 # html, txt, css, js, json, xml, htc:
 <IfModule filter_module>
   FilterDeclare   COMPRESS
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type /text/(html|css|javascript|plain|x(ml|-component))/
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type /application/(javascript|json|xml|x-javascript)/
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type /text/(html|css|plain|x(ml|-component))/
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type /application/(javascript|json|xml)/
   FilterChain     COMPRESS
   FilterProtocol  COMPRESS  change=yes;byteranges=no
 </IfModule>
@@ -152,7 +156,7 @@ AddType text/x-vcard                   vcf
 <IfModule !mod_filter.c>
   # Legacy versions of Apache
   AddOutputFilterByType DEFLATE text/html text/plain text/css application/json
-  AddOutputFilterByType DEFLATE text/javascript application/javascript application/x-javascript 
+  AddOutputFilterByType DEFLATE application/javascript
   AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
 </IfModule>
 
@@ -223,8 +227,6 @@ AddType text/x-vcard                   vcf
 # css and javascript
   ExpiresByType text/css                  "access plus 2 months"
   ExpiresByType application/javascript    "access plus 2 months"
-  ExpiresByType application/x-javascript  "access plus 2 months"
-  ExpiresByType text/javascript           "access plus 2 months"
   
   <IfModule mod_headers.c>
     Header append Cache-Control "public"
