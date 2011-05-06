@@ -105,12 +105,12 @@ pre {
   padding: 15px;
 }
 
-.ie6 legend, .ie7 legend { margin-left: -7px; } 
+.ie6 legend, .ie7 legend { margin-left: -7px; }
 
 /* 1) Make inputs and buttons play nice in IE: www.viget.com/inspire/styling-the-button-element-in-internet-explorer/
-   2) WebKit browsers add a 2px margin outside the chrome of form elements. 
-      Firefox adds a 1px margin above and below textareas 
-   3) Set font-size to match <body>'s, and font-family to sans-serif 
+   2) WebKit browsers add a 2px margin outside the chrome of form elements.
+      Firefox adds a 1px margin above and below textareas
+   3) Set font-size to match <body>'s, and font-family to sans-serif
    4) Align to baseline */
 button, input, select, textarea { width: auto; overflow: visible; margin: 0; font-size: 100%; font-family: sans-serif; vertical-align: baseline; }
 
@@ -120,6 +120,9 @@ textarea { overflow: auto; vertical-align:text-top; }
 
 /* Hand cursor on clickable input elements */
 label, input[type="button"], input[type="submit"], input[type="image"], button { cursor: pointer; }
+
+/* Hand cursor on elements inside anchor */
+.ie6 a *, .ie7 a *, .ie8 a * { cursor: pointer; }
 
 /* Remove extra padding and inner border in Firefox */
 input::-moz-focus-inner,
@@ -158,7 +161,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: bold; }
 /**
  * Primary styles
  *
- * Author: 
+ * Author:
  */
 
 
