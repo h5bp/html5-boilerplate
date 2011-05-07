@@ -67,6 +67,12 @@
     g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
     s.parentNode.insertBefore(g,s)}(document,"script"));
     window.onerror=function(m,u,l){_gaq.push(["_trackEvent","error",m,u,l]);};
+    $("body").delegate("a", "click", function(){
+      $this = $(this);
+      if($this.attr("hostname") !== window.location.hostname){
+        _gaq.push(["_trackEvent", "links", "external", $this.attr("href"), 0]);
+      }
+    });
   </script>
 
 </body>
