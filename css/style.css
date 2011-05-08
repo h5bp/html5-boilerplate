@@ -71,9 +71,10 @@ pre, code, kbd, samp { font-family: monospace, sans-serif; }
  * Minimal base styles.
  */
 
-/* Always force a scrollbar in non-IE */
-html { overflow-y: scroll; }
-
+/* 1) Always force a scrollbar in non-IE 
+   2) Remove iOS text size adjust without disabling user zoom: www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
+html { overflow-y: scroll; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
+  
 /* j.mp/webkit-tap-highlight-color */
 a:link { -webkit-tap-highlight-color: #FF5E99; }
 
@@ -206,29 +207,21 @@ h1, h2, h3, h4, h5, h6 { font-weight: bold; }
 
 
 /**
- * Media queries for responsive design.
- *
- * These follow after primary styles so they will successfully override.
+ * Placeholder media queries for responsive design. Modify as design requires.
+ * These follow after, and will override, the primary ('mobile first') styles
+ * The closing /mediaquery comment is required by respond.js min/max-width Media Query polyfill
  */
 
-@media all and (orientation:portrait) {
-  /* Style adjustments for portrait mode goes here */
+@media only screen and (min-width: 480px) {
+  /* Style adjustments for viewports 480px and over go here */
 
-}
+}/*/mediaquery*/
 
-@media all and (orientation:landscape) {
-  /* Style adjustments for landscape mode goes here */
+@media only screen and (min-width: 768px) {
+  /* Style adjustments for viewports 768px and over go here */
 
-}
+}/*/mediaquery*/
 
-/* Grade-A Mobile Browsers (Opera Mobile, Mobile Safari, Android Chrome)
-   consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
-@media screen and (max-device-width: 480px) {
-
-
-  /* Uncomment if you don't want iOS and WinMobile to mobile-optimize the text for you: j.mp/textsizeadjust */
-  /* html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } */
-}
 
 
 /**
