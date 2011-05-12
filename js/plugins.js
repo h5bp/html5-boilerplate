@@ -5,8 +5,12 @@ window.log = function(){
   log.history = log.history || [];   // store logs to an array for reference
   log.history.push(arguments);
   if(this.console) {
-      arguments.callee = arguments.callee.caller;
-      console.log( Array.prototype.slice.call(arguments) );
+    arguments.callee = arguments.callee.caller;
+    if(typeof console.log === 'object'){
+        Function.prototype.apply.call(console.log, console, Array.prototype.slice.call(arguments))
+    } else {
+        console.log.apply(console, Array.prototype.slice.call(arguments));
+    }
   }
 };
 // make it safe to use console.log always
