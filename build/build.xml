@@ -24,147 +24,61 @@
     <var name="page-files" value="${file.pages}, ${file.pages.default.include}"/>
 
 
+    <!-- set properties depending on env -->
+    <target name="init">
+        <condition property="dev">
+            <equals arg1="${env}" arg2="dev"/>
+        </condition>
+        <condition property="test">
+            <equals arg1="${env}" arg2="test"/>
+        </condition>
+        <condition property="production">
+            <and>
+                <not><isset property="dev"/></not>
+                <not><isset property="test"/></not>
+            </and>
+        </condition>
+    </target>
     
     <!--
     *************************************************
     * BASE TARGETS                                  *
     *************************************************
     -->
-    <target name="basics">
-    <if>
-        <equals arg1="${env}" arg2="dev"/>
-        <then>
-            <!-- Build a dev environment -->
-            <echo message="Building a Development Environment..."/>
-            <antcall target="-basics.dev"/>
-        </then>
+    <target name="basics" depends="init, basics-dev, basics-test, basics-production"/>
 
-        <elseif>
-            <equals arg1="${env}" arg2="test"/>
-            <then>
-                <!-- Build a test environment -->
-                <echo message="Building a Test Environment..."/>
-                <antcall target="-basics.test"/>
-            </then>
-        </elseif>
+    <!-- call correct target using dependencies instead of antcall -->
+    <target name="basics-dev" if="dev" depends="-basics.dev"/>
+    <target name="basics-test" if="test" depends="-basics.test"/>
+    <target name="basics-production" if="production" depends="-basics.production"/>
 
-        <else>
-            <!-- Build a production environment -->
-            <echo message="Building a Production Environment..."/>
-            <antcall target="-basics.production"/>
-        </else>
-    </if>
-    </target>
+    <target name="text" depends="init, text-dev, text-test, text-production, -jpgcopy"/>
 
+    <!-- call correct target using dependencies instead of antcall -->
+    <target name="text-dev" if="dev" depends="-text.dev"/>
+    <target name="text-test" if="test" depends="-text.test"/>
+    <target name="text-production" if="production" depends="-text.production"/>
 
-    <target name="text">
-    <if>
-        <equals arg1="${env}" arg2="dev"/>
-        <then>
-            <!-- Build a dev environment -->
-            <echo message="Building a Development Environment..."/>
-            <antcall target="-text.dev"/>
-        </then>
+    <target name="buildkit" depends="init, buildkit-dev, buildkit-test, buildkit-production"/>
 
-        <elseif>
-            <equals arg1="${env}" arg2="test"/>
-            <then>
-                <!-- Build a test environment -->
-                <echo message="Building a Test Environment..."/>
-                <antcall target="-text.test"/>
-            </then>
-        </elseif>
+    <!-- call correct target using dependencies instead of antcall -->
+    <target name="buildkit-dev" if="dev" depends="-buildkit.dev"/>
+    <target name="buildkit-test" if="test" depends="-buildkit.test"/>
+    <target name="buildkit-production" if="production" depends="-buildkit.production"/>
 
-        <else>
-            <!-- Build a production environment -->
-            <echo message="Building a Production Environment..."/>
-            <antcall target="-text.production"/>
-        </else>
-    </if>
-    <!-- funky order due to jpegtran being a jerk. See comment at top of imagesjpg task -->
-    <antcall target="-jpgcopy"/>
-    </target>
+    <target name="build" depends="init, build-dev, build-test, build-production"/>
 
+    <!-- call correct target using dependencies instead of antcall -->
+    <target name="build-dev" if="dev" depends="-build.dev"/>
+    <target name="build-test" if="test" depends="-build.test"/>
+    <target name="build-production" if="production" depends="-build.production"/>
 
-    <target name="buildkit">
-    <if>
-        <equals arg1="${env}" arg2="dev"/>
-        <then>
-            <!-- Build a dev environment -->
-            <echo message="Building a Development Environment..."/>
-            <antcall target="-buildkit.dev"/>
-        </then>
+    <target name="minify" depends="init, minify-dev, minify-test, minify-production"/>
 
-        <elseif>
-            <equals arg1="${env}" arg2="test"/>
-            <then>
-                <!-- Build a test environment -->
-                <echo message="Building a Test Environment..."/>
-                <antcall target="-buildkit.test"/>
-            </then>
-        </elseif>
-
-        <else>
-            <!-- Build a production environment -->
-            <echo message="Building a Production Environment..."/>
-            <antcall target="-buildkit.production"/>
-        </else>
-    </if>
-    </target>
-
-
-    <target name="build">
-    <if>
-        <equals arg1="${env}" arg2="dev"/>
-        <then>
-            <!-- Build a dev environment -->
-            <echo message="Building a Development Environment..."/>
-            <antcall target="-build.dev" />
-        </then>
-
-        <elseif>
-            <equals arg1="${env}" arg2="test"/>
-            <then>
-                <!-- Build a test environment -->
-                <echo message="Building a Test Environment..."/>
-                <antcall target="-build.test" />
-            </then>
-        </elseif>
-
-        <else>
-            <!-- Build a production environment -->
-            <echo message="Building a Production Environment..."/>
-            <antcall target="-build.production" />
-        </else>
-    </if>
-    </target>
-
-
-    <target name="minify">
-    <if>
-        <equals arg1="${env}" arg2="dev"/>
-        <then>
-            <!-- Build a dev environment -->
-            <echo message="Building a Development Environment..."/>
-            <antcall target="-minify.dev"/>
-        </then>
-
-        <elseif>
-            <equals arg1="${env}" arg2="test"/>
-            <then>
-                <!-- Build a test environment -->
-                <echo message="Building a Test Environment..."/>
-                <antcall target="-minify.test"/>
-            </then>
-        </elseif>
-
-        <else>
-            <!-- Build a production environment -->
-            <echo message="Building a Production Environment..."/>
-            <antcall target="-minify.production"/>
-        </else>
-    </if>
-    </target>
+    <!-- call correct target using dependencies instead of antcall -->
+    <target name="minify-dev" if="dev" depends="-minify.dev"/>
+    <target name="minify-test" if="test" depends="-minify.test"/>
+    <target name="minify-production" if="production" depends="-minify.production"/>
     
     
     <!--
@@ -667,15 +581,15 @@
         </apply>
     </target>
 
-
-    <target name="-serverconfig" description="(PRIVATE) Upgrades expires headers">
-        <echo message="Upgrading expires header timeouts for js/css to 1yr..."/>
-        <if>
+    <target name="-serverconfig.init">
+        <condition property="serverconfig">
             <available file="./${dir.publish}/${file.serverconfig}"/>
-            <then>
-                <replace file="./${dir.publish}/${file.serverconfig}" token="access plus 2 months" value="access plus 1 year"/>
-            </then>
-        </if>
+        </condtion>
+    </target>
+
+    <target name="-serverconfig" description="(PRIVATE) Upgrades expires headers" depends="-serverconfig.init" if="serverconfig">
+        <echo message="Upgrading expires header timeouts for js/css to 1yr..."/>
+        <replace file="./${dir.publish}/${file.serverconfig}" token="access plus 2 months" value="access plus 1 year"/>
     </target>
 
     
@@ -704,43 +618,56 @@
         <replace token="style.css" value="style-${build.number}.min.css" dir="${dir.publish}" includes="${page-files}"/>
     </target>
     
+
+    <target name="-opt.png.init" description="">
+        <condition property="unix">
+            <and>
+                <os family="unix"/>
+                <available file="optipng" filepath="${ENV.PATH}"/>
+            </and>
+        </condition>
+        <condition property="windows">
+            <os family="windows"/>
+        </condition>
+        <condition property="optpng">
+            <or>
+                <isset property="unix"/>
+                <isset property="windows"/>
+            </or>
+        </condition>
+        <condition property="nooptipng">
+            <and>
+                <not><isset property="unix"/></not>
+                <not><isset property="windows"/></not>
+            </and>
+        </condition>
+    </target>
     
     <!-- IMAGES -->
-    <target name="-imagespng" description="(PRIVATE) Optimizes .png images using optipng">
-        <echo message="Optimizing images..."/>
-        <echo message="This part might take a while. But everything else is already done."/>
-        <echo message=" "/>
-        
-        
-        <echo message="First, we run optipng on the .png files..."/>
-        
-        <!-- osfamily=unix is actually true on OS X as well -->
-        <!-- On *nix's and OS X, check for optipng and give a helpful message if it's not installed -->
-        <if>
-            <and>
-                <os family="unix" />
-                <available file="optipng" filepath="${ENV.PATH}" />
-            </and>
-            <then>
-                <apply executable="optipng" osfamily="unix">
-                    <arg value="-quiet"/>
-                    <arg value="-o7"/>
-                    <fileset dir="./${dir.publish}/">
-                        <include name="**/*.png"/>
-                    </fileset>
-                </apply>
-            </then>
-            <elseif>
-                <os family="unix" />
-                <then>
-                    <echo message="*** optipng NOT INSTALLED. SKIPPING OPTIMIZATION OF PNGs." />
-                    <echo message="*** Install optipng to enable png optimization." />
-                    <echo message="*** For instructions see 'Dependencies' at: http://html5boilerplate.com/docs/#Build-script#dependencies" />
-                </then>
-            </elseif>
-        </if>
+    <target name="-imagespng" description="(PRIVATE) Optimizes .png images using optipng" depends="-opt.png.init, -imagespng.unix, -imagespng.windows, -nooptipng"/>
 
-        <apply executable="tools/optipng-0.6.4-exe/optipng.exe" osfamily="windows">
+    <target name="-nooptipng" if="nooptipng">
+        <echo message="*** optipng NOT INSTALLED. SKIPPING OPTIMIZATION OF PNGs." />
+        <echo message="*** Install optipng to enable png optimization." />
+        <echo message="*** For instructions see 'Dependencies' at: http://html5boilerplate.com/docs/#Build-script#dependencies" />
+    </target>
+
+    <target name="-imagespng.unix" if="unix">
+        <echo message="Optimizing images...[optipng]"/>
+        <echo message="This part might take a while. But everything else is already done."/>
+        <apply executable="optipng">
+            <arg value="-quiet"/>
+            <arg value="-o7"/>
+            <fileset dir="./${dir.publish}/">
+                <include name="**/*.png"/>
+            </fileset>
+        </apply>
+    </target>
+
+    <target name="-imagespng.windows" if="windows">
+        <echo message="Optimizing images...[optipng]"/>
+        <echo message="This part might take a while. But everything else is already done."/>
+        <apply executable="tools/optipng-0.6.4-exe/optipng.exe">
             <arg value="-o7"/>
             <arg value="-quiet"/>
             <fileset dir="./${dir.publish}/">
@@ -748,7 +675,6 @@
             </fileset>
         </apply>
     </target>
-
 
     <target name="-imagesjpg" description="(PRIVATE) Optimizes .jpg images using jpegtan">
         <echo message="Now, we clean up those jpgs..."/>
