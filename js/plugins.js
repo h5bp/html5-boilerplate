@@ -7,9 +7,9 @@ window.log = function(){
   if(this.console) {
     arguments.callee = arguments.callee.caller;
     if(typeof console.log === 'object'){
-        Function.prototype.apply.call(console.log, console, Array.prototype.slice.call(arguments))
+      Function.prototype.apply.call(console.log, console, Array.prototype.slice.call(arguments))
     } else {
-        console.log.apply(console, Array.prototype.slice.call(arguments));
+      console.log.apply(console, Array.prototype.slice.call(arguments));
     }
   }
 };
