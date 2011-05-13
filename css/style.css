@@ -91,7 +91,7 @@ ol { list-style-type: decimal; }
 nav ul, nav li { margin: 0; list-style:none; list-style-image: none; }
 
 small { font-size: 85%; }
-strong, th { font-weight: bold; }
+b, strong, th { font-weight: bold; }
 
 td { vertical-align: top; }
 
