@@ -527,14 +527,13 @@
             <fileset dir="./${dir.intermediate}/" includes="${page-files}"/>
             <arg value="-jar"/>
             <arg path="./${dir.build}/tools/${tool.htmlcompressor}"/>
-            <arg line="--type html"/>
             <arg line="--preserve-multi-spaces"/>
             <arg line="--remove-quotes"/>
             <arg line="--compress-js"/>
             <arg line="--compress-css"/>
             <srcfile/>
             <arg value="-o"/>
-            <mapper type="glob" from="*.html" to="../${dir.publish}/*.html"/>
+            <mapper type="glob" from="*" to="../${dir.publish}/*"/>
             <targetfile/>
         </apply>
     </target>
@@ -551,12 +550,11 @@
             <arg path="./${dir.build}/tools/${tool.htmlcompressor}"/>
             <arg value="--preserve-comments"/>
             <arg line="--preserve-multi-spaces"/>
-            <arg line="--type html"/>
             <arg line="--compress-js"/>
             <arg line="--compress-css"/>
             <srcfile/>
             <arg value="-o"/>
-            <mapper type="glob" from="*.html" to="../${dir.publish}/*.html"/>
+            <mapper type="glob" from="*" to="../${dir.publish}/*"/>
             <targetfile/>
         </apply>
     </target>
@@ -571,13 +569,12 @@
             <fileset dir="./${dir.intermediate}/" includes="${page-files}"/>
             <arg value="-jar"/>
             <arg path="./${dir.build}/tools/${tool.htmlcompressor}"/>
-            <arg line="--type html"/>
             <arg line="--remove-quotes"/>
             <arg line="--compress-js"/>
             <arg line="--compress-css"/>
             <srcfile/>
             <arg value="-o"/>
-            <mapper type="glob" from="*.html" to="../${dir.publish}/*.html"/>
+            <mapper type="glob" from="*" to="../${dir.publish}/*"/>
             <targetfile/>
         </apply>
     </target>
