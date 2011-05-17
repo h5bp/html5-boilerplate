@@ -26,7 +26,7 @@
   <!-- All JavaScript at the bottom, except for Modernizr and Respond.
        Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries -->
   <script src="js/libs/modernizr-1.7.min.js"></script>
-  <script src='js/libs/respond.min.js'></script>
+  <script src="js/libs/respond.min.js"></script>
 </head>
 
 <body>
@@ -463,7 +463,7 @@
 
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js"></script>
-  <script>window.jQuery || document.write("<script src='../js/libs/jquery-1.6.1.min.js'>\x3C/script>")</script>
+  <script>window.jQuery || document.write('<script src="../js/libs/jquery-1.6.1.min.js">\x3C/script>')</script>
   
   <!-- scripts concatenated and minified via ant build script-->
   <script src="../js/plugins.js"></script>
@@ -473,10 +473,10 @@
 
   <!-- mathiasbynens.be/notes/async-analytics-snippet Change UA-XXXXX-X to be your site's ID -->
   <script>
-    var _gaq=[["_setAccount","UA-XXXXX-X"],["_trackPageview"],["_trackPageLoadTime"]];
+    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview'],['_trackPageLoadTime']];
     (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-    g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
-    s.parentNode.insertBefore(g,s)}(document,"script"));
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
   </script>
 
 </body>
