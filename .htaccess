@@ -33,6 +33,9 @@
 </IfModule>
 
 <IfModule mod_headers.c>
+# FileETag None is not enough for every server.
+  Header unset ETag
+
 # Because X-UA-Compatible isn't sent to non-IE (to save header bytes),
 #   We need to inform proxies that content changes based on UA
   Header append Vary User-Agent
