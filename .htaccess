@@ -33,11 +33,8 @@
 </IfModule>
 
 <IfModule mod_headers.c>
-# FileETag None is not enough for every server.
-  Header unset ETag
-
 # Because X-UA-Compatible isn't sent to non-IE (to save header bytes),
-#   We need to inform proxies that content changes based on UA
+# We need to inform proxies that content changes based on UA
   Header append Vary User-Agent
 # Cache control is set only if mod_headers is enabled, so that's unncessary to declare
 </IfModule>
@@ -239,6 +236,11 @@ AddType text/x-vcard                   vcf
 # ----------------------------------------------------------------------
 # ETag removal
 # ----------------------------------------------------------------------
+
+# FileETag None is not enough for every server.
+<IfModule mod_headers.c>
+  Header unset ETag
+</IfModule>
 
 # Since we're sending far-future expires, we don't need ETags for
 # static content.
