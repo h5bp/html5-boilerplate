@@ -5,7 +5,7 @@
  *
  * Credit is left where credit is due.
  * Much inspiration was taken from these projects:
- * - yui.yahooapis.com/2.8.1/build/base/base.css
+ * - yui.yahooapis.com/2.8.1/build/base/base.csshtml
  * - camendesign.com/design/
  * - praegnanz.de/weblog/htmlcssjs-kickstart
  */
@@ -153,6 +153,8 @@ body, select, input, textarea {
   color: #444;
   /* Set your base font here, to apply evenly */
   /* font-family: Georgia, serif;  */
+  /* Safari renders fonts heavier than they should be: http://maxvoltar.com/archive/-webkit-font-smoothing */
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Headers (h1, h2, etc) have no default font-size or margin; define those yourself */
