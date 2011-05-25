@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #Generate a new project from your HTML5 Boilerplate repo clone
-#Created 2010-10-13, Rick Waldron
+#by: Rick Waldron & Michael Cetrulo
 
 
 ##first run
@@ -13,7 +13,15 @@
 # $ ./createproject.sh
 
 # find project root (also ensure script is ran from within repo)
-src=$(git rev-parse --show-toplevel) || exit 1
+src=$(git rev-parse --show-toplevel) || {
+  echo "try running the script from within html5-boilerplate directories." >&2
+  exit 1
+}
+[[ -d $src ]] || {
+  echo "fatal: could not determine html5-boilerplate's root directory." >&2
+  echo "try updating git." >&2
+  exit 1
+}
 
 # get a name for new project
 while [[ -z $name ]]
@@ -28,13 +36,13 @@ then
     echo "$dst exists"
 else
     #create new project
-    mkdir "$dst" || exit 1
+    mkdir -- "$dst" || exit 1
 
     #sucess message
     echo "Created Directory: $dst"
-    
-    cd "$src"
-    cp -vr css/ js/ images/ *.html *.xml *.txt *.png *.ico .htaccess "$dst"
+
+    cd -- "$src"
+    cp -vr -- css js img build test *.html *.xml *.txt *.png *.ico .htaccess "$dst"
 
     #sucess message
     echo "Created Project: $dst"
