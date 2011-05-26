@@ -17,12 +17,11 @@
  * html5doctor.com/html-5-reset-stylesheet/
  */
 
-html, body, div, span, object, iframe,
+html, body, body div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
 small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section, summary,
 time, mark, audio, video {
@@ -33,8 +32,7 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
@@ -71,9 +69,10 @@ pre, code, kbd, samp { font-family: monospace, sans-serif; }
  * Minimal base styles.
  */
 
-/* Always force a scrollbar in non-IE */
-html { overflow-y: scroll; }
-
+/* 1) Always force a scrollbar in non-IE 
+   2) Remove iOS text size adjust without disabling user zoom: www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
+html { overflow-y: scroll; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
+  
 /* j.mp/webkit-tap-highlight-color */
 a:link { -webkit-tap-highlight-color: #FF5E99; }
 
@@ -90,7 +89,7 @@ ol { list-style-type: decimal; }
 nav ul, nav li { margin: 0; list-style:none; list-style-image: none; }
 
 small { font-size: 85%; }
-strong, th { font-weight: bold; }
+b, strong, th { font-weight: bold; }
 
 td { vertical-align: top; }
 
@@ -152,8 +151,8 @@ h1, h2, h3, h4, h5, h6 { font-weight: bold; }
 /* These selection declarations have to be separate
    No text-shadow: twitter.com/miketaylr/status/12228805301
    Also: hot pink! */
-::-moz-selection{ background: #FF5E99; color:#fff; text-shadow: none; }
-::selection { background:#FF5E99; color:#fff; text-shadow: none; }
+::-moz-selection { background: #fe57a1; color:#fff; text-shadow: none; }
+::selection { background:#fe57a1; color:#fff; text-shadow: none; }
 
 /**
  * Primary styles
@@ -182,6 +181,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: bold; }
 
 /* For image replacement */
 .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
+.ir br { display: none; }
 
 /* Hide for both screenreaders and browsers:
    css-discuss.incutio.com/wiki/Screenreader_Visibility */
@@ -206,29 +206,21 @@ h1, h2, h3, h4, h5, h6 { font-weight: bold; }
 
 
 /**
- * Media queries for responsive design.
- *
- * These follow after primary styles so they will successfully override.
+ * Placeholder media queries for responsive design. Modify as design requires.
+ * These follow after, and will override, the primary ('mobile first') styles
+ * The closing /mediaquery comment is required by respond.js min/max-width Media Query polyfill
  */
 
-@media all and (orientation:portrait) {
-  /* Style adjustments for portrait mode goes here */
+@media only screen and (min-width: 480px) {
+  /* Style adjustments for viewports 480px and over go here */
 
-}
+}/*/mediaquery*/
 
-@media all and (orientation:landscape) {
-  /* Style adjustments for landscape mode goes here */
+@media only screen and (min-width: 768px) {
+  /* Style adjustments for viewports 768px and over go here */
 
-}
+}/*/mediaquery*/
 
-/* Grade-A Mobile Browsers (Opera Mobile, Mobile Safari, Android Chrome)
-   consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
-@media screen and (max-device-width: 480px) {
-
-
-  /* Uncomment if you don't want iOS and WinMobile to mobile-optimize the text for you: j.mp/textsizeadjust */
-  /* html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } */
-}
 
 
 /**

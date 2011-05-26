@@ -34,7 +34,7 @@
 
 <IfModule mod_headers.c>
 # Because X-UA-Compatible isn't sent to non-IE (to save header bytes),
-#   We need to inform proxies that content changes based on UA
+# We need to inform proxies that content changes based on UA
   Header append Vary User-Agent
 # Cache control is set only if mod_headers is enabled, so that's unncessary to declare
 </IfModule>
@@ -80,10 +80,11 @@ AddType application/javascript         js
 
 # audio
 AddType audio/ogg                      oga ogg
+AddType audio/mp4                      m4a
 
 # video
 AddType video/ogg                      ogv
-AddType video/mp4                      mp4
+AddType video/mp4                      mp4 m4v
 AddType video/webm                     webm
 
 # Proper svg serving. Required for svg webfonts on iPad
@@ -225,8 +226,8 @@ AddType text/x-vcard                   vcf
   ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
     
 # css and javascript
-  ExpiresByType text/css                  "access plus 2 months"
-  ExpiresByType application/javascript    "access plus 2 months"
+  ExpiresByType text/css                  "access plus 1 year"
+  ExpiresByType application/javascript    "access plus 1 year"
   
   <IfModule mod_headers.c>
     Header append Cache-Control "public"
@@ -239,6 +240,11 @@ AddType text/x-vcard                   vcf
 # ----------------------------------------------------------------------
 # ETag removal
 # ----------------------------------------------------------------------
+
+# FileETag None is not enough for every server.
+<IfModule mod_headers.c>
+  Header unset ETag
+</IfModule>
 
 # Since we're sending far-future expires, we don't need ETags for
 # static content.
@@ -286,8 +292,10 @@ FileETag None
 # ----------------------------------------------------------------------
 
 # Turning on the rewrite engine is necessary for the following rules and features.
+# FollowSymLinks must be enabled for this to work.
 
 <IfModule mod_rewrite.c>
+  Options +FollowSymlinks
   RewriteEngine On
 </IfModule>
 
