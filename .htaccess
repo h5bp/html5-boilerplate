@@ -132,7 +132,7 @@ AddType text/x-vcard                   vcf
 
 
 # ----------------------------------------------------------------------
-# static asset compression
+# gzip compression
 # ----------------------------------------------------------------------
 
 <IfModule mod_deflate.c>
@@ -186,7 +186,7 @@ AddType text/x-vcard                   vcf
   ExpiresActive on
 
 # Perhaps better to whitelist expires rules? Perhaps.
-# ExpiresDefault                          "access plus 1 month"
+  ExpiresDefault                          "access plus 1 month"
 
 # cache.appcache needs re-requests in FF 3.6 (thx Remy ~Introducing HTML5)
   ExpiresByType text/cache-manifest       "access plus 0 seconds"
@@ -251,10 +251,6 @@ AddType text/x-vcard                   vcf
 #   developer.yahoo.com/performance/rules.html#etags
 FileETag None
 
-# Or, you can use the following line so the files give a 304 if they are
-# the same size and have the same modified time after the Expires time
-# runs out
-# FileETag MTime Size
 
 
 # ----------------------------------------------------------------------
