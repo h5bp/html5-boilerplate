@@ -76,10 +76,11 @@
 
 # audio
 AddType audio/ogg                      oga ogg
+AddType audio/mp4                      m4a
 
 # video
 AddType video/ogg                      ogv
-AddType video/mp4                      mp4
+AddType video/mp4                      mp4 m4v
 AddType video/webm                     webm
 
 # Proper svg serving. Required for svg webfonts on iPad
