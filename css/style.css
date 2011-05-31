@@ -118,7 +118,7 @@ button, input, select, textarea { width: auto; overflow: visible; margin: 0; fon
 textarea { overflow: auto; vertical-align:text-top; }
 
 /* Hand cursor on clickable input elements */
-label, input[type="button"], input[type="submit"], input[type="image"], button { cursor: pointer; }
+label[for], input[type="button"], input[type="submit"], input[type="image"], button { cursor: pointer; }
 
 /* Remove extra padding and inner border in Firefox */
 input::-moz-focus-inner,
