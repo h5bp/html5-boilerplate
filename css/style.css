@@ -214,12 +214,12 @@ h1, h2, h3, h4, h5, h6 { font-weight: bold; }
 @media only screen and (min-width: 480px) {
   /* Style adjustments for viewports 480px and over go here */
 
-}/*/mediaquery*/
+}
 
 @media only screen and (min-width: 768px) {
   /* Style adjustments for viewports 768px and over go here */
 
-}/*/mediaquery*/
+}
 
 
 
