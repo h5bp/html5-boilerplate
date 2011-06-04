@@ -178,7 +178,7 @@ Shi Chuan, Rob Larsen, Ivan Nikolić, Mikko Tikkanen, Velir, Paul Neave, Weston 
 
 ##### Thanks:
 
-voodootikigod, garowetz, fearphage, christopherjacob, mathias byenens, daniel harttman, rse, chris dary, erik dahlstrom, timwillison, kenneth nordahl, riddle, elcuervo, andreas kuckartz, 3rdEden, riley willis, majic3
+voodootikigod, garowetz, fearphage, christopherjacob, mathias bynens, daniel harttman, rse, chris dary, erik dahlstrom, timwillison, kenneth nordahl, riddle, elcuervo, andreas kuckartz, 3rdEden, riley willis, majic3
 
 ### v0.9 : August 10th, 2010 - Initial release
 
