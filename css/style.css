@@ -153,6 +153,13 @@ legend { border: 0; *margin-left: -7px; padding: 0; }
  */
 
 button, input, select, textarea { font-size: 100%; margin: 0; vertical-align: baseline; *vertical-align: middle; }
+=======
+/* These selection declarations have to be separate
+   No text-shadow: twitter.com/miketaylr/status/12228805301
+   Also: hot pink! */
+::-moz-selection { background: #fe57a1; color:#fff; text-shadow: none; }
+::selection { background:#fe57a1; color:#fff; text-shadow: none; }
+a:link { -webkit-tap-highlight-color: #fe57a1; } /* j.mp/webkit-tap-highlight-color */
 
 /*
  * 1. Define line-height as normal to match FF3/4 (set using !important in the UA stylesheet)
