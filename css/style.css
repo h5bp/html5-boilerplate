@@ -73,8 +73,7 @@ pre, code, kbd, samp { font-family: monospace, sans-serif; }
    2) Remove iOS text size adjust without disabling user zoom: www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
 html { overflow-y: scroll; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
   
-/* j.mp/webkit-tap-highlight-color */
-a:link { -webkit-tap-highlight-color: #FF5E99; }
+
 
 /* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
 a:hover, a:active { outline: none; }
@@ -153,6 +152,8 @@ h1, h2, h3, h4, h5, h6 { font-weight: bold; }
    Also: hot pink! */
 ::-moz-selection { background: #fe57a1; color:#fff; text-shadow: none; }
 ::selection { background:#fe57a1; color:#fff; text-shadow: none; }
+a:link { -webkit-tap-highlight-color: #FF5E99; } /* j.mp/webkit-tap-highlight-color */
+
 
 /**
  * Primary styles
