@@ -12,5 +12,12 @@ window.log = function(){
 // make it safe to use console.log always
 (function(b){function c(){}for(var d="assert,count,debug,dir,dirxml,error,exception,group,groupCollapsed,groupEnd,info,log,markTimeline,profile,profileEnd,time,timeEnd,trace,warn".split(","),a;a=d.pop();)b[a]=b[a]||c})(window.console=window.console||{});
 
+// Track jQuery AJAX Requests in Google Analytics
+// alfajango.com/blog/track-jquery-ajax-requests-in-google-analytics/
+if (_gaq) {
+  $(document).ajaxSend(function(event, xhr, settings) {
+    _gaq.push(['_trackPageview', settings.url]);
+  });
+}
 
 // place any jQuery/helper plugins in here, instead of separate, slower script files.
