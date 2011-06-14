@@ -76,7 +76,7 @@ html { overflow-y: scroll; -webkit-text-size-adjust:100%; -ms-text-size-adjust:1
 
 
 /* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
-a:hover, a:active { outline: none; }
+a:hover, a:active { outline: 0; }
 
 a, a:active, a:visited { color: #607890; }
 a:hover { color: #036; }
