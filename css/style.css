@@ -58,7 +58,7 @@ hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin:
  * Font normalization inspired by YUI Library's fonts.css: developer.yahoo.com/yui/
  */
 
-body { font:13px/1.231 sans-serif; *font-size:small; } /* Hack retained to preserve specificity */
+body { font: 13px/1.231 sans-serif; *font-size: small; } /* Hack retained to preserve specificity */
 
 /* Normalize monospace sizing:
    en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome */
@@ -71,7 +71,7 @@ pre, code, kbd, samp { font-family: monospace, sans-serif; }
 
 /* 1) Always force a scrollbar in non-IE 
    2) Remove iOS text size adjust without disabling user zoom: www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
-html { overflow-y: scroll; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
+html { overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
   
 
 
@@ -125,7 +125,7 @@ button::-moz-focus-inner { border: 0; padding: 0; }
 
 /* Colors for form validity */
 input:valid, textarea:valid {  }
-input:invalid, textarea:invalid { border-radius: 1px; -moz-box-shadow: 0px 0px 5px red; -webkit-box-shadow: 0px 0px 5px red; box-shadow: 0px 0px 5px red; }
+input:invalid, textarea:invalid { border-radius: 1px; -moz-box-shadow: 0 0 5px red; -webkit-box-shadow: 0 0 5px red; box-shadow: 0 0 5px red; }
 .no-boxshadow input:invalid, .no-boxshadow textarea:invalid { background-color: #f0dddd; }
 
 /* Bicubic resizing for non-native sized IMG:
@@ -143,9 +143,6 @@ body, select, input, textarea {
   /* Set your base font here, to apply evenly */
   /* font-family: Georgia, serif;  */
 }
-
-/* Headers (h1, h2, etc) have no default font-size or margin; define those yourself */
-h1, h2, h3, h4, h5, h6 { font-weight: bold; }
 
 /* These selection declarations have to be separate
    No text-shadow: twitter.com/miketaylr/status/12228805301
