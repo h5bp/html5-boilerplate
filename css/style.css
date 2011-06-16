@@ -71,7 +71,7 @@ pre, code, kbd, samp { font-family: monospace, sans-serif; }
 
 /* 1) Always force a scrollbar in non-IE 
    2) Remove iOS text size adjust without disabling user zoom: www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
-html { overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+html { overflow-y: scroll; text-size-adjust: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
   
 
 
@@ -130,7 +130,7 @@ input:invalid, textarea:invalid { border-radius: 1px; -moz-box-shadow: 0 0 5px r
 
 /* Bicubic resizing for non-native sized IMG:
    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
-.ie7 img { -ms-interpolation-mode: bicubic; }
+.ie7 img { interpolation-mode: bicubic; -ms-interpolation-mode: bicubic; }
 
 
 /**
@@ -149,7 +149,7 @@ body, select, input, textarea {
    Also: hot pink! */
 ::-moz-selection { background: #fe57a1; color:#fff; text-shadow: none; }
 ::selection { background:#fe57a1; color:#fff; text-shadow: none; }
-a:link { -webkit-tap-highlight-color: #FF5E99; } /* j.mp/webkit-tap-highlight-color */
+a:link { tap-highlight-color:  #FF5E99; -webkit-tap-highlight-color: #FF5E99; } /* j.mp/webkit-tap-highlight-color */
 
 
 /**
@@ -226,8 +226,8 @@ a:link { -webkit-tap-highlight-color: #FF5E99; } /* j.mp/webkit-tap-highlight-co
  * Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/
  */
 @media print {
-  * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important;
-  -ms-filter: none !important; } /* Black prints faster: sanbeiji.com/archives/953 */
+  * { background: transparent !important; color: black !important; text-shadow: none !important;
+  -ms-filter: none !important; filter:none !important; } /* Black prints faster: sanbeiji.com/archives/953 */
   a, a:visited { color: #444 !important; text-decoration: underline; }
   a[href]:after { content: " (" attr(href) ")"; }
   abbr[title]:after { content: " (" attr(title) ")"; }
