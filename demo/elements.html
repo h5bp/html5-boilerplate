@@ -22,6 +22,17 @@
 
   <!-- CSS: implied media="all" -->
   <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* box-sizing test */
+    #boxsize button,
+    #boxsize input,
+    #boxsize select,
+    #boxsize textarea {
+      width: 200px;
+      padding: 4px;
+      border: 1px solid #333;
+    }
+  </style>
 
   <!-- All JavaScript at the bottom, except for Modernizr and Respond.
        Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries -->
@@ -32,430 +43,411 @@
 <body>
 
   <div id="container">
-    <header>
 
-    </header>
-    
-    <div id="main" role="main">
-
-      <!-- demo content lovingly lifted from the azbuka project 
+      <!-- 
+           demo content lovingly lifted from the azbuka project 
            http://code.google.com/p/azbuka/ 
            
            and the bluetrip project
            http://bluetrip.org/  
            
+           and the normalize.css project
+           http://github.com/necolas/normalize.css
+
            and peter beverloo
            http://peter.sh/examples/?/html/meter-progress.html
       -->
            
-           
+    <header>
+      <hgroup>
+        <h1>Grouped Heading 1</h1>
+        <h2>Grouped Heading 2</h2>
+      </hgroup>
+      <nav>
+        <ul>
+          <li><a href="#">navigation item #1</a></li>
+          <li><a href="#">navigation item #2</a></li>
+          <li><a href="#">navigation item #3</a></li>
+        </ul>
+      </nav>
+    </header>
+        
+    <h1>Heading 1</h1>
+    <h2>Heading 2</h2>
+    <h3>Heading 3</h3>
+    <h4>Heading 4</h4>
+    <h5>Heading 5</h5>
+    <h6>Heading 6</h6>
 
-      <h1>Title 01 Heading</h1>
-      <hr />
-      <h2>Level 02 Heading</h2>
-      <p>Lorem ipsum <em>emphasised text</em> dolor sit amet, <strong>strong text</strong> 
-      consectetur adipisicing elit, <abbr title="">abbreviated text</abbr> sed do eiusmod tempor 
-       incididunt ut labore et dolore magna aliqua. Ut 
-      <q>quoted text</q> enim ad minim veniam, quis nostrud exercitation <a href="/">link text</a> 
-      ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
-      <ins>inserted text</ins> irure dolor in reprehenderit in voluptate velit esse cillum 
-      dolore eu fugiat nulla pariatur. Excepteur sint occaecat <code>code text</code> cupidatat 
-      non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <section>
+      <h1>Section Heading 1</h1>            
+      <article>
+        <h4>Article Heading 2</h4>
+        <address>Address: somewhere, world</address>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et m. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et m. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et m.</p>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et m. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et m. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et m.</p>
+      </article>
+    </section>
+        
+    <h1>Text-level semantics</h1>
 
-      <p>
-      Suspendisse rhoncus, est ac sollicitudin viverra, leo orci sagittis massa, sed condimentum <acronym title="">acronym text</acronym> est tortor a lectus. Curabitur porta feugiat ullamcorper. Integer lacinia mi id odio faucibus eget tincidunt nisl iaculis. Nam adipiscing hendrerit turpis, et porttitor felis sollicitudin et. Donec dictum massa ac neque accumsan tempor. Cras aliquam, ipsum sit amet laoreet hendrerit, purus <del>deleted text</del> sapien convallis dui, et porta leo ipsum ac nunc. Nullam ornare porta dui ac semper. Cras aliquam laoreet hendrerit. Quisque vulputate dolor eget mi porta vel porta nisl pretium. Vivamus non leo magna, quis imperdiet risus. Morbi tempor risus placerat tellus imperdiet fringilla. 
-      </p>
+    <p>
+    The <a href="#">a element</a> example<br>
+    The <abbr title="Title text">abbr element</abbr> example<br>
+    The <b>b element</b> example<br>
+    The <cite>cite element</cite> example<br>
+    The <code>code element</code> example<br>
+    The <del>del element</del> example<br>
+    The <dfn>dfn element</dfn> example<br>
+    The <em>em element</em> example<br>
+    The <i>i element</i> example<br>
+    The img element <img src="http://placekitten.com/16/16" alt=""> example<br>
+    The <ins>ins element</ins> example<br>
+    The <kbd>kbd element</kbd> example<br>
+    The <mark>mark element</mark> example<br>
+    The <q>q element <q>inside</q> a q element</q> example<br>
+    The <s>s element</s> example<br>
+    The <samp>samp element</samp> example<br>
+    The <small>small element</small> example<br>
+    The <span>span element</span> example<br>
+    The <strike>strike element</strike> example<br>
+    The <strong>strong element</strong> example<br>
+    The <sub>sub element</sub> example<br>
+    The <sup>sup element</sup> example<br>
+    The <var>var element</var> example<br>
+    The <u>u element</u> example
+    </p>
 
-      <blockquote>
-      <p>I am not one who was born in the possession of knowledge; I am one who is fond of antiquity, and earnest in seeking it there.</p>
-      </blockquote>
+    <h1>Grouping content</h1>
+        
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et m.</p>
+        
+    <h3>pre</h3>
+        
+    <pre>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et me.</pre>
 
-      <p><cite><a href="/">Confucius, The Confucian Analects</a></cite>,  (551 BC - 479 BC)</p>
-
-      <h3>Level 03 Heading</h3>
-
-      <p>Extended paragraph. <a href="">Lorem ipsum</a> dolor sit amet, consectetur adipisicing elit, sed do eiusmod 
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-      reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
-      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-      <ol>
-      <li>Unus</li>
-      <li>Duo</li>
-      <li>Tres</li>
-      <li>Quattuor</li>
-      </ol>
-
-      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-      pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
-      anim id est laborum.</p>
-
-      <h3>Header 3</h3>
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt 
-      ut labore et dolore magna aliqua.</p>
-
-       <h4>Unordered lists</h4>
+    <pre><code>&lt;html>
+    &lt;head>
+    &lt;/head>
+    &lt;body>
+        &lt;div class="main"> &lt;div>
+    &lt;/body>
+&lt;/html></code></pre>
+        
+    <h3>blockquote</h3>
+        
+    <blockquote>
+      <p>Some sort of famous witty quote marked up with a &lt;blockquote> and a child &lt;p> element.</p>
+    </blockquote>
+        
+    <blockquote>Even better philosophical quote marked up with just a &lt;blockquote> element.</blockquote>
+        
+    <h3>ordered list</h3>
+        
+    <ol>
+      <li>list item 1</li>
+      <li>list item 1
+        <ol>
+          <li>list item 2</li>
+          <li>list item 2
+            <ol>
+              <li>list item 3</li>
+              <li>list item 3</li>
+            </ol>
+          </li>
+          <li>list item 2</li>
+          <li>list item 2</li>
+        </ol>
+      </li>
+      <li>list item 1</li>
+      <li>list item 1</li>
+    </ol>
+        
+    <h3>unordered list</h3>
+        
+    <ul>
+      <li>list item 1</li>
+      <li>list item 1
+        <ul>
+          <li>list item 2</li>
+          <li>list item 2
             <ul>
-              <li>Lorem ipsum dolor sit amet</li>
-              <li>Consectetur adipisicing elit</li>
-              <li>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</li>
-              <li>Ut enim ad minim veniam</li>
+              <li>list item 3</li>
+              <li>list item 3</li>
             </ul>
-      <p>Lorem ipsum dolor sit amet,consectetur adipisicing elit, sed do eiusmod tempor incididunt 
-      ut labore et dolore magna aliqua.</p>
+          </li>
+          <li>list item 2</li>
+          <li>list item 2</li>
+        </ul>
+      </li>
+      <li>list item 1</li>
+      <li>list item 1</li>
+    </ul>
+        
+    <h3>description list</h3>
+        
+    <dl>
+      <dt>Description name</dt>
+      <dd>Description value</dd>
+      <dt>Description name</dt>
+      <dd>Description value</dd>
+      <dd>Description value</dd>
+      <dt>Description name</dt>
+      <dt>Description name</dt>
+      <dd>Description value</dd>
+    </dl>
+        
+    <h3>figure</h3>
+        
+    <figure>
+      <img src="http://placekitten.com/400/200" alt="">
+      <figcaption>Figcaption content</figcaption>
+    </figure>
 
-      <pre><code>body { font:0.8125em/1.618 Arial, sans-serif; 
-      background-color:#fff;  
-      color:#111;
-      }</code></pre>
+    <h1>Tablular data</h1>
 
-      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-      pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
-      anim id est laborum.</p>
+    <table summary="Jimi Hendrix albums">
+      <caption>
+        Jimi Hendrix - albums
+      </caption>
+      <thead>
+        <tr>
+          <th>Album</th>
+          <th>Year</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <td>Album</td>
+          <td>Year</td>
+          <td>Price</td>
+        </tr>
+      </tfoot>
+      <tbody>
+        <tr>
+          <td>Are You Experienced</td>
+          <td>1967</td>
+          <td>$10.00</td>
+        </tr>
+        <tr>
+          <td>Axis: Bold as Love</td>
+          <td>1967</td>
+          <td>$12.00</td>
+        </tr>
+        <tr>
+          <td>Electric Ladyland</td>
+          <td>1968</td>
+          <td>$10.00</td>
+        </tr>
+        <tr>
+          <td>Band of Gypsys</td>
+          <td>1970</td>
+          <td>$12.00</td>
+        </tr>
+      </tbody>
+    </table>
 
-      <h4>Header 4</h4>
+    <h1>Forms</h1>
+        
+    <form>
+      <fieldset>
+        <legend>Inputs as descendents of labels (form legend)</legend>
+        <p><label>Text input <input type="text" value="value"></label></p>
+        <p><label>Text input (required) <input type="text" required></label></p>
+        <p><label>Text input (with pattern requirement and placeholder) <input type="text" pattern="\d{5}(-\d{4})?" title="a US Zip code, with or without the +4 exension" placeholder="12345-6789"></label></p>
+        <p><label>Email input <input type="email"></label></p>
+        <p><label>Search input <input type="search"></label></p>
+        <p><label>Tel input <input type="tel"></label></p>
+        <p><label>URL input <input type="url" placeholder="http://"></label></p>
+        <p><label>Password input <input type="password" value="password"></label></p>
+        <p><label>File input <input type="file"></label></p>
+        
+        <p><label>Radio input <input type="radio" name="rad"></label></p>
+        <p><label>Checkbox input <input type="checkbox"></label></p>
+        <p><label><input type="radio" name="rad"> Radio input</label></p>
+        <p><label><input type="checkbox"> Checkbox input</label></p>
+                
+        <p><label>Select field <select><option>Option 01</option><option>Option 02</option></select></label></p>
+        <p><label>Textarea <textarea cols="30" rows="5" >Textarea text</textarea></label></p>
+      </fieldset>
+            
+      <fieldset>
+        <legend>Inputs as siblings of labels</legend>
+        <p><label for="ic">Color input</label> <input type="color" id="ic"></p>
+        <p><label for="in">Number input</label> <input type="number" id="in" min="0" max="10"></p>
+        <p><label for="ir">Range input</label> <input type="range" id="ir"></p>
+        <p><label for="idd">Date input</label> <input type="date" id="idd"></p>
+        <p><label for="idm">Month input</label> <input type="month" id="idm"></p>
+        <p><label for="idw">Week input</label> <input type="week" id="idw"></p>
+        <p><label for="idt">Datetime input</label> <input type="datetime" id="idt"></p>
+        <p><label for="idtl">Datetime-local input</label> <input type="datetime-local" id="idtl"></p>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt 
-      ut labore et dolore magna aliqua.</p>
+        <p><label for="irb">Radio input</label> <input type="radio" id="irb" name="rad"></p>
+        <p><label for="icb">Checkbox input</label> <input type="checkbox" id="icb"></p>
+        <p><input type="radio" id="irb2" name="rad"> <label for="irb2">Radio input</label></p>
+        <p><input type="checkbox" id="icb2"> <label for="icb2">Checkbox input</label></p>
+                
+        <p><label for="s">Select field</label> <select id="s"><option>Option 01</option><option>Option 02</option></select></p>
+        <p><label for="t">Textarea</label> <textarea id="t" cols="30" rows="5" >Textarea text</textarea></p>
+      </fieldset>
+            
+      <fieldset>
+        <legend>Clickable inputs and buttons</legend>
+        <p><input type="image" src="http://placekitten.com/90/24" alt="Image (input)"></p>
+        <p><input type="reset" value="Reset (input)"></p>
+        <p><input type="button" value="Button (input)"></p>
+        <p><input type="submit" value="Submit (input)"></p>
 
-      <dl>
-      <dt>Definition list</dt>
-      <dd>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
-      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea 
-      commodo consequat.</dd>
-      <dt>Lorem ipsum dolor sit amet</dt>
-      <dd>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
-      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea 
-      commodo consequat.</dd>
+        <p><button type="reset">Reset (button)</button></p>
+        <p><button type="button">Button (button)</button></p>
+        <p><button type="submit">Submit (button)</button></p>
+      </fieldset>
+            
+      <fieldset id="boxsize">
+        <legend>box-sizing tests</legend>
+        <div><input type="text" value="text"></div>
+        <div><input type="email" value="email@example.com"></div>
+        <div><input type="search" value="search"></div>
+        <div><input type="url" value="http://"></div>
+        <div><input type="password" value="password"></div>
 
-      </dl>
+        <div><input type="color"></div>
+        <div><input type="number"></div>
+        <div><input type="range"></div>
+        <div><input type="date"></div>
+        <div><input type="month"></div>
+        <div><input type="week"></div>
+        <div><input type="datetime"></div>
+        <div><input type="datetime-local"></div>
+                
+        <div><input type="radio"></div>
+        <div><input type="checkbox"></div>
+                
+        <div><select><option>Option 01</option><option>Option 02</option></select></div>
+        <div><textarea cols="30" rows="5" >Textarea text</textarea></div>
+                
+        <div><input type="image" src="http://placehold.it/90x24" alt="Image (input)"></div>
+        <div><input type="reset" value="Reset (input)"></div>
+        <div><input type="button" value="Button (input)"></div>
+        <div><input type="submit" value="Submit (input)"></div>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt 
-      ut labore et dolore magna aliqua.</p>
-      <h4>Ordered list</h4>
-      <ol>
-        <li>List item</li>
-        <li>List item</li>
-        <li>List item
-          <ol>
-            <li>List item level 2</li>
-            <li>List item level 2
-              <ol>
-                <li>List item level 3</li>
-                <li>List item level 3</li>
-              </ol>
-            </li>
-          </ol>
-        </li>
-      </ol>           
-      <h4>Unordered list</h4>
-      <ul>
-        <li>List item 01</li>
-        <li>List item 02</li>
-        <li>List item 03
-          <ul>
-            <li>List item level 2</li>
-            <li>List item level 2
-              <ul>
-                <li>List item level 3</li>
-                <li>List item level 3</li>
-              </ul>
-            </li>
+        <div><button type="reset">Reset (button)</button></div>
+        <div><button type="button">Button (button)</button></div>
+        <div><button type="submit">Submit (button)</button></div>
+      </fieldset>
+    </form>
 
-          </ul>
-        </li>
-      </ul>
+    <!-- thx peter beverloo: http://peter.sh/examples/?/html/meter-progress.html -->
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt 
-      ut labore et dolore magna aliqua.</p>
-
-      <h4>Tables</h4>
-      <table summary="Jimi Hendrix albums">
-        <caption>
-          Jimi Hendrix - albums
-        </caption>
-        <thead>
-          <tr>
-            <th>Album</th>
-            <th>Year</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tfoot>
-          <tr>
-            <td>Album</td>
-            <td>Year</td>
-            <td>Price</td>
-          </tr>
-        </tfoot>
-        <tbody>
-          <tr>
-            <td>Are You Experienced</td>
-            <td>1967</td>
-            <td>$10.00</td>
-          </tr>
-          <tr>
-            <td>Axis: Bold as Love</td>
-            <td>1967</td>
-            <td>$12.00</td>
-          </tr>
-          <tr>
-            <td>Electric Ladyland</td>
-            <td>1968</td>
-            <td>$10.00</td>
-          </tr>
-          <tr>
-            <td>Band of Gypsys</td>
-            <td>1970</td>
-            <td>$12.00</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p>
-      I am <a href="http://devkick.com/lab/tripoli/sample.php?abc123">the a tag</a> example<br>
-
-      I am <abbr title="test">the abbr tag</abbr> example<br>
-
-      I am <acronym>the acronym tag</acronym> example<br>
-      I am <b>the b tag</b> example<br>
-      I am <big>the big tag</big> example<br>
-
-      I am <cite>the cite tag</cite> example<br>
-
-      I am <code>the code tag</code> example<br>
-      I am <del>the del tag</del> example<br>
-      I am <dfn>the dfn tag</dfn> example<br>
-
-      I am <em>the em tag</em> example<br>
-
-      I am <font face="verdana">the font tag</font> example<br>
-      I am <i>the i tag</i> example<br>
-      I am <ins>the ins tag</ins> example<br>
-
-      I am <kbd>the kbd tag</kbd> example<br>
-
-      I am <q>the q tag <q>inside</q> a q tag</q> example<br>
-      I am <s>the s tag</s> example<br>
-      I am <samp>the samp tag</samp> example<br>
-
-      I am <small>the small tag</small> example<br>
-      I am <span>the span tag</span> example<br>
-      I am <strike>the strike tag</strike> example<br>
-      I am <strong>the strong tag</strong> example<br>
-
-      I am <sub>the sub tag</sub> example<br>
-      I am <sup>the sup tag</sup> example<br>
-      I am <tt>the tt tag</tt> example<br>
-      I am <var>the var tag</var> example<br>
-
-      I am <u>the u tag</u> example
-      </p>
-      
-      <p>This is a &lt;p&gt; with some <code>code</code> inside.</p>
-      
-      <h3>What is Lorem Ipsum?</h3>
-      <p><b>Lorem Ipsum</b> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-
-      <p><strong>This</strong> Lorem Ipsum HTML example is created from the parts of Placeholder Markup with Lorem Ipsum - Jon Tan,
-      Emastic CSS Framework,
-      Tripoli CSS Framework and 
-      Baseline CSS Framework .</p>
-
-      <address>Address: somewhere, World</address>
-      
-      <p>
-	    <a href="#">Link</a><br>
-        <strong>&lt;strong&gt;</strong><br>
-        <del>&lt;del&gt; deleted</del><br>
-        <dfn>&lt;dfn&gt; dfn</dfn><br>
-        <em>&lt;em&gt; emphasis</em>
-      </p>
-      <pre>
-      <code>&lt;html&gt;</code>
-      	<code>&lt;head&gt;</code>
-      	<code>&lt;/head&gt;</code>
-      	<code>&lt;body&gt;</code>
-      	<code>&lt;div class = "main"&gt; &lt;div&gt;</code>
-      	<code>&lt;/body&gt;</code>
-      <code>&lt;/html&gt; </code>
-      </pre>
-
-      <tt>&lt;tt&gt;
-     Pellentesque tempor, dui ut ultrices viverra, neque urna blandit nisi, id accumsan dolor est vitae risus.
-      </tt>
-
-      <hr>
-    
-      <!-- this following markup from http://bluetrip.org/ -->
-      <dl>
-        <dt>Description list title 01</dt>
-        <dd>Description list description 01</dd>
-        <dt>Description list title 02</dt>
-        <dd>Description list description 02</dd>
-        <dd>Description list description 03</dd>
-      </dl>
-      <table>
-        <caption>Table Caption</caption>
-        <thead>
-          <tr>
-            <th>Table head th</th>
-            <td>Table head td</td>
-          </tr>
-        </thead>
-        <tfoot>
-          <tr>
-            <th>Table foot th</th>
-            <td>Table foot td</td>
-          </tr>
-        </tfoot>
-        <tbody>
-          <tr>
-            <th>Table body th</th>
-            <td>Table body td</td>
-          </tr>
-          <tr>
-            <td>Table body td</td>
-            <td>Table body td</td>
-          </tr>
-        </tbody>
-      </table>
-    
-      <hr>
-    
-      <form action="#">
-        <fieldset>
-          <legend>Form legend</legend>
-          <div><label for="f1">Optional Text input:</label><input type="text" id="f1" value="input text" /></div>
-          <div><label for="rt1">Required Text input:</label><input type="text" id="rt1" required /></div>
-          <div><label for="twp1">Text input with pattern requirement and placeholder:</label><input type="text" pattern="\d{5}(-\d{4})?" title="a US Zip code, with or without the +4 exension" placeholder="12345-6789"/></div>
-          <div><label for="s1">Search input:</label><input type="search" id="s1" /></div>
-          <div><label for="e1">Email input:</label><input type="email" id="e1" /></div>
-          <div><label for="u1">URL input:</label><input type="url" id="u1" /></div>
-          <div><label for="pw">Password input:</label><input type="password" id="pw" value="password" /></div>
-          <div><label for="f2">Radio input:</label><input type="radio" id="f2" /></div>
-          <div><label for="f3">Checkbox input:</label><input type="checkbox" id="f3" /></div>
-          <div><label for="f4">Select field:</label><select id="f4"><option>Option 01</option><option>Option 02</option></select></div>
-          <div><label for="f5">Textarea:</label><textarea id="f5" cols="30" rows="5" >Textarea text</textarea></div>
-          <div><label for="f6">Input Button:</label> <input type="button" id="f6" value="button text" /></div>
-          <div><label for="f7">Submit Button:</label> <input type="submit" id="f7" value="button text" /></div>
-        </fieldset>
-      </form>
-
-      <!-- thx peter beverloo: http://peter.sh/examples/?/html/meter-progress.html -->
-
-      <p id="no-support" style="color: red; margin-bottom: 12px;"> 
-       Your browser does not support these elements yet! Consider downloading a <a href="http://tools.peter.sh/download-latest-chromium.php">Chromium Nightly</a>.<br /> 
-      </p> 
+    <p id="no-support" style="color: red; margin-bottom: 12px;"> 
+     Your browser does not support these elements yet! Consider downloading a <a href="http://tools.peter.sh/download-latest-chromium.php">Chromium Nightly</a>.<br /> 
+    </p> 
      
-      <h3>&lt;progress&gt;</h3> 
-      <p> 
-        The progress element (spec: <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-progress-element">4.10.16</a>) represents the completion progress of a task and can be both indeterminate as determinate.
-      </p> 
-      <ul class="compact"> 
-        <li> 
-          <label>Indeterminate</label> 
-          <progress max="100"></progress> 
-        </li> 
-        <li> 
-          <label>Progress: 0%</label> 
-          <progress max="10" value="0"></progress> 
-        </li> 
-        <li> 
-          <label>Progress: 100%</label> 
-          <progress max="3254" value="3254"></progress> 
-        </li> 
-        <li> 
-          <label>Progress: 57%</label> 
-          <progress max="0.7" value="0.4"></progress> 
-        </li> 
-        <li> 
-          <label>Javascript</label> 
-          <progress id="progress-javascript-example"></progress> 
-        </li> 
-      </ul> 
+    <h1>&lt;progress&gt;</h1>
+ 
+    <p> 
+      The progress element (spec: <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-progress-element">4.10.16</a>) represents the completion progress of a task and can be both indeterminate as determinate.
+    </p> 
+    <ul class="compact"> 
+      <li> 
+        <label>Indeterminate</label> 
+        <progress max="100"></progress> 
+      </li> 
+      <li> 
+        <label>Progress: 0%</label> 
+       <progress max="10" value="0"></progress> 
+      </li> 
+      <li> 
+        <label>Progress: 100%</label> 
+        <progress max="3254" value="3254"></progress> 
+      </li> 
+      <li> 
+        <label>Progress: 57%</label> 
+        <progress max="0.7" value="0.4"></progress> 
+      </li> 
+      <li> 
+        <label>Javascript</label> 
+        <progress id="progress-javascript-example"></progress> 
+      </li> 
+    </ul> 
      
-      <h3>&lt;meter&gt;</h3> 
-      <p> 
-        Displaying a scalar measurement within a known range, like hard drive usage, can be done using the meter element (spec: <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-meter-element">4.10.17</a>)
-      </p> 
-      <ul class="compact"> 
-        <li> 
-          <label>Meter: empty</label> 
-          <meter value="0"></meter> 
-        </li> 
-        <li> 
-          <label>Meter: full</label> 
-          <meter value="1"></meter> 
-        </li> 
-        <li> 
-          <label>Meter: "a bit"</label> 
-          <meter min=".34" max=".41" value=".36"></meter> 
-        </li> 
-        <li> 
-          <label>Preferred usage</label> 
-          <meter min="50" max="250" low="100" high="200" value="120"></meter> 
-        </li> 
-        <li> 
-          <label>Too much traffic</label> 
-          <meter min="1024" max="10240" low="2048" high="8192" value="9216"></meter> 
-        </li> 
-        <li> 
-          <label>Optimum value</label> 
-          <meter value=".5" optimum=".8"></meter> 
-        </li> 
-        <li> 
-          <label>Javascript</label> 
-          <meter id="meter-javascript-example" value="0"></meter> 
-        </li> 
-      </ul> 
+    <h1>&lt;meter&gt;</h1>
 
-      <script> 
-        (function () {
-          if (! ("position" in document.createElement ("progress"))) {
-            var elements = document.querySelectorAll ("meter, progress");
-            for (var i = 0, j = elements.length; i < j; i++) {
-              elements [i].style.border = "1px solid red";
-              elements [i].style.height = "12px";
-              elements [i].style.display = "inline-block";
-              elements [i].style.webkitAppearance = "none";
-            }
-            return ;
+    <p> 
+      Displaying a scalar measurement within a known range, like hard drive usage, can be done using the meter element (spec: <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-meter-element">4.10.17</a>)
+    </p> 
+    <ul class="compact"> 
+      <li> 
+        <label>Meter: empty</label> 
+        <meter value="0"></meter> 
+      </li> 
+      <li> 
+        <label>Meter: full</label> 
+        <meter value="1"></meter> 
+      </li> 
+      <li> 
+        <label>Meter: "a bit"</label> 
+        <meter min=".34" max=".41" value=".36"></meter> 
+      </li> 
+      <li> 
+        <label>Preferred usage</label> 
+        <meter min="50" max="250" low="100" high="200" value="120"></meter> 
+      </li> 
+      <li> 
+        <label>Too much traffic</label> 
+        <meter min="1024" max="10240" low="2048" high="8192" value="9216"></meter> 
+      </li> 
+      <li> 
+        <label>Optimum value</label> 
+        <meter value=".5" optimum=".8"></meter> 
+      </li> 
+      <li> 
+        <label>Javascript</label> 
+        <meter id="meter-javascript-example" value="0"></meter> 
+      </li> 
+    </ul> 
+
+    <script> 
+      (function () {
+        if (! ("position" in document.createElement ("progress"))) {
+          var elements = document.querySelectorAll ("meter, progress");
+          for (var i = 0, j = elements.length; i < j; i++) {
+            elements [i].style.border = "1px solid red";
+            elements [i].style.height = "12px";
+            elements [i].style.display = "inline-block";
+            elements [i].style.webkitAppearance = "none";
           }
+          return ;
+        }
            
-          document.getElementById ("no-support").style.display = "none";
+      document.getElementById ("no-support").style.display = "none";
            
-          /** Setup the <progress> JavaScript example **/
-          var progressExample = document.getElementById ("progress-javascript-example");
-          progressExample.min = 50;
-          progressExample.max = 122;
+        /** Setup the <progress> JavaScript example **/
+        var progressExample = document.getElementById ("progress-javascript-example");
+        progressExample.min = 50;
+        progressExample.max = 122;
               
-          setInterval (function () {
-            progressExample.value = progressExample.min + Math.random () * (progressExample.max - progressExample.min);
-          }, 1000);
+        setInterval (function () {
+          progressExample.value = progressExample.min + Math.random () * (progressExample.max - progressExample.min);
+        }, 1000);
            
-          /** We'd like some fancy <meter> examples too **/
-          var meterExample = document.getElementById ("meter-javascript-example");
-          meterExample.min = 0;
-          meterExample.max = 100;
-          meterExample.value = 50;
-          meterExample.low  = 20;
-          meterExample.high = 80;
-          meterExample.optimum = 65;
+        /** We'd like some fancy <meter> examples too **/
+        var meterExample = document.getElementById ("meter-javascript-example");
+        meterExample.min = 0;
+        meterExample.max = 100;
+        meterExample.value = 50;
+        meterExample.low  = 20;
+        meterExample.high = 80;
+        meterExample.optimum = 65;
                
-          setInterval (function () {
-            meterExample.value   = meterExample.min + Math.random () * (meterExample.max - meterExample.min);
-            meterExample.optimum = 65 + (5 - Math.random () * 10);
-          }, 1000);
-        })();
-      </script>
-    </div>
+        setInterval (function () {
+          meterExample.value   = meterExample.min + Math.random () * (meterExample.max - meterExample.min);
+          meterExample.optimum = 65 + (5 - Math.random () * 10);
+        }, 1000);
+      })();
+    </script>
 
-
-    <footer>
-    </footer>
   </div> <!--! end of #container -->
 
 
