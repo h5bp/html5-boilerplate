@@ -15,6 +15,7 @@
 .cache
 .project
 .settings
+.tmproj
 nbproject
 Thumbs.db
 
@@ -29,6 +30,7 @@ dwsync.xml
 # Folders to ignore
 .hg
 .svn
+.CVS
 intermediate
 publish
 .idea
