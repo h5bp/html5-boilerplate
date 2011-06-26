@@ -116,9 +116,7 @@ img { border: 0; -ms-interpolation-mode: bicubic; }
  * Correct overflow displayed oddly in IE9 
  */
 
-svg:not(:root) {
-    overflow: hidden;
-}
+svg:not(:root) { overflow: hidden; }
 
 
 /* =============================================================================
