@@ -237,6 +237,9 @@ table { border-collapse: collapse; border-spacing: 0; }
 /* Hide visually and from screenreaders, but maintain layout */
 .invisible { visibility: hidden; }
 
+/* Enables inertial style scrolling on iOS */
+.scrollable { -webkit-overflow-scrolling: touch; overflow:scroll; }
+
 /* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */ 
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
