@@ -106,11 +106,11 @@ nav ul, nav ol { list-style: none; margin: 0; padding: 0; }
    ========================================================================== */
 
 /*
- * Improve image quality when scaled in IE7
- * code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
+ * 1. Improve image quality when scaled in IE7 http://h5bp.com/d
+ * 2. Remove the gap between images and borders on image containers http://h5bp.com/e 
  */
 
-img { border: 0; -ms-interpolation-mode: bicubic; }
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
 
 /*
  * Correct overflow displayed oddly in IE9 
