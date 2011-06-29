@@ -144,10 +144,18 @@ AddType text/x-vcard                   vcf
 # HTML, TXT, CSS, JavaScript, JSON, XML, HTC:
 <IfModule filter_module>
   FilterDeclare   COMPRESS
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type /text/(html|css|javascript|plain|x(ml|-component))/
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type /application/(javascript|json|xml|x-javascript)/
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/html
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/css
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/javascript
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/plain
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/xml
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/x-component
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/javascript
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/json
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/xml
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/x-javascript
   FilterChain     COMPRESS
-  FilterProtocol  COMPRESS  change=yes;byteranges=no
+  FilterProtocol  COMPRESS  DEFLATE change=yes;byteranges=no
 </IfModule>
 
 <IfModule !mod_filter.c>
