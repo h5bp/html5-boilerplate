@@ -154,6 +154,13 @@ AddType text/x-vcard                   vcf
   FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/json
   FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/xml
   FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/x-javascript
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/xhtml+xml
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/rss+xml
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/atom+xml
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/vnd.ms-fontobject
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $image/svg+xml
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/x-font-ttf
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $font/opentype
   FilterChain     COMPRESS
   FilterProtocol  COMPRESS  DEFLATE change=yes;byteranges=no
 </IfModule>
@@ -163,12 +170,9 @@ AddType text/x-vcard                   vcf
   AddOutputFilterByType DEFLATE text/html text/plain text/css application/json
   AddOutputFilterByType DEFLATE text/javascript application/javascript application/x-javascript 
   AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
+  AddOutputFilterByType DEFLATE application/xhtml+xml application/rss+xml application/atom+xml
+  AddOutputFilterByType DEFLATE image/svg+xml application/vnd.ms-fontobject application/x-font-ttf font/opentype
 </IfModule>
-
-# Webfonts and SVG:
-  <FilesMatch "\.(ttf|otf|eot|svg)$" >
-    SetOutputFilter DEFLATE
-  </FilesMatch>
 </IfModule>
 
 
