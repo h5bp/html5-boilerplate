@@ -497,3 +497,23 @@ Options -Indexes
 	php_value session.cookie_httponly true
 </IfModule>
 
+
+
+# =============
+# = Pagespeed =
+# =============
+# for the hawtest Apache evar
+# Apache module info: http://code.google.com/speed/page-speed/docs/module.html
+# Setup instructions and documentation: http://code.google.com/speed/page-speed/docs/install.html
+<IfModule pagespeed_module>
+  ModPagespeed on # turn it on
+  ModPagespeedRewriteLevel PassThrough
+  # this is the big fish, it does a bunch:
+  #   extends the cache of a lot of stuff
+  #   combines css into one file
+  #   collapses whitespace in HTML
+  #   moves css into the head
+  #   removes comments in HTML
+  #   rewrites css and images
+  ModPagespeedEnableFilters extend_cache,combine_css,collapse_whitespace,move_css_to_head,remove_comments,rewrite_css,rewrite_images
+</IfModule>
