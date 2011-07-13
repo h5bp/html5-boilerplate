@@ -5,7 +5,7 @@ Feature: Build the HTML5 Boilerplate
 
   @wip
   Scenario: Perform a basic build
-    When I run `rake build:basic`
+    When I run `rake build:basics`
     Then the output should contain "build:"
     And the output should contain "Building a Production Environment..."
     And the output should contain "Creating directory structure..."
