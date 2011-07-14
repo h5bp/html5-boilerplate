@@ -1,13 +1,14 @@
 namespace :build do
   task :build    => ["build:basics", "html:minor_optimizations", "image:optimizations"]
   task :buildkit => ["build:basics"]
-  task :basics   => ["script:minified", "build:mkdir"]
+  task :basics   => ["script:minified"]
   task :minify   => ["build:build", "html:full_minification"]
 
   desc "The default basic build"
   task :basics do
     puts "build:"
     puts "Building a Production Environment..."
+    Rake::Task["build:mkdir"].invoke
   end
 
   namespace :dir do

@@ -9,6 +9,7 @@ Feature: Build the HTML5 Boilerplate
     Then the output should contain "build:"
     And the output should contain "Building a Production Environment..."
     And the output should contain "Creating directory structure..."
+    And the correct directories have been created
     And the output should contain "js.all.minify"
     And the output should contain "js.main.concat"
     And the output should contain "Concatenating css..."
