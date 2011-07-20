@@ -36,7 +36,7 @@
 # Because X-UA-Compatible isn't sent to non-IE (to save header bytes),
 # We need to inform proxies that content changes based on UA
   Header append Vary User-Agent
-# Cache control is set only if mod_headers is enabled, so that's unncessary to declare
+# Cache control is set only if mod_headers is enabled, so that's unnecessary to declare
 </IfModule>
 
 
