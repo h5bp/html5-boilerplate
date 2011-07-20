@@ -60,7 +60,7 @@
 
 # Allow access from all domains for webfonts.
 # Alternatively you could only whitelist your
-# subdomains like "sub.domain.com".
+# subdomains like "subdomain.example.com".
 
 <FilesMatch "\.(ttf|otf|eot|woff|font.css)$">
   <IfModule mod_headers.c>
@@ -324,7 +324,7 @@ FileETag None
 # ----------------------------------------------------------------------
 
 # Option 1:
-# Rewrite "www.domain.com -> domain.com" 
+# Rewrite "www.example.com -> example.com" 
 
 <IfModule mod_rewrite.c>
   RewriteCond %{HTTPS} !=on
@@ -335,7 +335,7 @@ FileETag None
 # ----------------------------------------------------------------------
 
 # Option 2:
-# To rewrite "domain.com -> www.domain.com" uncomment the following lines.
+# To rewrite "example.com -> www.example.com" uncomment the following lines.
 # Be aware that the following rule might not be a good idea if you
 # use "real" subdomains for certain parts of your website.
 
@@ -373,7 +373,7 @@ FileETag None
 # ----------------------------------------------------------------------
 
 # Rewrite secure requests properly to prevent SSL cert warnings, e.g. prevent 
-# https://www.domain.com when your cert only allows https://secure.domain.com
+# https://www.example.com when your cert only allows https://secure.example.com
 # Uncomment the following lines to use this feature.
 
 # <IfModule mod_rewrite.c>
@@ -496,4 +496,3 @@ Options -Indexes
 <IfModule php5_module>
 	php_value session.cookie_httponly true
 </IfModule>
-
