@@ -237,6 +237,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 /* Hide for both screenreaders and browsers:
    css-discuss.incutio.com/wiki/Screenreader_Visibility */
+[hidden] { display: none; visibility: hidden; }
 .hidden { display: none; visibility: hidden; }
 
 /* Hide only visually, but have it available for screenreaders: by Jon Neal.
