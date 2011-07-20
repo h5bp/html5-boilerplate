@@ -10,11 +10,12 @@
 
 
 /* =============================================================================
-   HTML5 element display
+   HTML5 display definitions
    ========================================================================== */
 
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
-audio[controls], canvas, video { display: inline-block; *display: inline; *zoom: 1; }
+audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
+audio:not([controls]) { display: none; }
 
 
 /* =============================================================================
@@ -135,15 +136,15 @@ figure { margin: 0; }
 form { margin: 0; }
 fieldset { border: 0; margin: 0; padding: 0; }
 
+/* Indicate that 'label' will shift focus to the associated form element */
+label { cursor: pointer; }
+
 /* 
  * 1. Correct color not inheriting in IE6/7/8/9 
  * 2. Correct alignment displayed oddly in IE6/7 
  */
 
 legend { border: 0; *margin-left: -7px; padding: 0; }
-
-/* Indicate that 'label' will shift focus to the associated form element */
-label { cursor: pointer; }
 
 /*
  * 1. Correct font-size not inheriting in all browsers
@@ -232,7 +233,7 @@ table { border-collapse: collapse; border-spacing: 0; }
    ========================================================================== */
 
 /* For image replacement */
-.ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color:transparent; background-repeat: no-repeat; text-align: left; direction: ltr; }
+.ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; }
 .ir br { display: none; }
 
 /* Hide for both screenreaders and browsers:
