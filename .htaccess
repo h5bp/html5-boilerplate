@@ -207,8 +207,9 @@ AddType text/x-vcard                   vcf
   ExpiresByType application/xml           "access plus 0 seconds"
   ExpiresByType application/json          "access plus 0 seconds"
 
-# RSS feed
+# Feed
   ExpiresByType application/rss+xml       "access plus 1 hour"
+  ExpiresByType application/atom+xml      "access plus 1 hour"
 
 # Favicon (cannot be renamed)
   ExpiresByType image/x-icon              "access plus 1 week" 
@@ -411,7 +412,7 @@ ErrorDocument 404 /404.html
 AddDefaultCharset utf-8
 
 # Force UTF-8 for a number of file formats
-AddCharset utf-8 .html .css .js .xml .json .rss
+AddCharset utf-8 .html .css .js .xml .json .rss .atom
 
 
 
