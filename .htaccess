@@ -201,6 +201,7 @@ AddType text/x-vcard                   vcf
 
 # Your document html 
   ExpiresByType text/html                 "access plus 0 seconds"
+  ExpiresByType application/xhtml+xml     "access plus 0 seconds"
   
 # Data
   ExpiresByType text/xml                  "access plus 0 seconds"
@@ -237,6 +238,7 @@ AddType text/x-vcard                   vcf
 # CSS and JavaScript
   ExpiresByType text/css                  "access plus 1 year"
   ExpiresByType application/javascript    "access plus 1 year"
+  ExpiresByType application/x-javascript  "access plus 1 year"
   ExpiresByType text/javascript           "access plus 1 year"
   
   <IfModule mod_headers.c>
