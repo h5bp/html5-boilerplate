@@ -62,7 +62,7 @@
 # Alternatively you could only whitelist your
 # subdomains like "subdomain.example.com".
 
-<FilesMatch "\.(ttf|otf|eot|woff|font.css)$">
+<FilesMatch "\.(ttf|ttc|otf|eot|woff|font.css)$">
   <IfModule mod_headers.c>
     Header set Access-Control-Allow-Origin "*"
   </IfModule>
