@@ -1,5 +1,6 @@
 namespace :build do
-  task :build    => ["build:basics", "html:minor_optimizations", "image:optimizations"]
+  task :build    => ["build:basics", "html:minor_optimizations",
+                     "image:optimizations"]
   task :buildkit => ["build:basics"]
   task :basics   => ["script:minified"]
   task :minify   => ["build:build", "html:full_minification"]
