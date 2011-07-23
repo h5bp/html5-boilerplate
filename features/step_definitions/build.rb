@@ -6,3 +6,7 @@ Then /^the correct directories have been created$/ do
     File.directory?(dirs)
   }
 end
+
+Then /^the JS should be minified$/ do
+  pending
+end

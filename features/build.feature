@@ -11,6 +11,7 @@ Feature: Build the HTML5 Boilerplate
     And the output should contain "Creating directory structure..."
     And the correct directories have been created
     And the output should contain "js.all.minify"
+    And the JS should be minified
     And the output should contain "js.main.concat"
     And the output should contain "Concatenating css..."
     And the output should contain "Minifying css..."
