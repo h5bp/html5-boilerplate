@@ -1,0 +1,157 @@
+/**
+ * Old HTML5 ✰ Boilerplate plus some extra tweaks by Max Degterev. Don't really care about IE7 anymore, so removed few tweaks. Sry.
+ *
+ * html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
+ * v1.6.1 2010-09-17 | Authors: Eric Meyer & Richard Clark
+ * html5doctor.com/html-5-reset-stylesheet/
+ *
+ */
+
+/**
+ * Basic reset of tags positioning
+ */
+
+html, body, body div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/*
+ * 1) Keeps page centred in all browsers regardless of content height
+ * 2) Removes Android and iOS tap highlight color to prevent entire container being highlighted
+ *    www.yuiblog.com/blog/2010/10/01/quick-tip-customizing-the-mobile-safari-tap-highlight-color/
+ * 3) Prevents iOS text size adjust after orientation change, without disabling user zoom
+ *    www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
+ */
+html {
+    overflow-y: scroll; /* 1 */
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* 2 */
+    -webkit-text-size-adjust: 100%; /* 3 */
+    -ms-text-size-adjust: 100%; /* 3 */
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/*
+ * Corrects inline-block display not defined in IE6/7/8/9 & FF3
+ */
+audio,
+canvas,
+video { display: inline-block; *display: inline; *zoom: 1; }
+
+/*
+ * Prevents modern browsers from displaying 'audio' without controls
+ */
+audio:not([controls]) { display: none; }
+
+/*
+ * Addresses styling not present IE6/7/8/9, FF3, S4
+ * Ensures content is hidden from all presentations, including screenreaders
+ */
+[hidden] { display: none; visibility: hidden; }
+
+/**
+ * Some styling tweaks you might want to review
+ */
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after,
+q:before, q:after { content: ''; content: none; }
+
+ins { background-color: #ff9; color: #000; text-decoration: none; }
+
+mark { background-color: #ff9; color: #000; font-style: italic; font-weight: bold; }
+
+del { text-decoration: line-through; }
+
+abbr[title], dfn[title] { border-bottom: 1px dotted; cursor: help; }
+dfn { font-style: italic; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+
+/**
+ * Font normalization inspired by YUI Library's fonts.css: developer.yahoo.com/yui/
+ */
+body { font: 13px/1.231 sans-serif; *font-size: small; } /* Hack retained to preserve specificity */
+
+/* Normalize monospace sizing:
+   en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome */
+pre, code, kbd, samp { font-family: monospace, sans-serif; }
+pre {
+  /* www.pathf.com/blogs/2008/05/formatting-quoted-code-in-blog-posts-css21-white-space-pre-wrap/ */
+  white-space: pre; white-space: pre-wrap; word-wrap: break-word;
+}
+
+/* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active, input:hover, input:active { outline: 0; }
+
+/* Remove default styles for lists */
+ul, ol, li { list-style:none; list-style-image: none; }
+
+small { font-size: 75%; }
+
+/* Set sub, sup without affecting line-height: gist.github.com/413930 */
+sub, sup { font-size: 75%; line-height: 0; position: relative; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+/* 1) Make inputs and buttons play nice in IE: www.viget.com/inspire/styling-the-button-element-in-internet-explorer/
+   2) WebKit browsers add a 2px margin outside the chrome of form elements.
+      Firefox adds a 1px margin above and below textareas
+   3) Set font-size to match <body>'s, and font-family to sans-serif
+   4) Align to baseline */
+button, input, select, textarea { width: auto; overflow: visible; margin: 0; font-size: 100%; font-family: sans-serif; vertical-align: baseline; *vertical-align: middle; }
+
+/* 1) Remove default scrollbar in IE: www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/
+   2) Align to text-top
+   3) Only vertical resize which is best in most cases */
+textarea { overflow: auto; vertical-align: text-top; resize: vertical; }
+
+/* Hand cursor on clickable input elements */
+label, input[type="button"], input[type="submit"], input[type="image"], button { cursor: pointer; }
+
+/*
+ * Corrects inability to style clickable 'input' types in iOS
+ */
+button, html input[type="button"], input[type="reset"], input[type="submit"] { -webkit-appearance: button; }
+
+/*
+ * Addresses box sizing set to content-box in IE8/9
+ */
+input[type="checkbox"], input[type="radio"] { box-sizing: border-box; }
+
+/*
+ * 1. Addresses appearance set to searchfield in S5, Chrome
+ * 2. Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof)
+ */
+input[type="search"] { -webkit-appearance: textfield;	-webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; }
+
+/*
+ * Corrects inner padding displayed oddly in S5, Chrome on OSX
+ */
+input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+
+/* Remove extra padding and inner border in Firefox */
+input::-moz-focus-inner, button::-moz-focus-inner { border: 0; padding: 0; }
+
+/*
+ * Delete this if you don't want to support IE6-7
+*/
+/* Bicubic resizing for non-native sized IMG:
+   code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+.ie7 img { -ms-interpolation-mode: bicubic; }
+.ie6 legend, .ie7 legend { margin-left: -7px; } 
