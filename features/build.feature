@@ -5,6 +5,13 @@ Feature: Build the HTML5 Boilerplate
 
   @wip
   Scenario: Perform a basic build
+    Given a file named "config.json" with:
+      """
+      {
+        environment      : "production",
+        output_directory : "publish"
+      }
+      """
     When I run `rake build:basics`
     Then the output should contain "build:"
     And the output should contain "Building a Production Environment..."
