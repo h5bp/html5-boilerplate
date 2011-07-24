@@ -4,7 +4,7 @@ require "rake/clean"
 require "bundler/setup"
 Bundler.require(:test)
 
-require "config"
+require "./config"
 
 # Things to clean/clobber
 # TODO: What's different for H5BP in clean and clobber?
