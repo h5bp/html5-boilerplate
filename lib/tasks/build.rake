@@ -1,3 +1,5 @@
+require "html5_boilerplate"
+
 namespace :build do
   task :build    => ["build:basics", "html:minor_optimizations",
                      "image:optimizations"]
@@ -6,13 +8,7 @@ namespace :build do
 
   desc "The default basic build"
   task :basics do
-    puts "build:"
-    puts "Building a Production Environment..."
-    # TODO: Make this task list process cleaner
-    ["build:script:minified"].each { |t|
-      # "invoke" execs task if not already exec'd
-      Rake::Task[t].invoke
-    }
+    HTML5Boilerplate::Builder.new.run
   end
 
   namespace :script do
