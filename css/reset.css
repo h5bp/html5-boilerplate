@@ -1,5 +1,5 @@
 /**
- * Old HTML5 ✰ Boilerplate plus some extra tweaks by Max Degterev. Don't really care about IE7 anymore, so removed few tweaks. Sry.
+ * Old HTML5 ✰ Boilerplate plus some extra tweaks
  *
  * html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
  * v1.6.1 2010-09-17 | Authors: Eric Meyer & Richard Clark
@@ -8,9 +8,8 @@
  */
 
 /**
- * Basic reset of tags positioning
+ * Basic reset
  */
-
 html, body, body div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
