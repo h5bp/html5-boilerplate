@@ -476,6 +476,7 @@ Options -Indexes
 # php_flag display_startup_errors Off
 
 # Format errors in plain text
+# Note: Leave this setting 'On' for xdebug's var_dump() output
 # php_flag html_errors Off
 
 # Show multiple occurrence of error
