@@ -114,11 +114,16 @@ AddType text/x-vcard                   vcf
 # concatenate and minify them manually.
 # Disabled by default.
 
-# <FilesMatch "\.combined\.(js|css)$">
-#         Options +Includes
-#         SetOutputFilter INCLUDES
-# </FilesMatch>
-
+#<FilesMatch "\.combined\.js$">
+#  Options +Includes
+#  AddOutputFilterByType INCLUDES application/javascript application/json
+#  SetOutputFilter INCLUDES
+#</FilesMatch>s
+#<FilesMatch "\.combined\.css$">
+#  Options +Includes
+#  AddOutputFilterByType INCLUDES text/css
+#  SetOutputFilter INCLUDES
+#</FilesMatch>
 
 
 # ----------------------------------------------------------------------
