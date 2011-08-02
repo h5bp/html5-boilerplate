@@ -1,4 +1,4 @@
-/* - h5bp-export: normalize.style.css -
+/* ==|== normalize ==========================================================
  * 
  * HTML5 ✰ Boilerplate
  *
@@ -195,9 +195,8 @@ input:invalid, textarea:invalid { background-color: #f0dddd; }
 table { border-collapse: collapse; border-spacing: 0; }
 
 
-/* - h5bp-export: primary.style.css -
-   =============================================================================
-   Primary styles
+/* ==|== primary styles =====================================================
+   
    Author: 
    ========================================================================== */
 
@@ -216,9 +215,8 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 
 
-/* - h5bp-export: helpers.style.css -
-   =============================================================================
-   Non-semantic helper classes
+/* ==|== non-semantic helper classes ========================================
+   
    Please define your styles before this section.
    ========================================================================== */
 
@@ -247,8 +245,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 
 
-/* - h5bp-export: responsive.style.css -
-   =============================================================================
+/* ==|== media queries ======================================================
    PLACEHOLDER Media Queries for Responsive Design.
    These override the primary ('mobile first') styles
    Modify as content requires.
@@ -266,8 +263,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 
 
-/* - h5bp-export: print.style.css -
-   =============================================================================
+/* ==|== print styles =======================================================
    Print styles.
    Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/
    ========================================================================== */
