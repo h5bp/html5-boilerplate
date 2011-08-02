@@ -333,7 +333,7 @@ FileETag None
 <IfModule mod_rewrite.c>
   RewriteCond %{HTTPS} !=on
   RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-  RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+  RewriteRule ^ http://%1%{REQUEST_URI} [R=301,L]
 </IfModule>
 
 # ----------------------------------------------------------------------
@@ -346,8 +346,7 @@ FileETag None
 # <IfModule mod_rewrite.c>
 #   RewriteCond %{HTTPS} !=on
 #   RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
-#   RewriteCond %{HTTP_HOST} (.+)$ [NC]
-#   RewriteRule ^(.*)$ http://www.%1/$1 [R=301,L]
+#   RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 # </IfModule>
 
 
@@ -382,7 +381,7 @@ FileETag None
 
 # <IfModule mod_rewrite.c>
 #   RewriteCond %{SERVER_PORT} !^443
-#   RewriteRule (.*) https://example-domain-please-change-me.com/$1 [R=301,L]
+#   RewriteRule ^ https://example-domain-please-change-me.com%{REQUEST_URI} [R=301,L]
 # </IfModule>
 
 
