@@ -62,11 +62,14 @@
 
 	
   <!-- mathiasbynens.be/notes/async-analytics-snippet Change UA-XXXXX-X to be your site's ID -->
+  <!-- checks to see if the page is visible before loading the GA script see: http://code.google.com/chrome/whitepapers/pagevisibility.html -->
   <script>
-    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview'],['_trackPageLoadTime']];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g,s)}(document,'script'));
+    var isPrerendering = false; function handleVisibilityChange(evt) { if (!isPrerendering) return; countView(); isPrerendering = false; } function countView(){
+      var _gaq=[['_setAccount','UA-312871-1'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script')); }
+      if (document.webkitVisibilityState != "prerender") { countView(); } else { isPrerendering = true; document.addEventListener("webkitvisibilitychange", handleVisibilityChange, false); }
   </script>
 
 
