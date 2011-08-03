@@ -27,13 +27,11 @@ audio:not([controls]) { display: none; }
  * 1. Correct text resizing oddly in IE6/7 when body font-size is set using em units
  *    http://clagnut.com/blog/348/#c790
  * 2. Force vertical scrollbar in non-IE
- * 3. Remove Android and iOS tap highlight color to prevent entire container being highlighted
- *    www.yuiblog.com/blog/2010/10/01/quick-tip-customizing-the-mobile-safari-tap-highlight-color/
- * 4. Prevent iOS text size adjust on device orientation change, without disabling user zoom
+ * 3. Prevent iOS text size adjust on device orientation change, without disabling user zoom
  *    www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
  */
 
-html { font-size: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch; -webkit-tap-highlight-color: rgba(0,0,0,0); -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+html { font-size: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 
 body { margin: 0; font-size: 13px; line-height: 1.231; }
 
@@ -55,6 +53,7 @@ body, button, input, select, textarea { font-family: sans-serif; color: #222; }
 
 a { color: #00e; }
 a:visited { color: #551a8b; }
+a:hover { color: #06e; }
 a:focus { outline: thin dotted; }
 
 /* Improve readability when focused and hovered in all browsers: people.opera.com/patrickl/experiments/keyboard/test */
@@ -207,10 +206,10 @@ input:invalid, textarea:invalid { background-color: #f0dddd; }
    ========================================================================== */
 
 table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
 
 
 /* ==|== primary styles =====================================================
-   
    Author: 
    ========================================================================== */
 
@@ -230,7 +229,6 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 
 /* ==|== non-semantic helper classes ========================================
-   
    Please define your styles before this section.
    ========================================================================== */
 
