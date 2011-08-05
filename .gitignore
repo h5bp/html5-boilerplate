@@ -8,14 +8,16 @@
 *.swp
 *.vi
 *~
+*.sass-cache
 
 # OS or Editor folders
 .DS_Store
 .cache
 .project
 .settings
+.tmproj
 nbproject
-thumbs.db
+Thumbs.db
 
 # Dreamweaver added files
 _notes
@@ -28,6 +30,8 @@ dwsync.xml
 # Folders to ignore
 .hg
 .svn
+.CVS
+intermediate
 publish
 .idea
 

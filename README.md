@@ -16,7 +16,7 @@
 #### index.html
 <ul>
 	<li>We use a <a href="http://paulirish.com/2010/the-protocol-relative-url/">protocol-relative url</a> for the jQuery include, to prevent the mixed content warning.</li>
-	<li>The order of <code>&lt;meta></code> tags, <code>&lt;title></code>, and charset has been <a href="https://github.com/paulirish/html5-boilerplate/wiki/The-markup ">documented more extensively now</a>. TL;DR: You are <a href="https://github.com/paulirish/html5-boilerplate/commit/4b67ea5cabb8c2b75faf2e255344cdffdf190464">safe to use the boilerplate's order of tags</a>.</li>
+	<li>The order of <code>&lt;meta></code> tags, <code>&lt;title></code>, and charset has been <a href="https://github.com/paulirish/html5-boilerplate/wiki/The-markup">documented more extensively now</a>. TL;DR: You are <a href="https://github.com/paulirish/html5-boilerplate/commit/4b67ea5cabb8c2b75faf2e255344cdffdf190464">safe to use the boilerplate's order of tags</a>.</li>
 	<li>We've shortened up the Google Analytics snippet.</li>
 	<li>Added an ARIA <code>role</code> attribute to <code>div#main</code>. This assumes your main content goes within that container.</li>
 	<li>IE9 doesn't get it's own conditional class! Yay!</li>		
@@ -178,7 +178,7 @@ Shi Chuan, Rob Larsen, Ivan Nikolić, Mikko Tikkanen, Velir, Paul Neave, Weston 
 
 ##### Thanks:
 
-voodootikigod, garowetz, fearphage, christopherjacob, mathias byenens, daniel harttman, rse, chris dary, erik dahlstrom, timwillison, kenneth nordahl, riddle, elcuervo, andreas kuckartz, 3rdEden, riley willis, majic3
+voodootikigod, garowetz, fearphage, christopherjacob, mathias bynens, daniel harttman, rse, chris dary, erik dahlstrom, timwillison, kenneth nordahl, riddle, elcuervo, andreas kuckartz, 3rdEden, riley willis, majic3
 
 ### v0.9 : August 10th, 2010 - Initial release
 
