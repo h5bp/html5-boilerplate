@@ -3,7 +3,6 @@ Feature: Build the HTML5 Boilerplate
   As a developer
   I should be able to use Rake to facilitate builds
 
-  @wip
   Scenario: Perform a basic build
     Given a file named "config.json" with:
       """
@@ -17,7 +16,6 @@ Feature: Build the HTML5 Boilerplate
     And the output should contain "Building a Production Environment..."
     And the output should contain "Creating directory structure..."
     And the output should contain "js.all.minify"
-    And the JS should be minified
     And the output should contain "js.main.concat"
     And the output should contain "Concatenating css..."
     And the output should contain "Minifying css..."
