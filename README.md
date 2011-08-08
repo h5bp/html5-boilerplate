@@ -6,40 +6,40 @@
 
 #### Build Script
 <ul>
-	<li>Files linked via @import will be inlined into the files they are imported to using Corey Hart's CSS Compressor.</li>
+	<li>Files linked via <code>@import</code> will be inlined into the files they are imported to using Corey Hart's CSS Compressor.</li>
 	<li>Environments are definable.</li>
 	<li>htaccess Expires headers are upgraded to 1year, as the filenames are revved</li>
-	<li>Massive rewrite so you can define which HTML, CSS, JS files to operate on in your configurable project.properties files. This allows you to let the build script operate on very unique folder architecture, including non-H5BP projects.</li>
-	<li>Added a source directory option in the build config, so your source files can be in a different directory from the final generated files (useful for other CMSes/frameworks like Django). </li>		
+	<li>Massive rewrite so you can define which HTML, CSS, and JS files to operate on in your configurable project.properties files. This allows you to let the build script operate on unique folder architectures (including non-H5BP projects).</li>
+	<li>Added a source directory option in the build config, so your source files can be in a different directory from the final generated files. (Useful for other CMSes/frameworks like Django.) </li>		
 </ul>
 
 #### index.html
 <ul>
-	<li>We use a <a href="http://paulirish.com/2010/the-protocol-relative-url/">protocol-relative url</a> for the jQuery include, to prevent the mixed content warning.</li>
-	<li>The order of <code>&lt;meta></code> tags, <code>&lt;title></code>, and charset has been <a href="https://github.com/paulirish/html5-boilerplate/wiki/The-markup">documented more extensively now</a>. TL;DR: You are <a href="https://github.com/paulirish/html5-boilerplate/commit/4b67ea5cabb8c2b75faf2e255344cdffdf190464">safe to use the boilerplate's order of tags</a>.</li>
+	<li>We use a <a href="http://paulirish.com/2010/the-protocol-relative-url/">protocol-relative URL</a> for the jQuery include, to prevent the mixed content warning.</li>
+	<li>The order of <code>&lt;meta></code> tags, <code>&lt;title></code>, and <code>charset</code> has been <a href="https://github.com/paulirish/html5-boilerplate/wiki/The-markup">documented more extensively now</a>. TL;DR: You are <a href="https://github.com/paulirish/html5-boilerplate/commit/4b67ea5cabb8c2b75faf2e255344cdffdf190464">safe to use the boilerplate's order of tags</a>.</li>
 	<li>We've shortened up the Google Analytics snippet.</li>
 	<li>Added an ARIA <code>role</code> attribute to <code>div#main</code>. This assumes your main content goes within that container.</li>
-	<li>IE9 doesn't get it's own conditional class! Yay!</li>		
+	<li>IE9 doesn't get its own conditional class! Yay!</li>		
 </ul>
 
 #### style.css
 <ul>
-	<li>Added <code>.focusable</code> helper class that extends <code>.visuallyhidden</code> to allow the element to be focusable when navigated to via the keyboard.</li>
-	<li>Anchor links are no longer reset. Basically our reset is the effectively merged with Eric Meyer's recent CSS reset update and also the HTML5 Doctor reset.</li>
-	<li>An unordered list within a nav element will no longer have a margin.</li>
+	<li>Added <code>.focusable</code> helper class, which extends <code>.visuallyhidden</code> to allow the element to be focusable when navigated to via the keyboard.</li>
+	<li>Anchor links are no longer reset. Basically our reset is effectively merged with Eric Meyer's recent CSS reset update, and the HTML5 Doctor reset.</li>
+	<li>An unordered list within a <code>&lt;nav></code> element will no longer have a margin.</li>
 	<li>All helper classes are now after primary styles to ensure correct overrides and not be burdened with resets. </li>
-	<li><code>.visuallyhidden</code> is no longer camelCase, as to be consistent with other classname formats.</li>
-	<li>Updated the specificity of <code>.visuallyhidden</code> rule to make sure it overrides all other declarations. </li>
-	<li>Removed reset on image elements within table cells as they look ugly alongside multiline texts. Browsers default to baseline alignment for images which works better than top alignment.</li>
-	<li>Increased margin-left on ol, to allow for 2-digit list numbers.</li>
+	<li><code>.visuallyhidden</code> is no longer camelCase for consistency with other classname formats.</li>
+	<li>Updated the specificity of <code>.visuallyhidden</code> to make sure it overrides all other declarations. </li>
+	<li>Removed reset on <code>&lt;img></code> elements within table cells as they look ugly alongside multiline texts. Browsers default to baseline alignment for images, which works better than top alignment.</li>
+	<li>Increased margin-left on <code>&lt;ol></code>, to allow for 2-digit list numbers.</li>
 	<li>Added a print reset on IE's proprietary filters.</li>
-	<li>Print styles no longer prints hash links or javascript links.</li>
-	<li>Updated sub/sup css to make them not be impacted by line-height, so now you can do sub/superscripts without worrying.</li>		
+	<li>Print styles no longer prints hash links or JavaScript links.</li>
+	<li>Updated <code>&lt;sub></code>/<code>&lt;sup></code> CSS so that they're not impacted by <code>line-height</code>, so now you can do sub/superscripts without worrying.</li>		
 </ul>
 
 #### Project
 <ul>
-	<li>Added a <a href="http://humanstxt.org">humans.txt</a> so you can clarify authorship and tools used</li>
+	<li>Added a <a href="http://humanstxt.org">humans.txt</a> so you can clarify authorship and tools used.</li>
 	<li>Removed YUI profiling. You probably weren't using it anyway.</li>
 	<li>Removed QUnit's unit tests. There is no need to ship with them, really.</li>		
 </ul>
@@ -48,18 +48,18 @@
 #### .htaccess
 <ul>
 	<li>.htaccess is far more documented now. Take a read through it!</li>
-	<li><a href="https://github.com/paulirish/html5-boilerplate/commit/37b5fec090d00f38de64b591bcddcb205aadf8ee">Changed mimetype of .ico files to "image/x-icon"</a>.</li>
+	<li><a href="https://github.com/paulirish/html5-boilerplate/commit/37b5fec090d00f38de64b591bcddcb205aadf8ee">Changed mimetype of <code>.ico</code> files to <code>image/x-icon</code></a>.</li>
 	<li>HTML Manifest files now use <code>.appcache</code> extension instead of <code>.manifest</code>, as per <a href="http://html5.org/r/5812">http://html5.org/r/5812</a>.</li>
 	<li>Force deflate for accept-encoding headers mangled by turtle tappers, courtesy of <a href="http://developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping/">Yahoo!'s research</a></li>
-	<li>We nerfed some of the directives in case you're on server without <code>mod_headers</code>. (Which is totally crazy, man)</li>
-	<li>Block access to .git and .svn folders.</li>
+	<li>We nerfed some of the directives in case you're on a server without <code>mod_headers</code>. (Which is totally crazy, man!)</li>
+	<li>Block access to <code>.git</code> and <code>.svn</code> folders.</li>
 	<li>Eradicating Chrome's console warning on WOFF font downloads.</li>
-	<li>More optimizations available if you set the .htaccess details up in your httpd.conf</li>
-	<li>.htaccess now caches .htc files</li>
+	<li>More optimizations available if you set the <code>.htaccess</code> details up in your <code>httpd.conf</code></li>
+	<li><code>.htaccess</code> now caches <code>.htc</code> files</li>
   
-	<li>Moved all server configurations (except apache's .htaccess) over to <a href ="https://github.com/paulirish/html5-boilerplate-server-configs">the new html5-boilerplate-server-configs repo</a>. Head over there if you are not using Apache. </li>
+	<li>Moved all server configurations (except Apache's <code>.htaccess</code>) over to <a href ="https://github.com/paulirish/html5-boilerplate-server-configs">the new html5-boilerplate-server-configs repo</a>. Head over there if you're not using Apache. </li>
 	
-	<li>Updated <code>.htaccess</code> and <code>mime.types</code> for ogg formats.</li>
+	<li>Updated <code>.htaccess</code> and <code>mime.types</code> for <code>ogg</code> formats.</li>
 	<li>Fixed regression where EOT fonts had been excluded from DEFLATE compression</li>
 	<li>Apache version independence: Use <code>mod_filter</code> for compression, with fallback to AddOutputFilterByType directive for legacy versions</li>
 	<li>Added plugin/extension mime types for Safari, Chrome, Firefox</li>
@@ -120,40 +120,40 @@ Major changes:
 #### General
 * Updated Modernizr to 1.6 (smaller and faster)
 * Added web.config file for Microsoft IIS. Now forcing latest IE version and ChromeFrame, if installed.
-* Added favicon and default icon for iOS.
-* Updated crossdomain.xml wording for better security guidelines ( #124 ).
-* Expires value for nginx.conf corrected.
+* Added <code>favicon</code> and <code>default icon</code> for iOS.
+* Updated <code>crossdomain.xml</code> wording for better security guidelines ( #124 ).
+* Expires value for <code>nginx.conf</code> corrected.
 * License clarified.
 
 #### style.css
-* Removed -webkit-font-smoothing: antialiased; as it made monospace too thin.
+* Removed <code>-webkit-font-smoothing: antialiased</code> as it made monospace too thin.
 * Updated fonts normalization to YUI 3.2.0 PR1.
-* Table Header set explicitly for IE6 and table row now has page-break: avoid in print CSS.
-* text-shadow:none !important set for all text in print css.
-* Removed scrollbar from textareas in IE.
-* Fixed textarea stylings and form field treatment for validity. Added default background-color.
+* Table Header set explicitly for IE6, and table row now has <code>page-break: avoid</code> in print CSS.
+* <code>text-shadow:none !important</code> set for all text in print CSS.
+* Removed scrollbar from <code>&lt;textarea></code>s in IE.
+* Fixed <code>&lt;textarea></code> stylings and form field treatment for validity. Added default <code>background-color</code>.
 * New robust clearfix solution without IE 5.5 hack ( #45 #126 ).
-* Margins for form-elements explicitly set to 0 as webkit adds 2px space around form elements' chrome. 
-* Dropped text-rendering: optimizeLegibility as it breaks small-caps and looks odd on Linux machines. 
-* Lists now have a left margin of 1.8em. Default list-style-type for ordered list is decimal.
+* Margins for form-elements explicitly set to <code>0</code> as webkit adds 2px space around form elements' chrome. 
+* Dropped <code>text-rendering: optimizeLegibility</code> as it breaks <code>small-caps</code> and looks odd on Linux machines. 
+* Lists now have a left margin of <code>1.8em</code>. Default <code>list-style-type</code> for ordered list is <code>decimal</code>.
 * Image Replacement now works with right-to-left text ( #68 ).
-* Removed "Star Hack" for checkboxes in favor of .ie7 selector.
+* Removed "Star Hack" for checkboxes in favor of <code>.ie7</code> selector.
 
 #### index.html
-* IE conditional classes have moved from the <body> tag to the <html> tag ( #44 ).
-* Added a IE6 call for the minified dd_belatedpng.
+* IE conditional classes have moved from the <code>&lt;body></code> tag to the <code>&lt;html></code> tag ( #44 ).
+* Added a IE6 call for the minified <code>dd_belatedpng</code>.
 * Google Analytics script will now work with SSL in IE6.
 * Added protocol independent absolute path for cdn jquery, with improved fallback-to-local code to protect against edge case IE bug.
 * Commented out handheld CSS ( #73 ).
 * Mobile viewport and textsize styles adjusted per group feedback ( #37 ).
 
 #### .htaccess
-* More files are served via gzip like .htc ( #55 ).
+* More files are served via gzip like <code>.htc</code> ( #55 ).
 * Added Expires header for content types image/gif and video/webm.
 * Fixed favicon display in IE6 ( #113 ).
 * Corrected mimetypes for fonts.
 * Removed caching for files of type json/xml.
-* Better use of ifmodule for more stability in different Apache environments.
+* Better use of <code>ifmodule</code> for more stability in different Apache environments.
 
 [View full diff and commit history](http://github.com/paulirish/html5-boilerplate/compare/v0.9.1...v0.9.5)
 
@@ -167,7 +167,7 @@ Shi Chuan, Rob Larsen, Ivan Nikolić, Mikko Tikkanen, Velir, Paul Neave, Weston 
 * HTML5 Boilerplate is now in the Public Domain
 * Nginx configuration added
 * Font stacks (sans-serif and monospace) simplified
-* Very accessible a:focus styles.
+* Very accessible <code>a:focus</code> styles.
 * Corrected IE=edge,chromeframe enabling (As a result, the base HTML [does not validate](http://bit.ly/cGSSgr))
 * ServerSideIncludes disabled by default.
 * Apache config bugfixes
@@ -203,16 +203,16 @@ Everything else:
 
 This is a set of files that a front-end developer can use to get started on a website, with following included:
 
-1. Cross-browser compatible (IE6, yeah we got that.)
+1. Cross-browser compatible (IE6? Yeah, we got that.)
 2. HTML5 ready. Use the new tags with certainty.
-3. Optimal caching and compression rules for grade-A performance
+3. Optimal caching and compression rules for Grade-A performance
 4. Best practice site configuration defaults
 5. Think there's too much? The HTML5 Boilerplate is delete-key friendly. :)
 6. Mobile browser optimizations
 7. Progressive enhancement graceful degredation ........ yeah yeah we got that
-8. IE specific classes for maximum cross-browser control
+8. IE-specific classes for maximum cross-browser control
 9. Want to write unit tests but lazy? A full, hooked up test suite is waiting for you.
-10. Javascript profiling.. in IE6 and IE7? Sure, no problem.
+10. Javascript profiling…in IE6 and IE7? Sure, no problem.
 11. Console.log nerfing so you won't break anyone by mistake.
 12. Never go wrong with your doctype or markup!
 13. An optimal print stylesheet, performance optimized
@@ -222,7 +222,7 @@ This is a set of files that a front-end developer can use to get started on a we
 
 ## Releases 
 
-There are two releases: a documented release, which is exactly what you see here, and a "stripped" release, with most of the descriptive comments stripped out.
+There are two releases: a documented release (which is exactly what you see here), and a "stripped" release (with most of the descriptive comments stripped out).
 
 Watch the [current tickets](http://github.com/paulirish/html5-boilerplate/issues) to view the areas of active development.
 
