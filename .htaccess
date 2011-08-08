@@ -125,7 +125,7 @@ AddType text/x-vcard                   vcf
 #  Options +Includes
 #  AddOutputFilterByType INCLUDES application/javascript application/json
 #  SetOutputFilter INCLUDES
-#</FilesMatch>s
+#</FilesMatch>
 #<FilesMatch "\.combined\.css$">
 #  Options +Includes
 #  AddOutputFilterByType INCLUDES text/css
