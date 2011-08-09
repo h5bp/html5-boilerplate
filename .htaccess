@@ -462,7 +462,8 @@ Options -Indexes
 # Rename session cookie to something else, than PHPSESSID
 # php_value session.name sid
 
-# Do not show you are using php
+# Do not show you are using PHP
+# Note: Move this line to php.ini since it won't work in .htaccess
 # php_flag expose_php Off
 
 # Level of log detail - log all errors
