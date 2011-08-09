@@ -1,0 +1,19 @@
+CACHE MANIFEST
+
+# version 2011/07/04 15:29:22
+
+CACHE:
+# html files
+/index.html
+
+# css files
+/css/style.css
+
+# js files
+/js/plugins.js
+/js/script.js
+
+FALLBACK:
+
+NETWORK:
+*
