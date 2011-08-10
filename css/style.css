@@ -235,10 +235,10 @@ td { vertical-align: top; }
 .ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; }
 .ir br { display: none; }
 
-/* Hide for both screenreaders and browsers: h5bp.com/m */
-.hidden { display: none; visibility: hidden; }
+/* Hide from both screenreaders and browsers: h5bp.com/u */
+.hidden { display: none !important; visibility: hidden; }
 
-/* Hide only visually, but have it available for screenreaders: h5bp.com/n  & h5bp.com/o */
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
 .visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
 
 /* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
