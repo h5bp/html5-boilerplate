@@ -20,6 +20,7 @@ audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
 audio:not([controls]) { display: none; }
 [hidden] { display: none; }
 
+
 /* =============================================================================
    Base
    ========================================================================== */
@@ -78,7 +79,7 @@ ins { background: #ff9; color: #000; text-decoration: none; }
 mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
 
 /* Redeclare monospace font family: h5bp.com/j */
-pre, code, kbd, samp { font-family: monospace, monospace; _font-family: 'courier new', monospace; font-size: 1em; }
+pre, code, kbd, samp { font-family: monospace, serif; _font-family: 'courier new', monospace; font-size: 1em; }
 
 /* Improve readability of pre-formatted text in all browsers */
 pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
