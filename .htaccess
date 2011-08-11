@@ -432,7 +432,9 @@ AddCharset utf-8 .html .css .js .xml .json .rss .atom
 # "-Indexes" will have Apache block users from browsing folders without a default document
 # Usually you should leave this activated, because you shouldn't allow everybody to surf through
 # every folder on your server (which includes rather private places like CMS system folders).
-Options -Indexes
+<IfModule mod_autoindex.c>
+  Options -Indexes
+</IfModule>
 
 
 # Block access to "hidden" directories whose names begin with a period. This
@@ -499,5 +501,5 @@ Options -Indexes
 
 # Increase cookie security
 <IfModule php5_module>
-	php_value session.cookie_httponly true
+  php_value session.cookie_httponly true
 </IfModule>
