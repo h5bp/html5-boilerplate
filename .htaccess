@@ -38,7 +38,7 @@
 # Cross-domain AJAX requests
 # ----------------------------------------------------------------------
 
-# Serve cross-domain ajax requests, disabled.   
+# Serve cross-domain ajax requests, disabled.
 # enable-cors.org
 # code.google.com/p/html5security/wiki/CrossOriginRequestSecurity
 
@@ -70,7 +70,7 @@
 
 
 # JavaScript
-#   Normalize to standard type (it's sniffed in IE anyways) 
+#   Normalize to standard type (it's sniffed in IE anyways)
 #   tools.ietf.org/html/rfc4329#section-7.2
 AddType application/javascript         js
 
@@ -86,16 +86,16 @@ AddType video/webm                     webm
 # SVG.
 #   Required for svg webfonts on iPad
 #   twitter.com/FontSquirrel/status/14855840545
-AddType     image/svg+xml              svg svgz 
+AddType     image/svg+xml              svg svgz
 AddEncoding gzip                       svgz
-                                       
-# Webfonts                             
+
+# Webfonts
 AddType application/vnd.ms-fontobject  eot
 AddType application/x-font-ttf    ttf ttc
 AddType font/opentype                  otf
 AddType application/x-font-woff        woff
 
-# Assorted types                                      
+# Assorted types
 AddType image/x-icon                   ico
 AddType image/webp                     webp
 AddType text/cache-manifest            appcache manifest
@@ -108,7 +108,7 @@ AddType text/x-vcard                   vcf
 
 
 # ----------------------------------------------------------------------
-# Allow concatenation from within specific js and css files 
+# Allow concatenation from within specific js and css files
 # ----------------------------------------------------------------------
 
 # e.g. Inside of script.combined.js you could have
@@ -188,7 +188,7 @@ AddType text/x-vcard                   vcf
 # These are pretty far-future expires headers.
 # They assume you control versioning with cachebusting query params like
 #   <script src="application.js?20100608">
-# Additionally, consider that outdated proxies may miscache 
+# Additionally, consider that outdated proxies may miscache
 #   www.stevesouders.com/blog/2008/08/23/revving-filenames-dont-use-querystring/
 
 # If you don't use filenames to version, lower the CSS  and JS to something like
@@ -203,9 +203,9 @@ AddType text/x-vcard                   vcf
 # cache.appcache needs re-requests in FF 3.6 (thanks Remy ~Introducing HTML5)
   ExpiresByType text/cache-manifest       "access plus 0 seconds"
 
-# Your document html 
+# Your document html
   ExpiresByType text/html                 "access plus 0 seconds"
-  
+
 # Data
   ExpiresByType text/xml                  "access plus 0 seconds"
   ExpiresByType application/xml           "access plus 0 seconds"
@@ -216,7 +216,7 @@ AddType text/x-vcard                   vcf
   ExpiresByType application/atom+xml      "access plus 1 hour"
 
 # Favicon (cannot be renamed)
-  ExpiresByType image/x-icon              "access plus 1 week" 
+  ExpiresByType image/x-icon              "access plus 1 week"
 
 # Media: images, video, audio
   ExpiresByType image/gif                 "access plus 1 month"
@@ -227,25 +227,25 @@ AddType text/x-vcard                   vcf
   ExpiresByType audio/ogg                 "access plus 1 month"
   ExpiresByType video/mp4                 "access plus 1 month"
   ExpiresByType video/webm                "access plus 1 month"
-  
+
 # HTC files  (css3pie)
   ExpiresByType text/x-component          "access plus 1 month"
-  
+
 # Webfonts
   ExpiresByType font/truetype             "access plus 1 month"
   ExpiresByType font/opentype             "access plus 1 month"
   ExpiresByType application/x-font-woff   "access plus 1 month"
   ExpiresByType image/svg+xml             "access plus 1 month"
   ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
-    
+
 # CSS and JavaScript
   ExpiresByType text/css                  "access plus 1 year"
   ExpiresByType application/javascript    "access plus 1 year"
-  
+
   <IfModule mod_headers.c>
     Header append Cache-Control "public"
   </IfModule>
-  
+
 </IfModule>
 
 
@@ -328,7 +328,7 @@ FileETag None
 # ----------------------------------------------------------------------
 
 # Option 1:
-# Rewrite "www.example.com -> example.com" 
+# Rewrite "www.example.com -> example.com"
 
 <IfModule mod_rewrite.c>
   RewriteCond %{HTTPS} !=on
@@ -370,12 +370,12 @@ FileETag None
 # </IfModule>
 
 
-	
+
 # ----------------------------------------------------------------------
 # Prevent SSL cert warnings
 # ----------------------------------------------------------------------
 
-# Rewrite secure requests properly to prevent SSL cert warnings, e.g. prevent 
+# Rewrite secure requests properly to prevent SSL cert warnings, e.g. prevent
 # https://www.example.com when your cert only allows https://secure.example.com
 # Uncomment the following lines to use this feature.
 
@@ -390,10 +390,10 @@ FileETag None
 # Prevent 404 errors for non-existing redirected folders
 # ----------------------------------------------------------------------
 
-# without -MultiViews, Apache will give a 404 for a rewrite if a folder of the same name does not exist 
+# without -MultiViews, Apache will give a 404 for a rewrite if a folder of the same name does not exist
 #   e.g. /blog/hello : webmasterworld.com/apache/3808792.htm
 
-Options -MultiViews 
+Options -MultiViews
 
 
 
