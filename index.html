@@ -23,7 +23,15 @@
 
   <!-- CSS: implied media=all -->
   <!-- CSS concatenated and minified via ant build script -->
-  <link rel="stylesheet" href="css/style.css">
+  	<!-- http://code.google.com/p/universal-ie6-css/ -->
+	<!--[if ! lte IE 6]><!-->
+		<link rel="stylesheet" href="css/style.css">
+	<!--<![endif]-->
+
+	<!--[if lte IE 6]>
+	<link rel="stylesheet" href="css/ie6.1.1.css" media="screen, projection">
+	<![endif]-->
+
   <!-- end CSS -->
 
   <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
