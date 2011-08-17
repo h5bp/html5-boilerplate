@@ -109,11 +109,11 @@ nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0
    ========================================================================== */
 
 /*
- * 1. Improve scaled image quality : https://developer.mozilla.org/en/css/image-rendering
+ * 1. Improve scaled image quality for IE7+ and Chrome : https://developer.mozilla.org/en/css/image-rendering
  * 2. Remove the gap between images and borders on image containers: h5bp.com/e
  */
 
-img { border: 0; -ms-interpolation-mode: bicubic; image-rendering: optimizeQuality; image-rendering: -webkit-optimize-contrast; vertical-align: middle; }
+img { border: 0; -ms-interpolation-mode: bicubic; image-rendering: -webkit-optimize-contrast; vertical-align: middle; }
 
 /*
  * Correct overflow not hidden in IE9
