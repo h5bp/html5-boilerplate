@@ -193,7 +193,7 @@ AddType text/x-vcard                   vcf
 # Additionally, consider that outdated proxies may miscache
 #   www.stevesouders.com/blog/2008/08/23/revving-filenames-dont-use-querystring/
 
-# If you don't use filenames to version, lower the CSS  and JS to something like
+# If you don't use filenames to version, lower the CSS and JS to something like
 #   "access plus 1 week" or so.
 
 <IfModule mod_expires.c>
