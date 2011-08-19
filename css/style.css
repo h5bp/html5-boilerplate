@@ -66,6 +66,10 @@ a:hover, a:active { outline: 0; }
 
 abbr[title] { border-bottom: 1px dotted; }
 
+/* Smartphone users should see abbr[title]
+   Don't forget to include the Touch Events test when making a production build of Modernizr! */
+.touch abbr[title]:after { content: " (" attr(title) ")" }
+
 b, strong { font-weight: bold; }
 
 blockquote { margin: 1em 40px; }
