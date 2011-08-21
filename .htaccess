@@ -34,6 +34,17 @@
     </FilesMatch>
 </IfModule>
 
+# ----------------------------------------------------------------------
+# Remove IE 6 image toolbar
+# ----------------------------------------------------------------------
+
+# Kill IE6's pop-up-on-mouseover toolbar for images that can interfere with certain
+# designs and be pretty distracting in general.
+
+<IfModule mod_headers.c>
+    Header set imagetoolbar "false"
+</IfModule>
+
 
 # ----------------------------------------------------------------------
 # Cross-domain AJAX requests
