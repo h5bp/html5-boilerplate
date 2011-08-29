@@ -16,7 +16,7 @@ Lots of research has gone into normalize, verifying what are the default user ag
 
 ##### Why this is great news:
 
-* Who likes being so damn redundant and declaring: em, i { font-style: italic; }
+* Who likes being so damn redundant and declaring: `em, i { font-style: italic; }`
 * By using normalization instead of a reset + building up default styles, we use less styles and save bytes
 * Less noise in your dev tools: when debugging, you don't have to trawl through every reset selector to reach the actual style that is causing the issue.
 * More details here: http://necolas.github.com/normalize.css/
@@ -32,51 +32,51 @@ Lots of research has gone into normalize, verifying what are the default user ag
 * Making an app that works offline is a badge of honor. Now with a flick of a config switch, the H5BP build script can autogenerate your cache manifest file with all the right info and wire it up. It'll also keep the manifest revved as you deploy new changes.
 
 ##### ADDING RESPOND.JS
-* Add respond.js as a shift to a responsive approach. Updated it to improved, comment-free version which would enable IEs to also apply styles using media queries.
+* Add `respond.js` as a shift to a responsive approach. Updated it to an improved, comment-free version which would enable IEs to also apply styles using media queries.
 
 
 #### PNGFIX & HANDHELD REMOVED
-* Remove handheld.css as we do not think it was useful among the diverse feature phones
+* Remove `handheld.css` as we do not think it was useful among the diverse feature phones
 * We feel tools like imagealpha and pngquant are more useful than using stopgap fixes like belatedpng.
 
 ### detailed 2.0 changelog
 
 #### .HTACCESS
 * Disable directory browsing by default
-* removed trailing slash redirects in htaccess. More: https://github.com/paulirish/html5-boilerplate/wiki/Proper-usage-of-trailing-slash-redirects #493 #515
+* removed trailing slash redirects in `.htaccess`. More: https://github.com/paulirish/html5-boilerplate/wiki/Proper-usage-of-trailing-slash-redirects #493 #515
 * Updating TTF mimetype to fix Google Chrome warning
-* Improved support for all versions of Apache, incl workaround for bug in mod_filter: Fixes #441. Fixes #499. Fixes #535. Closes #549. (the grouping ticket) Ref #576
-* Use substring matching in gzip filter_module and re-enable gzip for some common MIME-types
-* mod_deflate trigger rules modifications
+* Improved support for all versions of Apache, incl workaround for bug in `mod_filter`: Fixes #441. Fixes #499. Fixes #535. Closes #549. (the grouping ticket) Ref #576
+* Use substring matching in `gzip` `filter_module` and `re-enable gzip` for some common MIME-types
+* `mod_deflate` trigger rules modifications
 * Add gzip support for XHTML, RSS, Atom
 * Move font & SVG compression from FilesMatch to FilterProvider / AddOutputFilterByType
 * Added m4a (Need it for IE9) and m4v (HandBrake default) MIME types.
 * moved ETag removal configs closer
 * added Header unset ETag In some servers setting "FileETag None" alone, is not enough. Removing header and setting it to None fixes the issue.
 * Add `Options +FollowSymlinks` when `RewriteEngine` is used. Fixes #489.
-* Some more security for PHP: turn off error display and turn on error logging
+* Some more security for PHP: turn off `error display` and turn on `error logging`
 * Allow Blackberry to read vCards
 
 
 #### BUILD SCRIPT
 * CSSLint, JSLint, JSHint tools are now optionally available in the build script
 * New features in build script:
-* Added a files.bypass property  which when set, will not compress the listed JavaScript files, but just silently passes it on to the publish folder without any change.
-* Added a images.bypass with a list of image files or folders within the img directory that you do not want to be optimized. Fixes #564
+* Added a `files.bypass` property  which when set, will not compress the listed JavaScript files, but just silently passes it on to the publish folder without any change.
+* Added a `images.bypass` with a list of image files or folders within the img directory that you do not want to be optimized. Fixes #564
 * Build script is compatible with php files now. it appears. fixes #392.
-* Build script now generates appcache manifest. see #652
-* Test for ant version to head off problems with ant < 1.8.2
-* removes concatenated css files from index.html when they are linked to with link tag. Fixes #452
-* Added DOCTYPE so Eclipse and other IDE's do not complain about the lack of schema. http://stackoverflow.com/questions/363768/disable-dtd-warning-for-ant-scripts-in-eclipse
-* Updated Windows optipng and jpegtran paths to include ${basedir}
-* Minification affects all .css and .js files in /css and /js dirs,  not just the ones explicitly included in concatenation.
+* Build script now generates `.appcache` manifest. see #652
+* Test for Ant version to head off problems with Ant < 1.8.2
+* Removes concatenated CSS files from `index.html` when they are `<link>` -ed. Fixes #452
+* Added `DOCTYPE` so IDEs don't complain about the lack of schema. http://stackoverflow.com/questions/363768/disable-dtd-warning-for-ant-scripts-in-eclipse
+* Updated Windows `optipng` and `jpegtran` paths to include `${basedir}`
+* Minification affects all `.css` and `.js` files in `/css` and `/js` dirs,  not just the ones explicitly included in concatenation.
 * Build script: compress all images in subfolders, too.
-* Added gae.js_dir and gae.css_dir so that App Engine projects can have the correct directory names swapped in their templates.
-* added a second replace token statement so that "/css/style.css" gets swapped too.
-* change *.png and *.jpg to **/*.png and **/*.jpg so that optimize commands reach subdirectories.
-* Improved build script compatibility with Netbeans IDE. default.properties: added IDE generated files/folders to exclude from build script .gitignore: Filename case correction for Windows generated Thumb.db Fix #374
-* Adding properties to project.properties so that Google App Engine builds don't have "static" prepended when swapping for minified versions.
-* console.log messages are no longer commented out. use log() instead
+* Added `gae.js_dir` and `gae.css_dir` so that App Engine projects can have the correct directory names swapped in their templates.
+* Added a second replace token statement so that `/css/style.css` gets swapped too.
+* Change `*.png` and `*.jpg` to `**/*.png` and `**/*.jpg` so that optimize commands reach subdirectories.
+* Improved build script compatibility with Netbeans IDE. `default.properties`: added IDE generated files/folders to exclude from build script `.gitignore`: Filename case correction for Windows generated Thumb.db Fix #374
+* Adding properties to `project.properties` so that Google App Engine builds don't have "static" prepended when swapping for minified versions.
+* `console.log` messages are no longer commented out. use `log()` instead
 
 * Much faster build process
 
@@ -96,63 +96,63 @@ a reverted change may cause users to use a copy that was previously
 downloaded. It may be better to use only part of the hash so the HTTP
 request is shorter.
 
-* copy files last This slightly simplifies copying because we don't have to exclude PNG, JPEG, or HTML files from the copy stage. it comes preminified, and we don't need to minify it again This also updates the HTML so that the script is not missing if the unminified scripts are unavailable on the server. This commit requires a change to existing HTML files :/
-* change the source htaccess rather than updating it
-* update yuicompressor to 2.4.5. fixes media query minification issue.
-* update htmlcompressor to 1.1 which uses the new yuicompressor for CSS.
-* try not to re-optimize the same images every time
-* Lots of bug fixes for edge cases and improved techniques..
+* Copy files last. This slightly simplifies copying because we don't have to exclude PNG, JPEG, or HTML files from the copy stage. (It comes preminified, and we don't need to minify it again.) This also updates the HTML so that the script is not missing if the un-minified scripts are unavailable on the server. This commit requires a change to existing HTML files :/
+* Change the source htaccess rather than updating it
+* Update yuicompressor to 2.4.5. fixes media query minification issue.
+* Update htmlcompressor to 1.1 which uses the new yuicompressor for CSS.
+* Try not to re-optimize the same images every time
+* Lots of bug fixes for edge cases and improved techniques...
 
 
 
 #### INDEX.HTML
 * Use minified jQuery by default. / jQuery updated to 1.6.2
-* Add respond.js as part of shift to 'mobile first' approach.
+* Add `respond.js` as part of shift to 'mobile first' approach.
 * Updated to Modernizr 2.0 Complete, Production minified.
 * Prompt IE 6 users to install Chrome Frame, update chromeframe install to 1.0.3.  Move chromeframe to bottom of page after the other scripts. also reference exact version for higher expires headers. Use protocol-relative url for chrome frame URL Fixes #495
 * Removing touch icon link tags and retaining only the comment.
-* Encourage people to send the X-UA-Compatible HTTP header instead of leaving it in the HTML, to avoid edge case issues. Fixes #378.
+* Encourage people to send the `X-UA-Compatible` HTTP header instead of leaving it in the HTML, to avoid edge case issues. Fixes #378.
 * Remove the cache-busting query parameters from the HTML.
 * Simplify the conditional comment containing code for IE 9+ and modern browsers
 * Simpler escape for `</script>`. See http://mathiasbynens.be/notes/etago for more information.
 * Encourage people to use a custom Modernizr build containing only the features they need for that particular project.
 * Added maximum touch-icon support as per http://mathiasbynens.be/notes/touch-icons#sizes
-* Add a link to optional <meta> tags that could be added to the <head> element: https://github.com/paulirish/html5-boilerplate/issues/482
+* Add a link to optional `<meta>` tags that could be added to the `<head>` element: https://github.com/paulirish/html5-boilerplate/issues/482
 * Standardize the use of single and double quotes as per http://h5bp.com/d/The-markup★quotes
 * Added Site Speed tracking for Google Analytics
-* Using Modernizr.load/yepnope for loading Google Analytics. Fixes #542
+* Using `Modernizr.load/yepnope` for loading Google Analytics. Fixes #542
 * Google Analytics now retrieved with <code>Modernizr.load()</code> for byte brevity and optimal speed
 
 #### STYLE.CSS
-* Major: Now using css normalization instead of css reset + building up default styles.  Fixes #412, #500, #534. Closes #456. Links #566
+* Major: Now using CSS normalization instead of CSS reset + building up default styles.  Fixes #412, #500, #534. Closes #456. Links #566
 * Add `'oldie'` class to conditional `<html>` classnames. Fix #522
 * Add `img { max-width: 100%; }` to print styles to prevent images from getting cut off.
 * Update clearfix to use 'micro' clearfix http://nicolasgallagher.com/micro-clearfix-hack/
-* Add placeholder CSS MQs for mobile-first approach
-* Tweaking our hot pink ::selection. It is now #fe57a1, which is Festal (adj): pertaining to or befitting a feast, festival, holiday, or gala occasion.
-* Use black for links when printing, refs #147
-* added vertical-align: middle to fix borders on image containers. Fixes #440
-* Add `<svg>` overflow fix for IE9. Group `<img>` and `<svg>` rules in an 'embedded content' section of CSS file. Add {cursor:pointer} to <label> element.
-* Switch to outline:0 for accesible focus treatment. Avoids Opera bug when combined with transitions. Also saves bytes.
-* Set `{overflow:auto}` for `<button>` and `<input>` in `<table>` in IE6/7. Avoids numerous layout and whitespace issues that result from setting {overflow:visible} to fix the odd inner spacing of those form elements.
+* Add placeholder CSS media queries for mobile-first approach
+* Tweaking our hot pink `::selection`. It is now #fe57a1, which is Festal (adj): pertaining to or befitting a feast, festival, holiday, or gala occasion.
+* Use `color: black` for links when printing, refs #147
+* added `vertical-align: middle` to fix borders on image containers. Fixes #440
+* Add `<svg>` overflow fix for IE9. Group `<img>` and `<svg>` rules in an 'embedded content' section of CSS file. Add `{cursor:pointer}` to `<label>` element.
+* Switch to `outline:0` for accesible focus treatment. Avoids Opera bug when combined with transitions. Also saves bytes.
+* Set `{overflow:auto}` for `<button>` and `<input>` in `<table>` in IE6/7. Avoids numerous layout and whitespace issues that result from setting `{overflow:visible}` to fix the odd inner spacing of those form elements.
 * Add `{resize: vertical}` to `<textarea>`. Only allow vertical resizing
 
 
 #### MISC
 
-* gitignore additions: textmate project folder, older CVS folders,  sass_cache.
+* `.gitignore` additions: textmate project folder, older CVS folders, sass_cache.
 * Update HTML elements demo: reduce repetition, remove deprecated elements, add certain HTML5 elements, add more comprehensive collection of HTML5 input types, include different form markup styles, add form elements box-sizing test
-* Add .gitattributes to help with consistent line endings
-* Changed curly quotes to straight quotes in crossdomain.xml
+* Add `.gitattributes` to help with consistent line endings
+* Changed curly quotes to straight quotes in `crossdomain.xml`
 
 
 #### Significant commits:
 
 * 26a391c60d0356e2e0dcf1929381583622e1be9c Revert "Added native iOS inertia scrolling"
-* ddaf66a515c09f835603f95fe723d7da691324e6 Major: Now using css normalization instead of css reset + building up default styles
-* e5e057e53815ed55f4ecfaef3057bf2940c7c0b2 Change our conditional comments around the HTML tag to use a single .oldie class.
-* 7f53f98ec734e6b655d7a50fd245277d388fac1e Revert "Change our conditional comments around the HTML tag to use a single .oldie class."
-* 648026d780dc6b9ecad8d37d61a92b69be5fd654 Tweaking our hot pink ::selection based on a suggestion from David Murdoch and research from Adam Diehm.
+* ddaf66a515c09f835603f95fe723d7da691324e6 Major: Now using CSS normalization instead of CSS reset + building up default styles
+* e5e057e53815ed55f4ecfaef3057bf2940c7c0b2 Change our conditional comments around the HTML tag to use a single `.oldie` class.
+* 7f53f98ec734e6b655d7a50fd245277d388fac1e Revert "Change our conditional comments around the HTML tag to use a single `.oldie` class."
+* 648026d780dc6b9ecad8d37d61a92b69be5fd654 Tweaking our hot pink `::selection` based on a suggestion from David Murdoch and research from Adam Diehm.
 * 0e1c7ba929caddec63971cccfb7de7c0d343e060 Use minified jQuery by default.
 * a0ac99a4d96453e68ff4e650fca3055767ec26aa optimize build process
 * bb22ca66a8619808a87c1b5438845ed44baa4d3e Remove the cache-busting query parameters from the HTML.
