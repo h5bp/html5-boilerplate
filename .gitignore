@@ -17,7 +17,7 @@ Thumbs.db
 .project
 .settings
 .tmproj
-.esproj
+*.esproj
 nbproject
 
 # Dreamweaver added files
