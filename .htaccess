@@ -1,4 +1,3 @@
-
 # Apache configuration file
 # httpd.apache.org/docs/2.2/mod/quickreference.html
 
@@ -234,7 +233,7 @@ AddType text/x-vcard                   vcf
   ExpiresByType text/x-component          "access plus 1 month"
 
 # Webfonts
-  ExpiresByType font/truetype             "access plus 1 month"
+  ExpiresByType application/x-font-ttf    "access plus 1 month"
   ExpiresByType font/opentype             "access plus 1 month"
   ExpiresByType application/x-font-woff   "access plus 1 month"
   ExpiresByType image/svg+xml             "access plus 1 month"
