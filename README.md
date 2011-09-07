@@ -120,7 +120,6 @@ request is shorter.
 * Add a link to optional `<meta>` tags that could be added to the `<head>` element: https://github.com/paulirish/html5-boilerplate/issues/482
 * Standardize the use of single and double quotes as per http://h5bp.com/d/The-markup★quotes
 * Added Site Speed tracking for Google Analytics
-* Google Analytics now retrieved with <code>Modernizr.load()</code> for byte brevity and optimal speed. Fixes #542
 
 #### STYLE.CSS
 * Major: Now using CSS normalization instead of CSS reset + building up default styles.  Fixes #412, #500, #534. Closes #456. Links #566
