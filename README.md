@@ -17,13 +17,13 @@ Lots of research has gone into normalize, verifying what are the default user ag
 ##### Why this is great news:
 
 * Who likes being so damn redundant and declaring: `em, i { font-style: italic; }`
-* By using normalization instead of a reset + building up default styles, we use less styles and save bytes
+* By using normalization instead of a reset + building up default styles, we use fewer styles and save bytes
 * Less noise in your dev tools: when debugging, you don't have to trawl through every reset selector to reach the actual style that is causing the issue.
 * More details here: http://necolas.github.com/normalize.css/
 
 
 #### PROMPT CHROME FRAME FOR IE6
-* With the latest release of Chrome frame which does not require admin access to be installed, we felt it was a good time to prompt IE 6 users to install Chrome Frame. (Using protocol-relative url and exact version for higher expires headers)
+* With the latest release of Chrome frame, which does not require admin access to be installed, we felt it was a good time to prompt IE 6 users to install Chrome Frame. (Using protocol-relative url and exact version for higher expires headers)
 
 
 ####BUILD SCRIPT++: Faster, @import inlining, appcache generation
