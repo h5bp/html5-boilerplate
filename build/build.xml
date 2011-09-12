@@ -941,7 +941,21 @@
                     </fileset>
                 </delete>
                 <apply executable="optipng" dest="./${dir.publish}/${dir.images}/" osfamily="unix">
-                    <fileset dir="./${dir.source}/${dir.images}/" includes="**/*.png"  excludes="${images.bypass}, ${images.default.bypass}"/>
+                    <fileset dir="./${dir.source}/${dir.images}/" includes="**/*.png" excludes="${images.bypass}, ${images.default.bypass}"/>
+                    <arg value="-quiet"/>
+                    <arg value="-o7"/>
+                    <arg value="-out"/>
+                    <targetfile/>
+                    <srcfile/>
+                    <mapper type="identity"/>
+                </apply>
+                <delete>
+                    <fileset dir="./${dir.publish}/${dir.favicons}/">
+                        <include name="**/*.png"/>
+                    </fileset>
+                </delete>
+                <apply executable="optipng" dest="./${dir.publish}/${dir.favicons}/" osfamily="unix">
+                    <fileset dir="./${dir.source}/${dir.favicons}/" includes="**/*.png" excludes="${images.bypass}, ${images.default.bypass}"/>
                     <arg value="-quiet"/>
                     <arg value="-o7"/>
                     <arg value="-out"/>
@@ -967,7 +981,21 @@
             </fileset>
         </delete>
         <apply executable="${basedir}/${dir.build.tools}/optipng-0.6.4-exe/optipng.exe" dest="./${dir.publish}/${dir.images}/" osfamily="windows">
-            <fileset dir="./${dir.source}/${dir.images}/" includes="**/*.png"  excludes="${images.bypass}, ${images.default.bypass}"/>
+            <fileset dir="./${dir.source}/${dir.images}/" includes="**/*.png" excludes="${images.bypass}, ${images.default.bypass}"/>
+            <arg value="-quiet"/>
+            <arg value="-o7"/>
+            <arg value="-out"/>
+            <targetfile/>
+            <srcfile/>
+            <mapper type="identity"/>
+        </apply>
+        <delete>
+            <fileset dir="./${dir.publish}/${dir.favicons}/">
+                <include name="**/*.png"/>
+            </fileset>
+        </delete>
+        <apply executable="${basedir}/${dir.build.tools}/optipng-0.6.4-exe/optipng.exe" dest="./${dir.publish}/${dir.favicons}/" osfamily="windows">
+            <fileset dir="./${dir.source}/${dir.favicons}/" includes="**/*.png" excludes="${images.bypass}, ${images.default.bypass}"/>
             <arg value="-quiet"/>
             <arg value="-o7"/>
             <arg value="-out"/>
