@@ -20,6 +20,10 @@ Thumbs.db
 *.esproj
 nbproject
 
+# Picasa
+.picasaoriginals
+.picasa.ini
+
 # Dreamweaver added files
 _notes
 dwsync.xml
