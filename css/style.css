@@ -253,6 +253,9 @@ td { vertical-align: top; }
 .ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; }
 .ir br { display: none; }
 
+/* Hide from browsers */
+.hide { display: none }
+
 /* Hide from both screenreaders and browsers: h5bp.com/u */
 .hidden { display: none !important; visibility: hidden; }
 
