@@ -474,7 +474,7 @@
                 <exclude name="${dir.js}/**/*.js"/>
                 <exclude name="${dir.css}/**/*.css"/>
                 <exclude name="${file.manifest}"/>
-            	<exclude name="${file.htaccess}" />
+                <exclude name="${file.htaccess}" />
             </fileset>
         </copy>
 
