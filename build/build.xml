@@ -359,6 +359,7 @@
                      -css,
                      -manifest,
                      -htmlclean,
+                     -htaccessclean,
                      -imagespng,
                      -imagesjpg,
                      -copy"/>
@@ -473,6 +474,7 @@
                 <exclude name="${dir.js}/**/*.js"/>
                 <exclude name="${dir.css}/**/*.css"/>
                 <exclude name="${file.manifest}"/>
+            	<exclude name="${file.htaccess}" />
             </fileset>
         </copy>
 
@@ -1043,6 +1045,19 @@
             <fileset dir="${dir.source}/${dir.images}"  includes="**/*.jpg, **/*.png"/>
         </copy>
     </target>
+	
+	<target name="-htaccessclean">
+		<copy file="${dir.source}/${file.htaccess}" todir="${dir.publish}">
+			<filterchain>
+				<striplinecomments>
+					<comment value="#"/>
+				</striplinecomments>
+				<tokenfilter>
+				    <ignoreblank/>
+				</tokenfilter>
+			</filterchain>
+		</copy>
+	</target>
 
 	<!-- Import project.xml (put any custom build targets in this file so that they aren't overwritten when build.xml is updated) -->
 	<!-- See: https://github.com/paulirish/html5-boilerplate/issues/704 -->
