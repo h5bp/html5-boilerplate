@@ -1,8 +1,8 @@
-#  HTML5 Boilerplate [http://html5boilerplate.com](http://html5boilerplate.com)
+#  HTML5 Boilerplate with LESS [http://html5boilerplate.com](http://html5boilerplate.com)
 
 ## Changelog:
 
-### v.2.0 : August 10th, 2011
+### v.2.0 : September 17th, 2011
 
 ### v2.0 HIGHLIGHTS
 

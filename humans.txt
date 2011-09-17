@@ -12,7 +12,7 @@
   Names (& URL):
 
 /* SITE */
-  Standards: HTML5, CSS3
+  Standards: HTML5, LESS/CSS3
   Components: Modernizr, jQuery
   Software:
 
