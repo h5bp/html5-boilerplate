@@ -11,7 +11,7 @@
 
 
 ###
-### If you run a webserver other than apache, consider:
+### If you run a webserver other than Apache, consider:
 ### github.com/paulirish/html5-boilerplate-server-configs
 ###
 
@@ -26,11 +26,11 @@
 # Use ChromeFrame if it's installed for a better experience for the poor IE folk
 
 <IfModule mod_headers.c>
-    Header set X-UA-Compatible "IE=Edge,chrome=1"
-    # mod_headers can't match by content-type, but we don't want to send this header on *everything*...
-    <FilesMatch "\.(js|css|gif|png|jpe?g|pdf|xml|oga|ogg|m4a|ogv|mp4|m4v|webm|svg|svgz|eot|ttf|otf|woff|ico|webp|appcache|manifest|htc|crx|xpi|safariextz|vcf)$" >
-      Header unset X-UA-Compatible
-    </FilesMatch>
+  Header set X-UA-Compatible "IE=Edge,chrome=1"
+  # mod_headers can't match by content-type, but we don't want to send this header on *everything*...
+  <FilesMatch "\.(js|css|gif|png|jpe?g|pdf|xml|oga|ogg|m4a|ogv|mp4|m4v|webm|svg|svgz|eot|ttf|otf|woff|ico|webp|appcache|manifest|htc|crx|xpi|safariextz|vcf)$" >
+    Header unset X-UA-Compatible
+  </FilesMatch>
 </IfModule>
 
 
@@ -56,11 +56,11 @@
 # Alternatively you could only whitelist your
 # subdomains like "subdomain.example.com".
 
-<FilesMatch "\.(ttf|ttc|otf|eot|woff|font.css)$">
-  <IfModule mod_headers.c>
+<IfModule mod_headers.c>
+  <FilesMatch "\.(ttf|ttc|otf|eot|woff|font.css)$">
     Header set Access-Control-Allow-Origin "*"
-  </IfModule>
-</FilesMatch>
+  </FilesMatch>
+</IfModule>
 
 
 
