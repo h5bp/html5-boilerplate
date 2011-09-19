@@ -623,7 +623,7 @@
 
         <echo message="Updating the HTML by removing link to style.less and replacing with the new css filename: ${style.css}"/>
 
-        <replaceregexp match="&lt;link rel=['&quot;]?stylesheetless['&quot;]?\s+href=['&quot;]?(.*)/${file.root.less.stylesheet}(?:\?.*)?['&quot;]?\s*&gt;"
+        <replaceregexp match="&lt;link rel=['&quot;]?stylesheet/less['&quot;]?\s+href=['&quot;]?(.*)/${file.root.less.stylesheet}(?:\?.*)?['&quot;]?\s*&gt;"
             replace="&lt;link rel='stylesheet' href='css/${css.sha}.css'&gt;" flags="m">
             <fileset dir="${dir.intermediate}" includes="${page-files}"/>
         </replaceregexp>
@@ -814,7 +814,6 @@
         <property name="style.css" value="${dir.css}/${css.sha}.css" />
         <copy file="${dir.intermediate}/${dir.css}/style.less.min.css" tofile="${dir.publish}/${dir.css}/${css.sha}.css" />
 
-        <echo message="Minifying any unconcatenated css files..."/>
     </target>
 
 
