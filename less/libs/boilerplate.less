@@ -7,13 +7,13 @@
  *
  * Detailed information about this CSS: h5bp.com/css
  *
- * Converted to LESS by @m6tt
+ * Converted to LESS by @m6tt: m6tt.com/less-boilerplate
  */
 
 #blr {
 
   /* ==|== normalize ======================================== */
-  .normalize(@selectBackgroundColor: #fe57a1, @selectTextColor: #fff) {
+  .normalize(@selectBackgroundColor: #fe57a1, @selectTextColor: #fff, @aHoverColor: #00e, @aVisitedColor: #551a8b, @aHoverColor: #06e) {
 
     /* =============================================================================
        HTML5 display definitions
@@ -47,17 +47,17 @@
      * Also: hot pink! (or customize the background color to match your design)
      */
 
-    ::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
-    ::selection { background: #fe57a1; color: #fff; text-shadow: none; }
+    ::-moz-selection { background: @selectBackgroundColor; color: @selectTextColor; text-shadow: none; }
+    ::selection { background: @selectBackgroundColor; color: @selectTextColor; text-shadow: none; }
 
 
     /* =============================================================================
        Links
        ========================================================================== */
 
-    a { color: #00e; }
-    a:visited { color: #551a8b; }
-    a:hover { color: #06e; }
+    a { color: @aHoverColor; }
+    a:visited { color: @aVisitedColor; }
+    a:hover { color: @aHoverColor; }
     a:focus { outline: thin dotted; }
 
     /* Improve readability when focused and hovered in all browsers: h5bp.com/h */
