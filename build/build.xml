@@ -774,19 +774,13 @@
 
     <!-- LESS -->
 
-    <target name="-css-remove-concatenated-stylesheets">
-            <echo>Removing ${css_file} from html</echo>
-            <replaceregexp match="&lt;link.+href=&quot;.*${css_file}&quot;.*&gt;" replace="  ">
-                <fileset dir="${dir.intermediate}" includes="${page-files}"/>
-            </replaceregexp>
-    </target>
-
-
-
     <target name="-less" depends="-mkdirs" description="Convert LESS to CSS then concatenate and Minify any stylesheets">
 
-        <!-- less conversion -->
-        <echo message="Converting LESS to CSS..."/>
+	<echo message="Converting LESS to CSS..."/>
+        <delete includeemptydirs="true">
+            <fileset dir="${dir.publish}/${dir.css}" includes="**/*.css" defaultexcludes="false"/>
+        </delete>
+        
         <apply dir="${dir.source}/${dir.less}" executable="java" parallel="false" failonerror="true">
             <fileset dir="./${dir.source}/">
                 <include name="**/${dir.less}/${file.root.less.stylesheet}"/>
@@ -813,7 +807,6 @@
         <propertyregex property="css.sha" input="${css.fullsha}" regexp=".{${hash.length}}" select="\0" />
         <property name="style.css" value="${dir.css}/${css.sha}.css" />
         <copy file="${dir.intermediate}/${dir.css}/style.less.min.css" tofile="${dir.publish}/${dir.css}/${css.sha}.css" />
-
     </target>
 
 
