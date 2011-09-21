@@ -1,50 +1,101 @@
 /* HelpLess
 *
-*  HelpLess is a Helper Library for the increasingly popular
-*  LESS dynamic stylesheet language.
-*  Read more about LESS http://lesscss.org/
+*  @What is it:
+*  HelpLess is a Helper Library for the brilliant LESS dynamic stylesheet language.
+*  Read more about LESS: http://lesscss.org/
+*  
+*  I have tried to make HelpLess as all-encompasing as possible with support for dynamic
+*  grids and page starter themes as well as all the css3 features I could think of.
+*  Unlike other libraries, HelpLess has an invisible footprint until you call a mixin 
+*  so if you import HelpLess but don't use it, it will not increase your compiled file size
+*  
+*  @thanks: 
+*  Eric Meyer for his html reset - http://meyerweb.com/eric/tools/css/reset/
+*  Necolas for his normalize - https://github.com/necolas/normalize.css
 *
-*  Simply import helpless.less and let it make your life easier
+*  @How to use:
+*  Import helpless.x.x.x.less into your main style.less file. 
 *
-*  @author: m6tt
+*  @Author: 
+*  m6tt: m6tt.com
 *
-*  @contents:
+*  @Reference:
+*  ------------------------------------------------------------------------------
+*    BASICS                     =>    syntax
+*  ------------------------------------------------------------------------------
+*    - .reset                   =>    #hl.reset() - call outside of element
+*    - .normalize               =>    #hl.normalize - call outside of element
+*    - .clearfix                =>    #hl.clearfix()
+*    - .centered                =>    #hl.centered(width)
+*    - .border                  =>    #hl.border(color)
+*    - .opacity                 =>    #hl.opacity(value)
+*    - .round-all-corners       =>    #hl.round-all-corners(radius)
+*    - .rounded-corners         =>    #hl.rounded-corners(topLeft, topRight, bottomRight, bottomLeft)
+*    - .transition              =>    #hl.transition(property, duration, ease, delay)
+*    - .drop-shadow             =>    #hl.drop-shadow(x, y, blur, color)
+*    - .inner-shadow            =>    #hl.inner-shadow(x, y, blur, color)
+*    - .text-shadow             =>    #hl.text-shadow(x, y, blur, color)
+*    - .background-gradient     =>    #hl.background-gradient(colorFrom, colorTo, fallbackColor, fallbackImageUrl)
+*    - .scale                   =>    #hl.scale(amount)
+*    - .scaleX                  =>    #hl.scaleX(amount)
+*    - .scaleY                  =>    #hl.scaleY(amount)
+*    - .rotate                  =>    #hl.rotate(degrees)
+*    - .rotateX                 =>    #hl.rotateX(degrees)
+*    - .rotateY                 =>    #hl.rotateY(degrees)
+*    - .skew                    =>    #hl.skew(angleX, angleY)
+*    - .skewX                   =>    #hl.skewX(angleX)
+*    - .skewY                   =>    #hl.skewY(angleY)
+*    - .translate               =>    #hl.translate(x, y)
+*    - .translateX              =>    #hl.translateX(x)
+*    - .translateY              =>    #hl.translateY(y)
+*    - .matrix                  =>    #hl.matrix(n, n, n, n, n, n)
 *
-*  BASICS
-*  - .reset
-*  - .normalize
-*  - .clearfix
-*  - .centered
-*  - .border
-*  - .round-all-corners
-*  - .rounded-corners
-*  - .transition
-*  - .drop-shadow
-*  - .inner-shadow
-*  - .text-shadow
-*  - .background-gradient
-*  - .columns
-*  - .scale
-*  - .scaleX
-*  - .scaleY
-*  - .rotate
-*  - .rotateX
-*  - .rotateY
-*  - .skew
-*  - .skewX
-*  - .skewY
-*  - .translate
-*  - .translateX
-*  - .translateY
-*  - .matrix
+*  ------------------------------------------------------------------------------
+*    GRID                       =>    syntax
+*  ------------------------------------------------------------------------------
+*    - .grid                    =>    namespace, do not call directly, use .make or one of the predefined grid makers
+*     - .make                   =>    #hl.grid.make(width, colNumber, gutterWidth)
+*     - .1200                   =>    #hl.grid.1200();
+*     - .1120                   =>    #hl.grid.1120();
+*     - .1040                   =>    #hl.grid.1040();
+*     - .960                    =>    #hl.grid.960();
+*     - .880                    =>    #hl.grid.880();
+*     - .800                    =>    #hl.grid.800();
+*     - .720                    =>    #hl.grid.720();
+*     - .640                    =>    #hl.grid.640();
+*     - .560                    =>    #hl.grid.560();
+*     - .480                    =>    #hl.grid.480();
+*     - .400                    =>    #hl.grid.400();
+*     - .320                    =>    #hl.grid.320();
+*     - .240                    =>    #hl.grid.240();
+*     - .row                    =>    #hl.grid.row();
+*     - .col                    =>    #hl.grid.col(colSpan);
 *
-*  GRID
-*  - .grid
-*
-*  USER INTERFACE
-*  -
-*  -
-*  -
+*  ---------------------------------------
+*    TYPOGRAPHY
+*  ---------------------------------------
+*    - .typo                    =>    namespace, do not call directly
+*     - .serif                  =>    #hl.typo.serif(webfont-name-optional);
+*     - .sans                   =>    #hl.typo.sans(webfont-name-optional);
+*     - .columns                =>    #hl.typo.columns(count, gap)
+* 
+*  ---------------------------------------
+*    IMAGES
+*  ---------------------------------------
+*    - .img                     =>    namespace, do not call directly
+*     - .responsive             =>    #hl.img.responsive();
+*     - .framed                 =>    #hl.img.framed();
+
+*  ---------------------------------------
+*    USER INTERFACE
+*  ---------------------------------------
+*    - .ui                      =>    namespace, do not call directly
+*     - .themes                 =>    namespace, do not call directly
+*      - .light                 =>    #hl.ui.themes.light(); - call within <body> element
+*      - .dark                  =>    #hl.ui.themes.dark(); - call within <body> element
+*     - .list                   =>    namespace, do not call directly
+*      - .subtle                =>    #hl.list.subtle(); - call within <ul> element
+*      - .horizontal            =>    #hl.list.horizontal(); - call within <ul> element
 *
 */
 
@@ -176,6 +227,22 @@
   .border(@colour: #000) {
     border: 1px solid @colour;
   }
+  
+  /************************************
+  * Opacity
+  *
+  * @what?: Add opacity to an HTML element that works
+  *         in all browsers including ie6+
+  *
+  * @params: value,      default = .5
+  *
+  ************************************/
+  .opacity(@value: .5) {
+    opacity: @value;
+    filter: ~'alpha(opacity=(@value*100))'; 
+    filter: ~'progid:DXImageTransform.Microsoft.Alpha(opacity=(@value*100))'; 
+    -ms-filter: ~'"progid:DXImageTransform.Microsoft.Alpha(opacity=(@value*100))"'; 
+  }
 
   /************************************
   * Round all corners
@@ -292,8 +359,6 @@
   *          fallbackColour,   default = #f1f1f1
   *          fallbackImageUrl, default = ''
   *
-  * @thanksBeTo: http://css-tricks.com/5700-css3-gradients/
-  *
   ************************************/
   .background-gradient(@colourfrom: #bbb, @colourTo: #f1f1f1, @fallbackColour: #f1f1f1, @fallbackImageUrl: '') {
     background-color: @fallbackColour;
@@ -304,25 +369,10 @@
     background-image: -moz-linear-gradient(bottom, @colourfrom, @colourTo);
     background-image: -ms-linear-gradient(bottom, @colourfrom, @colourTo);
     background-image: -o-linear-gradient(bottom, @colourfrom, @colourTo);
-  }
-
-  /************************************
-  * Columns
-  *
-  * @what?: Sets CSS3 columns within
-  *         blocks of html text
-  *
-  * @params: count,       default = 1
-  *          gap,         default = 10px
-  *
-  ************************************/
-  .columns(@count: 1, @gap: 10px) {
-    -moz-column-count: @count;
-    -moz-column-gap: @gap;
-    -webkit-column-count: @count;
-    -webkit-column-gap: @gap;
-    column-count: @count;
-    column-gap: @gap;
+    /* For Internet Explorer 5.5 - 7 */
+    filter: ~'progid:DXImageTransform.Microsoft.gradient(startColorstr=@colourfrom, endColorstr=@colourTo)';
+    /* For Internet Explorer 8 and newer */
+    -ms-filter: ~'"progid:DXImageTransform.Microsoft.gradient(startColorstr=@colourfrom, endColorstr=@colourTo)"';
   }
 
   /************************************
@@ -548,117 +598,443 @@
     -webkit-transform:matrix(@n1, @n2, @n3, @n4, @n5, @n6);
     -o-transform:matrix(@n1, @n2, @n3, @n4, @n5, @n6);
   }
-
+  
   /************************************
   * Grid
-  *
-  * @what?: Defines the base variables needed
-  *         for the HelpLess grid system.
-  *
-  * @how to use?: Call this before you start defining the grid.
-  *
-  *
-  * @params: @width,      default = 960
-  *          @colnum,     default = 16
-  *          @colgutter,  default = 10
-  *
-  * @best widths: 1200, 960, 720, 400, 320
   ************************************/
-  .grid(@width: 960, @colnum: 16, @colgutter: 10) {
-    width: 0px + @width;
-    @col-width: 100% / @colnum;
-    @col-gutter-percent: 0% + ((@colgutter / @width) * 100);
-  }
+  .grid {
+    
+    /************************************
+    * Make
+    *
+    * @what?: Defines the base variables needed
+    *         for the HelpLess grid system.
+    *
+    * @params: @width,      default = 960
+    *          @colnum,     default = 16
+    *          @colgutter,  default = 10
+    *
+    ************************************/
+    .make(@width: 960, @colnum: 16, @colgutter: 10) {
+      width: 0px + @width;
+      @col-width: 100% / @colnum;
+      @col-gutter-percent: 0% + ((@colgutter / @width) * 100);
+    }
+    
+    /************************************
+    * 1200
+    *
+    * @what?: Predefined grid maker
+    *
+    ************************************/
+    .1200() {
+      .make(1200);
+    }
 
-  .grid1200() {
-    .grid(1200);
-  }
+    /************************************
+    * 1120
+    *
+    * @what?: Predefined grid maker
+    *
+    ************************************/
+    .1120() {
+      .make(1120);
+    }
 
-  .grid960() {
-    .grid(960);
-  }
+    /************************************
+    * 1040
+    *
+    * @what?: Predefined grid maker
+    *
+    ************************************/
+    .1040() {
+      .make(1040);
+    }
 
-  .grid720() {
-    .grid(720);
-  }
+    /************************************
+    * 960
+    *
+    * @what?: Predefined grid maker
+    *
+    ************************************/
+    .960() {
+      .make(960);
+    }
 
-  .grid400() {
-    .grid(400);
-  }
+    /************************************
+    * 880
+    *
+    * @what?: Predefined grid maker
+    *
+    ************************************/
+    .880() {
+      .make(880);
+    }
 
-  .grid320() {
-    .grid(320);
-  }
+    /************************************
+    * 800
+    *
+    * @what?: Predefined grid maker
+    *
+    ************************************/
+    .800() {
+      .make(800);
+    }
 
-  /************************************
-  * Row
-  *
-  * @what?: Defines an element as a row.
-  *         clears all clearfixes all columns
-  *         directly inside.
-  *
-  ************************************/
-  .row() {
-    .clearfix();
-    display: block;
-    width: 100%;
-    overflow-y: visible;
-    margin-left: -(@col-gutter-percent / 2);
-  }
+    /************************************
+    * 720
+    *
+    * @what?: Predefined grid maker
+    *
+    ************************************/
+    .720() {
+      .make(720);
+    }
 
-  /************************************
-  * Col
-  *
-  * @what?: Defines an element as a column.
-  *         Sets the width depending on the
-  *         supplied arguments and the width
-  *         set in .grid()
-  *
-  * @params: @num,        default = 1
-  *
-  ************************************/
-  .col(@num: 1) {
-    float: left;
-    display: block;
-    min-width: @col-width * @num;
-    padding: 0 0 0 @col-gutter-percent !important;
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
+    /************************************
+    * 640
+    *
+    * @what?: Predefined grid maker
+    *
+    ************************************/
+    .640() {
+      .make(640);
+    }
+
+    /************************************
+    * 560
+    *
+    * @what?: Predefined grid maker
+    *
+    ************************************/
+    .560() {
+      .make(560);
+    }
+
+    /************************************
+    * 480
+    *
+    * @what?: Predefined grid maker
+    *
+    ************************************/
+    .480() {
+      .make(480);
+    }
+
+    /************************************
+    * 400
+    *
+    * @what?: Predefined grid maker
+    *
+    ************************************/
+    .400() {
+      .make(400);
+    }
+
+    /************************************
+    * 320
+    *
+    * @what?: Predefined grid maker
+    *
+    ************************************/
+    .320() {
+      .make(320);
+    }
+
+    /************************************
+    * 240
+    *
+    * @what?: Predefined grid maker
+    *
+    ************************************/
+    .240() {
+      .make(240);
+    }
+
+    /************************************
+    * Row
+    *
+    * @what?: Defines an element as a row.
+    *         clears all clearfixes all columns
+    *         directly inside.
+    *
+    ************************************/
+    .row() {
+      .clearfix();
+      display: block;
+      width: 100%;
+      overflow-y: visible;
+      margin-left: -(@col-gutter-percent / 2);
+    }
+
+    /************************************
+    * Col
+    *
+    * @what?: Defines an element as a column.
+    *         Sets the width depending on the
+    *         supplied arguments and the width
+    *         set in .grid()
+    *
+    * @params: @colSpan,  default = 1
+    *
+    ************************************/
+    .col(@colSpan: 1) {
+      float: left;
+      display: block;
+      min-width: @col-width * @colSpan;
+      padding: 0 0 0 @col-gutter-percent !important;
+      -webkit-box-sizing: border-box;
+         -moz-box-sizing: border-box;
+              box-sizing: border-box;
+    }
+  }
+  
+  /***********************************
+  * TYPOGRAPHY
+  ***********************************/
+  .typo {
+    
+    /************************************
+    * Serif
+    *
+    * @what?: Quickly set your font family
+    *         as a serif set
+    *
+    * @params: @webfont,  default = none
+    *
+    ************************************/
+    .serif(@webfont) {
+      font-family: @webfont, georgia, times, serif;
+    }
+    
+    /************************************
+    * Serif
+    *
+    * @what?: Quickly set your font family
+    *
+    * @params: @webfont,  default = none
+    *
+    ************************************/
+    .sans(@webfont) {
+      font-family: @webfont, Helvetica, arial, sans-serif;
+    }
+    
+    /************************************
+    * Columns
+    *
+    * @what?: Sets CSS3 columns within
+    *         block of html text
+    *
+    * @params: count,       default = 1
+    *          gap,         default = 10px
+    *
+    ************************************/
+    .columns(@count: 1, @gap: 10px) {
+      -moz-column-count: @count;
+      -moz-column-gap: @gap;
+      -webkit-column-count: @count;
+      -webkit-column-gap: @gap;
+      column-count: @count;
+      column-gap: @gap;
+    }
+    
+  }
+  
+  /***********************************
+  * IMAGE
+  ***********************************/
+  .img {
+    
+    /************************************
+    * Responsive
+    *
+    * @what?: Set image max-width: 100%
+    *
+    ************************************/
+    .responsive() {
+      max-width: 100%;
+    }
+    
+    /************************************
+    * Framed
+    *
+    * @what?: Add a quick 10px frame to your image
+    *
+    ************************************/
+    .framed() {
+      border: 1px solid #ccc;
+      padding: 9px;
+      .drop-shadow();
+      outline: none;
+    }
+    
   }
 
   /***********************************
-  * UI Elements
-  *
-  *
+  * UI 
   ***********************************/
-  .button(@baseColor: #ccc, @borderRadius: 3px) {
-    border: 1px solid lighten(@baseColor, 5%);
-    border-left: 1px solid darken(@baseColor, 5%);
-    border-right: 1px solid darken(@baseColor, 5%);
-    border-bottom: 1px solid darken(@baseColor, 10%);
-    color: darken(@baseColor, 45%);
-    padding: 8px 14px;
-    .background-gradient(@baseColor, lighten(@baseColor, 20%), lighten(@baseColor, 20%));
-    .text-shadow(1px, 1px, 1px, lighten(@baseColor, 20%));
-    .round-all-corners(@borderRadius);
-    .transition(all, .2s, ease-in-out);
-
-    &:hover {
-      background-position: 0px 10px;
+  .ui {
+        
+    /***********************************
+     * PREDEFINED THEMES
+     ***********************************/
+    .themes {
+      
+      /***********************************
+       * Theme: Light
+       *
+       * @what?: Quickly style the base elements
+       *         of your page
+       *
+       ***********************************/
+      .light() {
+        
+        background-color: #fff;
+        color: #555;
+        .text-shadow(1px, 1px, 1px, #fff);
+        
+      }
+      
+      /***********************************
+       * Theme: Dark
+       *
+       * @what?: Quickly style the base elements
+       *         of your page
+       *
+       ***********************************/
+      .dark() {
+        
+        background-color: #333;
+        color: #ccc;
+        .text-shadow(1px, 1px, 1px, #33);
+      }
+    }
+    
+    /***********************************
+     * LISTS
+     ***********************************/
+    .list {
+      
+      /***********************************
+       * Subtle
+       *
+       * @what?: Quickly removes the styling 
+       *         from a list
+       *
+       ***********************************/
+      .subtle() {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      
+      /***********************************
+       * Horizontal
+       *
+       * @what?: Creates a horizontal list, 
+       *         useful for styling your site nav
+       *
+       ***********************************/
+      .horizontal(@itemSpacing: 10px) {
+        .subtle();
+        .clearfix();
+        
+        li {
+          float: left;
+          display: block;
+          margin-right: @itemSpacing;
+        }
+      }
+    }
+    
+    /***********************************
+     * FORMS
+     ***********************************/
+    .form {
+      
+      
+      
+    }
+    
+    
+    // Buttons
+    .button(@baseColor: #ccc, @borderRadius: 3px) {
+      -webkit-appearance: button;
+         -moz-appearance: button;
       border: 1px solid lighten(@baseColor, 5%);
-      border-left: 1px solid @baseColor;
-      border-right: 1px solid @baseColor;
+      border-left: 1px solid darken(@baseColor, 5%);
+      border-right: 1px solid darken(@baseColor, 5%);
       border-bottom: 1px solid darken(@baseColor, 10%);
+      color: darken(@baseColor, 45%);
+      padding: 8px 14px;
+      .background-gradient(@baseColor, lighten(@baseColor, 20%), lighten(@baseColor, 20%));
+      .text-shadow(1px, 1px, 1px, lighten(@baseColor, 20%));
+      .round-all-corners(@borderRadius);
+      .transition(all, .2s, ease-in-out);
+
+      &:hover {
+        background-position: 0px 10px;
+        .background-gradient(lighten(@baseColor, 2%), lighten(@baseColor, 20%), lighten(@baseColor, 20%));
+        border: 1px solid lighten(@baseColor, 5%);
+        border-left: 1px solid @baseColor;
+        border-right: 1px solid @baseColor;
+        border-bottom: 1px solid darken(@baseColor, 10%);
+      }
     }
 
-    &.active {
-      margin-top: 1px;
+    .squareButton(@baseColor: #ccc) {
+      .button(@baseColor, 0px);
     }
-  }
 
-  .roundButton(@baseColor: #ccc) {
-    .button(@baseColor, 20px);
+    .roundButton(@baseColor: #ccc) {
+      .button(@baseColor, 20px);
+    }
+
+    .cautionButton() {
+      .button(#dd0000);
+      .inner-shadow(0px, 1px, 0px, lighten(#dd0000, 30%));
+      color: #fff;
+    }
+
+    // Forms
+    .label() {
+      display: block;
+      margin: 5px 0;
+    }
+
+    .input() {
+      display: block;
+      border: 1px solid #ccc;
+      border-bottom: 1px solid #d5d5d5;
+      padding: 6px;
+      color: #555;
+      .transition(all, 0.2s, ease-in-out);
+      .inner-shadow(0px, 1px, 1px, rgba(0, 0, 0, 0.1));
+
+      .focus();
+    }
+
+    .select() {
+      display: block;
+      -webkit-appearance: button;
+         -moz-appearance: button;
+      .round-all-corners();
+      border: 1px solid #ccc;
+      padding: 6px 30px 6px 6px;
+      color: #555;
+      cursor: pointer;
+
+      .focus();
+    }
+
+    .focus() {
+      &:focus {
+        outline: none;
+        border-color: rgba(14, 160, 255, 0.5);
+        .drop-shadow(0px, 0px, 10px, rgba(14, 160, 255, 0.4));
+      }
+    }
+
   }
 
 }
