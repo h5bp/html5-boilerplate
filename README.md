@@ -1,3 +1,11 @@
+Below is the standard readme from html5-boilerplate.
+
+less-boilerplate is a version of html-boilerplate that focuses on stylesheets written in [LESS](http://lesscss.org).
+
+The build script now compiles LESS to CSS using @erwan's Rhino version of @cloudhead's less.js.
+
+---
+
 #  HTML5 Boilerplate with LESS [http://html5boilerplate.com](http://html5boilerplate.com)
 
 ## Changelog:
