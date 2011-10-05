@@ -1,0 +1,146 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en-us" dir="ltr" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en-us" dir="ltr" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en-us" dir="ltr" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en-us" dir="ltr" class="no-js ie9"> <![endif]-->   
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en-us" dir="ltr" class="no-js"> <!--<![endif]-->
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" >
+  <meta charset="utf-8">
+  <title>Build Script | HTML5 Boilerplate - A rock-solid default template for HTML5 awesome.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <link rel="stylesheet" href="css/style.css" >
+  <link rel="stylesheet" href="css/docs.css" >
+  <script src="js/libs/modernizr-2.0.6.min.js"></script>
+</head>
+<body>
+  <div id="container" class="wikiconvertor"> 
+    <div id="header">  
+         <p class="lang">
+           <a href="http://html5boilerplate.com">Return to the HTML5 Boilerplate website &#8618;</a>
+         </p>        
+         <h1>HTML5 <i>&#x2605;</i> <b>Boilerplate Build Script Guide</b></h1>  
+    </div>
+    <div id="body" class="wikiconvertor-content wikistyle relative bs-tool">
+		<section id="panel-1">
+		  <h2>Welcome</h2>
+		  <p>This tool was created to walk you through using the build script.</p>
+		  <p class="dwn"><span class="button"><a class="nav" href="#panel-2">Get Started</a></span></p>
+		</section>
+		<section id="panel-2">
+			<p>First things first...</p>
+			
+		  	<h3>Requirements</h3>
+		
+			<h2>If you're on Mac or Linux...</h2>
+			
+			<p>You've got all your dependencies pre-installed, likely. You <em>may</em> need a <code><span class="pln">yum install ant</span><span class="pun">-</span><span class="pln">contrib</span></code> or what have you.</p>
+			
+			<h2>If you're on Windows...</h2>
+			
+			<ul>
+			<li>Get the <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Java JDK</a> (JRE isn't enough)</li>
+			<li>Get <a href="http://code.google.com/p/winant/">WinAnt</a> and point the installer to <code><span class="typ">Program</span><span class="pln"> </span><span class="typ">Files</span><span class="pun">/</span><span class="typ">Java</span><span class="pun">/</span><span class="pln">jre6</span><span class="pun">/</span><span class="pln">bin</span><span class="pun">/</span></code></li>
+			</ul>
+			
+			<p class="dwn"><span class="button"><a class="nav" href="#panel-3">Next Step</a></span></p>
+			
+		</section>
+		<section id="panel-3">
+		  <h2>Which supported language is your project?</h2>
+		  <ul>
+		    <li><a href="#html" class="nav">A) HTML</a></li>
+			<li><a href="#php" class="nav">B) PHP</a></li>
+			<li><a href="#python" class="nav">C) Python</a></li>
+			<li><a href="#ruby" class="nav">D) Ruby</a></li>
+			<li><a href="#net" class="nav">E) .NET</a></li>
+		  </ul>
+		  <p class="dwn">
+		    <span class="button"><a class="nav" href="#panel-2">Go Back</a></span>
+		  </p>
+		</section>
+		<section id="html">
+		  	<h3>Using the Build Script</h3>
+
+			<ul>
+			<li>1) Mac users, open the application "Terminal".  Windows users, open command line interface by doing Start Menu > Run > <code><span class="pln">cmd</span><span class="pun">.</span><span class="pln">exe</span></code>.  However, Windows users, we created a friendly <code><span class="pln">runbuildscript</span><span class="pun">.</span><span class="pln">bat</span></code> file for you if you'd like to avoid the command line and navigate to the build directory within your project. </li>
+			</ul>
+
+			<p>For those of you new to terminal or command line, use the change directory command followed by the directory path. for example...</p>
+
+			<pre><code><span class="pln">cd sites</span><span class="pun">/</span><span class="pln">your</span><span class="pun">-</span><span class="pln">site</span><span class="pun">/</span><span class="pln">build</span><span class="pun">/</span><span class="pln"><br /></span></code></pre>
+
+			<blockquote>
+			  <p>Note: To ensure you've navigated to the correct directory, you may want to now check the files within the current directory. Mac users can type "ls" in terminal. Windows users should type "dir" in command line. If the file list returned is what you were expecting, move to step 2. Otherwise, check the directory location in Finder or Windows Explorer and start over.</p>
+			</blockquote>
+
+			<ul>
+			<li><p>2) Next, simply type:</p>
+
+			<p>ant build</p></li>
+			</ul>
+
+			<p>The H5BP build script will begin to run and compress your files.  At the very end you should see "BUILD SUCCESSFUL" followed by the total time it took to build.</p>
+
+			<ul>
+			<li>3) Now, look in your H5BP project folder and see that there is a newly created "publish" directory within your project.  Inside, you will find your minified CSS, JS and along with duplicates of the files from your original directory. This new set of files within "publish" is your production code.  The site should look and function the same in browser as it did before, but only now faster!</li>
+			</ul>
+
+			<blockquote>
+			  <p>Note: If your new pages do not render in browser the same as they did before your ran the build script, click here.</p>
+			</blockquote>
+			
+			<h3>Going Further</h3>
+
+			<p>There are a few different build options:</p>
+
+			<pre><code><span class="pln">ant build &nbsp; &nbsp; </span><span class="com"># minor html optimizations (extra quotes removed). inline script/style minified (default)</span><span class="pln"><br />ant buildkit &nbsp;</span><span class="com"># all html whitespace retained. inline script/style minified </span><span class="pln"><br />ant basics &nbsp; &nbsp;</span><span class="com"># same as build minus the basic html minfication</span><span class="pln"><br />ant minify &nbsp; &nbsp;</span><span class="com"># same as build plus full html minification</span><span class="pln"><br />ant text &nbsp; &nbsp; &nbsp;</span><span class="com"># same as build but without image (png/jpg) optimizing</span><span class="pln"><br /></span></code></pre>
+			
+			<p class="dwn">
+			    <span class="button"><a class="nav" href="#panel-3">Go Back</a></span>
+			  </p>
+		</section>
+		<section id="php">
+			<h3>Which supported supported framework are you using?</h3>
+			  <ul>
+			    <li><a href="#wordpress" class="nav">A) Wordpress</a></li>
+				<li><a href="#cake" class="nav">B) Cake</a></li>
+			  </ul>
+			  <p class="dwn">
+			    <span class="button"><a class="nav" href="#panel-3">Go Back</a></span>
+			  </p>
+		</section>
+		<section id="wordpress">
+			<h3>Wordpress integration</h3>
+
+			<p>Check out Jay George's wordpress screencast videos: <a href='http://www.jaygeorge.co.uk/1-html5-buildscript-wordpress-1/'>http://www.jaygeorge.co.uk/1-html5-buildscript-wordpress-1/</a></p>
+
+			<p>Using the build script on a Wordpress theme introduces a significant problem: Wordpress themes are installed to a website's <code><span class="str">/wp-content/</span><span class="pln">themes</span><span class="pun">/&lt;</span><span class="pln">theme</span><span class="pun">-</span><span class="pln">name</span><span class="pun">&gt;</span></code> directory while the build script's output references the minified/concatenated files in a relative URI as <code><span class="pln">js</span><span class="pun">/</span><span class="pln">scripts</span><span class="pun">-</span><span class="pln">xxxx</span><span class="pun">.</span><span class="pln">min</span><span class="pun">.</span><span class="pln">js</span></code>. Therefore, output of the build script will reference files in the wrong location.</p>
+
+			<p>To make the build script output files that reference the correct url <code><span class="str">/wp-content/</span><span class="pln">themes</span><span class="pun">/&lt;</span><span class="pln">theme</span><span class="pun">-</span><span class="pln">name</span><span class="pun">&gt;</span><span class="str">/js/</span><span class="pln">scripts</span><span class="pun">-</span><span class="pln">xxxx</span><span class="pun">.</span><span class="pln">js</span></code>, the build.xml file must be modified. Edit the 2 regular expressions near lines 599 (for js) and 699 (for css) to include the Wordpress PHP that dynamically references the theme's folder: (the line to add is indented)</p>
+
+			<pre><code><span class="tag">&lt;replaceregexp</span><span class="pln"> </span><span class="atn">match</span><span class="pun">=</span><span class="atv">"&amp;lt;!-- scripts concatenated [\d\w\s\W]*?!-- <br />end ((scripts)|(concatenated and minified scripts))--&amp;gt;"</span><span class="pln"> <br /></span><span class="atn">replace</span><span class="pun">=</span><span class="atv">"&amp;lt;script src='<br />&nbsp; &nbsp; &amp;lt;?php bloginfo('template_url'); ?&amp;gt;/<br />${dir.js}/scripts-${build.number}.min.js\'&amp;gt;&amp;lt;/script&amp;gt;"</span><span class="pln"> </span><span class="atn">flags</span><span class="pun">=</span><span class="atv">"m"</span><span class="tag">&gt;</span><span class="pln"><br /></span></code></pre>
+			<p>That's all.</p>
+			<p class="dwn">
+			    <span class="button"><a class="nav" href="#php">Go Back</a></span>
+			  </p>
+		</section>
+		<section id="cake">
+			<h3>Cake</h3>
+			<p class="dwn">
+			    <span class="button"><a class="nav" href="#php">Go Back</a></span>
+			  </p>
+		</section>
+    </div>
+    <footer id="footer">
+      
+    </footer>
+    
+  </div>
+  
+  <script src="js/libs/jquery.min.js"></script>
+  
+  <script src="js/script.js"></script>
+  
+</body>
+</html>
