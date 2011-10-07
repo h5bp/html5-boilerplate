@@ -6,7 +6,7 @@
   <style>
     body { text-align: center;}
     h1 { font-size: 50px; text-align: center }
-    span[frown] { transform: rotate(90deg); display:inline-block; color: #bbb; }
+    span[data-frown] { transform: rotate(90deg); display:inline-block; color: #bbb; }
     body { font: 20px Constantia, 'Hoefler Text',  "Adobe Caslon Pro", Baskerville, Georgia, Times, serif; color: #999; text-shadow: 2px 2px 2px rgba(200, 200, 200, 0.5); }
     ::-moz-selection{ background:#FF5E99; color:#fff; }
     ::selection { background:#FF5E99; color:#fff; }
@@ -18,7 +18,7 @@
 </head>
 <body>
   <article>
-    <h1>Not found <span frown>:(</span></h1>
+    <h1>Not found <span data-frown>:(</span></h1>
     <div>
       <p>Sorry, but the page you were trying to view does not exist.</p>
       <p>It looks like this was the result of either:</p>
