@@ -265,7 +265,13 @@ AddType text/x-vcard                   vcf
 #   developer.yahoo.com/performance/rules.html#etags
 FileETag None
 
-
+# CANONICAL ROBOTS.TXT http://digwp.com/2011/03/htaccess-wordpress-seo-security/#canonical-robots
+<IfModule mod_rewrite.c>
+ RewriteBase /
+ RewriteCond %{REQUEST_URI} !^/robots.txt$ [NC]
+ RewriteCond %{REQUEST_URI} robots\.txt [NC]
+ RewriteRule .* http://example.com/robots.txt [R=301,L]
+</IfModule>
 
 # ----------------------------------------------------------------------
 # Stop screen flicker in IE on CSS rollovers
