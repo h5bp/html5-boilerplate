@@ -226,6 +226,8 @@ td { vertical-align: top; }
    These override the primary ('mobile first') styles
    Modify as content requires.
    ========================================================================== */
+   
+.mobile-only {display: none;}
 
 @media only screen and (min-width: 480px) {
   /* Style adjustments for viewports 480px and over go here */
@@ -235,6 +237,12 @@ td { vertical-align: top; }
 @media only screen and (min-width: 768px) {
   /* Style adjustments for viewports 768px and over go here */
 
+}
+
+@media handheld, only screen and (max-width: 768px) {
+   /* Borrowed from Columnal, http://www.columnal.com */
+    .mobile-hide {display: none;}
+    .mobile-only {display: block;}
 }
 
 
