@@ -139,47 +139,47 @@ AddType text/x-vcard                   vcf
 
 <IfModule mod_deflate.c>
 
-# Force deflate for mangled headers developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping/
-<IfModule mod_setenvif.c>
-  <IfModule mod_headers.c>
-    SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
-    RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
+  # Force deflate for mangled headers developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping/
+  <IfModule mod_setenvif.c>
+    <IfModule mod_headers.c>
+      SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
+      RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
+    </IfModule>
   </IfModule>
-</IfModule>
 
-# HTML, TXT, CSS, JavaScript, JSON, XML, HTC:
-<IfModule filter_module>
-  FilterDeclare   COMPRESS
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/html
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/css
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/plain
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/xml
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/x-component
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/javascript
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/json
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/xml
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/xhtml+xml
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/rss+xml
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/atom+xml
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/vnd.ms-fontobject
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $image/svg+xml
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $image/x-icon
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/x-font-ttf
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $font/opentype
-  FilterChain     COMPRESS
-  FilterProtocol  COMPRESS  DEFLATE change=yes;byteranges=no
-</IfModule>
+  # HTML, TXT, CSS, JavaScript, JSON, XML, HTC:
+  <IfModule filter_module>
+    FilterDeclare   COMPRESS
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/html
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/css
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/plain
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/xml
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/x-component
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/javascript
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/json
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/xml
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/xhtml+xml
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/rss+xml
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/atom+xml
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/vnd.ms-fontobject
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $image/svg+xml
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $image/x-icon
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/x-font-ttf
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $font/opentype
+    FilterChain     COMPRESS
+    FilterProtocol  COMPRESS  DEFLATE change=yes;byteranges=no
+  </IfModule>
 
-<IfModule !mod_filter.c>
-  # Legacy versions of Apache
-  AddOutputFilterByType DEFLATE text/html text/plain text/css application/json
-  AddOutputFilterByType DEFLATE application/javascript
-  AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
-  AddOutputFilterByType DEFLATE application/xhtml+xml application/rss+xml application/atom+xml
-  AddOutputFilterByType DEFLATE image/x-icon image/svg+xml application/vnd.ms-fontobject application/x-font-ttf font/opentype
-</IfModule>
-</IfModule>
+  <IfModule !mod_filter.c>
+    # Legacy versions of Apache
+    AddOutputFilterByType DEFLATE text/html text/plain text/css application/json
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
+    AddOutputFilterByType DEFLATE application/xhtml+xml application/rss+xml application/atom+xml
+    AddOutputFilterByType DEFLATE image/x-icon image/svg+xml application/vnd.ms-fontobject application/x-font-ttf font/opentype
+  </IfModule>
 
+</IfModule>
 
 
 # ----------------------------------------------------------------------
