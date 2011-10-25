@@ -33,7 +33,7 @@ audio:not([controls]) { display: none; }
 
 html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 
-body { margin: 0; /* add your base font-size and line-height here */ }
+body { margin: 0; font-size: 1em; line-height: 1.4; }
 
 body, button, input, select, textarea { font-family: sans-serif; color: #222; }
 
