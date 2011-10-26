@@ -7,7 +7,7 @@ This project is the product of many years of iterative development and combined 
 
 ## Quick start
 
-Clone the git repo - `git clone git://github.com/paulirish/html5-boilerplate.git` - or [download it](https://github.com/paulirish/html5-boilerplate/zipball/master)
+Clone the git repo - `git clone git://github.com/h5bp/html5-boilerplate.git` - or [download it](https://github.com/h5bp/html5-boilerplate/zipball/master)
 
 
 ## Features
@@ -35,14 +35,14 @@ Clone the git repo - `git clone git://github.com/paulirish/html5-boilerplate.git
 
 Anyone and everyone is welcome to contribute. Hundreds of developers have helped make the HTML5 Boilerplate what it is today. There are several ways you can help out:
 
-1. Raising [issues](https://github.com/paulirish/html5-boilerplate/issues) on GitHub.
+1. Raising [issues](https://github.com/h5bp/html5-boilerplate/issues) on GitHub.
 2. Sending pull requests for bug fixes or new features and improvements.
-3. Making the [docs](https://github.com/paulirish/html5-boilerplate/wiki) better.
+3. Making the [docs](https://github.com/h5bp/html5-boilerplate/wiki) better.
 
 
 ## Project information
 
-* Source: http://github.com/paulirish/html5-boilerplate
+* Source: http://github.com/h5bp/html5-boilerplate
 * Web: http://html5boilerplate.com
 * Docs: http://html5boilerplate.com/docs
 * Mailing list: http://h5bp.com/group
