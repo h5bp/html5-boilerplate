@@ -1,0 +1,78 @@
+<!DOCTYPE html>  <html> <head>   <title>createproject.coffee</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="docco.css" /> </head> <body>   <div id="container">     <div id="background"></div>            <div id="jump_to">         Jump To &hellip;         <div id="jump_wrapper">           <div id="jump_page">                                           <a class="source" href="Cakefile.html">                 Cakefile.coffee               </a>                                           <a class="source" href="default.html">                 default.coffee               </a>                                           <a class="source" href="build.html">                 build.coffee               </a>                                           <a class="source" href="createproject.html">                 createproject.coffee               </a>                                           <a class="source" href="css.html">                 css.coffee               </a>                                           <a class="source" href="docs.html">                 docs.coffee               </a>                                           <a class="source" href="help.html">                 help.coffee               </a>                                           <a class="source" href="html.html">                 html.coffee               </a>                                           <a class="source" href="img.html">                 img.coffee               </a>                                           <a class="source" href="js.html">                 js.coffee               </a>                                           <a class="source" href="lint.html">                 lint.coffee               </a>                                           <a class="source" href="test.html">                 test.js               </a>                        </div>         </div>       </div>          <table cellpadding="0" cellspacing="0">       <thead>         <tr>           <th class="docs">             <h1>               createproject.coffee             </h1>           </th>           <th class="code">           </th>         </tr>       </thead>       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>                            </td>             <td class="code">               <div class="highlight"><pre><span class="nv">path            = </span><span class="nx">require</span> <span class="s1">&#39;path&#39;</span>
+<span class="p">{</span><span class="nx">spawn</span><span class="p">,</span> <span class="nx">exec</span><span class="p">}</span>   <span class="o">=</span> <span class="nx">require</span> <span class="s1">&#39;child_process&#39;</span>
+<span class="nv">prompt          = </span><span class="nx">require</span> <span class="s1">&#39;prompt&#39;</span>
+<span class="nv">mkdirp          = </span><span class="nx">require</span> <span class="s1">&#39;mkdirp&#39;</span>
+
+<span class="nv">helper = </span><span class="nx">require</span> <span class="s1">&#39;./tasks/util/helper&#39;</span>
+
+<span class="nv">base = </span><span class="nx">process</span><span class="p">.</span><span class="nx">cwd</span><span class="p">()</span>
+
+<span class="nv">repo =</span>
+  <span class="nv">h5bp: </span><span class="s1">&#39;git://github.com/paulirish/html5-boilerplate.git&#39;</span></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>               <p>Generate a new project from your HTML5 Boilerplate repo clone</p>
+
+<ul>
+<li>by: Rick Waldron &amp; Michael Cetrulo</li>
+</ul>
+
+<p>The terminal will prompt with this message:</p>
+
+<pre><code>To create a new html5-boilerplate project, 
+enter a new directory name:
+</code></pre>
+
+<p>Type the name of the new project you are creating, ideally in lowercase letters,
+with no spaces - this will be the directory name that your new project lives in. 
+Press Enter to continue.</p>
+
+<p>If you attempt to create a directory that already exists, createproject.sh will warn you and stop running.</p>
+
+<p>If all goes smoothly, you will see the following messages:</p>
+
+<pre><code>Created Directory: [name]
+
+[ A list of all the html5-boilerplate files being copied ]
+
+Created Project: [name]
+</code></pre>
+
+<p>Success! You now have a clean project to begin making the next HTML5 wunderkind demo!</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;createproject&#39;</span><span class="p">,</span> <span class="s1">&#39;a simple create project task&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
+
+  <span class="nv">src = </span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span> <span class="nx">base</span><span class="p">,</span> <span class="nx">repo</span><span class="p">.</span><span class="nx">h5bp</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">).</span><span class="nx">reverse</span><span class="p">()[</span><span class="mi">0</span><span class="p">].</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\.git/</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+  <span class="nv">exists = </span><span class="nx">path</span><span class="p">.</span><span class="nx">existsSync</span> <span class="nx">src</span>
+
+  <span class="nv">gitcmd = </span><span class="k">if</span> <span class="nx">exists</span> <span class="k">then</span> <span class="s1">&#39;pull&#39;</span> <span class="k">else</span> <span class="s1">&#39;clon&#39;</span>
+
+  <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;#{gitcmd}ing #{repo.h5bp}...&quot;</span>
+
+  <span class="nv">args = </span><span class="p">(</span><span class="k">if</span> <span class="nx">exists</span> <span class="k">then</span> <span class="s1">&#39;pull origin master&#39;</span> <span class="k">else</span> <span class="s2">&quot;clone #{repo.h5bp}&quot;</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+
+  <span class="nx">process</span><span class="p">.</span><span class="nx">chdir</span> <span class="nx">src</span> <span class="k">if</span> <span class="nx">exists</span>
+  <span class="nx">helper</span><span class="p">.</span><span class="nx">spawn</span> <span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="nx">args</span><span class="p">,</span> <span class="nf">(code, stdout, stderr) -&gt;</span>
+    <span class="k">return</span> <span class="nx">error</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;err&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="nx">code</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="nv">stdout = </span><span class="nx">stdout</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\n/gm</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;  ✔  #{stdout}&quot;</span>
+
+    <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;  - To create a new html5-boilerplate project, enter a new directory name:&#39;</span>
+
+    <span class="nv">prompt.message = </span><span class="s2">&quot;    ↩ &quot;</span>
+    <span class="nv">prompt.delimiter = </span><span class="s1">&#39;&#39;</span>
+    <span class="nv">prompt.override = </span><span class="p">{</span><span class="nv">directory: </span><span class="nx">options</span><span class="p">.</span><span class="nx">output</span><span class="p">}</span>
+
+    <span class="nx">prompt</span><span class="p">.</span><span class="nx">start</span><span class="p">()</span> <span class="nx">unless</span> <span class="nx">prompt</span><span class="p">.</span><span class="nx">override</span><span class="p">.</span><span class="nx">directory</span>
+    <span class="nx">prompt</span><span class="p">.</span><span class="nx">get</span> <span class="p">[</span><span class="s1">&#39;directory&#39;</span><span class="p">],</span> <span class="nf">(err, result) -&gt;</span>
+      <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
+      <span class="k">return</span> <span class="nx">error</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">&quot;please provide a directory name&quot;</span><span class="p">)</span> <span class="nx">unless</span> <span class="nx">result</span><span class="p">.</span><span class="nx">directory</span>
+      <span class="nv">dest = </span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">base</span><span class="p">,</span> <span class="nx">result</span><span class="p">.</span><span class="nx">directory</span><span class="p">)</span>
+      <span class="nx">mkdirp</span> <span class="nx">dest</span><span class="p">,</span> <span class="mi">0755</span><span class="p">,</span> <span class="nf">(err) -&gt;</span>
+        <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
+        <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;  ✔  Created Directory: #{dest}&quot;</span>
+        <span class="nx">exec</span> <span class="p">[</span><span class="s2">&quot;cd #{src}&quot;</span><span class="p">,</span> <span class="s2">&quot;cp -vr css js img build *.html *.xml *.txt *.png *.ico .htaccess #{dest}&quot;</span><span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39; &amp;&amp; &#39;</span><span class="p">),</span> <span class="nf">(err, stdout, stderr) -&gt;</span>
+          <span class="k">return</span> <span class="nx">error</span> <span class="nx">stderr</span> <span class="k">if</span> <span class="nx">err</span>
+          <span class="nv">output = </span><span class="nx">stdout</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="sr">/\n/</span><span class="p">)</span>
+
+          <span class="nx">output</span><span class="p">.</span><span class="nx">forEach</span> <span class="nf">(line) -&gt;</span> <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s2">&quot;    » #{line}&quot;</span><span class="p">,</span> <span class="s1">&#39;log&#39;</span>
+          <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;  ✔  Created Project: #{dest}&quot;</span>
+          <span class="nx">process</span><span class="p">.</span><span class="nx">chdir</span> <span class="nx">base</span>
+
+</pre></div>             </td>           </tr>                </tbody>     </table>   </div> </body> </html> 

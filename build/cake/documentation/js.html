@@ -1,0 +1,154 @@
+<!DOCTYPE html>  <html> <head>   <title>js.coffee</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="docco.css" /> </head> <body>   <div id="container">     <div id="background"></div>            <div id="jump_to">         Jump To &hellip;         <div id="jump_wrapper">           <div id="jump_page">                                           <a class="source" href="Cakefile.html">                 Cakefile.coffee               </a>                                           <a class="source" href="default.html">                 default.coffee               </a>                                           <a class="source" href="build.html">                 build.coffee               </a>                                           <a class="source" href="createproject.html">                 createproject.coffee               </a>                                           <a class="source" href="css.html">                 css.coffee               </a>                                           <a class="source" href="docs.html">                 docs.coffee               </a>                                           <a class="source" href="help.html">                 help.coffee               </a>                                           <a class="source" href="html.html">                 html.coffee               </a>                                           <a class="source" href="img.html">                 img.coffee               </a>                                           <a class="source" href="js.html">                 js.coffee               </a>                                           <a class="source" href="lint.html">                 lint.coffee               </a>                                           <a class="source" href="test.html">                 test.js               </a>                        </div>         </div>       </div>          <table cellpadding="0" cellspacing="0">       <thead>         <tr>           <th class="docs">             <h1>               js.coffee             </h1>           </th>           <th class="code">           </th>         </tr>       </thead>       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>                            </td>             <td class="code">               <div class="highlight"><pre><span class="nv">fs              = </span><span class="nx">require</span> <span class="s1">&#39;fs&#39;</span>
+<span class="nv">path            = </span><span class="nx">require</span> <span class="s1">&#39;path&#39;</span>
+<span class="p">{</span><span class="nx">spawn</span><span class="p">,</span> <span class="nx">exec</span><span class="p">}</span>   <span class="o">=</span> <span class="nx">require</span> <span class="s1">&#39;child_process&#39;</span>
+<span class="nv">uglify          = </span><span class="nx">require</span> <span class="s1">&#39;uglify-js&#39;</span>
+
+<span class="nv">helper = </span><span class="nx">require</span> <span class="s1">&#39;./tasks/util/helper&#39;</span>
+
+<span class="nv">base = </span><span class="nx">process</span><span class="p">.</span><span class="nx">cwd</span><span class="p">()</span></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>               <h2>JS tasks</h2>
+
+<p>These tasks are related to JS optimizations, mainly concat, <code>@import</code>  and minification 
+(using <a href="https://github.com/mishoo/UglifyJS#readme">uglify-js</a></p>             </td>             <td class="code">               <div class="highlight"><pre></pre></div>             </td>           </tr>                               <tr id="section-3">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-3">&#182;</a>               </div>               <h3>js.main.concat</h3>
+
+<p>Concatenates the JS files in dir.js. depends on mkdirs</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;js.main.concat&#39;</span><span class="p">,</span> <span class="s1">&#39;Concatenates the JS files in dir.js&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
+
+  <span class="nx">invoke</span> <span class="s1">&#39;mkdirs&#39;</span>
+
+  <span class="nv">concat = </span><span class="nf">(output) -&gt;</span>
+    <span class="nv">output = </span><span class="k">new</span> <span class="nx">Buffer</span> <span class="nx">output</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n\n&#39;</span><span class="p">)</span>
+    <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFile</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">base</span><span class="p">,</span> <span class="s2">&quot;#{dir.intermediate}&quot;</span><span class="p">,</span> <span class="s2">&quot;#{dir.js}&quot;</span><span class="p">,</span> <span class="s1">&#39;script-concat.js&#39;</span><span class="p">),</span> <span class="nx">output</span><span class="p">,</span> <span class="nf">(err) -&gt;</span>
+      <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
+      <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;script-concat.js just concat...&#39;</span><span class="p">.</span><span class="nx">grey</span>
+      <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="kc">true</span>
+
+  <span class="nv">handle = </span><span class="nf">(files) -&gt;</span>
+    <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;Concatenating Main JS scripts...&#39;</span>
+
+    <span class="nx">helper</span><span class="p">.</span><span class="nx">fileset</span> <span class="s2">&quot;#{dir.js.main}/plugins.js #{dir.js.main}/#{file.root.script}&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nf">(err, files) -&gt;</span>
+      <span class="nv">output = </span><span class="p">[]</span>
+      <span class="nv">remaining = </span><span class="nx">files</span><span class="p">.</span><span class="nx">length</span>
+      <span class="k">for</span> <span class="nx">file</span> <span class="k">in</span> <span class="nx">files</span> <span class="k">then</span> <span class="nx">do</span> <span class="nf">(file) -&gt;</span>
+        <span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span> <span class="nx">file</span><span class="p">,</span> <span class="nf">(err, body) -&gt;</span>
+          <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
+          <span class="nx">output</span><span class="p">.</span><span class="nx">push</span> <span class="nx">body</span>
+
+          <span class="nx">concat</span><span class="p">(</span><span class="nx">output</span><span class="p">)</span> <span class="k">if</span> <span class="o">--</span><span class="nx">remaining</span> <span class="o">is</span> <span class="mi">0</span> 
+
+
+  <span class="nx">gem</span><span class="p">.</span><span class="nx">once</span> <span class="s1">&#39;end:mkdirs&#39;</span><span class="p">,</span> <span class="nx">handle</span></pre></div>             </td>           </tr>                               <tr id="section-4">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-4">&#182;</a>               </div>               <h3>js.mylibs.concat</h3>
+
+<p>Concatenates the JS files in dir.js.mylibs. depends on mkdirs</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;js.mylibs.concat&#39;</span><span class="p">,</span> <span class="s1">&#39;Concatenates the JS files in dir.js.mylibs&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
+
+  <span class="nx">invoke</span> <span class="s1">&#39;mkdirs&#39;</span>
+
+  <span class="nv">concat = </span><span class="nf">(output) -&gt;</span>
+    <span class="nv">output = </span><span class="k">new</span> <span class="nx">Buffer</span> <span class="nx">output</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n\n&#39;</span><span class="p">)</span>
+    <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFile</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">base</span><span class="p">,</span> <span class="s2">&quot;#{dir.intermediate}&quot;</span><span class="p">,</span> <span class="s2">&quot;#{dir.js.mylibs}&quot;</span><span class="p">,</span> <span class="s1">&#39;mylibs-concat.js&#39;</span><span class="p">),</span> <span class="nx">output</span><span class="p">,</span> <span class="nf">(err) -&gt;</span>
+      <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
+      <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;mylibs-concat.js just concat...&#39;</span><span class="p">.</span><span class="nx">grey</span>
+      <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="kc">true</span>
+
+  <span class="nx">gem</span><span class="p">.</span><span class="nx">once</span> <span class="s1">&#39;end:mkdirs&#39;</span><span class="p">,</span> <span class="nf">(files) -&gt;</span>
+    <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;Concatenating JS libraries in #{dir.js.mylibs}&quot;</span><span class="p">.</span><span class="nx">grey</span>
+
+    <span class="nx">process</span><span class="p">.</span><span class="nx">chdir</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">base</span><span class="p">,</span> <span class="s2">&quot;#{dir.intermediate}&quot;</span><span class="p">)</span>
+    <span class="nx">helper</span><span class="p">.</span><span class="nx">fileset</span> <span class="s2">&quot;#{dir.js.mylibs}/**/*.js&quot;</span><span class="p">,</span> <span class="s2">&quot;#{file.default.js.bypass}&quot;</span><span class="p">,</span> <span class="nf">(err, files) -&gt;</span>
+      <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
+
+      <span class="nv">output = </span><span class="p">[]</span>
+
+      <span class="k">return</span> <span class="nx">concat</span><span class="p">(</span><span class="nx">output</span><span class="p">)</span> <span class="nx">unless</span> <span class="nx">files</span><span class="p">.</span><span class="nx">length</span>
+
+      <span class="nv">remaining = </span><span class="nx">files</span><span class="p">.</span><span class="nx">length</span>
+      <span class="k">for</span> <span class="nx">file</span> <span class="k">in</span> <span class="nx">files</span> <span class="k">then</span> <span class="nx">do</span><span class="nf">(file) -&gt;</span>
+        <span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span> <span class="nx">file</span><span class="p">,</span> <span class="nf">(err, body) -&gt;</span>
+          <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
+          <span class="nx">output</span><span class="p">.</span><span class="nx">push</span> <span class="nx">body</span>
+          <span class="nx">concat</span><span class="p">(</span><span class="nx">output</span><span class="p">)</span> <span class="k">if</span> <span class="o">--</span><span class="nx">remaining</span> <span class="o">is</span> <span class="mi">0</span></pre></div>             </td>           </tr>                               <tr id="section-5">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-5">&#182;</a>               </div>               <h3>js.scripts.concat</h3>
+
+<p>Concatenating library file with main script file</p>
+
+<p>Calculates an md5 checksum, prefix the script name, and copy over to <code>#{dir.publish}/#{dir.js}/</code></p>
+
+<pre><code>publish/js/e816baa.scripts-concat.min.js
+</code></pre>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;js.scripts.concat&#39;</span><span class="p">,</span> <span class="s1">&#39;Concatenating library file with main script file&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span></pre></div>             </td>           </tr>                               <tr id="section-6">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-6">&#182;</a>               </div>               <p>the scripts holders used in htmlclean</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nv">scripts = </span><span class="p">{}</span>
+
+  <span class="nx">invoke</span> <span class="s1">&#39;js.main.concat&#39;</span>
+  <span class="nx">invoke</span> <span class="s1">&#39;js.mylibs.concat&#39;</span>
+
+  <span class="nv">concat = </span><span class="nf">(source) -&gt;</span>
+    <span class="nv">concat.remaining = </span><span class="nx">concat</span><span class="p">.</span><span class="nx">remaining</span> <span class="o">or=</span> <span class="mi">0</span>
+    <span class="nx">concat</span><span class="p">.</span><span class="nx">remaining</span><span class="o">++</span>
+
+    <span class="k">return</span> <span class="o">-&gt;</span>
+      <span class="k">return</span> <span class="k">if</span> <span class="o">--</span><span class="nx">concat</span><span class="p">.</span><span class="nx">remaining</span>
+      <span class="nx">helper</span><span class="p">.</span><span class="nx">fileset</span> <span class="s2">&quot;#{base}/#{dir.intermediate}/#{dir.js}/**-concat.js&quot;</span><span class="p">,</span> <span class="nf">(err, files) -&gt;</span>
+        <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
+
+        <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;Concatenating library file with main script file&#39;</span><span class="p">.</span><span class="nx">grey</span>
+        <span class="nx">helper</span><span class="p">.</span><span class="nx">concat</span> <span class="nx">files</span><span class="p">,</span> <span class="nf">(err, buffers) -&gt;</span>
+          <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
+
+          <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;Writing to #{dir.intermediate}/#{dir.js}/scripts-concat.min.js&quot;</span><span class="p">.</span><span class="nx">grey</span>
+
+          <span class="nv">filename = </span><span class="s2">&quot;scripts-concat.min.js&quot;</span>
+          <span class="nv">from = </span><span class="s2">&quot;#{dir.intermediate}/#{dir.js}/#{filename}&quot;</span>
+          <span class="nv">output = </span><span class="nx">buffers</span><span class="p">.</span><span class="nx">map</span> <span class="nf">(buffer) -&gt;</span>
+            <span class="k">return</span> <span class="nx">buffer</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span>
+
+          <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFile</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">base</span><span class="p">,</span> <span class="nx">from</span><span class="p">),</span> <span class="nx">output</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n\n&#39;</span><span class="p">),</span> <span class="nf">(err) -&gt;</span>
+            <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
+            <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;File ✔ #{from}&quot;</span><span class="p">.</span><span class="nx">grey</span>
+
+            <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;Calculating checksum...&#39;</span><span class="p">.</span><span class="nx">grey</span>
+
+
+            <span class="nx">helper</span><span class="p">.</span><span class="nx">checksum</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">base</span><span class="p">,</span><span class="nx">from</span><span class="p">),</span> <span class="nf">(err, md5) -&gt;</span>
+              <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
+
+              <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;✔ md5 is #{md5} for file #{from}&quot;</span></pre></div>             </td>           </tr>                               <tr id="section-7">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-7">&#182;</a>               </div>               <p>now copy over the file to #{dir.js}/#{script.sha}.js</p>             </td>             <td class="code">               <div class="highlight"><pre>              <span class="nv">md5 = </span><span class="nx">md5</span><span class="p">.</span><span class="nx">substring</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">hash</span><span class="p">.</span><span class="nx">length</span>
+              <span class="nv">to = </span><span class="s2">&quot;#{dir.intermediate}/#{dir.js}/#{md5}.#{filename}&quot;</span></pre></div>             </td>           </tr>                               <tr id="section-8">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-8">&#182;</a>               </div>               <p>set the global script.js for future reference in usemin</p>             </td>             <td class="code">               <div class="highlight"><pre>              <span class="nv">scripts.js = </span><span class="s2">&quot;#{md5}.#{filename}&quot;</span>
+
+              <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;now copy over the file to #{to}&quot;</span>
+              <span class="k">return</span> <span class="nx">helper</span><span class="p">.</span><span class="nx">copy</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">base</span><span class="p">,</span> <span class="nx">from</span><span class="p">),</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">base</span><span class="p">,</span> <span class="nx">to</span><span class="p">),</span> <span class="nf">(err) -&gt;</span>
+                <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
+                <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;✔ Copy done » #{to}&quot;</span>
+
+                <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;Minify the output now...&#39;</span>
+                <span class="nx">invoke</span> <span class="s1">&#39;js.all.minify&#39;</span>
+
+
+  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:js.main.concat&#39;</span><span class="p">,</span> <span class="nx">concat</span><span class="p">(</span><span class="s1">&#39;main&#39;</span><span class="p">)</span>
+  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:js.mylibs.concat&#39;</span><span class="p">,</span> <span class="nx">concat</span><span class="p">(</span><span class="s1">&#39;mylibs&#39;</span><span class="p">)</span>
+
+  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:js.all.minify&#39;</span><span class="p">,</span> <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">em</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="nx">scripts</span><span class="p">)</span></pre></div>             </td>           </tr>                               <tr id="section-9">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-9">&#182;</a>               </div>               <h3>js.all.minify</h3>
+
+<p>Minifies the scripts.js files in #{dir.intermediate}/#{dir.js}. depends on mkdirs</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;js.all.minify&#39;</span><span class="p">,</span> <span class="s2">&quot;Minifies the *-concat.js files in #{dir.intermediate}/#{dir.js}&quot;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
+
+  <span class="nx">gem</span><span class="p">.</span><span class="nx">once</span> <span class="s1">&#39;end:mkdirs&#39;</span><span class="p">,</span> <span class="nf">(result) -&gt;</span>
+    <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;Minifying scripts&#39;</span><span class="p">.</span><span class="nx">grey</span>
+
+    <span class="nv">dirname = </span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span> <span class="nx">dir</span><span class="p">.</span><span class="nx">intermediate</span><span class="p">,</span> <span class="nx">dir</span><span class="p">.</span><span class="nx">js</span>
+    <span class="nx">process</span><span class="p">.</span><span class="nx">chdir</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">base</span><span class="p">,</span> <span class="nx">dirname</span><span class="p">)</span>
+    <span class="nx">helper</span><span class="p">.</span><span class="nx">fileset</span> <span class="s2">&quot;**-concat.min.js&quot;</span><span class="p">,</span> <span class="nf">(err, files) -&gt;</span>
+      <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
+
+      <span class="nv">remaining = </span><span class="nx">files</span><span class="p">.</span><span class="nx">length</span>
+      <span class="k">for</span> <span class="nx">file</span> <span class="k">in</span> <span class="nx">files</span> <span class="k">then</span> <span class="nx">do</span> <span class="nf">(file) -&gt;</span>
+        <span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span> <span class="nx">file</span><span class="p">,</span> <span class="nf">(err, body) -&gt;</span>
+          <span class="nv">jsp = </span><span class="nx">uglify</span><span class="p">.</span><span class="nx">parser</span>
+          <span class="nv">pro = </span><span class="nx">uglify</span><span class="p">.</span><span class="nx">uglify</span>
+
+          <span class="nv">ast = </span><span class="nx">jsp</span><span class="p">.</span><span class="nx">parse</span> <span class="nx">body</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span>
+          <span class="nv">ast = </span><span class="nx">pro</span><span class="p">.</span><span class="nx">ast_mangle</span> <span class="nx">ast</span>
+          <span class="nv">ast = </span><span class="nx">pro</span><span class="p">.</span><span class="nx">ast_squeeze</span> <span class="nx">ast</span>
+          <span class="nv">code = </span><span class="k">new</span> <span class="nx">Buffer</span> <span class="nx">pro</span><span class="p">.</span><span class="nx">gen_code</span><span class="p">(</span><span class="nx">ast</span><span class="p">)</span>
+
+          <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFile</span> <span class="nx">file</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Buffer</span><span class="p">(</span><span class="nx">code</span><span class="p">),</span> <span class="nf">(err) -&gt;</span>
+            <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
+            <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;Uglified #{file}&quot;</span><span class="p">.</span><span class="nx">grey</span>
+            <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="nx">files</span> <span class="k">if</span> <span class="o">--</span><span class="nx">remaining</span> <span class="o">is</span> <span class="mi">0</span>
+
+  <span class="nx">invoke</span> <span class="s1">&#39;mkdirs&#39;</span>
+
+</pre></div>             </td>           </tr>                </tbody>     </table>   </div> </body> </html> 

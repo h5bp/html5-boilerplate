@@ -1,13 +1,14 @@
 #
 # Default Build Settings
-# you can override these settings on a project basis in a project.properties file
-# so probably best not to touch these as they could be overwritten in later versions!
+#
+# This file is a close port to the build/config/default.properties file
+# for the ant build script. Some configuration properties (tools, ...)
+# are not used in the cake script and probably won't be, some others are
+# not used while they should be. This needs clarification.
 #
 
-
-#
-# Directory Paths
-#
+# bunch of messy obj namespace definition
+# todo: change this, quite ugly now.
 dir = exports.dir = {}; file = exports.file = {}; build = exports.build = {}; tool = exports.tool = {}; scripts = exports.script = {}; images = exports.images = {}; hash = exports.hash = {}
 file.pages = {}; file.pages.default = {}; file.default = {}; file.root = {}; file.default.js = {}
 build.concat = {}; build.version = {}; build.scripts = {}
@@ -15,6 +16,9 @@ scripts.compilation = {}
 images.strip = {}
 
 
+#
+# Directory Paths
+#
 dir.source          = "_test"
 dir.intermediate    = "intermediate"
 dir.publish         = "publish"
