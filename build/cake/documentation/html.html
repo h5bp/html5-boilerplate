@@ -1,0 +1,155 @@
+<!DOCTYPE html>  <html> <head>   <title>html.coffee</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="docco.css" /> </head> <body>   <div id="container">     <div id="background"></div>            <div id="jump_to">         Jump To &hellip;         <div id="jump_wrapper">           <div id="jump_page">                                           <a class="source" href="Cakefile.html">                 Cakefile.coffee               </a>                                           <a class="source" href="default.html">                 default.coffee               </a>                                           <a class="source" href="build.html">                 build.coffee               </a>                                           <a class="source" href="createproject.html">                 createproject.coffee               </a>                                           <a class="source" href="css.html">                 css.coffee               </a>                                           <a class="source" href="docs.html">                 docs.coffee               </a>                                           <a class="source" href="help.html">                 help.coffee               </a>                                           <a class="source" href="html.html">                 html.coffee               </a>                                           <a class="source" href="img.html">                 img.coffee               </a>                                           <a class="source" href="js.html">                 js.coffee               </a>                                           <a class="source" href="lint.html">                 lint.coffee               </a>                                           <a class="source" href="test.html">                 test.js               </a>                        </div>         </div>       </div>          <table cellpadding="0" cellspacing="0">       <thead>         <tr>           <th class="docs">             <h1>               html.coffee             </h1>           </th>           <th class="code">           </th>         </tr>       </thead>       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>                            </td>             <td class="code">               <div class="highlight"><pre><span class="nv">fs              = </span><span class="nx">require</span> <span class="s1">&#39;fs&#39;</span>
+<span class="nv">path            = </span><span class="nx">require</span> <span class="s1">&#39;path&#39;</span>
+<span class="p">{</span><span class="nx">spawn</span><span class="p">,</span> <span class="nx">exec</span><span class="p">}</span>   <span class="o">=</span> <span class="nx">require</span> <span class="s1">&#39;child_process&#39;</span>
+<span class="nv">htmlmin         = </span><span class="nx">require</span> <span class="s1">&#39;html-minifier&#39;</span>
+
+<span class="nv">helper = </span><span class="nx">require</span> <span class="s1">&#39;./tasks/util/helper&#39;</span>
+
+<span class="nv">base = </span><span class="nx">process</span><span class="p">.</span><span class="nx">cwd</span><span class="p">()</span></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>               <h2>HTML tasks</h2>
+
+<p>tasks related to html manipulation such as cleaning
+and updating script/css references, html minification and so on</p>             </td>             <td class="code">               <div class="highlight"><pre></pre></div>             </td>           </tr>                               <tr id="section-3">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-3">&#182;</a>               </div>               <h3>cake htmlclean</h3>
+
+<p>using the fantastic html minifier tool by kangax:: https://github.com/kangax/html-minifier</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;htmlclean&#39;</span><span class="p">,</span> <span class="s1">&#39;Peforms basic to aggresive minification&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
+  <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;Run html-minifier on the HTML with standard options&#39;</span>
+
+  <span class="nx">gem</span><span class="p">.</span><span class="nx">once</span> <span class="s1">&#39;end:mkdirs&#39;</span><span class="p">,</span> <span class="o">-&gt;</span></pre></div>             </td>           </tr>                               <tr id="section-4">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-4">&#182;</a>               </div>               <p>get the file to min</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;Run on #{file.pages.default.include}&quot;</span>
+
+    <span class="nx">process</span><span class="p">.</span><span class="nx">chdir</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">base</span><span class="p">,</span> <span class="nx">dir</span><span class="p">.</span><span class="nx">intermediate</span><span class="p">)</span>
+    <span class="nx">helper</span><span class="p">.</span><span class="nx">fileset</span> <span class="s2">&quot;#{file.pages.default.include}&quot;</span><span class="p">,</span> <span class="nf">(err, pages) -&gt;</span>
+      <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
+
+      <span class="nv">remaining = </span><span class="nx">pages</span><span class="p">.</span><span class="nx">length</span>
+      <span class="k">for</span> <span class="nx">page</span> <span class="k">in</span> <span class="nx">pages</span> <span class="k">then</span> <span class="nx">do</span> <span class="nf">(page) -&gt;</span>
+       <span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span> <span class="nx">page</span><span class="p">,</span> <span class="s1">&#39;utf8&#39;</span><span class="p">,</span> <span class="nf">(err, body) -&gt;</span>
+        <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span></pre></div>             </td>           </tr>                               <tr id="section-5">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-5">&#182;</a>               </div>               <p>todo: move the configuration over to config files
+going with most aggresive minification for now</p>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="nv">output = </span><span class="nx">htmlmin</span><span class="p">.</span><span class="nx">minify</span> <span class="nx">body</span><span class="p">,</span> <span class="p">{</span>
+          <span class="nv">removeComments: </span><span class="kc">true</span>
+          <span class="nv">removeCommentsFromCDATA: </span><span class="kc">true</span>
+          <span class="nv">removeEmptyAttributes: </span><span class="kc">true</span>
+          <span class="nv">cleanAttributes: </span><span class="kc">true</span>
+          <span class="nv">removeAttributeQuotes: </span><span class="kc">true</span>
+          <span class="nv">removeRedundantAttributes: </span><span class="kc">true</span>
+          <span class="nv">removeScriptTypeAttributes: </span><span class="kc">true</span>
+          <span class="nv">removeStyleLinkTypeAttributes: </span><span class="kc">true</span>
+          <span class="nv">collapseWhitespace: </span><span class="kc">true</span></pre></div>             </td>           </tr>                               <tr id="section-6">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-6">&#182;</a>               </div>               <p>tests no longer pass when set to true, stripping some scripts
+removeEmptyElements: true</p>             </td>             <td class="code">               <div class="highlight"><pre>          <span class="nv">collapseBooleanAttributes: </span><span class="kc">true</span>
+          <span class="nv">removeOptionalTags: </span><span class="kc">true</span>
+        <span class="p">}</span>
+
+        <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFile</span> <span class="nx">page</span><span class="p">,</span> <span class="nx">output</span><span class="p">,</span> <span class="nf">(err) -&gt;</span>
+          <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
+          <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;end&#39;</span> <span class="k">if</span> <span class="o">--</span><span class="nx">remaining</span> <span class="o">is</span> <span class="mi">0</span>
+
+  <span class="nx">invoke</span> <span class="s1">&#39;mkdirs&#39;</span></pre></div>             </td>           </tr>                               <tr id="section-7">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-7">&#182;</a>               </div>               <h3>cake usemin</h3>
+
+<p>Replaces references to non-minified scripts/styles in HTML files.</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;usemin&#39;</span><span class="p">,</span> <span class="s1">&#39;Replaces references to non-minified scripts/styles&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
+  <span class="nv">remaining = </span><span class="mi">0</span>
+  <span class="nv">scripts = </span><span class="p">{}</span>
+  <span class="nv">style = </span><span class="p">{}</span>
+  <span class="nv">checksums = </span><span class="p">[]</span>
+  <span class="nv">handle = </span><span class="nf">(from) -&gt;</span>
+    <span class="nx">remaining</span><span class="o">++</span>
+    <span class="k">return</span> <span class="nf">(result) -&gt;</span>
+      <span class="nv">scripts = </span><span class="nx">result</span> <span class="k">if</span> <span class="nx">from</span> <span class="o">is</span> <span class="s1">&#39;js&#39;</span> <span class="o">and</span> <span class="nx">result</span>
+      <span class="nv">style = </span><span class="nx">result</span> <span class="k">if</span> <span class="nx">from</span> <span class="o">is</span> <span class="s1">&#39;css&#39;</span> <span class="o">and</span> <span class="nx">result</span>
+      <span class="nv">checksums = </span><span class="nx">result</span> <span class="k">if</span> <span class="nx">from</span> <span class="o">is</span> <span class="s1">&#39;img&#39;</span> <span class="o">and</span> <span class="nx">result</span>
+      <span class="k">return</span> <span class="nx">unless</span> <span class="o">--</span><span class="nx">remaining</span> <span class="o">is</span> <span class="mi">0</span>
+
+      <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;Switching to minified js files...&#39;</span>
+
+      <span class="nx">process</span><span class="p">.</span><span class="nx">chdir</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">base</span><span class="p">,</span> <span class="nx">dir</span><span class="p">.</span><span class="nx">intermediate</span><span class="p">)</span>
+      <span class="nx">helper</span><span class="p">.</span><span class="nx">fileset</span> <span class="s2">&quot;#{file.pages.default.include}&quot;</span><span class="p">,</span> <span class="nf">(err, pages) -&gt;</span>
+        <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
+
+        <span class="nv">pagesCount = </span><span class="nx">pages</span><span class="p">.</span><span class="nx">length</span>
+        <span class="k">for</span> <span class="nx">page</span> <span class="k">in</span> <span class="nx">pages</span> <span class="k">then</span> <span class="nx">do</span> <span class="nf">(page) -&gt;</span>
+
+          <span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span> <span class="nx">page</span><span class="p">,</span> <span class="s1">&#39;utf8&#39;</span><span class="p">,</span> <span class="nf">(err, body) -&gt;</span>
+            <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span></pre></div>             </td>           </tr>                               <tr id="section-8">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-8">&#182;</a>               </div>               <ul>
+<li>switch from a regular jquery to minified</li>
+</ul>             </td>             <td class="code">               <div class="highlight"><pre>            <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;switch from a regular jquery to minified&#39;</span>
+            <span class="nv">body = </span><span class="nx">body</span><span class="p">.</span><span class="nx">replace</span> <span class="sr">/jquery-(\d|\d(\.\d)+)\.js/g</span><span class="p">,</span> <span class="nf">(file, version) -&gt;</span>
+              <span class="k">return</span> <span class="s2">&quot;jquery-#{version}.min.js&quot;</span></pre></div>             </td>           </tr>                               <tr id="section-9">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-9">&#182;</a>               </div>               <ul>
+<li>switch any google CDN reference to minified'</li>
+</ul>             </td>             <td class="code">               <div class="highlight"><pre>            <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;switch any google CDN reference to minified&#39;</span>
+            <span class="nv">body = </span><span class="nx">body</span><span class="p">.</span><span class="nx">replace</span> <span class="sr">/(\d|\d(\.\d)+)\/jquery\.js/g</span><span class="p">,</span> <span class="nf">(match, version) -&gt;</span>
+              <span class="k">return</span> <span class="s2">&quot;#{version}/jquery.min.js&quot;</span></pre></div>             </td>           </tr>                               <tr id="section-10">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-10">&#182;</a>               </div>               <ul>
+<li>Kill off those versioning flags: ?v=2'</li>
+</ul>             </td>             <td class="code">               <div class="highlight"><pre>            <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;Kill off those versioning flags: ?v=2&#39;</span>
+            <span class="nv">body = </span><span class="nx">body</span><span class="p">.</span><span class="nx">replace</span> <span class="sr">/\?v=\d+/g</span><span class="p">,</span> <span class="nf">(match) -&gt;</span>
+              <span class="k">return</span> <span class="s2">&quot;&quot;</span></pre></div>             </td>           </tr>                               <tr id="section-11">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-11">&#182;</a>               </div>               <ul>
+<li>Remove favicon.ico reference if it is pointing to the root</li>
+</ul>             </td>             <td class="code">               <div class="highlight"><pre>            <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;Remove favicon.ico reference if it is pointing to the root&#39;</span>
+            <span class="nv">body = </span><span class="nx">body</span><span class="p">.</span><span class="nx">replace</span> <span class="sr">/&lt;link rel=[&quot;&#39;]shortcut icon[&quot;&#39;] href=[&quot;&#39;]\/favicon\.ico[&quot;&#39;]&gt;/g</span><span class="p">,</span> <span class="nf">(match) -&gt;</span>
+              <span class="k">return</span> <span class="s2">&quot;&quot;</span></pre></div>             </td>           </tr>                               <tr id="section-12">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-12">&#182;</a>               </div>               <p>Update the HTML to reference our concatenated script file.</p>             </td>             <td class="code">               <div class="highlight"><pre>            <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;Update the HTML to reference our concatenated script file: #{scripts.js}&quot;</span>
+            <span class="nv">body = </span><span class="nx">body</span><span class="p">.</span><span class="nx">replace</span> <span class="sr">/&lt;!-- scripts concatenated[\d\w\s\W]*&lt;!-- end scripts --&gt;/gm</span><span class="p">,</span> <span class="o">-&gt;</span>
+              <span class="k">return</span> <span class="s2">&quot;&lt;script defer src=\&quot;#{dir.js}/#{scripts.js}\&quot;&gt;&lt;/script&gt;&quot;</span></pre></div>             </td>           </tr>                               <tr id="section-13">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-13">&#182;</a>               </div>               <p>Update the HTML with the new css filenames.</p>             </td>             <td class="code">               <div class="highlight"><pre>            <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;Update the HTML with the new css filenames: #{style.css}&quot;</span>
+            <span class="nv">body = </span><span class="nx">body</span><span class="p">.</span><span class="nx">replace</span> <span class="sr">/&lt;link rel=[&quot;&#39;]?stylesheet[&quot;&#39;]?\shref=[&quot;&#39;]?(.*)\/style.css[&quot;&#39;]?\s*&gt;/gm</span><span class="p">,</span> <span class="nf">(match, prefix) -&gt;</span>
+              <span class="k">return</span> <span class="s2">&quot;&lt;link rel=\&quot;stylesheet\&quot; href=\&quot;#{prefix}/#{style.css}\&quot;&gt;&quot;</span></pre></div>             </td>           </tr>                               <tr id="section-14">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-14">&#182;</a>               </div>               <p>Update the HTML with the new img filenames.</p>             </td>             <td class="code">               <div class="highlight"><pre>            <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;Update the HTML with the new img filenames: &quot;</span><span class="p">,</span> <span class="nx">checksums</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39; - &#39;</span><span class="p">)</span>
+            <span class="nx">checksums</span><span class="p">.</span><span class="nx">forEach</span> <span class="nf">(file) -&gt;</span>
+              <span class="nv">parts = </span><span class="nx">file</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+              <span class="nv">filename = </span><span class="nx">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">..].</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+              <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;update html files #{filename} with #{file}&quot;</span>
+              <span class="nv">reg = </span><span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span>
+              <span class="nv">body = </span><span class="nx">body</span><span class="p">.</span><span class="nx">replace</span> <span class="sr">/&lt;img.+src=[&#39;&quot;](.+)[&quot;&#39;].+\/&gt;/gm</span><span class="p">,</span> <span class="nf">(match, img) -&gt;</span>
+                <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;replace &#39;</span><span class="p">,</span> <span class="nx">img</span><span class="p">,</span> <span class="s1">&#39; on --&gt;&#39;</span><span class="p">,</span> <span class="nx">match</span>
+                <span class="k">return</span> <span class="k">if</span> <span class="nx">reg</span><span class="p">.</span><span class="nx">test</span> <span class="nx">img</span> <span class="k">then</span> <span class="nx">match</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="nx">file</span><span class="p">)</span> <span class="k">else</span> <span class="nx">match</span>
+
+            <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFile</span> <span class="nx">page</span><span class="p">,</span> <span class="nx">body</span><span class="p">,</span> <span class="nf">(err) -&gt;</span>
+              <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
+              <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;#{page} now referencing minified files&quot;</span>
+              <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;end&#39;</span> <span class="k">if</span> <span class="o">--</span><span class="nx">pagesCount</span> <span class="o">is</span> <span class="mi">0</span>
+
+
+  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:js&#39;</span><span class="p">,</span> <span class="nx">handle</span><span class="p">(</span><span class="s1">&#39;js&#39;</span><span class="p">)</span>
+  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:css&#39;</span><span class="p">,</span> <span class="nx">handle</span><span class="p">(</span><span class="s1">&#39;css&#39;</span><span class="p">)</span>
+  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:img&#39;</span><span class="p">,</span> <span class="nx">handle</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">)</span>
+
+  <span class="nx">invoke</span> <span class="s1">&#39;js&#39;</span>
+  <span class="nx">invoke</span> <span class="s1">&#39;css&#39;</span>
+  <span class="nx">invoke</span> <span class="s1">&#39;img&#39;</span></pre></div>             </td>           </tr>                               <tr id="section-15">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-15">&#182;</a>               </div>               <h3>cake usecssmin</h3>
+
+<p>update revved img in CSS files. Depends on both css/img taks and replaced any 
+img references by their revved img:</p>
+
+<p>48c7c33.cheesecake.png </p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;usecssmin&#39;</span><span class="p">,</span> <span class="s1">&#39;update rev img in CSS files&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
+
+  <span class="nv">checksums = </span><span class="p">[]</span>
+
+  <span class="nx">invoke</span> <span class="s1">&#39;css&#39;</span>
+  <span class="nx">invoke</span> <span class="s1">&#39;img&#39;</span>
+
+  <span class="nv">remaining = </span><span class="mi">0</span>
+  <span class="nv">handle = </span><span class="nf">(from) -&gt;</span>
+    <span class="nx">remaining</span><span class="o">++</span>
+    <span class="k">return</span> <span class="nf">(result) -&gt;</span>
+      <span class="nv">checksums = </span><span class="nx">result</span> <span class="k">if</span> <span class="nx">from</span> <span class="o">is</span> <span class="s1">&#39;img&#39;</span> <span class="o">and</span> <span class="nx">result</span>
+      <span class="k">return</span> <span class="nx">unless</span> <span class="o">--</span><span class="nx">remaining</span> <span class="o">is</span> <span class="mi">0</span>
+
+      <span class="nx">helper</span><span class="p">.</span><span class="nx">fileset</span> <span class="s2">&quot;#{base}/#{dir.intermediate}/#{dir.css}/**.css&quot;</span><span class="p">,</span> <span class="nf">(err, styles) -&gt;</span>
+        <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
+
+        <span class="nv">ln = </span><span class="nx">styles</span><span class="p">.</span><span class="nx">length</span>
+        <span class="k">for</span> <span class="nx">style</span> <span class="k">in</span> <span class="nx">styles</span> <span class="k">then</span> <span class="nx">do</span><span class="nf">(style) -&gt;</span>
+          <span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span> <span class="nx">style</span><span class="p">,</span> <span class="s1">&#39;utf8&#39;</span><span class="p">,</span> <span class="nf">(err, body) -&gt;</span>
+            <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
+
+            <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;Update the CSS with the new img filenames: &quot;</span><span class="p">,</span> <span class="nx">checksums</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39; - &#39;</span><span class="p">)</span>
+            <span class="nx">checksums</span><span class="p">.</span><span class="nx">forEach</span> <span class="nf">(file) -&gt;</span>
+              <span class="nv">parts = </span><span class="nx">file</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+              <span class="nv">filename = </span><span class="nx">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">..].</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+              <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;updating #{filename} with #{file}&quot;</span>
+              <span class="nv">body = </span><span class="nx">body</span><span class="p">.</span><span class="nx">replace</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">),</span> <span class="nx">file</span>
+
+            <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFile</span> <span class="nx">style</span><span class="p">,</span> <span class="nx">body</span><span class="p">,</span> <span class="nf">(err) -&gt;</span>
+              <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
+              <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;#{style} now referencing rev files&quot;</span>
+              <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;end&#39;</span> <span class="k">if</span> <span class="o">--</span><span class="nx">ln</span> <span class="o">is</span> <span class="mi">0</span>
+
+
+
+  <span class="nx">gem</span><span class="p">.</span><span class="nx">once</span> <span class="s1">&#39;end:css&#39;</span><span class="p">,</span> <span class="nx">handle</span><span class="p">(</span><span class="s1">&#39;css&#39;</span><span class="p">)</span>
+  <span class="nx">gem</span><span class="p">.</span><span class="nx">once</span> <span class="s1">&#39;end:img&#39;</span><span class="p">,</span> <span class="nx">handle</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">)</span>
+
+</pre></div>             </td>           </tr>                </tbody>     </table>   </div> </body> </html> 

@@ -1,3 +1,4 @@
+#
 # `cake` is a simplified version of [Make](http://www.gnu.org/software/make/)
 # ([Rake](http://rake.rubyforge.org/), [Jake](http://github.com/280north/jake))
 # for CoffeeScript. You define tasks with names and descriptions in a Cakefile,
@@ -6,57 +7,70 @@
 # Running `cake` with no arguments will print out a list of all the tasks in the
 # current directory's Cakefile.
 #
-# TODO:
-# * break the script in smaller parts
-#
-#   * js
-#   * css
-#   * html
-#   * img
-#   * lint
+# Running `cake help` will output man pages, generated from the source files. Use the
+# `--help` or `-h` options to set a valid task file.
 #
 
-# External dependencies.
 fs              = require 'fs'
 path            = require 'path'
-{spawn, exec}   = require 'child_process'
 {EventEmitter}  = require 'events'
+vm              = require 'vm'
 colors          = require 'colors'
-prompt          = require 'prompt'
-mkdirp          = require 'mkdirp'
+coffee          = require 'coffee-script'
+{extend}        = require './tasks/util/helper'
 config          = require './conf/default'
-helper          = require './helper'
-uglify          = require 'uglify-js'
-cssmin          = require 'clean-css'
-htmlmin         = require 'html-minifier'
 
-base = process.cwd()
+# ### Options
+# Options are handled using coffeescript optparser,
+# You can define the option with short and long flags,
+# and it will be made available in the options object.
 
-# Extend a source object with the properties of another object (shallow copy).
-extend = exports.extend = (object, properties) ->
-  for key, val of properties
-    object[key] = val
-  object
+options = require './tasks/util/options'
 
-# ## configuration
-repo =
-  h5bp: 'git://github.com/paulirish/html5-boilerplate.git'
+# ### Logger
+# Logs are handled via winston with cli mode and a default level set to
+# input. The log level is set by the `-l` or `--loglevel` cli options:
+#
+# * silly
+# * input
+# * verbose
+# * prompt
+# * info
+# * data
+# * help
+# * warn
+# * debug
+# * error
+#
+log = require('./tasks/util/log')(options)
 
-# merge the local config with global object for this module, 
-# so that interpolation works as expected (of course, config should not redefine global variable)
+# ### error() handler
+#
+#     return error err if err
+#     return error new Error(':((') if err
+error = (err) ->
+  log.error '  ✗ '.red + (err.message || err).red
+  process.exit 1
+
+# ### config
+# merge the local config with global object for this module, so that interpolation works as expected (todo: calrify configuration)
 extend global, config
 
-# the event emitter used along tasks to handle some asynchronous stuff, gem for global EventEmitter
+# ### gem
+# the event emitter used along tasks to handle some asynchronous stuff, gem for global EventEmitter. Basically,
+# this is the main mediator that tasks listen to `end:` events to know wheter thay can be executed. Each tasks to
+# notify that their async work is done simply emit an `end` event on the local EventEmitter of the task (third argument).
 gem = new EventEmitter
 
 # ### task monkey-patch
 #
-# to provide a tasks-scopped EventEmitter to enable some async stuff and task ordering
+# To provide a tasks-scopped EventEmitter and enable some async stuff and task ordering.
 #
 _task = global.task
 
-# internal _tasks cache, stored as `taskname: status` where status turns false 
-# once the end event is emitted
+# `_tasks` is the internal cache, stored as `taskname: status` where status turns false
+# once the end event is emitted. Tasks should not be runned more than once, even if multiple
+# tasks `invoke()`-d them.
 _tasks = {}
 
 task = (name, description, action) ->
@@ -64,681 +78,86 @@ task = (name, description, action) ->
   description = description.grey
   _task name, description, (options) ->
     em = new EventEmitter()
-      .on('error', (err) -> console.log 'error occured'.red.bold; error err)
-      .on('log', console.log.bind console, "  #{name} » ".magenta)
+      # a local `EventEmitter` is created and passed in as a second parameter to tasks' functions.
+      #
+      # Namely provides a few logging helpers:
+      #
+      #     em.emit 'log', 'Something to log'
+      #     em.emit 'warn', 'Something to warn'
+      #     em.emit 'error', 'Error to log, and exit program'
+      #     em.emit 'data', {foo: 'bar'}
+      #
+      # The special `end` event allows tasks to run asynchronously and still be able to depends on each other. Once ended,
+      # a task notify its status to the global EventEmitter by emitting an `end:taskname` event.
+      .on('error', (err) -> log.error 'error occured'.red.bold; error err)
+      .on('warn', (err) -> log.warn err)
+      .on('log', log.input.bind log, "#{name} » ".magenta)
+      .on('data', log.inspect.bind log)
       .on('end', (results) ->
-        console.log "✔ end:#{name}".green
+        log.info  "✔ end:#{name}".green
+        log.silly log.inspector(results)
         gem.emit "end:#{name}", results
         _tasks[name] = 'done'
       )
 
     state = _tasks[name]
 
-    # emit the end event and prevent action call if the task is 
-    # already done
+    # This (simple) async system and task dependency ensures that a task is only executed once. We emit the
+    # end event and prevent action call if the task is already done.
     return gem.emit "end:#{name}" if state is 'done'
 
     # set the task state to pending, will turn done once the task emiter
     # emit the end event
     _tasks[name] = 'pending'
 
+    log.verbose "start #{name}  » ".grey
     # invoke the task if the task is unknown yet
     action.call @, options, em unless state
 
 
-# error handler, usage:
 #
-#     return error err if err
+# ### Autoload tasks in tasks/
 #
-#     return error new Error(':((') if err
-error = (err) ->
-  console.error '  ✗ '.red + err.message.red
-  process.exit 1
-
-
-
-# ### docs
-# Generates the source documentation of this cake script
+# Any `.coffee` or `.js` file in `tasks/` gets loaded and made available as if their content
+# was in this Cakefile. Each tasks is added in the order they're defined, sorted by the task filename.
 #
-# added as a conveniency
-task 'docs', 'Generates the source documentation of this cake script', (options, em) ->
+# A coffeescript file is compiled before running in a vm context. This system allows both coffee-script
+# and JS files to be used to create or maintain cake tasks.
+fs.readdirSync(path.join(__dirname, 'tasks'))
+  .filter((file) -> fs.statSync(path.join(__dirname, 'tasks', file)).isFile() && !/^\./.test(file) )
+  .forEach (file) ->
+    script = fs.readFileSync path.join(__dirname, 'tasks', file), 'utf8'
+    # tasks may be written in pure JS or coffee. Take care of coffee compile if needed.
+    script = if /\.coffee$/.test(file) then coffee.compile script else script
+    # merge the globals for console, process etc
+    context = extend {}, global
+    # and setup a few local variable to be available in context
+    extend context,
+      task: task
+      require: require
+      error: error
+      gem: gem
+      __filename: path.join __dirname, 'tasks', file
+      __dirname: path.dirname path.join(__dirname, 'tasks', file)
 
-  commands = [
-    "rm -rf documentation"
-    "cp Cakefile Cakefile.coffee"
-    "docco conf/*.coffee *.coffee"
-    "cp -r docs documentation"
-    "rm -rf docs Cakefile.coffee"
-  ].join(' && ')
+    log.silly "Import #{file}"
+    vm.runInNewContext script, context, file
 
-  exec commands, (err, stdout) ->
-    return error err if err
 
-    em.emit 'log', '\n  » ' + stdout.trim().split('\n').join('\n  » ').grey
-    em.emit 'end'
-
-# ## Main tasks
+# ### cake config
+# Show configuration for key
 #
-# * combining and minifying CSS
-# * combining and minifying JS
-# * image optimization
-
-task 'build', 'Build with defaults configuration the main tasks: js, css and img optimiaztion', (option, em) ->
-
-  start = +new Date
-
-  invoke 'js'
-  invoke 'css'
-  invoke 'img'
-  invoke 'usemin'
-
-  remaining = 0
-  handle = (name) ->
-    remaining++
-    return ->
-      return unless --remaining is 0
-
-      em.emit 'log', "Build done, now copy the #{dir.intermediate} folder over to #{dir.publish}"
-
-      em.emit 'log', 'minify html before copy...'
-      invoke 'htmlclean'
-      # gem.emit 'end:htmlclean'
-
-
-  gem.on 'end:js', handle()
-  gem.on 'end:css', handle()
-  gem.on 'end:img', handle()
-  gem.on 'end:usemin', handle()
-  gem.on 'end:htmlclean', ->
-    commands = [
-      "cp -r #{base}/#{dir.intermediate} #{base}/#{dir.publish}",
-      "rm -rf #{base}/#{dir.intermediate}"
-    ].join(' && ')
-
-    exec commands, (options, err) ->
-      return error err if err
-      elapsed = (+new Date - start) / 1000
-      console.log "✔ Build Script successful (#{elapsed}s). Check your #{dir.publish}/ folder".green.bold
-      em.emit 'end'
-
-
-
-
-task 'js', 'Combines and minifies JS', (options, em) ->
-
-  invoke 'js.scripts.concat'
-
-  gem.on 'end:js.scripts.concat', em.emit.bind(em, 'end')
-
-
-task 'css', 'Combines and minifies CSS', (options, em) ->
-
-  invoke 'css.concat'
-
-  gem.on 'end:css.concat', em.emit.bind(em, 'end')
-
-task 'img', 'Performs img optimization', (options, em) ->
-
-  # will most likely be done by using spawning optipng on
-  # dir.img folder
-  invoke 'img.optimize'
-
-  gem.on 'end:img.optimize', em.emit.bind(em, 'end')
-
-# ### createproject
+#     cake config
+#     cake --k dir config
+#     cake --key paths config
 #
-# Generate a new project from your HTML5 Boilerplate repo clone
-#
-# - by: Rick Waldron & Michael Cetrulo
-# - cake edition by: Mickael Daniel
-#
-# The terminal will prompt with this message:
-#
-#     To create a new html5-boilerplate project, 
-#     enter a new directory name:
-#
-# Type the name of the new project you are creating, ideally in lowercase letters,
-# with no spaces - this will be the directory name that your new project lives in. 
-# Press Enter to continue.
-#
-# If you attempt to create a directory that already exists, createproject.sh will warn you and stop running.
-#
-# If all goes smoothly, you will see the following messages:
-#
-#     Created Directory: [name]
-#
-#     [ A list of all the html5-boilerplate files being copied ]
-#
-#     Created Project: [name]
-# Success! You now have a clean project to begin making the next HTML5 wunderkind demo!
-#
-
-option '-o', '--output [DIR]', 'directory for the creteproject task'
-task 'createproject', 'a simple create project task', (options) ->
-
-  src = path.join __dirname, repo.h5bp.split('/').reverse()[0].replace(/\.git/, '')
-
-  exists = path.existsSync src
-
-  commands = [
-    if exists then "git pull" else "git clone #{repo.h5bp}"
-  ].join(' && ')
-  gitcmd = if exists then 'pull' else 'clon'
-
-  console.log 'createproject'.magenta, "#{gitcmd}ing #{repo.h5bp}...".grey
-
-  args = (if exists then 'pull' else "clone #{repo.h5bp}").split(' ')
-
-  helper.spawn 'git', args, (code, stdout, stderr) ->
-    return error err if code > 0
-    stdout = stdout.replace(/\n/gm, '')
-    console.log "  ✔  #{stdout}".grey.bold
-
-    console.log '  - To create a new html5-boilerplate project, enter a new directory name:'.blue
-
-    prompt.message = "    ↩ ".bold
-    prompt.delimiter = ''
-    prompt.override = {directory: options.output}
-
-    prompt.start() unless prompt.override.directory
-    prompt.get ['directory'], (err, result) ->
-      return error err if err
-      return error new Error("please provide a directory name") unless result.directory
-      dest = path.join(__dirname, result.directory)
-      mkdirp dest, 0755, (err) ->
-        return error err if err
-        console.log "  ✔  Created Directory: #{dest}".grey.bold
-        exec ["cd #{src}", "cp -vr css js img build test *.html *.xml *.txt *.png *.ico .htaccess #{dest}"].join(' && '), (err, stdout, stderr) ->
-          return error stderr if err
-          output = stdout.split(/\n/)
-
-          output.forEach (line) -> console.log "    » #{line}".grey
-          console.log "  ✔  Created Project: #{dest}".grey.bold
-
-
-
-# ## Support tasks
-
-# ### intro
-#
-# Output the intro message
-#
-task 'intro', 'Kindly inform the developer about the impending magic', (options, em) ->
-  message = """
-
-    ====================================================================
-    Welcome to the ★ HTML5 Boilerplate Build Script! ★
-
-    We're going to get your site all ship-shape and ready for prime time.
-
-    This should take somewhere between 15 seconds and a few minutes,
-    mostly depending on how many images we're going to compress.
-
-    Feel free to come back or stay here and follow along.
-    =====================================================================
-  """
-
-  em.emit 'log', message.split('\n').join('\n  ').grey
-  em.emit 'end', message.grey
-
-
-task 'check', 'Performs few validations upon the current repo, outputing errors if any', (options, em) ->
-  # check few configuration values, namely dir.source
-  # Test whether or not the dir.source path exists.
-  exists = path.existsSync "#{base}/#{dir.source}"
-
-  return error new Error("#{base}/#{dir.source} does not exist, change the dir.source config or run cake createproject and enter #{dir.source} when prompted") unless exists
-
-
-task 'clean', 'Wipe the previous build', (options, em) ->
-  invoke 'intro'
-  invoke 'check'
-
-  em.emit 'log', 'Cleaning up previous build directory...'.grey
-
-
-  exec "rm -rf #{dir.intermediate} #{dir.publish}", (err, stdout, stderr) ->
-    return error err if err
-
-    em.emit 'end', stdout
-
-# ### mkdirs
-# Create the directory structure
-#
-# Copy the whole `dir.source` to `dir.intermediate`
-#
-task 'mkdirs', 'Create the directory intermediate structure', (options, em) ->
-
-  invoke 'clean'
-
-  gem.on 'end:clean', ->
-    failmsg = "Your dir.publish folder is set to #{dir.publish} which could delete your entire site or worse. Change it in project.properties"
-    dangerousPath = !!~['..', '.', '/', './', '../'].indexOf(dir.publish)
-    return error new Error(failmsg) if dangerousPath
-
-    process.chdir path.join(__dirname, "#{dir.source}")
-    helper.fileset(".", [file.default.exclude, file.exclude].join(' '))
-      .on('error', console.error.bind(console))
-      .on('end', (files) ->
-        em.emit 'log', "Copying #{files.length} files over to #{dir.intermediate} and #{dir.publish} from #{dir.source}".grey
-        destinations = [dir.intermediate]
-        remaining = files.length * destinations.length
-        for to in destinations then do (to) ->
-          for file in files then do(file) ->
-            fragment = file.split '/'
-            dirname = '/' + file.split('/')[1..-2].join('/')
-            dirname = dirname.replace(dirname.split(__dirname)[1].split('/')[1..][0], to)
-            filename = file.split('/')[-1..][0]
-
-            mkdirp dirname, 0755, (err) ->
-              return error err if err
-              to = path.join(dirname, filename)
-              exec "cp -v #{file} #{to}", (err, stdout, stderr) ->
-                return error err if err
-                em.emit 'end', 'done' if --remaining is 0
-      )
-
-# ## JS tasks
-
-# ### js.main.concat
-#
-# Concatenates the JS files in dir.js. depends on mkdirs
-task 'js.main.concat', 'Concatenates the JS files in dir.js', (options, em) ->
-
-  invoke 'mkdirs'
-
-  concat = (output) ->
-    output = new Buffer output.join('\n\n')
-    fs.writeFile path.join(__dirname, "#{dir.intermediate}", "#{dir.js}", 'script-concat.js'), output, (err) ->
-      return error err if err
-      em.emit 'log', 'script-concat.js just concat...'.grey
-      em.emit 'end', true
-
-  handle = (files) ->
-    em.emit 'log', 'Concatenating Main JS scripts...'
-
-    helper.fileset "#{dir.js.main}/plugins.js #{dir.js.main}/#{file.root.script}", '', (err, files) ->
-      output = []
-      remaining = files.length
-      for file in files then do (file) ->
-        fs.readFile file, (err, body) ->
-          return error err if err
-          output.push body
-
-          concat(output) if --remaining is 0 
-
-
-  gem.once 'end:mkdirs', handle
-
-# ### js.mylibs.concat
-#
-# Concatenates the JS files in dir.js.mylibs. depends on mkdirs
-#
-task 'js.mylibs.concat', 'Concatenates the JS files in dir.js.mylibs', (options, em) ->
-
-  invoke 'mkdirs'
-
-  concat = (output) ->
-    output = new Buffer output.join('\n\n')
-    fs.writeFile path.join(__dirname, "#{dir.intermediate}", "#{dir.js.mylibs}", 'mylibs-concat.js'), output, (err) ->
-      return error err if err
-      em.emit 'log', 'mylibs-concat.js just concat...'.grey
-      em.emit 'end', true
-
-  gem.once 'end:mkdirs', (files) ->
-    em.emit 'log', "Concatenating JS libraries in #{dir.js.mylibs}".grey
-
-    process.chdir path.join(__dirname, "#{dir.intermediate}")
-    helper.fileset "#{dir.js.mylibs}/**/*.js", "#{file.default.js.bypass}", (err, files) ->
-      return error err if err
-
-      output = []
-
-      return concat(output) unless files.length
-
-      remaining = files.length
-      for file in files then do(file) ->
-        fs.readFile file, (err, body) ->
-          return error err if err
-          output.push body
-          concat(output) if --remaining is 0
-
-
-# ### js.scripts.concat
-#
-# Concatenating library file with main script file
-#
-# Calculates an md5 checksum, prefix the script name, and copy over to `#{dir.publish}/#{dir.js}/`
-#
-#     publish/js/e816baa.scripts-concat.min.js
-#
-task 'js.scripts.concat', 'Concatenating library file with main script file', (options, em) ->
-
-  invoke 'js.main.concat'
-  invoke 'js.mylibs.concat'
-
-  concat = (source) ->
-    concat.remaining = concat.remaining or= 0
-    concat.remaining++
-
-    return ->
-      return if --concat.remaining
-      helper.fileset "#{base}/#{dir.intermediate}/#{dir.js}/**-concat.js", (err, files) ->
-        return error err if err
-
-        em.emit 'log', 'Concatenating library file with main script file'.grey
-        helper.concat files, (err, buffers) ->
-          return error err if err
-
-          em.emit 'log', "Writing to #{dir.intermediate}/#{dir.js}/scripts-concat.min.js".grey
-
-          filename = "scripts-concat.min.js"
-          from = "#{dir.intermediate}/#{dir.js}/#{filename}"
-          output = buffers.map (buffer) ->
-            return buffer.toString()
-
-          fs.writeFile path.join(base, from), output.join('\n\n'), (err) ->
-            return error err if err
-            em.emit 'log', "File ✔ #{from}".grey
-
-            em.emit 'log', 'Calculating checksum...'.grey
-
-
-            helper.checksum path.join(base,from), (err, md5) ->
-              return error err if err
-
-              em.emit 'log', "✔ md5 is #{md5} for file #{from}"
-              # now copy over the file to #{dir.js}/#{script.sha}.js
-              md5 = md5.substring 0, hash.length
-              to = "#{dir.intermediate}/#{dir.js}/#{md5}.#{filename}"
-
-              # set the global script.js for future reference in usemin
-              global.scripts = { js: "#{md5}.#{filename}" }
-
-              em.emit 'log', "now copy over the file to #{to}"
-              return helper.copy path.join(base, from), path.join(base, to), (err) ->
-                return error err if err
-                em.emit 'log', "✔ Copy done » #{to}"
-
-                em.emit 'log', 'Minify the output now...'
-                invoke 'js.all.minify'
-
-
-  gem.on 'end:js.main.concat', concat('main')
-  gem.on 'end:js.mylibs.concat', concat('mylibs')
-
-  gem.on 'end:js.all.minify', em.emit.bind(em, 'end')
-
-
-# ### js.mylibs.concat
-#
-# Minifies the scripts.js files in #{dir.intermediate}/#{dir.js}. depends on mkdirs
-#
-task 'js.all.minify', "Minifies the *-concat.js files in #{dir.intermediate}/#{dir.js}", (options, em) ->
-
-  gem.once 'end:mkdirs', (result) ->
-    em.emit 'log', 'Minifying scripts'.grey
-
-    dirname = path.join dir.intermediate, dir.js
-    process.chdir path.join(__dirname, dirname)
-    helper.fileset "**-concat.min.js", (err, files) ->
-      return error err if err
-
-      remaining = files.length
-      for file in files then do (file) ->
-        fs.readFile file, (err, body) ->
-          jsp = uglify.parser
-          pro = uglify.uglify
-
-          ast = jsp.parse body.toString()
-          ast = pro.ast_mangle ast
-          ast = pro.ast_squeeze ast
-          code = new Buffer pro.gen_code(ast)
-
-          fs.writeFile file, new Buffer(code), (err) ->
-            return error err if err
-            em.emit 'log', "Uglified #{file}".grey
-            em.emit 'end', files if --remaining is 0
-
-  invoke 'mkdirs'
-
-# ## jshint
-# run the `dir.js` folder through jshint with default options. Exits and reports in case of lint errors.
-#
-# Run separately
-task 'jshint', 'jshint task, run jshint on any non min.js file in dir.js', (options, em) ->
-  helper.fileset "#{dir.source}/#{dir.js}/", "**/*.min.js #{dir.source}/#{dir.js.libs}", (err, files) ->
-    return error err if err
-    exec 'jshint ' + files.join(' '), (err, stdout, stderr) -> 
-      return em.emit 'log', '  ✔ Congrats! Lint Free!'.green unless err
-
-      if err.message is 'Command failed: '
-        em.emit 'log', [
-          "jshint returns the following errors \n".grey
-          stdout.split('\n').map((line) -> return "  ✗ #{line}").join('\n').grey
-        ].join('\n')
-
-      return error err if err
-
-# ## csslint
-# run the `dir.css` folder through csslint with default options. Reports in case of lint errors.
-#
-# Run separately 
-task 'csslint', 'csslint task, run csslint on dir.css and ommit *.min.css one', (options, em) ->
-  helper.fileset "#{dir.source}/#{dir.css}/", "**/*.min.css", (err, files) ->
-    return error err if err
-    for file in files then do (file) ->
-      exec 'csslint ' + file, (err, stdout, stderr) -> 
-        return em.emit 'log', "  ✔ Congrats! Lint Free! --> #{file}".green if stdout.match(/no\serrors/i)
-
-        em.emit 'log', [
-          "  ✗ csslint returns the following errors".red
-          stdout.split('\n').map((line) -> return "    #{line}").join('\n').grey
-        ].join('\n')
-
-
-# ## CSS tasks
-
-# ### css.concat
-#
-# Concat the CSS files depending on the @imports in your file.root.stylesheet
-#
-# `@import` should be fortmated like so
-#
-#     @import url('style.bar.css')
-#     @import url("style.foo.css")
-#
-task 'css.concat', 'Concat the CSS files depending on the @imports in your file.root.stylesheet', (options, em) ->
-
-  invoke 'mkdirs'
-
-  gem.once 'end:mkdirs', ->
-    em.emit 'log', 'Copy source file to intermediate directory'
-    from = path.join dir.source, dir.css, file.root.stylesheet
-    to = path.join dir.intermediate, dir.css, file.root.stylesheet
-    return em.emit 'copy', from, to
-
-  # called once the source to intermediate copy is done
-  em.on 'copy', (from, to) ->
-    em.emit 'log', 'Concatenating any @imports'
-
-    # replace imports with h5bp-import tags (part 1) this one wraps @media types
-    file = fs.readFile path.join(base, to), 'utf8', (err, body) ->
-
-      # go sync during the process of replace to ease the process
-      body = body.replace /@import url\([^\)]+\)/gi, (match) ->
-        file = match.match(/@import url\(([^\)]+)\)/)?[1].replace(/['|"]/g, '')
-        filepath = path.join base, dir.intermediate, dir.css, file
-
-        # test if the url property is valid and match an actual file in the repo
-        ok = path.existsSync filepath
-        return error new Error("@import-ed #{filepath} does not exist") unless ok
-
-        em.emit 'log', "replacing #{match} with #{file} content"
-        return "/* h5bp-import --> #{file} */\n" + fs.readFileSync filepath, 'utf8'
-
-      # now minify the whole css file, done using clean-css
-      # may just opt to use yuicompressor instead by spawning a java process
-      # (make it configurable)
-      em.emit 'log', "Minify #{to} file..."
-      body = cssmin.process body
-      em.emit 'log', 'Done'.green
-      # write the file to the intermediate dir
-      to = path.join base, to
-
-      checksum = helper.checksum(body).substring 0, hash.length
-
-      em.emit 'log', "Cheskum for this file is #{checksum}"
-      to = to.replace(/style\.css/, "#{checksum}.style.min.css")
-
-      # set the global style.css for future reference in usemin
-      global.style = { css: to.split('/').reverse()[0] }
-
-      em.emit 'log', "Write the min css file to #{to}"
-      fs.writeFile to, body, (err) ->
-        return error err if err
-        em.emit 'end', body
-
-# ## img optimization tasks
-
-# ### img.optimize
-# mainly done using optipng and  by spawning child process, so you'll need
-# optipng in yout PATH for this to work
-#
-# no jpg optimization for now
-task 'img.optimize', 'Run optipng', (options, em) ->
-
-  invoke 'mkdirs'
-
-  gem.once 'end:mkdirs', ->
-    em.emit 'log', 'Optimizing images...'
-    em.emit 'log', 'This part might take a while. But everything else is most likely already done.'
-
-    em.emit 'log', 'Run optipng on the .png files'
-
-    # check that we have actual png files before runing optipng
-    helper.fileset "optipng #{base}/#{dir.intermediate}/#{dir.images}/*.png", (err, files) ->
-      return erorr err if err
-
-      # prevent optipng from returning with error if no files to process
-      return em.emit 'end' unless files.length
-
-      # run optipng with default options (make this configurable)
-      exec "optipng #{base}/#{dir.intermediate}/#{dir.images}/*.png", (err, stdout, stderr) ->
-        return error new Error( (stderr || stdout).trim().split('\n').join('\n  » ') ) if err
-
-        em.emit 'log', '\n  » ' + stdout.trim().split('\n').join('\n  » ').grey, '\n\n'
-        em.emit 'end'
-
-# ## Html tasks
-#
-# tasks related to html manipulation such as cleaning
-# and updating script/css references, html minification and so on
-#
-task 'usemin', 'Replaces references to non-minified scripts/styles', (options, em) ->
-  remaining = 0
-  handle = ->
-    remaining++
-    return ->
-      return unless --remaining is 0
-      em.emit 'log', 'Switching to minified js files...'
-
-      process.chdir path.join(base, dir.intermediate)
-      helper.fileset "#{file.pages.default.include}", (err, pages) ->
-        return error err if err
-
-        pagesCount = pages.length
-        for page in pages then do (page) ->
-
-          # again go sync during the replace process
-          fs.readFile page, 'utf8', (err, body) ->
-            return error err if err
-
-            em.emit 'log', 'switch from a regular jquery to minified'
-            body = body.replace /jquery-(\d|\d(\.\d)+)\.js/g, (file, version) ->
-              return "jquery-#{version}.min.js"
-
-            em.emit 'log', 'switch any google CDN reference to minified'
-            body = body.replace /(\d|\d(\.\d)+)\/jquery\.js/g, (match, version) ->
-              return "#{version}/jquery.min.js"
-
-            em.emit 'log', 'Kill off those versioning flags: ?v=2'
-            body = body.replace /\?v=\d+/g, (match) ->
-              return ""
-
-            em.emit 'log', 'Remove favicon.ico reference if it is pointing to the root'
-            body = body.replace /<link rel=["']shortcut icon["'] href=["']\/favicon\.ico["']>/g, (match) ->
-              return ""
-
-            em.emit 'log', "Update the HTML to reference our concatenated script file: #{scripts.js}"
-            body = body.replace /<!-- scripts concatenated[\d\w\s\W]*<!-- end scripts -->/gm, ->
-              return "<script defer src=\"#{dir.js}/#{scripts.js}\"></script>"
-
-            em.emit 'log', "Update the HTML with the new css filename: #{style.css}"
-            body = body.replace /<link rel=["']?stylesheet["']?\shref=["']?(.*)\/style.css["']?\s*>/gm, (match, prefix) ->
-              return "<link rel=\"stylesheet\" href=\"#{prefix}/#{style.css}\">"
-
-            fs.writeFile page, body, (err) ->
-              return error err if err
-              em.emit 'log', "#{page} now referencing minified files"
-              em.emit 'end' if --pagesCount is 0
-
-
-  gem.on 'end:js', handle()
-  gem.on 'end:css', handle()
-
-  invoke 'js'
-  invoke 'css'
-
-# ## html tasks
+task 'config', 'Show configuration for key', (options, em) ->
+  conf = config[options.key]
+  em.emit 'warn', "No #{options.key} in config".yellow.bold if not conf
+  em.emit 'data', conf or config
 
 # ### manifest
-# stumb method for now.
+# not (yet) implemented.
+task 'manifest', 'Manifest stuff (not implemented)', (options, em) ->
 
-task 'manifest', 'Manifest stuff', (options, em) ->
-
-# ### htmlclean
-#
-# using the fantastic html minifier tool by kangax:: https://github.com/kangax/html-minifier 
-task 'htmlclean', 'Peforms basic to aggresive minification', (options, em) ->
-  em.emit 'log', 'Run html-minifier on the HTML with standard options'
-
-  gem.once 'end:mkdirs', ->
-    # get the file to min
-    em.emit 'log', "Run on #{file.pages.default.include}"
-
-    process.chdir path.join(base, dir.intermediate)
-    helper.fileset "#{file.pages.default.include}", (err, pages) ->
-      return error err if err
-
-      remaining = pages.length
-      for page in pages then do (page) ->
-       fs.readFile page, 'utf8', (err, body) ->
-        return error err if err
-
-        # todo: move the configuration over to config files
-        # going with most aggresive minification for now
-
-        output = htmlmin.minify body, {
-          removeComments: true
-          removeCommentsFromCDATA: true
-          removeEmptyAttributes: true
-          cleanAttributes: true
-          removeAttributeQuotes: true
-          removeRedundantAttributes: true
-          removeScriptTypeAttributes: true
-          removeStyleLinkTypeAttributes: true
-          collapseWhitespace: true
-
-          # tests no longer pass when set to true, stripping some scripts
-          # removeEmptyElements: true
-          collapseBooleanAttributes: true
-          removeOptionalTags: true
-        }
-
-        fs.writeFile page, output, (err) ->
-          return error err if err
-          em.emit 'end' if --remaining is 0
-
-  invoke 'mkdirs'
 

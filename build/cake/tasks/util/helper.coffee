@@ -9,12 +9,18 @@
 path            = require 'path'
 fs              = require 'fs'
 crypto          = require 'crypto'
-child         = require 'child_process'
+child           = require 'child_process'
 
 # ## fileset
 # expose filset module as helper method
 exports.fileset = require 'fileset'
 
+# ## extend
+# Extend a source object with the properties of another object (shallow copy).
+exports.extend = (object, properties) ->
+  for key, val of properties
+    object[key] = val
+  object
 
 # ## concat
 # ease the concatenation process by taking a list of absolute path, and returning

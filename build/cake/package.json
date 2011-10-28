@@ -9,7 +9,10 @@
   "engines": {
     "node": "> 0.4"
   },
-  "scripts": { "test": "vows tests/*.js --spec" },
+  "scripts": {
+    "pretest": "cake -o _test createproject && cake -l silly build",
+    "test": "vows tests/basic.js --spec"
+  },
   "config": {
     "port": 8080,
     "host": "localhost",
@@ -22,12 +25,13 @@
     "mkdirp": "0.0.6",
     "uglify-js": "1.0.x",
     "clean-css": "0.2.4",
-    "html-minifier": "0.4.x"
+    "html-minifier": "0.4.x",
+    "winston": "~0.5.5",
+    "eyes": "~0.1.6",
+    "coffee-script": "1.1.2",
+    "ronn": "~0.3.7"
   },
   "devDependencies": {
-    "coffee-script": "1.1.2",
-    "connect": "1.7.x",
-    "zombie": "0.10.1",
     "vows": "0.5.x"
   }
 }

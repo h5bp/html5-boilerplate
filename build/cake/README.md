@@ -1,10 +1,15 @@
+## cakes
+
+collection of cake files, mainly trying to learn [this cool stuff](https://github.com/jashkenas/coffee-script/wiki/%5BHowTo%5D-Compiling-and-Setting-Up-Build-Tools)
+
 ## install
 
-In the root of this folder (build/cake), run
+In the root of this repo, run
 
     npm install
 
-It'll get the dependencies as defined in the `package.json` file (they're quite a few, this may take a while)
+It'll get the dependencies as defined in the `package.json` file (they're
+quite a few, this may take a while)
 
     mkdirp@0.0.6 ./node_modules/mkdirp 
     colors@0.5.0 ./node_modules/colors 
@@ -34,7 +39,11 @@ It'll get the dependencies as defined in the `package.json` file (they're quite 
 
 ### h5bp
 
-cd to `build/cake` and run `cake` to get the following output
+Primary as a learning material, I thought that the h5bp build script could be a great fit to play with coffeescript and cake files
+
+Also a great way to play with Cakefile and EventEmitter to deal with node asynchronicity
+
+cd to h5bp and run `cake` to get the following output
 
     cake docs                 # Generates the source documentation of this cake script
     cake build                # Build with defaults configuration the main tasks: js, css and img optimiaztion
@@ -59,7 +68,8 @@ cd to `build/cake` and run `cake` to get the following output
 
       -o, --output       directory for the createproject task
 
-This is a quick and dirty implementation, but the following tasks may (or may not) work
+This is a quick and dirty implementation, but the following tasks may (or
+may not) work
 
 * js: concat libs/mylibs files, calculates a new checksum and uglify the file
 * css: a basic @import inline is made, calculates a new checksum then minify

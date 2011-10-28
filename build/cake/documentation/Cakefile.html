@@ -1,4 +1,4 @@
-<!DOCTYPE html>  <html> <head>   <title>Cakefile.coffee</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="docco.css" /> </head> <body>   <div id="container">     <div id="background"></div>            <div id="jump_to">         Jump To &hellip;         <div id="jump_wrapper">           <div id="jump_page">                                           <a class="source" href="Cakefile.html">                 Cakefile.coffee               </a>                                           <a class="source" href="default.html">                 default.coffee               </a>                                           <a class="source" href="helper.html">                 helper.coffee               </a>                        </div>         </div>       </div>          <table cellpadding="0" cellspacing="0">       <thead>         <tr>           <th class="docs">             <h1>               Cakefile.coffee             </h1>           </th>           <th class="code">           </th>         </tr>       </thead>       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>               <p><code>cake</code> is a simplified version of <a href="http://www.gnu.org/software/make/">Make</a>
+<!DOCTYPE html>  <html> <head>   <title>Cakefile.coffee</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="docco.css" /> </head> <body>   <div id="container">     <div id="background"></div>            <div id="jump_to">         Jump To &hellip;         <div id="jump_wrapper">           <div id="jump_page">                                           <a class="source" href="Cakefile.html">                 Cakefile.coffee               </a>                                           <a class="source" href="default.html">                 default.coffee               </a>                                           <a class="source" href="build.html">                 build.coffee               </a>                                           <a class="source" href="createproject.html">                 createproject.coffee               </a>                                           <a class="source" href="css.html">                 css.coffee               </a>                                           <a class="source" href="docs.html">                 docs.coffee               </a>                                           <a class="source" href="help.html">                 help.coffee               </a>                                           <a class="source" href="html.html">                 html.coffee               </a>                                           <a class="source" href="img.html">                 img.coffee               </a>                                           <a class="source" href="js.html">                 js.coffee               </a>                                           <a class="source" href="lint.html">                 lint.coffee               </a>                                           <a class="source" href="test.html">                 test.js               </a>                        </div>         </div>       </div>          <table cellpadding="0" cellspacing="0">       <thead>         <tr>           <th class="docs">             <h1>               Cakefile.coffee             </h1>           </th>           <th class="code">           </th>         </tr>       </thead>       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>               <p><code>cake</code> is a simplified version of <a href="http://www.gnu.org/software/make/">Make</a>
 (<a href="http://rake.rubyforge.org/">Rake</a>, <a href="http://github.com/280north/jake">Jake</a>)
 for CoffeeScript. You define tasks with names and descriptions in a Cakefile,
 and can call them from the command line, or invoke them from other tasks.</p>
@@ -6,591 +6,112 @@ and can call them from the command line, or invoke them from other tasks.</p>
 <p>Running <code>cake</code> with no arguments will print out a list of all the tasks in the
 current directory's Cakefile.</p>
 
-<p>TODO:
-* break the script in smaller parts</p>
+<p>Running <code>cake help</code> will output man pages, generated from the source files. Use the
+<code>--help</code> or <code>-h</code> options to set a valid task file.</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nv">fs              = </span><span class="nx">require</span> <span class="s1">&#39;fs&#39;</span>
+<span class="nv">path            = </span><span class="nx">require</span> <span class="s1">&#39;path&#39;</span>
+<span class="p">{</span><span class="nx">EventEmitter</span><span class="p">}</span>  <span class="o">=</span> <span class="nx">require</span> <span class="s1">&#39;events&#39;</span>
+<span class="nv">vm              = </span><span class="nx">require</span> <span class="s1">&#39;vm&#39;</span>
+<span class="nv">colors          = </span><span class="nx">require</span> <span class="s1">&#39;colors&#39;</span>
+<span class="nv">coffee          = </span><span class="nx">require</span> <span class="s1">&#39;coffee-script&#39;</span>
+<span class="p">{</span><span class="nx">extend</span><span class="p">}</span>        <span class="o">=</span> <span class="nx">require</span> <span class="s1">&#39;./tasks/util/helper&#39;</span>
+<span class="nv">config          = </span><span class="nx">require</span> <span class="s1">&#39;./conf/default&#39;</span></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>               <h3>Options</h3>
+
+<p>Options are handled using coffeescript optparser,
+You can define the option with short and long flags,
+and it will be made available in the options object.</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nv">options = </span><span class="nx">require</span> <span class="s1">&#39;./tasks/util/options&#39;</span></pre></div>             </td>           </tr>                               <tr id="section-3">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-3">&#182;</a>               </div>               <h3>Logger</h3>
+
+<p>Logs are handled via winston with cli mode and a default level set to 
+input. The log level is set by the <code>-l</code> or <code>--loglevel</code> cli options:</p>
 
 <ul>
-<li>js</li>
-<li>css</li>
-<li>html</li>
-<li>img</li>
-<li>lint</li>
-</ul>             </td>             <td class="code">               <div class="highlight"><pre></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>               <p>External dependencies.</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nv">fs              = </span><span class="nx">require</span> <span class="s1">&#39;fs&#39;</span>
-<span class="nv">path            = </span><span class="nx">require</span> <span class="s1">&#39;path&#39;</span>
-<span class="p">{</span><span class="nx">spawn</span><span class="p">,</span> <span class="nx">exec</span><span class="p">}</span>   <span class="o">=</span> <span class="nx">require</span> <span class="s1">&#39;child_process&#39;</span>
-<span class="p">{</span><span class="nx">EventEmitter</span><span class="p">}</span>  <span class="o">=</span> <span class="nx">require</span> <span class="s1">&#39;events&#39;</span>
-<span class="nv">colors          = </span><span class="nx">require</span> <span class="s1">&#39;colors&#39;</span>
-<span class="nv">prompt          = </span><span class="nx">require</span> <span class="s1">&#39;prompt&#39;</span>
-<span class="nv">mkdirp          = </span><span class="nx">require</span> <span class="s1">&#39;mkdirp&#39;</span>
-<span class="nv">config          = </span><span class="nx">require</span> <span class="s1">&#39;./conf/default&#39;</span>
-<span class="nv">helper          = </span><span class="nx">require</span> <span class="s1">&#39;./helper&#39;</span>
-<span class="nv">uglify          = </span><span class="nx">require</span> <span class="s1">&#39;uglify-js&#39;</span>
-<span class="nv">cssmin          = </span><span class="nx">require</span> <span class="s1">&#39;clean-css&#39;</span>
-<span class="nv">htmlmin         = </span><span class="nx">require</span> <span class="s1">&#39;html-minifier&#39;</span>
+<li>silly</li>
+<li>input</li>
+<li>verbose</li>
+<li>prompt</li>
+<li>info</li>
+<li>data</li>
+<li>help</li>
+<li>warn</li>
+<li>debug</li>
+<li>error</li>
+</ul>             </td>             <td class="code">               <div class="highlight"><pre><span class="nv">log = </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./tasks/util/log&#39;</span><span class="p">)(</span><span class="nx">options</span><span class="p">)</span></pre></div>             </td>           </tr>                               <tr id="section-4">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-4">&#182;</a>               </div>               <h3>error() handler</h3>
 
-<span class="nv">base = </span><span class="nx">process</span><span class="p">.</span><span class="nx">cwd</span><span class="p">()</span></pre></div>             </td>           </tr>                               <tr id="section-3">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-3">&#182;</a>               </div>               <p>Extend a source object with the properties of another object (shallow copy).</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nv">extend = exports.extend = </span><span class="nf">(object, properties) -&gt;</span>
-  <span class="k">for</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">val</span> <span class="k">of</span> <span class="nx">properties</span>
-    <span class="nx">object</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">val</span>
-  <span class="nx">object</span></pre></div>             </td>           </tr>                               <tr id="section-4">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-4">&#182;</a>               </div>               <h2>configuration</h2>             </td>             <td class="code">               <div class="highlight"><pre><span class="nv">repo =</span>
-  <span class="nv">h5bp: </span><span class="s1">&#39;git://github.com/paulirish/html5-boilerplate.git&#39;</span></pre></div>             </td>           </tr>                               <tr id="section-5">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-5">&#182;</a>               </div>               <p>merge the local config with global object for this module, 
-so that interpolation works as expected (of course, config should not redefine global variable)</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">extend</span> <span class="nx">global</span><span class="p">,</span> <span class="nx">config</span></pre></div>             </td>           </tr>                               <tr id="section-6">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-6">&#182;</a>               </div>               <p>the event emitter used along tasks to handle some asynchronous stuff, gem for global EventEmitter</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nv">gem = </span><span class="k">new</span> <span class="nx">EventEmitter</span></pre></div>             </td>           </tr>                               <tr id="section-7">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-7">&#182;</a>               </div>               <h3>task monkey-patch</h3>
+<pre><code>return error err if err
+return error new Error(':((') if err
+</code></pre>             </td>             <td class="code">               <div class="highlight"><pre><span class="nv">error = </span><span class="nf">(err) -&gt;</span>
+  <span class="nx">log</span><span class="p">.</span><span class="nx">error</span> <span class="s1">&#39;  ✗ &#39;</span><span class="p">.</span><span class="nx">red</span> <span class="o">+</span> <span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">message</span> <span class="o">||</span> <span class="nx">err</span><span class="p">).</span><span class="nx">red</span>
+  <span class="nx">process</span><span class="p">.</span><span class="nx">exit</span> <span class="mi">1</span></pre></div>             </td>           </tr>                               <tr id="section-5">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-5">&#182;</a>               </div>               <h3>config</h3>
 
-<p>to provide a tasks-scopped EventEmitter to enable some async stuff and task ordering</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nv">_task = </span><span class="nx">global</span><span class="p">.</span><span class="nx">task</span></pre></div>             </td>           </tr>                               <tr id="section-8">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-8">&#182;</a>               </div>               <p>internal _tasks cache, stored as <code>taskname: status</code> where status turns false 
-once the end event is emitted</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nv">_tasks = </span><span class="p">{}</span>
+<p>merge the local config with global object for this module, so that interpolation works as expected (todo: calrify configuration)</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">extend</span> <span class="nx">global</span><span class="p">,</span> <span class="nx">config</span></pre></div>             </td>           </tr>                               <tr id="section-6">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-6">&#182;</a>               </div>               <h3>gem</h3>
+
+<p>the event emitter used along tasks to handle some asynchronous stuff, gem for global EventEmitter. Basically,
+this is the main mediator that tasks listen to <code>end:</code> events to know wheter thay can be executed. Each tasks to 
+notify that their async work is done simply emit an <code>end</code> event on the local EventEmitter of the task (third argument).</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nv">gem = </span><span class="k">new</span> <span class="nx">EventEmitter</span></pre></div>             </td>           </tr>                               <tr id="section-7">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-7">&#182;</a>               </div>               <h3>task monkey-patch</h3>
+
+<p>To provide a tasks-scopped EventEmitter and enable some async stuff and task ordering.</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nv">_task = </span><span class="nx">global</span><span class="p">.</span><span class="nx">task</span></pre></div>             </td>           </tr>                               <tr id="section-8">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-8">&#182;</a>               </div>               <p><code>_tasks</code> is the internal cache, stored as <code>taskname: status</code> where status turns false
+once the end event is emitted. Tasks should not be runned more than once, even if multiple
+tasks <code>invoke()</code>-d them.</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nv">_tasks = </span><span class="p">{}</span>
 
 <span class="nv">task = </span><span class="nf">(name, description, action) -&gt;</span>
 
   <span class="nv">description = </span><span class="nx">description</span><span class="p">.</span><span class="nx">grey</span>
   <span class="nx">_task</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">description</span><span class="p">,</span> <span class="nf">(options) -&gt;</span>
-    <span class="nv">em = </span><span class="k">new</span> <span class="nx">EventEmitter</span><span class="p">()</span>
-      <span class="p">.</span><span class="kc">on</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="nf">(err) -&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s1">&#39;error occured&#39;</span><span class="p">.</span><span class="nx">red</span><span class="p">.</span><span class="nx">bold</span><span class="p">;</span> <span class="nx">error</span> <span class="nx">err</span><span class="p">)</span>
-      <span class="p">.</span><span class="kc">on</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">bind</span> <span class="nx">console</span><span class="p">,</span> <span class="s2">&quot;  #{name} » &quot;</span><span class="p">.</span><span class="nx">magenta</span><span class="p">)</span>
+    <span class="nv">em = </span><span class="k">new</span> <span class="nx">EventEmitter</span><span class="p">()</span></pre></div>             </td>           </tr>                               <tr id="section-9">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-9">&#182;</a>               </div>               <p>a local <code>EventEmitter</code> is created and passed in as a second parameter to tasks' functions.</p>
+
+<p>Namely provides a few logging helpers:</p>
+
+<pre><code>em.emit 'log', 'Something to log'
+em.emit 'warn', 'Something to warn'
+em.emit 'error', 'Error to log, and exit program'
+em.emit 'data', {foo: 'bar'}
+</code></pre>
+
+<p>The special <code>end</code> event allows tasks to run asynchronously and still be able to depends on each other. Once ended,
+a task notify its status to the global EventEmitter by emitting an <code>end:taskname</code> event.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="p">.</span><span class="kc">on</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="nf">(err) -&gt;</span> <span class="nx">log</span><span class="p">.</span><span class="nx">error</span> <span class="s1">&#39;error occured&#39;</span><span class="p">.</span><span class="nx">red</span><span class="p">.</span><span class="nx">bold</span><span class="p">;</span> <span class="nx">error</span> <span class="nx">err</span><span class="p">)</span>
+      <span class="p">.</span><span class="kc">on</span><span class="p">(</span><span class="s1">&#39;warn&#39;</span><span class="p">,</span> <span class="nf">(err) -&gt;</span> <span class="nx">log</span><span class="p">.</span><span class="nx">warn</span> <span class="nx">err</span><span class="p">)</span>
+      <span class="p">.</span><span class="kc">on</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="nx">log</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">bind</span> <span class="nx">log</span><span class="p">,</span> <span class="s2">&quot;#{name} » &quot;</span><span class="p">.</span><span class="nx">magenta</span><span class="p">)</span>
+      <span class="p">.</span><span class="kc">on</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="nx">log</span><span class="p">.</span><span class="nx">inspect</span><span class="p">.</span><span class="nx">bind</span> <span class="nx">log</span><span class="p">)</span>
       <span class="p">.</span><span class="kc">on</span><span class="p">(</span><span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="nf">(results) -&gt;</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s2">&quot;✔ end:#{name}&quot;</span><span class="p">.</span><span class="nx">green</span>
+        <span class="nx">log</span><span class="p">.</span><span class="nx">info</span>  <span class="s2">&quot;✔ end:#{name}&quot;</span><span class="p">.</span><span class="nx">green</span>
+        <span class="nx">log</span><span class="p">.</span><span class="nx">silly</span> <span class="nx">log</span><span class="p">.</span><span class="nx">inspector</span><span class="p">(</span><span class="nx">results</span><span class="p">)</span>
         <span class="nx">gem</span><span class="p">.</span><span class="nx">emit</span> <span class="s2">&quot;end:#{name}&quot;</span><span class="p">,</span> <span class="nx">results</span>
         <span class="nx">_tasks</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;done&#39;</span>
       <span class="p">)</span>
 
-    <span class="nv">state = </span><span class="nx">_tasks</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span></pre></div>             </td>           </tr>                               <tr id="section-9">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-9">&#182;</a>               </div>               <p>emit the end event and prevent action call if the task is 
-already done</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="k">return</span> <span class="nx">gem</span><span class="p">.</span><span class="nx">emit</span> <span class="s2">&quot;end:#{name}&quot;</span> <span class="k">if</span> <span class="nx">state</span> <span class="o">is</span> <span class="s1">&#39;done&#39;</span></pre></div>             </td>           </tr>                               <tr id="section-10">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-10">&#182;</a>               </div>               <p>set the task state to pending, will turn done once the task emiter
-emit the end event</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">_tasks</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;pending&#39;</span></pre></div>             </td>           </tr>                               <tr id="section-11">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-11">&#182;</a>               </div>               <p>invoke the task if the task is unknown yet</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">action</span><span class="p">.</span><span class="nx">call</span> <span class="err">@</span><span class="p">,</span> <span class="nx">options</span><span class="p">,</span> <span class="nx">em</span> <span class="nx">unless</span> <span class="nx">state</span></pre></div>             </td>           </tr>                               <tr id="section-12">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-12">&#182;</a>               </div>               <p>error handler, usage:</p>
-
-<pre><code>return error err if err
-
-return error new Error(':((') if err
-</code></pre>             </td>             <td class="code">               <div class="highlight"><pre><span class="nv">error = </span><span class="nf">(err) -&gt;</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span> <span class="s1">&#39;  ✗ &#39;</span><span class="p">.</span><span class="nx">red</span> <span class="o">+</span> <span class="nx">err</span><span class="p">.</span><span class="nx">message</span><span class="p">.</span><span class="nx">red</span>
-  <span class="nx">process</span><span class="p">.</span><span class="nx">exit</span> <span class="mi">1</span></pre></div>             </td>           </tr>                               <tr id="section-13">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-13">&#182;</a>               </div>               <h3>docs</h3>
-
-<p>Generates the source documentation of this cake script</p>
-
-<p>added as a conveniency</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;docs&#39;</span><span class="p">,</span> <span class="s1">&#39;Generates the source documentation of this cake script&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
-
-  <span class="nv">commands = </span><span class="p">[</span>
-    <span class="s2">&quot;rm -rf documentation&quot;</span>
-    <span class="s2">&quot;cp Cakefile Cakefile.coffee&quot;</span>
-    <span class="s2">&quot;docco conf/*.coffee *.coffee&quot;</span>
-    <span class="s2">&quot;cp -r docs documentation&quot;</span>
-    <span class="s2">&quot;rm -rf docs Cakefile.coffee&quot;</span>
-  <span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39; &amp;&amp; &#39;</span><span class="p">)</span>
-
-  <span class="nx">exec</span> <span class="nx">commands</span><span class="p">,</span> <span class="nf">(err, stdout) -&gt;</span>
-    <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
-
-    <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;\n  » &#39;</span> <span class="o">+</span> <span class="nx">stdout</span><span class="p">.</span><span class="nx">trim</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n  » &#39;</span><span class="p">).</span><span class="nx">grey</span>
-    <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;end&#39;</span></pre></div>             </td>           </tr>                               <tr id="section-14">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-14">&#182;</a>               </div>               <h2>Main tasks</h2>
-
-<ul>
-<li>combining and minifying CSS</li>
-<li>combining and minifying JS</li>
-<li>image optimization</li>
-</ul>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;build&#39;</span><span class="p">,</span> <span class="s1">&#39;Build with defaults configuration the main tasks: js, css and img optimiaztion&#39;</span><span class="p">,</span> <span class="nf">(option, em) -&gt;</span>
-
-  <span class="nv">start = </span><span class="o">+</span><span class="k">new</span> <span class="nb">Date</span>
-
-  <span class="nx">invoke</span> <span class="s1">&#39;js&#39;</span>
-  <span class="nx">invoke</span> <span class="s1">&#39;css&#39;</span>
-  <span class="nx">invoke</span> <span class="s1">&#39;img&#39;</span>
-  <span class="nx">invoke</span> <span class="s1">&#39;usemin&#39;</span>
-
-  <span class="nv">remaining = </span><span class="mi">0</span>
-  <span class="nv">handle = </span><span class="nf">(name) -&gt;</span>
-    <span class="nx">remaining</span><span class="o">++</span>
-    <span class="k">return</span> <span class="o">-&gt;</span>
-      <span class="k">return</span> <span class="nx">unless</span> <span class="o">--</span><span class="nx">remaining</span> <span class="o">is</span> <span class="mi">0</span>
-
-      <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;Build done, now copy the #{dir.intermediate} folder over to #{dir.publish}&quot;</span>
-
-      <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;minify html before copy...&#39;</span>
-      <span class="nx">invoke</span> <span class="s1">&#39;htmlclean&#39;</span></pre></div>             </td>           </tr>                               <tr id="section-15">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-15">&#182;</a>               </div>               <p>gem.emit 'end:htmlclean'</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:js&#39;</span><span class="p">,</span> <span class="nx">handle</span><span class="p">()</span>
-  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:css&#39;</span><span class="p">,</span> <span class="nx">handle</span><span class="p">()</span>
-  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:img&#39;</span><span class="p">,</span> <span class="nx">handle</span><span class="p">()</span>
-  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:usemin&#39;</span><span class="p">,</span> <span class="nx">handle</span><span class="p">()</span>
-  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:htmlclean&#39;</span><span class="p">,</span> <span class="o">-&gt;</span>
-    <span class="nv">commands = </span><span class="p">[</span>
-      <span class="s2">&quot;cp -r #{base}/#{dir.intermediate} #{base}/#{dir.publish}&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;rm -rf #{base}/#{dir.intermediate}&quot;</span>
-    <span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39; &amp;&amp; &#39;</span><span class="p">)</span>
-
-    <span class="nx">exec</span> <span class="nx">commands</span><span class="p">,</span> <span class="nf">(options, err) -&gt;</span>
-      <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
-      <span class="nv">elapsed = </span><span class="p">(</span><span class="o">+</span><span class="k">new</span> <span class="nb">Date</span> <span class="o">-</span> <span class="nx">start</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1000</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s2">&quot;✔ Build Script successful (#{elapsed}s). Check your #{dir.publish}/ folder&quot;</span><span class="p">.</span><span class="nx">green</span><span class="p">.</span><span class="nx">bold</span>
-      <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;end&#39;</span>
-
-
-
-
-<span class="nx">task</span> <span class="s1">&#39;js&#39;</span><span class="p">,</span> <span class="s1">&#39;Combines and minifies JS&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
-
-  <span class="nx">invoke</span> <span class="s1">&#39;js.scripts.concat&#39;</span>
-
-  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:js.scripts.concat&#39;</span><span class="p">,</span> <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">em</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">)</span>
-
-
-<span class="nx">task</span> <span class="s1">&#39;css&#39;</span><span class="p">,</span> <span class="s1">&#39;Combines and minifies CSS&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
-
-  <span class="nx">invoke</span> <span class="s1">&#39;css.concat&#39;</span>
-
-  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:css.concat&#39;</span><span class="p">,</span> <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">em</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">)</span>
-
-<span class="nx">task</span> <span class="s1">&#39;img&#39;</span><span class="p">,</span> <span class="s1">&#39;Performs img optimization&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span></pre></div>             </td>           </tr>                               <tr id="section-16">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-16">&#182;</a>               </div>               <p>will most likely be done by using spawning optipng on
-dir.img folder</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">invoke</span> <span class="s1">&#39;img.optimize&#39;</span>
-
-  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:img.optimize&#39;</span><span class="p">,</span> <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">em</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">)</span></pre></div>             </td>           </tr>                               <tr id="section-17">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-17">&#182;</a>               </div>               <h3>createproject</h3>
-
-<p>Generate a new project from your HTML5 Boilerplate repo clone</p>
-
-<ul>
-<li>by: Rick Waldron &amp; Michael Cetrulo</li>
-<li>cake edition by: Mickael Daniel</li>
-</ul>
-
-<p>The terminal will prompt with this message:</p>
-
-<pre><code>To create a new html5-boilerplate project, 
-enter a new directory name:
-</code></pre>
-
-<p>Type the name of the new project you are creating, ideally in lowercase letters,
-with no spaces - this will be the directory name that your new project lives in. 
-Press Enter to continue.</p>
-
-<p>If you attempt to create a directory that already exists, createproject.sh will warn you and stop running.</p>
-
-<p>If all goes smoothly, you will see the following messages:</p>
-
-<pre><code>Created Directory: [name]
-
-[ A list of all the html5-boilerplate files being copied ]
-
-Created Project: [name]
-</code></pre>
-
-<p>Success! You now have a clean project to begin making the next HTML5 wunderkind demo!</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">option</span> <span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="s1">&#39;--output [DIR]&#39;</span><span class="p">,</span> <span class="s1">&#39;directory for the creteproject task&#39;</span>
-<span class="nx">task</span> <span class="s1">&#39;createproject&#39;</span><span class="p">,</span> <span class="s1">&#39;a simple create project task&#39;</span><span class="p">,</span> <span class="nf">(options) -&gt;</span>
-
-  <span class="nv">src = </span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span> <span class="nx">__dirname</span><span class="p">,</span> <span class="nx">repo</span><span class="p">.</span><span class="nx">h5bp</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">).</span><span class="nx">reverse</span><span class="p">()[</span><span class="mi">0</span><span class="p">].</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\.git/</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-
-  <span class="nv">exists = </span><span class="nx">path</span><span class="p">.</span><span class="nx">existsSync</span> <span class="nx">src</span>
-
-  <span class="nv">commands = </span><span class="p">[</span>
-    <span class="k">if</span> <span class="nx">exists</span> <span class="k">then</span> <span class="s2">&quot;git pull&quot;</span> <span class="k">else</span> <span class="s2">&quot;git clone #{repo.h5bp}&quot;</span>
-  <span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39; &amp;&amp; &#39;</span><span class="p">)</span>
-  <span class="nv">gitcmd = </span><span class="k">if</span> <span class="nx">exists</span> <span class="k">then</span> <span class="s1">&#39;pull&#39;</span> <span class="k">else</span> <span class="s1">&#39;clon&#39;</span>
-
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s1">&#39;createproject&#39;</span><span class="p">.</span><span class="nx">magenta</span><span class="p">,</span> <span class="s2">&quot;#{gitcmd}ing #{repo.h5bp}...&quot;</span><span class="p">.</span><span class="nx">grey</span>
-
-  <span class="nv">args = </span><span class="p">(</span><span class="k">if</span> <span class="nx">exists</span> <span class="k">then</span> <span class="s1">&#39;pull&#39;</span> <span class="k">else</span> <span class="s2">&quot;clone #{repo.h5bp}&quot;</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
-
-  <span class="nx">helper</span><span class="p">.</span><span class="nx">spawn</span> <span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="nx">args</span><span class="p">,</span> <span class="nf">(code, stdout, stderr) -&gt;</span>
-    <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">code</span> <span class="o">&gt;</span> <span class="mi">0</span>
-    <span class="nv">stdout = </span><span class="nx">stdout</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\n/gm</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s2">&quot;  ✔  #{stdout}&quot;</span><span class="p">.</span><span class="nx">grey</span><span class="p">.</span><span class="nx">bold</span>
-
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s1">&#39;  - To create a new html5-boilerplate project, enter a new directory name:&#39;</span><span class="p">.</span><span class="nx">blue</span>
-
-    <span class="nv">prompt.message = </span><span class="s2">&quot;    ↩ &quot;</span><span class="p">.</span><span class="nx">bold</span>
-    <span class="nv">prompt.delimiter = </span><span class="s1">&#39;&#39;</span>
-    <span class="nv">prompt.override = </span><span class="p">{</span><span class="nv">directory: </span><span class="nx">options</span><span class="p">.</span><span class="nx">output</span><span class="p">}</span>
-
-    <span class="nx">prompt</span><span class="p">.</span><span class="nx">start</span><span class="p">()</span> <span class="nx">unless</span> <span class="nx">prompt</span><span class="p">.</span><span class="nx">override</span><span class="p">.</span><span class="nx">directory</span>
-    <span class="nx">prompt</span><span class="p">.</span><span class="nx">get</span> <span class="p">[</span><span class="s1">&#39;directory&#39;</span><span class="p">],</span> <span class="nf">(err, result) -&gt;</span>
-      <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
-      <span class="k">return</span> <span class="nx">error</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">&quot;please provide a directory name&quot;</span><span class="p">)</span> <span class="nx">unless</span> <span class="nx">result</span><span class="p">.</span><span class="nx">directory</span>
-      <span class="nv">dest = </span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="nx">result</span><span class="p">.</span><span class="nx">directory</span><span class="p">)</span>
-      <span class="nx">mkdirp</span> <span class="nx">dest</span><span class="p">,</span> <span class="mi">0755</span><span class="p">,</span> <span class="nf">(err) -&gt;</span>
-        <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s2">&quot;  ✔  Created Directory: #{dest}&quot;</span><span class="p">.</span><span class="nx">grey</span><span class="p">.</span><span class="nx">bold</span>
-        <span class="nx">exec</span> <span class="p">[</span><span class="s2">&quot;cd #{src}&quot;</span><span class="p">,</span> <span class="s2">&quot;cp -vr css js img build test *.html *.xml *.txt *.png *.ico .htaccess #{dest}&quot;</span><span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39; &amp;&amp; &#39;</span><span class="p">),</span> <span class="nf">(err, stdout, stderr) -&gt;</span>
-          <span class="k">return</span> <span class="nx">error</span> <span class="nx">stderr</span> <span class="k">if</span> <span class="nx">err</span>
-          <span class="nv">output = </span><span class="nx">stdout</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="sr">/\n/</span><span class="p">)</span>
-
-          <span class="nx">output</span><span class="p">.</span><span class="nx">forEach</span> <span class="nf">(line) -&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s2">&quot;    » #{line}&quot;</span><span class="p">.</span><span class="nx">grey</span>
-          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s2">&quot;  ✔  Created Project: #{dest}&quot;</span><span class="p">.</span><span class="nx">grey</span><span class="p">.</span><span class="nx">bold</span></pre></div>             </td>           </tr>                               <tr id="section-18">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-18">&#182;</a>               </div>               <h2>Support tasks</h2>             </td>             <td class="code">               <div class="highlight"><pre></pre></div>             </td>           </tr>                               <tr id="section-19">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-19">&#182;</a>               </div>               <h3>intro</h3>
-
-<p>Output the intro message</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;intro&#39;</span><span class="p">,</span> <span class="s1">&#39;Kindly inform the developer about the impending magic&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
-  <span class="nv">message = </span><span class="s2">&quot;&quot;&quot;</span>
-
-<span class="s2">    ====================================================================</span>
-<span class="s2">    Welcome to the ★ HTML5 Boilerplate Build Script! ★</span>
-
-<span class="s2">    We&#39;re going to get your site all ship-shape and ready for prime time.</span>
-
-<span class="s2">    This should take somewhere between 15 seconds and a few minutes,</span>
-<span class="s2">    mostly depending on how many images we&#39;re going to compress.</span>
-
-<span class="s2">    Feel free to come back or stay here and follow along.</span>
-<span class="s2">    =====================================================================</span>
-<span class="s2">  &quot;&quot;&quot;</span>
-
-  <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="nx">message</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n  &#39;</span><span class="p">).</span><span class="nx">grey</span>
-  <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="nx">message</span><span class="p">.</span><span class="nx">grey</span>
-
-
-<span class="nx">task</span> <span class="s1">&#39;check&#39;</span><span class="p">,</span> <span class="s1">&#39;Performs few validations upon the current repo, outputing errors if any&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span></pre></div>             </td>           </tr>                               <tr id="section-20">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-20">&#182;</a>               </div>               <p>check few configuration values, namely dir.source
-Test whether or not the dir.source path exists.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nv">exists = </span><span class="nx">path</span><span class="p">.</span><span class="nx">existsSync</span> <span class="s2">&quot;#{base}/#{dir.source}&quot;</span>
-
-  <span class="k">return</span> <span class="nx">error</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">&quot;#{base}/#{dir.source} does not exist, change the dir.source config or run cake createproject and enter #{dir.source} when prompted&quot;</span><span class="p">)</span> <span class="nx">unless</span> <span class="nx">exists</span>
-
-
-<span class="nx">task</span> <span class="s1">&#39;clean&#39;</span><span class="p">,</span> <span class="s1">&#39;Wipe the previous build&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
-  <span class="nx">invoke</span> <span class="s1">&#39;intro&#39;</span>
-  <span class="nx">invoke</span> <span class="s1">&#39;check&#39;</span>
-
-  <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;Cleaning up previous build directory...&#39;</span><span class="p">.</span><span class="nx">grey</span>
-
-
-  <span class="nx">exec</span> <span class="s2">&quot;rm -rf #{dir.intermediate} #{dir.publish}&quot;</span><span class="p">,</span> <span class="nf">(err, stdout, stderr) -&gt;</span>
-    <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
-
-    <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="nx">stdout</span></pre></div>             </td>           </tr>                               <tr id="section-21">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-21">&#182;</a>               </div>               <h3>mkdirs</h3>
-
-<p>Create the directory structure</p>
-
-<p>Copy the whole <code>dir.source</code> to <code>dir.intermediate</code></p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;mkdirs&#39;</span><span class="p">,</span> <span class="s1">&#39;Create the directory intermediate structure&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
-
-  <span class="nx">invoke</span> <span class="s1">&#39;clean&#39;</span>
-
-  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:clean&#39;</span><span class="p">,</span> <span class="o">-&gt;</span>
-    <span class="nv">failmsg = </span><span class="s2">&quot;Your dir.publish folder is set to #{dir.publish} which could delete your entire site or worse. Change it in project.properties&quot;</span>
-    <span class="nv">dangerousPath = </span><span class="o">!!~</span><span class="p">[</span><span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;./&#39;</span><span class="p">,</span> <span class="s1">&#39;../&#39;</span><span class="p">].</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">dir</span><span class="p">.</span><span class="nx">publish</span><span class="p">)</span>
-    <span class="k">return</span> <span class="nx">error</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">failmsg</span><span class="p">)</span> <span class="k">if</span> <span class="nx">dangerousPath</span>
-
-    <span class="nx">process</span><span class="p">.</span><span class="nx">chdir</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s2">&quot;#{dir.source}&quot;</span><span class="p">)</span>
-    <span class="nx">helper</span><span class="p">.</span><span class="nx">fileset</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">file</span><span class="p">.</span><span class="nx">default</span><span class="p">.</span><span class="nx">exclude</span><span class="p">,</span> <span class="nx">file</span><span class="p">.</span><span class="nx">exclude</span><span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">))</span>
-      <span class="p">.</span><span class="kc">on</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">console</span><span class="p">))</span>
-      <span class="p">.</span><span class="kc">on</span><span class="p">(</span><span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="nf">(files) -&gt;</span>
-        <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;Copying #{files.length} files over to #{dir.intermediate} and #{dir.publish} from #{dir.source}&quot;</span><span class="p">.</span><span class="nx">grey</span>
-        <span class="nv">destinations = </span><span class="p">[</span><span class="nx">dir</span><span class="p">.</span><span class="nx">intermediate</span><span class="p">]</span>
-        <span class="nv">remaining = </span><span class="nx">files</span><span class="p">.</span><span class="nx">length</span> <span class="o">*</span> <span class="nx">destinations</span><span class="p">.</span><span class="nx">length</span>
-        <span class="k">for</span> <span class="nx">to</span> <span class="k">in</span> <span class="nx">destinations</span> <span class="k">then</span> <span class="nx">do</span> <span class="nf">(to) -&gt;</span>
-          <span class="k">for</span> <span class="nx">file</span> <span class="k">in</span> <span class="nx">files</span> <span class="k">then</span> <span class="nx">do</span><span class="nf">(file) -&gt;</span>
-            <span class="nv">fragment = </span><span class="nx">file</span><span class="p">.</span><span class="nx">split</span> <span class="s1">&#39;/&#39;</span>
-            <span class="nv">dirname = </span><span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="nx">file</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">..</span><span class="o">-</span><span class="mi">2</span><span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
-            <span class="nv">dirname = </span><span class="nx">dirname</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">dirname</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">)[</span><span class="mi">1</span><span class="p">].</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">..][</span><span class="mi">0</span><span class="p">],</span> <span class="nx">to</span><span class="p">)</span>
-            <span class="nv">filename = </span><span class="nx">file</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">..][</span><span class="mi">0</span><span class="p">]</span>
-
-            <span class="nx">mkdirp</span> <span class="nx">dirname</span><span class="p">,</span> <span class="mi">0755</span><span class="p">,</span> <span class="nf">(err) -&gt;</span>
-              <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
-              <span class="nv">to = </span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">dirname</span><span class="p">,</span> <span class="nx">filename</span><span class="p">)</span>
-              <span class="nx">exec</span> <span class="s2">&quot;cp -v #{file} #{to}&quot;</span><span class="p">,</span> <span class="nf">(err, stdout, stderr) -&gt;</span>
-                <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
-                <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="s1">&#39;done&#39;</span> <span class="k">if</span> <span class="o">--</span><span class="nx">remaining</span> <span class="o">is</span> <span class="mi">0</span>
-      <span class="p">)</span></pre></div>             </td>           </tr>                               <tr id="section-22">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-22">&#182;</a>               </div>               <h2>JS tasks</h2>             </td>             <td class="code">               <div class="highlight"><pre></pre></div>             </td>           </tr>                               <tr id="section-23">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-23">&#182;</a>               </div>               <h3>js.main.concat</h3>
-
-<p>Concatenates the JS files in dir.js. depends on mkdirs</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;js.main.concat&#39;</span><span class="p">,</span> <span class="s1">&#39;Concatenates the JS files in dir.js&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
-
-  <span class="nx">invoke</span> <span class="s1">&#39;mkdirs&#39;</span>
-
-  <span class="nv">concat = </span><span class="nf">(output) -&gt;</span>
-    <span class="nv">output = </span><span class="k">new</span> <span class="nx">Buffer</span> <span class="nx">output</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n\n&#39;</span><span class="p">)</span>
-    <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFile</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s2">&quot;#{dir.intermediate}&quot;</span><span class="p">,</span> <span class="s2">&quot;#{dir.js}&quot;</span><span class="p">,</span> <span class="s1">&#39;script-concat.js&#39;</span><span class="p">),</span> <span class="nx">output</span><span class="p">,</span> <span class="nf">(err) -&gt;</span>
-      <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
-      <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;script-concat.js just concat...&#39;</span><span class="p">.</span><span class="nx">grey</span>
-      <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="kc">true</span>
-
-  <span class="nv">handle = </span><span class="nf">(files) -&gt;</span>
-    <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;Concatenating Main JS scripts...&#39;</span>
-
-    <span class="nx">helper</span><span class="p">.</span><span class="nx">fileset</span> <span class="s2">&quot;#{dir.js.main}/plugins.js #{dir.js.main}/#{file.root.script}&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nf">(err, files) -&gt;</span>
-      <span class="nv">output = </span><span class="p">[]</span>
-      <span class="nv">remaining = </span><span class="nx">files</span><span class="p">.</span><span class="nx">length</span>
-      <span class="k">for</span> <span class="nx">file</span> <span class="k">in</span> <span class="nx">files</span> <span class="k">then</span> <span class="nx">do</span> <span class="nf">(file) -&gt;</span>
-        <span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span> <span class="nx">file</span><span class="p">,</span> <span class="nf">(err, body) -&gt;</span>
-          <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
-          <span class="nx">output</span><span class="p">.</span><span class="nx">push</span> <span class="nx">body</span>
-
-          <span class="nx">concat</span><span class="p">(</span><span class="nx">output</span><span class="p">)</span> <span class="k">if</span> <span class="o">--</span><span class="nx">remaining</span> <span class="o">is</span> <span class="mi">0</span> 
-
-
-  <span class="nx">gem</span><span class="p">.</span><span class="nx">once</span> <span class="s1">&#39;end:mkdirs&#39;</span><span class="p">,</span> <span class="nx">handle</span></pre></div>             </td>           </tr>                               <tr id="section-24">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-24">&#182;</a>               </div>               <h3>js.mylibs.concat</h3>
-
-<p>Concatenates the JS files in dir.js.mylibs. depends on mkdirs</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;js.mylibs.concat&#39;</span><span class="p">,</span> <span class="s1">&#39;Concatenates the JS files in dir.js.mylibs&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
-
-  <span class="nx">invoke</span> <span class="s1">&#39;mkdirs&#39;</span>
-
-  <span class="nv">concat = </span><span class="nf">(output) -&gt;</span>
-    <span class="nv">output = </span><span class="k">new</span> <span class="nx">Buffer</span> <span class="nx">output</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n\n&#39;</span><span class="p">)</span>
-    <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFile</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s2">&quot;#{dir.intermediate}&quot;</span><span class="p">,</span> <span class="s2">&quot;#{dir.js.mylibs}&quot;</span><span class="p">,</span> <span class="s1">&#39;mylibs-concat.js&#39;</span><span class="p">),</span> <span class="nx">output</span><span class="p">,</span> <span class="nf">(err) -&gt;</span>
-      <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
-      <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;mylibs-concat.js just concat...&#39;</span><span class="p">.</span><span class="nx">grey</span>
-      <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="kc">true</span>
-
-  <span class="nx">gem</span><span class="p">.</span><span class="nx">once</span> <span class="s1">&#39;end:mkdirs&#39;</span><span class="p">,</span> <span class="nf">(files) -&gt;</span>
-    <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;Concatenating JS libraries in #{dir.js.mylibs}&quot;</span><span class="p">.</span><span class="nx">grey</span>
-
-    <span class="nx">process</span><span class="p">.</span><span class="nx">chdir</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s2">&quot;#{dir.intermediate}&quot;</span><span class="p">)</span>
-    <span class="nx">helper</span><span class="p">.</span><span class="nx">fileset</span> <span class="s2">&quot;#{dir.js.mylibs}/**/*.js&quot;</span><span class="p">,</span> <span class="s2">&quot;#{file.default.js.bypass}&quot;</span><span class="p">,</span> <span class="nf">(err, files) -&gt;</span>
-      <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
-
-      <span class="nv">output = </span><span class="p">[]</span>
-
-      <span class="k">return</span> <span class="nx">concat</span><span class="p">(</span><span class="nx">output</span><span class="p">)</span> <span class="nx">unless</span> <span class="nx">files</span><span class="p">.</span><span class="nx">length</span>
-
-      <span class="nv">remaining = </span><span class="nx">files</span><span class="p">.</span><span class="nx">length</span>
-      <span class="k">for</span> <span class="nx">file</span> <span class="k">in</span> <span class="nx">files</span> <span class="k">then</span> <span class="nx">do</span><span class="nf">(file) -&gt;</span>
-        <span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span> <span class="nx">file</span><span class="p">,</span> <span class="nf">(err, body) -&gt;</span>
-          <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
-          <span class="nx">output</span><span class="p">.</span><span class="nx">push</span> <span class="nx">body</span>
-          <span class="nx">concat</span><span class="p">(</span><span class="nx">output</span><span class="p">)</span> <span class="k">if</span> <span class="o">--</span><span class="nx">remaining</span> <span class="o">is</span> <span class="mi">0</span></pre></div>             </td>           </tr>                               <tr id="section-25">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-25">&#182;</a>               </div>               <h3>js.scripts.concat</h3>
-
-<p>Concatenating library file with main script file</p>
-
-<p>Calculates an md5 checksum, prefix the script name, and copy over to <code>#{dir.publish}/#{dir.js}/</code></p>
-
-<pre><code>publish/js/e816baa.scripts-concat.min.js
-</code></pre>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;js.scripts.concat&#39;</span><span class="p">,</span> <span class="s1">&#39;Concatenating library file with main script file&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
-
-  <span class="nx">invoke</span> <span class="s1">&#39;js.main.concat&#39;</span>
-  <span class="nx">invoke</span> <span class="s1">&#39;js.mylibs.concat&#39;</span>
-
-  <span class="nv">concat = </span><span class="nf">(source) -&gt;</span>
-    <span class="nv">concat.remaining = </span><span class="nx">concat</span><span class="p">.</span><span class="nx">remaining</span> <span class="o">or=</span> <span class="mi">0</span>
-    <span class="nx">concat</span><span class="p">.</span><span class="nx">remaining</span><span class="o">++</span>
-
-    <span class="k">return</span> <span class="o">-&gt;</span>
-      <span class="k">return</span> <span class="k">if</span> <span class="o">--</span><span class="nx">concat</span><span class="p">.</span><span class="nx">remaining</span>
-      <span class="nx">helper</span><span class="p">.</span><span class="nx">fileset</span> <span class="s2">&quot;#{base}/#{dir.intermediate}/#{dir.js}/**-concat.js&quot;</span><span class="p">,</span> <span class="nf">(err, files) -&gt;</span>
-        <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
-
-        <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;Concatenating library file with main script file&#39;</span><span class="p">.</span><span class="nx">grey</span>
-        <span class="nx">helper</span><span class="p">.</span><span class="nx">concat</span> <span class="nx">files</span><span class="p">,</span> <span class="nf">(err, buffers) -&gt;</span>
-          <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
-
-          <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;Writing to #{dir.intermediate}/#{dir.js}/scripts-concat.min.js&quot;</span><span class="p">.</span><span class="nx">grey</span>
-
-          <span class="nv">filename = </span><span class="s2">&quot;scripts-concat.min.js&quot;</span>
-          <span class="nv">from = </span><span class="s2">&quot;#{dir.intermediate}/#{dir.js}/#{filename}&quot;</span>
-          <span class="nv">output = </span><span class="nx">buffers</span><span class="p">.</span><span class="nx">map</span> <span class="nf">(buffer) -&gt;</span>
-            <span class="k">return</span> <span class="nx">buffer</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span>
-
-          <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFile</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">base</span><span class="p">,</span> <span class="nx">from</span><span class="p">),</span> <span class="nx">output</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n\n&#39;</span><span class="p">),</span> <span class="nf">(err) -&gt;</span>
-            <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
-            <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;File ✔ #{from}&quot;</span><span class="p">.</span><span class="nx">grey</span>
-
-            <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;Calculating checksum...&#39;</span><span class="p">.</span><span class="nx">grey</span>
-
-
-            <span class="nx">helper</span><span class="p">.</span><span class="nx">checksum</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">base</span><span class="p">,</span><span class="nx">from</span><span class="p">),</span> <span class="nf">(err, md5) -&gt;</span>
-              <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
-
-              <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;✔ md5 is #{md5} for file #{from}&quot;</span></pre></div>             </td>           </tr>                               <tr id="section-26">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-26">&#182;</a>               </div>               <p>now copy over the file to #{dir.js}/#{script.sha}.js</p>             </td>             <td class="code">               <div class="highlight"><pre>              <span class="nv">md5 = </span><span class="nx">md5</span><span class="p">.</span><span class="nx">substring</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">hash</span><span class="p">.</span><span class="nx">length</span>
-              <span class="nv">to = </span><span class="s2">&quot;#{dir.intermediate}/#{dir.js}/#{md5}.#{filename}&quot;</span></pre></div>             </td>           </tr>                               <tr id="section-27">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-27">&#182;</a>               </div>               <p>set the global script.js for future reference in usemin</p>             </td>             <td class="code">               <div class="highlight"><pre>              <span class="nv">global.scripts = </span><span class="p">{</span> <span class="nv">js: </span><span class="s2">&quot;#{md5}.#{filename}&quot;</span> <span class="p">}</span>
-
-              <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;now copy over the file to #{to}&quot;</span>
-              <span class="k">return</span> <span class="nx">helper</span><span class="p">.</span><span class="nx">copy</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">base</span><span class="p">,</span> <span class="nx">from</span><span class="p">),</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">base</span><span class="p">,</span> <span class="nx">to</span><span class="p">),</span> <span class="nf">(err) -&gt;</span>
-                <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
-                <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;✔ Copy done » #{to}&quot;</span>
-
-                <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;Minify the output now...&#39;</span>
-                <span class="nx">invoke</span> <span class="s1">&#39;js.all.minify&#39;</span>
-
-
-  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:js.main.concat&#39;</span><span class="p">,</span> <span class="nx">concat</span><span class="p">(</span><span class="s1">&#39;main&#39;</span><span class="p">)</span>
-  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:js.mylibs.concat&#39;</span><span class="p">,</span> <span class="nx">concat</span><span class="p">(</span><span class="s1">&#39;mylibs&#39;</span><span class="p">)</span>
-
-  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:js.all.minify&#39;</span><span class="p">,</span> <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">em</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">)</span></pre></div>             </td>           </tr>                               <tr id="section-28">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-28">&#182;</a>               </div>               <h3>js.mylibs.concat</h3>
-
-<p>Minifies the scripts.js files in #{dir.intermediate}/#{dir.js}. depends on mkdirs</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;js.all.minify&#39;</span><span class="p">,</span> <span class="s2">&quot;Minifies the *-concat.js files in #{dir.intermediate}/#{dir.js}&quot;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
-
-  <span class="nx">gem</span><span class="p">.</span><span class="nx">once</span> <span class="s1">&#39;end:mkdirs&#39;</span><span class="p">,</span> <span class="nf">(result) -&gt;</span>
-    <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;Minifying scripts&#39;</span><span class="p">.</span><span class="nx">grey</span>
-
-    <span class="nv">dirname = </span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span> <span class="nx">dir</span><span class="p">.</span><span class="nx">intermediate</span><span class="p">,</span> <span class="nx">dir</span><span class="p">.</span><span class="nx">js</span>
-    <span class="nx">process</span><span class="p">.</span><span class="nx">chdir</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="nx">dirname</span><span class="p">)</span>
-    <span class="nx">helper</span><span class="p">.</span><span class="nx">fileset</span> <span class="s2">&quot;**-concat.min.js&quot;</span><span class="p">,</span> <span class="nf">(err, files) -&gt;</span>
-      <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
-
-      <span class="nv">remaining = </span><span class="nx">files</span><span class="p">.</span><span class="nx">length</span>
-      <span class="k">for</span> <span class="nx">file</span> <span class="k">in</span> <span class="nx">files</span> <span class="k">then</span> <span class="nx">do</span> <span class="nf">(file) -&gt;</span>
-        <span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span> <span class="nx">file</span><span class="p">,</span> <span class="nf">(err, body) -&gt;</span>
-          <span class="nv">jsp = </span><span class="nx">uglify</span><span class="p">.</span><span class="nx">parser</span>
-          <span class="nv">pro = </span><span class="nx">uglify</span><span class="p">.</span><span class="nx">uglify</span>
-
-          <span class="nv">ast = </span><span class="nx">jsp</span><span class="p">.</span><span class="nx">parse</span> <span class="nx">body</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span>
-          <span class="nv">ast = </span><span class="nx">pro</span><span class="p">.</span><span class="nx">ast_mangle</span> <span class="nx">ast</span>
-          <span class="nv">ast = </span><span class="nx">pro</span><span class="p">.</span><span class="nx">ast_squeeze</span> <span class="nx">ast</span>
-          <span class="nv">code = </span><span class="k">new</span> <span class="nx">Buffer</span> <span class="nx">pro</span><span class="p">.</span><span class="nx">gen_code</span><span class="p">(</span><span class="nx">ast</span><span class="p">)</span>
-
-          <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFile</span> <span class="nx">file</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Buffer</span><span class="p">(</span><span class="nx">code</span><span class="p">),</span> <span class="nf">(err) -&gt;</span>
-            <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
-            <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;Uglified #{file}&quot;</span><span class="p">.</span><span class="nx">grey</span>
-            <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="nx">files</span> <span class="k">if</span> <span class="o">--</span><span class="nx">remaining</span> <span class="o">is</span> <span class="mi">0</span>
-
-  <span class="nx">invoke</span> <span class="s1">&#39;mkdirs&#39;</span></pre></div>             </td>           </tr>                               <tr id="section-29">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-29">&#182;</a>               </div>               <h2>jshint</h2>
-
-<p>run the <code>dir.js</code> folder through jshint with default options. Exits and reports in case of lint errors.</p>
-
-<p>Run separately</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;jshint&#39;</span><span class="p">,</span> <span class="s1">&#39;jshint task, run jshint on any non min.js file in dir.js&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
-  <span class="nx">helper</span><span class="p">.</span><span class="nx">fileset</span> <span class="s2">&quot;#{dir.source}/#{dir.js}/&quot;</span><span class="p">,</span> <span class="s2">&quot;**/*.min.js #{dir.source}/#{dir.js.libs}&quot;</span><span class="p">,</span> <span class="nf">(err, files) -&gt;</span>
-    <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
-    <span class="nx">exec</span> <span class="s1">&#39;jshint &#39;</span> <span class="o">+</span> <span class="nx">files</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">),</span> <span class="nf">(err, stdout, stderr) -&gt;</span> 
-      <span class="k">return</span> <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;  ✔ Congrats! Lint Free!&#39;</span><span class="p">.</span><span class="nx">green</span> <span class="nx">unless</span> <span class="nx">err</span>
-
-      <span class="k">if</span> <span class="nx">err</span><span class="p">.</span><span class="nx">message</span> <span class="o">is</span> <span class="s1">&#39;Command failed: &#39;</span>
-        <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="p">[</span>
-          <span class="s2">&quot;jshint returns the following errors \n&quot;</span><span class="p">.</span><span class="nx">grey</span>
-          <span class="nx">stdout</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nf">(line) -&gt;</span> <span class="k">return</span> <span class="s2">&quot;  ✗ #{line}&quot;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">).</span><span class="nx">grey</span>
-        <span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">)</span>
-
-      <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span></pre></div>             </td>           </tr>                               <tr id="section-30">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-30">&#182;</a>               </div>               <h2>csslint</h2>
-
-<p>run the <code>dir.css</code> folder through csslint with default options. Reports in case of lint errors.</p>
-
-<p>Run separately </p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;csslint&#39;</span><span class="p">,</span> <span class="s1">&#39;csslint task, run csslint on dir.css and ommit *.min.css one&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
-  <span class="nx">helper</span><span class="p">.</span><span class="nx">fileset</span> <span class="s2">&quot;#{dir.source}/#{dir.css}/&quot;</span><span class="p">,</span> <span class="s2">&quot;**/*.min.css&quot;</span><span class="p">,</span> <span class="nf">(err, files) -&gt;</span>
-    <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
-    <span class="k">for</span> <span class="nx">file</span> <span class="k">in</span> <span class="nx">files</span> <span class="k">then</span> <span class="nx">do</span> <span class="nf">(file) -&gt;</span>
-      <span class="nx">exec</span> <span class="s1">&#39;csslint &#39;</span> <span class="o">+</span> <span class="nx">file</span><span class="p">,</span> <span class="nf">(err, stdout, stderr) -&gt;</span> 
-        <span class="k">return</span> <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;  ✔ Congrats! Lint Free! --&gt; #{file}&quot;</span><span class="p">.</span><span class="nx">green</span> <span class="k">if</span> <span class="nx">stdout</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/no\serrors/i</span><span class="p">)</span>
-
-        <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="p">[</span>
-          <span class="s2">&quot;  ✗ csslint returns the following errors&quot;</span><span class="p">.</span><span class="nx">red</span>
-          <span class="nx">stdout</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nf">(line) -&gt;</span> <span class="k">return</span> <span class="s2">&quot;    #{line}&quot;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">).</span><span class="nx">grey</span>
-        <span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">)</span></pre></div>             </td>           </tr>                               <tr id="section-31">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-31">&#182;</a>               </div>               <h2>CSS tasks</h2>             </td>             <td class="code">               <div class="highlight"><pre></pre></div>             </td>           </tr>                               <tr id="section-32">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-32">&#182;</a>               </div>               <h3>css.concat</h3>
-
-<p>Concat the CSS files depending on the @imports in your file.root.stylesheet</p>
-
-<p><code>@import</code> should be fortmated like so</p>
-
-<pre><code>@import url('style.bar.css')
-@import url("style.foo.css")
-</code></pre>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;css.concat&#39;</span><span class="p">,</span> <span class="s1">&#39;Concat the CSS files depending on the @imports in your file.root.stylesheet&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
-
-  <span class="nx">invoke</span> <span class="s1">&#39;mkdirs&#39;</span>
-
-  <span class="nx">gem</span><span class="p">.</span><span class="nx">once</span> <span class="s1">&#39;end:mkdirs&#39;</span><span class="p">,</span> <span class="o">-&gt;</span>
-    <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;Copy source file to intermediate directory&#39;</span>
-    <span class="nv">from = </span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span> <span class="nx">dir</span><span class="p">.</span><span class="nx">source</span><span class="p">,</span> <span class="nx">dir</span><span class="p">.</span><span class="nx">css</span><span class="p">,</span> <span class="nx">file</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">stylesheet</span>
-    <span class="nv">to = </span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span> <span class="nx">dir</span><span class="p">.</span><span class="nx">intermediate</span><span class="p">,</span> <span class="nx">dir</span><span class="p">.</span><span class="nx">css</span><span class="p">,</span> <span class="nx">file</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">stylesheet</span>
-    <span class="k">return</span> <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;copy&#39;</span><span class="p">,</span> <span class="nx">from</span><span class="p">,</span> <span class="nx">to</span></pre></div>             </td>           </tr>                               <tr id="section-33">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-33">&#182;</a>               </div>               <p>called once the source to intermediate copy is done</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">em</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;copy&#39;</span><span class="p">,</span> <span class="nf">(from, to) -&gt;</span>
-    <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;Concatenating any @imports&#39;</span></pre></div>             </td>           </tr>                               <tr id="section-34">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-34">&#182;</a>               </div>               <p>replace imports with h5bp-import tags (part 1) this one wraps @media types</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nv">file = </span><span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">base</span><span class="p">,</span> <span class="nx">to</span><span class="p">),</span> <span class="s1">&#39;utf8&#39;</span><span class="p">,</span> <span class="nf">(err, body) -&gt;</span></pre></div>             </td>           </tr>                               <tr id="section-35">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-35">&#182;</a>               </div>               <p>go sync during the process of replace to ease the process</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="nv">body = </span><span class="nx">body</span><span class="p">.</span><span class="nx">replace</span> <span class="sr">/@import url\([^\)]+\)/gi</span><span class="p">,</span> <span class="nf">(match) -&gt;</span>
-        <span class="nv">file = </span><span class="nx">match</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/@import url\(([^\)]+)\)/</span><span class="p">)</span><span class="o">?</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/[&#39;|&quot;]/g</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-        <span class="nv">filepath = </span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span> <span class="nx">base</span><span class="p">,</span> <span class="nx">dir</span><span class="p">.</span><span class="nx">intermediate</span><span class="p">,</span> <span class="nx">dir</span><span class="p">.</span><span class="nx">css</span><span class="p">,</span> <span class="nx">file</span></pre></div>             </td>           </tr>                               <tr id="section-36">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-36">&#182;</a>               </div>               <p>test if the url property is valid and match an actual file in the repo</p>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="nv">ok = </span><span class="nx">path</span><span class="p">.</span><span class="nx">existsSync</span> <span class="nx">filepath</span>
-        <span class="k">return</span> <span class="nx">error</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">&quot;@import-ed #{filepath} does not exist&quot;</span><span class="p">)</span> <span class="nx">unless</span> <span class="nx">ok</span>
-
-        <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;replacing #{match} with #{file} content&quot;</span>
-        <span class="k">return</span> <span class="s2">&quot;/* h5bp-import --&gt; #{file} */\n&quot;</span> <span class="o">+</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span> <span class="nx">filepath</span><span class="p">,</span> <span class="s1">&#39;utf8&#39;</span></pre></div>             </td>           </tr>                               <tr id="section-37">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-37">&#182;</a>               </div>               <p>now minify the whole css file, done using clean-css
-may just opt to use yuicompressor instead by spawning a java process
-(make it configurable)</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;Minify #{to} file...&quot;</span>
-      <span class="nv">body = </span><span class="nx">cssmin</span><span class="p">.</span><span class="nx">process</span> <span class="nx">body</span>
-      <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;Done&#39;</span><span class="p">.</span><span class="nx">green</span></pre></div>             </td>           </tr>                               <tr id="section-38">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-38">&#182;</a>               </div>               <p>write the file to the intermediate dir</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="nv">to = </span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span> <span class="nx">base</span><span class="p">,</span> <span class="nx">to</span>
-
-      <span class="nv">checksum = </span><span class="nx">helper</span><span class="p">.</span><span class="nx">checksum</span><span class="p">(</span><span class="nx">body</span><span class="p">).</span><span class="nx">substring</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">hash</span><span class="p">.</span><span class="nx">length</span>
-
-      <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;Cheskum for this file is #{checksum}&quot;</span>
-      <span class="nv">to = </span><span class="nx">to</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/style\.css/</span><span class="p">,</span> <span class="s2">&quot;#{checksum}.style.min.css&quot;</span><span class="p">)</span></pre></div>             </td>           </tr>                               <tr id="section-39">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-39">&#182;</a>               </div>               <p>set the global style.css for future reference in usemin</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="nv">global.style = </span><span class="p">{</span> <span class="nv">css: </span><span class="nx">to</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">).</span><span class="nx">reverse</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="p">}</span>
-
-      <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;Write the min css file to #{to}&quot;</span>
-      <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFile</span> <span class="nx">to</span><span class="p">,</span> <span class="nx">body</span><span class="p">,</span> <span class="nf">(err) -&gt;</span>
-        <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
-        <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="nx">body</span></pre></div>             </td>           </tr>                               <tr id="section-40">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-40">&#182;</a>               </div>               <h2>img optimization tasks</h2>             </td>             <td class="code">               <div class="highlight"><pre></pre></div>             </td>           </tr>                               <tr id="section-41">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-41">&#182;</a>               </div>               <h3>img.optimize</h3>
-
-<p>mainly done using optipng and  by spawning child process, so you'll need
-optipng in yout PATH for this to work</p>
-
-<p>no jpg optimization for now</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;img.optimize&#39;</span><span class="p">,</span> <span class="s1">&#39;Run optipng&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
-
-  <span class="nx">invoke</span> <span class="s1">&#39;mkdirs&#39;</span>
-
-  <span class="nx">gem</span><span class="p">.</span><span class="nx">once</span> <span class="s1">&#39;end:mkdirs&#39;</span><span class="p">,</span> <span class="o">-&gt;</span>
-    <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;Optimizing images...&#39;</span>
-    <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;This part might take a while. But everything else is most likely already done.&#39;</span>
-
-    <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;Run optipng on the .png files&#39;</span></pre></div>             </td>           </tr>                               <tr id="section-42">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-42">&#182;</a>               </div>               <p>check that we have actual png files before runing optipng</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">helper</span><span class="p">.</span><span class="nx">fileset</span> <span class="s2">&quot;optipng #{base}/#{dir.intermediate}/#{dir.images}/*.png&quot;</span><span class="p">,</span> <span class="nf">(err, files) -&gt;</span>
-      <span class="k">return</span> <span class="nx">erorr</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span></pre></div>             </td>           </tr>                               <tr id="section-43">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-43">&#182;</a>               </div>               <p>prevent optipng from returning with error if no files to process</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="k">return</span> <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;end&#39;</span> <span class="nx">unless</span> <span class="nx">files</span><span class="p">.</span><span class="nx">length</span></pre></div>             </td>           </tr>                               <tr id="section-44">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-44">&#182;</a>               </div>               <p>run optipng with default options (make this configurable)</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="nx">exec</span> <span class="s2">&quot;optipng #{base}/#{dir.intermediate}/#{dir.images}/*.png&quot;</span><span class="p">,</span> <span class="nf">(err, stdout, stderr) -&gt;</span>
-        <span class="k">return</span> <span class="nx">error</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span> <span class="p">(</span><span class="nx">stderr</span> <span class="o">||</span> <span class="nx">stdout</span><span class="p">).</span><span class="nx">trim</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n  » &#39;</span><span class="p">)</span> <span class="p">)</span> <span class="k">if</span> <span class="nx">err</span>
-
-        <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;\n  » &#39;</span> <span class="o">+</span> <span class="nx">stdout</span><span class="p">.</span><span class="nx">trim</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n  » &#39;</span><span class="p">).</span><span class="nx">grey</span><span class="p">,</span> <span class="s1">&#39;\n\n&#39;</span>
-        <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;end&#39;</span></pre></div>             </td>           </tr>                               <tr id="section-45">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-45">&#182;</a>               </div>               <h2>Html tasks</h2>
-
-<p>tasks related to html manipulation such as cleaning
-and updating script/css references, html minification and so on</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;usemin&#39;</span><span class="p">,</span> <span class="s1">&#39;Replaces references to non-minified scripts/styles&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
-  <span class="nv">remaining = </span><span class="mi">0</span>
-  <span class="nv">handle = </span><span class="o">-&gt;</span>
-    <span class="nx">remaining</span><span class="o">++</span>
-    <span class="k">return</span> <span class="o">-&gt;</span>
-      <span class="k">return</span> <span class="nx">unless</span> <span class="o">--</span><span class="nx">remaining</span> <span class="o">is</span> <span class="mi">0</span>
-      <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;Switching to minified js files...&#39;</span>
-
-      <span class="nx">process</span><span class="p">.</span><span class="nx">chdir</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">base</span><span class="p">,</span> <span class="nx">dir</span><span class="p">.</span><span class="nx">intermediate</span><span class="p">)</span>
-      <span class="nx">helper</span><span class="p">.</span><span class="nx">fileset</span> <span class="s2">&quot;#{file.pages.default.include}&quot;</span><span class="p">,</span> <span class="nf">(err, pages) -&gt;</span>
-        <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
-
-        <span class="nv">pagesCount = </span><span class="nx">pages</span><span class="p">.</span><span class="nx">length</span>
-        <span class="k">for</span> <span class="nx">page</span> <span class="k">in</span> <span class="nx">pages</span> <span class="k">then</span> <span class="nx">do</span> <span class="nf">(page) -&gt;</span></pre></div>             </td>           </tr>                               <tr id="section-46">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-46">&#182;</a>               </div>               <p>again go sync during the replace process</p>             </td>             <td class="code">               <div class="highlight"><pre>          <span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span> <span class="nx">page</span><span class="p">,</span> <span class="s1">&#39;utf8&#39;</span><span class="p">,</span> <span class="nf">(err, body) -&gt;</span>
-            <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
-
-            <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;switch from a regular jquery to minified&#39;</span>
-            <span class="nv">body = </span><span class="nx">body</span><span class="p">.</span><span class="nx">replace</span> <span class="sr">/jquery-(\d|\d(\.\d)+)\.js/g</span><span class="p">,</span> <span class="nf">(file, version) -&gt;</span>
-              <span class="k">return</span> <span class="s2">&quot;jquery-#{version}.min.js&quot;</span>
-
-            <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;switch any google CDN reference to minified&#39;</span>
-            <span class="nv">body = </span><span class="nx">body</span><span class="p">.</span><span class="nx">replace</span> <span class="sr">/(\d|\d(\.\d)+)\/jquery\.js/g</span><span class="p">,</span> <span class="nf">(match, version) -&gt;</span>
-              <span class="k">return</span> <span class="s2">&quot;#{version}/jquery.min.js&quot;</span>
-
-            <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;Kill off those versioning flags: ?v=2&#39;</span>
-            <span class="nv">body = </span><span class="nx">body</span><span class="p">.</span><span class="nx">replace</span> <span class="sr">/\?v=\d+/g</span><span class="p">,</span> <span class="nf">(match) -&gt;</span>
-              <span class="k">return</span> <span class="s2">&quot;&quot;</span>
-
-            <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;Remove favicon.ico reference if it is pointing to the root&#39;</span>
-            <span class="nv">body = </span><span class="nx">body</span><span class="p">.</span><span class="nx">replace</span> <span class="sr">/&lt;link rel=[&quot;&#39;]shortcut icon[&quot;&#39;] href=[&quot;&#39;]\/favicon\.ico[&quot;&#39;]&gt;/g</span><span class="p">,</span> <span class="nf">(match) -&gt;</span>
-              <span class="k">return</span> <span class="s2">&quot;&quot;</span>
-
-            <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;Update the HTML to reference our concatenated script file: #{scripts.js}&quot;</span>
-            <span class="nv">body = </span><span class="nx">body</span><span class="p">.</span><span class="nx">replace</span> <span class="sr">/&lt;!-- scripts concatenated[\d\w\s\W]*&lt;!-- end scripts --&gt;/gm</span><span class="p">,</span> <span class="o">-&gt;</span>
-              <span class="k">return</span> <span class="s2">&quot;&lt;script defer src=\&quot;#{dir.js}/#{scripts.js}\&quot;&gt;&lt;/script&gt;&quot;</span>
-
-            <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;Update the HTML with the new css filename: #{style.css}&quot;</span>
-            <span class="nv">body = </span><span class="nx">body</span><span class="p">.</span><span class="nx">replace</span> <span class="sr">/&lt;link rel=[&quot;&#39;]?stylesheet[&quot;&#39;]?\shref=[&quot;&#39;]?(.*)\/style.css[&quot;&#39;]?\s*&gt;/gm</span><span class="p">,</span> <span class="nf">(match, prefix) -&gt;</span>
-              <span class="k">return</span> <span class="s2">&quot;&lt;link rel=\&quot;stylesheet\&quot; href=\&quot;#{prefix}/#{style.css}\&quot;&gt;&quot;</span>
-
-            <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFile</span> <span class="nx">page</span><span class="p">,</span> <span class="nx">body</span><span class="p">,</span> <span class="nf">(err) -&gt;</span>
-              <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
-              <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;#{page} now referencing minified files&quot;</span>
-              <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;end&#39;</span> <span class="k">if</span> <span class="o">--</span><span class="nx">pagesCount</span> <span class="o">is</span> <span class="mi">0</span>
-
-
-  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:js&#39;</span><span class="p">,</span> <span class="nx">handle</span><span class="p">()</span>
-  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:css&#39;</span><span class="p">,</span> <span class="nx">handle</span><span class="p">()</span>
-
-  <span class="nx">invoke</span> <span class="s1">&#39;js&#39;</span>
-  <span class="nx">invoke</span> <span class="s1">&#39;css&#39;</span></pre></div>             </td>           </tr>                               <tr id="section-47">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-47">&#182;</a>               </div>               <h2>html tasks</h2>             </td>             <td class="code">               <div class="highlight"><pre></pre></div>             </td>           </tr>                               <tr id="section-48">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-48">&#182;</a>               </div>               <h3>manifest</h3>
-
-<p>stumb method for now.</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;manifest&#39;</span><span class="p">,</span> <span class="s1">&#39;Manifest stuff&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span></pre></div>             </td>           </tr>                               <tr id="section-49">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-49">&#182;</a>               </div>               <h3>htmlclean</h3>
-
-<p>using the fantastic html minifier tool by kangax:: https://github.com/kangax/html-minifier </p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;htmlclean&#39;</span><span class="p">,</span> <span class="s1">&#39;Peforms basic to aggresive minification&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
-  <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;Run html-minifier on the HTML with standard options&#39;</span>
-
-  <span class="nx">gem</span><span class="p">.</span><span class="nx">once</span> <span class="s1">&#39;end:mkdirs&#39;</span><span class="p">,</span> <span class="o">-&gt;</span></pre></div>             </td>           </tr>                               <tr id="section-50">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-50">&#182;</a>               </div>               <p>get the file to min</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;Run on #{file.pages.default.include}&quot;</span>
-
-    <span class="nx">process</span><span class="p">.</span><span class="nx">chdir</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">base</span><span class="p">,</span> <span class="nx">dir</span><span class="p">.</span><span class="nx">intermediate</span><span class="p">)</span>
-    <span class="nx">helper</span><span class="p">.</span><span class="nx">fileset</span> <span class="s2">&quot;#{file.pages.default.include}&quot;</span><span class="p">,</span> <span class="nf">(err, pages) -&gt;</span>
-      <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
-
-      <span class="nv">remaining = </span><span class="nx">pages</span><span class="p">.</span><span class="nx">length</span>
-      <span class="k">for</span> <span class="nx">page</span> <span class="k">in</span> <span class="nx">pages</span> <span class="k">then</span> <span class="nx">do</span> <span class="nf">(page) -&gt;</span>
-       <span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span> <span class="nx">page</span><span class="p">,</span> <span class="s1">&#39;utf8&#39;</span><span class="p">,</span> <span class="nf">(err, body) -&gt;</span>
-        <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span></pre></div>             </td>           </tr>                               <tr id="section-51">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-51">&#182;</a>               </div>               <p>todo: move the configuration over to config files
-going with most aggresive minification for now</p>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="nv">output = </span><span class="nx">htmlmin</span><span class="p">.</span><span class="nx">minify</span> <span class="nx">body</span><span class="p">,</span> <span class="p">{</span>
-          <span class="nv">removeComments: </span><span class="kc">true</span>
-          <span class="nv">removeCommentsFromCDATA: </span><span class="kc">true</span>
-          <span class="nv">removeEmptyAttributes: </span><span class="kc">true</span>
-          <span class="nv">cleanAttributes: </span><span class="kc">true</span>
-          <span class="nv">removeAttributeQuotes: </span><span class="kc">true</span>
-          <span class="nv">removeRedundantAttributes: </span><span class="kc">true</span>
-          <span class="nv">removeScriptTypeAttributes: </span><span class="kc">true</span>
-          <span class="nv">removeStyleLinkTypeAttributes: </span><span class="kc">true</span>
-          <span class="nv">collapseWhitespace: </span><span class="kc">true</span></pre></div>             </td>           </tr>                               <tr id="section-52">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-52">&#182;</a>               </div>               <p>tests no longer pass when set to true, stripping some scripts
-removeEmptyElements: true</p>             </td>             <td class="code">               <div class="highlight"><pre>          <span class="nv">collapseBooleanAttributes: </span><span class="kc">true</span>
-          <span class="nv">removeOptionalTags: </span><span class="kc">true</span>
-        <span class="p">}</span>
-
-        <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFile</span> <span class="nx">page</span><span class="p">,</span> <span class="nx">output</span><span class="p">,</span> <span class="nf">(err) -&gt;</span>
-          <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
-          <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;end&#39;</span> <span class="k">if</span> <span class="o">--</span><span class="nx">remaining</span> <span class="o">is</span> <span class="mi">0</span>
-
-  <span class="nx">invoke</span> <span class="s1">&#39;mkdirs&#39;</span>
+    <span class="nv">state = </span><span class="nx">_tasks</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span></pre></div>             </td>           </tr>                               <tr id="section-10">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-10">&#182;</a>               </div>               <p>This (simple) async system and task dependency ensures that a task is only executed once. We emit the
+end event and prevent action call if the task is already done.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="k">return</span> <span class="nx">gem</span><span class="p">.</span><span class="nx">emit</span> <span class="s2">&quot;end:#{name}&quot;</span> <span class="k">if</span> <span class="nx">state</span> <span class="o">is</span> <span class="s1">&#39;done&#39;</span></pre></div>             </td>           </tr>                               <tr id="section-11">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-11">&#182;</a>               </div>               <p>set the task state to pending, will turn done once the task emiter
+emit the end event</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">_tasks</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;pending&#39;</span>
+
+    <span class="nx">log</span><span class="p">.</span><span class="nx">verbose</span> <span class="s2">&quot;start #{name}  » &quot;</span><span class="p">.</span><span class="nx">grey</span></pre></div>             </td>           </tr>                               <tr id="section-12">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-12">&#182;</a>               </div>               <p>invoke the task if the task is unknown yet</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">action</span><span class="p">.</span><span class="nx">call</span> <span class="err">@</span><span class="p">,</span> <span class="nx">options</span><span class="p">,</span> <span class="nx">em</span> <span class="nx">unless</span> <span class="nx">state</span></pre></div>             </td>           </tr>                               <tr id="section-13">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-13">&#182;</a>               </div>               <h3>Autoload tasks in tasks/</h3>
+
+<p>Any <code>.coffee</code> or <code>.js</code> file in <code>tasks/</code> gets loaded and made available as if their content
+was in this Cakefile. Each tasks is added in the order they're defined, sorted by the task filename.</p>
+
+<p>A coffeescript file is compiled before running in a vm context. This system allows both coffee-script
+and JS files to be used to create or maintain cake tasks.</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">fs</span><span class="p">.</span><span class="nx">readdirSync</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;tasks&#39;</span><span class="p">))</span>
+  <span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nf">(file) -&gt;</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">statSync</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;tasks&#39;</span><span class="p">,</span> <span class="nx">file</span><span class="p">)).</span><span class="nx">isFile</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="sr">/^\./</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span> <span class="p">)</span>
+  <span class="p">.</span><span class="nx">forEach</span> <span class="nf">(file) -&gt;</span>
+    <span class="nv">script = </span><span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;tasks&#39;</span><span class="p">,</span> <span class="nx">file</span><span class="p">),</span> <span class="s1">&#39;utf8&#39;</span></pre></div>             </td>           </tr>                               <tr id="section-14">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-14">&#182;</a>               </div>               <p>tasks may be written in pure JS or coffee. Take care of coffee compile if needed.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nv">script = </span><span class="k">if</span> <span class="sr">/\.coffee$/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span> <span class="k">then</span> <span class="nx">coffee</span><span class="p">.</span><span class="nx">compile</span> <span class="nx">script</span> <span class="k">else</span> <span class="nx">script</span></pre></div>             </td>           </tr>                               <tr id="section-15">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-15">&#182;</a>               </div>               <p>merge the globals for console, process etc</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nv">context = </span><span class="nx">extend</span> <span class="p">{},</span> <span class="nx">global</span></pre></div>             </td>           </tr>                               <tr id="section-16">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-16">&#182;</a>               </div>               <p>and setup a few local variable to be available in context</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">extend</span> <span class="nx">context</span><span class="p">,</span> 
+      <span class="nv">task: </span><span class="nx">task</span>
+      <span class="nv">require: </span><span class="nx">require</span>
+      <span class="nv">error: </span><span class="nx">error</span>
+      <span class="nv">gem: </span><span class="nx">gem</span>
+      <span class="nv">__filename: </span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span> <span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;tasks&#39;</span><span class="p">,</span> <span class="nx">file</span>
+      <span class="nv">__dirname: </span><span class="nx">path</span><span class="p">.</span><span class="nx">dirname</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;tasks&#39;</span><span class="p">,</span> <span class="nx">file</span><span class="p">)</span>
+
+    <span class="nx">log</span><span class="p">.</span><span class="nx">silly</span> <span class="s2">&quot;Import #{file}&quot;</span>
+    <span class="nx">vm</span><span class="p">.</span><span class="nx">runInNewContext</span> <span class="nx">script</span><span class="p">,</span> <span class="nx">context</span><span class="p">,</span> <span class="nx">file</span></pre></div>             </td>           </tr>                               <tr id="section-17">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-17">&#182;</a>               </div>               <h3>cake config</h3>
+
+<p>Show configuration for key</p>
+
+<pre><code>cake config
+cake --k dir config
+cake --key paths config
+</code></pre>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;config&#39;</span><span class="p">,</span> <span class="s1">&#39;Show configuration for key&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
+  <span class="nv">conf = </span><span class="nx">config</span><span class="p">[</span><span class="nx">options</span><span class="p">.</span><span class="nx">key</span><span class="p">]</span>
+  <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;warn&#39;</span><span class="p">,</span> <span class="s2">&quot;No #{options.key} in config&quot;</span><span class="p">.</span><span class="nx">yellow</span><span class="p">.</span><span class="nx">bold</span> <span class="k">if</span> <span class="o">not</span> <span class="nx">conf</span>
+  <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="nx">conf</span> <span class="o">or</span> <span class="nx">config</span></pre></div>             </td>           </tr>                               <tr id="section-18">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-18">&#182;</a>               </div>               <h3>manifest</h3>
+
+<p>not (yet) implemented.</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;manifest&#39;</span><span class="p">,</span> <span class="s1">&#39;Manifest stuff (not implemented)&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
 
 </pre></div>             </td>           </tr>                </tbody>     </table>   </div> </body> </html> 

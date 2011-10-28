@@ -1,0 +1,146 @@
+<!DOCTYPE html>  <html> <head>   <title>build.coffee</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="docco.css" /> </head> <body>   <div id="container">     <div id="background"></div>            <div id="jump_to">         Jump To &hellip;         <div id="jump_wrapper">           <div id="jump_page">                                           <a class="source" href="Cakefile.html">                 Cakefile.coffee               </a>                                           <a class="source" href="default.html">                 default.coffee               </a>                                           <a class="source" href="build.html">                 build.coffee               </a>                                           <a class="source" href="createproject.html">                 createproject.coffee               </a>                                           <a class="source" href="css.html">                 css.coffee               </a>                                           <a class="source" href="docs.html">                 docs.coffee               </a>                                           <a class="source" href="help.html">                 help.coffee               </a>                                           <a class="source" href="html.html">                 html.coffee               </a>                                           <a class="source" href="img.html">                 img.coffee               </a>                                           <a class="source" href="js.html">                 js.coffee               </a>                                           <a class="source" href="lint.html">                 lint.coffee               </a>                                           <a class="source" href="test.html">                 test.js               </a>                        </div>         </div>       </div>          <table cellpadding="0" cellspacing="0">       <thead>         <tr>           <th class="docs">             <h1>               build.coffee             </h1>           </th>           <th class="code">           </th>         </tr>       </thead>       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>                            </td>             <td class="code">               <div class="highlight"><pre><span class="nv">fs              = </span><span class="nx">require</span> <span class="s1">&#39;fs&#39;</span>
+<span class="nv">path            = </span><span class="nx">require</span> <span class="s1">&#39;path&#39;</span>
+<span class="p">{</span><span class="nx">spawn</span><span class="p">,</span> <span class="nx">exec</span><span class="p">}</span>   <span class="o">=</span> <span class="nx">require</span> <span class="s1">&#39;child_process&#39;</span>
+<span class="nv">mkdirp          = </span><span class="nx">require</span> <span class="s1">&#39;mkdirp&#39;</span>
+
+<span class="nv">helper = </span><span class="nx">require</span> <span class="s1">&#39;./tasks/util/helper&#39;</span>
+
+<span class="nv">base = </span><span class="nx">process</span><span class="p">.</span><span class="nx">cwd</span><span class="p">()</span></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>               <h2>Main tasks</h2>
+
+<ul>
+<li>combining and minifying CSS</li>
+<li>combining and minifying JS</li>
+<li>image optimization</li>
+</ul>             </td>             <td class="code">               <div class="highlight"><pre></pre></div>             </td>           </tr>                               <tr id="section-3">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-3">&#182;</a>               </div>               <h3>cake build</h3>
+
+<p>Build with defaults configuration the main tasks: js, css and img optimiaztion. Depends on:</p>
+
+<ul>
+<li>js</li>
+<li>css</li>
+<li>img</li>
+<li>usemin</li>
+<li>usecssmin</li>
+</ul>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;build&#39;</span><span class="p">,</span> <span class="s1">&#39;Build with defaults configuration the main tasks: js, css and img optimiaztion&#39;</span><span class="p">,</span> <span class="nf">(option, em) -&gt;</span>
+
+  <span class="nv">start = </span><span class="o">+</span><span class="k">new</span> <span class="nb">Date</span>
+
+  <span class="nx">invoke</span> <span class="s1">&#39;js&#39;</span>
+  <span class="nx">invoke</span> <span class="s1">&#39;css&#39;</span>
+  <span class="nx">invoke</span> <span class="s1">&#39;img&#39;</span>
+  <span class="nx">invoke</span> <span class="s1">&#39;usemin&#39;</span>
+  <span class="nx">invoke</span> <span class="s1">&#39;usecssmin&#39;</span>
+
+  <span class="nv">remaining = </span><span class="mi">0</span>
+  <span class="nv">handle = </span><span class="nf">(name) -&gt;</span>
+    <span class="nx">remaining</span><span class="o">++</span>
+    <span class="k">return</span> <span class="o">-&gt;</span>
+      <span class="k">return</span> <span class="nx">unless</span> <span class="o">--</span><span class="nx">remaining</span> <span class="o">is</span> <span class="mi">0</span>
+
+      <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;Build done, now copy the #{dir.intermediate} folder over to #{dir.publish}&quot;</span>
+
+      <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;minify html before copy...&#39;</span>
+      <span class="nx">invoke</span> <span class="s1">&#39;htmlclean&#39;</span></pre></div>             </td>           </tr>                               <tr id="section-4">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-4">&#182;</a>               </div>               <p>gem.emit 'end:htmlclean'</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:js&#39;</span><span class="p">,</span> <span class="nx">handle</span><span class="p">()</span>
+  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:css&#39;</span><span class="p">,</span> <span class="nx">handle</span><span class="p">()</span>
+  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:img&#39;</span><span class="p">,</span> <span class="nx">handle</span><span class="p">()</span>
+  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:usemin&#39;</span><span class="p">,</span> <span class="nx">handle</span><span class="p">()</span>
+  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:usecssmin&#39;</span><span class="p">,</span> <span class="nx">handle</span><span class="p">()</span>
+
+
+  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:htmlclean&#39;</span><span class="p">,</span> <span class="o">-&gt;</span>
+    <span class="nv">commands = </span><span class="p">[</span>
+      <span class="s2">&quot;cp -r #{base}/#{dir.intermediate} #{base}/#{dir.publish}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;rm -rf #{base}/#{dir.intermediate}&quot;</span>
+    <span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39; &amp;&amp; &#39;</span><span class="p">)</span>
+
+    <span class="nx">exec</span> <span class="nx">commands</span><span class="p">,</span> <span class="nf">(err, stdout, stderr) -&gt;</span>
+      <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
+      <span class="nv">elapsed = </span><span class="p">(</span><span class="o">+</span><span class="k">new</span> <span class="nb">Date</span> <span class="o">-</span> <span class="nx">start</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1000</span>
+      <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;✔ Build Script successful (#{elapsed}s). Check your #{dir.publish}/ folder&quot;</span>
+      <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;end&#39;</span></pre></div>             </td>           </tr>                               <tr id="section-5">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-5">&#182;</a>               </div>               <h3>cake js</h3>
+
+<p>Combines and minifies JS</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;js&#39;</span><span class="p">,</span> <span class="s1">&#39;Combines and minifies JS&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
+
+  <span class="nx">invoke</span> <span class="s1">&#39;js.scripts.concat&#39;</span>
+
+  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:js.scripts.concat&#39;</span><span class="p">,</span> <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">em</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">)</span></pre></div>             </td>           </tr>                               <tr id="section-6">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-6">&#182;</a>               </div>               <h3>cake css</h3>
+
+<p>Combines and minifies CSS</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;css&#39;</span><span class="p">,</span> <span class="s1">&#39;Combines and minifies CSS&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
+
+  <span class="nx">invoke</span> <span class="s1">&#39;css.concat&#39;</span>
+
+  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:css.concat&#39;</span><span class="p">,</span> <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">em</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">)</span></pre></div>             </td>           </tr>                               <tr id="section-7">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-7">&#182;</a>               </div>               <h3>cake img</h3>
+
+<p>Performs img optimization</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;img&#39;</span><span class="p">,</span> <span class="s1">&#39;Performs img optimization&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span></pre></div>             </td>           </tr>                               <tr id="section-8">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-8">&#182;</a>               </div>               <p>img.rev depends on img.optimize, which runs optipng on img/*.png with
+standards options. img.rev handle the automatic revving of img
+filenames.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">invoke</span> <span class="s1">&#39;img.rev&#39;</span>
+
+  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:img.rev&#39;</span><span class="p">,</span> <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">em</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">)</span></pre></div>             </td>           </tr>                               <tr id="section-9">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-9">&#182;</a>               </div>               <h2>Support tasks</h2>             </td>             <td class="code">               <div class="highlight"><pre></pre></div>             </td>           </tr>                               <tr id="section-10">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-10">&#182;</a>               </div>               <h3>cake intro</h3>
+
+<p>Output the intro message.</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;intro&#39;</span><span class="p">,</span> <span class="s1">&#39;Kindly inform the developer about the impending magic&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
+  <span class="nv">message = </span><span class="s2">&quot;&quot;&quot;</span>
+
+<span class="s2">    ====================================================================</span>
+<span class="s2">    Welcome to the ★ HTML5 Boilerplate Build Script! ★</span>
+
+<span class="s2">    We&#39;re going to get your site all ship-shape and ready for prime time.</span>
+
+<span class="s2">    This should take somewhere between 15 seconds and a few minutes,</span>
+<span class="s2">    mostly depending on how many images we&#39;re going to compress.</span>
+
+<span class="s2">    Feel free to come back or stay here and follow along.</span>
+<span class="s2">    =====================================================================</span>
+<span class="s2">  &quot;&quot;&quot;</span>
+
+  <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="nx">message</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n  &#39;</span><span class="p">)</span>
+  <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="nx">message</span><span class="p">.</span><span class="nx">grey</span></pre></div>             </td>           </tr>                               <tr id="section-11">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-11">&#182;</a>               </div>               <h3>cake check</h3>
+
+<p>Performs few validations upon the current repo, outputing errors if any</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;check&#39;</span><span class="p">,</span> <span class="s1">&#39;Performs few validations upon the current repo, outputing errors if any&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span></pre></div>             </td>           </tr>                               <tr id="section-12">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-12">&#182;</a>               </div>               <p>check few configuration values, namely dir.source
+Test whether or not the dir.source path exists.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nv">exists = </span><span class="nx">path</span><span class="p">.</span><span class="nx">existsSync</span> <span class="s2">&quot;#{base}/#{dir.source}&quot;</span>
+
+  <span class="k">return</span> <span class="nx">error</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">&quot;#{base}/#{dir.source} does not exist, change the dir.source config or run cake createproject and enter #{dir.source} when prompted&quot;</span><span class="p">)</span> <span class="nx">unless</span> <span class="nx">exists</span></pre></div>             </td>           </tr>                               <tr id="section-13">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-13">&#182;</a>               </div>               <h3>cake clean</h3>
+
+<p>Wipe the previous build</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;clean&#39;</span><span class="p">,</span> <span class="s1">&#39;Wipe the previous build&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
+  <span class="nx">invoke</span> <span class="s1">&#39;intro&#39;</span>
+  <span class="nx">invoke</span> <span class="s1">&#39;check&#39;</span>
+
+  <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;Cleaning up previous build directory...&#39;</span><span class="p">.</span><span class="nx">grey</span>
+
+  <span class="nx">exec</span> <span class="s2">&quot;rm -rf #{dir.intermediate} #{dir.publish}&quot;</span><span class="p">,</span> <span class="nf">(err, stdout, stderr) -&gt;</span>
+    <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
+
+    <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="nx">stdout</span></pre></div>             </td>           </tr>                               <tr id="section-14">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-14">&#182;</a>               </div>               <h3>cake mkdirs</h3>
+
+<p>Create the directory structure and
+copy the whole <code>dir.source</code> to <code>dir.intermediate</code>.</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">task</span> <span class="s1">&#39;mkdirs&#39;</span><span class="p">,</span> <span class="s1">&#39;Create the directory intermediate structure&#39;</span><span class="p">,</span> <span class="nf">(options, em) -&gt;</span>
+
+  <span class="nx">invoke</span> <span class="s1">&#39;clean&#39;</span>
+
+  <span class="nx">gem</span><span class="p">.</span><span class="kc">on</span> <span class="s1">&#39;end:clean&#39;</span><span class="p">,</span> <span class="o">-&gt;</span>
+    <span class="nv">failmsg = </span><span class="s2">&quot;Your dir.publish folder is set to #{dir.publish} which could delete your entire site or worse. Change it in project.properties&quot;</span>
+    <span class="nv">dangerousPath = </span><span class="o">!!~</span><span class="p">[</span><span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;./&#39;</span><span class="p">,</span> <span class="s1">&#39;../&#39;</span><span class="p">].</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">dir</span><span class="p">.</span><span class="nx">publish</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nx">error</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">failmsg</span><span class="p">)</span> <span class="k">if</span> <span class="nx">dangerousPath</span>
+
+    <span class="nx">process</span><span class="p">.</span><span class="nx">chdir</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">base</span><span class="p">,</span> <span class="s2">&quot;#{dir.source}&quot;</span><span class="p">)</span>
+    <span class="nx">helper</span><span class="p">.</span><span class="nx">fileset</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">file</span><span class="p">.</span><span class="nx">default</span><span class="p">.</span><span class="nx">exclude</span><span class="p">,</span> <span class="nx">file</span><span class="p">.</span><span class="nx">exclude</span><span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">))</span>
+      <span class="p">.</span><span class="kc">on</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">console</span><span class="p">))</span>
+      <span class="p">.</span><span class="kc">on</span><span class="p">(</span><span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="nf">(files) -&gt;</span>
+        <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s2">&quot;Copying #{files.length} files over to #{dir.intermediate} and #{dir.publish} from #{dir.source}&quot;</span><span class="p">.</span><span class="nx">grey</span>
+        <span class="nv">destinations = </span><span class="p">[</span><span class="nx">dir</span><span class="p">.</span><span class="nx">intermediate</span><span class="p">]</span>
+        <span class="nv">remaining = </span><span class="nx">files</span><span class="p">.</span><span class="nx">length</span> <span class="o">*</span> <span class="nx">destinations</span><span class="p">.</span><span class="nx">length</span>
+        <span class="k">for</span> <span class="nx">to</span> <span class="k">in</span> <span class="nx">destinations</span> <span class="k">then</span> <span class="nx">do</span> <span class="nf">(to) -&gt;</span>
+          <span class="k">for</span> <span class="nx">file</span> <span class="k">in</span> <span class="nx">files</span> <span class="k">then</span> <span class="nx">do</span><span class="nf">(file) -&gt;</span>
+            <span class="nv">fragment = </span><span class="nx">file</span><span class="p">.</span><span class="nx">split</span> <span class="s1">&#39;/&#39;</span>
+            <span class="nv">dirname = </span><span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="nx">file</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">..</span><span class="o">-</span><span class="mi">2</span><span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+            <span class="nv">dirname = </span><span class="nx">dirname</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">dirname</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="nx">base</span><span class="p">)[</span><span class="mi">1</span><span class="p">].</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">..][</span><span class="mi">0</span><span class="p">],</span> <span class="nx">to</span><span class="p">)</span>
+            <span class="nv">filename = </span><span class="nx">file</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">..][</span><span class="mi">0</span><span class="p">]</span>
+
+            <span class="nx">mkdirp</span> <span class="nx">dirname</span><span class="p">,</span> <span class="mi">0755</span><span class="p">,</span> <span class="nf">(err) -&gt;</span>
+              <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
+              <span class="nv">to = </span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">dirname</span><span class="p">,</span> <span class="nx">filename</span><span class="p">)</span>
+              <span class="nx">exec</span> <span class="s2">&quot;cp -v #{file} #{to}&quot;</span><span class="p">,</span> <span class="nf">(err, stdout, stderr) -&gt;</span>
+                <span class="k">return</span> <span class="nx">error</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
+                <span class="nx">em</span><span class="p">.</span><span class="nx">emit</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="s1">&#39;done&#39;</span> <span class="k">if</span> <span class="o">--</span><span class="nx">remaining</span> <span class="o">is</span> <span class="mi">0</span>
+      <span class="p">)</span>
+
+</pre></div>             </td>           </tr>                </tbody>     </table>   </div> </body> </html> 
