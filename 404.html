@@ -11,10 +11,18 @@
     ::-moz-selection{ background:#FF5E99; color:#fff; }
     ::selection { background:#FF5E99; color:#fff; }
     article {display:block; text-align: left; width: 500px; margin: 0 auto; }
-
+    #url { color: rgb(36, 109, 56);}
     a { color: rgb(36, 109, 56); text-decoration:none; }
     a:hover { color: rgb(96, 73, 141) ; text-shadow: 2px 2px 2px rgba(36, 109, 56, 0.5); }
+    input[type=text] {border: 1px solid #999;padding: 0px 5px;height:25px; margin: 0px 10px 0px 0px;vertical-align: middle;color: #666; background:#EEE;cursor: text;}
+    input[type=submit] {border: 1px solid #999;height:27px;vertical-align: middle;color: #666; background:#EEE}
+    input[type=submit]:hover {border: 1px solid #999;height:27px;vertical-align: middle;color: #555; background:#DDD;cursor: pointer;}
   </style>
+  <noscript>
+    <style>
+      .need-js { display: none; }
+    </style>
+  </noscript>
 </head>
 <body>
   <article>
@@ -23,7 +31,13 @@
       <p>Sorry, but the page you were trying to view does not exist.</p>
       <p>It looks like this was the result of either:</p>
       <ul>
-        <li>a mistyped address</li>
+        <li>a mistyped address
+          <ul class="need-js">
+            <li>
+              <span>Was '<span id="url"><script>document.write(document.URL);</script></span>' really what you wanted?</span>
+            </li>
+          </ul>
+        </li>
         <li>an out-of-date link</li>
       </ul>
     </div>
