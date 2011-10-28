@@ -46,7 +46,7 @@ createproject` task. This may change.
 
 The build script relies on a project's folder (`dir.source` in
 configuration). This one may be created using the `cake creatproject`
-task (you'll be prompted is no `--output` option is provided).
+task (you'll be prompted if no `--output` option is provided).
 
 ### Running tests
 
@@ -63,7 +63,7 @@ Here is the npm script you can trigger by running `npm test`.
 The createproject task will clone the remote repository (or pull if the
 h5bp folder is there), and create a new project folder named `_test`.
 Then the build is triggered by running `cake build` with the lowest
-loglevel.
+loglevel).
 
 By default, `publish/` is where the build script generates the final
 result.
@@ -74,7 +74,7 @@ result.
 Tasks can be written in CoffeeScript or pure JavaScript. The main
 Cakefile includes a simple loading mechanism (relying on the
 [vm](http://nodejs.org/docs/v0.5.10/api/vm.html) module, which
-automatically loads the tasks files under tasks/ folder.
+automatically loads the tasks files under tasks/ folder).
 
 Creating/Removing tasks is simply a matter of creating new tasks files
 in the tasks/ folder. Tasks files are written very much the same way as
@@ -105,7 +105,8 @@ prompt, info, data, help, warn, debug, error and silent.
 The default loglevel is set to `input`. If you want a build to be run
 with a different log level, simply run the following:
 
-    cake -l info <task> cake --loglevel silly <task>
+    cake -l info <task>
+    cake --loglevel silly <task>
 
 Log levels can be provided with the short (`-l`) or long (`--loglevel`)
 option format.
@@ -120,12 +121,13 @@ see `cake -h config help` for more informations.
 
 ## Get Help
 
-A special `cake help` tasks, if supplied a topic, shows the appropriate
+A special `cake help` task, if supplied a topic, shows the appropriate
 documentation page.
 
-If the topic does not exist, then it attempts to read the documentation, parsed
-from markdown content in tasks source files. If neither of the topic or tasks file
-exist, then it'll show the README documentation page.
+If the topic does not exist, then it attempts to read the documentation,
+parsed from markdown content in tasks source files. If neither of the
+topic or tasks file exist, then it'll show the README documentation
+page.
 
     cake help
 
@@ -160,10 +162,10 @@ need a way to ensure a given tasks is run only when the list of its
 dependencies are done.
 
 This is done using a modified version of cake's task function, where a
-second parameter is avaible: a task-scopped event emitter.
+second parameter is available: a task-scopped event emitter.
 
 Basically, tasks can notify the build system they're done by emitting a
-`end` event, with optionnal arguments other tasks may consume.
+`end` event, with optional arguments other tasks may consume.
 
 *more docs to come soon on this subject*
 
@@ -175,7 +177,7 @@ with.
 A tasks may invoke another tasks, and so forth express their
 dependencies by using the `invoke` method Cake provides.
 
-A given tasks can only be runned once, any tasks that tries to invoke a
+A given tasks can only be run once, any tasks that tries to invoke a
 task which was already run previously will do basically nothing, and
 just ensure the `end` event is emitted.
 
@@ -192,9 +194,9 @@ to tasks' functions.
 
 Namely provides a few logging helpers:
 
-    em.emit 'log', 'Something to log' 
+    em.emit 'log', 'Something to log'
     em.emit 'warn', 'Something to warn'
-    em.emit 'error', 'Error to log, and exit program' 
+    em.emit 'error', 'Error to log, and exit program'
     em.emit 'data', {foo: 'bar'}
 
 Tasks in `tasks/` does not gain access to the logger instance, they
@@ -230,7 +232,7 @@ Here is the npm scripts:
       "test": "vows h5bp/tests/basic.js --spec"
     }
 
-Firtst, we ensure we have the local repository available and trigger a
+First, we ensure we have the local repository available and trigger a
 new build (good sanity check on the tasks too).
 
 Then, the test suites in `tests/` are executed and perform a series of
