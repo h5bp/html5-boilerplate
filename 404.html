@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Page Not Found :(</title>
   <style>
-    body { text-align: center;}
+    body { text-align: center;cursor: default;}
     h1 { font-size: 50px; text-align: center }
     span[data-frown] { transform: rotate(90deg); display:inline-block; color: #bbb; }
     body { font: 20px Constantia, 'Hoefler Text',  "Adobe Caslon Pro", Baskerville, Georgia, Times, serif; color: #999; text-shadow: 2px 2px 2px rgba(200, 200, 200, 0.5); }
@@ -18,11 +18,6 @@
     input[type=submit] {border: 1px solid #999;height:27px;vertical-align: middle;color: #666; background:#EEE}
     input[type=submit]:hover {border: 1px solid #999;height:27px;vertical-align: middle;color: #555; background:#DDD;cursor: pointer;}
   </style>
-  <noscript>
-    <style>
-      .need-js { display: none; }
-    </style>
-  </noscript>
 </head>
 <body>
   <article>
@@ -31,17 +26,10 @@
       <p>Sorry, but the page you were trying to view does not exist.</p>
       <p>It looks like this was the result of either:</p>
       <ul>
-        <li>a mistyped address
-          <ul class="need-js">
-            <li>
-              <span>Was '<span id="url"><script>document.write(document.URL);</script></span>' really what you wanted?</span>
-            </li>
-          </ul>
-        </li>
+        <li>a mistyped address</li>
         <li>an out-of-date link</li>
       </ul>
     </div>
-
     <script>
       var GOOG_FIXURL_LANG = (navigator.language || '').slice(0,2),
       GOOG_FIXURL_SITE = location.host;
