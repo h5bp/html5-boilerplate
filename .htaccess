@@ -28,7 +28,7 @@
 <IfModule mod_headers.c>
   Header set X-UA-Compatible "IE=Edge,chrome=1"
   # mod_headers can't match by content-type, but we don't want to send this header on *everything*...
-  <FilesMatch "\.(js|css|gif|png|jpe?g|pdf|xml|oga|ogg|m4a|ogv|mp4|m4v|webm|svg|svgz|eot|ttf|otf|woff|ico|webp|appcache|manifest|htc|crx|xpi|safariextz|vcf)$" >
+  <FilesMatch "\.(js|css|gif|png|jpe?g|pdf|xml|oga|ogg|m4a|ogv|mp4|m4v|webm|svg|svgz|eot|ttf|otf|woff|ico|webp|appcache|manifest|htc|crx|oex|xpi|safariextz|vcf)$" >
     Header unset X-UA-Compatible
   </FilesMatch>
 </IfModule>
@@ -101,6 +101,7 @@ AddType image/webp                     webp
 AddType text/cache-manifest            appcache manifest
 AddType text/x-component               htc
 AddType application/x-chrome-extension crx
+AddType application/x-opera-extension  oex
 AddType application/x-xpinstall        xpi
 AddType application/octet-stream       safariextz
 AddType text/x-vcard                   vcf
