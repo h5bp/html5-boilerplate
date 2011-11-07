@@ -446,6 +446,16 @@ AddCharset utf-8 .html .css .js .xml .json .rss .atom
 </IfModule>
 
 
+# Block access to backup and source files
+# This files may be left by some text/html editors and 
+# pose a great security danger, when someone can access them
+<FilesMatch ".(bak|config|sql|fla|psd|ini|log|sh|inc|~|swp)$">
+  Order allow,deny
+  Deny from all
+  Satisfy All
+</FilesMatch>
+
+
 # If your server is not already configured as such, the following directive
 # should be uncommented in order to set PHP's register_globals option to OFF.
 # This closes a major security hole that is abused by most XSS (cross-site
