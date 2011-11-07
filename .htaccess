@@ -354,6 +354,26 @@ FileETag None
 
 
 # ----------------------------------------------------------------------
+# Normalize case to lower in URI 
+# ----------------------------------------------------------------------
+
+# Rewrites "/PaTH/to/paGE/ -> /path/to/page/"
+# http://stackoverflow.com/questions/1998156/case-insensitive-urls-with-mod-rewrite
+
+# The RewriteMap definition must be set in the <VirtualHost> block of httpd.conf.
+# It will not work in htaccess.
+
+# RewriteEngine on
+# RewriteMap lower int:tolower
+
+# <IfModule mod_rewrite.c>
+# RewriteCond ${lower:%{REQUEST_URI}} -U
+# RewriteRule [A-Z] ${lower:%{REQUEST_URI}} [R=301,L]
+# </IfModule mod_rewrite.c>
+
+
+
+# ----------------------------------------------------------------------
 # Built-in filename-based cache busting
 # ----------------------------------------------------------------------
 
