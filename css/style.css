@@ -137,7 +137,7 @@ form { margin: 0; }
 fieldset { border: 0; margin: 0; padding: 0; }
 
 /* Indicate that 'label' will shift focus to the associated form element */
-label { cursor: pointer; }
+label[for] { cursor: pointer; }
 
 /*
  * 1. Correct color not inheriting in IE6/7/8/9
