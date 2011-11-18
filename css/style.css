@@ -59,6 +59,9 @@ a:focus { outline: thin dotted; }
 /* Improve readability when focused and hovered in all browsers: h5bp.com/h */
 a:hover, a:active { outline: 0; }
 
+/* Skip Nav Link - this is hidden by default and shows up at the top, center if focused - more info at http://bit.ly/sOGGbb and http://bit.ly/sKG7PL */
+#skip a, #skip a:hover, #skip a:visited { position:absolute; left:-9999px; top:0px; width:1px; height:1px; overflow:hidden; z-index: 9999; text-align: center; } 
+#skip a:active, #skip a:focus { position:absolute; left:50%; margin-left: -80px; width:160px; height:auto; }
 
 /* =============================================================================
    Typography
