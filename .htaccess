@@ -38,7 +38,7 @@
 # Cross-domain AJAX requests
 # ----------------------------------------------------------------------
 
-# Serve cross-domain ajax requests, disabled.
+# Serve cross-domain Ajax requests, disabled by default.
 # enable-cors.org
 # code.google.com/p/html5security/wiki/CrossOriginRequestSecurity
 
@@ -46,6 +46,22 @@
 #    Header set Access-Control-Allow-Origin "*"
 #  </IfModule>
 
+
+# ----------------------------------------------------------------------
+# CORS-enabled images (@crossorigin)
+# ----------------------------------------------------------------------
+
+# Send CORS headers if browsers request them; enabled by default.
+# developer.mozilla.org/en/CORS_Enabled_Image
+# blog.chromium.org/2011/07/using-cross-domain-images-in-webgl-and.html
+# hacks.mozilla.org/2011/11/using-cors-to-load-webgl-textures-from-cross-domain-images/
+
+<IfModule mod_setenvif.c>
+  <IfModule mod_headers.c>
+    SetEnvIf Origin ":" IS_CORS
+    Header set Access-Control-Allow-Origin "*" env=IS_CORS
+  </IfModule>
+</IfModule>
 
 
 # ----------------------------------------------------------------------
