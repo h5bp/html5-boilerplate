@@ -99,7 +99,7 @@ AddType video/ogg                      ogv
 AddType video/mp4                      mp4 m4v
 AddType video/webm                     webm
 
-# SVG.
+# SVG
 #   Required for svg webfonts on iPad
 #   twitter.com/FontSquirrel/status/14855840545
 AddType     image/svg+xml              svg svgz
@@ -107,20 +107,21 @@ AddEncoding gzip                       svgz
 
 # Webfonts
 AddType application/vnd.ms-fontobject  eot
-AddType application/x-font-ttf    ttf ttc
+AddType application/x-font-ttf         ttf ttc
 AddType font/opentype                  otf
 AddType application/x-font-woff        woff
 
 # Assorted types
-AddType image/x-icon                   ico
-AddType image/webp                     webp
-AddType text/cache-manifest            appcache manifest
-AddType text/x-component               htc
-AddType application/x-chrome-extension crx
-AddType application/x-opera-extension  oex
-AddType application/x-xpinstall        xpi
-AddType application/octet-stream       safariextz
-AddType text/x-vcard                   vcf
+AddType image/x-icon                        ico
+AddType image/webp                          webp
+AddType text/cache-manifest                 appcache manifest
+AddType text/x-component                    htc
+AddType application/x-chrome-extension      crx
+AddType application/x-opera-extension       oex
+AddType application/x-xpinstall             xpi
+AddType application/octet-stream            safariextz
+AddType application/x-web-app-manifest+json webapp 
+AddType text/x-vcard                        vcf
 
 
 
