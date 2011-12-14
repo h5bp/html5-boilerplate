@@ -330,6 +330,17 @@ FileETag None
 
 
 # ----------------------------------------------------------------------
+# Apache Performance Tuning
+# ----------------------------------------------------------------------
+
+# Without -SymLinksIfOwnerMatch Apache will have to issue extra system calls to check up on symlinks.
+# For highest performance and no symlink protection set +FollowSymLinks and -SymLinksIfOwnerMatch
+
+Options -SymLinksIfOwnerMatch
+
+
+
+# ----------------------------------------------------------------------
 # Suppress or force the "www." at the beginning of URLs
 # ----------------------------------------------------------------------
 
