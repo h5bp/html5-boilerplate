@@ -437,7 +437,7 @@ ErrorDocument 404 /404.html
 AddDefaultCharset utf-8
 
 # Force UTF-8 for a number of file formats
-AddCharset utf-8 .html .css .js .xml .json .rss .atom .txt
+AddCharset utf-8 .css .js .xml .json .rss .atom
 
 
 
