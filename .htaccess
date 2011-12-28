@@ -335,6 +335,7 @@ FileETag None
 
 # Without -SymLinksIfOwnerMatch Apache will have to issue extra system calls to check up on symlinks.
 # For highest performance and no symlink protection set +FollowSymLinks and -SymLinksIfOwnerMatch
+# httpd.apache.org/docs/current/misc/perf-tuning.html#symlinks
 
 Options -SymLinksIfOwnerMatch
 
