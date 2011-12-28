@@ -53,6 +53,7 @@ body, button, input, select, textarea { font-family: sans-serif; color: #222; }
 
 a { color: #00e; }
 a:visited { color: #551a8b; }
+a:visited:hover { color: #901D96;}
 a:hover { color: #06e; }
 a:focus { outline: thin dotted; }
 
