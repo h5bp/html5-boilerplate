@@ -1,6 +1,6 @@
 require 'set'
 
-namespace :base do
+namespace :core do
   desc "makes any required directories"
   task :mkdir do
     inter = CONF['dir']['intermediate']
