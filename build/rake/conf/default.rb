@@ -1,6 +1,7 @@
 CONF = Hash.new
 CONF['dir'] = Hash.new
 
+CONF['dir']['source']       = '.'
 CONF['dir']['publish']      = 'publish'
 CONF['dir']['intermediate'] = 'intermediate'
 
