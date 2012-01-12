@@ -4,8 +4,8 @@ require 'rake/clean'
 # Require the default set of config values.
 require 'conf/default'
 
-# All of the actions we're going to run are at the top-level conf.
-FileUtils.cd("../../")
+# Load all of the Rake tasks.
+Dir.glob('tasks/*.rake').each { |r| import r }
 
 CLOBBER.include(CONF['dir']['publish'])
 CLEAN.include(CONF['dir']['intermediate'])
