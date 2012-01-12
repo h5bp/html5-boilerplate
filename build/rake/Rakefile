@@ -1,32 +1,14 @@
 require 'rubygems'
 require 'rake/clean'
 
-conf = Hash.new
-conf['dir'] = Hash.new
-
-conf['dir']['publish']      = 'publish'
-conf['dir']['intermediate'] = 'intermediate'
-
-conf['dir']['build']        = 'build'
-conf['dir']['build.tools']  = conf['dir']['build'] + '/tools'
-
-conf['dir']['test']         = 'test'
-conf['dir']['demo']         = 'demo'
-
-conf['dir']['js']           = 'js'
-conf['dir']['css']          = 'css'
-conf['dir']['images']       = 'img'
-
-# scripts in the lib confectory will only be minified, not
-# concatenated together.
-conf['dir']['js.libs']      = conf['dir']['js'] + '/libs'
-conf['dir']['js.mylibs']    = conf['dir']['js'] + 'mylibs'
+# Require the default set of config values.
+require 'conf/default'
 
 # All of the actions we're going to run are at the top-level conf.
 FileUtils.cd("../../")
 
-CLOBBER.include(conf['dir']['publish'])
-CLEAN.include(conf['dir']['intermediate'])
+CLOBBER.include(CONF['dir']['publish'])
+CLEAN.include(CONF['dir']['intermediate'])
 
 desc "The default set of tasks"
 task :default => [:test]
