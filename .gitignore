@@ -37,11 +37,7 @@ dwsync.xml
 intermediate
 publish
 .idea
-tmp
 
 # build script local files
 build/buildinfo.properties
 build/config/buildinfo.properties
-
-# Ruby
-Gemfile.lock
