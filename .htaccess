@@ -337,7 +337,7 @@ FileETag None
 # For highest performance and no symlink protection set +FollowSymLinks and -SymLinksIfOwnerMatch
 # httpd.apache.org/docs/current/misc/perf-tuning.html#symlinks
 
-Options -SymLinksIfOwnerMatch
+# Options -SymLinksIfOwnerMatch
 
 
 
