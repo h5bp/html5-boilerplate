@@ -258,6 +258,9 @@ td { vertical-align: top; }
 /* Hide visually and from screenreaders, but maintain layout */
 .invisible { visibility: hidden; }
 
+/* Class for fixing inline-block in IE */
+.ib { zoom:1; *display: inline; }
+
 /* Contain floats: h5bp.com/q */
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
