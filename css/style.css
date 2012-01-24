@@ -1,5 +1,5 @@
 /*
- * HTML5 ✰ Boilerplate
+ * HTML5 Boilerplate
  *
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
@@ -221,19 +221,13 @@ td { vertical-align: top; }
 
 
 /* ==|== media queries ======================================================
-   PLACEHOLDER Media Queries for Responsive Design.
-   These override the primary ('mobile first') styles
+   EXAMPLE Media Query for Responsive Design.
+   This example overrides the primary ('mobile first') styles
    Modify as content requires.
    ========================================================================== */
 
-@media only screen and (min-width: 480px) {
-  /* Style adjustments for viewports 480px and over go here */
-
-}
-
-@media only screen and (min-width: 768px) {
-  /* Style adjustments for viewports 768px and over go here */
-
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
 }
 
 
