@@ -63,15 +63,17 @@ a:hover, a:active { outline: 0; }
    Typography
    ========================================================================== */
 
+blockquote, h1, h2, h3, h4, h5, h6, hr, p, pre, ul, ol, dl, fieldset, table { margin: 1em 0; }
+
 abbr[title] { border-bottom: 1px dotted; }
 
 b, strong { font-weight: bold; }
 
-blockquote { margin: 1em 40px; }
+blockquote { margin-right: 40px; margin-left: 40px; }
 
 dfn { font-style: italic; }
 
-hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; padding: 0; }
 
 ins { background: #ff9; color: #000; text-decoration: none; }
 
@@ -98,7 +100,7 @@ sub { bottom: -0.25em; }
    Lists
    ========================================================================== */
 
-ul, ol { margin: 1em 0; padding: 0 0 0 40px; }
+ul, ol { padding: 0 0 0 40px; }
 dd { margin: 0 0 0 40px; }
 nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0; }
 
