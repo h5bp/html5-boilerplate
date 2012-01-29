@@ -32,9 +32,9 @@ audio:not([controls]) { display: none; }
 
 html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 
-body { margin: 0; font-size: 1em; line-height: 1.4; }
+html, button, input, select, textarea { font-family: sans-serif; color: #222; }
 
-body, button, input, select, textarea { font-family: sans-serif; color: #222; }
+body { margin: 0; font-size: 1em; line-height: 1.4; }
 
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
@@ -199,6 +199,7 @@ input:invalid, textarea:invalid { background-color: #f0dddd; }
 
 table { border-collapse: collapse; border-spacing: 0; }
 td { vertical-align: top; }
+
 
 /* =============================================================================
    Chrome Frame Prompt 
