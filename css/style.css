@@ -203,12 +203,9 @@ td { vertical-align: top; }
 /* =============================================================================
    Chrome Frame Prompt 
    ========================================================================== */
-.chromeframe {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: black;
-  padding: 0.2em 0;
-}
+
+.chromeframe { margin: 0.2em 0; background: #ccc; color: black; padding: 0.2em 0; }
+
 
 /* ==|== primary styles =====================================================
    Author:
