@@ -375,6 +375,20 @@ FileETag None
 
 
 # ----------------------------------------------------------------------
+# Redirect requests for the apple-touch-icons to the correct location.
+# ----------------------------------------------------------------------
+
+# In order to move the favicons out of the document root, this rule exists.
+# The primary goal is to reduce the "sloppiness" of having all these files
+# in the document root.
+
+<IfModule mod_rewrite.c>
+  RewriteRule ^(apple-touch-icon(-[\d]*x[\d]*){0,1}(-precomposed){0,1}\.png)$ /img/favicon/$1 [PT]
+</IfModule>
+
+
+
+# ----------------------------------------------------------------------
 # Built-in filename-based cache busting
 # ----------------------------------------------------------------------
 
