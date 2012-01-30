@@ -265,10 +265,6 @@ AddType text/x-vcard                        vcf
   ExpiresByType text/css                  "access plus 1 year"
   ExpiresByType application/javascript    "access plus 1 year"
 
-  <IfModule mod_headers.c>
-    Header append Cache-Control "public"
-  </IfModule>
-
 </IfModule>
 
 
