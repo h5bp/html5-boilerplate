@@ -166,6 +166,7 @@ button, input { line-height: normal; }
  */
 
 button, input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; -webkit-appearance: button; *overflow: visible; }
+button[disabled] { cursor:default; }
 
 /*
  * Consistent box sizing and appearance
