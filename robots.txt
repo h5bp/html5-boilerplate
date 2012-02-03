@@ -1,5 +1,4 @@
 # www.robotstxt.org/
-# www.google.com/support/webmasters/bin/answer.py?hl=en&answer=156449
+# http://code.google.com/web/controlcrawlindex/
 
 User-agent: *
-
