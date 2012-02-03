@@ -39,11 +39,11 @@ src=$(git rev-parse --show-toplevel) || {
 
 if [ $# -eq 1 ]
 then
-    # get a name for new project from command line arguments
+    #get a name for new project from command line arguments
     name="$1"
 fi
 
-# get a name for new project from input
+#get a name for new project from input
 while [[ -z $name ]]
 do
     echo "To create a new html5-boilerplate project, enter a new directory name:"
@@ -59,18 +59,27 @@ fi
 
 if [[ -d $dst ]]
 then
-    echo "$dst exists"
+    read -p "$dst exists - using this directory may overwrite files. Continue (y/n)?"
+	
+	[[ $REPLY != [yY] ]] && {
+		#cancel message
+		echo "Cancelled"
+		exit
+	}
+	
+	#use existing dir...
+	
 else
-    #create new project
-    mkdir -p -- "$dst" || exit 1
-
-    #success message
-    echo "Created Directory: $dst"
-
-    cd -- "$src"
-    cp -vr -- css js img build *.html *.xml *.txt *.png *.ico .htaccess "$dst"
-
-    #success message
-    echo "Created Project: $dst"
+	#create new project
+	mkdir -p -- "$dst" || exit 1
+	
+	#success message
+	echo "Created Directory: $dst"
 fi
+
+cd -- "$src"
+cp -vr -- css js img build *.html *.xml *.txt *.png *.ico .htaccess "$dst"
+
+#final success message
+echo "Created Project: $dst"
 
