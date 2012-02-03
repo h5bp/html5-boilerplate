@@ -18,10 +18,15 @@
   <!-- Mobile viewport optimized: h5bp.com/viewport -->
   <meta name="viewport" content="width=device-width">
 
+  <!-- Prefetch DNS from your static content domain or CDN to reduce latency when loading static content -->
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="http://static.example.com">
+  <link rel="dns-prefetch" href="http://static2.example.com">
+
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 
   <link rel="stylesheet" href="css/style.css">
-  
+
   <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
 
   <!-- All JavaScript at the bottom, except this Modernizr build.
@@ -67,6 +72,6 @@
     s.parentNode.insertBefore(g,s)}(document,'script'));
   </script>
 
-  
+
 </body>
 </html>
