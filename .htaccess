@@ -468,7 +468,7 @@ AddCharset utf-8 .css .js .xml .json .rss .atom
 # Block access to backup and source files
 # This files may be left by some text/html editors and
 # pose a great security danger, when someone can access them
-<FilesMatch "\.(bak|config|sql|fla|psd|ini|log|sh|inc|~|swp|dist)$">
+<FilesMatch "(\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist)|~)$">
   Order allow,deny
   Deny from all
   Satisfy All
