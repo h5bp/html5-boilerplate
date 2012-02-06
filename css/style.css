@@ -109,7 +109,7 @@ nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0
 
 /*
  * 1. Improve image quality when scaled in IE7: h5bp.com/d
- * 2. Remove the gap between images and borders on image containers: h5bp.com/e
+ * 2. Remove the gap between images and borders on image containers: h5bp.com/i/440
  */
 
 img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
@@ -208,7 +208,7 @@ td { vertical-align: top; }
 
 
 /* =============================================================================
-   Chrome Frame Prompt 
+   Chrome Frame Prompt
    ========================================================================== */
 
 .chromeframe { margin: 0.2em 0; background: #ccc; color: black; padding: 0.2em 0; }
