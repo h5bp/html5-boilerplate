@@ -120,6 +120,8 @@ img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
 
 svg:not(:root) { overflow: hidden; }
 
+/* Remove margins on form elements */
+button, input, optgroup, select, textarea { margin: 0; }
 
 /* =============================================================================
    Figures
