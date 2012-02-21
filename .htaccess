@@ -308,9 +308,7 @@ FileETag None
 # If needed, uncomment and specify a path or regex in the Location directive
 
 # <IfModule mod_headers.c>
-#   <Location />
-#     Header set P3P "policyref=\"/w3c/p3p.xml\", CP=\"IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT\""
-#   </Location>
+#   Header set P3P "policyref=\"/w3c/p3p.xml\", CP=\"IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT\""
 # </IfModule>
 
 
