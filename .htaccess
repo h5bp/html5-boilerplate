@@ -377,7 +377,7 @@ FileETag None
 # /css/style.20110203.css to /css/style.css
 
 # To understand why this is important and a better idea than all.css?v1231,
-# read: github.com/h5bp/html5-boilerplate/wiki/Version-Control-with-Cachebusting
+# read: github.com/h5bp/html5-boilerplate/wiki/cachebusting
 
 # Uncomment to enable.
 # <IfModule mod_rewrite.c>
