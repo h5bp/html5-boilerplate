@@ -252,6 +252,7 @@ td { vertical-align: top; }
 /* For image replacement */
 .ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; *line-height: 0; }
 .ir br { display: none; }
+.ir address, .ir article, .ir aside, .ir audio, .ir blockquote, .ir canvas, .ir dd, .ir div, .ir dl, .ir fieldset, .ir figcaption, .ir figure, .ir footer, .ir form, .ir h1, .ir h2, .ir h3, .ir h4, .ir h5, .ir h6, .ir header, .ir hgroup, .ir hr, .ir noscript, .ir ol, .ir output, .ir p, .ir pre, .ir section, .ir table, .ir tfoot, .ir ul, .ir video { display: inline; }
 
 /* Hide from both screenreaders and browsers: h5bp.com/u */
 .hidden { display: none !important; visibility: hidden; }
