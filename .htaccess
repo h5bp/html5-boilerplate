@@ -211,6 +211,7 @@ AddType text/x-vcard                        vcf
 # These are pretty far-future expires headers.
 # They assume you control versioning with cachebusting query params like
 #   <script src="application.js?20100608">
+#   <img src="path/to/image.jpg?2010203">
 # Additionally, consider that outdated proxies may miscache
 #   www.stevesouders.com/blog/2008/08/23/revving-filenames-dont-use-querystring/
 
@@ -380,11 +381,11 @@ FileETag None
 # read: github.com/h5bp/html5-boilerplate/wiki/cachebusting
 
 # Uncomment to enable.
-# <IfModule mod_rewrite.c>
-#   RewriteCond %{REQUEST_FILENAME} !-f
-#   RewriteCond %{REQUEST_FILENAME} !-d
-#   RewriteRule ^(.+)\.(\d+)\.(js|css|png|jpg|gif)$ $1.$3 [L]
-# </IfModule>
+<IfModule mod_rewrite.c>
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.+)\.(\d+)\.(js|css|png|jpg|gif)$ $1.$3 [L]
+</IfModule>
 
 
 
