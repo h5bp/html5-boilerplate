@@ -308,9 +308,7 @@ FileETag None
 # If needed, uncomment and specify a path or regex in the Location directive
 
 # <IfModule mod_headers.c>
-#   <Location />
-#     Header set P3P "policyref=\"/w3c/p3p.xml\", CP=\"IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT\""
-#   </Location>
+#   Header set P3P "policyref=\"/w3c/p3p.xml\", CP=\"IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT\""
 # </IfModule>
 
 
@@ -379,7 +377,7 @@ FileETag None
 # /css/style.20110203.css to /css/style.css
 
 # To understand why this is important and a better idea than all.css?v1231,
-# read: github.com/h5bp/html5-boilerplate/wiki/Version-Control-with-Cachebusting
+# read: github.com/h5bp/html5-boilerplate/wiki/cachebusting
 
 # Uncomment to enable.
 # <IfModule mod_rewrite.c>
