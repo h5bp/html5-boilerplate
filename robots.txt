@@ -1,4 +1,4 @@
 # www.robotstxt.org/
-# http://code.google.com/web/controlcrawlindex/
+# https://developers.google.com/webmasters/control-crawl-index/
 
 User-agent: *
