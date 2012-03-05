@@ -120,6 +120,7 @@ AddType image/x-icon                        ico
 AddType image/webp                          webp
 AddType text/cache-manifest                 appcache manifest
 AddType text/x-component                    htc
+AddType application/xml                     rss atom xml rdf
 AddType application/x-chrome-extension      crx
 AddType application/x-opera-extension       oex
 AddType application/x-xpinstall             xpi
