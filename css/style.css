@@ -63,7 +63,7 @@ a:hover, a:active { outline: 0; }
    Typography
    ========================================================================== */
 
-abbr[title] { border-bottom: 1px dotted; }
+abbr[title] { border-bottom: 1px dotted; cursor: help; }
 
 b, strong { font-weight: bold; }
 
