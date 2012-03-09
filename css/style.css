@@ -44,6 +44,7 @@ body { margin: 0; font-size: 1em; line-height: 1.4; }
 
 ::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
 ::selection { background: #fe57a1; color: #fff; text-shadow: none; }
+:-moz-placeholder { color: #AAA; }
 
 
 /* =============================================================================
