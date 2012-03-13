@@ -325,7 +325,7 @@ FileETag None
 <IfModule mod_rewrite.c>
   Options +FollowSymlinks
   RewriteEngine On
-# RewriteBase /
+  RewriteBase /
 </IfModule>
 
 
