@@ -1,0 +1,55 @@
+CACHE MANIFEST
+# v1.0.0 XXXX-XX-XX
+# MANIFEST FOR
+# Wordpress Themes using Typekit
+# DEVELOPER TOOLS 
+# CHROME - chrome://appcache-internals 
+# FIREFOX - about:cache
+# Charles Web Proxy Debugger : Thanks Jonathan Stark for the suggestion!
+# http://www.charlesproxy.com
+
+# Resource Type : Explicit Entries
+CACHE:
+#
+# cache TYPEKIT
+#
+//use.typekit.com/xxx#xxx.js
+#
+# cache CSS
+#
+./style.css
+./css/another-stylesheet.css
+#
+# cache JS
+#
+//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
+//your_unique_root_directory/js/libs/jquery-1.7.1.min.js
+//your_unique_root_directory/js/libs/modernizr-2.0.6.min.js
+//google-analytics.com/ga.js
+//your_unique_root_directory/js/libs/another-awesomejs-lib.js
+//your_unique_root_directory/js/additional-jsfiles.js
+#
+# cache IMAGES
+#
+//your_unique_root_directory/img/your-image.png
+
+# Resource Type : online-whitelist
+NETWORK:
+#
+# network TYPEKIT CSS
+#
+http://use.typekit.com/x/xxx#xxx-x.css?<...base64encryptionhere...>
+#
+# network Wordpress Files
+#
+./header.php
+./archive.php
+./category.php
+./comments.php
+./footer.php
+./index.php
+./sidebar.php
+./single.php
+
+# Resource Type : fallback entries
+FALLBACK:
