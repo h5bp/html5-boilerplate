@@ -250,7 +250,7 @@ td { vertical-align: top; }
    ========================================================================== */
 
 /* For image replacement */
-.ir { border:0; font: 0/0 a; text-shadow: none; color: transparent; background-color: transparent; }
+.ir { border: 0; font: 0/0 a; text-shadow: none; color: transparent; background-color: transparent; }
 
 /* Hide from both screenreaders and browsers: h5bp.com/u */
 .hidden { display: none !important; visibility: hidden; }
@@ -281,7 +281,7 @@ td { vertical-align: top; }
   a, a:visited { text-decoration: underline; }
   a[href]:after { content: " (" attr(href) ")"; }
   abbr[title]:after { content: " (" attr(title) ")"; }
-  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; } /* Don't show links for images, or javascript/internal links */
   pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
   thead { display: table-header-group; } /* h5bp.com/t */
   tr, img { page-break-inside: avoid; }
