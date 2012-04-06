@@ -210,8 +210,7 @@ AddType text/x-vcard                        vcf
 # ----------------------------------------------------------------------
 
 # These are pretty far-future expires headers.
-# They assume you control versioning with cachebusting query params like
-#   <script src="application.js?20100608">
+# They assume you control versioning with filename-based cache busting
 # Additionally, consider that outdated proxies may miscache
 #   www.stevesouders.com/blog/2008/08/23/revving-filenames-dont-use-querystring/
 
