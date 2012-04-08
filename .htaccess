@@ -9,20 +9,17 @@
 #   perishablepress.com/press/2006/01/10/stupid-htaccess-tricks/
 #   Sample .htaccess file of CMS MODx: modxcms.com
 
-
 ###
 ### If you run a webserver other than Apache, consider:
 ### github.com/h5bp/server-configs
 ###
-
-
 
 # ----------------------------------------------------------------------
 # Better website experience for IE users
 # ----------------------------------------------------------------------
 
 # Force the latest IE version, in various cases when it may fall back to IE7 mode
-#  github.com/rails/rails/commit/123eb25#commitcomment-118920
+#   github.com/rails/rails/commit/123eb25#commitcomment-118920
 # Use ChromeFrame if it's installed for a better experience for the poor IE folk
 
 <IfModule mod_headers.c>
@@ -33,7 +30,6 @@
   </FilesMatch>
 </IfModule>
 
-
 # ----------------------------------------------------------------------
 # Cross-domain AJAX requests
 # ----------------------------------------------------------------------
@@ -42,10 +38,9 @@
 # enable-cors.org
 # code.google.com/p/html5security/wiki/CrossOriginRequestSecurity
 
-#  <IfModule mod_headers.c>
-#    Header set Access-Control-Allow-Origin "*"
-#  </IfModule>
-
+# <IfModule mod_headers.c>
+#   Header set Access-Control-Allow-Origin "*"
+# </IfModule>
 
 # ----------------------------------------------------------------------
 # CORS-enabled images (@crossorigin)
@@ -67,7 +62,6 @@
   </IfModule>
 </IfModule>
 
-
 # ----------------------------------------------------------------------
 # Webfont access
 # ----------------------------------------------------------------------
@@ -82,12 +76,9 @@
   </FilesMatch>
 </IfModule>
 
-
-
 # ----------------------------------------------------------------------
 # Proper MIME type for all files
 # ----------------------------------------------------------------------
-
 
 # JavaScript
 #   Normalize to standard type (it's sniffed in IE anyways)
@@ -128,8 +119,6 @@ AddType application/octet-stream            safariextz
 AddType application/x-web-app-manifest+json webapp
 AddType text/x-vcard                        vcf
 
-
-
 # ----------------------------------------------------------------------
 # Allow concatenation from within specific js and css files
 # ----------------------------------------------------------------------
@@ -144,17 +133,16 @@ AddType text/x-vcard                        vcf
 # concatenate and minify them manually.
 # Disabled by default.
 
-#<FilesMatch "\.combined\.js$">
-#  Options +Includes
-#  AddOutputFilterByType INCLUDES application/javascript application/json
-#  SetOutputFilter INCLUDES
-#</FilesMatch>
-#<FilesMatch "\.combined\.css$">
-#  Options +Includes
-#  AddOutputFilterByType INCLUDES text/css
-#  SetOutputFilter INCLUDES
-#</FilesMatch>
-
+# <FilesMatch "\.combined\.js$">
+#   Options +Includes
+#   AddOutputFilterByType INCLUDES application/javascript application/json
+#   SetOutputFilter INCLUDES
+# </FilesMatch>
+# <FilesMatch "\.combined\.css$">
+#   Options +Includes
+#   AddOutputFilterByType INCLUDES text/css
+#   SetOutputFilter INCLUDES
+# </FilesMatch>
 
 # ----------------------------------------------------------------------
 # Gzip compression
@@ -203,7 +191,6 @@ AddType text/x-vcard                        vcf
   </IfModule>
 
 </IfModule>
-
 
 # ----------------------------------------------------------------------
 # Expires headers (for better cache control)
@@ -264,10 +251,7 @@ AddType text/x-vcard                        vcf
 # CSS and JavaScript
   ExpiresByType text/css                  "access plus 1 year"
   ExpiresByType application/javascript    "access plus 1 year"
-
 </IfModule>
-
-
 
 # ----------------------------------------------------------------------
 # ETag removal
@@ -283,8 +267,6 @@ AddType text/x-vcard                        vcf
 #   developer.yahoo.com/performance/rules.html#etags
 FileETag None
 
-
-
 # ----------------------------------------------------------------------
 # Stop screen flicker in IE on CSS rollovers
 # ----------------------------------------------------------------------
@@ -298,8 +280,6 @@ FileETag None
 # BrowserMatch "Opera" !brokenvary
 # SetEnvIf brokenvary 1 force-no-vary
 
-
-
 # ----------------------------------------------------------------------
 # Cookie setting from iframes
 # ----------------------------------------------------------------------
@@ -310,8 +290,6 @@ FileETag None
 # <IfModule mod_headers.c>
 #   Header set P3P "policyref=\"/w3c/p3p.xml\", CP=\"IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT\""
 # </IfModule>
-
-
 
 # ----------------------------------------------------------------------
 # Start rewrite engine
@@ -328,8 +306,6 @@ FileETag None
   RewriteEngine On
 # RewriteBase /
 </IfModule>
-
-
 
 # ----------------------------------------------------------------------
 # Suppress or force the "www." at the beginning of URLs
@@ -370,8 +346,6 @@ FileETag None
 #   RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 # </IfModule>
 
-
-
 # ----------------------------------------------------------------------
 # Built-in filename-based cache busting
 # ----------------------------------------------------------------------
@@ -390,8 +364,6 @@ FileETag None
 #   RewriteRule ^(.+)\.(\d+)\.(js|css|png|jpg|gif)$ $1.$3 [L]
 # </IfModule>
 
-
-
 # ----------------------------------------------------------------------
 # Prevent SSL cert warnings
 # ----------------------------------------------------------------------
@@ -405,8 +377,6 @@ FileETag None
 #   RewriteRule ^ https://example-domain-please-change-me.com%{REQUEST_URI} [R=301,L]
 # </IfModule>
 
-
-
 # ----------------------------------------------------------------------
 # Prevent 404 errors for non-existing redirected folders
 # ----------------------------------------------------------------------
@@ -416,16 +386,12 @@ FileETag None
 
 Options -MultiViews
 
-
-
 # ----------------------------------------------------------------------
 # Custom 404 page
 # ----------------------------------------------------------------------
 
 # You can add custom pages to handle 500 or 403 pretty easily, if you like.
 ErrorDocument 404 /404.html
-
-
 
 # ----------------------------------------------------------------------
 # UTF-8 encoding
@@ -437,18 +403,14 @@ AddDefaultCharset utf-8
 # Force UTF-8 for a number of file formats
 AddCharset utf-8 .css .js .xml .json .rss .atom
 
-
-
 # ----------------------------------------------------------------------
 # A little more security
 # ----------------------------------------------------------------------
-
 
 # Do we want to advertise the exact version number of Apache we're running?
 # Probably not.
 ## This can only be enabled if used in httpd.conf - It will not work in .htaccess
 # ServerTokens Prod
-
 
 # "-Indexes" will have Apache block users from browsing folders without a default document
 # Usually you should leave this activated, because you shouldn't allow everybody to surf through
@@ -456,7 +418,6 @@ AddCharset utf-8 .css .js .xml .json .rss .atom
 <IfModule mod_autoindex.c>
   Options -Indexes
 </IfModule>
-
 
 # Block access to "hidden" directories whose names begin with a period. This
 # includes directories used by version control systems such as Subversion or Git.
@@ -466,7 +427,6 @@ AddCharset utf-8 .css .js .xml .json .rss .atom
   RewriteRule "(^|/)\." - [F]
 </IfModule>
 
-
 # Block access to backup and source files
 # This files may be left by some text/html editors and
 # pose a great security danger, when someone can access them
@@ -475,7 +435,6 @@ AddCharset utf-8 .css .js .xml .json .rss .atom
   Deny from all
   Satisfy All
 </FilesMatch>
-
 
 # If your server is not already configured as such, the following directive
 # should be uncommented in order to set PHP's register_globals option to OFF.

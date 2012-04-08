@@ -1,7 +1,6 @@
 /* the humans responsible & colophon */
 /* humanstxt.org */
 
-
 /* TEAM */
   <your title>: <your name>
   Site:

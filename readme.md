@@ -4,11 +4,9 @@ HTML5 Boilerplate is a professional front-end template that helps you build fast
 
 This project is the product of many years of iterative development and combined community knowledge. It does not impose a specific development philosophy or framework, so you're free to architect your code in the way that you want.
 
-
 ## Quick start
 
 Clone the git repo - `git clone git://github.com/h5bp/html5-boilerplate.git` - or [download it](https://github.com/h5bp/html5-boilerplate/zipball/master)
-
 
 ## Features
 
@@ -28,11 +26,9 @@ Clone the git repo - `git clone git://github.com/h5bp/html5-boilerplate.git` - o
 * "Delete-key friendly." Easy to strip out parts you don't need.
 * Extensive inline and accompanying documentation.
 
-
 ## Contributing
 
 Anyone and everyone is welcome to [contribute](https://github.com/h5bp/html5-boilerplate/wiki/contribute). Hundreds of developers have helped make the HTML5 Boilerplate what it is today.
-
 
 ## Project information
 
@@ -40,7 +36,6 @@ Anyone and everyone is welcome to [contribute](https://github.com/h5bp/html5-boi
 * Web: http://html5boilerplate.com
 * Docs: http://html5boilerplate.com/docs
 * Twitter: http://twitter.com/h5bp
-
 
 ## License
 
