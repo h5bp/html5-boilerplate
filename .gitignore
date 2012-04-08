@@ -17,7 +17,6 @@ Thumbs.db
 .project
 .settings
 .tmproj
-*.esproj
 nbproject
 *.sublime-project
 *.sublime-workspace
@@ -29,6 +28,10 @@ dwsync.xml
 # Komodo
 *.komodoproject
 .komodotools
+
+# Espresso
+*.esproj
+*.espressostorage
 
 # Folders to ignore
 .hg
