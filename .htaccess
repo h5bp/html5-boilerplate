@@ -9,10 +9,10 @@
 #   perishablepress.com/press/2006/01/10/stupid-htaccess-tricks/
 #   Sample .htaccess file of CMS MODx: modxcms.com
 
-###
-### If you run a webserver other than Apache, consider:
-### github.com/h5bp/server-configs
-###
+#
+# If you run a webserver other than Apache, consider:
+# github.com/h5bp/server-configs
+#
 
 # ----------------------------------------------------------------------
 # Better website experience for IE users
@@ -409,7 +409,7 @@ AddCharset utf-8 .css .js .xml .json .rss .atom
 
 # Do we want to advertise the exact version number of Apache we're running?
 # Probably not.
-## This can only be enabled if used in httpd.conf - It will not work in .htaccess
+# This can only be enabled if used in httpd.conf - It will not work in .htaccess
 # ServerTokens Prod
 
 # "-Indexes" will have Apache block users from browsing folders without a default document
