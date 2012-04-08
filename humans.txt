@@ -1,6 +1,5 @@
-/* the humans responsible & colophon */
+/* The humans responsible & colophon */
 /* humanstxt.org */
-
 
 /* TEAM */
   <your title>: <your name>
