@@ -269,7 +269,9 @@ td { vertical-align: top; }
 .clearfix:after { clear: both; }
 .clearfix { *zoom: 1; }
 
-
+/* Float helpers */
+.left { float: left; }
+.right { float: right; }
 
 /* ==|== print styles =======================================================
    Print styles.
