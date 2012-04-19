@@ -33,6 +33,9 @@ dwsync.xml
 *.esproj
 *.espressostorage
 
+# Rubinius
+*.rbc
+
 # Folders to ignore
 .hg
 .svn
