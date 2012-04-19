@@ -1,0 +1,16 @@
+// ==|===Responsive Font Size calculator====================
+//	Function that will calculate the responsive font size
+//	return the em value to be used.
+// =========================================================*/
+@function responsiveFontSize($fontSize: $defaultBrowserSize, $isIE: false) {
+	@if $isIE {
+		@return (($fontSize/$defaultBrowserSize) - 0.02) + em;
+	} @else {
+		@return ($fontSize/$defaultBrowserSize) + em;
+	}
+}
+
+
+@function rfs($fontSize: $defaultBrowserSize, $isIE: false) {
+	@return responsiveFontSize($fontSize, $isIE);
+}

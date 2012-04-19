@@ -1,0 +1,28 @@
+@mixin normalizeFont {
+	font-family: $fontFamily; 
+	color: $fontColor; 
+}
+
+@mixin normalizeSelection {
+	background: $selectionBgColor; 
+	color: $selectionFontColor; 
+	text-shadow: none; 
+}
+
+@mixin normalizeInput {
+	font-size: rfs(16); 
+	@include add-margin();
+	vertical-align: baseline; 
+	*vertical-align: middle; 
+}
+
+@mixin normalizeButton {
+	/*
+	 * 1. Display hand cursor for clickable form elements
+	 * 2. Allow styling of clickable form elements in iOS
+	 * 3. Correct inner spacing displayed oddly in IE7 (doesn't effect IE6)
+	 */
+	@include handCursor;
+	-webkit-appearance: button; 
+	*overflow: visible; 
+}
