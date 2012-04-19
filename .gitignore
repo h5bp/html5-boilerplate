@@ -6,6 +6,7 @@
 *.rej
 *.swo
 *.swp
+testing
 *.vi
 *~
 *.sass-cache
