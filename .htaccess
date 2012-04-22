@@ -361,12 +361,11 @@ FileETag None
 
 # Option 2:
 # To rewrite "example.com -> www.example.com" uncomment the following lines.
-# Be aware that the following rule might not be a good idea if you
-# use "real" subdomains for certain parts of your website.
+# Now sub-domain safe
 
 # <IfModule mod_rewrite.c>
 #   RewriteCond %{HTTPS} !=on
-#   RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
+#   RewriteCond %{HTTP_HOST} !^(?:.+?\.){2,}.+$ [NC]
 #   RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 # </IfModule>
 
