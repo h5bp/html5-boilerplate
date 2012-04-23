@@ -120,6 +120,7 @@ AddType image/x-icon                        ico
 AddType image/webp                          webp
 AddType text/cache-manifest                 appcache manifest
 AddType text/x-component                    htc
+AddType application/xml                     rss atom xml rdf
 AddType application/x-chrome-extension      crx
 AddType application/x-opera-extension       oex
 AddType application/x-xpinstall             xpi
@@ -209,8 +210,7 @@ AddType text/x-vcard                        vcf
 # ----------------------------------------------------------------------
 
 # These are pretty far-future expires headers.
-# They assume you control versioning with cachebusting query params like
-#   <script src="application.js?20100608">
+# They assume you control versioning with filename-based cache busting
 # Additionally, consider that outdated proxies may miscache
 #   www.stevesouders.com/blog/2008/08/23/revving-filenames-dont-use-querystring/
 
@@ -265,10 +265,6 @@ AddType text/x-vcard                        vcf
   ExpiresByType text/css                  "access plus 1 year"
   ExpiresByType application/javascript    "access plus 1 year"
 
-  <IfModule mod_headers.c>
-    Header append Cache-Control "public"
-  </IfModule>
-
 </IfModule>
 
 
@@ -312,9 +308,7 @@ FileETag None
 # If needed, uncomment and specify a path or regex in the Location directive
 
 # <IfModule mod_headers.c>
-#   <Location />
-#     Header set P3P "policyref=\"/w3c/p3p.xml\", CP=\"IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT\""
-#   </Location>
+#   Header set P3P "policyref=\"/w3c/p3p.xml\", CP=\"IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT\""
 # </IfModule>
 
 
@@ -325,10 +319,14 @@ FileETag None
 
 # Turning on the rewrite engine is necessary for the following rules and features.
 # FollowSymLinks must be enabled for this to work.
+#
+# Some cloud hosting services require RewriteBase to be set: goo.gl/HOcPN
+# If using the h5bp in a subdirectory, use `RewriteBase /foo` instead where 'foo' is your directory.
 
 <IfModule mod_rewrite.c>
   Options +FollowSymlinks
   RewriteEngine On
+# RewriteBase /
 </IfModule>
 
 
@@ -383,7 +381,7 @@ FileETag None
 # /css/style.20110203.css to /css/style.css
 
 # To understand why this is important and a better idea than all.css?v1231,
-# read: github.com/h5bp/html5-boilerplate/wiki/Version-Control-with-Cachebusting
+# read: github.com/h5bp/html5-boilerplate/wiki/cachebusting
 
 # Uncomment to enable.
 # <IfModule mod_rewrite.c>
@@ -472,7 +470,7 @@ AddCharset utf-8 .css .js .xml .json .rss .atom
 # Block access to backup and source files
 # This files may be left by some text/html editors and
 # pose a great security danger, when someone can access them
-<FilesMatch "\.(bak|config|sql|fla|psd|ini|log|sh|inc|~|swp|dist)$">
+<FilesMatch "(\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist)|~)$">
   Order allow,deny
   Deny from all
   Satisfy All
