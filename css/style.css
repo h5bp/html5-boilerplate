@@ -44,6 +44,10 @@ body { margin: 0; font-size: 1em; line-height: 1.4; }
 
 ::-moz-selection { background: #b3d4fc; text-shadow: none; }
 ::selection { background: #b3d4fc; text-shadow: none; }
+/* Remove this comment to opt in to hot pink! * /
+::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
+::selection { background: #fe57a1; color: #fff; text-shadow: none; }
+/**/
 
 
 /* =============================================================================
