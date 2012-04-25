@@ -92,7 +92,8 @@
 # JavaScript
 #   Normalize to standard type (it's sniffed in IE anyways)
 #   tools.ietf.org/html/rfc4329#section-7.2
-AddType application/javascript         js
+AddType application/javascript         js jsonp
+AddType application/json               json
 
 # Audio
 AddType audio/ogg                      oga ogg
@@ -128,7 +129,6 @@ AddType application/x-xpinstall             xpi
 AddType application/octet-stream            safariextz
 AddType application/x-web-app-manifest+json webapp
 AddType text/x-vcard                        vcf
-AddType application/json                    json
 AddType application/x-shockwave-flash       swf
 
 
