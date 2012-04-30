@@ -211,7 +211,7 @@ td { vertical-align: top; }
    Chrome Frame Prompt
    ========================================================================== */
 
-.chromeframe { margin: 0.2em 0; background: #ccc; color: black; padding: 0.2em 0; }
+.chromeframe { margin: 0.2em; background: #ccc; color: #000; padding: 0.2em; }
 
 
 /* ==|== primary styles =====================================================
@@ -277,7 +277,7 @@ td { vertical-align: top; }
    ========================================================================== */
 
 @media print {
-  * { background: transparent !important; color: black !important; box-shadow:none !important; text-shadow: none !important; } /* Black prints faster: h5bp.com/s */
+  * { background: transparent !important; color: #000 !important; box-shadow:none !important; text-shadow: none !important; } /* Black prints faster: h5bp.com/s */
   a, a:visited { text-decoration: underline; }
   a[href]:after { content: " (" attr(href) ")"; }
   abbr[title]:after { content: " (" attr(title) ")"; }
