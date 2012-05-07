@@ -543,4 +543,6 @@ AddCharset utf-8 .css .js .xml .json .rss .atom
 # Increase cookie security
 <IfModule php5_module>
   php_value session.cookie_httponly true
+  # disable user agent verification to not break multiple image upload
+  # php_flag suhosin.session.cryptua off
 </IfModule>
