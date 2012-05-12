@@ -361,12 +361,24 @@ FileETag None
 
 # Option 2:
 # To rewrite "example.com -> www.example.com" uncomment the following lines.
-# Now sub-domain safe
+# Now sub-domain safe including common third-level domains
 
 # <IfModule mod_rewrite.c>
 #   RewriteCond %{HTTPS} !=on
 #   RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
-#   RewriteCond %{HTTP_HOST} !^.+?\.(?!(?:co|au)\.uk).+?\..+?$ [NC]
+#   RewriteCond %{HTTP_HOST} !^.+?\.(?!(?:co|au|me|org|.?)\.[^\.]{2}).+?\..+?$ [NC]
+#   RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+# </IfModule>
+
+# Option 2 Fully International:
+# To rewrite "example.com -> www.example.com" uncomment the following lines.
+# Now sub-domain safe including common third-level domains
+# This version is fully internationalized which is slightly less performant
+
+# <IfModule mod_rewrite.c>
+#   RewriteCond %{HTTPS} !=on
+#   RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
+#   RewriteCond %{HTTP_HOST} !^.+?\.(?!(?:co|au|me|org|com|net|info|biz|nom|off|tel|asn|mobi|.?)\.[^\.]{2}).+?\..+?$ [NC]
 #   RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 # </IfModule>
 
