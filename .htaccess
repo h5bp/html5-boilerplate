@@ -270,6 +270,17 @@ AddType application/x-shockwave-flash       swf
 
 </IfModule>
 
+# ----------------------------------------------------------------------
+# Prevent mobile network providers from modifying your site
+# ----------------------------------------------------------------------
+
+# The following header prevents modification of your code over 3G on some European providers
+# This is the official 'bypass' suggested by O2 in the UK
+
+# <IfModule mod_headers.c>
+# Header set Cache-Control "no-transform"
+# </IfModule>
+
 
 
 # ----------------------------------------------------------------------
