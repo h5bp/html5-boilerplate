@@ -50,6 +50,13 @@ body { margin: 0; font-size: 1em; line-height: 1.4; }
    Links
    ========================================================================== */
 
+/*
+* Removing the highlight background color on any webkit touch device
+*/
+*, div, div:active , a, a:active, a:focus{
+   -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
 a { color: #00e; }
 a:visited { color: #551a8b; }
 a:hover { color: #06e; }
