@@ -474,10 +474,10 @@ AddCharset utf-8 .css .js .xml .json .rss .atom
 </IfModule>
 
 
-# Block access to "hidden" directories whose names begin with a period. This
+# Block access to "hidden" directories or files whose names begin with a period. This
 # includes directories used by version control systems such as Subversion or Git.
 <IfModule mod_rewrite.c>
-  RewriteCond %{SCRIPT_FILENAME} -d
+  RewriteCond %{SCRIPT_FILENAME} -d [OR]
   RewriteCond %{SCRIPT_FILENAME} -f
   RewriteRule "(^|/)\." - [F]
 </IfModule>
