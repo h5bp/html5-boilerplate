@@ -239,8 +239,46 @@ td { vertical-align: top; }
    Modify as content requires.
    ========================================================================== */
 
+/* Responsiveness & Mobile <3 */
+
+/* Making images somewhat responsive */
+img {
+  max-width: 100%;
+}
+
+/* Smartphones – Portrait and Landscape */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+}
+
+/* Smartphones – Landscape */
+@media only screen and (min-width : 321px) {
+
+}
+
+/* Smartphones – Portrait */
+@media only screen and (max-width : 320px) {
+
+}
+
+/* iPad – Portrait & Landscape */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+
+}
+
+/* iPad – Landscape */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+
+}
+
+/* iPad Portrait */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+
+}
+
+/* Custom Media Queries */
 @media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
+
 }
 
 
