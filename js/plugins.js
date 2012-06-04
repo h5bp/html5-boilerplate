@@ -30,12 +30,10 @@ window.log = function f() {
     function b() {}
     var c = "assert,count,debug,dir,dirxml,error,exception,group,groupCollapsed,groupEnd,info,log,markTimeline,profile,profileEnd,time,timeEnd,trace,warn";
     var d;
-    for (c.split(","); !!(d = c.pop());) {
+    for (c = c.split(","); !!(d = c.pop());) {
         a[d] = a[d] || b;
     }
-});
-
-(function() {
+})(function() {
     try {
         console.log();
         return window.console;
@@ -43,6 +41,5 @@ window.log = function f() {
         return (window.console = {});
     }
 }());
-
 
 // place any jQuery/helper plugins in here, instead of separate, slower script files.
