@@ -323,7 +323,7 @@ FileETag None
 # static content.
 
 # <IfModule mod_headers.c>
-#   Header set Connection keep-alive
+#   Header set Connection Keep-Alive
 # </IfModule>
 
 
