@@ -318,7 +318,7 @@ FileETag None
 # Set Keep-Alive Header
 # ----------------------------------------------------------------------
 
-# Keep-alive allows the server to send multiple requests through one TCP-connection.
+# Keep-Alive allows the server to send multiple requests through one TCP-connection.
 # Be aware of possible disadvantages of this setting. Turn on if you serve a lot of
 # static content.
 
