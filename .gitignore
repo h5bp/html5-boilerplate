@@ -1,3 +1,5 @@
+# Find out how to create a global .gitignore: http://h5bp.com/ae
+
 # Numerous always-ignore extensions
 *.diff
 *.err
