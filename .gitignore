@@ -1,3 +1,5 @@
+# Read about how to use .gitignore: http://h5bp.com/ae
+
 # Numerous always-ignore extensions
 *.diff
 *.err
