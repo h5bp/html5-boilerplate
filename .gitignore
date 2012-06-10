@@ -1,5 +1,4 @@
-# You can find more information on how to include your own ignores and how to create a
-# global .gitignore at the GitHub:help-pages: https://help.github.com/articles/ignoring-files
+# Find out how to create a global .gitignore: http://h5bp.com/ae
 
 # Numerous always-ignore extensions
 *.diff
