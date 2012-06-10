@@ -1,3 +1,9 @@
+# build script local files
+build/buildinfo.properties
+build/config/buildinfo.properties
+
+# Consider moving the rules below to your .gitignore_global: http://help.github.com/ignore-files/#global_gitignore
+
 # Numerous always-ignore extensions
 *.diff
 *.err
@@ -44,7 +50,3 @@ dwsync.xml
 intermediate
 publish
 .idea
-
-# build script local files
-build/buildinfo.properties
-build/config/buildinfo.properties
