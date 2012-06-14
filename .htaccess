@@ -223,7 +223,6 @@ AddType text/x-vcard                   vcf
 # Media: images, video, audio
   ExpiresByType image/gif                 "access plus 1 month"
   ExpiresByType image/png                 "access plus 1 month"
-  ExpiresByType image/jpg                 "access plus 1 month"
   ExpiresByType image/jpeg                "access plus 1 month"
   ExpiresByType video/ogg                 "access plus 1 month"
   ExpiresByType audio/ogg                 "access plus 1 month"
@@ -447,7 +446,7 @@ AddCharset utf-8 .html .css .js .xml .json .rss .atom
 
 
 # Block access to backup and source files
-# This files may be left by some text/html editors and 
+# This files may be left by some text/html editors and
 # pose a great security danger, when someone can access them
 <FilesMatch ".(bak|config|sql|fla|psd|ini|log|sh|inc|~|swp)$">
   Order allow,deny
