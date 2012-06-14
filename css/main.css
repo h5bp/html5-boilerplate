@@ -27,6 +27,7 @@ nav,
 section,
 summary {
     display: block;
+    margin: 0; /* Fixes random offset value errors on HTML5 tags in IE8 and below */
 }
 
 audio,
