@@ -101,7 +101,7 @@ AddType audio/mp4                      m4a f4a f4b
 
 # Video
 AddType video/ogg                      ogv
-AddType video/mp4                      mp4 m4v f4v f4p 
+AddType video/mp4                      mp4 m4v f4v f4p
 AddType video/webm                     webm
 AddType video/x-flv                    flv
 
@@ -247,7 +247,6 @@ AddType application/x-shockwave-flash       swf
 # Media: images, video, audio
   ExpiresByType image/gif                 "access plus 1 month"
   ExpiresByType image/png                 "access plus 1 month"
-  ExpiresByType image/jpg                 "access plus 1 month"
   ExpiresByType image/jpeg                "access plus 1 month"
   ExpiresByType video/ogg                 "access plus 1 month"
   ExpiresByType audio/ogg                 "access plus 1 month"
@@ -498,8 +497,8 @@ AddCharset utf-8 .css .js .xml .json .rss .atom
 
 
 # Block access to backup and source files
-# This files may be left by some text/html editors and
-# pose a great security danger, when someone can access them
+# These files may be left by some text/html editors and
+# pose a great security danger, when anyone can access them
 <FilesMatch "(\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist)|~)$">
   Order allow,deny
   Deny from all
@@ -512,7 +511,7 @@ AddCharset utf-8 .css .js .xml .json .rss .atom
 # This closes a major security hole that is abused by most XSS (cross-site
 # scripting) attacks. For more information: http://php.net/register_globals
 #
-# IF REGISTER_GLOBALS DIRECTIVE CAUSES 500 INTERNAL SERVER ERRORS :
+# IF REGISTER_GLOBALS DIRECTIVE CAUSES 500 INTERNAL SERVER ERRORS:
 #
 # Your server does not allow PHP directives to be set via .htaccess. In that
 # case you must make this change in your php.ini file instead. If you are
