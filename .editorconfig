@@ -1,0 +1,11 @@
+; http://editorconfig.org/
+root = true
+
+[*]
+end_of_line = LF
+indent_style = space
+indent_size = 4
+
+[.htaccess]
+indent_style = space
+indent_size = 2
