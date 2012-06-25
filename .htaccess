@@ -241,6 +241,9 @@ AddType text/vtt                            vtt
   ExpiresByType application/rss+xml       "access plus 1 hour"
   ExpiresByType application/atom+xml      "access plus 1 hour"
 
+# Robots and humans txt files (cannot be renamed)
+  ExpiresByType text/plain                "access plus 1 day"
+
 # Favicon (cannot be renamed)
   ExpiresByType image/x-icon              "access plus 1 week"
 
