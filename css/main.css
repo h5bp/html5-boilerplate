@@ -530,21 +530,13 @@ td {
 }
 
 /*
- * Contain floats: h5bp.com/q
+ * Contain floats: www.css-101.org/articles/clearfix/latest-new-clearfix-so-far.ph
  */
 
-.clearfix:before,
 .clearfix:after {
     content: "";
     display: table;
-}
-
-.clearfix:after {
     clear: both;
-}
-
-.clearfix {
-    *zoom: 1;
 }
 
 
