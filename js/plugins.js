@@ -6,7 +6,7 @@ if (!(window.console && console.log)) {
         var length = methods.length;
         var console = window.console = {};
         while (length--) {
-            console[methods[index]] = noop;
+            console[methods[length]] = noop;
         }
     }());
 }
