@@ -509,10 +509,12 @@ td {
 /*
  * Extends the .visuallyhidden class to allow the element to be focusable
  * when navigated to via the keyboard: h5bp.com/p
+ * Visible class to allow override
  */
 
 .visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
+.visuallyhidden.focusable:focus,
+.visible {
     clip: auto;
     height: auto;
     margin: 0;
