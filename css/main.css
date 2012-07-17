@@ -478,7 +478,7 @@ td {
     border: 0;
     font: 0/0 a;
     text-shadow: none;
-    color: transparent;
+    color: transparent !important;
     background-color: transparent;
 }
 
