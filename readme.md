@@ -1,37 +1,65 @@
 # [HTML5 Boilerplate](http://html5boilerplate.com)
 
-HTML5 Boilerplate is a professional front-end template that helps you build fast, robust, adaptable, and future-proof websites. Spend more time developing and less time reinventing the wheel.
+HTML5 Boilerplate is a professional front-end template that helps you build
+fast, robust, adaptable, and future-proof websites. Spend more time developing
+and less time reinventing the wheel.
 
-This project is the product of many years of iterative development and combined community knowledge. It does not impose a specific development philosophy or framework, so you're free to architect your code in the way that you want.
+This project is the product of many years of iterative development and combined
+community knowledge. It does not impose a specific development philosophy or
+framework, so you're free to architect your code in the way that you want.
 
 
 ## Quick start
 
-Clone the git repo - `git clone git://github.com/h5bp/html5-boilerplate.git` - or [download it](https://github.com/h5bp/html5-boilerplate/zipball/master)
+Clone the git repo - `git clone git://github.com/h5bp/html5-boilerplate.git` -
+or [download it](https://github.com/h5bp/html5-boilerplate/zipball/master)
 
 
 ## Features
 
 * HTML5 ready. Use the new elements with confidence.
 * Cross-browser compatible (Chrome, Opera, Safari, Firefox 3.6+, IE6+).
-* Designed with progressive enhancement in mind.
+* Apache server caching, compression, and other configuration defaults for
+  Grade-A performance.
 * CSS normalizations and common bug fixes.
 * IE-specific classes for easier cross-browser control.
 * A default print stylesheet, performance optimized.
 * Mobile browser optimizations.
-* Protection against any stray `console.log` causing JavaScript errors in IE6/7.
+* Protection against any stray `console.log` causing JavaScript errors in
+  IE6/7.
 * The latest jQuery via CDN, with a local fallback.
 * A custom Modernizr build for feature detection.
 * An optimized Google Analytics snippet.
-* Apache server caching, compression, and other configuration defaults for Grade-A performance.
 * Cross-domain Ajax and Flash.
+* Designed with progressive enhancement in mind.
 * "Delete-key friendly." Easy to strip out parts you don't need.
 * Extensive inline and accompanying documentation.
 
 
+## Build process
+
+HTML5 Boilerplate comes with a very simple
+[grunt](https://github.com/cowboy/grunt) file to get you started with a build
+process. It comes with basic `watch` and `concat` tasks that can be used to
+automatically combine your CSS files into `main.css` whenever you save them.
+
+To use the grunt tasks (and add your own) download and [install Node.js with
+npm](http://nodejs.org/), then install grunt from the command line - `npm
+install -g grunt`.
+
+To manually concatenate the CSS files run `grunt concat` from the command
+line.
+
+To have grunt automatically concatenate your files each time you save them, run
+`grunt watch` from the command line before you start working on the CSS.
+
+
 ## Contributing
 
-Anyone and everyone is welcome to [contribute](https://github.com/h5bp/html5-boilerplate/wiki/contribute). Hundreds of developers have helped make the HTML5 Boilerplate what it is today.
+Anyone and everyone is welcome to
+[contribute](https://github.com/h5bp/html5-boilerplate/wiki/contribute).
+Hundreds of developers have helped make the HTML5 Boilerplate what it is
+today.
 
 
 ## Project information

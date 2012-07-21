@@ -1,0 +1,21 @@
+{
+    "name": "html5boilerplate",
+    "description": "A professional front-end template that helps you build fast, robust, adaptable, and future-proof websites",
+    "version": "4.0.0-pre",
+    "homepage": "http://html5boilerplate.com/",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/h5bp/html5-boilerplate.git"
+    },
+    "bugs": {
+        "url" : "http://github.com/h5bp/html5-boilerplate/issues"
+    },
+    "licenses": [
+        {
+            "type": "Unlicense",
+            "url": "http://unlicense.org/"
+        }
+    ],
+    "dependencies": {},
+    "devDependencies": {}
+}
