@@ -97,7 +97,9 @@ AddType application/json               json
 
 # Audio
 AddType audio/ogg                      oga ogg
+AddType audio/mp3                      mp3
 AddType audio/mp4                      m4a f4a f4b
+AddType audio/webm                     webm
 
 # Video
 AddType video/ogg                      ogv
