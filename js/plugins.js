@@ -1,4 +1,4 @@
-// Avoid `console` errors in browsers that lack a console
+// Avoid `console` errors in browsers that lack a console.
 if (!(window.console && console.log)) {
     (function() {
         var noop = function() {};
@@ -11,4 +11,4 @@ if (!(window.console && console.log)) {
     }());
 }
 
-// place any jQuery/helper plugins in here, instead of separate, slower script files.
+// Place any jQuery/helper plugins in here.
