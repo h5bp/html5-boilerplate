@@ -101,8 +101,8 @@ The shortcut icons should be put in the root directory of your site. HTML5
 Boilerplate comes with a default set of icons (include favicon and Apple Touch
 Icons) that you can use as a baseline to create your own.
 
-If your site is in a sub-directory, make sure you include `link` tags in the
-HTML source so that the icons can render.
+If your site or icons are in a sub-directory, you will need to reference the
+icons using `link` elements placed in the HTML `head` of your document.
 
 For a comprehensive overview, please read [Everything you always wanted to know
 about touch icons](http://mathiasbynens.be/notes/touch-icons) by Mathias

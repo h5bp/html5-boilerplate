@@ -2,11 +2,12 @@
 
 * Add bundled docs (#1154).
 * Add MIT license (#1139).
-* Code format and consistency changes (#1112).
+* Separate normalize.css from the rest of the CSS (#1160).
 * Improve `console.log` protection (#1107).
 * Replace hot pink text selection color with a neutral color.
+* Change image replacement technique.
+* Code format and consistency changes (#1112).
 * Rename CSS file and rename JS files and subdirectories.
-* Update image replacement technique.
 * Update to Modernizr 2.6.1 (#1086).
 * Remove uncompressed jQuery (#1153).
 * Remove superfluous inline comments (#1150).
