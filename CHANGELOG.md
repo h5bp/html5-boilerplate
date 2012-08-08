@@ -1,6 +1,7 @@
 == HEAD
 
 * Add bundled docs (#1154).
+* Add MIT license (#1139).
 * Code format and consistency changes (#1112).
 * Improve `console.log` protection (#1107).
 * Replace hot pink text selection color with a neutral color.
@@ -30,7 +31,8 @@
 * Revert to async snippet for the Google Analytics script.
 * Remove the ant build script (#826).
 * Remove Respond.js (#816).
-* Remove the `test/` directory.
+* Remove the `demo/` directory (#808).
+* Remove the `test/` directory (#808).
 * Remove Google Chrome Frame script for IE6 users; replace with links to Chrome Frame and options for alternative browsers.
 * Remove `initial-scale=1` from the viewport `meta`** (#824).
 * Remove `defer` from all scripts to avoid legacy IE bugs.
