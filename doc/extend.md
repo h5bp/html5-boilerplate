@@ -130,15 +130,6 @@ plugin](http://www.google.com/search?ie=UTF-8&q=how+to+make+browser+search+plugi
 
 ## Internet Explorer
 
-### Suppress IE6 image toolbar
-
-Kill IE6's pop-up-on-mouseover toolbar for images that can interfere with
-certain designs and be pretty distracting in general.
-
-```html
-<meta http-equiv="imagetoolbar" content="false">
-```
-
 ### Prompt users to switch to "Desktop Mode" in IE10 Metro
 
 IE10 does not support plugins, such as Flash, in Metro mode. If your site
@@ -225,6 +216,28 @@ need.
 ```html
 <meta name="msapplication-task" content="name=Task 1;action-uri=http://host/Page1.html;icon-uri=http://host/icon1.ico">
 <meta name="msapplication-task" content="name=Task 2;action-uri=http://microsoft.com/Page2.html;icon-uri=http://host/icon2.ico">
+```
+
+### High quality visuals for Pinned Sites in Windows 8
+
+Windows 8 adds the ability for you to provide a PNG tile image and specify the
+tile's background color. [Full details on the IE
+blog](http://blogs.msdn.com/b/ie/archive/2012/06/08/high-quality-visuals-for-pinned-sites-in-windows-8.aspx).
+
+* Create a 144x144 image of your site icon, filling all of the canvas, and
+  using a transparent background.
+* Save this image as a 32-bit PNG and optimize it without reducing
+  colour-depth. It can be named whatever you want (e.g. `metro-tile.png`).
+* To reference the tile and its color, add the HTML `meta` elements described
+  in the IE Blog post.
+
+### Suppress IE6 image toolbar
+
+Kill IE6's pop-up-on-mouseover toolbar for images that can interfere with
+certain designs and be pretty distracting in general.
+
+```html
+<meta http-equiv="imagetoolbar" content="false">
 ```
 
 
