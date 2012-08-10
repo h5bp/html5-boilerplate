@@ -29,7 +29,7 @@ A basic HTML5 Boilerplate site initially looks something like this:
 │   ├── main.js
 │   ├── plugins.js
 │   └── vendor
-│       ├── jquery-1.7.2.min.js
+│       ├── jquery-1.8.0.min.js
 │       └── modernizr-2.6.1.min.js
 ├── .htaccess
 ├── 404.html
