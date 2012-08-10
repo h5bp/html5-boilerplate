@@ -8,6 +8,7 @@
 * Change image replacement technique.
 * Code format and consistency changes (#1112).
 * Rename CSS file and rename JS files and subdirectories.
+* Update to jQuery 1.8 (#1161).
 * Update to Modernizr 2.6.1 (#1086).
 * Remove uncompressed jQuery (#1153).
 * Remove superfluous inline comments (#1150).
