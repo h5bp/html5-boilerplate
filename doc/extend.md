@@ -110,7 +110,7 @@ According to Heather Champ, former community manager at Flickr, you should not
 allow search engines to index your "Contact Us" or "Complaints" page if you
 value your sanity. This is an HTML-centric way of achieving that.
 
-```
+```html
 <meta name="robots" content="noindex">
 ```
 

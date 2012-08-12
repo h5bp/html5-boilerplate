@@ -1,8 +1,7 @@
 # [HTML5 Boilerplate](http://html5boilerplate.com)
 
-HTML5 Boilerplate is a professional front-end template that helps you build
-fast, robust, adaptable, and future-proof websites. Spend more time developing
-and less time reinventing the wheel.
+HTML5 Boilerplate is a professional front-end template for building fast,
+robust, and adaptable web apps or sites.
 
 This project is the product of many years of iterative development and combined
 community knowledge. It does not impose a specific development philosophy or
@@ -15,7 +14,7 @@ framework, so you're free to architect your code in the way that you want.
 
 ## Quick start
 
-Choose of the following options:
+Choose one of the following options:
 
 1. Download the latest stable release from
    [html5boilerplate.com](http://html5boilerplate.com/) or a custom build from
