@@ -1,11 +1,11 @@
-/*! normalize.css 2012-08-07T21:27 UTC | MIT License | git.io/normalize */
+/*! normalize.css v1.0.0 | MIT License | git.io/normalize */
 
 /* ==========================================================================
    HTML5 display definitions
    ========================================================================== */
 
 /*
- * Corrects `block` display not defined in IE6/7/8/9 & FF3.
+ * Corrects `block` display not defined in IE 6/7/8/9 and Firefox 3.
  */
 
 article,
@@ -23,7 +23,7 @@ summary {
 }
 
 /*
- * Corrects `inline-block` display not defined in IE6/7/8/9 & FF3.
+ * Corrects `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
  */
 
 audio,
@@ -36,7 +36,7 @@ video {
 
 /*
  * Prevents modern browsers from displaying `audio` without controls.
- * Remove excess height in iOS5 devices.
+ * Remove excess height in iOS 5 devices.
  */
 
 audio:not([controls]) {
@@ -45,8 +45,9 @@ audio:not([controls]) {
 }
 
 /*
- * Addresses styling for `hidden` attribute not present in IE7/8/9, FF3, S4.
- * Known issue: no IE6 support.
+ * Addresses styling for `hidden` attribute not present in IE 7/8/9, Firefox 3,
+ * and Safari 4.
+ * Known issue: no IE 6 support.
  */
 
 [hidden] {
@@ -58,7 +59,7 @@ audio:not([controls]) {
    ========================================================================== */
 
 /*
- * 1. Corrects text resizing oddly in IE6/7 when body `font-size` is set using
+ * 1. Corrects text resizing oddly in IE 6/7 when body `font-size` is set using
  *    `em` units.
  * 2. Prevents iOS text size adjust after orientation change, without disabling
  *    user zoom.
@@ -84,7 +85,7 @@ textarea {
 }
 
 /*
- * Addresses margins handled incorrectly in IE6/7.
+ * Addresses margins handled incorrectly in IE 6/7.
  */
 
 body {
@@ -105,7 +106,6 @@ a:focus {
 
 /*
  * Improves readability when focused and also mouse hovered in all browsers.
- * people.opera.com/patrickl/experiments/keyboard/test
  */
 
 a:active,
@@ -118,8 +118,9 @@ a:hover {
    ========================================================================== */
 
 /*
- * Addresses font sizes and margins set differently in IE6/7.
- * Addresses font sizes within `section` and `article` in FF4+, Chrome, S5.
+ * Addresses font sizes and margins set differently in IE 6/7.
+ * Addresses font sizes within `section` and `article` in Firefox 4+, Safari 5,
+ * and Chrome.
  */
 
 h1 {
@@ -153,7 +154,7 @@ h6 {
 }
 
 /*
- * Addresses styling not present in IE7/8/9, S5, Chrome.
+ * Addresses styling not present in IE 7/8/9, Safari 5, and Chrome.
  */
 
 abbr[title] {
@@ -161,7 +162,7 @@ abbr[title] {
 }
 
 /*
- * Addresses style set to `bolder` in FF3+, S4/5, Chrome.
+ * Addresses style set to `bolder` in Firefox 3+, Safari 4/5, and Chrome.
  */
 
 b,
@@ -174,7 +175,7 @@ blockquote {
 }
 
 /*
- * Addresses styling not present in S5, Chrome.
+ * Addresses styling not present in Safari 5 and Chrome.
  */
 
 dfn {
@@ -182,7 +183,7 @@ dfn {
 }
 
 /*
- * Addresses styling not present in IE6/7/8/9.
+ * Addresses styling not present in IE 6/7/8/9.
  */
 
 mark {
@@ -191,7 +192,7 @@ mark {
 }
 
 /*
- * Addresses margins set differently in IE6/7.
+ * Addresses margins set differently in IE 6/7.
  */
 
 p,
@@ -200,8 +201,7 @@ pre {
 }
 
 /*
- * Corrects font family set oddly in IE6, S4/5, Chrome.
- * en.wikipedia.org/wiki/User:Davidgothberg/Test59
+ * Corrects font family set oddly in IE 6, Safari 4/5, and Chrome.
  */
 
 code,
@@ -224,7 +224,7 @@ pre {
 }
 
 /*
- * Addresses CSS quotes not supported in IE6/7.
+ * Addresses CSS quotes not supported in IE 6/7.
  */
 
 q {
@@ -232,7 +232,7 @@ q {
 }
 
 /*
- * Addresses `quotes` property not supported in S4.
+ * Addresses `quotes` property not supported in Safari 4.
  */
 
 q:before,
@@ -247,7 +247,6 @@ small {
 
 /*
  * Prevents `sub` and `sup` affecting `line-height` in all browsers.
- * gist.github.com/413930
  */
 
 sub,
@@ -271,7 +270,7 @@ sub {
    ========================================================================== */
 
 /*
- * Addresses margins set differently in IE6/7.
+ * Addresses margins set differently in IE 6/7.
  */
 
 dl,
@@ -286,7 +285,7 @@ dd {
 }
 
 /*
- * Addresses paddings set differently in IE6/7.
+ * Addresses paddings set differently in IE 6/7.
  */
 
 menu,
@@ -296,7 +295,7 @@ ul {
 }
 
 /*
- * Corrects list images handled incorrectly in IE7.
+ * Corrects list images handled incorrectly in IE 7.
  */
 
 nav ul,
@@ -310,9 +309,8 @@ nav ol {
    ========================================================================== */
 
 /*
- * 1. Removes border when inside `a` element in IE6/7/8/9, FF3.
- * 2. Improves image quality when scaled in IE7.
- *    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
+ * 1. Removes border when inside `a` element in IE 6/7/8/9 and Firefox 3.
+ * 2. Improves image quality when scaled in IE 7.
  */
 
 img {
@@ -321,7 +319,7 @@ img {
 }
 
 /*
- * Corrects overflow displayed oddly in IE9.
+ * Corrects overflow displayed oddly in IE 9.
  */
 
 svg:not(:root) {
@@ -333,7 +331,7 @@ svg:not(:root) {
    ========================================================================== */
 
 /*
- * Addresses margin not present in IE6/7/8/9, S5, O11.
+ * Addresses margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
  */
 
 figure {
@@ -345,7 +343,7 @@ figure {
    ========================================================================== */
 
 /*
- * Corrects margin displayed oddly in IE6/7.
+ * Corrects margin displayed oddly in IE 6/7.
  */
 
 form {
@@ -363,9 +361,9 @@ fieldset {
 }
 
 /*
- * 1. Corrects color not being inherited in IE6/7/8/9.
- * 2. Corrects text not wrapping in FF3.
- * 3. Corrects alignment displayed oddly in IE6/7.
+ * 1. Corrects color not being inherited in IE 6/7/8/9.
+ * 2. Corrects text not wrapping in Firefox 3.
+ * 3. Corrects alignment displayed oddly in IE 6/7.
  */
 
 legend {
@@ -377,7 +375,8 @@ legend {
 
 /*
  * 1. Corrects font size not being inherited in all browsers.
- * 2. Addresses margins set differently in IE6/7, FF3+, S5, Chrome.
+ * 2. Addresses margins set differently in IE 6/7, Firefox 3+, Safari 5,
+ *    and Chrome.
  * 3. Improves appearance and consistency in all browsers.
  */
 
@@ -392,8 +391,8 @@ textarea {
 }
 
 /*
- * Addresses FF3/4 setting `line-height` on `input` using `!important` in the
- * UA stylesheet.
+ * Addresses Firefox 3+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
  */
 
 button,
@@ -407,8 +406,8 @@ input {
  * 2. Corrects inability to style clickable `input` types in iOS.
  * 3. Improves usability and consistency of cursor style between image-type
  *    `input` and others.
- * 4. Removes inner spacing in IE7 without affecting normal text inputs.
- *    Known issue: inner spacing remains in IE6.
+ * 4. Removes inner spacing in IE 7 without affecting normal text inputs.
+ *    Known issue: inner spacing remains in IE 6.
  */
 
 button,
@@ -430,10 +429,10 @@ input[disabled] {
 }
 
 /*
- * 1. Addresses box sizing set to content-box in IE8/9.
- * 2. Removes excess padding in IE8/9.
- * 3. Removes excess padding in IE7.
- *    Known issue: excess padding remains in IE6.
+ * 1. Addresses box sizing set to content-box in IE 8/9.
+ * 2. Removes excess padding in IE 8/9.
+ * 3. Removes excess padding in IE 7.
+ *    Known issue: excess padding remains in IE 6.
  */
 
 input[type="checkbox"],
@@ -445,9 +444,9 @@ input[type="radio"] {
 }
 
 /*
- * 1. Addresses `appearance` set to `searchfield` in S5, Chrome.
- * 2. Addresses `box-sizing` set to `border-box` in S5, Chrome (include `-moz`
- *    to future-proof).
+ * 1. Addresses `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Addresses `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
  */
 
 input[type="search"] {
@@ -458,7 +457,8 @@ input[type="search"] {
 }
 
 /*
- * Removes inner padding and search cancel button in S5, Chrome on OS X.
+ * Removes inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
  */
 
 input[type="search"]::-webkit-search-cancel-button,
@@ -467,7 +467,7 @@ input[type="search"]::-webkit-search-decoration {
 }
 
 /*
- * Removes inner padding and border in FF3+.
+ * Removes inner padding and border in Firefox 3+.
  */
 
 button::-moz-focus-inner,
@@ -477,7 +477,7 @@ input::-moz-focus-inner {
 }
 
 /*
- * 1. Removes default vertical scrollbar in IE6/7/8/9.
+ * 1. Removes default vertical scrollbar in IE 6/7/8/9.
  * 2. Improves readability and alignment in all browsers.
  */
 
