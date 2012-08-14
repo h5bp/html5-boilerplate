@@ -218,7 +218,7 @@ need.
 <meta name="msapplication-task" content="name=Task 2;action-uri=http://microsoft.com/Page2.html;icon-uri=http://host/icon2.ico">
 ```
 
-### High quality visuals for Pinned Sites in Windows 8
+### (Windows 8) High quality visuals for Pinned Sites
 
 Windows 8 adds the ability for you to provide a PNG tile image and specify the
 tile's background color. [Full details on the IE
@@ -231,6 +231,20 @@ blog](http://blogs.msdn.com/b/ie/archive/2012/06/08/high-quality-visuals-for-pin
 * To reference the tile and its color, add the HTML `meta` elements described
   in the IE Blog post.
 
+### (Windows 8) Badges for Pinned Sites
+
+IE10 will poll an XML document for badge information to display on your app's
+tile in the Start screen.  The user will be able to receive these badge updates
+even when your app isn't actively running.  The badge's value can be a number,
+or one of a predefined list of glyphs.
+
+* [Tutorial on IEBlog with link to badge XML schema](http://blogs.msdn.com/b/ie/archive/2012/04/03/pinned-sites-in-windows-8.aspx)
+* [Available badge values](http://msdn.microsoft.com/en-us/library/ie/br212849.aspx)
+
+```html
+<meta name="msapplication-badge" value="frequency=NUMBER_IN_MINUTES;polling-uri=http://www.example.com/path/to/file.xml" />
+```
+
 ### Suppress IE6 image toolbar
 
 Kill IE6's pop-up-on-mouseover toolbar for images that can interfere with
@@ -241,9 +255,11 @@ certain designs and be pretty distracting in general.
 ```
 
 
-## Facebook Open Graph data
+## Social Networks
 
-You can control the information that Facebook displays when users share your
+### Facebook Open Graph data
+
+You can control the information that Facebook and others display when users share your
 site. Below are just the most basic data points you might need.  For specific
 content types (including "website"), see [Facebook's built-in Open Graph
 content
@@ -256,6 +272,25 @@ tutorial](https://developers.facebook.com/docs/opengraph/tutorial/).
 <meta property="og:title" content="">
 <meta property="og:description" content="">
 <meta property="og:image" content="">
+```
+
+### Twitter Cards
+
+Twitter provides a snippet specification that serves a similar purpose to Open Graph.
+In fact, Twitter will use Open Graph when Cards is not available.
+Note that, as of this writing, Twitter requires that app developers activate Cards
+on a per-domain basis.  You can read more about the various snippet formats and
+application process in the [official Twitter Cards documentation](https://dev.twitter.com/docs/cards).
+
+```html
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@site_account">
+<meta name="twitter:creator" content="@individual_account">
+<meta name="twitter:url" content="http://www.example.com/path/to/page.html">
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="http://www.example.com/path/to/image.jpg">
+
 ```
 
 
@@ -317,6 +352,28 @@ attribute should contain the location of your pingback service.
 * Step-by-step example case: http://www.hixie.ch/specs/pingback/pingback-1.0#TOC5
 * PHP pingback service: http://blog.perplexedlabs.com/2009/07/15/xmlrpc-pingbacks-using-php/
 
+
+## App Stores
+
+### Install a Chrome Web Store app
+
+Users can install a Chrome app directly from your website, as long as the app
+and site have been associated via Google's Webmaster Tools.  Read more on
+[Chrome Web Store's Inline Installation docs](https://developers.google.com/chrome/web-store/docs/inline_installation).
+
+```html
+<link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/APP_ID">
+```
+
+### Smart App Banners in iOS 6 Safari
+
+Stop bothering everyone with gross modals advertising your entry in the App Store.
+This bit of code will unintrusively allow the user the option to download your iOS
+app, or open it with some data about the user's current state on the website.
+
+```html
+<meta name="apple-itunes-app" content="app-id=APP_ID,app-argument=SOME_TEXT">
+```
 
 ## Google Analytics augments
 
