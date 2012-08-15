@@ -332,12 +332,18 @@ FileETag None
 
 # Turning on the rewrite engine is necessary for the following rules and
 # features. FollowSymLinks must be enabled for this to work.
-#
-# Some cloud hosting services require RewriteBase to be set: goo.gl/HOcPN If
-# using the h5bp in a subdirectory, use `RewriteBase /foo` instead where 'foo'
-# is your directory.
+
+# Some cloud hosting services require RewriteBase to be set: goo.gl/HOcPN
+# If using the h5bp in a subdirectory, use `RewriteBase /foo` instead where
+# 'foo' is your directory.
+
+# If your web host doesn't allow the FollowSymlinks option, you may need to
+# comment it out and use `Options +SymLinksOfOwnerMatch`, but be aware of the
+# performance impact: http://goo.gl/Mluzd
 
 <IfModule mod_rewrite.c>
+  Options +FollowSymlinks
+# Options +SymLinksIfOwnerMatch
   Options +FollowSymlinks
   RewriteEngine On
 # RewriteBase /

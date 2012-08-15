@@ -15,11 +15,11 @@
 
 == 3.0.2 (February 19, 2012)
 
-* Update to Modernizr 2.5.3
+* Update to Modernizr 2.5.3.
 
-== 3.0.1 (February 08, 2012)
+== 3.0.1 (February 08, 2012).
 
-* Update to Modernizr 2.5.2 (includes html5shiv 3.3)
+* Update to Modernizr 2.5.2 (includes html5shiv 3.3).
 
 == 3.0.0 (February 06, 2012)
 
