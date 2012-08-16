@@ -288,4 +288,8 @@ textarea {
     h3 {
         page-break-after: avoid;
     }
+    
+    /*placeholder de igual color en todos los navegadores*/
+   -webkit-input-placeholder  { color:#CCC; }
+   input:-moz-placeholder { color:#CCC; }
 }
