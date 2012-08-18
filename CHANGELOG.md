@@ -1,5 +1,6 @@
 == HEAD
 
+* Add a HiDPI example media query (#1127).
 * Add bundled docs (#1154).
 * Add MIT license (#1139).
 * Separate normalize.css from the rest of the CSS (#1160).
