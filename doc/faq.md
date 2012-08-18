@@ -3,7 +3,7 @@ table of contents](README.md)
 
 # Frequently asked questions
 
-## Why is the URL for jQuery without "http"?
+### Why is the URL for jQuery without "http"?
 
 This is an intentional use of [protocol-relative
 URLs](http://paulirish.com/2010/the-protocol-relative-url/)
@@ -62,16 +62,6 @@ span.skype_pnh_print_container {
     display: inline !important;
 }
 ```
-
-
-### What is profiling, and how do I use it, why do I want it?
-
-[Firebug](http://michaelsync.net/2007/09/10/firebug-tutorial-logging-profiling-and-commandline-part-ii)
-and [Chrome Dev
-tools](http://code.google.com/chrome/devtools/docs/profiles.html) offer
-profiling, but there is no easy way to profile IE6 and IE7. If you're focused
-on providing the most responsive experience possible (you should be!) then
-profiling should be part of your development workflow.
 
 
 ### Do I need to upgrade my sites each time a new version of HTML5 Boilerplate is released?
