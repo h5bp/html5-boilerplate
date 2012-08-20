@@ -3,7 +3,8 @@
 * Add a HiDPI example media query (#1127).
 * Add bundled docs (#1154).
 * Add MIT license (#1139).
-* Separate normalize.css from the rest of the CSS (#1160).
+* Update to Normalize.css 1.0.1.
+* Separate Normalize.css from the rest of the CSS (#1160).
 * Improve `console.log` protection (#1107).
 * Replace hot pink text selection color with a neutral color.
 * Change image replacement technique.

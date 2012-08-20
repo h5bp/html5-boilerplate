@@ -1,4 +1,4 @@
-/*! normalize.css v1.0.0 | MIT License | git.io/normalize */
+/*! normalize.css v1.0.1 | MIT License | git.io/normalize */
 
 /* ==========================================================================
    HTML5 display definitions
@@ -241,8 +241,12 @@ q:after {
     content: none;
 }
 
+/*
+ * Addresses inconsistent and variable font size in all browsers.
+ */
+
 small {
-    font-size: 75%;
+    font-size: 80%;
 }
 
 /*
