@@ -130,11 +130,18 @@ textarea {
  */
 
 .ir {
-    border: 0;
-    font: 0/0 a;
-    text-shadow: none;
-    color: transparent;
     background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    /* IE 6/7 fallback */
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 100%;
 }
 
 /*

@@ -7,7 +7,7 @@
 * Separate Normalize.css from the rest of the CSS (#1160).
 * Improve `console.log` protection (#1107).
 * Replace hot pink text selection color with a neutral color.
-* Change image replacement technique.
+* Change image replacement technique (#1149).
 * Code format and consistency changes (#1112).
 * Rename CSS file and rename JS files and subdirectories.
 * Update to jQuery 1.8 (#1161).

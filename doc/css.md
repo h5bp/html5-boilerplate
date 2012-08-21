@@ -40,9 +40,10 @@ You are free to modify or add to these base styles as your project requires.
 
 #### `.ir`
 
-Add the `.ir` class to any element you are applying image-replacement to. Be
-sure to include `background-image: url(pathtoimage.png);` for that specific
-element so that image replacement can occur.
+Add the `.ir` class to any element you are applying image-replacement to. When
+replacing an element's content with an image, make sure to also set a specific
+`background-image: url(pathtoimage.png);`, `width`, and `height` so that your
+replacement image appears.
 
 #### `.hidden`
 
