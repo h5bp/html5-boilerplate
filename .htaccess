@@ -164,26 +164,51 @@ AddType text/vtt                            vtt
   </IfModule>
 
   # HTML, TXT, CSS, JavaScript, JSON, XML, HTC:
-  <IfModule filter_module>
-    FilterDeclare   COMPRESS
-    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/html
-    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/css
-    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/plain
-    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/xml
-    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/x-component
-    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/javascript
-    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/json
-    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/xml
-    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/xhtml+xml
-    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/rss+xml
-    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/atom+xml
-    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/vnd.ms-fontobject
-    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $image/svg+xml
-    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $image/x-icon
-    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/x-font-ttf
-    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $font/opentype
-    FilterChain     COMPRESS
-    FilterProtocol  COMPRESS  DEFLATE change=yes;byteranges=no
+  <IfModule version.c>
+  <IfModule filter_module.c>
+    <IfVersion >= 2.4>
+      FilterDeclare   COMPRESS
+      FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'text/html'"
+      FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'text/css'"
+      FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'text/plain'"
+      FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'text/xml'"
+      FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'text/x-component'"
+      FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'application/javascript'"
+      FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'application/json'"
+      FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'application/xml'"
+      FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'application/xhtml+xml'"
+      FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'application/rss+xml'"
+      FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'application/atom+xml'"
+      FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'application/vnd.ms-fontobject'"
+      FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'image/svg+xml'"
+      FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'image/x-icon'"
+      FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'application/x-font-ttf'"
+      FilterProvider  COMPRESS  DEFLATE "%{CONTENT_TYPE} = 'font/opentype'"
+      FilterChain     COMPRESS
+      FilterProtocol  COMPRESS  DEFLATE change=yes;byteranges=no
+    </IfVersion>
+    <IfVersion <= 2.2>
+      FilterDeclare   COMPRESS
+      FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/html
+      FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/css
+      FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/plain
+      FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/xml
+      FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/x-component
+      FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/javascript
+      FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/json
+      FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/xml
+      FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/xhtml+xml
+      FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/rss+xml
+      FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/atom+xml
+      FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/vnd.ms-fontobject
+      FilterProvider  COMPRESS  DEFLATE resp=Content-Type $image/svg+xml
+      FilterProvider  COMPRESS  DEFLATE resp=Content-Type $image/x-icon
+      FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/x-font-ttf
+      FilterProvider  COMPRESS  DEFLATE resp=Content-Type $font/opentype
+      FilterChain     COMPRESS
+      FilterProtocol  COMPRESS  DEFLATE change=yes;byteranges=no
+    </IfVersion>
+  </IfModule>
   </IfModule>
 
   <IfModule !mod_filter.c>
