@@ -1,5 +1,6 @@
 == HEAD
 
+* Improve the Apache compression configuration (#1012, #1173).
 * Add a HiDPI example media query (#1127).
 * Add bundled docs (#1154).
 * Add MIT license (#1139).
