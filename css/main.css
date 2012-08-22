@@ -218,7 +218,7 @@ textarea {
  * Include this rule to trigger hasLayout and contain floats.
  */
 
-.cf {
+.clearfix {
     *zoom: 1;
 }
 
