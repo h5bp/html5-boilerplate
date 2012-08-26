@@ -54,7 +54,10 @@ details will help people to assess and fix any potential bugs.
 
 A good bug report shouldn't leave people needing to chase you up to get further
 information that is required to assess or fix the bug.
+###[File a bug report](https://github.com/h5bp/html5-boilerplate/issues/)
 
+
+---
 
 ## Pull requests
 
