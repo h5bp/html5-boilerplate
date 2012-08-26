@@ -1,4 +1,4 @@
-== HEAD
+### HEAD
 
 * Improve the Apache compression configuration (#1012, #1173).
 * Add a HiDPI example media query (#1127).
@@ -16,15 +16,15 @@
 * Remove uncompressed jQuery (#1153).
 * Remove superfluous inline comments (#1150).
 
-== 3.0.2 (February 19, 2012)
+### 3.0.2 (February 19, 2012)
 
 * Update to Modernizr 2.5.3.
 
-== 3.0.1 (February 08, 2012).
+### 3.0.1 (February 08, 2012).
 
 * Update to Modernizr 2.5.2 (includes html5shiv 3.3).
 
-== 3.0.0 (February 06, 2012)
+### 3.0.0 (February 06, 2012)
 
 * Improvements to `.htaccess`.
 * Improve 404 design.
@@ -43,7 +43,7 @@
 * Remove `defer` from all scripts to avoid legacy IE bugs.
 * Remove explicit Site Speed tracking for Google Analytics. It's now enabled by default.
 
-== 2.0.0 (August 10, 2011)
+### 2.0.0 (August 10, 2011)
 
 * Change starting CSS to be based on normalize.css instead of reset.css (#500).
 * Add Respond.js media query polyfill.
@@ -67,7 +67,7 @@
 * Remove the cache-busting query paramaters from files references in the HTML.
 * Remove IE6 PNGFix.
 
-== 1.0.0 (March 21, 2011)
+### 1.0.0 (March 21, 2011)
 
 * Rewrite build script to make it more customizable and flexible.
 * Add a humans.txt.
