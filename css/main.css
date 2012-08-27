@@ -23,18 +23,6 @@ body {
     line-height: 1.4;
 }
 
-a {
-    color: #00e;
-}
-
-a:visited {
-    color: #551a8b;
-}
-
-a:hover {
-    color: #06e;
-}
-
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
  * These selection declarations have to be separate.
