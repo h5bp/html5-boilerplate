@@ -332,7 +332,6 @@ FileETag None
 <IfModule mod_rewrite.c>
   Options +FollowSymlinks
 # Options +SymLinksIfOwnerMatch
-  Options +FollowSymlinks
   RewriteEngine On
 # RewriteBase /
 </IfModule>
