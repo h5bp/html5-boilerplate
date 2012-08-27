@@ -243,7 +243,7 @@ or one of a predefined list of glyphs.
 * [Available badge values](http://msdn.microsoft.com/en-us/library/ie/br212849.aspx)
 
 ```html
-<meta name="msapplication-badge" value="frequency=NUMBER_IN_MINUTES;polling-uri=http://www.example.com/path/to/file.xml" />
+<meta name="msapplication-badge" value="frequency=NUMBER_IN_MINUTES;polling-uri=http://www.example.com/path/to/file.xml">
 ```
 
 ### Suppress IE6 image toolbar
@@ -292,7 +292,6 @@ documentation](https://dev.twitter.com/docs/cards).
 <meta name="twitter:title" content="">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="http://www.example.com/path/to/image.jpg">
-
 ```
 
 

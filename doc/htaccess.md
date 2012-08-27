@@ -29,6 +29,7 @@ You've got a couple of options that depend on how you installed Apache.
    to enable it (or disable it if it is already enabled). A check mark next to
    a module indicates that it is enabled. WampServer will automatically restart
    the Apache service after you enable a module.
+
 2. **Manually editing `httpd.conf`**. This assumes that you have manually
    installed Apache. You will need to locate the `httpd.conf` file which is
    normally in the `conf` folder in the folder where you installed Apache (for
@@ -72,6 +73,7 @@ you should keep track of what's listening on ports on hosts that you control.
 Run a periodic scanner to make sure nothing suspicious is running on a host you
 control, and use the ServerSignature to determine if this is the web server and
 version that you expect.
+
 
 ## Performance
 

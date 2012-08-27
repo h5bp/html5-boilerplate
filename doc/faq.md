@@ -53,7 +53,7 @@ installed.
 Use the following CSS to prevent Skype from formatting the numbers on your
 page:
 
-```
+```css
 span.skype_pnh_container {
     display: none !important;
 }

@@ -28,7 +28,7 @@ project](http://necolas.github.com/normalize.css/) for more information.
 This project includes a handful of base styles that build upon Normalize.css.
 These include:
 
-* Basic typography setting to provide improved text readability by default.
+* Basic typography settings to provide improved text readability by default.
 * Protection against unwanted `text-shadow` during text highlighting.
 * Tweaks to default image alignment, fieldsets, and textareas.
 * A pretty Chrome Frame prompt.
@@ -89,9 +89,9 @@ development. But it's worth remembering that there are [no silver
 bullets](http://www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/).
 
 We include a placeholder Media Queries to build up your mobile styles for wider
-viewports. It is recommended that you adapt these Media Queries based on the
-content of your site rather than mirroring the fixed dimensions of specific
-devices.
+viewports and high-resolution displays. It's recommended that you adapt these
+Media Queries based on the content of your site rather than mirroring the fixed
+dimensions of specific devices.
 
 If you do not want to take a "Mobile First" approach, you can simply edit or
 remove these placeholder Media Queries. One possibility would be to work from
@@ -99,8 +99,8 @@ wide viewports down and use `max-width` MQs instead, e.g., `@media only screen
 and (max-width: 480px)`.
 
 Take a look into the [Mobile
-Boilerplate](https://github.com/h5bp/mobile-boilerplate) for additional features
-that are useful when developing mobile websites.
+Boilerplate](https://github.com/h5bp/mobile-boilerplate) for features that are
+useful when developing mobile wep apps.
 
 
 ## Print styles
