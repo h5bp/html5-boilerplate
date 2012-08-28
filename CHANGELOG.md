@@ -1,5 +1,7 @@
 ### HEAD
 
+### 4.0.0 (28 August, 2012)
+
 * Improve the Apache compression configuration ([#1012](https://github.com/h5bp/html5-boilerplate/issues/1012), [#1173](https://github.com/h5bp/html5-boilerplate/issues/1173)).
 * Add a HiDPI example media query ([#1127](https://github.com/h5bp/html5-boilerplate/issues/1127)).
 * Add bundled docs ([#1154](https://github.com/h5bp/html5-boilerplate/issues/1154)).
