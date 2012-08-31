@@ -179,8 +179,7 @@ AddType text/vtt                            vtt
                                   text/css \
                                   text/html \
                                   text/plain \
-                                  text/x-component \
-                                  text/xml
+                                  text/x-component
   </IfModule>
 
 </IfModule>
@@ -211,7 +210,6 @@ AddType text/vtt                            vtt
   ExpiresByType text/html                 "access plus 0 seconds"
 
 # Data
-  ExpiresByType text/xml                  "access plus 0 seconds"
   ExpiresByType application/xml           "access plus 0 seconds"
   ExpiresByType application/json          "access plus 0 seconds"
 
