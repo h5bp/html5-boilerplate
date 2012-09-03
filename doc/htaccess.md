@@ -85,7 +85,7 @@ FileETag None
 
 Entity tags (ETags) is a mechanism that web servers and browsers use to
 determine whether the component in the browser's cache matches the one on the
-origin server. (An "entity" is another word a "component": images, scripts,
+origin server. (An "entity" is another word for "component": images, scripts,
 stylesheets, etc.) ETags were added to provide a mechanism for validating
 entities that is more flexible than the last-modified date. An `ETag` is a
 string that uniquely identifies a specific version of a component. The only
