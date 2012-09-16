@@ -4,25 +4,25 @@
 
 ## Getting started
 
-* [Usage](doc/usage.md) — Overview of the project contents.
-* [FAQ](doc/faq.md) — Frequently asked questions, along with their answers.
+* [Usage](usage.md) — Overview of the project contents.
+* [FAQ](faq.md) — Frequently asked questions, along with their answers.
 
 ## The core of HTML5 Boilerplate
 
-* [HTML](doc/html.md) — A guide to the default HTML.
-* [CSS](doc/css.md) — A guide to the default CSS.
-* [JavaScript](doc/js.md) — A guide to the default JavaScript.
-* [.htaccess](doc/htaccess.md) — All about the Apache web server config (also see
+* [HTML](html.md) — A guide to the default HTML.
+* [CSS](css.md) — A guide to the default CSS.
+* [JavaScript](js.md) — A guide to the default JavaScript.
+* [.htaccess](htaccess.md) — All about the Apache web server config (also see
   our [alternative server configs](https://github.com/h5bp/server-configs)).
-* [crossdomain.xml](doc/crossdomain.md) — An introduction to making use of
+* [crossdomain.xml](crossdomain.md) — An introduction to making use of
   crossdomain requests.
-* [Everything else](doc/misc.md).
+* [Everything else](misc.md).
 
 ## Development
 
-* [Contributing to HTML5 Boilerplate](doc/contribute.md) — Guidelines on how to
+* [Contributing to HTML5 Boilerplate](contribute.md) — Guidelines on how to
   contribute effectively.
-* [Extending and customizing HTML5 Boilerplate](doc/extend.md) — Going further with
+* [Extending and customizing HTML5 Boilerplate](extend.md) — Going further with
   the boilerplate.
 
 ## Related projects
