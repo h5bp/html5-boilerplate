@@ -1,5 +1,5 @@
 [HTML5 Boilerplate homepage](http://html5boilerplate.com) | [Documentation
-table of contents](README.md)
+table of contents](TOC.md)
 
 # The JavaScript
 

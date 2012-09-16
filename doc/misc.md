@@ -1,4 +1,5 @@
-[HTML5 Boilerplate homepage](http://html5boilerplate.com) | [Documentation table of contents](README.md)
+[HTML5 Boilerplate homepage](http://html5boilerplate.com) | [Documentation
+table of contents](TOC.md)
 
 # Miscellaneous
 
