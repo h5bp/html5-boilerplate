@@ -1,5 +1,9 @@
 ### HEAD
 
+* Update to jQuery 1.8.1
+* Update to Modernizr 2.6.2
+* Minor additions to the documentation.
+
 ### 4.0.0 (28 August, 2012)
 
 * Improve the Apache compression configuration ([#1012](https://github.com/h5bp/html5-boilerplate/issues/1012), [#1173](https://github.com/h5bp/html5-boilerplate/issues/1173)).
