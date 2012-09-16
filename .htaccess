@@ -385,10 +385,10 @@ FileETag None
 
 # If you're not using the build script to manage your filename version revving,
 # you might want to consider enabling this, which will route requests for
-# /css/style.20110203.css to /css/style.css
+# `/css/style.20110203.css` to `/css/style.css`.
 
 # To understand why this is important and a better idea than all.css?v1231,
-# read: github.com/h5bp/html5-boilerplate/wiki/cachebusting
+# please refer to the bundled documentation about `.htaccess`.
 
 # <IfModule mod_rewrite.c>
 #   RewriteCond %{REQUEST_FILENAME} !-f
