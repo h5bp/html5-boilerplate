@@ -61,7 +61,13 @@ That's it, you're done!
 
 ## On Mac
 
-Coming soon...
+1. **MAMP PRO**. On the main screen, click the `Apache` tab and ensure that all the
+   required modules listed above are 'checked', indicating they are enabled.
+
+2. **MAMP**. Locate the `htppd.conf` file, which is typically in
+   `Applications/MAMP/conf/httpd.conf`. Open the file in a text editor and ensure
+   all of the required modules listed above are not commented out. If they are,
+   uncomment them and restart MAMP.
 
 
 ## Security
