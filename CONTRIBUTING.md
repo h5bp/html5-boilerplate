@@ -1,10 +1,7 @@
-[HTML5 Boilerplate homepage](http://html5boilerplate.com) | [Documentation
-table of contents](TOC.md)
-
 # Contributing to HTML5 Boilerplate
 
-♥ HTML5 Boilerplate and want to get involved? Thanks! There are plenty of ways
-you can help!
+♥ [HTML5 Boilerplate](http://html5boilerplate.com) and want to get involved?
+Thanks! There are plenty of ways you can help!
 
 
 ## Reporting issues

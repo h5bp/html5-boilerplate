@@ -59,5 +59,5 @@ you want to write about your project.
 ## Contributing
 
 Anyone and everyone is welcome to
-[contribute](/h5bp/html5-boilerplate/blob/master/doc/contribute.md). Hundreds
+[contribute](/h5bp/html5-boilerplate/blob/master/CONTRIBUTING.md). Hundreds
 of developers have helped make the HTML5 Boilerplate what it is today.

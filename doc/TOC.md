@@ -20,8 +20,6 @@
 
 ## Development
 
-* [Contributing to HTML5 Boilerplate](contribute.md) — Guidelines on how to
-  contribute effectively.
 * [Extending and customizing HTML5 Boilerplate](extend.md) — Going further with
   the boilerplate.
 
