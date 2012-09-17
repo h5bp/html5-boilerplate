@@ -326,7 +326,7 @@ FileETag None
 # 'foo' is your directory.
 
 # If your web host doesn't allow the FollowSymlinks option, you may need to
-# comment it out and use `Options +SymLinksOfOwnerMatch`, but be aware of the
+# comment it out and use `Options +SymLinksIfOwnerMatch`, but be aware of the
 # performance impact: http://goo.gl/Mluzd
 
 <IfModule mod_rewrite.c>
