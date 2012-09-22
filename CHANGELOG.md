@@ -1,7 +1,8 @@
 ### HEAD
 
-* Update to jQuery 1.8.1
-* Update to Modernizr 2.6.2
+* Further improvements to `console` method stubbing ([#1206](https://github.com/h5bp/html5-boilerplate/issues/1206)).
+* Update to jQuery 1.8.2.
+* Update to Modernizr 2.6.2.
 * Minor additions to the documentation.
 
 ### 4.0.0 (28 August, 2012)
