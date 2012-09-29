@@ -1,15 +1,20 @@
 # humanstxt.org/
 # The humans responsible & technology colophon
 
-# TEAM
+/* TEAM */
+                            
+Your title: <name>.
+Site: <email>, <link>, <etc>.
+Twitter: <username>.
+Location: <city>, <country>.
 
-    <name> -- <role> -- <twitter>
+/* THANKS */
 
-# THANKS
+Name: <name | url>
 
-    <name>
+/* SITE */
 
-# TECHNOLOGY COLOPHON
-
-    HTML5, CSS3
-    jQuery, Modernizr
+Last update: YYYY/MM/DD
+Standards: HTML5, CSS3.
+Components: Modernizr, jQuery.
+Software: <software used for development>.
