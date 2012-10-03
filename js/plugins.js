@@ -8,7 +8,7 @@
         'timeStamp', 'trace', 'warn'
     ];
     var length = methods.length;
-    var console = window.console || {};
+    var console = (window.console = window.console || {});
 
     while (length--) {
         // Only stub undefined methods.
