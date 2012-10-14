@@ -1,5 +1,6 @@
 // Avoid `console` errors in browsers that lack a console.
 (function() {
+    var method;
     var noop = function noop() {};
     var methods = [
         'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
@@ -11,8 +12,12 @@
     var console = (window.console = window.console || {});
 
     while (length--) {
+        method = methods[length];
+
         // Only stub undefined methods.
-        console[methods[length]] = console[methods[length]] || noop;
+        if (!console[method]) {
+            console[method] = noop;
+        }
     }
 }());
 
