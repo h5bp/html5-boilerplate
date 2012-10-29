@@ -1,5 +1,5 @@
 # Apache configuration file
-# httpd.apache.org/docs/2.2/mod/quickreference.html
+#  httpd.apache.org/docs/2.2/mod/quickreference.html
 
 # Note .htaccess files are an overhead, this logic should be in your Apache
 # config if possible: httpd.apache.org/docs/2.2/howto/htaccess.html
@@ -21,7 +21,7 @@
 <IfModule mod_headers.c>
   Header set X-UA-Compatible "IE=Edge,chrome=1"
   # mod_headers can't match by content-type, but we don't want to send this header on *everything*...
-  <FilesMatch "\.(js|css|gif|png|jpe?g|pdf|xml|oga|ogg|m4a|ogv|mp4|m4v|webm|svg|svgz|eot|ttf|otf|woff|ico|webp|appcache|manifest|htc|crx|oex|xpi|safariextz|vcf)$" >
+  <FilesMatch "\.(appcache|crx|css|eot|gif|htc|ico|jpe?g|js|m4a|m4v|manifest|mp4|oex|oga|ogg|ogv|otf|pdf|png|safariextz|svg|svgz|ttf|vcf|webm|webp|woff|xml|xpi)$" >
     Header unset X-UA-Compatible
   </FilesMatch>
 </IfModule>
@@ -32,8 +32,8 @@
 # ----------------------------------------------------------------------
 
 # Serve cross-domain Ajax requests, disabled by default.
-# enable-cors.org
-# code.google.com/p/html5security/wiki/CrossOriginRequestSecurity
+#  enable-cors.org
+#  code.google.com/p/html5security/wiki/CrossOriginRequestSecurity
 
 #  <IfModule mod_headers.c>
 #    Header set Access-Control-Allow-Origin "*"
@@ -45,15 +45,15 @@
 # ----------------------------------------------------------------------
 
 # Send CORS headers if browsers request them; enabled by default for images.
-# developer.mozilla.org/en/CORS_Enabled_Image
-# blog.chromium.org/2011/07/using-cross-domain-images-in-webgl-and.html
-# hacks.mozilla.org/2011/11/using-cors-to-load-webgl-textures-from-cross-domain-images/
-# wiki.mozilla.org/Security/Reviews/crossoriginAttribute
+#  developer.mozilla.org/en/CORS_Enabled_Image
+#  blog.chromium.org/2011/07/using-cross-domain-images-in-webgl-and.html
+#  hacks.mozilla.org/2011/11/using-cors-to-load-webgl-textures-from-cross-domain-images/
+#  wiki.mozilla.org/Security/Reviews/crossoriginAttribute
 
 <IfModule mod_setenvif.c>
   <IfModule mod_headers.c>
     # mod_headers, y u no match by Content-Type?!
-    <FilesMatch "\.(gif|png|jpe?g|svg|svgz|ico|webp)$">
+    <FilesMatch "\.(gif|ico|jpe?g|png|svg|svgz|webp)$">
       SetEnvIf Origin ":" IS_CORS
       Header set Access-Control-Allow-Origin "*" env=IS_CORS
     </FilesMatch>
@@ -70,7 +70,7 @@
 # subdomains like "subdomain.example.com".
 
 <IfModule mod_headers.c>
-  <FilesMatch "\.(ttf|ttc|otf|eot|woff|font.css)$">
+  <FilesMatch "\.(eot|font.css|otf|ttc|ttf|woff)$">
     Header set Access-Control-Allow-Origin "*"
   </FilesMatch>
 </IfModule>
@@ -81,7 +81,7 @@
 # ----------------------------------------------------------------------
 
 # JavaScript
-#   Normalize to standard type (it's sniffed in IE anyways)
+#  Normalize to standard type (it's sniffed in IE anyway)
 #   tools.ietf.org/html/rfc4329#section-7.2
 AddType application/javascript         js jsonp
 AddType application/json               json
@@ -90,18 +90,14 @@ AddType application/json               json
 AddType audio/mp4                      m4a f4a f4b
 AddType audio/ogg                      oga ogg
 
-
 # Video
 AddType video/mp4                      mp4 m4v f4v f4p
 AddType video/ogg                      ogv
 AddType video/webm                     webm
 AddType video/x-flv                    flv
 
-
-
-
 # SVG
-#   Required for svg webfonts on iPad
+#  Required for svg webfonts on iPad
 #   twitter.com/FontSquirrel/status/14855840545
 AddType     image/svg+xml              svg svgz
 AddEncoding gzip                       svgz
@@ -111,7 +107,6 @@ AddType application/vnd.ms-fontobject  eot
 AddType application/x-font-ttf         ttf ttc
 AddType application/x-font-woff        woff
 AddType font/opentype                  otf
-
 
 # Assorted types
 AddType application/octet-stream            safariextz
@@ -198,7 +193,7 @@ AddType text/x-vcard                        vcf
 # These are pretty far-future expires headers.
 # They assume you control versioning with filename-based cache busting
 # Additionally, consider that outdated proxies may miscache
-#   www.stevesouders.com/blog/2008/08/23/revving-filenames-dont-use-querystring/
+# www.stevesouders.com/blog/2008/08/23/revving-filenames-dont-use-querystring/
 
 # If you don't use filenames to version, lower the CSS and JS to something like
 # "access plus 1 week".
@@ -217,25 +212,23 @@ AddType text/x-vcard                        vcf
 
 # Data
   ExpiresByType application/json          "access plus 0 seconds"
-  ExpiresByType text/xml                  "access plus 0 seconds"
   ExpiresByType application/xml           "access plus 0 seconds"
-
+  ExpiresByType text/xml                  "access plus 0 seconds"
 
 # Feed
   ExpiresByType application/atom+xml      "access plus 1 hour"
   ExpiresByType application/rss+xml       "access plus 1 hour"
 
-
 # Favicon (cannot be renamed)
   ExpiresByType image/x-icon              "access plus 1 week"
 
 # Media: images, video, audio
+  ExpiresByType audio/ogg                 "access plus 1 month"
   ExpiresByType image/gif                 "access plus 1 month"
   ExpiresByType image/jpeg                "access plus 1 month"
+  ExpiresByType image/png                 "access plus 1 month"
   ExpiresByType video/mp4                 "access plus 1 month"
   ExpiresByType video/ogg                 "access plus 1 month"
-  ExpiresByType audio/ogg                 "access plus 1 month"
-  ExpiresByType image/png                 "access plus 1 month"
   ExpiresByType video/webm                "access plus 1 month"
 
 # HTC files  (css3pie)
@@ -248,25 +241,23 @@ AddType text/x-vcard                        vcf
   ExpiresByType font/opentype             "access plus 1 month"
   ExpiresByType image/svg+xml             "access plus 1 month"
 
-
 # CSS and JavaScript
   ExpiresByType application/javascript    "access plus 1 year"
   ExpiresByType text/css                  "access plus 1 year"
-
 
 </IfModule>
 
 
 # ----------------------------------------------------------------------
-# Prevent mobile network providers from modifying your site
+# Prevent proxies from modifying your webpage
 # ----------------------------------------------------------------------
 
-# The following header prevents modification of your code over 3G on some
-# mobile providers. This is the official 'bypass' suggested by O2 in the UK.
+# The following header prevents modification of your code over 3G on compliant
+# mobile providers and other proxies. This is the bypass suggested by O2 in the UK.
 
-# <IfModule mod_headers.c>
-# Header set Cache-Control "no-transform"
-# </IfModule>
+<IfModule mod_headers.c>
+ Header set Cache-Control "no-transform"
+</IfModule>
 
 
 # ----------------------------------------------------------------------
@@ -280,7 +271,7 @@ AddType text/x-vcard                        vcf
 
 # Since we're sending far-future expires, we don't need ETags for
 # static content.
-#   developer.yahoo.com/performance/rules.html#etags
+#  developer.yahoo.com/performance/rules.html#etags
 FileETag None
 
 
@@ -318,7 +309,7 @@ FileETag None
 # If needed, specify a path or regex in the Location directive.
 
 # <IfModule mod_headers.c>
-#   Header set P3P "policyref=\"/w3c/p3p.xml\", CP=\"IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT\""
+#   Header set P3P "policyref=\"/w3c/p3p.xml\", CP=\"ADM CNT CONi COR DEVi DSP HIS IDC IND IVAi IVDi OUR PSA PSD TAIi \""
 # </IfModule>
 
 
@@ -355,7 +346,7 @@ FileETag None
 # alternatives and redirect the other one.
 
 # By default option 1 (no "www.") is activated.
-# no-www.org/faq.php?q=class_b
+#  no-www.org/faq.php?q=class_b
 
 # If you'd prefer to use option 2, just comment out all option 1 lines
 # and uncomment option 2.
@@ -414,7 +405,7 @@ FileETag None
 
 # <IfModule mod_rewrite.c>
 #   RewriteCond %{SERVER_PORT} !^443
-#   RewriteRule ^ https://example-domain-please-change-me.com%{REQUEST_URI} [R=301,L]
+#   RewriteRule ^ https://example.com%{REQUEST_URI} [R=301,L]
 # </IfModule>
 
 
@@ -451,16 +442,12 @@ AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
 
 
 # ----------------------------------------------------------------------
-# httpd.conf
+# A little more security
 # ----------------------------------------------------------------------
 
 # To avoid displaying the exact version number of Apache being used, add the
 # following to httpd.conf (it will not work in .htaccess):
 # ServerTokens Prod
-
-# ----------------------------------------------------------------------
-# A little more security
-# ----------------------------------------------------------------------
 
 # "-Indexes" will have Apache block users from browsing folders without a
 # default document Usually you should leave this activated, because you
@@ -482,7 +469,7 @@ AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
 # Block access to backup and source files. These files may be left by some
 # text/html editors and pose a great security danger, when anyone can access
 # them.
-<FilesMatch "(\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist)|~)$">
+<FilesMatch "(\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|swp)|~)$">
   Order allow,deny
   Deny from all
   Satisfy All
