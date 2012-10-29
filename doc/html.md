@@ -102,7 +102,11 @@ Boilerplate comes with a default set of icons (include favicon and Apple Touch
 Icons) that you can use as a baseline to create your own.
 
 If your site or icons are in a sub-directory, you will need to reference the
-icons using `link` elements placed in the HTML `head` of your document.
+icons using `link` elements placed in the HTML `head` of your document, for example:
+
+```html
+<link rel="icon" type="image/png" href="apple-touch-icon.png">
+```
 
 For a comprehensive overview, please read [Everything you always wanted to know
 about touch icons](http://mathiasbynens.be/notes/touch-icons) by Mathias
