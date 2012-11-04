@@ -1,5 +1,7 @@
 ### HEAD
 
+* Enable automatic content scaling across various window dimensions in IE 10 ([#1047](https://github.com/h5bp/html5-boilerplate/issues/1047))
+
 ### 4.0.1 (20 October, 2012)
 
 * Further improvements to `console` method stubbing ([#1206](https://github.com/h5bp/html5-boilerplate/issues/1206), [#1229](https://github.com/h5bp/html5-boilerplate/pull/1229)).

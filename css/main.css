@@ -10,6 +10,22 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
+/*
+ * Enable automatic content scaling across various window dimensions in IE 10
+ */
+
+@-ms-viewport {
+    width: device-width;
+}
+
+@viewport {
+    width: device-width;
+}
+
+/*
+ * Default typography
+ */
+
 html,
 button,
 input,
