@@ -123,6 +123,14 @@ AddType text/vtt                            vtt
 AddType text/x-component                    htc
 AddType text/x-vcard                        vcf
 
+# Microsoft Office
+AddType application/msword                                                        doc
+AddType application/vnd.ms-excel                                                  xls
+AddType application/vnd.ms-powerpoint                                             ppt
+AddType application/vnd.openxmlformats-officedocument.wordprocessingml.document   docx
+AddType application/vnd.openxmlformats-officedocument.spreadsheetml.sheet         xlsx
+AddType application/vnd.openxmlformats-officedocument.presentationml.presentation pptx
+
 
 # ----------------------------------------------------------------------
 # Allow concatenation from within specific js and css files
