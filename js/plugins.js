@@ -9,7 +9,14 @@
         'timeStamp', 'trace', 'warn'
     ];
     var length = methods.length;
-    var console = (window.console = window.console || {});
+    var console; 
+
+    try { 
+        console = window.console;
+    } catch(exception) {
+        window.console = function() {}; //please amend here as per the context and need of this function 
+        window.console.log = function() {}
+    } 
 
     while (length--) {
         method = methods[length];
