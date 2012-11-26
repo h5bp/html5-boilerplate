@@ -414,6 +414,21 @@ FileETag None
 
 
 # ----------------------------------------------------------------------
+# Force client-side SSL redirection
+# ----------------------------------------------------------------------
+
+# If a user types "example.com" in her browser, the above rule will redirect her
+# to the secure version of the site. That still leaves a window of opportunity
+# (the initial HTTP connection) for an attacker to downgrade or redirect the
+# request. The following header ensures that browser will **only** connect to
+# your server via HTTPS, regardless of what users type in the address bar.
+
+# <IfModule mod_headers.c>
+#   Header set Strict-Transport-Security max-age=16070400;
+# </IfModule>
+
+
+# ----------------------------------------------------------------------
 # Prevent 404 errors for non-existing redirected folders
 # ----------------------------------------------------------------------
 
