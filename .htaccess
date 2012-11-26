@@ -541,3 +541,29 @@ AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
 <IfModule mod_php5.c>
   php_value session.cookie_httponly true
 </IfModule>
+
+# ----------------------------------------------------------------------
+# Content Security Policy
+# ----------------------------------------------------------------------
+#
+# You can mitigate the risk of cross-site scripting and other content-injection
+# attacks by setting a Content Security Policy which whitelists trusted sources
+# of content for your site.
+#
+# The example header below allows **only** script that loads from the current
+# site's origin (no inline script, no CDN, etc). This almost certainly won't
+# work as-is for your site. Skim the following article to get all the details
+# you'll need to craft a reasonable policy for your site:
+#
+# http://html5rocks.com/en/tutorials/security/content-security-policy/
+#
+# Or read the spec: http://w3.org/TR/CSP
+#
+#<IfModule mod_headers.c>
+#  Header set Content-Security-Policy "script-src 'self'; object-src 'self'"
+#  # mod_headers can't match by content-type, but we only want to send this
+#  # header for the page we're trying to protect, not for all of its resources.
+#  <FilesMatch "\.(appcache|crx|css|eot|gif|htc|ico|jpe?g|js|m4a|m4v|manifest|mp4|oex|oga|ogg|ogv|otf|pdf|png|safariextz|svg|svgz|ttf|vcf|webm|webp|woff|xml|xpi)$">
+#    Header unset Content-Security-Policy
+#  </FilesMatch>
+#</IfModule>
