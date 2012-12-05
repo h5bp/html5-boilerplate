@@ -231,7 +231,7 @@ textarea {
    ========================================================================== */
 
 @media print {
-    * {
+    *:not([role^="image"]) {
         background: transparent !important;
         color: #000 !important; /* Black prints faster: h5bp.com/s */
         box-shadow: none !important;
@@ -252,12 +252,13 @@ textarea {
     }
 
     /*
-     * Don't show links for images, or javascript/internal links
+     * Don't show links for images (including role=image elements), or javascript/internal links
      */
 
     .ir a:after,
     a[href^="javascript:"]:after,
-    a[href^="#"]:after {
+    a[href^="#"]:after, 
+    a[role^="image"]:after {
         content: "";
     }
 
@@ -272,11 +273,12 @@ textarea {
     }
 
     tr,
-    img {
+    img, 
+    [role^="image"] {
         page-break-inside: avoid;
     }
 
-    img {
+    img, [role^="image"] {
         max-width: 100% !important;
     }
 
