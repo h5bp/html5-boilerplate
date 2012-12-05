@@ -281,6 +281,11 @@ textarea {
     img, [role^="image"] {
         max-width: 100% !important;
     }
+    
+   [role^="image"] {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;    
+   }
 
     @page {
         margin: 0.5cm;
