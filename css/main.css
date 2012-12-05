@@ -231,7 +231,7 @@ textarea {
    ========================================================================== */
 
 @media print {
-    *:not([role^="image"]) {
+    *:not([role^="img"]) {
         background: transparent !important;
         color: #000 !important; /* Black prints faster: h5bp.com/s */
         box-shadow: none !important;
@@ -258,7 +258,7 @@ textarea {
     .ir a:after,
     a[href^="javascript:"]:after,
     a[href^="#"]:after, 
-    a[role^="image"]:after {
+    a[role^="img"]:after {
         content: "";
     }
 
@@ -274,15 +274,15 @@ textarea {
 
     tr,
     img, 
-    [role^="image"] {
+    [role^="img"] {
         page-break-inside: avoid;
     }
 
-    img, [role^="image"] {
+    img, [role^="img"] {
         max-width: 100% !important;
     }
     
-   [role^="image"] {
+   [role^="img"] {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;    
    }
