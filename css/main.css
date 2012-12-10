@@ -231,12 +231,19 @@ textarea {
    ========================================================================== */
 
 @media print {
-    * {
-        background: transparent !important;
+    * {   
         color: #000 !important; /* Black prints faster: h5bp.com/s */
         box-shadow: none !important;
         text-shadow: none !important;
     }
+    
+   *:not([role^="image"]){background:transparent !important}
+   
+   * {
+       background/*\**/:transparent\9!important\9; /*ie7-8*/
+       background:transparent!ie; /*ie6-7 */
+     }
+    
 
     a,
     a:visited {
@@ -252,12 +259,13 @@ textarea {
     }
 
     /*
-     * Don't show links for images, or javascript/internal links
+     * Don't show links for images (including role=image elements), or javascript/internal links
      */
 
     .ir a:after,
     a[href^="javascript:"]:after,
-    a[href^="#"]:after {
+    a[href^="#"]:after, 
+    a[role^="img"]:after {
         content: "";
     }
 
@@ -272,13 +280,19 @@ textarea {
     }
 
     tr,
-    img {
+    img, 
+    [role^="img"] {
         page-break-inside: avoid;
     }
 
-    img {
+    img, [role^="img"] {
         max-width: 100% !important;
     }
+    
+   [role^="img"] {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;    
+   }
 
     @page {
         margin: 0.5cm;
