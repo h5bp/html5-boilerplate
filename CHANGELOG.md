@@ -1,5 +1,6 @@
 ### HEAD
 
+* Adjust CSS image-replacement code ([#1239](https://github.com/h5bp/html5-boilerplate/issues/1239)).
 * Update HiDPI example media query ([#1127](https://github.com/h5bp/html5-boilerplate/issues/1127)).
 
 ### 4.0.2 (9 December, 2012)
