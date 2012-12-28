@@ -1,5 +1,7 @@
 ### HEAD
 
+* Update HiDPI example media query ([#1127](https://github.com/h5bp/html5-boilerplate/issues/1127)).
+
 ### 4.0.2 (9 December, 2012)
 
 * Update placeholder icons.
