@@ -144,7 +144,7 @@ you intended to support IE 6, then you should remove the snippet of code.
 
 The Google CDN version of the jQuery JavaScript library is referenced towards
 the bottom of the page using a protocol-independent path (read more about this
-in the [FAQ](faq.md). A local fallback of jQuery is included for rare instances
+in the [FAQ](faq.md)). A local fallback of jQuery is included for rare instances
 when the CDN version might not be available, and to facilitate offline
 development.
 
