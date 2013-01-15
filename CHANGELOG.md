@@ -1,5 +1,7 @@
 ### HEAD
 
+* Update to jQuery 1.9.0.
+
 ### 4.0.3 (12 January, 2013)
 
 * Use 32x32 favicon.ico ([#1286](https://github.com/h5bp/html5-boilerplate/pull/1286)).
