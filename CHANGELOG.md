@@ -1,5 +1,6 @@
 ### HEAD
 
+* Update to Normalize.css 1.1.0.
 * Update to jQuery 1.9.0.
 
 ### 4.0.3 (12 January, 2013)
