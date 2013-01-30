@@ -89,12 +89,16 @@ AddType application/json               json
 # Audio
 AddType audio/mp4                      m4a f4a f4b
 AddType audio/ogg                      oga ogg
+AddType audio/mp3                      mp3
+AddType audio/wav                      wav
 
 # Video
 AddType video/mp4                      mp4 m4v f4v f4p
 AddType video/ogg                      ogv
 AddType video/webm                     webm
 AddType video/x-flv                    flv
+AddType video/mov                      mov 
+AddType video/wma                      wma
 
 # SVG
 #   Required for svg webfonts on iPad
@@ -115,14 +119,17 @@ AddType application/x-opera-extension       oex
 AddType application/x-shockwave-flash       swf
 AddType application/x-web-app-manifest+json webapp
 AddType application/x-xpinstall             xpi
-AddType application/xml                     rss atom xml rdf
+AddType application/xml                     rss atom xml rdf xsl
 AddType image/webp                          webp
 AddType image/x-icon                        ico
 AddType text/cache-manifest                 appcache manifest
 AddType text/vtt                            vtt
 AddType text/x-component                    htc
 AddType text/x-vcard                        vcf
-
+AddType application/pdf                     pdf
+AddType application/doc                     doc 
+AddType application/docx                    docx
+AddType application/ppt                     ppt
 
 # ----------------------------------------------------------------------
 # Allow concatenation from within specific js and css files
@@ -170,6 +177,10 @@ AddType text/x-vcard                        vcf
   <IfModule mod_filter.c>
     AddOutputFilterByType DEFLATE application/atom+xml \
                                   application/javascript \
+                                  application/x-javascript \
+                                  application/x-httpd-php \       
+                                  application/x-httpd-fastphp \ 
+                                  application/x-httpd-eruby \
                                   application/json \
                                   application/rss+xml \
                                   application/vnd.ms-fontobject \
@@ -183,7 +194,10 @@ AddType text/x-vcard                        vcf
                                   text/html \
                                   text/plain \
                                   text/x-component \
-                                  text/xml
+                                  text/xml \
+                                  text/text \ 
+                                  text\javascript
+
   </IfModule>
 
 </IfModule>
@@ -202,7 +216,9 @@ AddType text/x-vcard                        vcf
 # "access plus 1 week".
 
 <IfModule mod_expires.c>
+  # Turn on Expires and set default to now
   ExpiresActive on
+  ExpiresDefault "now"
 
 # Perhaps better to whitelist expires rules? Perhaps.
   ExpiresDefault                          "access plus 1 month"
@@ -211,7 +227,9 @@ AddType text/x-vcard                        vcf
   ExpiresByType text/cache-manifest       "access plus 0 seconds"
 
 # Your document html
-  ExpiresByType text/html                 "access plus 0 seconds"
+  ExpiresByType text/html                 "access plus 1 hour"
+  ExpiresByType text/htm                  "access plus 1 hour"
+  ExpiresByType text/plain                "access plus 1 hour"
 
 # Data
   ExpiresByType application/json          "access plus 0 seconds"
@@ -225,14 +243,31 @@ AddType text/x-vcard                        vcf
 # Favicon (cannot be renamed)
   ExpiresByType image/x-icon              "access plus 1 week"
 
+# Files: doc, pdf, ppt...
+  ExpiresByType application/pdf           "access plus 1 month"
+  ExpiresByType application/doc           "access plus 1 month"
+  ExpiresByType application/ppt           "access plus 1 month"
+
+# Assorted types
+  ExpiresByType application/swf           "access plus 1 month"
+
 # Media: images, video, audio
   ExpiresByType audio/ogg                 "access plus 1 month"
+  ExpiresByType audio/mp3                 "access plus 1 month"
+  ExpiresByType audio/wav                 "access plus 1 month"
+
   ExpiresByType image/gif                 "access plus 1 month"
   ExpiresByType image/jpeg                "access plus 1 month"
   ExpiresByType image/png                 "access plus 1 month"
+  ExpiresByType image/jpg                 "access plus 1 month"
+
   ExpiresByType video/mp4                 "access plus 1 month"
   ExpiresByType video/ogg                 "access plus 1 month"
   ExpiresByType video/webm                "access plus 1 month"
+  ExpiresByType video/x-flv               "access plus 1 month"
+  ExpiresByType video/avi                 "access plus 1 month"
+  ExpiresByType video/mov                 "access plus 1 month"
+  ExpiresByType video/wmv                 "access plus 1 month"
 
 # HTC files  (css3pie)
   ExpiresByType text/x-component          "access plus 1 month"
@@ -277,6 +312,19 @@ AddType text/x-vcard                        vcf
 # static content.
 #   developer.yahoo.com/performance/rules.html#etags
 FileETag None
+
+
+# ----------------------------------------------------------------------
+# Remove Last-Modified header
+# ----------------------------------------------------------------------
+
+# If you remove the Last-Modified and ETag header, you will totally eliminate If-Modified-Since 
+# and If-None-Match requests and their 304 Not Modified responses, so a file will stay cached without 
+# checking for updates until the Expires header indicates new content is available!
+  
+<ifModule mod_headers.c>
+  Header unset Last-Modified
+</ifModule>
 
 
 # ----------------------------------------------------------------------
@@ -473,7 +521,7 @@ AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
 # Block access to backup and source files. These files may be left by some
 # text/html editors and pose a great security danger, when anyone can access
 # them.
-<FilesMatch "(\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|swp)|~)$">
+<FilesMatch "(\.(htaccess|bak|config|dist|fla|inc|ini|log|psd|sh|sql|swp)|~)$">
   Order allow,deny
   Deny from all
   Satisfy All
@@ -541,3 +589,10 @@ AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
 <IfModule mod_php5.c>
   php_value session.cookie_httponly true
 </IfModule>
+
+# Disable server signature - Masquer les signatures du serveur lors d'une erreur(version apache, nom et email de l'admin...)
+#ServerSignature Off
+
+# Changing server signature
+#ServerSignature EMail
+#SetEnv SERVER_ADMIN webmaster@diwan-solution.com
