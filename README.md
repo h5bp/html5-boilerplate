@@ -49,15 +49,13 @@ Choose one of the following options:
 
 ## Documentation
 
-Take a look at the [documentation table of
-contents](/h5bp/html5-boilerplate/blob/master/doc/TOC.md). This
+Take a look at the [documentation table of contents](doc/TOC.md). This
 documentation is bundled with the project, which makes it readily available for
-offline reading and provides a useful starting point for any documentation
-you want to write about your project.
+offline reading and provides a useful starting point for any documentation you
+want to write about your project.
 
 
 ## Contributing
 
-Anyone and everyone is welcome to
-[contribute](/h5bp/html5-boilerplate/blob/master/CONTRIBUTING.md). Hundreds
-of developers have helped make the HTML5 Boilerplate what it is today.
+Anyone and everyone is welcome to [contribute](CONTRIBUTING.md). Hundreds of
+developers have helped make the HTML5 Boilerplate what it is today.
