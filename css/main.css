@@ -206,8 +206,8 @@ textarea {
  * Include this rule to trigger hasLayout and contain floats.
  */
 
-.clearfix {
-    *zoom: 1;
+.lt-ie8 .clearfix {
+    zoom: 1;
 }
 
 /* ==========================================================================
