@@ -2,6 +2,8 @@
 (function() {
     var method;
     var noop = function () {};
+    //chrome console api: https://developers.google.com/chrome-developer-tools/docs/console-api
+    //firebug: http://getfirebug.com/wiki/index.php/Console_API
     var methods = [
         'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
         'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
