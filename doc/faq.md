@@ -12,8 +12,7 @@ URLs](http://paulirish.com/2010/the-protocol-relative-url/)
 problematic when you try to view your local files directly in the browser. The
 browser will attempt to fetch the file from your local file system. We
 recommend that you use a local server to test your pages (or Dropbox). This can
-be done using Python by running `python -m SimpleHTTPServer` from your local
-directory, using Ruby by installing and running
+be done using Python2.x by running `python -m SimpleHTTPServer` or Python3.x with `python -m http.server`from your local directory, using Ruby by installing and running
 [asdf](https://rubygems.org/gems/asdf), and by installing any one of XAMPP,
 MAMP, or WAMP.
 
