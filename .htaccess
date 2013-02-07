@@ -62,6 +62,19 @@
 
 
 # ----------------------------------------------------------------------
+# Deny Backup files from showing up
+# ----------------------------------------------------------------------
+
+# Prevents access to files ending with ~ i.e backup files
+# Save your config files from being publically viewed.
+# feross.org/cmsploit/?hn=1
+
+<Files ~ "(^#.*#|~|\.sw[op])$">
+  Order allow,deny
+  Deny from all
+</Files>
+
+# ----------------------------------------------------------------------
 # Webfont access
 # ----------------------------------------------------------------------
 
@@ -136,17 +149,19 @@ AddType text/x-vcard                        vcf
 # This is not in use in the boilerplate as it stands. You may
 # choose to use this technique if you do not have a build process.
 
-#<FilesMatch "\.combined\.js$">
-#  Options +Includes
-#  AddOutputFilterByType INCLUDES application/javascript application/json
-#  SetOutputFilter INCLUDES
-#</FilesMatch>
+#<IfModule mod_include.c>
+#  <FilesMatch "\.combined\.js$">
+#    Options +Includes
+#    AddOutputFilterByType INCLUDES application/javascript application/json
+#    SetOutputFilter INCLUDES
+#  </FilesMatch>
 
-#<FilesMatch "\.combined\.css$">
-#  Options +Includes
-#  AddOutputFilterByType INCLUDES text/css
-#  SetOutputFilter INCLUDES
-#</FilesMatch>
+#  <FilesMatch "\.combined\.css$">
+#    Options +Includes
+#    AddOutputFilterByType INCLUDES text/css
+#    SetOutputFilter INCLUDES
+#  </FilesMatch>
+#</IfModule>
 
 
 # ----------------------------------------------------------------------
