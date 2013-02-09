@@ -12,11 +12,10 @@ URLs](http://paulirish.com/2010/the-protocol-relative-url/)
 problematic when you try to view your local files directly in the browser. The
 browser will attempt to fetch the file from your local file system. We
 recommend that you use a local server to test your pages (or Dropbox). This can
-be done using Python by running `python -m SimpleHTTPServer` from your local
-directory, using Ruby by installing and running
-[asdf](https://rubygems.org/gems/asdf), and by installing any one of XAMPP,
-MAMP, or WAMP.
-
+be done using Python 2.x by running `python -m SimpleHTTPServer` or Python 3.x
+with `python -m http.server` from your local directory, using Ruby by installing
+and running [asdf](https://rubygems.org/gems/asdf), and by installing any one of
+XAMPP, MAMP, or WAMP.
 
 ### Why don't you automatically load the latest version of jQuery from the Google CDN?
 
