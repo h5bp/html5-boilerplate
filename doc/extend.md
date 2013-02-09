@@ -246,6 +246,19 @@ or one of a predefined list of glyphs.
 <meta name="msapplication-badge" value="frequency=NUMBER_IN_MINUTES;polling-uri=http://www.example.com/path/to/file.xml">
 ```
 
+### Disable link highlighting upon tap in IE10
+
+Similar to [-webkit-tap-highlight-color](http://davidwalsh.name/mobile-highlight-color)
+in iOS Safari. Unlike that CSS property, this is an HTML meta element, and it's
+value is boolean rather than a color. It's all or nothing.
+
+```html
+<meta name="msapplication-tap-highlight" content="no" />
+```
+
+You can read about this useful element and more techniques in
+[Microsoft's documentation on adapting WebKit-oriented apps for IE10](http://blogs.windows.com/windows_phone/b/wpdev/archive/2012/11/15/adapting-your-webkit-optimized-site-for-internet-explorer-10.aspx).
+
 ### Suppress IE6 image toolbar
 
 Kill IE6's pop-up-on-mouseover toolbar for images that can interfere with
