@@ -28,6 +28,7 @@ project](http://necolas.github.com/normalize.css/) for more information.
 This project includes a handful of base styles that build upon Normalize.css.
 These include:
 
+* Automatic content scaling across various window dimensions in IE 10.
 * Basic typography settings to provide improved text readability by default.
 * Protection against unwanted `text-shadow` during text highlighting.
 * Tweaks to default image alignment, fieldsets, and textareas.
