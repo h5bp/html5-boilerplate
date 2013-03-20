@@ -250,6 +250,37 @@ AddType text/x-vcard                        vcf
 
 </IfModule>
 
+# If mod_expires is disabled
+
+<IfModule !mod_expires.c>
+
+  # cache html, htm, txt, xml, json files for 0 second
+  <FilesMatch ".(html|htm|txt|xml|json)$">
+    Header set Cache-Control "max-age=0, public"
+  </FilesMatch>
+
+   # cache rss, atom, for 1 hour
+  <FilesMatch ".(rss|atom)$">
+    Header set Cache-Control "max-age=3600, public"
+  </FilesMatch>
+
+  # cache favicon for 1 week
+  <FilesMatch ".(ico)$">
+    Header set Cache-Control "max-age=25200, public"
+  </FilesMatch>
+
+  # cache images, video, audio, fonts and flash content for one month
+  <FilesMatch ".(ogg|gif|jpg|jpeg|png|mp4|webm|otf|ttf|woff|svg)$">
+    Header set Cache-Control "max-age=2592000, public"
+  </FilesMatch>
+
+  # cache css, and javascript files for one year
+  <FilesMatch ".(js|css)$">
+    Header set Cache-Control "max-age=31536000, public"
+  </FilesMatch>
+
+</IfModule>
+
 
 # ----------------------------------------------------------------------
 # Prevent mobile network providers from modifying your site
