@@ -339,6 +339,23 @@ FileETag None
 # RewriteBase /
 </IfModule>
 
+# ----------------------------------------------------------------------
+# Set variable for https to be used by domain rewrites
+# ----------------------------------------------------------------------
+# Source: http://www.askapache.com/htaccess/http-https-rewriterule-redirect.html
+# Use Case: http%{ENV:https}://%{SERVER_NAME}%{REQUEST_URI}
+
+RewriteCond %{SERVER_PORT}s ^(443(s)|[0-9]+s)$
+RewriteRule ^(.*)$ - [env=https:%2]
+
+# ----------------------------------------------------------------------
+# Prevent fully qualified domain names (trailing "." in HTTP_HOST)
+# ----------------------------------------------------------------------
+# Prevent possible issues such as duplicate content appearing search engines
+# Read more at http://saynt2day.blogspot.ru/2013/03/danger-of-trailing-dot-in-domain-name.html
+
+RewriteCond %{HTTP_HOST} \.$
+RewriteRule ^.*$ http%{ENV:https}://%{SERVER_NAME}%{REQUEST_URI} [L,R=301]
 
 # ----------------------------------------------------------------------
 # Suppress or force the "www." at the beginning of URLs
@@ -363,9 +380,8 @@ FileETag None
 # Rewrite "www.example.com -> example.com".
 
 <IfModule mod_rewrite.c>
-  RewriteCond %{HTTPS} !=on
   RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-  RewriteRule ^ http://%1%{REQUEST_URI} [R=301,L]
+  RewriteRule ^ http%{ENV:https}://%1%{REQUEST_URI} [R=301,L]
 </IfModule>
 
 # ----------------------------------------------------------------------
@@ -376,9 +392,8 @@ FileETag None
 # subdomains for certain parts of your website.
 
 # <IfModule mod_rewrite.c>
-#   RewriteCond %{HTTPS} !=on
 #   RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
-#   RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+#   RewriteRule ^ http%{ENV:https}://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 # </IfModule>
 
 
@@ -404,12 +419,13 @@ FileETag None
 # Prevent SSL cert warnings
 # ----------------------------------------------------------------------
 
-# Rewrite secure requests properly to prevent SSL cert warnings, e.g. prevent
-# https://www.example.com when your cert only allows https://secure.example.com
+# Rewrite secure requests properly to prevent SSL cert warnings, e.g. Replace 
+# %{SERVER_NAME} to prevent https://www.example.com when your cert only allows
+# https://secure.example.com ( https://secure.%{HTTP_HOST}%{REQUEST_URI} )
 
 # <IfModule mod_rewrite.c>
 #   RewriteCond %{SERVER_PORT} !^443
-#   RewriteRule ^ https://example-domain-please-change-me.com%{REQUEST_URI} [R=301,L]
+#   RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
 # </IfModule>
 
 
