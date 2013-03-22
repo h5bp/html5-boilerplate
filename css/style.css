@@ -7,9 +7,9 @@
  *		   www.richardshepherd.com
  * 		   @richardshepherd   
  */
+.data {position:fixed; top: 0; left: 0; border:1px solid #FFF; color: #FFF;}
 
-
-article h2 { font-family: 'Lobster Two'; font-size: 60px; margin: 25px 0; line-height: 1em; }
+article h2 { font-family: 'Russo One'; font-size: 60px; margin: 25px 0; line-height: 1em; }
 
 .story { height: 1000px; padding: 0; margin: 0; width: 100%; max-width: 1920px; position: relative; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.3); border-bottom: 1px solid rgba(0,0,0,0.4); box-shadow: 0 0 50px rgba(0,0,0,0.8);}
 
@@ -20,7 +20,8 @@ article h2 { font-family: 'Lobster Two'; font-size: 60px; margin: 25px 0; line-h
 #theend { background: url(../img/puckered.png) 50% bottom no-repeat fixed; }
 
 /* Introduction */
-#first .smashinglogo { background: url(../img/smashing-logo.png) 50% 100px no-repeat fixed; min-height: 1000px; padding: 0; margin: 0; width: 100%; max-width: 1920px; position: relative; margin: 0 auto; }
+#first .smashinglogo { background: url(../img/smashing-logo.png) 50% 100px no-repeat fixed; min-height: 1000px; padding: 0; margin: 0; width: 100%; max-width: 1920px; position: absolute; margin: 0 auto; }
+#first .mars {background: url(../img/redball.png) 1px 500px no-repeat fixed; min-height: 1000px; padding:0; margin:0; width:100%; max-width: 1920px; position: absolute; margin: 0 auto;}
 #first article { width: 100%; top: 300px; position: absolute; text-align: center; }
 #first article p,
 #first article a { color: #ccc; }
