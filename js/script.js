@@ -18,7 +18,8 @@ $(document).ready(function(){
 	$('[data-type]').each(function() {	
 		$(this).data('offsetY', parseInt($(this).attr('data-offsetY')));
 		$(this).data('Xposition', parseInt($(this).attr('data-Xposition')));
-		$(this).data('speed', $(this).attr('data-speed'));
+		$(this).data('speedY', $(this).attr('data-speedY'));
+		$(this).data('speedX', $(this).attr('data-speedX'));
 	});
 	
 	// For each element that has a data-type attribute
@@ -39,7 +40,7 @@ $(document).ready(function(){
 	
 				// Scroll the background at var speed
 				// the yPos is a negative value because we're scrolling it UP!								
-				var yPos = -($window.scrollTop() / $self.data('speed')); 
+				var yPos = -($window.scrollTop() / $self.data('speedY')); 
 				
 				// If this element has a Y offset then add it on
 				if ($self.data('offsetY')) {
@@ -62,7 +63,7 @@ $(document).ready(function(){
 					var $sprite = $(this);
 					
 					// Use the same calculation to work out how far to scroll the sprite
-					var yPos = -($window.scrollTop() / $sprite.data('speed'));					
+					var yPos = -($window.scrollTop() / $sprite.data('speedY'));					
 					var coords = $sprite.data('Xposition') + '% ' + (yPos + $sprite.data('offsetY')) + 'px';
 					$sprite.css({ backgroundPosition: coords });													
 					
@@ -75,10 +76,11 @@ $(document).ready(function(){
 					var $sprite = $(this);
 					
 					// Use the same calculation to work out how far to scroll the sprite
-					var yPos = ($window.scrollTop() / $sprite.data('speed'));
-					var xPos = ($sprite.data('Xposition') + ($window.scrollTop() / 0.25));
+					var curScroll = $window.scrollTop() / 4;
+					var yPos = (curScroll / $sprite.data('speedY'));
+					var xPos = (curScroll * $sprite.data('speedX'));
 									
-					var coords = xPos + 'px ' + (yPos + $sprite.data('offsetY')) + 'px';
+					var coords = (xPos + $sprite.data('Xposition')) + 'px ' + (yPos + $sprite.data('offsetY')) + 'px';
 					$sprite.css({ backgroundPosition: coords });
 					$sprite.append($window.scrollTop());													
 					
@@ -94,7 +96,7 @@ $(document).ready(function(){
 					
 					// There's some repetition going on here, so 
 					// feel free to tidy this section up. 
-					var yPos = -($window.scrollTop() / $video.data('speed'));					
+					var yPos = -($window.scrollTop() / $video.data('speedY'));					
 					var coords = (yPos + $video.data('offsetY')) + 'px';
 	
 					$video.css({ top: coords });													
