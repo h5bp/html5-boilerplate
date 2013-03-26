@@ -18,8 +18,8 @@ $(document).ready(function(){
 	$('[data-type]').each(function() {	
 		$(this).data('offsetY', parseInt($(this).attr('data-offsetY')));
 		$(this).data('Xposition', parseInt($(this).attr('data-Xposition')));
-		$(this).data('speedY', $(this).attr('data-speedY'));
-		$(this).data('speedX', $(this).attr('data-speedX'));
+		$(this).data('speedY', parseFloat($(this).attr('data-speedY')));
+		$(this).data('speedX', parseFloat($(this).attr('data-speedX')));
 	});
 	
 	// For each element that has a data-type attribute
@@ -40,21 +40,24 @@ $(document).ready(function(){
 	
 				// Scroll the background at var speed
 				// the yPos is a negative value because we're scrolling it UP!								
-				var yPos = -($window.scrollTop() / $self.data('speedY')); 
-				
+				var yPos = -($window.scrollTop() / $self.data('speedY'));
+				var xPos = ($window.scrollTop() * $self.data('speedX'));
+			
 				// If this element has a Y offset then add it on
 				if ($self.data('offsetY')) {
 					yPos += $self.data('offsetY');
 				}
 				
+				if ($self.data('Xposition')) {
+					xPos += $self.data('Xposition');
+				}
 				
 				// Put together our final background position
-				var coords = '50% '+ yPos + 'px';
+				var coords = xPos + '% ' + yPos + 'px';
 
 				// Move the background
 				$self.css({ backgroundPosition: coords });
 				
-				$('.data').append('<p>'+$window.scrollTop()+'</p>');
 				
 				// Check for other sprites in this section	
 				$('[data-type="sprite"]', $self).each(function() {
@@ -62,11 +65,16 @@ $(document).ready(function(){
 					// Cache the sprite
 					var $sprite = $(this);
 					
-					// Use the same calculation to work out how far to scroll the sprite
-					var yPos = -($window.scrollTop() / $sprite.data('speedY'));					
-					var coords = $sprite.data('Xposition') + '% ' + (yPos + $sprite.data('offsetY')) + 'px';
-					$sprite.css({ backgroundPosition: coords });													
 					
+					
+					// Use the same calculation to work out how far to scroll the sprite
+					var yPos = -($window.scrollTop() / $sprite.data('speedY'));	
+					
+					//Because we might want speedX to be zero, we adjust the code to use * instead
+					var xPos = ($window.scrollTop() * $sprite.data('speedX'));
+					
+					var coords = (xPos + $sprite.data('Xposition')) + '% ' + (yPos + $sprite.data('offsetY')) + 'px';
+					$sprite.css({ backgroundPosition: coords });													
 				}); // sprites
 				
 				// Check for other sprites in this section	
@@ -80,9 +88,8 @@ $(document).ready(function(){
 					var yPos = (curScroll / $sprite.data('speedY'));
 					var xPos = (curScroll * $sprite.data('speedX'));
 									
-					var coords = (xPos + $sprite.data('Xposition')) + 'px ' + (yPos + $sprite.data('offsetY')) + 'px';
+					var coords = (xPos + $sprite.data('Xposition')) + '% ' + (yPos + $sprite.data('offsetY')) + 'px';
 					$sprite.css({ backgroundPosition: coords });
-					$sprite.append($window.scrollTop());													
 					
 				}); // sprites
 				
