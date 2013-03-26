@@ -2,39 +2,137 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+	<!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Our Solar System</title>
+		<meta name="description" content="How to create a parallax scrolling effect with jQuery, HTML and CSS">
+		<meta name="author" content="Richard Shepherd, Smashing Magazine">
+		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/main.css">
+		<!-- Mmmmm, Google Web Fonts. That's a paddlin'. -->
+		<link href='http://fonts.googleapis.com/css?family=Russo+One&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/style.css">
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
+		<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+	</head>
+	<body>
+		<!--[if lt IE 7]>
+		<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+		<![endif]-->
 
-        <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
+		<div id="main" role="main">
+			<div class="data"><p>Data Center</p>Data Center</div>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+			<!-- Section #1 / Intro -->
+			<section id="first" class="story" data-speedY="4" data-speedX="0.1" data-type="background">
+				<div class="smashinglogo" data-type="sprite" data-offsetY="100" data-Xposition="50" data-speedY="-2" data-speedX="0"></div>
+				<article>
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g,s)}(document,'script'));
-        </script>
-    </body>
+					<img src="img/tutorial-title.png" alt="tutorial-title" width="711" height="242" />
+					<p>
+						A brief demonstration of parallax in a browser using amazing images from NASA.
+					</p>
+				</article>
+			</section>
+
+			<!-- Section #2 / Background Only -->
+			<section id="second" class="story" data-speedY="8" data-type="background">
+				<div class="mercury" data-type="sprite" data-offsetY="200" data-Xposition="150" data-speedY="-6" data-speedX="-0.082"></div>
+				<article>
+					<h2>Little Ol' Mercury</h2>
+					<p>
+						In this section we are sliding the background at a different speed to the rest of the page.
+					</p>
+					<p>
+						As this text box is scrolling at the same speed as the page, and faster than the background, it creates this lovely parallax effect.
+					</p>
+					<p>
+						You can find all the HTML, CSS and the all important JavaScript files over at <a href="https://github.com/richardshepherd/Parallax-Scrolling">GitHub</a> - so why don't you drop by for some hardcore forking action?
+					</p>
+					<p>
+						Backgrounds for this article were taken from the May/June 2011 Smashing Magazine Desktop backgrounds.
+					</p>
+					<p>
+						Head back to <a href="http://coding.smashingmagazine.com/2011/07/12/behind-the-scenes-of-nike-better-world/">Smashing Magazine</a>, or hop on over to <a href="http://richardshepherd.com">RichardShepherd.com</a>.
+					</p>
+				</article>
+			</section>
+
+			<!-- Section #3 / Photos -->
+			<section id="third" class="story" data-speedY="6" data-speedX="-0.05" data-type="background" data-offsetY="250" data-Xposition="150">
+				<div class="photograph" data-type="sprite" data-offsetY="1250" data-Xposition="25" data-speedY="2" data-speedX="0"></div>
+				<article>
+					<h2>Scrolling Sprites</h2>
+					<div class="textbox">
+						<p>
+							The next step in your parallax scrolling adventure is to create some sprites!
+						</p>
+						<p>
+							I have cut out one of the photos in this background and use it as a sprite. It scrolls at a different speed to the background <i>and</i> the window, and it's this effect that's used so well on Nike Better World and other parallax sites..
+						</p>
+						<p>
+							Using too many sprites can slow down older computers, and you need to use some clever maths (and trial & error!) to work out their placement on the page.
+						</p>
+					</div>
+				</article>
+			</section>
+
+			<!-- Section #4 / HTML5 Video -->
+			<section id="fourth" class="story" data-speedY="8" data-speedX="0" data-type="background" data-offsetY="250">
+				<article>
+					<h2>HTML5 Video</h2>
+					<div class="textbox">
+						<p>
+							Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+						</p>
+						<p>
+							Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+						</p>
+						<p>
+							Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. o.
+						</p>
+					</div>
+				</article>
+				<video controls width="640" width="480" data-type="video" data-offsetY="2400" data-speedY="1.5" data-speedX="0">
+					<source src="video/parallelparking.theora.ogv" type="video/ogg" />
+					<source src="video/parallelparking.mp4" type="video/mp4" />
+					<source src="video/parallelparking.webm" type="video/webm" />
+				</video>
+			</section>
+
+			<!-- Section #5 / The End-->
+			<section id="theend" class="story" data-speedY="8" data-type="background" data-offsetY="250">
+				<div class="byebye" data-type="sprite" data-offsetY="-1600" data-Xposition="50%" data-speedY="-2"></div>
+			</section>
+
+		</div>
+		<!-- // End of #main -->
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script>
+			window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')
+		</script>
+		<script src="js/plugins.js"></script>
+		<script src="js/main.js"></script>
+		<script src="js/script.js"></script>
+		<!--[if lt IE 7 ]>
+		<script src="js/libs/dd_belatedpng.js"></script>
+		<script>DD_belatedPNG.fix("img, .png_bg");
+		<![endif]-->
+		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+		<script>
+			var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
+			( function(d, t) {
+					var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+					g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+					s.parentNode.insertBefore(g, s)
+				}(document, 'script'));
+		</script>
+	</body>
 </html>

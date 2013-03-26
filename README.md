@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+Storybook
+=========
+
+Storybook Parallax Experiment
+
+This is an experiment. There should be more coming shortly.
+=======
 # [HTML5 Boilerplate](http://html5boilerplate.com)
 
 HTML5 Boilerplate is a professional front-end template for building fast,
@@ -59,3 +67,4 @@ want to write about your project.
 
 Anyone and everyone is welcome to [contribute](CONTRIBUTING.md). Hundreds of
 developers have helped make the HTML5 Boilerplate what it is today.
+>>>>>>> 9cb1b0fe4bf29f5d14ca33bdb78680a9ceea3576

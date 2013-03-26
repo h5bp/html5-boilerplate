@@ -1,5 +1,6 @@
 ### HEAD
 
+<<<<<<< HEAD
 * Use a protocol relative URL for the 404 template script.
 * Update to jQuery 1.9.1.
 
@@ -23,6 +24,12 @@
 
 ### 4.0.1 (October 20, 2012)
 
+=======
+* Enable automatic content scaling across various window dimensions in IE 10 ([#1047](https://github.com/h5bp/html5-boilerplate/issues/1047))
+
+### 4.0.1 (20 October, 2012)
+
+>>>>>>> origin/ms-viewport
 * Further improvements to `console` method stubbing ([#1206](https://github.com/h5bp/html5-boilerplate/issues/1206), [#1229](https://github.com/h5bp/html5-boilerplate/pull/1229)).
 * Update to jQuery 1.8.2.
 * Update to Modernizr 2.6.2.

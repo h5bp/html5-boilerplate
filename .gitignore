@@ -1,2 +1,22 @@
+<<<<<<< HEAD
+# Object files
+*.o
+
+# Libraries
+*.lib
+*.a
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+=======
 # Include your project-specific ignores in this file
 # Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
+>>>>>>> 9cb1b0fe4bf29f5d14ca33bdb78680a9ceea3576
