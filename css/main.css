@@ -16,11 +16,14 @@ input,
 select,
 textarea {
     color: #222;
+    background: #fff;
 }
 
 body {
     font-size: 1em;
     line-height: 1.4;
+    color: #222;
+    background: #fff;
 }
 
 /*
