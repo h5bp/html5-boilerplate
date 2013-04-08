@@ -1,5 +1,7 @@
 ### HEAD
 
+### 4.2.0 (April 8, 2013)
+
 * Remove Google Analytics protocol check ([#1319](https://github.com/h5bp/html5-boilerplate/pull/1319)).
 * Update to Normalize.css 1.1.1.
 * Update Apache configurations to include the latest changes in the canonical
