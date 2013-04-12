@@ -13,7 +13,7 @@
 * [CSS](css.md) — A guide to the default CSS.
 * [JavaScript](js.md) — A guide to the default JavaScript.
 * [.htaccess](https://github.com/h5bp/server-configs/blob/master/apache/README.md)
-  — All about the Apache web server config (also see our
+  — All about the Apache web server configs (also see our
   [alternative server configs](https://github.com/h5bp/server-configs)).
 * [crossdomain.xml](crossdomain.md) — An introduction to making use of
   crossdomain requests.

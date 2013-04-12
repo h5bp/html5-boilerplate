@@ -38,8 +38,8 @@ spec](http://www.whatwg.org/specs/web-apps/current-work/complete/semantics.html#
 (4.2.5.5 Specifying the document's character encoding), add your charset
 declaration early (before any ASCII art ;) to avoid a potential
 [encoding-related security
-issue](http://code.google.com/p/doctype/wiki/ArticleUtf7) in IE. It should come
-in the first [1024
+issue](http://code.google.com/p/doctype-mirror/wiki/ArticleUtf7) in IE. It
+should come in the first [1024
 bytes](http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#charset).
 
 The charset should also come before the `<title>` tag, due to [potential XSS
