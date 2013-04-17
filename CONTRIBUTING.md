@@ -111,8 +111,8 @@ project:
 
 ## Do not…
 
-Please **do not** use the issue tracker for personal support requests (use
+- Use the issue tracker for personal support requests (use
 [StackOverflow](http://stackoverflow.com/questions/tagged/html5boilerplate) or IRC).
 
-Please **do not** derail or troll issues. Keep the
+- Derail or troll issues. Keep the
 discussion on topic and respect the opinions of others.
