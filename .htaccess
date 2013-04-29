@@ -400,6 +400,7 @@ AddDefaultCharset utf-8
                                       text/html \
                                       text/plain \
                                       text/x-component \
+                                      text/javascript \
                                       text/xml
     </IfModule>
 
