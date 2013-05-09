@@ -492,6 +492,44 @@ $(function(){
 });
 ```
 
+## iOS Web Apps
+
+There are a couple of meta tags that provide information about a web app when
+added to the Home Screen on iOS.
+
+Adding `apple-mobile-web-app-capable` will make your web app chrome-less and
+provide the default iOS app view. You can control the color scheme of the
+default view by adding `apple-mobile-web-app-status-bar-style`.
+
+```html
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+```
+
+You can use `apple-mobile-web-app-title` to add a specific sites name for the
+Home Screen icon. This works since iOS 6.
+
+```html
+<meta name="apple-mobile-web-app-title" content="">
+```
+
+For further information please read the [official documentation](http://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html)
+on Apple's site.
+
+Apart from that it is possible to add start-up screens for web apps on iOS. This
+basically works by defining `apple-touch-startup-image` with an according link
+to the image. Since iOS devices have different screen resolutions it is
+necessary to add media queries to detect which image to load. Here is an
+example for a retina iPhone:
+
+```html
+<link rel="apple-touch-startup-image" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" href="img/startup-retina.png">
+```
+
+However, it is possible to detect which start-up image to use with JavaScript.
+The Mobile Boilerplate provides a useful function for this. Please see
+[helpers.js](https://github.com/h5bp/mobile-boilerplate/blob/master/js/helper.js#L354)
+for the implementation.
 
 ## Miscellaneous
 
