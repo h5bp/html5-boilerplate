@@ -1,5 +1,7 @@
 ### HEAD
 
+* Update to Normalize.css 1.1.2.
+
 ### 4.2.0 (April 8, 2013)
 
 * Remove Google Analytics protocol check ([#1319](https://github.com/h5bp/html5-boilerplate/pull/1319)).
