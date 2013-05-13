@@ -142,17 +142,12 @@ you intended to support IE 6, then you should remove the snippet of code.
 
 ### Google CDN for jQuery
 
-The Google CDN version of the jQuery JavaScript library is referenced towards
-the bottom of the page using a protocol-independent path (read more about this
-in the [FAQ](faq.md)). A local fallback of jQuery is included for rare instances
-when the CDN version might not be available, and to facilitate offline
-development.
+The Google CDN version of the jQuery JavaScript library is no longer referenced 
+in the boilerplate HTML.  It was found to be generally slower than including
+jQuery locally and the concatenating/minifying into a single file for 
+production use.  
 
-Regardless of which JavaScript library you choose to use, it is well worth the
-time and effort to look up and reference the Google CDN (Content Delivery
-Network) version. Your users may already have this version cached in their
-browsers, and Google's CDN is likely to deliver the asset faster than your
-server.
+[More details](http://statichtml.com/2011/google-ajax-libraries-caching.html).
 
 ### Google Analytics Tracking Code
 
