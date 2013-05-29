@@ -333,6 +333,13 @@ AddDefaultCharset utf-8
 #    RewriteRule ^ https://example-domain-please-change-me.com%{REQUEST_URI} [R=301,L]
 # </IfModule>
 
+# Notice the browser to not even try an HTTP connection if your default is HTTP.
+# See https://developer.mozilla.org/en-US/docs/Security/HTTP_Strict_Transport_Security
+# and http://tools.ietf.org/html/draft-ietf-websec-strict-transport-sec-14#section-6.1
+# <IfModule mod_headers.c>
+#    Header set Strict-Transport-Security "max-age=16070400; includeSubDomains"
+# </IfModule>
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Force client-side SSL redirection.
