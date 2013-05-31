@@ -1,6 +1,7 @@
 ### HEAD
 
-* Update to jQuery 1.10.0.
+* Update to jQuery 1.10.1 (May 31, 2013).
+* Update to jQuery 1.10.0 (May 24, 2013).
 * Update to Normalize.css 1.1.2.
 
 ### 4.2.0 (April 8, 2013)
