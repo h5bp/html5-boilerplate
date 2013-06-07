@@ -253,6 +253,8 @@ AddDefaultCharset utf-8
 # <IfModule mod_rewrite.c>
 #    RewriteCond %{HTTPS} !=on
 #    RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
+#    RewriteCond %{HTTP_HOST} !=localhost [NC]
+#    RewriteCond %{HTTP_HOST} !=127.0.0.1
 #    RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 # </IfModule>
 
