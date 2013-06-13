@@ -98,19 +98,11 @@ body {
 
 /**
  * Address `outline` inconsistency between Chrome and other browsers.
+ * Keep outline for improved accessiblity.
  */
 
-a:focus {
+a:focus, a:active, a:hover {
     outline: thin dotted;
-}
-
-/**
- * Improve readability when focused and also mouse hovered in all browsers.
- */
-
-a:active,
-a:hover {
-    outline: 0;
 }
 
 /* ==========================================================================
