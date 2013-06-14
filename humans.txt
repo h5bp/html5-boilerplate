@@ -1,5 +1,5 @@
-# humanstxt.org/
-# The humans responsible & technology colophon
+# humanstxt.org
+# The humans responsible, and technology colophon
 
 # TEAM
 
