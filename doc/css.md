@@ -107,8 +107,9 @@ useful when developing mobile wep apps.
 
 * Print styles are inlined to [reduce the number of page
   requests](http://www.phpied.com/delay-loading-your-print-css/).
-* We strip all background colors and change the font color to dark gray and
-  remove text-shadow. This is meant to help save printer ink.
+* We strip all background colors, change the font color to black and remove
+  text-shadow. This is meant to [help save printer ink and make the printing
+  process much faster](http://www.sanbeiji.com/archives/953).
 * Anchors do not need colors to indicate they are linked. They are underlined
   to indicate so.
 * Anchors and Abbreviations are expanded to indicate where users reading the
