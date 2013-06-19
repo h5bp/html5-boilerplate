@@ -28,6 +28,18 @@
             input {
                 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             }
+            
+            span[smileySad] {
+                -webkit-transform: rotate(90deg); 
+                -moz-transform: rotate(90deg); 
+                -o-transform: rotate(90deg);
+                transform: rotate(90deg);  
+                display:inline-block; 
+                color: #bbb; 
+                font-family: "Marker Felt", "Comic Sans MS", fantasy;
+                font-weight: normal;
+                margin-left: 5px;
+            } 
 
             body {
                 max-width: 500px;
@@ -141,7 +153,7 @@
     </head>
     <body>
         <div class="container">
-            <h1>Not found <span>:(</span></h1>
+            <h1>Not found <span smileySad>:(</span></h1>
             <p>Sorry, but the page you were trying to view does not exist.</p>
             <p>It looks like this was the result of either:</p>
             <ul>
