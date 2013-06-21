@@ -18,6 +18,12 @@ textarea {
     color: #222;
 }
 
+input,
+select,
+textarea {
+   background-color: #fff;
+}
+
 body {
     font-size: 1em;
     line-height: 1.4;
