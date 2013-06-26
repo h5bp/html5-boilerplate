@@ -86,10 +86,9 @@ ErrorDocument 404 /404.html
 
 # Force IE to render pages in the highest available mode in the various
 # cases when it may not: http://hsivonen.iki.fi/doctype/ie-mode.pdf.
-# Use, if installed, Google Chrome Frame.
 
 <IfModule mod_headers.c>
-    Header set X-UA-Compatible "IE=edge,chrome=1"
+    Header set X-UA-Compatible "IE=edge"
     # `mod_headers` can't match based on the content-type, however, we only
     # want to send this header for HTML pages and not for the other resources
     <FilesMatch "\.(appcache|crx|css|eot|gif|htc|ico|jpe?g|js|m4a|m4v|manifest|mp4|oex|oga|ogg|ogv|otf|pdf|png|safariextz|svg|svgz|ttf|vcf|webapp|webm|webp|woff|xml|xpi)$">
