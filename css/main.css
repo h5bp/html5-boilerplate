@@ -21,6 +21,10 @@ textarea {
 body {
     font-size: 1em;
     line-height: 1.4;
+    -webkit-font-smoothing: subpixel-antialiased !important;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
 }
 
 /*
