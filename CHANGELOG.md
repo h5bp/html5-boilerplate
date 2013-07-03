@@ -2,7 +2,7 @@
 
 * Vertical centering for audio-, canvas- and video-tags ([#1326](https://github.com/h5bp/html5-boilerplate/issues/1326)).
 * Update to Google Universal Analytics ([#1347](https://github.com/h5bp/html5-boilerplate/issues/1347)).
-* Update to jQuery 1.10.1.
+* Update to jQuery 1.10.2.
 * Update to Normalize.css 1.1.2.
 
 ### 4.2.0 (April 8, 2013)
