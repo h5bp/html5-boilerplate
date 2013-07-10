@@ -24,6 +24,17 @@ body {
 }
 
 /*
+ * Set color for disabled form elements.
+ */
+
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled {
+   color: #808080;
+}
+
+/*
  * Remove text-shadow in selection highlight: h5bp.com/i
  * These selection rule sets have to be separate.
  * Customize the background color to match your design.
