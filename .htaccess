@@ -174,8 +174,20 @@ ErrorDocument 404 /404.html
     AddType text/vtt                                    vtt
     AddType text/x-component                            htc
     AddType text/x-vcard                                vcf
-
+    AddType application/vnd.openxmlformats              docx pptx xlsx xltx xltm dotx potx ppsx
 </IfModule>
+
+
+# ------------------------------------------------------------------------------
+# | Force Download for several filetypes                                       |
+# ------------------------------------------------------------------------------
+
+# example for excel files
+<FilesMatch "\.(xlsx)$">
+  ForceType application/octet-stream
+  Header set Content-Disposition attachment
+</FilesMatch>
+
 
 # ------------------------------------------------------------------------------
 # | UTF-8 encoding                                                             |
