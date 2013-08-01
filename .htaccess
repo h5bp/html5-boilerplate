@@ -172,6 +172,7 @@ ErrorDocument 404 /404.html
     AddType image/webp                                  webp
     AddType image/x-icon                                ico
     AddType text/cache-manifest                         appcache manifest
+    AddType application/x-web-app-manifest+json         webapp
     AddType text/vtt                                    vtt
     AddType text/x-component                            htc
     AddType text/x-vcard                                vcf
