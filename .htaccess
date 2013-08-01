@@ -1,4 +1,5 @@
 # Apache Configuration File
+# https://github.com/h5bp/server-configs-apache
 
 # (!) Using `.htaccess` files slows down Apache, therefore, if you have access
 # to the main server config file (usually called `httpd.conf`), you should add
@@ -31,7 +32,7 @@
 
 <IfModule mod_setenvif.c>
     <IfModule mod_headers.c>
-        <FilesMatch "\.(gif|ico|jpe?g|png|svg|svgz|webp)$">
+        <FilesMatch "\.(gif|ico|jpe?g|png|svgz?|webp)$">
             SetEnvIf Origin ":" IS_CORS
             Header set Access-Control-Allow-Origin "*" env=IS_CORS
         </FilesMatch>
@@ -91,7 +92,7 @@ ErrorDocument 404 /404.html
     Header set X-UA-Compatible "IE=edge"
     # `mod_headers` can't match based on the content-type, however, we only
     # want to send this header for HTML pages and not for the other resources
-    <FilesMatch "\.(appcache|crx|css|eot|gif|htc|ico|jpe?g|js|m4a|m4v|manifest|mp4|oex|oga|ogg|ogv|otf|pdf|png|safariextz|svg|svgz|ttf|vcf|webapp|webm|webp|woff|xml|xpi)$">
+    <FilesMatch "\.(appcache|crx|css|eot|gif|htc|ico|jpe?g|js|m4a|m4v|manifest|mp4|oex|oga|ogg|ogv|otf|pdf|png|safariextz|svgz?|ttf|vcf|webapp|webm|webp|woff|xml|xpi)$">
         Header unset X-UA-Compatible
     </FilesMatch>
 </IfModule>
@@ -136,7 +137,7 @@ ErrorDocument 404 /404.html
   # JavaScript
     # Normalize to standard type (it's sniffed in IE anyways):
     # http://tools.ietf.org/html/rfc4329#section-7.2
-    AddType application/javascript                      js jsonp
+    AddType application/javascript                      js
     AddType application/json                            json
 
   # Video
@@ -252,6 +253,8 @@ AddDefaultCharset utf-8
 # <IfModule mod_rewrite.c>
 #    RewriteCond %{HTTPS} !=on
 #    RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
+#    RewriteCond %{HTTP_HOST} !=localhost [NC]
+#    RewriteCond %{HTTP_HOST} !=127.0.0.1
 #    RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 # </IfModule>
 
@@ -278,7 +281,7 @@ AddDefaultCharset utf-8
 
 # <IfModule mod_headers.c>
 #    Header set Content-Security-Policy "script-src 'self'; object-src 'self'"
-#    <FilesMatch "\.(appcache|crx|css|eot|gif|htc|ico|jpe?g|js|m4a|m4v|manifest|mp4|oex|oga|ogg|ogv|otf|pdf|png|safariextz|svg|svgz|ttf|vcf|webapp|webm|webp|woff|xml|xpi)$">
+#    <FilesMatch "\.(appcache|crx|css|eot|gif|htc|ico|jpe?g|js|m4a|m4v|manifest|mp4|oex|oga|ogg|ogv|otf|pdf|png|safariextz|svgz?|ttf|vcf|webapp|webm|webp|woff|xml|xpi)$">
 #        Header unset Content-Security-Policy
 #    </FilesMatch>
 # </IfModule>
@@ -332,19 +335,25 @@ AddDefaultCharset utf-8
 #    RewriteRule ^ https://example-domain-please-change-me.com%{REQUEST_URI} [R=301,L]
 # </IfModule>
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# ------------------------------------------------------------------------------
+# | HTTP Strict Transport Security (HSTS)                                      |
+# ------------------------------------------------------------------------------
 
 # Force client-side SSL redirection.
 
-# If a user types "example.com" in his browser, the above rule will redirect him
-# to the secure version of the site. That still leaves a window of opportunity
-# (the initial HTTP connection) for an attacker to downgrade or redirect the
-# request. The following header ensures that browser will ONLY connect to your
-# server via HTTPS, regardless of what the users type in the address bar.
+# If a user types "example.com" in his browser, the above rule will redirect
+# him to the secure version of the site. That still leaves a window of oppor-
+# tunity (the initial HTTP connection) for an attacker to downgrade or redirect
+# the request. The following header ensures that browser will ONLY connect to
+# your server via HTTPS, regardless of what the users type in the address bar.
+# http://tools.ietf.org/html/draft-ietf-websec-strict-transport-sec-14#section-6.1
 # http://www.html5rocks.com/en/tutorials/security/transport-layer-security/
 
+# (!) Remove the `includeSubDomains` optional directive if the subdomains are
+# not using HTTPS.
+
 # <IfModule mod_headers.c>
-#    Header set Strict-Transport-Security max-age=16070400;
+#    Header set Strict-Transport-Security "max-age=16070400; includeSubDomains"
 # </IfModule>
 
 # ------------------------------------------------------------------------------
@@ -501,7 +510,6 @@ FileETag None
 
 # <IfModule mod_rewrite.c>
 #    RewriteCond %{REQUEST_FILENAME} !-f
-#    RewriteCond %{REQUEST_FILENAME} !-d
 #    RewriteRule ^(.+)\.(\d+)\.(js|css|png|jpg|gif)$ $1.$3 [L]
 # </IfModule>
 
