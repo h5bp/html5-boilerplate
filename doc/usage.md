@@ -63,16 +63,13 @@ get you started. [About the JavaScript](js.md).
 
 ### .htaccess
 
-The default web server config is for Apache. For more information, please refer
-to the [`.htaccess`
-documentation](https://github.com/h5bp/server-configs/blob/master/apache/README.md)
-in the [server configs](https://github.com/h5bp/server-configs) project.
+The default web server configs are for Apache. For more information, please
+refer to the [Apache Server Configs
+documentation](https://github.com/h5bp/server-configs-apache/tree/master/doc).
 
 Host your site on a server other than Apache? You're likely to find the
-corresponding configuration file in our [server configs
-repo](https://github.com/h5bp/server-configs). If you cannot find a
-configuration file for your setup, please consider contributing one so that
-others can benefit too.
+corresponding server configs project listed in our [Server Configs
+](https://github.com/h5bp/server-configs/blob/master/README.md) repository.
 
 ### 404.html
 
