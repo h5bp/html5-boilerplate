@@ -60,21 +60,17 @@ possible that they're not using the latest rendering engine their browser
 contains. To fix this, use:
 
 ```html
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 ```
 
-The `meta` tag tells the IE rendering engine two things:
-
-1. It should use the latest, or edge, version of the IE rendering environment
-2. If already installed, it should use the Google Chrome Frame rendering
-   engine.
+The `meta` tag tells the IE rendering engine it should use the latest, or edge,
+version of the IE rendering environment.
 
 This `meta` tag ensures that anyone browsing your site in IE is treated to the
 best possible user experience that their browser can offer.
 
-This line breaks validation, and the Google Chrome Frame part won't work inside
-a conditional comment. To avoid these edge case issues it is recommended that
-you **remove this line and use the `.htaccess`** (or other server config)
+This line breaks validation. To avoid this edge case issue it is recommended
+that you **remove this line and use the `.htaccess`** (or other server config)
 to send these headers instead. You also might want to read [Validating:
 X-UA-Compatible](http://groups.google.com/group/html5boilerplate/browse_thread/thread/6d1b6b152aca8ed2).
 
