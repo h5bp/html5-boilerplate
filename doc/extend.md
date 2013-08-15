@@ -456,12 +456,12 @@ Add this function after `_gaq` is defined:
             a.href = href;
             return a;
         };
-    window.onerror = function (message, file, row) {
+    window.onerror = function (message, file, line, column) {
         var host = link(file).hostname;
         _gaq.push([
             '_trackEvent',
             (host == window.location.hostname || host == undefined || host == '' ? '' : 'external ') + 'error',
-            message, file + ' LINE: ' + row, undefined, undefined, true
+            message, file + ' LINE: ' + line + (column ? ' COLUMN: ' + column : ''), undefined, undefined, true
         ]);
     };
 }(window));
