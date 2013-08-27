@@ -394,6 +394,7 @@ AddDefaultCharset utf-8
     <IfModule mod_filter.c>
         AddOutputFilterByType DEFLATE application/atom+xml \
                                       application/javascript \
+                                      application/x-javascript \
                                       application/json \
                                       application/rss+xml \
                                       application/vnd.ms-fontobject \
