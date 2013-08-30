@@ -91,19 +91,14 @@ a simple setup that strikes a good balance for general use cases.
 <meta name="viewport" content="width=device-width, initial-scale=1">
 ```
 
-## Favicons and Touch Icons
+## Favicons and Touch Icon
 
 The shortcut icons should be put in the root directory of your site. HTML5
-Boilerplate comes with a default set of icons (include favicon and Apple Touch
-Icons) that you can use as a baseline to create your own.
+Boilerplate comes with a default set of icons (include favicon and one Apple
+Touch Icon) that you can use as a baseline to create your own.
 
-If your site or icons are in a sub-directory, you will need to reference the
-icons using `link` elements placed in the HTML `head` of your document.
-
-For a comprehensive overview, please read [Everything you always wanted to know
-about touch icons](http://mathiasbynens.be/notes/touch-icons) by Mathias
-Bynens.
-
+Please refer to the more detailed description in the [Extend section](extend.md)
+of these docs.
 
 ## Modernizr
 
