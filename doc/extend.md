@@ -516,6 +516,34 @@ Home Screen icon. This works since iOS 6.
 For further information please read the [official documentation](http://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html)
 on Apple's site.
 
+### Apple Touch Icons
+
+Touch Icons can be seen as the favicons of mobile devices and tablets.
+
+If your site or icons are in a sub-directory, you will need to reference the
+icons using `link` elements placed in the HTML `head` of your document.
+
+```html
+<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+```
+
+The main sizes of the icons on iOS are:
+
+* iPad, high-resolution display, iOS 7: 152x152
+* iPad, high-resolution display, iOS ≤ 6: 144x144
+* iPhone, high-resolution display, iOS 7: 120x120
+* iPhone, high-resolution display, iOS ≤ 6: 114x114
+* iPad, non-Retina, iOS ≤ 6: 72x72
+
+For non-Retina iPhone, iPod Touch, and Android 2.1+ devices you can use the
+example from above or replace the `apple-touch-icon-precomposed.png` within this
+project's root folder.
+
+Please refer to Mathias' [article on Touch
+Icons](http://mathiasbynens.be/notes/touch-icons) for a comprehensive overview.
+
+### Apple Touch Startup Image
+
 Apart from that it is possible to add start-up screens for web apps on iOS. This
 basically works by defining `apple-touch-startup-image` with an according link
 to the image. Since iOS devices have different screen resolutions it is
