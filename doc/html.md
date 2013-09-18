@@ -129,7 +129,7 @@ web app development.
 
 The main content area of the boilerplate includes a prompt to install Chrome
 Frame (which no longer requires administrative rights) for users of IE 6. If
-you intended to support IE 6, then you should remove the snippet of code.
+you do not intend to support IE 6, then you should remove the snippet of code.
 
 ### Google CDN for jQuery
 
