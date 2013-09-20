@@ -31,7 +31,7 @@ These include:
 * Basic typography settings to provide improved text readability by default.
 * Protection against unwanted `text-shadow` during text highlighting.
 * Tweaks to default image alignment, fieldsets, and textareas.
-* A pretty Chrome Frame prompt.
+* A pretty prompt to update your browser if you are on an outdated browser.
 
 You are free to modify or add to these base styles as your project requires.
 

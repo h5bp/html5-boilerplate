@@ -144,7 +144,7 @@ element, which will prompt them to switch to Desktop Mode.
 Here's what it looks like alongside H5BP's default X-UA-Compatible values:
 
 ```html
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1,requiresActiveX=true">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,requiresActiveX=true">
 ```
 
 You can find more information in [Microsoft's IEBlog post about prompting for

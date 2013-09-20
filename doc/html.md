@@ -47,10 +47,6 @@ vectors](http://code.google.com/p/doctype-mirror/wiki/ArticleUtf7).
 
 The meta tag for compatibility mode [needs to be before all elements except
 title and meta](http://h5bp.com/f "Defining Document Compatibility - MSDN").
-And that same meta tag can only be invoked for Google Chrome Frame if it is
-within the [first 1024
-bytes](http://code.google.com/p/chromium/issues/detail?id=23003).
-
 
 ## X-UA-Compatible
 
@@ -125,11 +121,11 @@ The central part of the boilerplate template is pretty much empty. This is
 intentional, in order to make the boilerplate suitable for both web page and
 web app development.
 
-### Google Chrome Frame
+### Browserhappy Promt
 
-The main content area of the boilerplate includes a prompt to install Chrome
-Frame (which no longer requires administrative rights) for users of IE 6. If
-you intended to support IE 6, then you should remove the snippet of code.
+The main content area of the boilerplate includes a prompt to install an up to
+date browser for users of IE 6. If you intended to support IE 6, then you should
+remove the snippet of code.
 
 ### Google CDN for jQuery
 
