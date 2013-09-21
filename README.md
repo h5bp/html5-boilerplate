@@ -1,6 +1,7 @@
 ### A basic template to get started with HTML, CSS, and JavaScript
 
-This project is a fork of the [HTML5 Boilerplate](http://html5boilerplate.com), it has been simplified for those starting out with web development and programming.
+This project is a fork of the [HTML5 Boilerplate](http://html5boilerplate.com).  
+It has been simplified for those starting out with web development and programming.
 
 ## Quick start
 
@@ -25,5 +26,24 @@ This project is a fork of the [HTML5 Boilerplate](http://html5boilerplate.com), 
 
 2. Using the template
 ##### HTML
+      * Start with `index.html`, this will be your root page (i.e. main page of your website, the first page that is loaded).   
+	Questions about its content? Refer to `template.html`  	
+      * To make new HTML pages, duplicate `template.html` inside the folder and rename it to the URL path you want.  
+        (e.g. `about.html` => `my_website.com/about`)  
+        **It's recommended that you delete the explanation comments in any new HTML pages**
+
 ##### CSS
+      * Start with `main.css` inside the `css` folder
+	What are `normalize.css` and `html5-boilerplate.css` for? They make basic styles consistent across all kinds of web browsers
+
 ##### JavaScript
+      * Start with `main.js` inside the `js` folder
+      * What's jQuery? It's a JavaScript library that allows you to manipulate your website much more easily with JavaScript
+      * If you download any jQuery plugins, paste a minified version of them into `plugins.js`
+
+##### Images
+      * If you want to host your own images, put the image file (.jpg, .png, .gif) inside the images directory.  
+	Then the source on an **img tag** will be
+	```html
+	<img src="/images/your_picture.jpg">
+	```
