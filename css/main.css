@@ -184,6 +184,30 @@ textarea {
 }
 
 /*
+ * Vertical Align a fluid child element inside a fluid container
+ * Origin: http://css-tricks.com/centering-in-the-unknown/
+ */
+
+/* The ghost, nudged to maintain perfect centering */
+
+.vertical-align-outer:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em; /* Adjusts for spacing */
+}
+
+/* The element to be centered, can
+   also be of any width and height */ 
+
+.vertical-align-inner {
+  display: inline-block;
+  vertical-align: middle;
+  width: 300px;
+}
+
+/*
  * Clearfix: contain floats
  *
  * For modern browsers
