@@ -3,27 +3,6 @@ table of contents](TOC.md)
 
 # The HTML
 
-## Conditional `html` classes
-
-A series of IE conditional comments apply the relevant IE-specific classes to
-the `html` tag. This provides one method of specifying CSS fixes for specific
-legacy versions of IE. While you may or may not choose to use this technique in
-your project code, HTML5 Boilerplate's default CSS does not rely on it.
-
-When using the conditional classes technique, applying classes to the `html`
-element has several benefits:
-
-* It avoids a [file blocking
-  issue](http://webforscher.wordpress.com/2010/05/20/ie-6-slowing-down-ie-8/)
-  discovered by Stoyan Stefanov and Markus Leptien.
-* It avoids the need for an empty comment that also fixes the above issue.
-* CMSes like WordPress and Drupal use the body class more heavily. This makes
-  integrating there a touch simpler.
-* It still validates as HTML5.
-* It uses the same element as Modernizr (and Dojo). That feels nice.
-* It can improve the clarity of code in multi-developer teams.
-
-
 ## The `no-js` class
 
 Allows you to more easily explicitly add custom styles when JavaScript is
