@@ -27,7 +27,7 @@ Choose one of the following options:
 ## Features
 
 * HTML5 ready. Use the new elements with confidence.
-* Cross-browser compatible (Chrome, Opera, Safari, Firefox 3.6+, IE6+).
+* Cross-browser compatible (Chrome, Firefox, IE8+, Opera, Safari).
 * Designed with progressive enhancement in mind.
 * Includes [Normalize.css](http://necolas.github.com/normalize.css/) for CSS
   normalizations and common bug fixes.
@@ -38,7 +38,7 @@ Choose one of the following options:
 * Useful CSS helpers.
 * Default print CSS, performance optimized.
 * Protection against any stray `console.log` causing JavaScript errors in
-  IE6/7.
+  older browsers.
 * An optimized Google Analytics snippet.
 * Apache server caching, compression, and other configuration defaults for
   Grade-A performance.

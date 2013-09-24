@@ -259,15 +259,6 @@ value is boolean rather than a color. It's all or nothing.
 You can read about this useful element and more techniques in
 [Microsoft's documentation on adapting WebKit-oriented apps for IE10](http://blogs.windows.com/windows_phone/b/wpdev/archive/2012/11/15/adapting-your-webkit-optimized-site-for-internet-explorer-10.aspx).
 
-### Suppress IE6 image toolbar
-
-Kill IE6's pop-up-on-mouseover toolbar for images that can interfere with
-certain designs and be pretty distracting in general.
-
-```html
-<meta http-equiv="imagetoolbar" content="false">
-```
-
 
 ## Social Networks
 

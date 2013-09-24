@@ -10,8 +10,7 @@ usually involves the following:
 2. Add some content, style, and functionality.
 3. Run your site locally to see how it looks.
 4. (Optionally run a build script to automate the optimization of your site -
-   e.g. [ant build script](https://github.com/h5bp/ant-build-script) or [node
-   build script](https://github.com/h5bp/node-build-script)).
+   e.g. [ant build script](https://github.com/h5bp/ant-build-script))
 5. Deploy your site.
 
 

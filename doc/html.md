@@ -100,11 +100,11 @@ The central part of the boilerplate template is pretty much empty. This is
 intentional, in order to make the boilerplate suitable for both web page and
 web app development.
 
-### Browserhappy Promt
+### BrowseHappy Promt
 
 The main content area of the boilerplate includes a prompt to install an up to
-date browser for users of IE 6. If you intended to support IE 6, then you should
-remove the snippet of code.
+date browser for users of IE 6/7. If you intended to support IE 6/7, then you
+should remove the snippet of code.
 
 ### Google CDN for jQuery
 
