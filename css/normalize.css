@@ -1,11 +1,11 @@
-/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
+/*! normalize.css v2.1.3 | MIT License | git.io/normalize */
 
 /* ==========================================================================
    HTML5 display definitions
    ========================================================================== */
 
 /**
- * Correct `block` display not defined in IE 6/7/8/9 and Firefox 3.
+ * Correct `block` display not defined in IE 8/9.
  */
 
 article,
@@ -24,15 +24,13 @@ summary {
 }
 
 /**
- * Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
+ * Correct `inline-block` display not defined in IE 8/9.
  */
 
 audio,
 canvas,
 video {
     display: inline-block;
-    *display: inline;
-    *zoom: 1;
 }
 
 /**
@@ -46,11 +44,12 @@ audio:not([controls]) {
 }
 
 /**
- * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
- * Known issue: no IE 6 support.
+ * Address `[hidden]` styling not present in IE 8/9.
+ * Hide the `template` element in IE, Safari, and Firefox < 22.
  */
 
-[hidden] {
+[hidden],
+template {
     display: none;
 }
 
@@ -59,33 +58,19 @@ audio:not([controls]) {
    ========================================================================== */
 
 /**
- * 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
- *    `em` units.
+ * 1. Set default font family to sans-serif.
  * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom.
  */
 
 html {
-    font-size: 100%; /* 1 */
+    font-family: sans-serif; /* 1 */
     -ms-text-size-adjust: 100%; /* 2 */
     -webkit-text-size-adjust: 100%; /* 2 */
 }
 
 /**
- * Address `font-family` inconsistency between `textarea` and other form
- * elements.
- */
-
-html,
-button,
-input,
-select,
-textarea {
-    font-family: sans-serif;
-}
-
-/**
- * Address margins handled incorrectly in IE 6/7.
+ * Remove default margin.
  */
 
 body {
@@ -95,6 +80,14 @@ body {
 /* ==========================================================================
    Links
    ========================================================================== */
+
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+
+a {
+    background: transparent;
+}
 
 /**
  * Address `outline` inconsistency between Chrome and other browsers.
@@ -118,9 +111,8 @@ a:hover {
    ========================================================================== */
 
 /**
- * Address font sizes and margins set differently in IE 6/7.
- * Address font sizes within `section` and `article` in Firefox 4+, Safari 5,
- * and Chrome.
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari 5, and Chrome.
  */
 
 h1 {
@@ -128,33 +120,8 @@ h1 {
     margin: 0.67em 0;
 }
 
-h2 {
-    font-size: 1.5em;
-    margin: 0.83em 0;
-}
-
-h3 {
-    font-size: 1.17em;
-    margin: 1em 0;
-}
-
-h4 {
-    font-size: 1em;
-    margin: 1.33em 0;
-}
-
-h5 {
-    font-size: 0.83em;
-    margin: 1.67em 0;
-}
-
-h6 {
-    font-size: 0.67em;
-    margin: 2.33em 0;
-}
-
 /**
- * Address styling not present in IE 7/8/9, Safari 5, and Chrome.
+ * Address styling not present in IE 8/9, Safari 5, and Chrome.
  */
 
 abbr[title] {
@@ -162,16 +129,12 @@ abbr[title] {
 }
 
 /**
- * Address style set to `bolder` in Firefox 3+, Safari 4/5, and Chrome.
+ * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
  */
 
 b,
 strong {
     font-weight: bold;
-}
-
-blockquote {
-    margin: 1em 40px;
 }
 
 /**
@@ -184,7 +147,6 @@ dfn {
 
 /**
  * Address differences between Firefox and other browsers.
- * Known issue: no IE 6/7 normalization.
  */
 
 hr {
@@ -194,7 +156,7 @@ hr {
 }
 
 /**
- * Address styling not present in IE 6/7/8/9.
+ * Address styling not present in IE 8/9.
  */
 
 mark {
@@ -203,16 +165,7 @@ mark {
 }
 
 /**
- * Address margins set differently in IE 6/7.
- */
-
-p,
-pre {
-    margin: 1em 0;
-}
-
-/**
- * Correct font family set oddly in IE 6, Safari 4/5, and Chrome.
+ * Correct font family set oddly in Safari 5 and Chrome.
  */
 
 code,
@@ -220,7 +173,6 @@ kbd,
 pre,
 samp {
     font-family: monospace, serif;
-    _font-family: 'courier new', monospace;
     font-size: 1em;
 }
 
@@ -229,27 +181,15 @@ samp {
  */
 
 pre {
-    white-space: pre;
     white-space: pre-wrap;
-    word-wrap: break-word;
 }
 
 /**
- * Address CSS quotes not supported in IE 6/7.
+ * Set consistent quote types.
  */
 
 q {
-    quotes: none;
-}
-
-/**
- * Address `quotes` property not supported in Safari 4.
- */
-
-q:before,
-q:after {
-    content: '';
-    content: none;
+    quotes: "\201C" "\201D" "\2018" "\2019";
 }
 
 /**
@@ -281,56 +221,15 @@ sub {
 }
 
 /* ==========================================================================
-   Lists
-   ========================================================================== */
-
-/**
- * Address margins set differently in IE 6/7.
- */
-
-dl,
-menu,
-ol,
-ul {
-    margin: 1em 0;
-}
-
-dd {
-    margin: 0 0 0 40px;
-}
-
-/**
- * Address paddings set differently in IE 6/7.
- */
-
-menu,
-ol,
-ul {
-    padding: 0 0 0 40px;
-}
-
-/**
- * Correct list images handled incorrectly in IE 7.
- */
-
-nav ul,
-nav ol {
-    list-style: none;
-    list-style-image: none;
-}
-
-/* ==========================================================================
    Embedded content
    ========================================================================== */
 
 /**
- * 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3.
- * 2. Improve image quality when scaled in IE 7.
+ * Remove border when inside `a` element in IE 8/9.
  */
 
 img {
-    border: 0; /* 1 */
-    -ms-interpolation-mode: bicubic; /* 2 */
+    border: 0;
 }
 
 /**
@@ -346,7 +245,7 @@ svg:not(:root) {
    ========================================================================== */
 
 /**
- * Address margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
+ * Address margin not present in IE 8/9 and Safari 5.
  */
 
 figure {
@@ -356,14 +255,6 @@ figure {
 /* ==========================================================================
    Forms
    ========================================================================== */
-
-/**
- * Correct margin displayed oddly in IE 6/7.
- */
-
-form {
-    margin: 0;
-}
 
 /**
  * Define consistent border, margin, and padding.
@@ -376,37 +267,32 @@ fieldset {
 }
 
 /**
- * 1. Correct color not being inherited in IE 6/7/8/9.
- * 2. Correct text not wrapping in Firefox 3.
- * 3. Correct alignment displayed oddly in IE 6/7.
+ * 1. Correct `color` not being inherited in IE 8/9.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
  */
 
 legend {
     border: 0; /* 1 */
-    padding: 0;
-    white-space: normal; /* 2 */
-    *margin-left: -7px; /* 3 */
+    padding: 0; /* 2 */
 }
 
 /**
- * 1. Correct font size not being inherited in all browsers.
- * 2. Address margins set differently in IE 6/7, Firefox 3+, Safari 5,
- *    and Chrome.
- * 3. Improve appearance and consistency in all browsers.
+ * 1. Correct font family not being inherited in all browsers.
+ * 2. Correct font size not being inherited in all browsers.
+ * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
  */
 
 button,
 input,
 select,
 textarea {
-    font-size: 100%; /* 1 */
-    margin: 0; /* 2 */
-    vertical-align: baseline; /* 3 */
-    *vertical-align: middle; /* 3 */
+    font-family: inherit; /* 1 */
+    font-size: 100%; /* 2 */
+    margin: 0; /* 3 */
 }
 
 /**
- * Address Firefox 3+ setting `line-height` on `input` using `!important` in
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
  * the UA stylesheet.
  */
 
@@ -418,7 +304,7 @@ input {
 /**
  * Address inconsistent `text-transform` inheritance for `button` and `select`.
  * All other form control elements do not inherit `text-transform` values.
- * Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
  * Correct `select` style inheritance in Firefox 4+ and Opera.
  */
 
@@ -433,8 +319,6 @@ select {
  * 2. Correct inability to style clickable `input` types in iOS.
  * 3. Improve usability and consistency of cursor style between image-type
  *    `input` and others.
- * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
- *    Known issue: inner spacing remains in IE 6.
  */
 
 button,
@@ -443,7 +327,6 @@ input[type="reset"],
 input[type="submit"] {
     -webkit-appearance: button; /* 2 */
     cursor: pointer; /* 3 */
-    *overflow: visible;  /* 4 */
 }
 
 /**
@@ -456,18 +339,14 @@ html input[disabled] {
 }
 
 /**
- * 1. Address box sizing set to content-box in IE 8/9.
- * 2. Remove excess padding in IE 8/9.
- * 3. Remove excess padding in IE 7.
- *    Known issue: excess padding remains in IE 6.
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
  */
 
 input[type="checkbox"],
 input[type="radio"] {
     box-sizing: border-box; /* 1 */
     padding: 0; /* 2 */
-    *height: 13px; /* 3 */
-    *width: 13px; /* 3 */
 }
 
 /**
@@ -494,7 +373,7 @@ input[type="search"]::-webkit-search-decoration {
 }
 
 /**
- * Remove inner padding and border in Firefox 3+.
+ * Remove inner padding and border in Firefox 4+.
  */
 
 button::-moz-focus-inner,
@@ -504,7 +383,7 @@ input::-moz-focus-inner {
 }
 
 /**
- * 1. Remove default vertical scrollbar in IE 6/7/8/9.
+ * 1. Remove default vertical scrollbar in IE 8/9.
  * 2. Improve readability and alignment in all browsers.
  */
 

@@ -259,15 +259,6 @@ value is boolean rather than a color. It's all or nothing.
 You can read about this useful element and more techniques in
 [Microsoft's documentation on adapting WebKit-oriented apps for IE10](http://blogs.windows.com/windows_phone/b/wpdev/archive/2012/11/15/adapting-your-webkit-optimized-site-for-internet-explorer-10.aspx).
 
-### Suppress IE6 image toolbar
-
-Kill IE6's pop-up-on-mouseover toolbar for images that can interfere with
-certain designs and be pretty distracting in general.
-
-```html
-<meta http-equiv="imagetoolbar" content="false">
-```
-
 
 ## Social Networks
 
@@ -570,8 +561,14 @@ for the implementation.
   [visibility](http://googlewebmastercentral.blogspot.com/2009/05/introducing-rich-snippets.html).
 
 * If you're building a web app you may want [native style momentum scrolling in
-  iOS5](http://johanbrook.com/browsers/native-momentum-scrolling-ios-5/) using
+  iOS 5+](http://johanbrook.com/browsers/native-momentum-scrolling-ios-5/) using
   `-webkit-overflow-scrolling: touch`.
+
+* If you want to disable the translation prompt in Chrome or block Google
+  Translate from translating your web page, use [`<meta name="google"
+  value="notranslate">`](https://support.google.com/translate/?hl=en#2641276).
+  To disable translation for a particular section of the web page, add
+  [`class="notranslate"`](https://support.google.com/translate/?hl=en#2641276).
 
 * Avoid development/stage websites "leaking" into SERPs (search engine results
   page) by [implementing X-Robots-tag
@@ -580,7 +577,6 @@ for the implementation.
 * Screen readers currently have less-than-stellar support for HTML5 but the JS
   script [accessifyhtml5.js](https://github.com/yatil/accessifyhtml5.js) can
   help increase accessibility by adding ARIA roles to HTML5 elements.
-
 
 *Many thanks to [Brian Blakely](https://github.com/brianblakely) for
 contributing much of this information.*

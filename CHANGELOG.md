@@ -1,5 +1,9 @@
 ### HEAD
 
+* Remove IE 6/7 hacks from `main.css`.
+* Update to Normalize.css 2.1.3.
+* Remove IE conditional classes ([#1290](https://github.com/h5bp/html5-boilerplate/issues/1290), [#1187](https://github.com/h5bp/html5-boilerplate/issues/1187])).
+
 ### 4.3.0 (September 10, 2013)
 
 * Use one apple-touch-icon instead of six ([#1367](https://github.com/h5bp/html5-boilerplate/issues/1367)).
