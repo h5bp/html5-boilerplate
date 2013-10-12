@@ -1,5 +1,6 @@
 ### HEAD
 
+* Redesign 404 page ([#1443](https://github.com/h5bp/html5-boilerplate/pull/1443)).
 * Remove IE 6/7 hacks from `main.css`.
 * Update to Normalize.css 2.1.3.
 * Remove IE conditional classes ([#1290](https://github.com/h5bp/html5-boilerplate/issues/1290), [#1187](https://github.com/h5bp/html5-boilerplate/issues/1187])).
