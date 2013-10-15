@@ -1,5 +1,6 @@
 ### HEAD
 
+* Add vertical centering for `svg` ([#1453](https://github.com/h5bp/html5-boilerplate/issues/1453)).
 * Redesign 404 page ([#1443](https://github.com/h5bp/html5-boilerplate/pull/1443)).
 
 ### 4.3.0 (September 10, 2013)
