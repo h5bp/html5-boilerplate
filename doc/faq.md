@@ -44,25 +44,6 @@ Read more about how [HTML5 Boilerplate and Twitter Bootstrap complement each
 other](http://www.quora.com/Is-Bootstrap-a-complement-OR-an-alternative-to-HTML5-Boilerplate-or-viceversa/answer/Nicolas-Gallagher).
 
 
-### How do I prevent phone numbers looking twice as large and having a Skype highlight?
-
-If this is occurring, it is because a user has the Skype browser extension
-installed.
-
-Use the following CSS to prevent Skype from formatting the numbers on your
-page:
-
-```css
-span.skype_pnh_container {
-    display: none !important;
-}
-
-span.skype_pnh_print_container {
-    display: inline !important;
-}
-```
-
-
 ### Do I need to upgrade my sites each time a new version of HTML5 Boilerplate is released?
 
 No. You don't normally replace the foundations of a house once it has been
