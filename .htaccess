@@ -549,3 +549,26 @@ FileETag None
 # <IfModule mod_headers.c>
 #    Header set Connection Keep-Alive
 # </IfModule>
+
+
+# ----------------------------------------------------------------------
+# This configuration allows the concatenation within js and css files
+# ----------------------------------------------------------------------
+
+# Example: Within script.package.js you may have
+#   <!--#include file="vendor/jquery-1.10.2.min.js" -->
+#   <!--#include file="vendor/modernizr-2.6.2.min.js" -->
+#   <!--#include file="plugins.js" -->
+#   <!--#include file="main.js" -->
+# and they will be included in a single file. The same goes for css.
+
+<FilesMatch "\.package\.js$">
+  Options +Includes
+  AddOutputFilterByType INCLUDES application/javascript application/json
+  SetOutputFilter INCLUDES
+</FilesMatch>
+<FilesMatch "\.package\.css$">
+  Options +Includes
+  AddOutputFilterByType INCLUDES text/css
+  SetOutputFilter INCLUDES
+</FilesMatch>
