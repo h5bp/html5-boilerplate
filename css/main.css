@@ -291,4 +291,12 @@ textarea {
     h3 {
         page-break-after: avoid;
     }
+
+    /*
+     * Chrome (OS X) fix for https://github.com/twbs/bootstrap/issues/11245
+     */
+
+    select {
+        background: #fff !important;
+    }
 }
