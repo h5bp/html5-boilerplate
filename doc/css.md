@@ -100,7 +100,7 @@ and (max-width: 480px)`.
 
 Take a look into the [Mobile
 Boilerplate](https://github.com/h5bp/mobile-boilerplate) for features that are
-useful when developing mobile wep apps.
+useful when developing mobile web apps.
 
 
 ## Print styles
