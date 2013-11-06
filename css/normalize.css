@@ -513,6 +513,22 @@ textarea {
     vertical-align: top; /* 2 */
 }
 
+/**
+ * Remove clear button in inputfield in IE10
+ */
+::-ms-clear {
+    width: 0;
+    height: 0;
+}
+
+/**
+ * Remove the eye for password inputs
+ */
+::-ms-reveal  {
+    width: 0;
+    height: 0;
+}
+
 /* ==========================================================================
    Tables
    ========================================================================== */
