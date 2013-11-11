@@ -75,6 +75,9 @@ Touch Icon) that you can use as a baseline to create your own.
 Please refer to the more detailed description in the [Extend section](extend.md)
 of these docs.
 
+## Fonts for IE 8 and older
+If you want to add fonts for IE 8 and older use conditional comment in HTML
+
 ## Modernizr
 
 HTML5 Boilerplate uses a custom build of Modernizr.
