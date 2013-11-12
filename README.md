@@ -33,7 +33,6 @@ Choose one of the following options:
   normalizations and common bug fixes.
 * The latest [jQuery](http://jquery.com/) via CDN, with a local fallback.
 * The latest [Modernizr](http://modernizr.com/) build for feature detection.
-* IE-specific classes for easier cross-browser control.
 * Placeholder CSS Media Queries.
 * Useful CSS helpers.
 * Default print CSS, performance optimized.
