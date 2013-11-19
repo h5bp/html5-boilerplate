@@ -22,5 +22,5 @@ globally ignore:
     excludesfile = ~/.gitignore
 ```
 
-* More on global ignores: http://help.github.com/ignore-files/
+* More on global ignores: https://help.github.com/articles/ignoring-files
 * Comprehensive set of ignores on GitHub: https://github.com/github/gitignore
