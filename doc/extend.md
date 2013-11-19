@@ -8,6 +8,42 @@ Boilerplate even better. We don't want to include it all by default, as not
 everything fits with everyone's needs.
 
 
+* [App Stores](#app-stores)
+* [DNS prefetching](#dns-prefetching)
+* [Google Analytics augments](#google-analytics-augments)
+* [Internet Explorer](#internet-explorer)
+* [Miscellaneous](#miscellaneous)
+* [News Feeds](#news-feeds)
+* [Search](#search)
+* [Social Networks](#social-networks)
+* [URLs](#urls)
+* [Web Apps](#web-apps)
+
+
+## App Stores
+
+### Install a Chrome Web Store app
+
+Users can install a Chrome app directly from your website, as long as the app
+and site have been associated via Google's Webmaster Tools. Read more on
+[Chrome Web Store's Inline Installation
+docs](https://developers.google.com/chrome/web-store/docs/inline_installation).
+
+```html
+<link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/APP_ID">
+```
+
+### Smart App Banners in iOS 6 Safari
+
+Stop bothering everyone with gross modals advertising your entry in the App Store.
+This bit of code will unintrusively allow the user the option to download your iOS
+app, or open it with some data about the user's current state on the website.
+
+```html
+<meta name="apple-itunes-app" content="app-id=APP_ID,app-argument=SOME_TEXT">
+```
+
+
 ## DNS prefetching
 
 In short, DNS Prefetching is a method of informing the browser of domain names
@@ -95,37 +131,106 @@ on blogs.msdn.com)
 * http://dayofjs.com/videos/22158462/web-browsers_alex-russel
 
 
-## Search
+## Google Analytics augments
 
-### Direct search spiders to your sitemap
+### More tracking settings
 
-[Learn how to make a sitemap](http://www.sitemaps.org/protocol.php)
+The [optimized Google Analytics
+snippet](http://mathiasbynens.be/notes/async-analytics-snippet) included with
+HTML5 Boilerplate includes something like this:
 
-```html
-<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+```js
+var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
 ```
 
-### Hide pages from search engines
+In case you need more settings, just extend the array literal instead of
+[`.push()`ing to the
+array](http://mathiasbynens.be/notes/async-analytics-snippet#dont-push-it)
+afterwards:
 
-According to Heather Champ, former community manager at Flickr, you should not
-allow search engines to index your "Contact Us" or "Complaints" page if you
-value your sanity. This is an HTML-centric way of achieving that.
-
-```html
-<meta name="robots" content="noindex">
+```js
+var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview'], ['_setAllowAnchor', true]];
 ```
 
-**_WARNING:_** DO NOT INCLUDE ON PAGES THAT SHOULD APPEAR IN SEARCH ENGINES.
+### Anonymize IP addresses
 
-### Firefox and IE Search Plugins
+In some countries, no personal data may be transferred outside jurisdictions
+that do not have similarly strict laws (i.e. from Germany to outside the EU).
+Thus a webmaster using the Google Analytics script may have to ensure that no
+personal (trackable) data is transferred to the US. You can do that with [the
+`_gat.anonymizeIp`
+option](http://code.google.com/apis/analytics/docs/gaJS/gaJSApi_gat.html#_gat._anonymizeIp).
+In use it looks like this:
 
-Sites with in-site search functionality should be strongly considered for a
-browser search plugin. A "search plugin" is an XML file which defines how your
-plugin behaves in the browser. [How to make a browser search
-plugin](http://www.google.com/search?ie=UTF-8&q=how+to+make+browser+search+plugin).
+```js
+var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_gat._anonymizeIp'], ['_trackPageview']];
+```
 
-```html
-<link rel="search" title="" type="application/opensearchdescription+xml" href="">
+### Track jQuery AJAX requests in Google Analytics
+
+An article by @JangoSteve explains how to [track jQuery AJAX requests in Google
+Analytics](http://www.alfajango.com/blog/track-jquery-ajax-requests-in-google-analytics/).
+
+Add this to `plugins.js`:
+
+```js
+/*
+ * Log all jQuery AJAX requests to Google Analytics
+ * See: http://www.alfajango.com/blog/track-jquery-ajax-requests-in-google-analytics/
+ */
+if (typeof _gaq !== "undefined" && _gaq !== null) {
+    $(document).ajaxSend(function(event, xhr, settings){
+        _gaq.push(['_trackPageview', settings.url]);
+    });
+}
+```
+
+### Track JavaScript errors in Google Analytics
+
+Add this function after `_gaq` is defined:
+
+```js
+(function(window){
+    var undefined,
+        link = function (href) {
+            var a = window.document.createElement('a');
+            a.href = href;
+            return a;
+        };
+    window.onerror = function (message, file, line, column) {
+        var host = link(file).hostname;
+        _gaq.push([
+            '_trackEvent',
+            (host == window.location.hostname || host == undefined || host == '' ? '' : 'external ') + 'error',
+            message, file + ' LINE: ' + line + (column ? ' COLUMN: ' + column : ''), undefined, undefined, true
+        ]);
+    };
+}(window));
+```
+
+### Track page scroll
+
+Add this function after `_gaq` is defined:
+
+```js
+$(function(){
+    var isDuplicateScrollEvent,
+        scrollTimeStart = new Date,
+        $window = $(window),
+        $document = $(document),
+        scrollPercent;
+
+    $window.scroll(function() {
+        scrollPercent = Math.round(100 * ($window.height() + $window.scrollTop())/$document.height());
+        if (scrollPercent > 90 && !isDuplicateScrollEvent) { //page scrolled to 90%
+            isDuplicateScrollEvent = 1;
+            _gaq.push(['_trackEvent', 'scroll',
+                'Window: ' + $window.height() + 'px; Document: ' + $document.height() + 'px; Time: ' + Math.round((new Date - scrollTimeStart )/1000,1) + 's',
+                undefined, undefined, true
+            ]);
+        }
+    });
+});
 ```
 
 
@@ -260,6 +365,105 @@ You can read about this useful element and more techniques in
 [Microsoft's documentation on adapting WebKit-oriented apps for IE10](http://blogs.windows.com/windows_phone/b/wpdev/archive/2012/11/15/adapting-your-webkit-optimized-site-for-internet-explorer-10.aspx).
 
 
+## Search
+
+### Direct search spiders to your sitemap
+
+[Learn how to make a sitemap](http://www.sitemaps.org/protocol.php)
+
+```html
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+```
+
+### Hide pages from search engines
+
+According to Heather Champ, former community manager at Flickr, you should not
+allow search engines to index your "Contact Us" or "Complaints" page if you
+value your sanity. This is an HTML-centric way of achieving that.
+
+```html
+<meta name="robots" content="noindex">
+```
+
+**_WARNING:_** DO NOT INCLUDE ON PAGES THAT SHOULD APPEAR IN SEARCH ENGINES.
+
+### Firefox and IE Search Plugins
+
+Sites with in-site search functionality should be strongly considered for a
+browser search plugin. A "search plugin" is an XML file which defines how your
+plugin behaves in the browser. [How to make a browser search
+plugin](http://www.google.com/search?ie=UTF-8&q=how+to+make+browser+search+plugin).
+
+```html
+<link rel="search" title="" type="application/opensearchdescription+xml" href="">
+```
+
+
+## Miscellaneous
+
+* Use [HTML5
+  polyfills](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills).
+
+* Use [Microformats](http://microformats.org/wiki/Main_Page) (via
+  [microdata](http://microformats.org/wiki/microdata)) for optimum search
+  results
+  [visibility](http://googlewebmastercentral.blogspot.com/2009/05/introducing-rich-snippets.html).
+
+* If you're building a web app you may want [native style momentum scrolling in
+  iOS 5+](http://johanbrook.com/browsers/native-momentum-scrolling-ios-5/) using
+  `-webkit-overflow-scrolling: touch`.
+
+* If you want to disable the translation prompt in Chrome or block Google
+  Translate from translating your web page, use [`<meta name="google"
+  value="notranslate">`](https://support.google.com/translate/?hl=en#2641276).
+  To disable translation for a particular section of the web page, add
+  [`class="notranslate"`](https://support.google.com/translate/?hl=en#2641276).
+
+* Avoid development/stage websites "leaking" into SERPs (search engine results
+  page) by [implementing X-Robots-tag
+  headers](https://github.com/h5bp/html5-boilerplate/issues/804).
+
+* Screen readers currently have less-than-stellar support for HTML5 but the JS
+  script [accessifyhtml5.js](https://github.com/yatil/accessifyhtml5.js) can
+  help increase accessibility by adding ARIA roles to HTML5 elements.
+
+
+## News Feeds
+
+### RSS
+
+Have an RSS feed? Link to it here. Want to [learn how to write an RSS feed from
+scratch](http://www.rssboard.org/rss-specification)?
+
+```html
+<link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml">
+```
+
+### Atom
+
+Atom is similar to RSS, and you might prefer to use it instead of or in
+addition to it. [See what Atom's all
+about](http://www.atomenabled.org/developers/syndication/).
+
+```html
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/atom.xml">
+```
+
+### Pingbacks
+
+Your server may be notified when another site links to yours. The href
+attribute should contain the location of your pingback service.
+
+```html
+<link rel="pingback" href="">
+```
+
+* High-level explanation: http://codex.wordpress.org/Introduction_to_Blogging#Pingbacks
+* Step-by-step example case: http://www.hixie.ch/specs/pingback/pingback-1.0#TOC5
+* PHP pingback service: http://blog.perplexedlabs.com/2009/07/15/xmlrpc-pingbacks-using-php/
+
+
+
 ## Social Networks
 
 ### Facebook Open Graph data
@@ -322,168 +526,7 @@ the Microformats wiki](http://microformats.org/wiki/rel-shortlink).
 <link rel="shortlink" href="h5bp.com">
 ```
 
-
-## News Feeds
-
-### RSS
-
-Have an RSS feed? Link to it here. Want to [learn how to write an RSS feed from
-scratch](http://www.rssboard.org/rss-specification)?
-
-```html
-<link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml">
-```
-
-### Atom
-
-Atom is similar to RSS, and you might prefer to use it instead of or in
-addition to it. [See what Atom's all
-about](http://www.atomenabled.org/developers/syndication/).
-
-```html
-<link rel="alternate" type="application/atom+xml" title="Atom" href="/atom.xml">
-```
-
-### Pingbacks
-
-Your server may be notified when another site links to yours. The href
-attribute should contain the location of your pingback service.
-
-```html
-<link rel="pingback" href="">
-```
-
-* High-level explanation: http://codex.wordpress.org/Introduction_to_Blogging#Pingbacks
-* Step-by-step example case: http://www.hixie.ch/specs/pingback/pingback-1.0#TOC5
-* PHP pingback service: http://blog.perplexedlabs.com/2009/07/15/xmlrpc-pingbacks-using-php/
-
-
-## App Stores
-
-### Install a Chrome Web Store app
-
-Users can install a Chrome app directly from your website, as long as the app
-and site have been associated via Google's Webmaster Tools. Read more on
-[Chrome Web Store's Inline Installation
-docs](https://developers.google.com/chrome/web-store/docs/inline_installation).
-
-```html
-<link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/APP_ID">
-```
-
-### Smart App Banners in iOS 6 Safari
-
-Stop bothering everyone with gross modals advertising your entry in the App Store.
-This bit of code will unintrusively allow the user the option to download your iOS
-app, or open it with some data about the user's current state on the website.
-
-```html
-<meta name="apple-itunes-app" content="app-id=APP_ID,app-argument=SOME_TEXT">
-```
-
-## Google Analytics augments
-
-### More tracking settings
-
-The [optimized Google Analytics
-snippet](http://mathiasbynens.be/notes/async-analytics-snippet) included with
-HTML5 Boilerplate includes something like this:
-
-```js
-var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
-```
-
-In case you need more settings, just extend the array literal instead of
-[`.push()`ing to the
-array](http://mathiasbynens.be/notes/async-analytics-snippet#dont-push-it)
-afterwards:
-
-```js
-var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview'], ['_setAllowAnchor', true]];
-```
-
-### Anonymize IP addresses
-
-In some countries, no personal data may be transferred outside jurisdictions
-that do not have similarly strict laws (i.e. from Germany to outside the EU).
-Thus a webmaster using the Google Analytics script may have to ensure that no
-personal (trackable) data is transferred to the US. You can do that with [the
-`_gat.anonymizeIp`
-option](http://code.google.com/apis/analytics/docs/gaJS/gaJSApi_gat.html#_gat._anonymizeIp).
-In use it looks like this:
-
-```js
-var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_gat._anonymizeIp'], ['_trackPageview']];
-```
-
-### Track jQuery AJAX requests in Google Analytics
-
-An article by @JangoSteve explains how to [track jQuery AJAX requests in Google
-Analytics](http://www.alfajango.com/blog/track-jquery-ajax-requests-in-google-analytics/).
-
-Add this to `plugins.js`:
-
-```js
-/*
- * Log all jQuery AJAX requests to Google Analytics
- * See: http://www.alfajango.com/blog/track-jquery-ajax-requests-in-google-analytics/
- */
-if (typeof _gaq !== "undefined" && _gaq !== null) {
-    $(document).ajaxSend(function(event, xhr, settings){
-        _gaq.push(['_trackPageview', settings.url]);
-    });
-}
-```
-
-### Track JavaScript errors in Google Analytics
-
-Add this function after `_gaq` is defined:
-
-```js
-(function(window){
-    var undefined,
-        link = function (href) {
-            var a = window.document.createElement('a');
-            a.href = href;
-            return a;
-        };
-    window.onerror = function (message, file, line, column) {
-        var host = link(file).hostname;
-        _gaq.push([
-            '_trackEvent',
-            (host == window.location.hostname || host == undefined || host == '' ? '' : 'external ') + 'error',
-            message, file + ' LINE: ' + line + (column ? ' COLUMN: ' + column : ''), undefined, undefined, true
-        ]);
-    };
-}(window));
-```
-
-### Track page scroll
-
-Add this function after `_gaq` is defined:
-
-```js
-$(function(){
-    var isDuplicateScrollEvent,
-        scrollTimeStart = new Date,
-        $window = $(window),
-        $document = $(document),
-        scrollPercent;
-
-    $window.scroll(function() {
-        scrollPercent = Math.round(100 * ($window.height() + $window.scrollTop())/$document.height());
-        if (scrollPercent > 90 && !isDuplicateScrollEvent) { //page scrolled to 90%
-            isDuplicateScrollEvent = 1;
-            _gaq.push(['_trackEvent', 'scroll',
-                'Window: ' + $window.height() + 'px; Document: ' + $document.height() + 'px; Time: ' + Math.round((new Date - scrollTimeStart )/1000,1) + 's',
-                undefined, undefined, true
-            ]);
-        }
-    });
-});
-```
-
-## iOS Web Apps
+## Web Apps
 
 There are a couple of meta tags that provide information about a web app when
 added to the Home Screen on iOS.
@@ -504,7 +547,8 @@ Home Screen icon. This works since iOS 6.
 <meta name="apple-mobile-web-app-title" content="">
 ```
 
-For further information please read the [official documentation](http://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html)
+For further information please read the [official
+documentation](http://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html)
 on Apple's site.
 
 ### Apple Touch Icons
@@ -547,36 +591,9 @@ example for a retina iPhone:
 
 However, it is possible to detect which start-up image to use with JavaScript.
 The Mobile Boilerplate provides a useful function for this. Please see
-[helpers.js](https://github.com/h5bp/mobile-boilerplate/blob/master/js/helper.js#L354)
+[helpers.js](https://github.com/h5bp/mobile-boilerplate/blob/v4.1.0/js/helper.js#L336-L383)
 for the implementation.
 
-## Miscellaneous
-
-* Use [HTML5
-  polyfills](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills).
-
-* Use [Microformats](http://microformats.org/wiki/Main_Page) (via
-  [microdata](http://microformats.org/wiki/microdata)) for optimum search
-  results
-  [visibility](http://googlewebmastercentral.blogspot.com/2009/05/introducing-rich-snippets.html).
-
-* If you're building a web app you may want [native style momentum scrolling in
-  iOS 5+](http://johanbrook.com/browsers/native-momentum-scrolling-ios-5/) using
-  `-webkit-overflow-scrolling: touch`.
-
-* If you want to disable the translation prompt in Chrome or block Google
-  Translate from translating your web page, use [`<meta name="google"
-  value="notranslate">`](https://support.google.com/translate/?hl=en#2641276).
-  To disable translation for a particular section of the web page, add
-  [`class="notranslate"`](https://support.google.com/translate/?hl=en#2641276).
-
-* Avoid development/stage websites "leaking" into SERPs (search engine results
-  page) by [implementing X-Robots-tag
-  headers](https://github.com/h5bp/html5-boilerplate/issues/804).
-
-* Screen readers currently have less-than-stellar support for HTML5 but the JS
-  script [accessifyhtml5.js](https://github.com/yatil/accessifyhtml5.js) can
-  help increase accessibility by adding ARIA roles to HTML5 elements.
 
 *Many thanks to [Brian Blakely](https://github.com/brianblakely) for
 contributing much of this information.*

@@ -31,7 +31,5 @@ of your site/app in various production environments.
 
 * [Server configs](https://github.com/h5bp/server-configs) — Configs for
   different servers.
-* [Node build script](https://github.com/h5bp/node-build-script) — A
-  feature-rich [grunt](https://github.com/gruntjs/grunt) plugin.
 * [Ant build script](https://github.com/h5bp/ant-build-script) — The original
   HTML5 Boilerplate build script.
