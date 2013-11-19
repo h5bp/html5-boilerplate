@@ -64,7 +64,7 @@ get you started. [About the JavaScript](js.md).
 
 The default web server configs are for Apache. For more information, please
 refer to the [Apache Server Configs
-documentation](https://github.com/h5bp/server-configs-apache/tree/master/doc).
+repository](https://github.com/h5bp/server-configs-apache).
 
 Host your site on a server other than Apache? You're likely to find the
 corresponding server configs project listed in our [Server Configs

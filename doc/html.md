@@ -45,8 +45,10 @@ This `meta` tag ensures that anyone browsing your site in IE is treated to the
 best possible user experience that their browser can offer.
 
 This line breaks validation. To avoid this edge case issue it is recommended
-that you **remove this line and use the `.htaccess`** (or other server config)
-to send these headers instead. You also might want to read [Validating:
+that you **remove this line and use the
+[`.htaccess`](https://github.com/h5bp/server-configs-apache)** (or [other server
+config](https://github.com/h5bp/server-configs)) to send these headers instead.
+You also might want to read [Validating:
 X-UA-Compatible](http://groups.google.com/group/html5boilerplate/browse_thread/thread/6d1b6b152aca8ed2).
 
 If you are serving your site on a non-standard port, you will need to set this
