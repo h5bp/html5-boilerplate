@@ -158,6 +158,7 @@ ErrorDocument 404 /404.html
     AddType application/x-web-app-manifest+json         webapp
     AddType application/x-xpinstall                     xpi
     AddType application/xml                             atom rdf rss xml
+    AddType application/x-shockwave-flash               swf
     AddType image/webp                                  webp
     AddType image/x-icon                                cur
     AddType text/cache-manifest                         appcache manifest
