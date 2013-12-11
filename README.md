@@ -19,9 +19,8 @@ Choose one of the following options:
 1. Download the latest stable release from
    [html5boilerplate.com](http://html5boilerplate.com/) or a custom build from
    [Initializr](http://www.initializr.com).
-2. Clone the git repo — `git clone
-   https://github.com/h5bp/html5-boilerplate.git` - and checkout the tagged
-   release you'd like to use.
+2. Clone the git repo. - `git clone https://github.com/h5bp/html5-boilerplate.git` 
+3. Checkout the [tagged release](https://github.com/h5bp/html5-boilerplate/tags) you'd like to use. - `git checkout v4.3.0`
 
 
 ## Features
