@@ -72,7 +72,7 @@ Options -MultiViews
 # ------------------------------------------------------------------------------
 
 # You can customize what Apache returns to the client in case of an error (see
-# http://httpd.apache.org/docs/current/mod/core.html#errordocument), e.g.:
+# http://httpd.apache.org/docs/current/mod/core.html#errordocument).
 
 ErrorDocument 404 /404.html
 
@@ -283,7 +283,7 @@ AddDefaultCharset utf-8
 # https://www.owasp.org/index.php/Clickjacking
 
 # <IfModule mod_headers.c>
-#     Header set X-Frame-Options "SAMEORIGIN"
+#     Header set X-Frame-Options "DENY"
 #     <FilesMatch "\.(appcache|crx|css|cur|eot|gif|htc|ico|jpe?g|js|m4a|m4v|manifest|mp4|oex|oga|ogg|ogv|otf|pdf|png|safariextz|svgz?|ttf|vcf|webapp|webm|webp|woff|xml|xpi)$">
 #        Header unset X-Frame-Options
 #     </FilesMatch>
