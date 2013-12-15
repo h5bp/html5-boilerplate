@@ -92,7 +92,7 @@ your site, for example) then you can queue up a domain name to be prefetched.
 
 You can use as many of these as you need, but it's best if they are all
 immediately after the [Meta
-Charset](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta)
+Charset](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-charset)
 element (which should go right at the top of the `head`), so the browser can
 act on them ASAP.
 
