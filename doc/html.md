@@ -9,6 +9,14 @@ Allows you to more easily explicitly add custom styles when JavaScript is
 disabled (`no-js`) or enabled (`js`). More here: [Avoiding the
 FOUC](http://paulirish.com/2009/avoiding-the-fouc-v3/).
 
+## Language attribute
+
+Please consider specifying the language of your content by adding the `lang`
+attribute to `<html>` as in this example:
+
+```html
+<html class="no-js" lang="en">
+```
 
 ## The order of meta tags, and `<title>`
 
