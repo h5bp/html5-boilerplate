@@ -92,7 +92,7 @@ your site, for example) then you can queue up a domain name to be prefetched.
 
 You can use as many of these as you need, but it's best if they are all
 immediately after the [Meta
-Charset](https://developer.mozilla.org/en/HTML/Element/meta#attr-charset)
+Charset](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta)
 element (which should go right at the top of the `head`), so the browser can
 act on them ASAP.
 
@@ -124,7 +124,7 @@ on blogs.msdn.com)
 
 ### Further reading about DNS prefetching
 
-* https://developer.mozilla.org/En/Controlling_DNS_prefetching
+* https://developer.mozilla.org/en-US/docs/Controlling_DNS_prefetching
 * http://dev.chromium.org/developers/design-documents/dns-prefetching
 * http://www.apple.com/safari/whats-new.html
 * http://blogs.msdn.com/b/ie/archive/2011/03/17/internet-explorer-9-network-performance-improvements.aspx
