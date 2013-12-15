@@ -606,6 +606,22 @@ The Mobile Boilerplate provides a useful function for this. Please see
 [helpers.js](https://github.com/h5bp/mobile-boilerplate/blob/v4.1.0/js/helper.js#L336-L383)
 for the implementation.
 
+### Chrome Mobile web apps
+
+Chrome Mobile has a specific meta tag for making apps [installable to the
+homescreen](https://developers.google.com/chrome/mobile/docs/installtohomescreen)
+which tries to be a more generic replacement to Apple's proprietary meta tag:
+
+```html
+<meta name="mobile-web-app-capable" content="yes">
+```
+
+Same applies to the touch icons:
+
+```html
+<link rel="icon" sizes="196x196" href="highres-icon.png">
+```
+
 
 *Many thanks to [Brian Blakely](https://github.com/brianblakely) for
 contributing much of this information.*
