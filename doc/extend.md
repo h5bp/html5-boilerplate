@@ -574,6 +574,8 @@ For non-Retina iPhone, iPod Touch, and Android 2.1+ devices you can use the
 example from above or replace the `apple-touch-icon-precomposed.png` within this
 project's root folder.
 
+In most cases two icons (`favicon.ico` and one touch icon `apple-touch-icon-precomposed.png` with 152x152 are enough. If you use art-direction and want to have different content for each size, you can add more touch-icons as written above.
+
 Please refer to Mathias' [article on Touch
 Icons](http://mathiasbynens.be/notes/touch-icons) for a comprehensive overview.
 
