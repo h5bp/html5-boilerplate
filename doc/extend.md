@@ -529,21 +529,21 @@ the Microformats wiki](http://microformats.org/wiki/rel-shortlink).
 ## Web Apps
 
 There are a couple of meta tags that provide information about a web app when
-added to the Home Screen on iOS.
+added to the Home Screen on iOS:
 
-Adding `apple-mobile-web-app-capable` will make your web app chrome-less and
+* Adding `apple-mobile-web-app-capable` will make your web app chrome-less and
 provide the default iOS app view. You can control the color scheme of the
 default view by adding `apple-mobile-web-app-status-bar-style`.
 
-```html
+  ```html
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 ```
 
-You can use `apple-mobile-web-app-title` to add a specific sites name for the
+* You can use `apple-mobile-web-app-title` to add a specific sites name for the
 Home Screen icon. This works since iOS 6.
 
-```html
+  ```html
 <meta name="apple-mobile-web-app-title" content="">
 ```
 
@@ -551,12 +551,13 @@ For further information please read the [official
 documentation](http://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html)
 on Apple's site.
 
+
 ### Apple Touch Icons
 
 Touch Icons can be seen as the favicons of mobile devices and tablets.
 
 If your site or icons are in a sub-directory, you will need to reference the
-icons using `link` elements placed in the HTML `head` of your document.
+icons using `link` elements placed in the HTML `head` of your document, e.g.:
 
 ```html
 <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
@@ -574,7 +575,9 @@ For non-Retina iPhone, iPod Touch, and Android 2.1+ devices you can use the
 example from above or replace the `apple-touch-icon-precomposed.png` within this
 project's root folder.
 
-In most cases two icons (`favicon.ico` and one touch icon `apple-touch-icon-precomposed.png` with 152x152 are enough. If you use art-direction and want to have different content for each size, you can add more touch-icons as written above.
+In most cases, one 152x152 touch icon named `apple-touch-icon-precomposed.png`
+is enough. If you use art-direction and want to have different content for each
+size, you can add more touch icons as written above.
 
 Please refer to Mathias' [article on Touch
 Icons](http://mathiasbynens.be/notes/touch-icons) for a comprehensive overview.
