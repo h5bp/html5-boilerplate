@@ -122,7 +122,6 @@ useful when developing mobile web apps.
 * Headings should always appear with the text they are titles for. So, we
   ensure headings never appear in a different page than the text they describe
   by using `page-break-after: avoid;`.
-* We also apply a default margin for the page specified in `cm`.
 * We do not want [orphans and
   widows](http://en.wikipedia.org/wiki/Widows_and_orphans) to appear on pages
   you print. So, by defining `orphans: 3` and `widows: 3` you define the minimal

@@ -1,5 +1,7 @@
 ### HEAD
 
+* Remove default margin from print styles
+  ([#1477](https://github.com/h5bp/html5-boilerplate/issues/1477)).
 * Remove image replacement helper class `.ir`
   ([#1472](https://github.com/h5bp/html5-boilerplate/issues/1472),
    [#1475](https://github.com/h5bp/html5-boilerplate/issues/1475)).
