@@ -1,5 +1,7 @@
 ### HEAD
 
+* Remove default margin from print styles
+  ([#1477](https://github.com/h5bp/html5-boilerplate/issues/1477)).
 * Update to Modernizr 2.7.1.
 * Add vertical centering for `svg`
   ([#1453](https://github.com/h5bp/html5-boilerplate/issues/1453)).
