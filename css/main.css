@@ -11,17 +11,8 @@
    ========================================================================== */
 
 html,
-button,
-input,
-select,
-textarea {
+button {
     color: #222;
-}
-
-input,
-select,
-textarea {
-   background-color: #fff;
 }
 
 body {
