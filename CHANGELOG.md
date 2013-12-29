@@ -1,5 +1,7 @@
 ### HEAD
 
+* Remove default foreground color from form elements
+  ([#1390](https://github.com/h5bp/html5-boilerplate/issues/1390)).
 * Remove default margin from print styles
   ([#1477](https://github.com/h5bp/html5-boilerplate/issues/1477)).
 * Remove image replacement helper class `.ir`
