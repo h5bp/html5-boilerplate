@@ -10,11 +10,7 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
-html,
-button,
-input,
-select,
-textarea {
+html {
     color: #222;
 }
 
