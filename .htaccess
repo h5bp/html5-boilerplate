@@ -1,4 +1,4 @@
-# Apache Server Configs v2.0.0 | MIT License
+# Apache Server Configs v2.1.0 | MIT License
 # https://github.com/h5bp/server-configs-apache
 
 # (!) Using `.htaccess` files slows down Apache, therefore, if you have access
@@ -92,7 +92,7 @@ ErrorDocument 404 /404.html
     Header set X-UA-Compatible "IE=edge"
     # `mod_headers` can't match based on the content-type, however, we only
     # want to send this header for HTML pages and not for the other resources
-    <FilesMatch "\.(appcache|crx|css|cur|eot|gif|htc|ico|jpe?g|js|m4a|m4v|manifest|mp4|oex|oga|ogg|ogv|otf|pdf|png|safariextz|svgz?|ttf|vcf|webapp|webm|webp|woff|xml|xpi)$">
+    <FilesMatch "\.(appcache|crx|css|cur|eot|gif|htc|ico|jpe?g|js|m4a|m4v|manifest|mp4|oex|oga|ogg|ogv|opus|otf|pdf|png|safariextz|svgz?|ttf|vcf|webapp|webm|webp|woff|xml|xpi)$">
         Header unset X-UA-Compatible
     </FilesMatch>
 </IfModule>
@@ -122,13 +122,15 @@ ErrorDocument 404 /404.html
 
   # Audio
     AddType audio/mp4                                   m4a f4a f4b
-    AddType audio/ogg                                   oga ogg
+    AddType audio/ogg                                   oga ogg opus
+
+  # Data interchange
+    AddType application/json                            json map
 
   # JavaScript
     # Normalize to standard type (it's sniffed in IE anyways):
     # http://tools.ietf.org/html/rfc4329#section-7.2
     AddType application/javascript                      js
-    AddType application/json                            json
 
   # Video
     AddType video/mp4                                   f4v f4p m4v mp4
@@ -241,9 +243,9 @@ AddDefaultCharset utf-8
 
 # <IfModule mod_rewrite.c>
 #    RewriteCond %{HTTPS} !=on
-#    RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
-#    RewriteCond %{HTTP_HOST} !=localhost [NC]
-#    RewriteCond %{HTTP_HOST} !=127.0.0.1
+#    RewriteCond %{HTTP_HOST} !^www\. [NC]
+#    RewriteCond %{SERVER_ADDR} !=127.0.0.1
+#    RewriteCond %{SERVER_ADDR} !=::1
 #    RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 # </IfModule>
 
@@ -284,7 +286,7 @@ AddDefaultCharset utf-8
 
 # <IfModule mod_headers.c>
 #     Header set X-Frame-Options "DENY"
-#     <FilesMatch "\.(appcache|crx|css|cur|eot|gif|htc|ico|jpe?g|js|m4a|m4v|manifest|mp4|oex|oga|ogg|ogv|otf|pdf|png|safariextz|svgz?|ttf|vcf|webapp|webm|webp|woff|xml|xpi)$">
+#     <FilesMatch "\.(appcache|crx|css|cur|eot|gif|htc|ico|jpe?g|js|m4a|m4v|manifest|mp4|oex|oga|ogg|ogv|opus|otf|pdf|png|safariextz|svgz?|ttf|vcf|webapp|webm|webp|woff|xml|xpi)$">
 #        Header unset X-Frame-Options
 #     </FilesMatch>
 # </IfModule>
@@ -308,7 +310,7 @@ AddDefaultCharset utf-8
 
 # <IfModule mod_headers.c>
 #    Header set Content-Security-Policy "script-src 'self'; object-src 'self'"
-#    <FilesMatch "\.(appcache|crx|css|cur|eot|gif|htc|ico|jpe?g|js|m4a|m4v|manifest|mp4|oex|oga|ogg|ogv|otf|pdf|png|safariextz|svgz?|ttf|vcf|webapp|webm|webp|woff|xml|xpi)$">
+#    <FilesMatch "\.(appcache|crx|css|cur|eot|gif|htc|ico|jpe?g|js|m4a|m4v|manifest|mp4|oex|oga|ogg|ogv|opus|otf|pdf|png|safariextz|svgz?|ttf|vcf|webapp|webm|webp|woff|xml|xpi)$">
 #        Header unset Content-Security-Policy
 #    </FilesMatch>
 # </IfModule>
@@ -413,7 +415,7 @@ AddDefaultCharset utf-8
 # <IfModule mod_headers.c>
 #     #                           (1)     (2)
 #     Header set X-XSS-Protection "1; mode=block"
-#     <FilesMatch "\.(appcache|crx|css|cur|eot|gif|htc|ico|jpe?g|js|m4a|m4v|manifest|mp4|oex|oga|ogg|ogv|otf|pdf|png|safariextz|svgz?|ttf|vcf|webapp|webm|webp|woff|xml|xpi)$">
+#     <FilesMatch "\.(appcache|crx|css|cur|eot|gif|htc|ico|jpe?g|js|m4a|m4v|manifest|mp4|oex|oga|ogg|ogv|opus|otf|pdf|png|safariextz|svgz?|ttf|vcf|webapp|webm|webp|woff|xml|xpi)$">
 #         Header unset X-XSS-Protection
 #     </FilesMatch>
 # </IfModule>
@@ -606,7 +608,7 @@ FileETag None
 
 # <IfModule mod_rewrite.c>
 #    RewriteCond %{REQUEST_FILENAME} !-f
-#    RewriteRule ^(.+)\.(\d+)\.(js|css|png|jpg|gif)$ $1.$3 [L]
+#    RewriteRule ^(.+)\.(\d+)\.(js|css|png|jpe?g|gif)$ $1.$3 [L]
 # </IfModule>
 
 # ------------------------------------------------------------------------------

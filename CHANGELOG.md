@@ -8,7 +8,7 @@
   ([#1472](https://github.com/h5bp/html5-boilerplate/issues/1472),
    [#1475](https://github.com/h5bp/html5-boilerplate/issues/1475)).
 * Update to Modernizr 2.7.1.
-* Update to Apache Server Configs 2.0.0.
+* Update to Apache Server Configs 2.1.0.
 * Add vertical centering for `svg`
   ([#1453](https://github.com/h5bp/html5-boilerplate/issues/1453)).
 * Redesign 404 page
