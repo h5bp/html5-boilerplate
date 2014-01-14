@@ -5,11 +5,11 @@ table of contents](TOC.md)
 
 The HTML5 Boilerplate starting CSS includes:
 
-* [Normalize.css](https://github.com/necolas/normalize.css).
-* Useful HTML5 Boilerplate defaults.
-* Common helpers.
-* Placeholder media queries.
-* Print styles.
+* [Normalize.css](#normalizecss)
+* [Useful HTML5 Boilerplate defaults](#html5-boilerplate-defaults)
+* [Common helpers](#common-helpers)
+* [Placeholder media queries](#media-queries)
+* [Print styles](#print-styles)
 
 This starting CSS does not rely on the presence of conditional classnames,
 conditional style sheets, or Modernizr. It is ready to use whatever your

@@ -3,10 +3,20 @@ table of contents](TOC.md)
 
 # Frequently asked questions
 
+* [Why is the URL for jQuery without "http"?](#why-is-the-url-for-jquery-without-http)
+* [Why don't you automatically load the latest version of jQuery from the Google CDN?](#why-dont-you-automatically-load-the-latest-version-of-jquery-from-the-google-cdn)
+* [Why is the Google Analytics code at the bottom? Google recommends it be placed the `<head>`.](#why-is-the-google-analytics-code-at-the-bottom-google-recommends-it-be-placed-the-head)
+* [How can I integrate Twitter Bootstrap with HTML5 Boilerplate?](#how-can-i-integrate-twitter-bootstrap-with-html5-boilerplate)
+* [Do I need to upgrade my sites each time a new version of HTML5 Boilerplate is released?](#do-i-need-to-upgrade-my-sites-each-time-a-new-version-of-html5-boilerplate-is-released)
+* [Where can I get help for support questions?](#where-can-i-get-help-for-support-questions)
+
+
+--
+
 ### Why is the URL for jQuery without "http"?
 
-This is an intentional use of [protocol-relative
-URLs](http://paulirish.com/2010/the-protocol-relative-url/)
+It is because of the use of [protocol-relative
+URLs](http://paulirish.com/2010/the-protocol-relative-url/).
 
 **N.B.** Using a protocol-relative URL for files that exist on a CDN is
 problematic when you try to view your local files directly in the browser. The
@@ -27,7 +37,7 @@ XAMPP, MAMP, or WAMP.
    long-term caching.
 
 
-### Why is the Google Analytics code at the bottom? Google recommends it be placed the `head`.
+### Why is the Google Analytics code at the bottom? Google recommends it be placed the `<head>`.
 
 The advantage to placing it in the `head` is that you will track a user's
 pageview even if they leave the page before it has been fully loaded. However,
@@ -55,3 +65,4 @@ but you'll have to assess the costs/benefits of doing so.
 
 Please ask for help on
 [StackOverflow](http://stackoverflow.com/questions/tagged/html5boilerplate).
+
