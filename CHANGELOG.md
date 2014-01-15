@@ -1,5 +1,7 @@
 ### HEAD
 
+* Add `Disallow:` to `robots.txt`
+  ([#1487](https://github.com/h5bp/html5-boilerplate/issues/1487)).
 * Remove default foreground color from form elements
   ([#1390](https://github.com/h5bp/html5-boilerplate/issues/1390)).
 * Remove default margin from print styles
