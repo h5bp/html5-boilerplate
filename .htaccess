@@ -345,7 +345,7 @@ AddDefaultCharset utf-8
 # These files may be left by some text editors and can pose a great security
 # danger when anyone has access to them.
 
-<FilesMatch "(^#.*#|\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|sw[op])|~)$">
+<FilesMatch "(^#.*#|\.(bak|config|dist|fla|inc|ini|lock|log|psd|sh|sql|sw[op])|~)$">
 
     # Apache < 2.3
     <IfModule !mod_authz_core.c>
