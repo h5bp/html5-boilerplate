@@ -21,8 +21,9 @@
         <!-- Add your site or application content here -->
         <p>Hello world! This is HTML5 Boilerplate.</p>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <!--[if lt IE 10]><script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><![endif]-->
+        <!--[if gt IE 9]><!--><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.1.2/zepto.min.js"></script><!--<![endif]-->
+        <script>if (!window.jQuery && !window.Zepto) {document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>');}</script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
 
