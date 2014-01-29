@@ -1,5 +1,6 @@
 ### HEAD
 
+* Update to jQuery 1.11.0.
 * Update to Normalize.css 3.0.0.
   ([#1050](https://github.com/h5bp/html5-boilerplate/issues/1050)).
 * Add `Disallow:` to `robots.txt`
