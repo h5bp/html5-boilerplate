@@ -1,5 +1,7 @@
 ### HEAD
 
+* Update to Normalize.css 3.0.0.
+  ([#1050](https://github.com/h5bp/html5-boilerplate/issues/1050)).
 * Add `Disallow:` to `robots.txt`
   ([#1487](https://github.com/h5bp/html5-boilerplate/issues/1487)).
 * Remove default foreground color from form elements
@@ -16,8 +18,6 @@
 * Redesign 404 page
   ([#1443](https://github.com/h5bp/html5-boilerplate/pull/1443)).
 * Remove IE 6/7 hacks from `main.css`
-  ([#1050](https://github.com/h5bp/html5-boilerplate/issues/1050)).
-* Update to Normalize.css 2.1.3
   ([#1050](https://github.com/h5bp/html5-boilerplate/issues/1050)).
 * Remove IE conditional classes
   ([#1187](https://github.com/h5bp/html5-boilerplate/issues/1187),
