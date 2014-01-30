@@ -85,6 +85,14 @@ Touch Icon) that you can use as a baseline to create your own.
 Please refer to the more detailed description in the [Extend section](extend.md)
 of these docs.
 
+## Alternate link to the mobile version page for SEO
+
+```html
+<link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.example.com/" >
+```
+
+Websites with separate URLs for desktop and mobile websites should have an alternate link on desktop page pointing to the mobile page for SEO. Find more information on Google Webmaster Docs: [Link 1](https://developers.google.com/webmasters/smartphone-sites/details#separateurls) and [Link 2](https://developers.google.com/webmasters/smartphone-sites/feature-phones). Google supports [CSS media queries](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries) for these alternate links. 
+
 ## Modernizr
 
 HTML5 Boilerplate uses a custom build of Modernizr.
