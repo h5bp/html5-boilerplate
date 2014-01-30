@@ -526,6 +526,30 @@ the Microformats wiki](http://microformats.org/wiki/rel-shortlink).
 <link rel="shortlink" href="h5bp.com">
 ```
 
+### Separate mobile URLs
+
+If you use separate URLs for desktop and mobile users, you should consider
+helping search engine algorithms better understand the configuration on your
+web site.
+
+This can be done by adding the following annotations in your HTML pages:
+
+* on the desktop page, add the `link rel="alternate"` tag pointing to the
+  corresponding mobile URL, e.g.:
+
+  `<link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.example.com/page.html" >`
+
+* on the mobile page, add the `link rel="canonical"` tag pointing to the
+  corresponding desktop URL, e.g.:
+
+  `<link rel="canonical" href="http://www.example.com/page.html">`
+
+For more information please see:
+
+* https://developers.google.com/webmasters/smartphone-sites/details#separateurls
+* https://developers.google.com/webmasters/smartphone-sites/feature-phones
+
+
 ## Web Apps
 
 There are a couple of meta tags that provide information about a web app when
