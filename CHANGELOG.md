@@ -1,5 +1,6 @@
 ### HEAD
 
+* Update to Apache Server Configs 2.2.0.
 * Update to jQuery 1.11.0.
 * Update to Normalize.css 3.0.0.
   ([#1050](https://github.com/h5bp/html5-boilerplate/issues/1050)).
@@ -13,7 +14,6 @@
   ([#1472](https://github.com/h5bp/html5-boilerplate/issues/1472),
    [#1475](https://github.com/h5bp/html5-boilerplate/issues/1475)).
 * Update to Modernizr 2.7.1.
-* Update to Apache Server Configs 2.1.0.
 * Add vertical centering for `svg`
   ([#1453](https://github.com/h5bp/html5-boilerplate/issues/1453)).
 * Redesign 404 page
