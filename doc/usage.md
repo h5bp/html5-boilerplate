@@ -3,20 +3,19 @@ table of contents](TOC.md)
 
 # Usage
 
-Once you have cloned or downloaded HTML5 Boilerplate, creating a site or app
+Once you have cloned or downloaded HTML5 Boilerplate, creating a site or web app
 usually involves the following:
 
-1. Set up the basic structure of the site.
-2. Add some content, style, and functionality.
-3. Run your site locally to see how it looks.
-4. (Optionally run a build script to automate the optimization of your site -
-   e.g. [ant build script](https://github.com/h5bp/ant-build-script))
-5. Deploy your site.
+1. Setting up the basic structure of the site.
+2. Adding some content, style, and functionality.
+3. Running your site locally to see how it looks.
+4. Optionally: Running a build script to automate the optimization of your site.
+5. Deploying your site.
 
 
 ## Basic structure
 
-A basic HTML5 Boilerplate site initially looks something like this:
+The basic structure offered by HTML5 Boilerplate looks like this:
 
 ```
 .
@@ -41,55 +40,73 @@ A basic HTML5 Boilerplate site initially looks something like this:
 └── favicon.ico
 ```
 
-What follows is a general overview of each major part and how to use them.
 
-### css
+## General overview
 
-This directory should contain all your project's CSS files. It includes some
-initial CSS to help get you started from a solid foundation. [About the
-CSS](css.md).
+### css/
 
-### doc
+The `css` directory contains some initial CSS to help you get started from a
+solid foundation. All your project's CSS style sheets should be included in it.
 
-This directory contains all the HTML5 Boilerplate documentation. You can use it
-as the location and basis for your own project's documentation.
+For more in-depth information, please see [`css.md`](css.md).
 
-### js
 
-This directory should contain all your project's JS files. Libraries, plugins,
-and custom code can all be included here. It includes some initial JS to help
-get you started. [About the JavaScript](js.md).
+### doc/
+
+The `doc` directory contains all the HTML5 Boilerplate documentation. You can
+use it as the location and basis for your own project's documentation.
+
+
+### js/
+
+The `js` directory contains some initial JavaScript to help you get started. All
+your project's JavaScript files (libraries, plugins, and custom code) should be
+included in it.
+
+For more in-depth information, please see [`js.md`](js.md).
+
 
 ### .htaccess
 
-The default web server configs are for Apache. For more information, please
-refer to the [Apache Server Configs
+The `.htaccess` file contains Apache boilerplate configurations that can help
+your server improve the web site's performance and security, while also ensuring
+that resources are served with the correct content type and are accessible, if
+needed, even cross-domain.
+
+For more in-depth information, please refer to the [Apache Server Configs
 repository](https://github.com/h5bp/server-configs-apache).
 
-Host your site on a server other than Apache? You're likely to find the
-corresponding server configs project listed in our [Server Configs
-](https://github.com/h5bp/server-configs/blob/master/README.md) repository.
+If you're hosting your site on a server different than Apache, check our [Server
+Configs repository](https://github.com/h5bp/server-configs#readme), as you're
+likely to find the corresponding server configs project in there.
+
 
 ### 404.html
 
-A helpful custom 404 to get you started.
+The `404.html` is a helpful custom 404 page to get you started.
+
 
 ### index.html
 
-This is the default HTML skeleton that should form the basis of all pages on
-your site. If you are using a server-side templating framework, then you will
-need to integrate this starting HTML with your setup.
+The `index.html` file contains the default HTML skeleton that should form the
+basis of all pages on your site. If you are using a server-side templating
+framework, you will need to integrate this starting HTML with your setup.
 
-Make sure that you update the URLs for the referenced CSS and JavaScript if you
-modify the directory structure at all.
+If you modify the directory structure, make sure you update the URLs that
+reference the CSS style sheets and JavaScript files. Also, if you are using
+Google Analytics, don't forget to edit the corresponding snippet to include
+your analytics ID.
 
-If you are using Google Analytics, make sure that you edit the corresponding
-snippet at the bottom to include your analytics ID.
+
+
+# TODO:
 
 ### humans.txt
 
-Edit this file to include the team that worked on your site/app, and the
-technology powering it.
+The `humans.txt`
+
+information about the different people who have contributed to building the site / web app, as
+well as the technology powering it
 
 ### robots.txt
 
@@ -102,11 +119,6 @@ crossdomain.xml](crossdomain.md).
 
 ### Icons
 
-Replace the default `favicon.ico` and Apple Touch Icon with your own.
+The `apple-touch-icon-precomposed.png` and the `favicon.ico` are provided as placeholder icons. You should replace them with your own!
 
-If you want to use different Apple Touch Icons for different resolutions please
-refer to the [according documentation](extend.md#apple-touch-icons).
-
-You might want to check out Hans' handy [HTML5 Boilerplate Favicon and Apple
-Touch Icon
-PSD-Template](http://drublic.de/blog/html5-boilerplate-favicons-psd-template/).
+For more in-depth information, about the Apple Touch Icons, please see [`extend.md#apple-touch-icon`](extend.md#apple-touch-icon).

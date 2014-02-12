@@ -3,15 +3,18 @@ table of contents](TOC.md)
 
 # crossdomain.xml
 
-A cross-domain policy file is an XML document that grants a web client—such as
-Adobe Flash Player, Adobe Reader, etc., permission to handle data across
-multiple domains. When a client hosts content from a particular source domain
-and that content makes requests directed towards a domain other than its own,
-the remote domain would need to host a cross-domain policy file that grants
-access to the source domain, allowing the client to continue with the
-transaction. Policy files grant read access to data, permit a client to include
-custom headers in cross-domain requests, and are also used with sockets to
-grant permissions for socket-based connections.
+The _cross-domain policy file_ is an XML document that gives a web client —
+such as Adobe Flash Player, Adobe Reader, etc. — permission to handle data
+across multiple domains, by:
 
-For full details, check out Adobe's article about the [cross-domain policy file
+ * granting read access to data
+ * permitting the client to include custom headers in cross-domain requests
+ * granting permissions for socket-based connections
+
+__e.g.__ If a client hosts content from a particular source domain and that
+content makes requests directed towards a domain other than its own, the remote
+domain would need to host a cross-domain policy file in order to grant access
+to the source domain and allow the client to continue with the transaction.
+
+For more in-depth information, please see Adobe's [cross-domain policy file
 specification](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).
