@@ -35,12 +35,12 @@ putting the code at the bottom keeps all the scripts together and reinforces
 that scripts at the bottom are the right move.
 
 
-### How can I integrate [Twitter Bootstrap](http://getbootstrap.com/) with HTML5 Boilerplate?
+### How can I integrate [Bootstrap](http://getbootstrap.com/) with HTML5 Boilerplate?
 
 You can use [Initializr](http://initializr.com) to create a custom build that
-includes HTML5 Boilerplate with Twitter Bootstrap.
+includes HTML5 Boilerplate with Bootstrap.
 
-Read more about how [HTML5 Boilerplate and Twitter Bootstrap complement each
+Read more about how [HTML5 Boilerplate and Bootstrap complement each
 other](http://www.quora.com/Is-Bootstrap-a-complement-OR-an-alternative-to-HTML5-Boilerplate-or-viceversa/answer/Nicolas-Gallagher).
 
 
