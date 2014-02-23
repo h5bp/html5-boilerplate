@@ -354,7 +354,7 @@ or one of a predefined list of glyphs.
 ### Disable link highlighting upon tap in IE10
 
 Similar to [-webkit-tap-highlight-color](http://davidwalsh.name/mobile-highlight-color)
-in iOS Safari. Unlike that CSS property, this is an HTML meta element, and it's
+in iOS Safari. Unlike that CSS property, this is an HTML meta element, and its
 value is boolean rather than a color. It's all or nothing.
 
 ```html
