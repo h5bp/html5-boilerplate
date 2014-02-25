@@ -514,6 +514,14 @@ the cleaner, more accurate `http://www.example.com/cart.html`.
 <link rel="canonical" href="">
 ```
 
+### Alternate link to the mobile version page for SEO
+
+Websites with separate URLs for desktop and mobile websites should have an alternate link on desktop page pointing to the mobile page for SEO. Find more information on Google Webmaster Docs: [Link 1](https://developers.google.com/webmasters/smartphone-sites/details#separateurls) and [Link 2](https://developers.google.com/webmasters/smartphone-sites/feature-phones). Google supports [CSS media queries](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries) for these alternate links.
+
+```html
+<link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.example.com/" >
+```
+
 ### Official shortlink
 
 Signal to the world "This is the shortened URL to use this page!" Poorly

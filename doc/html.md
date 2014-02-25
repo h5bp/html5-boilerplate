@@ -3,22 +3,53 @@ table of contents](TOC.md)
 
 # The HTML
 
-## The `no-js` class
+By default, HTML5 Boilerplate provides two `html` pages:
 
-Allows you to more easily explicitly add custom styles when JavaScript is
-disabled (`no-js`) or enabled (`js`). More here: [Avoiding the
+* [`index.html`](#indexhtml) - a default HTML skeleton that should form the
+  basis of all pages on your website
+* [`404.html`](#404html) - a placeholder 404 error page
+
+
+## index.html
+
+### The `no-js` class
+
+The `no-js` class is provided in order to allow you to more easily and
+explicitly add custom styles based on whether JavaScript is disabled (`no-js`)
+or enabled (`js`). Also, using this technique helps [avoid the
 FOUC](http://paulirish.com/2009/avoiding-the-fouc-v3/).
 
-## Language attribute
+### The `lang` attribute
 
-Please consider specifying the language of your content by adding the `lang`
-attribute to `<html>` as in this example:
+
+
+HTML5 Boilerplate doesn't [specify the language of the
+content](http://www.w3.org/TR/html401/struct/dirlang.html). The language is
+intentionally omitted because [developers often forget to change it, making
+things worse than not specifying any language at
+all](https://github.com/h5bp/html5-boilerplate/issues/1110).
+
+We advice that you specify the primary language of the document by adding the
+`lang` attribute to `<html>` tag, e.g.:
 
 ```html
 <html class="no-js" lang="en">
 ```
 
-## The order of meta tags, and `<title>`
+### The order of `<title>` and `<meta>` tags
+
+The order in which the `<title>` and `<meta>` tags are specified is important
+and should be keeped that way.
+
+```html
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+```
+
+
+
+
 
 As recommended by [the HTML5
 spec](http://www.whatwg.org/specs/web-apps/current-work/complete/semantics.html#charset)
@@ -35,7 +66,8 @@ vectors](http://code.google.com/p/doctype-mirror/wiki/ArticleUtf7).
 The meta tag for compatibility mode [needs to be before all elements except
 title and meta](http://h5bp.com/f "Defining Document Compatibility - MSDN").
 
-## X-UA-Compatible
+
+### X-UA-Compatible
 
 This makes sure the latest version of IE is used in versions of IE that contain
 multiple rendering engines. Even if a site visitor is using IE8 or IE9, it's
@@ -64,7 +96,7 @@ header on the server-side. This is because the IE preference option 'Display
 intranet sites in Compatibility View' is checked by default.
 
 
-## Mobile viewport
+### Mobile viewport
 
 There are a few different options that you can use with the [`viewport` meta
 tag](https://docs.google.com/present/view?id=dkx3qtm_22dxsrgcf4 "Viewport and
@@ -76,7 +108,7 @@ a simple setup that strikes a good balance for general use cases.
 <meta name="viewport" content="width=device-width, initial-scale=1">
 ```
 
-## Favicons and Touch Icon
+### Icons
 
 The shortcut icons should be put in the root directory of your site. HTML5
 Boilerplate comes with a default set of icons (include favicon and one Apple
@@ -85,7 +117,7 @@ Touch Icon) that you can use as a baseline to create your own.
 Please refer to the more detailed description in the [Extend section](extend.md)
 of these docs.
 
-## Modernizr
+### Modernizr
 
 HTML5 Boilerplate uses a custom build of Modernizr.
 
@@ -104,19 +136,19 @@ handle them properly. Therefore the Modernizr script is the only JavaScript
 file synchronously loaded at the top of the document.
 
 
-## The content area
+### The content area
 
 The central part of the boilerplate template is pretty much empty. This is
 intentional, in order to make the boilerplate suitable for both web page and
 web app development.
 
-### BrowseHappy Prompt
+#### BrowseHappy Prompt
 
 The main content area of the boilerplate includes a prompt to install an up to
 date browser for users of IE 6/7. If you intended to support IE 6/7, then you
 should remove the snippet of code.
 
-### Google CDN for jQuery
+#### Google CDN for jQuery
 
 The Google CDN version of the jQuery JavaScript library is referenced towards
 the bottom of the page using a protocol-independent path (read more about this
@@ -153,3 +185,7 @@ Further information:
   Snippet](http://mathiasbynens.be/notes/async-analytics-snippet#universal-analytics)
 * [Introduction to
   Analytics.js](https://developers.google.com/analytics/devguides/collection/analyticsjs/)
+
+## 404.html
+
+http://blogs.msdn.com/b/ieinternals/archive/2010/08/19/http-error-pages-in-internet-explorer.aspx

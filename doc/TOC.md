@@ -1,22 +1,17 @@
 [HTML5 Boilerplate homepage](http://html5boilerplate.com)
 
-# HTML5 Boilerplate documentation:
+# Table of Contents
 
 ## Getting started
 
 * [Usage](usage.md) — Overview of the project contents.
-* [FAQ](faq.md) — Frequently asked questions, along with their answers.
+* [FAQ](faq.md) — Frequently asked questions along with their answers.
 
-## The core of HTML5 Boilerplate
+## The HTML5 Boilerplate core
 
-* [HTML](html.md) — A guide to the default HTML.
-* [CSS](css.md) — A guide to the default CSS.
-* [JavaScript](js.md) — A guide to the default JavaScript.
-* [.htaccess](https://github.com/h5bp/server-configs-apache)
-  — All about the Apache web server configs (also see our [alternative server
-  configs](https://github.com/h5bp/server-configs/blob/master/README.md)).
-* [crossdomain.xml](crossdomain.md) — An introduction to making use of
-  crossdomain requests.
+* [HTML](html.md) — Guide to the default HTML.
+* [CSS](css.md) — Guide to the default CSS.
+* [JavaScript](js.md) — Guide to the default JavaScript.
 * [Everything else](misc.md).
 
 ## Development
@@ -26,10 +21,11 @@
 
 ## Related projects
 
-HTML5 Boilerplate has several related projects to help improve the performance
-of your site/app in various production environments.
+The [H5BP](https://github.com/h5bp) organization has several related projects
+that can help improve different aspects of your website/web app (performance,
+security, etc.):
 
-* [Server configs](https://github.com/h5bp/server-configs) — Configs for
-  different servers.
-* [Ant build script](https://github.com/h5bp/ant-build-script) — The original
-  HTML5 Boilerplate build script.
+* [Server Configs](https://github.com/h5bp/server-configs) — Boilerplate
+  configurations for various web servers.
+* [Ant build script](https://github.com/h5bp/ant-build-script) — Ant based
+  build script.
