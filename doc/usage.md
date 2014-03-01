@@ -83,8 +83,8 @@ need to integrate this starting HTML with your setup.
 Make sure that you update the URLs for the referenced CSS and JavaScript if you
 modify the directory structure at all.
 
-If you are using Google Analytics, make sure that you edit the corresponding
-snippet at the bottom to include your analytics ID.
+If you are using Google Universal Analytics, make sure that you edit the 
+corresponding snippet at the bottom to include your analytics ID.
 
 ### humans.txt
 
