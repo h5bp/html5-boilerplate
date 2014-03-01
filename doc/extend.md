@@ -10,7 +10,7 @@ everything fits with everyone's needs.
 
 * [App Stores](#app-stores)
 * [DNS prefetching](#dns-prefetching)
-* [Google Analytics augments](#google-analytics-augments)
+* [Google Universal Analytics](#google-universal-analytics)
 * [Internet Explorer](#internet-explorer)
 * [Miscellaneous](#miscellaneous)
 * [News Feeds](#news-feeds)
@@ -131,39 +131,37 @@ on blogs.msdn.com)
 * http://dayofjs.com/videos/22158462/web-browsers_alex-russel
 
 
-## Google Analytics augments
+## Google Universal Analytics
 
 ### More tracking settings
 
-The [optimized Google Analytics
-snippet](http://mathiasbynens.be/notes/async-analytics-snippet) included with
-HTML5 Boilerplate includes something like this:
+The [optimized Google Universal Analytics
+snippet](http://mathiasbynens.be/notes/async-analytics-snippet#universal-analytics)
+included with HTML5 Boilerplate includes something like this:
 
 ```js
-var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
+ga('create','UA-XXXXX-X'); ga('send','pageview');
 ```
 
-In case you need more settings, just extend the array literal instead of
-[`.push()`ing to the
-array](http://mathiasbynens.be/notes/async-analytics-snippet#dont-push-it)
-afterwards:
-
-```js
-var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview'], ['_setAllowAnchor', true]];
-```
+To customize further, see Google's [Advanced
+Setup](https://developers.google.com/analytics/devguides/collection/analyticsjs/advanced),
+[Pageview](https://developers.google.com/analytics/devguides/collection/analyticsjs/pages),
+and [Event](https://developers.google.com/analytics/devguides/collection/analyticsjs/events) Docs.
 
 ### Anonymize IP addresses
 
 In some countries, no personal data may be transferred outside jurisdictions
 that do not have similarly strict laws (i.e. from Germany to outside the EU).
-Thus a webmaster using the Google Analytics script may have to ensure that no
-personal (trackable) data is transferred to the US. You can do that with [the
-`_gat.anonymizeIp`
-option](http://code.google.com/apis/analytics/docs/gaJS/gaJSApi_gat.html#_gat._anonymizeIp).
-In use it looks like this:
+Thus a webmaster using the Google Univeral Analytics may have to ensure that
+no personal (trackable) data is transferred to the US. You can do that with
+[the `ga('set', 'anonymizeIp', true);`
+parameter](https://developers.google.com/analytics/devguides/collection/analyticsjs/advanced#anonymizeip)
+before sending any events/pagviews. In use it looks like this:
 
 ```js
-var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_gat._anonymizeIp'], ['_trackPageview']];
+ga('create','UA-XXXXX-X');
+ga('set', 'anonymizeIp', true);
+ga('send', 'pageview');
 ```
 
 ### Track jQuery AJAX requests in Google Analytics
@@ -178,16 +176,16 @@ Add this to `plugins.js`:
  * Log all jQuery AJAX requests to Google Analytics
  * See: http://www.alfajango.com/blog/track-jquery-ajax-requests-in-google-analytics/
  */
-if (typeof _gaq !== "undefined" && _gaq !== null) {
+if (typeof ga !== "undefined" && ga !== null) {
     $(document).ajaxSend(function(event, xhr, settings){
-        _gaq.push(['_trackPageview', settings.url]);
+        ga('send', 'pageview', settings.url);
     });
 }
 ```
 
 ### Track JavaScript errors in Google Analytics
 
-Add this function after `_gaq` is defined:
+Add this function after `ga` is defined:
 
 ```js
 (function(window){
@@ -199,18 +197,20 @@ Add this function after `_gaq` is defined:
         };
     window.onerror = function (message, file, line, column) {
         var host = link(file).hostname;
-        _gaq.push([
-            '_trackEvent',
-            (host == window.location.hostname || host == undefined || host == '' ? '' : 'external ') + 'error',
-            message, file + ' LINE: ' + line + (column ? ' COLUMN: ' + column : ''), undefined, undefined, true
-        ]);
+        ga('send', {
+          'hitType': 'event',
+          'eventCategory': (host == window.location.hostname || host == undefined || host == '' ? '' : 'external ') + 'error',
+          'eventAction': message,
+          'eventLabel': (file + ' LINE: ' + line + (column ? ' COLUMN: ' + column : '')).trim(),
+          'nonInteraction': 1
+        });
     };
 }(window));
 ```
 
 ### Track page scroll
 
-Add this function after `_gaq` is defined:
+Add this function after `ga` is defined:
 
 ```js
 $(function(){
@@ -224,15 +224,13 @@ $(function(){
         scrollPercent = Math.round(100 * ($window.height() + $window.scrollTop())/$document.height());
         if (scrollPercent > 90 && !isDuplicateScrollEvent) { //page scrolled to 90%
             isDuplicateScrollEvent = 1;
-            _gaq.push(['_trackEvent', 'scroll',
-                'Window: ' + $window.height() + 'px; Document: ' + $document.height() + 'px; Time: ' + Math.round((new Date - scrollTimeStart )/1000,1) + 's',
-                undefined, undefined, true
-            ]);
+            ga('send', 'event', 'scroll',
+                'Window: ' + $window.height() + 'px; Document: ' + $document.height() + 'px; Time: ' + Math.round((new Date - scrollTimeStart )/1000,1) + 's'
+            );
         }
     });
 });
 ```
-
 
 ## Internet Explorer
 

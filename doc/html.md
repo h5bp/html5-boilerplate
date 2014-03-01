@@ -124,32 +124,32 @@ in the [FAQ](faq.md)). A local fallback of jQuery is included for rare instances
 when the CDN version might not be available, and to facilitate offline
 development.
 
-The Google CDN version is chosen over other potential candidates (like the 
-[jQuery CDN](http://jquery.com/download/#jquery-39-s-cdn-provided-by-maxcdn)) 
-because it's fast in absolute terms and it has the best overall 
-[penetration](http://httparchive.org/trends.php#perGlibs) which increases the 
+The Google CDN version is chosen over other potential candidates (like the
+[jQuery CDN](http://jquery.com/download/#jquery-39-s-cdn-provided-by-maxcdn))
+because it's fast in absolute terms and it has the best overall
+[penetration](http://httparchive.org/trends.php#perGlibs) which increases the
 odds of having a copy of the library in your user's browser cache.
 
-While the Google CDN is a strong default solution your site or application may 
-require a different configuration. Testing your site with services like 
-[WebPageTest](http://www.webpagetest.org/) and browser tools like 
-[PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) or 
-[YSlow](http://developer.yahoo.com/yslow/) will help you examine the real 
-world performance of your site and can show where you can optimize your specific 
-site or application.  
+While the Google CDN is a strong default solution your site or application may
+require a different configuration. Testing your site with services like
+[WebPageTest](http://www.webpagetest.org/) and browser tools like
+[PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) or
+[YSlow](http://developer.yahoo.com/yslow/) will help you examine the real
+world performance of your site and can show where you can optimize your specific
+site or application.
 
 
-### Google Analytics Tracking Code
+### Google Univeral Analytics Tracking Code
 
-Finally, an optimized version of the latest Google Analytics tracking code is
+Finally, an optimized version of the Google Univeral Analytics tracking code is
 included. Google recommends that this script be placed at the top of the page.
-Factors to consider: if you place this script at the top of the page, you’ll be
-able to count users who don’t fully load the page, and you’ll incur the max
+Factors to consider: if you place this script at the top of the page, you’ll
+be able to count users who don’t fully load the page, and you’ll incur the max
 number of simultaneous connections of the browser.
 
 Further information:
 
-* [Optimizing the asynchronous Google Analytics
-  snippet](http://mathiasbynens.be/notes/async-analytics-snippet).
-* [Tracking Site Activity - Google
-  Analytics](http://code.google.com/apis/analytics/docs/tracking/asyncTracking.html).
+* [Optimizing the Google Universal Analytics
+  Snippet](http://mathiasbynens.be/notes/async-analytics-snippet#universal-analytics)
+* [Introduction to
+  Analytics.js](https://developers.google.com/analytics/devguides/collection/analyticsjs/)
