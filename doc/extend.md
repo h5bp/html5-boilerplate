@@ -63,7 +63,7 @@ page.
 
 The goal of this is that when the foreign IP address is finally needed it will
 already be in the client cache and will not block the loading of the foreign
-content. Less requests result in faster page load times. The perception of this
+content. Fewer requests result in faster page load times. The perception of this
 is increased on a mobile platform where DNS latency can be greater.
 
 #### Disable implicit prefetching
