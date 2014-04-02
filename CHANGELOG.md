@@ -1,5 +1,7 @@
 ### HEAD
 
+* Use `<!doctype html>` instead of `<!DOCTYPE html>`
+  ([#1522](https://github.com/h5bp/html5-boilerplate/issues/1522)).
 * Update to Normalize.css 3.0.1.
   ([#1050](https://github.com/h5bp/html5-boilerplate/issues/1050)).
 * Add `/browserconfig.xml` file and tile images
