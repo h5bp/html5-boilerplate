@@ -1,8 +1,8 @@
 ### HEAD
 
+* Update to Apache Server Configs 2.3.0.
 * Use `<!doctype html>` instead of `<!DOCTYPE html>`
   ([#1522](https://github.com/h5bp/html5-boilerplate/issues/1522)).
-* Update to Apache Server Configs 2.2.0.
 * Update to jQuery 1.11.0.
 * Add `Disallow:` to `robots.txt`
   ([#1487](https://github.com/h5bp/html5-boilerplate/issues/1487)).
