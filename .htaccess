@@ -1,4 +1,4 @@
-# Apache Server Configs v2.2.0 | MIT License
+# Apache Server Configs v2.3.0 | MIT License
 # https://github.com/h5bp/server-configs-apache
 
 # (!) Using `.htaccess` files slows down Apache, therefore, if you have access
@@ -378,22 +378,24 @@ AddDefaultCharset utf-8
 </FilesMatch>
 
 # ------------------------------------------------------------------------------
-# | Reducing MIME-type security risks                                          |
+# | Reducing MIME type security risks                                          |
 # ------------------------------------------------------------------------------
 
 # Prevent some browsers from MIME-sniffing the response.
 
-# This reduces exposure to drive-by download attacks and should be enable
-# especially if the web server is serving user uploaded content, content
-# that could potentially be treated by the browser as executable.
+# This reduces exposure to drive-by download attacks and cross-origin data
+# leaks, and should be left uncommented, especially if the web server is
+# serving user-uploaded content or content that could potentially be treated
+# as executable by the browser.
 
+# http://www.slideshare.net/hasegawayosuke/owasp-hasegawa
 # http://blogs.msdn.com/b/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx
 # http://msdn.microsoft.com/en-us/library/ie/gg622941.aspx
 # http://mimesniff.spec.whatwg.org/
 
-# <IfModule mod_headers.c>
-#     Header set X-Content-Type-Options "nosniff"
-# </IfModule>
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+</IfModule>
 
 # ------------------------------------------------------------------------------
 # | Reflected Cross-Site Scripting (XSS) attacks                               |
