@@ -1,5 +1,7 @@
 ### HEAD
 
+* Add `lang=""` to `<html>`
+  ([#1542](https://github.com/h5bp/html5-boilerplate/issues/1542)).
 * Update to jQuery 1.11.1.
 * Update to Modernizr 2.8.0.
 * Update to Apache Server Configs 2.3.0.
