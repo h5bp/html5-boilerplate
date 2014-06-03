@@ -1,4 +1,4 @@
-# Apache Server Configs v2.3.0 | MIT License
+# Apache Server Configs v2.4.1 | MIT License
 # https://github.com/h5bp/server-configs-apache
 
 # (!) Using `.htaccess` files slows down Apache, therefore, if you have access
@@ -10,23 +10,32 @@
 # ##############################################################################
 
 # ------------------------------------------------------------------------------
-# | Cross-domain AJAX requests                                                 |
+# | Cross-domain requests                                                      |
 # ------------------------------------------------------------------------------
 
-# Allow cross-origin AJAX requests.
+# Allow cross-origin requests.
 # http://code.google.com/p/html5security/wiki/CrossOriginRequestSecurity
 # http://enable-cors.org/
+# http://www.w3.org/TR/cors/
 
 # <IfModule mod_headers.c>
-#    Header set Access-Control-Allow-Origin "*"
+#     Header set Access-Control-Allow-Origin "*"
 # </IfModule>
+
+# By default allow cross-origin access to web fonts.
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(eot|otf|tt[cf]|woff)$">
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+</IfModule>
 
 # ------------------------------------------------------------------------------
 # | CORS-enabled images                                                        |
 # ------------------------------------------------------------------------------
 
 # Send the CORS header for images when browsers request it.
-# https://developer.mozilla.org/en-US/docs/HTML/CORS_Enabled_Image
+# https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image
 # http://blog.chromium.org/2011/07/using-cross-domain-images-in-webgl-and.html
 # http://hacks.mozilla.org/2011/11/using-cors-to-load-webgl-textures-from-cross-domain-images/
 
@@ -39,29 +48,20 @@
     </IfModule>
 </IfModule>
 
-# ------------------------------------------------------------------------------
-# | Web fonts access                                                           |
-# ------------------------------------------------------------------------------
-
-# Allow access to web fonts from all domains.
-
-<IfModule mod_headers.c>
-    <FilesMatch "\.(eot|otf|tt[cf]|woff)$">
-        Header set Access-Control-Allow-Origin "*"
-    </FilesMatch>
-</IfModule>
-
 
 # ##############################################################################
 # # ERRORS                                                                     #
 # ##############################################################################
 
 # ------------------------------------------------------------------------------
-# | 404 error prevention for non-existing redirected folders                   |
+# | 404 error prevention                                                       |
 # ------------------------------------------------------------------------------
 
-# Prevent Apache from returning a 404 error as the result of a rewrite
-# when the directory with the same name does not exist.
+# Disable the pattern matching based on filenames.
+
+# This setting prevents Apache from returning a 404 error as the result
+# of a rewrite when the directory with the same name does not exist.
+
 # http://httpd.apache.org/docs/current/content-negotiation.html#multiviews
 # http://www.webmasterworld.com/apache/3808792.htm
 
@@ -87,13 +87,14 @@ ErrorDocument 404 /404.html
 
 # Force Internet Explorer to render pages in the highest available mode
 # in the various cases when it may not.
-# http://hsivonen.iki.fi/doctype/ie-mode.pdf
+# https://hsivonen.fi/doctype/ie-mode.pdf
+# https://hsivonen.fi/doctype/#ie8
 
 <IfModule mod_headers.c>
     Header set X-UA-Compatible "IE=edge"
-    # `mod_headers` cannot match based on the content-type, however, this
-    # header should be send only for HTML pages and not for the other resources
-    <FilesMatch "\.(appcache|atom|crx|css|cur|eot|f4[abpv]|flv|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|tt[cf]|vcf|vtt|webapp|web[mp]|woff|xml|xpi)$">
+    # `mod_headers` cannot match based on the content-type, however, this header
+    # should be send only for HTML documents and not for the other resources
+    <FilesMatch "\.(appcache|atom|crx|css|cur|eot|f4[abpv]|flv|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|tt[cf]|txt|vcf|vtt|webapp|web[mp]|woff|xml|xpi)$">
         Header unset X-UA-Compatible
     </FilesMatch>
 </IfModule>
@@ -107,17 +108,20 @@ ErrorDocument 404 /404.html
 # http://www.w3.org/TR/2000/CR-P3P-20001215/
 
 # <IfModule mod_headers.c>
-#   Header set P3P "policyref=\"/w3c/p3p.xml\", CP=\"IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT\""
+#     Header set P3P "policyref=\"/w3c/p3p.xml\", CP=\"IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT\""
 # </IfModule>
 
 
 # ##############################################################################
-# # MIME TYPES AND ENCODING                                                    #
+# # MEDIA TYPES AND CHARACTER ENCODINGS                                        #
 # ##############################################################################
 
 # ------------------------------------------------------------------------------
-# | Proper MIME types for all files                                            |
+# | Media types                                                                |
 # ------------------------------------------------------------------------------
+
+# Serve resources with the proper media types (formerly known as MIME types).
+# http://www.iana.org/assignments/media-types/media-types.xhtml
 
 <IfModule mod_mime.c>
 
@@ -134,6 +138,39 @@ ErrorDocument 404 /404.html
     # http://tools.ietf.org/html/rfc4329#section-7.2
     AddType application/javascript                      js
 
+  # Manifest files
+
+    # If you are providing a web application manifest file (see the
+    # specification: http://w3c.github.io/manifest/), it is recommended
+    # that you serve it with the `application/manifest+json` media type.
+    #
+    # Because the web application manifest file doesn't have its own
+    # unique file extension, you can set its media type either by matching:
+    #
+    # 1) the exact location of the file (this can be done using a directive
+    #    such as `<Location>`, but it will NOT work in the `.htaccess` file,
+    #    so you will have to do it in the main server configuration file or
+    #    inside of a `<VirtualHost>` container)
+    #
+    #    e.g.:
+    #
+    #       <Location "/.well-known/manifest.json">
+    #           AddType application/manifest+json               json
+    #       </Location>
+    #
+    # 2) the filename (this can be problematic as you will need to ensure
+    #    that you don't have any other file with the same name as the one
+    #    you gave to your web application manifest file)
+    #
+    #    e.g.:
+    #
+    #       <Files "manifest.json">
+    #           AddType application/manifest+json               json
+    #       </Files>
+
+    AddType application/x-web-app-manifest+json         webapp
+    AddType text/cache-manifest                         appcache manifest
+
   # Video
     AddType video/mp4                                   f4v f4p m4v mp4
     AddType video/ogg                                   ogv
@@ -144,31 +181,29 @@ ErrorDocument 404 /404.html
     AddType application/font-woff                       woff
     AddType application/vnd.ms-fontobject               eot
 
-    # Browsers usually ignore the font MIME types and simply sniff the bytes
-    # to figure out the font type.
+    # Browsers usually ignore the font media types and simply sniff
+    # the bytes to figure out the font type.
     # http://mimesniff.spec.whatwg.org/#matching-a-font-type-pattern
 
-    # Chrome however, shows a warning if any other MIME types are used for
-    # the following fonts.
+    # Chrome however, shows a warning if any other media types are used
+    # for the following fonts.
 
     AddType application/x-font-ttf                      ttc ttf
     AddType font/opentype                               otf
 
     # Make SVGZ fonts work on the iPad.
     # https://twitter.com/FontSquirrel/status/14855840545
-    AddType     image/svg+xml                           svgz
+    AddType image/svg+xml                               svg svgz
     AddEncoding gzip                                    svgz
 
   # Other
     AddType application/octet-stream                    safariextz
     AddType application/x-chrome-extension              crx
     AddType application/x-opera-extension               oex
-    AddType application/x-web-app-manifest+json         webapp
     AddType application/x-xpinstall                     xpi
     AddType application/xml                             atom rdf rss xml
     AddType image/webp                                  webp
-    AddType image/x-icon                                cur
-    AddType text/cache-manifest                         appcache manifest
+    AddType image/x-icon                                cur ico
     AddType text/vtt                                    vtt
     AddType text/x-component                            htc
     AddType text/x-vcard                                vcf
@@ -176,13 +211,14 @@ ErrorDocument 404 /404.html
 </IfModule>
 
 # ------------------------------------------------------------------------------
-# | UTF-8 encoding                                                             |
+# | Character encodings                                                        |
 # ------------------------------------------------------------------------------
 
-# Use UTF-8 encoding for anything served as `text/html` or `text/plain`.
+# Set `UTF-8` as the character encoding for all resources served with
+# the media type of `text/html` or `text/plain`.
 AddDefaultCharset utf-8
 
-# Force UTF-8 for certain file formats.
+# Set `UTF-8` as the character encoding for other certain resources.
 <IfModule mod_mime.c>
     AddCharset utf-8 .atom .css .js .json .jsonld .rss .vtt .webapp .xml
 </IfModule>
@@ -205,7 +241,7 @@ AddDefaultCharset utf-8
 # http://httpd.apache.org/docs/current/misc/perf-tuning.html#symlinks
 
 # Also, some cloud hosting services require `RewriteBase` to be set.
-# http://www.rackspace.com/knowledge_center/frequently-asked-question/why-is-mod-rewrite-not-working-on-my-site
+# http://www.rackspace.com/knowledge_center/frequently-asked-question/why-is-modrewrite-not-working-on-my-site
 
 <IfModule mod_rewrite.c>
     Options +FollowSymlinks
@@ -249,11 +285,11 @@ AddDefaultCharset utf-8
 # subdomains for certain parts of your website.
 
 # <IfModule mod_rewrite.c>
-#    RewriteCond %{HTTPS} !=on
-#    RewriteCond %{HTTP_HOST} !^www\. [NC]
-#    RewriteCond %{SERVER_ADDR} !=127.0.0.1
-#    RewriteCond %{SERVER_ADDR} !=::1
-#    RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+#     RewriteCond %{HTTPS} !=on
+#     RewriteCond %{HTTP_HOST} !^www\. [NC]
+#     RewriteCond %{SERVER_ADDR} !=127.0.0.1
+#     RewriteCond %{SERVER_ADDR} !=::1
+#     RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 # </IfModule>
 
 
@@ -293,7 +329,7 @@ AddDefaultCharset utf-8
 
 # <IfModule mod_headers.c>
 #     Header set X-Frame-Options "DENY"
-#     <FilesMatch "\.(appcache|atom|crx|css|cur|eot|f4[abpv]|flv|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|tt[cf]|vcf|vtt|webapp|web[mp]|woff|xml|xpi)$">
+#     <FilesMatch "\.(appcache|atom|crx|css|cur|eot|f4[abpv]|flv|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|tt[cf]|txt|vcf|vtt|webapp|web[mp]|woff|xml|xpi)$">
 #         Header unset X-Frame-Options
 #     </FilesMatch>
 # </IfModule>
@@ -312,13 +348,13 @@ AddDefaultCharset utf-8
 # work as-is for your site!
 
 # For more details on how to craft a reasonable policy for your site, read:
-# http://html5rocks.com/en/tutorials/security/content-security-policy (or the
-# specification: http://w3.org/TR/CSP). Also, to make things easier, you can
-# use an online CSP header generator such as: http://cspisawesome.com/.
+# http://www.html5rocks.com/en/tutorials/security/content-security-policy/ (or
+# the specification: http://www.w3.org/TR/CSP11/). Also, to make things easier,
+# you can use an online CSP header generator such as: http://cspisawesome.com/.
 
 # <IfModule mod_headers.c>
 #     Header set Content-Security-Policy "script-src 'self'; object-src 'self'"
-#     <FilesMatch "\.(appcache|atom|crx|css|cur|eot|f4[abpv]|flv|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|tt[cf]|vcf|vtt|webapp|web[mp]|woff|xml|xpi)$">
+#     <FilesMatch "\.(appcache|atom|crx|css|cur|eot|f4[abpv]|flv|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|tt[cf]|txt|vcf|vtt|webapp|web[mp]|woff|xml|xpi)$">
 #         Header unset Content-Security-Policy
 #     </FilesMatch>
 # </IfModule>
@@ -328,6 +364,7 @@ AddDefaultCharset utf-8
 # ------------------------------------------------------------------------------
 
 # Block access to directories without a default document.
+
 # You should leave the following uncommented, as you shouldn't allow anyone to
 # surf through every directory on your server (which may includes rather private
 # places such as the CMS's directories).
@@ -338,10 +375,23 @@ AddDefaultCharset utf-8
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Block access to hidden files and directories.
-# This includes directories used by version control systems such as Git and SVN.
+# Block access to all hidden files and directories with the exception of the
+# visible content from within the `/.well-known/` hidden directory.
+
+# These types of files usually contain user preferences or the preserved state
+# of an utility, and can include rather private places like, for example, the
+# `.git` or `.svn` directories.
+
+# The `/.well-known/` directory represents the standard (RFC 5785) path prefix
+# for "well-known locations" (e.g.: `/.well-known/manifest.json`,
+# `/.well-known/keybase.txt`), and therefore, access to its visible content
+# should not be blocked.
+
+# https://www.mnot.net/blog/2010/04/07/well-known
+# http://tools.ietf.org/html/rfc5785
 
 <IfModule mod_rewrite.c>
+    RewriteCond %{REQUEST_URI} "!(^|/)\.well-known/([^./]+./?)+$" [NC]
     RewriteCond %{SCRIPT_FILENAME} -d [OR]
     RewriteCond %{SCRIPT_FILENAME} -f
     RewriteRule "(^|/)\." - [F]
@@ -361,7 +411,7 @@ AddDefaultCharset utf-8
 # files that contain metadata about the project (e.g.: project dependencies),
 # build scripts, etc..
 
-<FilesMatch "(^#.*#|\.(bak|config|dist|fla|in[ci]|log|psd|sh|sql|sw[op])|~)$">
+<FilesMatch "(^#.*#|\.(bak|conf|dist|fla|in[ci]|log|psd|sh|sql|sw[op])|~)$">
 
     # Apache < 2.3
     <IfModule !mod_authz_core.c>
@@ -434,7 +484,7 @@ AddDefaultCharset utf-8
 # <IfModule mod_headers.c>
 #     #                           (1)    (2)
 #     Header set X-XSS-Protection "1; mode=block"
-#     <FilesMatch "\.(appcache|atom|crx|css|cur|eot|f4[abpv]|flv|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|tt[cf]|vcf|vtt|webapp|web[mp]|woff|xml|xpi)$">
+#     <FilesMatch "\.(appcache|atom|crx|css|cur|eot|f4[abpv]|flv|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|tt[cf]|txt|vcf|vtt|webapp|web[mp]|woff|xml|xpi)$">
 #         Header unset X-XSS-Protection
 #     </FilesMatch>
 # </IfModule>
@@ -448,8 +498,8 @@ AddDefaultCharset utf-8
 # `https://secure.example.com`.
 
 # <IfModule mod_rewrite.c>
-#    RewriteCond %{SERVER_PORT} !^443
-#    RewriteRule ^ https://example-domain-please-change-me.com%{REQUEST_URI} [R=301,L]
+#     RewriteCond %{SERVER_PORT} !^443
+#     RewriteRule ^ https://example-domain-please-change-me.com%{REQUEST_URI} [R=301,L]
 # </IfModule>
 
 # ------------------------------------------------------------------------------
@@ -473,7 +523,7 @@ AddDefaultCharset utf-8
 # are not using HTTPS.
 
 # <IfModule mod_headers.c>
-#    Header set Strict-Transport-Security "max-age=16070400; includeSubDomains"
+#     Header set Strict-Transport-Security "max-age=16070400; includeSubDomains"
 # </IfModule>
 
 # ------------------------------------------------------------------------------
@@ -483,7 +533,8 @@ AddDefaultCharset utf-8
 # Avoid displaying the exact Apache version number, the description of the
 # generic OS-type and the information about Apache's compiled-in modules.
 
-# ADD THIS DIRECTIVE IN THE `httpd.conf` AS IT WILL NOT WORK IN THE `.htaccess`!
+# IMPORTANT: The `ServerTokens` directive will not work in the `.htaccess` file,
+# so you will need to add the following in the main server configuration file.
 
 # ServerTokens Prod
 
@@ -499,7 +550,7 @@ AddDefaultCharset utf-8
 <IfModule mod_deflate.c>
 
     # Force compression for mangled headers.
-    # http://developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping
+    # https://developer.yahoo.com/blogs/ydn/pushing-beyond-gzipping-25601.html
     <IfModule mod_setenvif.c>
         <IfModule mod_headers.c>
             SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
@@ -507,7 +558,7 @@ AddDefaultCharset utf-8
         </IfModule>
     </IfModule>
 
-    # Compress all output labeled with one of the following MIME-types
+    # Compress all output labeled with one of the following media types
     # (for Apache versions below 2.3.7, you don't need to enable `mod_filter`
     #  and can remove the `<IfModule mod_filter.c>` and `</IfModule>` lines
     #  as `AddOutputFilterByType` is still in the core directives).
@@ -516,6 +567,7 @@ AddDefaultCharset utf-8
                                       application/javascript \
                                       application/json \
                                       application/ld+json \
+                                      application/manifest+json \
                                       application/rss+xml \
                                       application/vnd.ms-fontobject \
                                       application/x-font-ttf \
@@ -528,6 +580,7 @@ AddDefaultCharset utf-8
                                       text/css \
                                       text/html \
                                       text/plain \
+                                      text/vtt \
                                       text/x-component \
                                       text/xml
     </IfModule>
@@ -535,14 +588,14 @@ AddDefaultCharset utf-8
 </IfModule>
 
 # ------------------------------------------------------------------------------
-# | Content transformations                                                    |
+# | Content transformation                                                     |
 # ------------------------------------------------------------------------------
 
 # Prevent mobile network providers from modifying the website's content.
 # http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9.5.
 
 # <IfModule mod_headers.c>
-#    Header set Cache-Control "no-transform"
+#     Header merge Cache-Control "no-transform"
 # </IfModule>
 
 # ------------------------------------------------------------------------------
@@ -550,7 +603,7 @@ AddDefaultCharset utf-8
 # ------------------------------------------------------------------------------
 
 # Remove `ETags` as resources are sent with far-future expires headers.
-# http://developer.yahoo.com/performance/rules.html#etags.
+# https://developer.yahoo.com/performance/rules.html#etags
 
 # `FileETag None` doesn't work in all cases.
 <IfModule mod_headers.c>
@@ -563,10 +616,10 @@ FileETag None
 # | Expires headers                                                            |
 # ------------------------------------------------------------------------------
 
-# The following expires headers are set pretty far in the future. If you
-# don't control versioning with filename-based cache busting, consider
-# lowering the cache time for resources such as style sheets and JavaScript
-# files to something like one week.
+# Serve resources with far-future expires headers.
+
+# IMPORTANT: If you don't control versioning with filename-based cache
+# busting, consider lowering the cache times to something like one week.
 
 <IfModule mod_expires.c>
 
@@ -595,6 +648,7 @@ FileETag None
     ExpiresByType application/javascript                "access plus 1 year"
 
   # Manifest files
+    ExpiresByType application/manifest+json             "access plus 1 year"
     ExpiresByType application/x-web-app-manifest+json   "access plus 0 seconds"
     ExpiresByType text/cache-manifest                   "access plus 0 seconds"
 
@@ -632,34 +686,38 @@ FileETag None
 # http://stevesouders.com/blog/2008/08/23/revving-filenames-dont-use-querystring
 
 # <IfModule mod_rewrite.c>
-#    RewriteCond %{REQUEST_FILENAME} !-f
-#    RewriteRule ^(.+)\.(\d+)\.(js|css|png|jpe?g|gif)$ $1.$3 [L]
+#     RewriteCond %{REQUEST_FILENAME} !-f
+#     RewriteRule ^(.+)\.(\d+)\.(css|cur|gif|ico|jpe?g|js|png|svgz?|webp)$ $1.$3 [L]
 # </IfModule>
 
 # ------------------------------------------------------------------------------
 # | File concatenation                                                         |
 # ------------------------------------------------------------------------------
 
-# Allow concatenation from within specific style sheets and JavaScript files.
+# Allow concatenation from within specific files.
 
 # e.g.:
 #
-#   If you have the following content in a file
+#   If you have the following lines in a file called, for example,
+#   `main.combined.js`:
 #
-#       <!--#include file="libs/jquery.js" -->
-#       <!--#include file="plugins/jquery.timer.js" -->
+#       <!--#include file="js/jquery.js" -->
+#       <!--#include file="js/jquery.timer.js" -->
 #
-#   Apache will replace it with the content from the specified files.
+#   Apache will replace those lines with the content of the specified files.
 
 # <IfModule mod_include.c>
-#    <FilesMatch "\.combined\.js$">
-#        Options +Includes
-#        AddOutputFilterByType INCLUDES application/javascript application/json
-#        SetOutputFilter INCLUDES
-#    </FilesMatch>
-#    <FilesMatch "\.combined\.css$">
-#        Options +Includes
-#        AddOutputFilterByType INCLUDES text/css
-#        SetOutputFilter INCLUDES
-#    </FilesMatch>
+#
+#     <FilesMatch "\.combined\.js$">
+#         Options +Includes
+#         AddOutputFilterByType INCLUDES application/javascript
+#         SetOutputFilter INCLUDES
+#     </FilesMatch>
+#
+#     <FilesMatch "\.combined\.css$">
+#         Options +Includes
+#         AddOutputFilterByType INCLUDES text/css
+#         SetOutputFilter INCLUDES
+#     </FilesMatch>
+#
 # </IfModule>
