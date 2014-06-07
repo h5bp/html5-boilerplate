@@ -1,9 +1,9 @@
 ### HEAD
 
+* Update to Apache Server Configs 2.4.1.
 * Add `lang=""` to `<html>`
   ([#1542](https://github.com/h5bp/html5-boilerplate/issues/1542)).
 * Update to jQuery 1.11.1.
-* Update to Apache Server Configs 2.3.0.
 * Use `<!doctype html>` instead of `<!DOCTYPE html>`
   ([#1522](https://github.com/h5bp/html5-boilerplate/issues/1522)).
 * Add `Disallow:` to `robots.txt`
