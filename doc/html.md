@@ -153,3 +153,10 @@ Further information:
   Snippet](http://mathiasbynens.be/notes/async-analytics-snippet#universal-analytics)
 * [Introduction to
   Analytics.js](https://developers.google.com/analytics/devguides/collection/analyticsjs/)
+
+**N.B.** The Google Universal Analytics snippet is included by default mainly
+because Google Analytics is [currently one of the most popular tracking
+solutions](http://trends.builtwith.com/analytics/Google-Analytics) out there.
+However, its usage isn't set in stone, and you SHOULD consider exploring the
+[alternatives](https://en.wikipedia.org/wiki/List_of_web_analytics_software)
+and use whatever suits your needs best!
