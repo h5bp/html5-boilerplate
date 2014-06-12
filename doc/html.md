@@ -153,3 +153,8 @@ Further information:
   Snippet](http://mathiasbynens.be/notes/async-analytics-snippet#universal-analytics)
 * [Introduction to
   Analytics.js](https://developers.google.com/analytics/devguides/collection/analyticsjs/)
+
+The Google Tracking Code is included because it's relatively easy to use and
+[currently one of the most popular tracking solutions](http://trends.builtwith.com/analytics/Google-Analytics)
+. However, it is not the only tracking solution out there and we encourage you
+to explore which [alternative](https://en.wikipedia.org/wiki/List_of_web_analytics_software) suits your needs best.
