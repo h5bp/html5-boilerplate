@@ -1,4 +1,4 @@
-# Apache Server Configs v2.4.1 | MIT License
+# Apache Server Configs v2.5.0 | MIT License
 # https://github.com/h5bp/server-configs-apache
 
 # (!) Using `.htaccess` files slows down Apache, therefore, if you have access
@@ -14,13 +14,16 @@
 # ------------------------------------------------------------------------------
 
 # Allow cross-origin requests.
-# http://code.google.com/p/html5security/wiki/CrossOriginRequestSecurity
+
 # http://enable-cors.org/
 # http://www.w3.org/TR/cors/
+# https://code.google.com/p/html5security/wiki/CrossOriginRequestSecurity
 
 # <IfModule mod_headers.c>
 #     Header set Access-Control-Allow-Origin "*"
 # </IfModule>
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # By default allow cross-origin access to web fonts.
 
@@ -35,6 +38,7 @@
 # ------------------------------------------------------------------------------
 
 # Send the CORS header for images when browsers request it.
+
 # https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image
 # http://blog.chromium.org/2011/07/using-cross-domain-images-in-webgl-and.html
 # http://hacks.mozilla.org/2011/11/using-cors-to-load-webgl-textures-from-cross-domain-images/
@@ -85,9 +89,8 @@ ErrorDocument 404 /404.html
 # | Better website experience                                                  |
 # ------------------------------------------------------------------------------
 
-# Force Internet Explorer to render pages in the highest available mode
-# in the various cases when it may not.
-# https://hsivonen.fi/doctype/ie-mode.pdf
+# Force Internet Explorer to render pages in the highest available
+# mode in the various cases when it may not.
 # https://hsivonen.fi/doctype/#ie8
 
 <IfModule mod_headers.c>
@@ -104,6 +107,7 @@ ErrorDocument 404 /404.html
 # ------------------------------------------------------------------------------
 
 # Allow cookies to be set from iframes in Internet Explorer.
+
 # http://msdn.microsoft.com/en-us/library/ms537343.aspx
 # http://www.w3.org/TR/2000/CR-P3P-20001215/
 
@@ -126,7 +130,7 @@ ErrorDocument 404 /404.html
 <IfModule mod_mime.c>
 
   # Audio
-    AddType audio/mp4                                   m4a f4a f4b
+    AddType audio/mp4                                   f4a f4b m4a
     AddType audio/ogg                                   oga ogg opus
 
   # Data interchange
@@ -186,15 +190,12 @@ ErrorDocument 404 /404.html
     # http://mimesniff.spec.whatwg.org/#matching-a-font-type-pattern
 
     # Chrome however, shows a warning if any other media types are used
-    # for the following fonts.
+    # for the following two font types.
 
     AddType application/x-font-ttf                      ttc ttf
     AddType font/opentype                               otf
 
-    # Make SVGZ fonts work on the iPad.
-    # https://twitter.com/FontSquirrel/status/14855840545
     AddType image/svg+xml                               svg svgz
-    AddEncoding gzip                                    svgz
 
   # Other
     AddType application/octet-stream                    safariextz
@@ -551,6 +552,7 @@ AddDefaultCharset utf-8
 
     # Force compression for mangled headers.
     # https://developer.yahoo.com/blogs/ydn/pushing-beyond-gzipping-25601.html
+
     <IfModule mod_setenvif.c>
         <IfModule mod_headers.c>
             SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
@@ -558,10 +560,26 @@ AddDefaultCharset utf-8
         </IfModule>
     </IfModule>
 
-    # Compress all output labeled with one of the following media types
-    # (for Apache versions below 2.3.7, you don't need to enable `mod_filter`
-    #  and can remove the `<IfModule mod_filter.c>` and `</IfModule>` lines
-    #  as `AddOutputFilterByType` is still in the core directives).
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    # Mark certain resources as been compressed in order to:
+    #
+    #  1) prevent Apache from recompressing them
+    #  2) ensure that they are served with the
+    #     `Content-Encoding: gzip` HTTP response header
+
+    <IfModule mod_mime.c>
+        AddEncoding gzip              svgz
+    </IfModule>
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    # Compress all output labeled with one of the following media types.
+
+    # IMPORTANT: For Apache versions below 2.3.7 you don't need to enable
+    # `mod_filter` and can remove the `<IfModule mod_filter.c>` & `</IfModule>`
+    # lines as `AddOutputFilterByType` is still in the core directives.
+
     <IfModule mod_filter.c>
         AddOutputFilterByType DEFLATE application/atom+xml \
                                       application/javascript \
@@ -577,6 +595,7 @@ AddDefaultCharset utf-8
                                       font/opentype \
                                       image/svg+xml \
                                       image/x-icon \
+                                      text/cache-manifest \
                                       text/css \
                                       text/html \
                                       text/plain \
@@ -683,7 +702,7 @@ FileETag None
 # requests such as `/css/style.12345.css` to `/css/style.css`.
 
 # To understand why this is important and a better idea than `*.css?v231`, read:
-# http://stevesouders.com/blog/2008/08/23/revving-filenames-dont-use-querystring
+# http://www.stevesouders.com/blog/2008/08/23/revving-filenames-dont-use-querystring/
 
 # <IfModule mod_rewrite.c>
 #     RewriteCond %{REQUEST_FILENAME} !-f
