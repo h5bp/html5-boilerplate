@@ -1,6 +1,6 @@
 ### HEAD
 
-* Update to Apache Server Configs 2.4.1.
+* Update to Apache Server Configs 2.5.0.
 * Add `lang=""` to `<html>`
   ([#1542](https://github.com/h5bp/html5-boilerplate/issues/1542)).
 * Update to jQuery 1.11.1.
