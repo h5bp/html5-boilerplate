@@ -41,7 +41,7 @@ You can use [Initializr](http://initializr.com) to create a custom build that
 includes HTML5 Boilerplate with Bootstrap.
 
 Read more about how [HTML5 Boilerplate and Bootstrap complement each
-other](http://www.quora.com/Is-Bootstrap-a-complement-OR-an-alternative-to-HTML5-Boilerplate-or-viceversa/answer/Nicolas-Gallagher).
+other](http://www.quora.com/Is-Bootstrap-a-complement-or-an-alternative-to-HTML5-Boilerplate-or-viceversa/answer/Nicolas-Gallagher).
 
 
 ### Do I need to upgrade my sites each time a new version of HTML5 Boilerplate is released?

@@ -27,7 +27,7 @@ everything fits with everyone's needs.
 Users can install a Chrome app directly from your website, as long as the app
 and site have been associated via Google's Webmaster Tools. Read more on
 [Chrome Web Store's Inline Installation
-docs](https://developers.google.com/chrome/web-store/docs/inline_installation).
+docs](https://developer.chrome.com/webstore/inline_installation).
 
 ```html
 <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/APP_ID">
@@ -408,8 +408,8 @@ plugin](http://www.google.com/search?ie=UTF-8&q=how+to+make+browser+search+plugi
   [visibility](http://googlewebmastercentral.blogspot.com/2009/05/introducing-rich-snippets.html).
 
 * If you're building a web app you may want [native style momentum scrolling in
-  iOS 5+](http://johanbrook.com/browsers/native-momentum-scrolling-ios-5/) using
-  `-webkit-overflow-scrolling: touch`.
+  iOS 5+](http://www.johanbrook.com/articles/native-style-momentum-scrolling-to-arrive-in-ios-5/)
+  using `-webkit-overflow-scrolling: touch`.
 
 * If you want to disable the translation prompt in Chrome or block Google
   Translate from translating your web page, use [`<meta name="google"
@@ -640,7 +640,7 @@ for the implementation.
 ### Chrome Mobile web apps
 
 Chrome Mobile has a specific meta tag for making apps [installable to the
-homescreen](https://developers.google.com/chrome/mobile/docs/installtohomescreen)
+homescreen](https://developer.chrome.com/multidevice/android/installtohomescreen)
 which tries to be a more generic replacement to Apple's proprietary meta tag:
 
 ```html
