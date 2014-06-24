@@ -15,8 +15,6 @@
 * [.htaccess](https://github.com/h5bp/server-configs-apache)
   — All about the Apache web server configs (also see our [alternative server
   configs](https://github.com/h5bp/server-configs/blob/master/README.md)).
-* [crossdomain.xml](crossdomain.md) — An introduction to making use of
-  crossdomain requests.
 * [Everything else](misc.md).
 
 ## Development
