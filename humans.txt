@@ -11,5 +11,5 @@
 
 # TECHNOLOGY COLOPHON
 
-    HTML5, CSS3
-    Normalize.css, jQuery, Modernizr
+    CSS3, HTML5
+    Apache Server Configs, jQuery, Modernizr, Normalize.css
