@@ -1,1 +1,7 @@
 * text=auto
+
+CHANGELOG.md export-ignore
+CONTRIBUTING.md export-ignore
+img/.gitignore export-ignore
+LICENSE.md export-ignore
+README.md export-ignore
