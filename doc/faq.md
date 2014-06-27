@@ -32,7 +32,7 @@ you to preview your web pages online (e.g. [Dropbox](https://www.dropbox.com/)).
 Setting up a local server can be done using:
 
 * Python 2.x by running `python -m SimpleHTTPServer` from your local directory
-* Python 3.x by running  `python -m http.server` from your local directory
+* Python 3.x by running `python -m http.server` from your local directory
 * Ruby by installing and running [asdf](https://rubygems.org/gems/asdf)
 * [LAMP](http://en.wikipedia.org/wiki/LAMP_%28software_bundle%29),
   [MAMP](http://www.mamp.info/en/index.html),
