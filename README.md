@@ -3,6 +3,8 @@
 This project is a fork of the [HTML5 Boilerplate](http://html5boilerplate.com).  
 It has been simplified for those starting out with web development and programming.
 
+An [**example site**](http://pfnp.adrianbautista.com) built with this template.
+
 ## Quick start
 
 ### How to download this template:
