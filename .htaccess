@@ -1,4 +1,4 @@
-# Apache Server Configs v2.5.0 | MIT License
+# Apache Server Configs v2.6.0 | MIT License
 # https://github.com/h5bp/server-configs-apache
 
 # (!) Using `.htaccess` files slows down Apache, therefore, if you have access
@@ -28,7 +28,7 @@
 # By default allow cross-origin access to web fonts.
 
 <IfModule mod_headers.c>
-    <FilesMatch "\.(eot|otf|tt[cf]|woff)$">
+    <FilesMatch "\.(eot|otf|tt[cf]|woff2?)$">
         Header set Access-Control-Allow-Origin "*"
     </FilesMatch>
 </IfModule>
@@ -97,7 +97,7 @@ ErrorDocument 404 /404.html
     Header set X-UA-Compatible "IE=edge"
     # `mod_headers` cannot match based on the content-type, however, this header
     # should be send only for HTML documents and not for the other resources
-    <FilesMatch "\.(appcache|atom|crx|css|cur|eot|f4[abpv]|flv|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|tt[cf]|txt|vcf|vtt|webapp|web[mp]|woff|xml|xpi)$">
+    <FilesMatch "\.(appcache|atom|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|tt[cf]|txt|vcf|vtt|webapp|web[mp]|woff2?|xml|xpi)$">
         Header unset X-UA-Compatible
     </FilesMatch>
 </IfModule>
@@ -136,6 +136,7 @@ ErrorDocument 404 /404.html
   # Data interchange
     AddType application/json                            json map
     AddType application/ld+json                         jsonld
+    AddType application/vnd.geo+json                    geojson
 
   # JavaScript
     # Normalize to standard type.
@@ -183,6 +184,7 @@ ErrorDocument 404 /404.html
 
   # Web fonts
     AddType application/font-woff                       woff
+    AddType application/font-woff2                      woff2
     AddType application/vnd.ms-fontobject               eot
 
     # Browsers usually ignore the font media types and simply sniff
@@ -221,7 +223,7 @@ AddDefaultCharset utf-8
 
 # Set `UTF-8` as the character encoding for other certain resources.
 <IfModule mod_mime.c>
-    AddCharset utf-8 .atom .css .js .json .jsonld .rss .vtt .webapp .xml
+    AddCharset utf-8 .atom .css .geojson .js .json .jsonld .rss .vtt .webapp .xml
 </IfModule>
 
 
@@ -233,8 +235,8 @@ AddDefaultCharset utf-8
 # | Rewrite engine                                                             |
 # ------------------------------------------------------------------------------
 
-# Turn on the rewrite engine and enable the `FollowSymLinks` option (this is
-# necessary in order for the following directives to work).
+# Turn on the rewrite engine and enable the `FollowSymLinks` option
+# (this is necessary in order for the following directives to work).
 
 # If your web host doesn't allow the `FollowSymlinks` option, you may need to
 # comment it out and use `Options +SymLinksIfOwnerMatch`, but be aware of the
@@ -330,7 +332,7 @@ AddDefaultCharset utf-8
 
 # <IfModule mod_headers.c>
 #     Header set X-Frame-Options "DENY"
-#     <FilesMatch "\.(appcache|atom|crx|css|cur|eot|f4[abpv]|flv|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|tt[cf]|txt|vcf|vtt|webapp|web[mp]|woff|xml|xpi)$">
+#     <FilesMatch "\.(appcache|atom|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|tt[cf]|txt|vcf|vtt|webapp|web[mp]|woff2?|xml|xpi)$">
 #         Header unset X-Frame-Options
 #     </FilesMatch>
 # </IfModule>
@@ -355,7 +357,7 @@ AddDefaultCharset utf-8
 
 # <IfModule mod_headers.c>
 #     Header set Content-Security-Policy "script-src 'self'; object-src 'self'"
-#     <FilesMatch "\.(appcache|atom|crx|css|cur|eot|f4[abpv]|flv|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|tt[cf]|txt|vcf|vtt|webapp|web[mp]|woff|xml|xpi)$">
+#     <FilesMatch "\.(appcache|atom|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|tt[cf]|txt|vcf|vtt|webapp|web[mp]|woff2?|xml|xpi)$">
 #         Header unset Content-Security-Policy
 #     </FilesMatch>
 # </IfModule>
@@ -485,7 +487,7 @@ AddDefaultCharset utf-8
 # <IfModule mod_headers.c>
 #     #                           (1)    (2)
 #     Header set X-XSS-Protection "1; mode=block"
-#     <FilesMatch "\.(appcache|atom|crx|css|cur|eot|f4[abpv]|flv|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|tt[cf]|txt|vcf|vtt|webapp|web[mp]|woff|xml|xpi)$">
+#     <FilesMatch "\.(appcache|atom|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|tt[cf]|txt|vcf|vtt|webapp|web[mp]|woff2?|xml|xpi)$">
 #         Header unset X-XSS-Protection
 #     </FilesMatch>
 # </IfModule>
@@ -565,8 +567,8 @@ AddDefaultCharset utf-8
     # Mark certain resources as been compressed in order to:
     #
     #  1) prevent Apache from recompressing them
-    #  2) ensure that they are served with the
-    #     `Content-Encoding: gzip` HTTP response header
+    #  2) ensure that they are served with the correct
+    #     `Content-Encoding` HTTP response header
 
     <IfModule mod_mime.c>
         AddEncoding gzip              svgz
@@ -581,27 +583,28 @@ AddDefaultCharset utf-8
     # lines as `AddOutputFilterByType` is still in the core directives.
 
     <IfModule mod_filter.c>
-        AddOutputFilterByType DEFLATE application/atom+xml \
-                                      application/javascript \
-                                      application/json \
-                                      application/ld+json \
-                                      application/manifest+json \
-                                      application/rss+xml \
-                                      application/vnd.ms-fontobject \
-                                      application/x-font-ttf \
-                                      application/x-web-app-manifest+json \
-                                      application/xhtml+xml \
-                                      application/xml \
-                                      font/opentype \
-                                      image/svg+xml \
-                                      image/x-icon \
-                                      text/cache-manifest \
-                                      text/css \
-                                      text/html \
-                                      text/plain \
-                                      text/vtt \
-                                      text/x-component \
-                                      text/xml
+        AddOutputFilterByType DEFLATE "application/atom+xml" \
+                                      "application/javascript" \
+                                      "application/json" \
+                                      "application/ld+json" \
+                                      "application/manifest+json" \
+                                      "application/rss+xml" \
+                                      "application/vnd.geo+json" \
+                                      "application/vnd.ms-fontobject" \
+                                      "application/x-font-ttf" \
+                                      "application/x-web-app-manifest+json" \
+                                      "application/xhtml+xml" \
+                                      "application/xml" \
+                                      "font/opentype" \
+                                      "image/svg+xml" \
+                                      "image/x-icon" \
+                                      "text/cache-manifest" \
+                                      "text/css" \
+                                      "text/html" \
+                                      "text/plain" \
+                                      "text/vtt" \
+                                      "text/x-component" \
+                                      "text/xml"
     </IfModule>
 
 </IfModule>
@@ -651,6 +654,7 @@ FileETag None
   # Data interchange
     ExpiresByType application/json                      "access plus 0 seconds"
     ExpiresByType application/ld+json                   "access plus 0 seconds"
+    ExpiresByType application/vnd.geo+json              "access plus 0 seconds"
     ExpiresByType application/xml                       "access plus 0 seconds"
     ExpiresByType text/xml                              "access plus 0 seconds"
 
@@ -686,6 +690,7 @@ FileETag None
 
   # Web fonts
     ExpiresByType application/font-woff                 "access plus 1 month"
+    ExpiresByType application/font-woff2                "access plus 1 month"
     ExpiresByType application/vnd.ms-fontobject         "access plus 1 month"
     ExpiresByType application/x-font-ttf                "access plus 1 month"
     ExpiresByType font/opentype                         "access plus 1 month"
