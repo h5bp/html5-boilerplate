@@ -42,12 +42,17 @@ Setting up a local server can be done using:
 
 ### Why don't you automatically load the latest version of jQuery from the Google CDN?
 
-* The latest version may not be compatible with the existing plugins/code on
-  the site, plus, version updating should always be an intentional decision!
-* The latest version has a very short cache time (`1 hour`) compare to the
-  specific version (`1 year`), which means that users won't get the benefits
-  of long-term caching.
+The [file](http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js) to which
+the Google CDN points to is [no longer updated and will stay locked at version
+`1.11.1` in order to prevent inadvertent web
+breakage](http://blog.jquery.com/2014/07/03/dont-use-jquery-latest-js/).
 
+In general, version updating should be an intentional decision! You shouldn't
+include a URL that will always point to the latest version, as that version:
+
+ * may not be compatible with the existing plugins/code on the site
+ * will have a very short cache time compare to the specific version,
+   which means that users won't get the benefits of long-term caching
 
 ### Why is the Google Analytics code at the bottom? Google recommends it be placed in the `<head>`.
 
