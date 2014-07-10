@@ -4,6 +4,7 @@ table of contents](TOC.md)
 # Miscellaneous
 
 * [.gitignore](#gitignore)
+* [.htaccess](#htaccess)
 * [crossdomain.xml](#crossdomainxml)
 
 --
@@ -29,6 +30,52 @@ globally ignore:
 
 * More on global ignores: https://help.github.com/articles/ignoring-files
 * Comprehensive set of ignores on GitHub: https://github.com/github/gitignore
+
+
+### `.htaccess`
+
+A `.htaccess` (hypertext access) file is a Apache HTTP server configuration
+file. The `.htaccess` file is mostly used for:
+
+* Rewriting URLs
+* Controlling cache
+* Authentication
+* Server-side includes
+* Redirects
+* Gzipping
+
+If you have access to the main server configuration file (usually called
+`httpd.conf`), you should add the logic from the `.htaccess` file in, for
+example, a <Directory> section in the main configuration file. This is usually
+the recommended way, as using .htaccess files slows down Apache!
+
+To enable Apache modules locally, please see:
+https://github.com/h5bp/server-configs-apache/wiki/How-to-enable-Apache-modules.
+
+In the repo the `.htaccess` is used for:
+
+* Allowing cross-origin access to web fonts
+* CORS header for images when browsers request it
+* Enable `404.html` as 404 error document
+* Making the website experience better for IE users better
+* Media UTF-8 as character encoding for `text/html` and `text/plain`
+* Enabling the rewrite URLs engine
+* Forcing or removing the `www.` at the begin of a URL
+* It blocks access to directories without a default document
+* It blocks access to files that can expose sensitive information.
+* It reduces MIME type security risks
+* It forces compressing (gzipping)
+* It tells tell the browser whether they should request a specific file from the
+  server or whether they should grab it from the browser's cache
+
+When using `.htaccess` we recommend reading all inline comments (the rules after
+a `#`) in the file once. There is a bunch of optional stuff in it.
+
+If you want to know more about the `.htaccess` file check out
+http://httpd.apache.org/docs/current/howto/htaccess.html.
+
+Notice that the original repo for the `.htaccess` file is [this
+one](https://github.com/h5bp/server-configs-apache/blob/master/src/.htaccess).
 
 
 ### `crossdomain.xml`
