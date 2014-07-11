@@ -1,5 +1,7 @@
 ### HEAD
 
+* Add `timeline` and `timelineEnd` to the list of `console` methods
+  ([#1559](https://github.com/h5bp/html5-boilerplate/issues/1559)).
 * Update to Apache Server Configs 2.6.0.
 * Add `lang=""` to `<html>`
   ([#1542](https://github.com/h5bp/html5-boilerplate/issues/1542)).
