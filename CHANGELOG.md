@@ -1,5 +1,7 @@
 ### HEAD
 
+* Add `auto` to the Google Universal Analytics tracker create method
+  ([#1562](https://github.com/h5bp/html5-boilerplate/issues/1562)).
 * Add `timeline` and `timelineEnd` to the list of `console` methods
   ([#1559](https://github.com/h5bp/html5-boilerplate/issues/1559)).
 * Update to Apache Server Configs 2.6.0.

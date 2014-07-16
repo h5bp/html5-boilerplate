@@ -140,7 +140,7 @@ snippet](http://mathiasbynens.be/notes/async-analytics-snippet#universal-analyti
 included with HTML5 Boilerplate includes something like this:
 
 ```js
-ga('create','UA-XXXXX-X'); ga('send','pageview');
+ga('create', 'UA-XXXXX-X', 'auto'); ga('send', 'pageview');
 ```
 
 To customize further, see Google's [Advanced
@@ -159,7 +159,7 @@ parameter](https://developers.google.com/analytics/devguides/collection/analytic
 before sending any events/pagviews. In use it looks like this:
 
 ```js
-ga('create','UA-XXXXX-X');
+ga('create', 'UA-XXXXX-X', 'auto');
 ga('set', 'anonymizeIp', true);
 ga('send', 'pageview');
 ```
