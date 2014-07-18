@@ -4,6 +4,7 @@ table of contents](TOC.md)
 # Miscellaneous
 
 * [.gitignore](#gitignore)
+* [.editorconfig](#editorconfig)
 * [.htaccess](#htaccess)
 * [crossdomain.xml](#crossdomainxml)
 
@@ -32,7 +33,31 @@ globally ignore:
 * Comprehensive set of ignores on GitHub: https://github.com/github/gitignore
 
 
-### `.htaccess`
+## .editorconfig
+
+The `.editorconfig` file is provided in order to encourage and help you and
+your team define and maintain consistent coding styles between different
+editors and IDEs.
+
+By default, `.editorconfig` includes some basic
+[properties](http://editorconfig.org/#supported-properties) that reflect the
+coding styles from the files provided by default, but you can easily change
+them to better suit your needs.
+
+In order for your editor/IDE to apply the
+[properties](http://editorconfig.org/#supported-properties) from the
+`.editorconfig` file, you will need to [install a
+plugin]( http://editorconfig.org/#download).
+
+__N.B.__ If you aren't using the server configurations provided by HTML5
+Boilerplate, we highly encourage you to configure your server to block
+access to `.editorconfig` files, as they can disclose sensitive information!
+
+For more details, please refer to the [EditorConfig
+project](http://editorconfig.org/).
+
+
+### .htaccess
 
 A `.htaccess` (hypertext access) file is a Apache HTTP server configuration
 file. The `.htaccess` file is mostly used for:
@@ -78,7 +103,7 @@ Notice that the original repo for the `.htaccess` file is [this
 one](https://github.com/h5bp/server-configs-apache/blob/master/src/.htaccess).
 
 
-### `crossdomain.xml`
+### crossdomain.xml
 
 The _cross-domain policy file_ is an XML document that gives a web client —
 such as Adobe Flash Player, Adobe Reader, etc. — permission to handle data

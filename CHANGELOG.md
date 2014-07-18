@@ -1,5 +1,8 @@
 ### HEAD
 
+* Add `/.editorconfig` file
+  ([#1561](https://github.com/h5bp/html5-boilerplate/issues/1561),
+   [#1564](https://github.com/h5bp/html5-boilerplate/issues/1564)).
 * Add `auto` to the Google Universal Analytics tracker create method
   ([#1562](https://github.com/h5bp/html5-boilerplate/issues/1562)).
 * Add `timeline` and `timelineEnd` to the list of `console` methods
