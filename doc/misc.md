@@ -4,6 +4,7 @@ table of contents](TOC.md)
 # Miscellaneous
 
 * [.gitignore](#gitignore)
+* [.editorconfig](#editorconfig)
 * [.htaccess](#htaccess)
 * [crossdomain.xml](#crossdomainxml)
 
@@ -30,6 +31,32 @@ globally ignore:
 
 * More on global ignores: https://help.github.com/articles/ignoring-files
 * Comprehensive set of ignores on GitHub: https://github.com/github/gitignore
+
+
+## .editorconfig
+
+HTML5 Boilerplate includes an `.editorconfig` file that helps you and your team
+define and maintain consistent coding styles between different editors and IDEs.
+EditorConfig files are easily readable and they work nicely with version control
+systems.
+
+When opening any file, your IDE’s EditorConfig plugin will look for a file named
+`.editorconfig` in the directory of the opened file and in every parent
+directory until the root filepath is reached or an EditorConfig file with
+`root = true` is found.
+
+The EditorConfig file provided by this project will inform your IDE to follow
+our current practices, which include UTF-8 charset encoding, use of the line
+feed character for line breaks, use of four space characters for indentations,
+the removal of any whitespace characters preceding newline characters, and the
+presence of a final line break character at the end of files.
+
+If you will not be using a server configuration file provided by this project,
+remember to block access to `.editorconfig` files, as they may disclose
+sensitive information.
+
+* [EditorConfig homepage](http://editorconfig.org/)
+* [Download IDE Plugin](http://editorconfig.org/#download)
 
 
 ### `.htaccess`
