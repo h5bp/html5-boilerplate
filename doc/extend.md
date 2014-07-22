@@ -569,13 +569,6 @@ Home Screen icon. This works since iOS 6.
 <meta name="apple-mobile-web-app-title" content="">
 ```
 
-On iOS 7.1, you can minimize the top and bottom bars on the iPhone as the page
-loads, simply by adding the `minimal-ui` property to the `viewport` meta tag.
-
-```html
-<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-```
-
 For further information please read the [official
 documentation](http://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html)
 on Apple's site.
