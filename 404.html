@@ -15,14 +15,14 @@
             color: #888;
             font-family: sans-serif;
             text-align: center;
+            display: table;
+            width: 100%;
+            height: 100%;
         }
 
         body {
-            left: 50%;
-            margin: -43px 0 0 -150px;
-            position: absolute;
-            top: 50%;
-            width: 300px;
+            display: table-cell;
+            vertical-align: middle;
         }
 
         h1 {
@@ -38,6 +38,7 @@
         @media only screen and (max-width: 270px) {
 
             body {
+                display: block;
                 margin: 10px auto;
                 position: static;
                 width: 95%;
