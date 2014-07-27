@@ -13,7 +13,7 @@
 html {
     color: #222;
     font-size: 1em;
-    line-height: 1.4;
+    line-height: 1.4
 }
 
 /*
@@ -24,12 +24,12 @@ html {
 
 ::-moz-selection {
     background: #b3d4fc;
-    text-shadow: none;
+    text-shadow: none
 }
 
 ::selection {
     background: #b3d4fc;
-    text-shadow: none;
+    text-shadow: none
 }
 
 /*
@@ -42,7 +42,7 @@ hr {
     border: 0;
     border-top: 1px solid #ccc;
     margin: 1em 0;
-    padding: 0;
+    padding: 0
 }
 
 /*
@@ -55,7 +55,7 @@ canvas,
 img,
 svg,
 video {
-    vertical-align: middle;
+    vertical-align: middle
 }
 
 /*
@@ -65,7 +65,7 @@ video {
 fieldset {
     border: 0;
     margin: 0;
-    padding: 0;
+    padding: 0
 }
 
 /*
@@ -73,7 +73,7 @@ fieldset {
  */
 
 textarea {
-    resize: vertical;
+    resize: vertical
 }
 
 /* ==========================================================================
@@ -84,7 +84,7 @@ textarea {
     margin: 0.2em 0;
     background: #ccc;
     color: #000;
-    padding: 0.2em 0;
+    padding: 0.2em 0
 }
 
 /* ==========================================================================
@@ -117,7 +117,7 @@ textarea {
 
 .hidden {
     display: none !important;
-    visibility: hidden;
+    visibility: hidden
 }
 
 /*
@@ -132,7 +132,7 @@ textarea {
     overflow: hidden;
     padding: 0;
     position: absolute;
-    width: 1px;
+    width: 1px
 }
 
 /*
@@ -147,7 +147,7 @@ textarea {
     margin: 0;
     overflow: visible;
     position: static;
-    width: auto;
+    width: auto
 }
 
 /*
@@ -155,7 +155,7 @@ textarea {
  */
 
 .invisible {
-    visibility: hidden;
+    visibility: hidden
 }
 
 /*
@@ -177,7 +177,7 @@ textarea {
 }
 
 .clearfix:after {
-    clear: both;
+    clear: both
 }
 
 /* ==========================================================================
@@ -207,20 +207,20 @@ textarea {
         background: transparent !important;
         color: #000 !important; /* Black prints faster: h5bp.com/s */
         box-shadow: none !important;
-        text-shadow: none !important;
+        text-shadow: none !important
     }
 
     a,
     a:visited {
-        text-decoration: underline;
+        text-decoration: underline
     }
 
     a[href]:after {
-        content: " (" attr(href) ")";
+        content: " (" attr(href) ")"
     }
 
     abbr[title]:after {
-        content: " (" attr(title) ")";
+        content: " (" attr(title) ")"
     }
 
     /*
@@ -236,31 +236,31 @@ textarea {
     pre,
     blockquote {
         border: 1px solid #999;
-        page-break-inside: avoid;
+        page-break-inside: avoid
     }
 
     thead {
-        display: table-header-group; /* h5bp.com/t */
+        display: table-header-group /* h5bp.com/t */
     }
 
     tr,
     img {
-        page-break-inside: avoid;
+        page-break-inside: avoid
     }
 
     img {
-        max-width: 100% !important;
+        max-width: 100% !important
     }
 
     p,
     h2,
     h3 {
         orphans: 3;
-        widows: 3;
+        widows: 3
     }
 
     h2,
     h3 {
-        page-break-after: avoid;
+        page-break-after: avoid
     }
 }
