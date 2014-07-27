@@ -56,8 +56,8 @@ include a URL that will always point to the latest version, as that version:
 
 ### Why is the Google Analytics code at the bottom? Google recommends it be placed in the `<head>`.
 
-The main advantage of placing it in the `<head>` is that you will track a
-user's `pageview` even if he leaves the page before it has been fully loaded.
+The main advantage of placing it in the `<head>` is that you will track the
+user's `pageview` even if they leave the page before it has been fully loaded.
 However, having the code at the bottom of the page [helps improve
 performance](http://stevesouders.com/efws/inline-scripts-bottom.php).
 
