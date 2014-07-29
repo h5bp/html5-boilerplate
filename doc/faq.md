@@ -31,6 +31,9 @@ you to preview your web pages online (e.g. [Dropbox](https://www.dropbox.com/)).
 
 Setting up a local server can be done using:
 
+* PHP 5.4.0+ by running
+  [`php -S localhost:<port_number>`](http://php.net/manual/en/features.commandline.webserver.php)
+  from your local directory
 * Python 2.x by running `python -m SimpleHTTPServer` from your local directory
 * Python 3.x by running `python -m http.server` from your local directory
 * Ruby by installing and running [asdf](https://rubygems.org/gems/asdf)
