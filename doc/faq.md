@@ -38,6 +38,9 @@ Setting up a local server can be done using:
   [MAMP](http://www.mamp.info/en/index.html),
   [WAMP](http://www.wampserver.com/en/), or
   [XAMPP](http://www.apachefriends.org/index.html)
+* If you're running OSX, you can start a simple php server by running 
+  `php -S localhost:8888` in your local directory, then open `http://localhost:8888`
+  in a browser. If, for some reason, port 8888 won't work for you, try another port number.
 
 
 ### Why don't you automatically load the latest version of jQuery from the Google CDN?
