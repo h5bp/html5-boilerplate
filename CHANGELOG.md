@@ -1,5 +1,7 @@
 ### HEAD
 
+* Update 404 page: better content vertical alignment
+  ([#1567](https://github.com/h5bp/html5-boilerplate/pull/1567)).
 * Add `/.editorconfig` file
   ([#1561](https://github.com/h5bp/html5-boilerplate/issues/1561),
    [#1564](https://github.com/h5bp/html5-boilerplate/issues/1564)).
