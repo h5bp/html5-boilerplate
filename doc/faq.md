@@ -29,18 +29,25 @@ it will attempt to fetch them from the local file system. We recommend you use
 a local server to test your web pages, or a file hosting service that allows
 you to preview your web pages online (e.g. [Dropbox](https://www.dropbox.com/)).
 
-Setting up a local server can be done using:
+There are various [one-liner methods for setting up a static http server](https://gist.github.com/willurd/5720255):
 
 * PHP 5.4.0+ by running
   [`php -S localhost:<port_number>`](http://php.net/manual/en/features.commandline.webserver.php)
   from your local directory
 * Python 2.x by running `python -m SimpleHTTPServer` from your local directory
 * Python 3.x by running `python -m http.server` from your local directory
-* Ruby by installing and running [asdf](https://rubygems.org/gems/asdf)
-* [LAMP](http://en.wikipedia.org/wiki/LAMP_%28software_bundle%29),
-  [MAMP](http://www.mamp.info/en/index.html),
-  [WAMP](http://www.wampserver.com/en/), or
-  [XAMPP](http://www.apachefriends.org/index.html)
+* Ruby by running `ruby -run -ehttpd . -p8000` from your local directory
+* Node.js by installing and running either [`static -p 8000`](https://www.npmjs.org/package/node-static) or [`http-server -p 8000`](https://www.npmjs.org/package/http-server) 
+
+More complex HTTP servers are beyond the scope of this documentation, but some servers and stacks include:
+
+* [Apache HTTP Server](http://httpd.apache.org/docs/trunk/getting-started.html) 
+ * [LAMP](http://en.wikipedia.org/wiki/LAMP_%28software_bundle%29) (Linux, Apache, MySQL, and PHP). Other variants include [MAMP](http://www.mamp.info/en/index.html), [WAMP](http://www.wampserver.com/en/), or [XAMPP](http://www.apachefriends.org/index.html).
+ * LAPP uses PostgreSQL instead of MySQL
+* [Nginx](http://wiki.nginx.org/GettingStarted)
+ * [LEMP](http://www.chrisjohnston.org/ubuntu-tutorials/setting-up-a-lemp-stack-ubuntu-904) is similar to the LAMP stack but uses Nginx
+* [MEAN](http://mean.io/) (MongoDB, Express, AngularJS, Node.js)
+* [ASP.NET](http://www.asp.net/get-started)
 
 
 ### Why don't you automatically load the latest version of jQuery from the Google CDN?
