@@ -1,4 +1,4 @@
-# Apache Server Configs v2.6.0 | MIT License
+# Apache Server Configs v2.7.0 | MIT License
 # https://github.com/h5bp/server-configs-apache
 
 # (!) Using `.htaccess` files slows down Apache, therefore, if you have access
@@ -97,7 +97,7 @@ ErrorDocument 404 /404.html
     Header set X-UA-Compatible "IE=edge"
     # `mod_headers` cannot match based on the content-type, however, this header
     # should be send only for HTML documents and not for the other resources
-    <FilesMatch "\.(appcache|atom|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|tt[cf]|txt|vcf|vtt|webapp|web[mp]|woff2?|xml|xpi)$">
+    <FilesMatch "\.(appcache|atom|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcf|vtt|webapp|web[mp]|woff2?|xml|xpi)$">
         Header unset X-UA-Compatible
     </FilesMatch>
 </IfModule>
@@ -134,7 +134,7 @@ ErrorDocument 404 /404.html
     AddType audio/ogg                                   oga ogg opus
 
   # Data interchange
-    AddType application/json                            json map
+    AddType application/json                            json map topojson
     AddType application/ld+json                         jsonld
     AddType application/vnd.geo+json                    geojson
 
@@ -223,7 +223,17 @@ AddDefaultCharset utf-8
 
 # Set `UTF-8` as the character encoding for other certain resources.
 <IfModule mod_mime.c>
-    AddCharset utf-8 .atom .css .geojson .js .json .jsonld .rss .vtt .webapp .xml
+    AddCharset utf-8 .atom \
+                     .css \
+                     .geojson \
+                     .js \
+                     .json \
+                     .jsonld \
+                     .rss \
+                     .topojson \
+                     .vtt \
+                     .webapp \
+                     .xml
 </IfModule>
 
 
@@ -332,7 +342,7 @@ AddDefaultCharset utf-8
 
 # <IfModule mod_headers.c>
 #     Header set X-Frame-Options "DENY"
-#     <FilesMatch "\.(appcache|atom|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|tt[cf]|txt|vcf|vtt|webapp|web[mp]|woff2?|xml|xpi)$">
+#     <FilesMatch "\.(appcache|atom|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcf|vtt|webapp|web[mp]|woff2?|xml|xpi)$">
 #         Header unset X-Frame-Options
 #     </FilesMatch>
 # </IfModule>
@@ -357,7 +367,7 @@ AddDefaultCharset utf-8
 
 # <IfModule mod_headers.c>
 #     Header set Content-Security-Policy "script-src 'self'; object-src 'self'"
-#     <FilesMatch "\.(appcache|atom|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|tt[cf]|txt|vcf|vtt|webapp|web[mp]|woff2?|xml|xpi)$">
+#     <FilesMatch "\.(appcache|atom|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcf|vtt|webapp|web[mp]|woff2?|xml|xpi)$">
 #         Header unset Content-Security-Policy
 #     </FilesMatch>
 # </IfModule>
@@ -487,7 +497,7 @@ AddDefaultCharset utf-8
 # <IfModule mod_headers.c>
 #     #                           (1)    (2)
 #     Header set X-XSS-Protection "1; mode=block"
-#     <FilesMatch "\.(appcache|atom|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|tt[cf]|txt|vcf|vtt|webapp|web[mp]|woff2?|xml|xpi)$">
+#     <FilesMatch "\.(appcache|atom|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcf|vtt|webapp|web[mp]|woff2?|xml|xpi)$">
 #         Header unset X-XSS-Protection
 #     </FilesMatch>
 # </IfModule>
