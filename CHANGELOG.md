@@ -1,5 +1,7 @@
 ### HEAD
 
+* Remove need to readjust margins in `404.html`
+  ([#1567](https://github.com/h5bp/html5-boilerplate/pull/1567)).
 * Update to Apache Server Configs 2.7.0.
 * Add `/.editorconfig` file
   ([#1561](https://github.com/h5bp/html5-boilerplate/issues/1561),
