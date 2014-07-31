@@ -7,7 +7,7 @@
     <style>
 
         * {
-            line-height: 1.5;
+            line-height: 1.2;
             margin: 0;
         }
 
@@ -23,6 +23,7 @@
         body {
             display: table-cell;
             vertical-align: middle;
+            margin: 2em auto;
         }
 
         h1 {
@@ -32,26 +33,19 @@
         }
 
         p {
-            line-height: 1.2;
-            margin: auto;
-            width: 310px;
+            margin: 0 auto;
+            width: 280px;
         }
 
-        @media only screen and (max-width: 270px) {
+        @media only screen and (max-width: 280px) {
 
-            html {
-                display: block;
-            }
-
-            body {
-                display: block;
-                margin: 10px auto;
-                position: static;
+            body, p {
                 width: 95%;
             }
 
             h1 {
                 font-size: 1.5em;
+                margin: 0 0 .3em 0;
             }
 
         }
