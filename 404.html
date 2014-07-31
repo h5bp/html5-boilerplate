@@ -7,7 +7,7 @@
     <style>
 
         * {
-            line-height: 1.5;
+            line-height: 1.2;
             margin: 0;
         }
 
@@ -15,14 +15,15 @@
             color: #888;
             font-family: sans-serif;
             text-align: center;
+            display: table;
+            width: 100%;
+            height: 100%;
         }
 
         body {
-            left: 50%;
-            margin: -43px 0 0 -150px;
-            position: absolute;
-            top: 50%;
-            width: 300px;
+            display: table-cell;
+            vertical-align: middle;
+            margin: 2em auto;
         }
 
         h1 {
@@ -32,19 +33,19 @@
         }
 
         p {
-            line-height: 1.2;
+            margin: 0 auto;
+            width: 280px;
         }
 
-        @media only screen and (max-width: 270px) {
+        @media only screen and (max-width: 280px) {
 
-            body {
-                margin: 10px auto;
-                position: static;
+            body, p {
                 width: 95%;
             }
 
             h1 {
                 font-size: 1.5em;
+                margin: 0 0 .3em 0;
             }
 
         }
