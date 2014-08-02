@@ -1,0 +1,41 @@
+{
+  "devDependencies": {
+    "apache-server-configs": "2.7.1",
+    "archiver": "^0.10.1",
+    "glob": "^4.0.5",
+    "gulp": "^3.8.6",
+    "gulp-header": "^1.0.5",
+    "gulp-jshint": "^1.7.1",
+    "gulp-load-plugins": "^0.5.3",
+    "gulp-rename": "^1.2.0",
+    "gulp-replace": "^0.4.0",
+    "gulp-rimraf": "^0.1.0",
+    "jquery": "1.11.1",
+    "jshint-stylish": "^0.4.0",
+    "lodash": "^2.4.1",
+    "mocha": "^1.21.0",
+    "normalize.css": "3.0.1",
+    "run-sequence": "^0.3.6"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "h5bp-configs": {
+    "directories": {
+      "archive": "archive",
+      "src": "src",
+      "dist": "dist"
+    }
+  },
+  "homepage": "http://h5bp.com/",
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/h5bp/html5-boilerplate/blob/master/LICENSE.md"
+  },
+  "name": "html5-boilerplate",
+  "private": true,
+  "scripts": {
+    "test": "gulp archive && mocha --reporter spec --timeout 5000"
+  },
+  "version": "4.3.0"
+}
