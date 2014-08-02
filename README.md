@@ -37,7 +37,7 @@ Choose one of the following options:
 * Placeholder CSS Media Queries.
 * Useful CSS helpers.
 * Default print CSS, performance optimized.
-* Protection against any stray `console.log` causing JavaScript errors in
+* Protection against any stray `console` causing JavaScript errors in
   older browsers.
 * An optimized Google Analytics snippet.
 * Apache server caching, compression, and other configuration defaults for
