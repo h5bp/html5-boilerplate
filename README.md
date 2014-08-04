@@ -40,8 +40,8 @@ Choose one of the following options:
 * Placeholder CSS Media Queries.
 * Useful CSS helpers.
 * Default print CSS, performance optimized.
-* Protection against any stray `console` causing JavaScript errors in
-  older browsers.
+* Protection against any stray `console` statements causing JavaScript errors
+  in older browsers.
 * An optimized Google Analytics snippet.
 * Apache server caching, compression, and other configuration defaults for
   Grade-A performance.
@@ -55,7 +55,7 @@ support](https://github.com/h5bp/html5-boilerplate/tree/v4) (IE 6+, Firefox
 
 ## Documentation
 
-Take a look at the [documentation table of contents](doc/TOC.md). This
+Take a look at the [documentation table of contents](dist/doc/TOC.md). This
 documentation is bundled with the project, which makes it readily available for
 offline reading and provides a useful starting point for any documentation you
 want to write about your project.
