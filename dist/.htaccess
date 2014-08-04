@@ -1,4 +1,4 @@
-# Apache Server Configs v2.7.0 | MIT License
+# Apache Server Configs v2.7.1 | MIT License
 # https://github.com/h5bp/server-configs-apache
 
 # (!) Using `.htaccess` files slows down Apache, therefore, if you have access
@@ -245,22 +245,42 @@ AddDefaultCharset utf-8
 # | Rewrite engine                                                             |
 # ------------------------------------------------------------------------------
 
-# Turn on the rewrite engine and enable the `FollowSymLinks` option
-# (this is necessary in order for the following directives to work).
-
-# If your web host doesn't allow the `FollowSymlinks` option, you may need to
-# comment it out and use `Options +SymLinksIfOwnerMatch`, but be aware of the
-# performance impact.
-# http://httpd.apache.org/docs/current/misc/perf-tuning.html#symlinks
-
-# Also, some cloud hosting services require `RewriteBase` to be set.
-# http://www.rackspace.com/knowledge_center/frequently-asked-question/why-is-modrewrite-not-working-on-my-site
+# (1) Turn on the rewrite engine
+#     (this is necessary in order for the `RewriteRule` directives to work).
+#     http://httpd.apache.org/docs/current/mod/mod_rewrite.html#RewriteEngine
+#
+# (2) Enable the `FollowSymLinks` option if it isn't already.
+#     http://httpd.apache.org/docs/current/mod/core.html#options
+#
+# (3) If your web host doesn't allow the `FollowSymlinks` option, you may
+#     need to comment it out and use `Options +SymLinksIfOwnerMatch`, but
+#     be aware of the performance impact.
+#     http://httpd.apache.org/docs/current/misc/perf-tuning.html#symlinks
+#
+# (4) Some cloud hosting services will also require `RewriteBase` to be set.
+#     http://www.rackspace.com/knowledge_center/frequently-asked-question/why-is-modrewrite-not-working-on-my-site
+#
+# (5) Depending on how your server is set up, you may need to use the
+#     `RewriteOptions` directive to enable some options for the rewrite engine.
+#     http://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewriteoptions
 
 <IfModule mod_rewrite.c>
-    Options +FollowSymlinks
-  # Options +SymLinksIfOwnerMatch
+
+    # (1)
     RewriteEngine On
-  # RewriteBase /
+
+    # (2)
+    Options +FollowSymlinks
+
+    # (3)
+    # Options +SymLinksIfOwnerMatch
+
+    # (4)
+    # RewriteBase /
+
+    # (5)
+    # RewriteOptions <options>
+
 </IfModule>
 
 # ------------------------------------------------------------------------------
