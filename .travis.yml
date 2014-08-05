@@ -1,7 +1,7 @@
+# For more information about the configurations used
+# in this file, please see the Travis CI documentation:
 # http://docs.travis-ci.com
 
 language: node_js
 node_js:
   - "0.10"
-notifications:
-  email: false
