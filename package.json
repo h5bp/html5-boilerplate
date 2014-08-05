@@ -2,6 +2,7 @@
   "devDependencies": {
     "apache-server-configs": "2.7.1",
     "archiver": "^0.10.1",
+    "del": "^0.1.1",
     "glob": "^4.0.5",
     "gulp": "^3.8.6",
     "gulp-header": "^1.0.5",
@@ -9,7 +10,6 @@
     "gulp-load-plugins": "^0.5.3",
     "gulp-rename": "^1.2.0",
     "gulp-replace": "^0.4.0",
-    "gulp-rimraf": "^0.1.0",
     "jquery": "1.11.1",
     "jshint-stylish": "^0.4.0",
     "lodash": "^2.4.1",
