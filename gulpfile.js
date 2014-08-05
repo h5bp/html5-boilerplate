@@ -49,21 +49,18 @@ gulp.task('archive:zip', function (done) {
             'mode': fs.statSync(filePath)
         });
 
-    })
+    });
 
     archiver.pipe(output);
     archiver.finalize();
 
 });
 
-gulp.task('clean', function () {
-    return gulp.src([
+gulp.task('clean', function (done) {
+    require('del')([
         template('<%= archive %>', dirs),
         template('<%= dist %>', dirs)
-    ], {
-        read: false // Prevent gulp from reading the content of
-                    // the files in order to make this task faster
-    }).pipe(plugins.rimraf());
+    ], done);
 });
 
 gulp.task('copy', [
