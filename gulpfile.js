@@ -127,10 +127,12 @@ gulp.task('copy:normalize', function () {
 });
 
 gulp.task('jshint', function () {
-    return gulp.src(template('<%= src %>/js/*.js', dirs))
-               .pipe(plugins.jshint())
-               .pipe(plugins.jshint.reporter('jshint-stylish'))
-               .pipe(plugins.jshint.reporter('fail'));
+    return gulp.src([
+        'gulpfile.js',
+        template('<%= src %>/js/*.js', dirs)
+    ]).pipe(plugins.jshint())
+      .pipe(plugins.jshint.reporter('jshint-stylish'))
+      .pipe(plugins.jshint.reporter('fail'));
 });
 
 
