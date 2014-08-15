@@ -1,5 +1,6 @@
 ### HEAD
 
+* Update to Modernizr 2.8.3.
 * Update to Apache Server Configs 2.7.1.
 * Remove need to readjust margins in `404.html`
   ([#1567](https://github.com/h5bp/html5-boilerplate/pull/1567)).
@@ -13,7 +14,6 @@
 * Add `lang=""` to `<html>`
   ([#1542](https://github.com/h5bp/html5-boilerplate/issues/1542)).
 * Update to jQuery 1.11.1.
-* Update to Modernizr 2.8.0.
 * Use `<!doctype html>` instead of `<!DOCTYPE html>`
   ([#1522](https://github.com/h5bp/html5-boilerplate/issues/1522)).
 * Update to Normalize.css 3.0.1.
