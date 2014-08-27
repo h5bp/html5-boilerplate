@@ -27,7 +27,7 @@ gulp.task('archive:zip', function (done) {
     var archiver = require('archiver')('zip');
     var files = require('glob').sync('**/*.*', {
         'cwd': dirs.dist,
-        'dot': true, // include hiddent files
+        'dot': true, // include hidden files
     });
     var output = fs.createWriteStream(archiveName);
 
