@@ -643,7 +643,7 @@ which tries to be a more generic replacement to Apple's proprietary meta tag:
 Same applies to the touch icons:
 
 ```html
-<link rel="icon" sizes="196x196" href="highres-icon.png">
+<link rel="icon" sizes="192x192" href="highres-icon.png">
 ```
 
 
