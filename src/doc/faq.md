@@ -24,23 +24,27 @@ It is because of the use of [protocol-relative
 URLs](http://paulirish.com/2010/the-protocol-relative-url/).
 
 **N.B.** If you try to view the local web page directly in the browser, the
-browser will fail to load the assets specified using protocol-relative URLs as
-it will attempt to fetch them from the local file system. We recommend you use
-a local server to test your web pages, or a file hosting service that allows
-you to preview your web pages online (e.g. [Dropbox](https://www.dropbox.com/)).
+browser will fail to load the assets specified using protocol-relative URLs
+as it will attempt to fetch them from the local file system. We recommend you
+use a local HTTP server to test your web pages, or a file hosting service that
+allows you to preview your web pages online (e.g.
+[Dropbox](https://www.dropbox.com/)).
 
-Setting up a local server can be done using:
+Setting up a local HTTP server can be done using there various
+[one-liners](https://gist.github.com/willurd/5720255):
 
 * PHP 5.4.0+ by running
-  [`php -S localhost:<port_number>`](http://php.net/manual/en/features.commandline.webserver.php)
+  [`php -S localhost:8080`](http://php.net/manual/en/features.commandline.webserver.php)
   from your local directory
 * Python 2.x by running `python -m SimpleHTTPServer` from your local directory
 * Python 3.x by running `python -m http.server` from your local directory
-* Ruby by installing and running [asdf](https://rubygems.org/gems/asdf)
-* [LAMP](http://en.wikipedia.org/wiki/LAMP_%28software_bundle%29),
-  [MAMP](http://www.mamp.info/en/index.html),
-  [WAMP](http://www.wampserver.com/en/), or
-  [XAMPP](http://www.apachefriends.org/index.html)
+* Ruby 1.9.2+ by running `ruby -run -ehttpd . -p8080` from your local directory
+* Node.js by installing and running either
+  [`static -p 8080`](https://www.npmjs.org/package/node-static)
+  or [`http-server -p 8080`](https://www.npmjs.org/package/http-server)
+
+A list of more complex HTTP servers can be found
+[here](misc.md#servers-and-stacks).
 
 
 ### Why don't you automatically load the latest version of jQuery from the Google CDN?
