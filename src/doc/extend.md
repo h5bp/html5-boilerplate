@@ -417,6 +417,10 @@ plugin](http://www.google.com/search?ie=UTF-8&q=how+to+make+browser+search+plugi
   To disable translation for a particular section of the web page, add
   [`class="notranslate"`](https://support.google.com/translate/?hl=en#2641276).
 
+* If you want to disable the automatic detection and formatting of possible
+  phone numbers in Safari on iOS, use [`<meta name="format-detection"
+  content="telephone=no">`](https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html/#//apple_ref/doc/uid/TP40008193-SW5).
+
 * Avoid development/stage websites "leaking" into SERPs (search engine results
   page) by [implementing X-Robots-tag
   headers](https://github.com/h5bp/html5-boilerplate/issues/804).
