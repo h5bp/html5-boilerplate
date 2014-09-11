@@ -98,7 +98,7 @@ Edit this file to include any pages you need hidden from search engines.
 ### crossdomain.xml
 
 A template for working with cross-domain requests. [About
-crossdomain.xml](crossdomain.md).
+crossdomain.xml](misc.md#crossdomainxml).
 
 ### Icons
 
