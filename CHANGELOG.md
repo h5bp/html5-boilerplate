@@ -1,9 +1,9 @@
 ### HEAD
 
+* Update Apache Server Configs to v2.8.0.
 * Add pseudo-elements to universal selector in print media query
   ([#1585](https://github.com/h5bp/html5-boilerplate/pull/1585)).
 * Update to Modernizr 2.8.3.
-* Update to Apache Server Configs 2.7.1.
 * Remove need to readjust margins in `404.html`
   ([#1567](https://github.com/h5bp/html5-boilerplate/pull/1567)).
 * Add `/.editorconfig` file
