@@ -129,7 +129,7 @@ If you want to know more about the `.htaccess` file check out
 http://httpd.apache.org/docs/current/howto/htaccess.html.
 
 Notice that the original repo for the `.htaccess` file is [this
-one](https://github.com/h5bp/server-configs-apache/blob/master/src/.htaccess).
+one](https://github.com/h5bp/server-configs-apache).
 
 
 ## crossdomain.xml
