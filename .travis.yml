@@ -1,0 +1,18 @@
+# For more information about the configurations used
+# in this file, please see the Travis CI documentation:
+# http://docs.travis-ci.com
+
+after_success:
+  - npm run update_dist_directory
+
+env:
+  global:
+    - secure: "Nke4Gka/Jk642dmSQWbMlg+a6KYE+7pb/P/ovperX0z/wU8jksuP+UznEDWLIow/RUCP83snDZViVsHzENlgDNAOHeTOCELqy5EdN5vzGKYaMblqzfg8RFE6xt0+PghnyFT+iOlCar7HXFB8yAIhp95wbtvWxEas2IAqOB1zo4A="
+
+git:
+  depth: 10
+
+language: node_js
+
+node_js:
+  - "0.10"

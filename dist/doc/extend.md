@@ -140,7 +140,7 @@ snippet](http://mathiasbynens.be/notes/async-analytics-snippet#universal-analyti
 included with HTML5 Boilerplate includes something like this:
 
 ```js
-ga('create','UA-XXXXX-X'); ga('send','pageview');
+ga('create', 'UA-XXXXX-X', 'auto'); ga('send', 'pageview');
 ```
 
 To customize further, see Google's [Advanced
@@ -159,7 +159,7 @@ parameter](https://developers.google.com/analytics/devguides/collection/analytic
 before sending any events/pagviews. In use it looks like this:
 
 ```js
-ga('create','UA-XXXXX-X');
+ga('create', 'UA-XXXXX-X', 'auto');
 ga('set', 'anonymizeIp', true);
 ga('send', 'pageview');
 ```
@@ -417,6 +417,10 @@ plugin](http://www.google.com/search?ie=UTF-8&q=how+to+make+browser+search+plugi
   To disable translation for a particular section of the web page, add
   [`class="notranslate"`](https://support.google.com/translate/?hl=en#2641276).
 
+* If you want to disable the automatic detection and formatting of possible
+  phone numbers in Safari on iOS, use [`<meta name="format-detection"
+  content="telephone=no">`](https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html/#//apple_ref/doc/uid/TP40008193-SW5).
+
 * Avoid development/stage websites "leaking" into SERPs (search engine results
   page) by [implementing X-Robots-tag
   headers](https://github.com/h5bp/html5-boilerplate/issues/804).
@@ -569,13 +573,6 @@ Home Screen icon. This works since iOS 6.
 <meta name="apple-mobile-web-app-title" content="">
 ```
 
-On iOS 7.1, you can minimize the top and bottom bars on the iPhone as the page
-loads, simply by adding the `minimal-ui` property to the `viewport` meta tag.
-
-```html
-<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-```
-
 For further information please read the [official
 documentation](http://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html)
 on Apple's site.
@@ -650,7 +647,7 @@ which tries to be a more generic replacement to Apple's proprietary meta tag:
 Same applies to the touch icons:
 
 ```html
-<link rel="icon" sizes="196x196" href="highres-icon.png">
+<link rel="icon" sizes="192x192" href="highres-icon.png">
 ```
 
 

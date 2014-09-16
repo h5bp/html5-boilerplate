@@ -1,12 +1,21 @@
 ### HEAD
 
+* Update Apache Server Configs to v2.8.0.
+* Add pseudo-elements to universal selector in print media query
+  ([#1585](https://github.com/h5bp/html5-boilerplate/pull/1585)).
+* Update to Modernizr 2.8.3.
+* Remove need to readjust margins in `404.html`
+  ([#1567](https://github.com/h5bp/html5-boilerplate/pull/1567)).
+* Add `/.editorconfig` file
+  ([#1561](https://github.com/h5bp/html5-boilerplate/issues/1561),
+   [#1564](https://github.com/h5bp/html5-boilerplate/issues/1564)).
+* Add `auto` to the Google Universal Analytics tracker create method
+  ([#1562](https://github.com/h5bp/html5-boilerplate/issues/1562)).
 * Add `timeline` and `timelineEnd` to the list of `console` methods
   ([#1559](https://github.com/h5bp/html5-boilerplate/issues/1559)).
-* Update to Apache Server Configs 2.6.0.
 * Add `lang=""` to `<html>`
   ([#1542](https://github.com/h5bp/html5-boilerplate/issues/1542)).
 * Update to jQuery 1.11.1.
-* Update to Modernizr 2.8.0.
 * Use `<!doctype html>` instead of `<!DOCTYPE html>`
   ([#1522](https://github.com/h5bp/html5-boilerplate/issues/1522)).
 * Update to Normalize.css 3.0.1.
