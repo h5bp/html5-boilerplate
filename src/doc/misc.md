@@ -7,6 +7,7 @@ table of contents](TOC.md)
 * [.editorconfig](#editorconfig)
 * [Server Configuration](#server-configuration)
 * [crossdomain.xml](#crossdomainxml)
+* [robots.txt](#robotstxt)
 
 --
 
@@ -149,3 +150,28 @@ to the source domain and allow the client to continue with the transaction.
 
 For more in-depth information, please see Adobe's [cross-domain policy file
 specification](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).
+
+
+## robots.txt
+
+The `robots.txt` file is used to give instructions to web robots on what can
+be crawled from the website.
+
+By default, the file provided by this project includes the next two lines:
+
+ * `User-agent: *` -  the following rules apply to all web robots
+ * `Disallow:` - everything on the website is allowed to be crawled
+
+If you want to disallow certain pages you will need to specify the path in a
+`Disallow` directive (e.g.: `Disallow: /path`) or, if you want to disallow
+crawling of all content, use `Disallow: /`.
+
+The '/robots.txt' file is not intended for access control, so don't try to
+use it as such. Think of it as a "No Entry" sign, rather than a locked door.
+URLs disallowed by the `robots.txt` file might still be indexed without being
+crawled, and the content from within the `robots.txt` file can be viewed by
+anyone, potentially disclosing the location of your private content! So, if
+you want to block access to private content, use proper authentication instead.
+
+For more information about `robots.txt`, please see:
+[robotstxt.org](http://www.robotstxt.org/).
