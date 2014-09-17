@@ -7,6 +7,7 @@ table of contents](TOC.md)
 * [.editorconfig](#editorconfig)
 * [Server Configuration](#server-configuration)
 * [crossdomain.xml](#crossdomainxml)
+* [robots.txt](#robotstxt)
 
 --
 
@@ -149,3 +150,21 @@ to the source domain and allow the client to continue with the transaction.
 
 For more in-depth information, please see Adobe's [cross-domain policy file
 specification](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).
+
+## robots.txt
+
+The `robots.txt` file is used to give instructions about a site to web robots,
+in HTML5 Boilerplate this file contains 2 simple lines: 
+
+* `User-agent: *`: This means the rules must apply to all robots
+* `Disallow`: With this kind of rules, you can let web robots ignore specified 
+pages on your site. If you put in `/` web robots will ignore the hole site. 
+If you aren't including any disallows, leave in the empty one. According to the 
+[_robots.txt standard_](http://www.robotstxt.org/orig.html), at least one
+must be included.
+
+It is actually an important thing to consider that your `robots.txt` file is
+publicly available on your server. Everybody can read it. Never include secret
+information in your `robots.txt`.
+
+For more in-depth information, see [robotstxt.org](http://www.robotstxt.org/).
