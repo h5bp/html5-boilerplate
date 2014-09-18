@@ -40,7 +40,7 @@ important because:
    * must be included completely within the [first 1024 bytes of the
      document](http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#charset)
 
-   * should be specified as early as possbile (before any content that could
+   * should be specified as early as possible (before any content that could
      be controlled by an attacker, such as a `<title>` element) in order to
      avoid a potential [encoding-related security
      issue](http://code.google.com/p/doctype-mirror/wiki/ArticleUtf7) in
@@ -158,9 +158,9 @@ world performance of your site and can show where you can optimize your specific
 site or application.
 
 
-### Google Univeral Analytics Tracking Code
+### Google Universal Analytics Tracking Code
 
-Finally, an optimized version of the Google Univeral Analytics tracking code is
+Finally, an optimized version of the Google Universal Analytics tracking code is
 included. Google recommends that this script be placed at the top of the page.
 Factors to consider: if you place this script at the top of the page, you’ll
 be able to count users who don’t fully load the page, and you’ll incur the max
