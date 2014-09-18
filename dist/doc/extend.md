@@ -152,11 +152,11 @@ and [Event](https://developers.google.com/analytics/devguides/collection/analyti
 
 In some countries, no personal data may be transferred outside jurisdictions
 that do not have similarly strict laws (i.e. from Germany to outside the EU).
-Thus a webmaster using the Google Univeral Analytics may have to ensure that
+Thus a webmaster using the Google Universal Analytics may have to ensure that
 no personal (trackable) data is transferred to the US. You can do that with
 [the `ga('set', 'anonymizeIp', true);`
 parameter](https://developers.google.com/analytics/devguides/collection/analyticsjs/advanced#anonymizeip)
-before sending any events/pagviews. In use it looks like this:
+before sending any events/pageviews. In use it looks like this:
 
 ```js
 ga('create', 'UA-XXXXX-X', 'auto');
