@@ -166,7 +166,7 @@ If you want to disallow certain pages you will need to specify the path in a
 `Disallow` directive (e.g.: `Disallow: /path`) or, if you want to disallow
 crawling of all content, use `Disallow: /`.
 
-The '/robots.txt' file is not intended for access control, so don't try to
+The `/robots.txt` file is not intended for access control, so don't try to
 use it as such. Think of it as a "No Entry" sign, rather than a locked door.
 URLs disallowed by the `robots.txt` file might still be indexed without being
 crawled, and the content from within the `robots.txt` file can be viewed by

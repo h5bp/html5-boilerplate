@@ -45,7 +45,6 @@ Choose one of the following options:
 * An optimized Google Analytics snippet.
 * Apache server caching, compression, and other configuration defaults for
   Grade-A performance.
-* Cross-domain Ajax and Flash.
 * "Delete-key friendly." Easy to strip out parts you don't need.
 * Extensive inline and accompanying documentation.
 
