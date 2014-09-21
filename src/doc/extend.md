@@ -591,13 +591,23 @@ icons using `link` elements placed in the HTML `head` of your document, e.g.:
 
 The main sizes of the icons on iOS are:
 
-* `57×57px` – non-Retina iPhone and iPod Touch
-* `72×72px` – iPad mini and the first- and second-generation iPad on iOS ≤ 6
-* `76×76px` – iPad mini and the first- and second-generation iPad on iOS ≥ 7
-* `114×114px` – iPhone 4+ (with Retina Display) on iOS ≤ 6
-* `120×120px` – iPhone 4+ (with Retina Display) on iOS ≥ 7
-* `144×144px` – iPad 3+ (with Retina Display)
-* `152×152px` – iPad 3+ (with Retina Display)
+* `57×57px` – iPhone with @1x display and iPod Touch
+* `72×72px` – iPad and iPad mini with @1x display running iOS ≤ 6
+* `76×76px` – iPad and iPad mini with @1x display running iOS 7
+* `114×114px` – iPhone with @2x display running iOS ≤ 6
+* `120×120px` – iPhone with @2x and @3x display running iOS ≥ 7
+* `144×144px` – iPad and iPad mini with @2x display running iOS ≤ 6
+* `152×152px` – iPad and iPad mini with @2x display running iOS 7
+* `180×180px` – iPad and iPad mini with @2x display running iOS 8
+
+Displays meaning:
+
+* @1x - non-Retina
+* @2x - Retina
+* @3x - Retina HD
+
+More information about the displays of iOS devices can be found
+[here](http://en.wikipedia.org/wiki/List_of_iOS_devices#Display).
 
 For non-Retina iPhone, iPod Touch, and Android 2.1+ devices you can use the
 example from above or replace the `apple-touch-icon-precomposed.png` within

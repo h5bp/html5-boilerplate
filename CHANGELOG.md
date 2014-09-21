@@ -1,5 +1,8 @@
 ### HEAD
 
+* Update `apple-touch-icon-precomposed.png` and the _"Apple touch
+  icons"_ related documentation
+  ([#1599](https://github.com/h5bp/html5-boilerplate/pull/1599)).
 * Update Apache Server Configs to v2.8.0.
 * Add pseudo-elements to universal selector in print media query
   ([#1585](https://github.com/h5bp/html5-boilerplate/pull/1585)).
