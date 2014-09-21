@@ -109,6 +109,22 @@ textarea {
    Helper classes
    ========================================================================== */
 
+/* Centering parent reference position must be set other than default static  */
+
+.vcenter {
+  top: 50%;
+  transform: translatey(-50%);
+}
+
+.hcenter {
+   left: 50%; 
+   transform: translatex(-50%);
+}
+
+.vcenter, .hcenter {
+   position: absolute;
+}
+
 /*
  * Hide visually and from screen readers: h5bp.com/u
  */
