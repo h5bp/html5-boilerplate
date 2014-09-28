@@ -38,12 +38,12 @@ important because:
 1) the charset declaration (`<meta charset="utf-8">`):
 
    * must be included completely within the [first 1024 bytes of the
-     document](http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#charset)
+     document](https://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#charset)
 
    * should be specified as early as possible (before any content that could
      be controlled by an attacker, such as a `<title>` element) in order to
      avoid a potential [encoding-related security
-     issue](http://code.google.com/p/doctype-mirror/wiki/ArticleUtf7) in
+     issue](https://code.google.com/p/doctype-mirror/wiki/ArticleUtf7) in
      Internet Explorer
 
 2) the meta tag for compatibility mode
@@ -76,7 +76,7 @@ that you **remove this line and use the
 [`.htaccess`](https://github.com/h5bp/server-configs-apache)** (or [other server
 config](https://github.com/h5bp/server-configs)) to send these headers instead.
 You also might want to read [Validating:
-X-UA-Compatible](http://groups.google.com/group/html5boilerplate/browse_thread/thread/6d1b6b152aca8ed2).
+X-UA-Compatible](https://groups.google.com/group/html5boilerplate/browse_thread/thread/6d1b6b152aca8ed2).
 
 If you are serving your site on a non-standard port, you will need to set this
 header on the server-side. This is because the IE preference option 'Display
@@ -88,8 +88,8 @@ intranet sites in Compatibility View' is checked by default.
 There are a few different options that you can use with the [`viewport` meta
 tag](https://docs.google.com/present/view?id=dkx3qtm_22dxsrgcf4 "Viewport and
 Media Queries - The Complete Idiot's Guide"). You can find out more in [the
-Apple developer docs](http://j.mp/mobileviewport). HTML5 Boilerplate comes with
-a simple setup that strikes a good balance for general use cases.
+Apple developer docs](https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariWebContent/UsingtheViewport/UsingtheViewport.html).
+HTML5 Boilerplate comes with a simple setup that strikes a good balance for general use cases.
 
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -143,9 +143,9 @@ in the [FAQ](faq.md)). A local fallback of jQuery is included for rare instances
 when the CDN version might not be available, and to facilitate offline
 development.
 
-The Google CDN version is chosen over other potential candidates (like the
-[jQuery CDN](http://jquery.com/download/#jquery-39-s-cdn-provided-by-maxcdn))
-because it's fast in absolute terms and it has the best overall
+The Google CDN version is chosen over other [potential candidates (like the
+jQuery CDN](https://jquery.com/download/#using-jquery-with-a-cdn)) because
+it's fast in absolute terms and it has the best overall
 [penetration](http://httparchive.org/trends.php#perGlibs) which increases the
 odds of having a copy of the library in your user's browser cache.
 
@@ -153,7 +153,7 @@ While the Google CDN is a strong default solution your site or application may
 require a different configuration. Testing your site with services like
 [WebPageTest](http://www.webpagetest.org/) and browser tools like
 [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) or
-[YSlow](http://developer.yahoo.com/yslow/) will help you examine the real
+[YSlow](https://developer.yahoo.com/yslow/) will help you examine the real
 world performance of your site and can show where you can optimize your specific
 site or application.
 
@@ -169,13 +169,13 @@ number of simultaneous connections of the browser.
 Further information:
 
 * [Optimizing the Google Universal Analytics
-  Snippet](http://mathiasbynens.be/notes/async-analytics-snippet#universal-analytics)
+  Snippet](https://mathiasbynens.be/notes/async-analytics-snippet#universal-analytics)
 * [Introduction to
   Analytics.js](https://developers.google.com/analytics/devguides/collection/analyticsjs/)
 
 **N.B.** The Google Universal Analytics snippet is included by default mainly
 because Google Analytics is [currently one of the most popular tracking
-solutions](http://trends.builtwith.com/analytics/Google-Analytics) out there.
+solutions](https://trends.builtwith.com/analytics/Google-Analytics) out there.
 However, its usage isn't set in stone, and you SHOULD consider exploring the
 [alternatives](https://en.wikipedia.org/wiki/List_of_web_analytics_software)
 and use whatever suits your needs best!

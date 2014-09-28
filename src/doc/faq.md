@@ -34,7 +34,7 @@ Setting up a local HTTP server can be done using there various
 [one-liners](https://gist.github.com/willurd/5720255):
 
 * PHP 5.4.0+ by running
-  [`php -S localhost:8080`](http://php.net/manual/en/features.commandline.webserver.php)
+  [`php -S localhost:8080`](https://php.net/manual/en/features.commandline.webserver.php)
   from your local directory
 * Python 2.x by running `python -m SimpleHTTPServer` from your local directory
 * Python 3.x by running `python -m http.server` from your local directory
@@ -49,7 +49,7 @@ A list of more complex HTTP servers can be found
 
 ### Why don't you automatically load the latest version of jQuery from the Google CDN?
 
-The [file](http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js) to which
+The [file](https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js) to which
 the Google CDN points to is [no longer updated and will stay locked at version
 `1.11.1` in order to prevent inadvertent web
 breakage](http://blog.jquery.com/2014/07/03/dont-use-jquery-latest-js/).
@@ -76,7 +76,7 @@ custom build that includes both HTML5 Boilerplate and
 [Bootstrap](http://getbootstrap.com/).
 
 Read more about how [HTML5 Boilerplate and Bootstrap complement each
-other](http://www.quora.com/Is-Bootstrap-a-complement-or-an-alternative-to-HTML5-Boilerplate-or-viceversa/answer/Nicolas-Gallagher).
+other](https://www.quora.com/Is-Bootstrap-a-complement-or-an-alternative-to-HTML5-Boilerplate-or-viceversa/answer/Nicolas-Gallagher).
 
 
 ### Do I need to upgrade my site each time a new version of HTML5 Boilerplate is released?
@@ -89,4 +89,4 @@ latest changes, but you'll have to assess the costs/benefits of doing so.
 ### Where can I get help with support questions?
 
 Please ask for help on
-[StackOverflow](http://stackoverflow.com/questions/tagged/html5boilerplate).
+[StackOverflow](https://stackoverflow.com/questions/tagged/html5boilerplate).

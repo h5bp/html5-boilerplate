@@ -71,17 +71,17 @@ to your web server and environment.
 A comprehensive list of web servers and stacks are beyond the scope of this
 documentation, but some common ones include:
 
-* [Apache HTTP Server](http://httpd.apache.org/docs/trunk/getting-started.html)
- * [LAMP](http://en.wikipedia.org/wiki/LAMP_%28software_bundle%29)
+* [Apache HTTP Server](https://httpd.apache.org/docs/trunk/getting-started.html)
+ * [LAMP](https://en.wikipedia.org/wiki/LAMP_%28software_bundle%29)
 (Linux, Apache, MySQL, and PHP).
-Other variants include [MAMP](http://www.mamp.info/en/index.html),
+Other variants include [MAMP](https://www.mamp.info/en/index.html),
 [WAMP](http://www.wampserver.com/en/),
-or [XAMPP](http://www.apachefriends.org/index.html).
+or [XAMPP](https://www.apachefriends.org/index.html).
  * LAPP uses PostgreSQL instead of MySQL
 * [Nginx](http://wiki.nginx.org/GettingStarted)
  * [LEMP](http://www.chrisjohnston.org/ubuntu-tutorials/setting-up-a-lemp-stack-ubuntu-904)
 is similar to the LAMP stack but uses Nginx
-* [IIS](http://en.wikipedia.org/wiki/Internet_Information_Services)
+* [IIS](https://en.wikipedia.org/wiki/Internet_Information_Services)
  * [ASP.NET](http://www.asp.net/get-started)
 * [MEAN](http://mean.io/) (MongoDB, Express, AngularJS, Node.js)
 
@@ -127,7 +127,7 @@ When using `.htaccess` we recommend reading all inline comments (the rules after
 a `#`) in the file once. There is a bunch of optional stuff in it.
 
 If you want to know more about the `.htaccess` file check out
-http://httpd.apache.org/docs/current/howto/htaccess.html.
+https://httpd.apache.org/docs/current/howto/htaccess.html.
 
 Notice that the original repo for the `.htaccess` file is [this
 one](https://github.com/h5bp/server-configs-apache).
@@ -149,7 +149,7 @@ domain would need to host a cross-domain policy file in order to grant access
 to the source domain and allow the client to continue with the transaction.
 
 For more in-depth information, please see Adobe's [cross-domain policy file
-specification](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).
+specification](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).
 
 
 ## robots.txt

@@ -20,7 +20,7 @@ your development preferences happen to be.
 
 In order to make browsers render all elements more consistently and in line
 with modern standards, we include
-[Normalize.css](http://necolas.github.io/normalize.css/) — a modern, HTML5-ready
+[Normalize.css](https://necolas.github.io/normalize.css/) — a modern, HTML5-ready
 alternative to CSS resets.
 
 As opposed to CSS resets, Normalize.css:
@@ -33,7 +33,7 @@ As opposed to CSS resets, Normalize.css:
 * has better documentation
 
 For more information about Normalize.css, please refer to its [project
-page](http://necolas.github.com/normalize.css/), as well as this
+page](https://necolas.github.com/normalize.css/), as well as this
 [blog post](http://nicolasgallagher.com/about-normalize-css/).
 
 
@@ -86,7 +86,7 @@ keeping it in the flow and not affecting the positioning of the surrounding
 content.
 
 __N.B.__ Try to stay away from, and don't use the classes specified above for
-[keyword stuffing](http://en.wikipedia.org/wiki/Keyword_stuffing) as you will
+[keyword stuffing](https://en.wikipedia.org/wiki/Keyword_stuffing) as you will
 harm your site's ranking!
 
 #### `.clearfix`
@@ -139,9 +139,9 @@ At printing time, these styles will:
 * expand abbreviations to include the full description — done in order to allow
   users to know what the abbreviations stands for
 * provide instructions on how browsers should break the content into pages and
-  on [orphans/widows](http://en.wikipedia.org/wiki/Widows_and_orphans), namely,
+  on [orphans/widows](https://en.wikipedia.org/wiki/Widows_and_orphans), namely,
   we instruct
-  [supporting browsers](http://en.wikipedia.org/wiki/Comparison_of_layout_engines_%28Cascading_Style_Sheets%29#Grammar_and_rules)
+  [supporting browsers](https://en.wikipedia.org/wiki/Comparison_of_layout_engines_%28Cascading_Style_Sheets%29#Grammar_and_rules)
   that they should:
 
   * ensure the table header (`<thead>`) is [printed on each page spanned by the
@@ -151,7 +151,7 @@ At printing time, these styles will:
   * ensure that headings never appear on a different page than the text they
     are associated with
   * ensure that
-    [orphans and widows](http://en.wikipedia.org/wiki/Widows_and_orphans) do
+    [orphans and widows](https://en.wikipedia.org/wiki/Widows_and_orphans) do
     [not appear on printed pages](http://css-tricks.com/almanac/properties/o/orphans/)
 
 The print styles are included along with the other `css` to [avoid the

@@ -83,7 +83,7 @@ need to integrate this starting HTML with your setup.
 Make sure that you update the URLs for the referenced CSS and JavaScript if you
 modify the directory structure at all.
 
-If you are using Google Universal Analytics, make sure that you edit the 
+If you are using Google Universal Analytics, make sure that you edit the
 corresponding snippet at the bottom to include your analytics ID.
 
 ### humans.txt
@@ -109,4 +109,4 @@ refer to the [according documentation](extend.md#apple-touch-icons).
 
 You might want to check out Hans' handy [HTML5 Boilerplate Favicon and Apple
 Touch Icon
-PSD-Template](http://drublic.de/blog/html5-boilerplate-favicons-psd-template/).
+PSD-Template](https://drublic.de/blog/html5-boilerplate-favicons-psd-template/).

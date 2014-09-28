@@ -125,8 +125,7 @@ on blogs.msdn.com)
 ### Further reading about DNS prefetching
 
 * https://developer.mozilla.org/en-US/docs/Controlling_DNS_prefetching
-* http://dev.chromium.org/developers/design-documents/dns-prefetching
-* http://www.apple.com/safari/whats-new.html
+* https://dev.chromium.org/developers/design-documents/dns-prefetching
 * http://blogs.msdn.com/b/ie/archive/2011/03/17/internet-explorer-9-network-performance-improvements.aspx
 * http://dayofjs.com/videos/22158462/web-browsers_alex-russel
 
@@ -136,7 +135,7 @@ on blogs.msdn.com)
 ### More tracking settings
 
 The [optimized Google Universal Analytics
-snippet](http://mathiasbynens.be/notes/async-analytics-snippet#universal-analytics)
+snippet](https://mathiasbynens.be/notes/async-analytics-snippet#universal-analytics)
 included with HTML5 Boilerplate includes something like this:
 
 ```js
@@ -367,7 +366,7 @@ You can read about this useful element and more techniques in
 
 ### Direct search spiders to your sitemap
 
-[Learn how to make a sitemap](http://www.sitemaps.org/protocol.php)
+[Learn how to make a sitemap](http://www.sitemaps.org/protocol.html)
 
 ```html
 <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
@@ -390,7 +389,7 @@ value your sanity. This is an HTML-centric way of achieving that.
 Sites with in-site search functionality should be strongly considered for a
 browser search plugin. A "search plugin" is an XML file which defines how your
 plugin behaves in the browser. [How to make a browser search
-plugin](http://www.google.com/search?ie=UTF-8&q=how+to+make+browser+search+plugin).
+plugin](https://www.google.com/search?ie=UTF-8&q=how+to+make+browser+search+plugin).
 
 ```html
 <link rel="search" title="" type="application/opensearchdescription+xml" href="">
@@ -460,9 +459,9 @@ attribute should contain the location of your pingback service.
 <link rel="pingback" href="">
 ```
 
-* High-level explanation: http://codex.wordpress.org/Introduction_to_Blogging#Pingbacks
+* High-level explanation: https://codex.wordpress.org/Introduction_to_Blogging#Pingbacks
 * Step-by-step example case: http://www.hixie.ch/specs/pingback/pingback-1.0#TOC5
-* PHP pingback service: http://blog.perplexedlabs.com/2009/07/15/xmlrpc-pingbacks-using-php/
+* PHP pingback service: https://web.archive.org/web/20131211032834/http://blog.perplexedlabs.com/2009/07/15/xmlrpc-pingbacks-using-php/
 
 
 
@@ -574,7 +573,7 @@ Home Screen icon. This works since iOS 6.
 ```
 
 For further information please read the [official
-documentation](http://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html)
+documentation](https://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html)
 on Apple's site.
 
 
@@ -607,7 +606,7 @@ Displays meaning:
 * @3x - Retina HD
 
 More information about the displays of iOS devices can be found
-[here](http://en.wikipedia.org/wiki/List_of_iOS_devices#Display).
+[here](https://en.wikipedia.org/wiki/List_of_iOS_devices#Display).
 
 For non-Retina iPhone, iPod Touch, and Android 2.1+ devices you can use the
 example from above or replace the `apple-touch-icon-precomposed.png` within
@@ -620,10 +619,10 @@ size, you can add more touch icons as written above.
 As of iOS 7, no special effects are applied to the touch icons. So, if you are
 only targeting iOS 7 and up, you don’t have to use `precomposed` anymore (but
 we [strongly recommend you
-do](http://mathiasbynens.be/notes/touch-icons#effects)!).
+do](https://mathiasbynens.be/notes/touch-icons#effects)!).
 
 For a more comprehensive overview, please refer to Mathias' [article on Touch
-Icons](http://mathiasbynens.be/notes/touch-icons).
+Icons](https://mathiasbynens.be/notes/touch-icons).
 
 
 ### Apple Touch Startup Image
