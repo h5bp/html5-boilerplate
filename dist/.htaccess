@@ -558,8 +558,8 @@ AddDefaultCharset utf-8
 
 # Force client-side SSL redirection.
 
-# If a user types `example.com` in his browser, the above rule will redirect
-# him to the secure version of the site. That still leaves a window of
+# If a user types `example.com` in their browser, the above rule will redirect
+# them to the secure version of the site. That still leaves a window of
 # opportunity (the initial HTTP connection) for an attacker to downgrade or
 # redirect the request.
 
