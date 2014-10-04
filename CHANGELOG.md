@@ -1,5 +1,7 @@
 ### HEAD
 
+* Update to Normalize.css 3.0.2.
+  ([#1050](https://github.com/h5bp/html5-boilerplate/issues/1050)).
 * Update `apple-touch-icon-precomposed.png` and the _"Apple touch
   icons"_ related documentation
   ([#1599](https://github.com/h5bp/html5-boilerplate/pull/1599)).
@@ -21,8 +23,6 @@
 * Update to jQuery 1.11.1.
 * Use `<!doctype html>` instead of `<!DOCTYPE html>`
   ([#1522](https://github.com/h5bp/html5-boilerplate/issues/1522)).
-* Update to Normalize.css 3.0.1.
-  ([#1050](https://github.com/h5bp/html5-boilerplate/issues/1050)).
 * Add `/browserconfig.xml` file and tile images
   ([#1481](https://github.com/h5bp/html5-boilerplate/issues/1481)).
 * Add `Disallow:` to `robots.txt`

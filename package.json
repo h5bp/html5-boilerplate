@@ -14,7 +14,7 @@
     "jshint-stylish": "^1.0.0",
     "lodash": "^2.4.1",
     "mocha": "^1.21.4",
-    "normalize.css": "3.0.1",
+    "normalize.css": "3.0.2",
     "run-sequence": "^1.0.1"
   },
   "engines": {
