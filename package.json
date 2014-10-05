@@ -7,7 +7,7 @@
     "gulp": "^3.8.8",
     "gulp-header": "^1.1.1",
     "gulp-jshint": "^1.8.5",
-    "gulp-load-plugins": "^0.6.0",
+    "gulp-load-plugins": "^0.7.0",
     "gulp-rename": "^1.2.0",
     "gulp-replace": "^0.4.0",
     "jquery": "1.11.1",
@@ -15,7 +15,7 @@
     "lodash": "^2.4.1",
     "mocha": "^1.21.4",
     "normalize.css": "3.0.1",
-    "run-sequence": "^0.3.7"
+    "run-sequence": "^1.0.1"
   },
   "engines": {
     "node": ">=0.10.0"
