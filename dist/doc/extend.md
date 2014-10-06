@@ -612,7 +612,7 @@ For non-Retina iPhone, iPod Touch, and Android 2.1+ devices you can use the
 example from above or replace the `apple-touch-icon-precomposed.png` within
 this project's root folder.
 
-In most cases, one `152×152px` touch icon named `apple-touch-icon-precomposed.png`
+In most cases, one `180×180px` touch icon named `apple-touch-icon-precomposed.png`
 is enough. If you use art-direction and want to have different content for each
 size, you can add more touch icons as written above.
 
