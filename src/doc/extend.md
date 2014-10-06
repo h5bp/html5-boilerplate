@@ -592,7 +592,7 @@ The main sizes of the icons on iOS are:
 
 * `57×57px` – iPhone with @1x display and iPod Touch
 * `72×72px` – iPad and iPad mini with @1x display running iOS ≤ 6
-* `76×76px` – iPad and iPad mini with @1x display running iOS 7
+* `76×76px` – iPad and iPad mini with @1x display running iOS ≥ 7
 * `114×114px` – iPhone with @2x display running iOS ≤ 6
 * `120×120px` – iPhone with @2x and @3x display running iOS ≥ 7
 * `144×144px` – iPad and iPad mini with @2x display running iOS ≤ 6
