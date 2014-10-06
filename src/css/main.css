@@ -13,7 +13,9 @@ html {
     font-size: 1em;
     line-height: 1.4;
 }
-
+#container{
+    margin: auto;
+}
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
  * These selection rule sets have to be separate.
