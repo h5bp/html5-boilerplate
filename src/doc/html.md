@@ -54,33 +54,52 @@ important because:
      tags](http://msdn.microsoft.com/en-us/library/cc288325.aspx)
 
 
-## X-UA-Compatible
+### `X-UA-Compatible`
 
-This makes sure the latest version of IE is used in versions of IE that contain
-multiple rendering engines. Even if a site visitor is using IE8 or IE9, it's
-possible that they're not using the latest rendering engine their browser
-contains. To fix this, use:
+Internet Explorer 8/9/10 support [document compatibility
+modes](http://msdn.microsoft.com/en-us/library/cc288325.aspx) that affect the
+way webpages are interpreted and displayed. Because of this, even if your site's
+visitor is using, let's say, Internet Explorer 9, it's possible that IE will not
+use the latest rendering engine, and instead, decide to render your page using
+the Internet Explorer 5.5 rendering engine.
+
+Specifying the `X-UA-Compatible` meta tag:
 
 ```html
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 ```
 
-The `meta` tag tells the IE rendering engine it should use the latest, or edge,
-version of the IE rendering environment.
+or sending the page with the following HTTP response header
 
-This `meta` tag ensures that anyone browsing your site in IE is treated to the
-best possible user experience that their browser can offer.
+```
+X-UA-Compatible: IE=edge
+```
 
-This line breaks validation. To avoid this edge case issue it is recommended
-that you **remove this line and use the
-[`.htaccess`](https://github.com/h5bp/server-configs-apache)** (or [other server
-config](https://github.com/h5bp/server-configs)) to send these headers instead.
-You also might want to read [Validating:
-X-UA-Compatible](https://groups.google.com/group/html5boilerplate/browse_thread/thread/6d1b6b152aca8ed2).
+will force Internet Explorer 8/9/10 to render the webpage in the highest
+available mode in [the various cases when it may
+not](https://hsivonen.fi/doctype/#ie8), and therefore, ensure that anyone
+browsing your site is treated to the best possible user experience that
+browser can offer.
 
-If you are serving your site on a non-standard port, you will need to set this
-header on the server-side. This is because the IE preference option 'Display
-intranet sites in Compatibility View' is checked by default.
+If possible, we recommend that you remove the `meta` tag and send only the
+HTTP response header as the `meta` tag:
+
+* brakes validation (see also: [Validating
+  X-UA-Compatible](http://groups.google.com/group/html5boilerplate/browse_thread/thread/6d1b6b152aca8ed2))
+* will not always work if your site is served on a non-standard port, as
+  Internet Explorer's preference option `Display intranet sites in Compatibility
+  View` is checked by default
+
+If you are using Apache as your webserver, including the
+[`.htaccess`](https://github.com/h5bp/server-configs-apache) file takes care of
+the HTTP header. If you are using a different server, check out our [other
+server config](https://github.com/h5bp/server-configs).
+
+Starting with Internet Explorer 11, [document modes are
+deprecated](http://msdn.microsoft.com/en-us/library/ie/bg182625.aspx#docmode).
+If your business still relies on older web apps and services that were
+designed for older versions of Internet Explorer, you might want to consider
+enabling [Enterprise Mode](http://blogs.msdn.com/b/ie/archive/2014/04/02/stay-up-to-date-with-enterprise-mode-for-internet-explorer-11.aspx) throughout your company.
 
 
 ## Mobile viewport
