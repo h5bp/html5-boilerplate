@@ -1,5 +1,7 @@
 ### HEAD
 
+* Add vertical centering for `iframe`
+  ([#1613](https://github.com/h5bp/html5-boilerplate/issues/1613)).
 * Change the outdated browser prompt classname to `browserupgrade`
   ([#1608](https://github.com/h5bp/html5-boilerplate/issues/1608)).
 * Update to Normalize.css 3.0.2.
