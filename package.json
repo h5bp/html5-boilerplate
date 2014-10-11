@@ -37,7 +37,7 @@
   "scripts": {
     "build": "gulp build",
     "test": "gulp archive && mocha --reporter spec --timeout 5000",
-    "update_dist_directory": "bin/update_dist_directory.sh"
+    "update_dist_directory": "bin/travis/update_dist_directory.sh"
   },
   "version": "4.3.0"
 }

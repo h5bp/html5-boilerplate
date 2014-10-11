@@ -3,7 +3,6 @@
 # [!] This script is intended for Travis. If the tests pass, Travis will
 # automatically execute this script, regenerating the `dist` directory and
 # committing any new changes to the `master` branch.
-# Details: github.com/h5bp/html5-boilerplate/commit/a3baca2367fab2d
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
