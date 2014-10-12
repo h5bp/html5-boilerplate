@@ -1,4 +1,4 @@
-/* global describe, it */
+/* jshint mocha: true */
 
 var assert = require('assert');
 var fs = require('fs');
@@ -7,7 +7,7 @@ var path = require('path');
 var pkg = require('./../package.json');
 var dirs = pkg['h5bp-configs'].directories;
 
-var expectedFilesInArchiveDir= [
+var expectedFilesInArchiveDir = [
     pkg.name + '_v' + pkg.version + '.zip'
 ];
 
@@ -22,7 +22,7 @@ var expectedFilesInDistDir = [
     'browserconfig.xml',
     'crossdomain.xml',
 
-    'css/', // for directories, a '/' character
+    'css/', // for directories, a `/` character
             // should be included at the end
         'css/main.css',
         'css/normalize.css',
@@ -65,8 +65,8 @@ function checkFiles(directory, expectedFiles) {
     // Get the list of files from the specified directory
     var files = require('glob').sync('**/*', {
         'cwd': directory,
-        'dot': true,      // include hiddent files
-        'mark': true      // add a '/' character to directory matches
+        'dot': true,      // include hidden files
+        'mark': true      // add a `/` character to directory matches
     });
 
     // Check if all expected files are present in the
@@ -77,10 +77,10 @@ function checkFiles(directory, expectedFiles) {
         var expectedFileType = (file.slice(-1) !== '/' ? 'regular file' : 'directory');
 
         // If file exists
-        if ( files.indexOf(file) !== -1 ) {
+        if (files.indexOf(file) !== -1) {
 
             // Check if the file is of the correct type
-            if ( file.slice(-1) !== '/' ) {
+            if (file.slice(-1) !== '/') {
                 // Check if the file is really a regular file
                 ok = fs.statSync(path.resolve(directory, file)).isFile();
             } else {
@@ -115,7 +115,7 @@ function checkString(file, string, done) {
     var character = '';
     var matchFound = false;
     var matchedPositions = 0;
-    var readStream = fs.createReadStream(file, {'encoding': 'utf8'});
+    var readStream = fs.createReadStream(file, { 'encoding': 'utf8' });
 
     readStream.on('close', done);
     readStream.on('error', done);
@@ -123,16 +123,16 @@ function checkString(file, string, done) {
 
         // Read file until the string is found
         // or the whole file has been read
-        while ( matchFound !== true &&
-                ( character = readStream.read(1) ) !== null ) {
+        while (matchFound !== true &&
+                (character = readStream.read(1)) !== null) {
 
-            if ( character === string.charAt(matchedPositions) ) {
+            if (character === string.charAt(matchedPositions)) {
                 matchedPositions += 1;
             } else {
                 matchedPositions = 0;
             }
 
-            if ( matchedPositions === string.length ) {
+            if (matchedPositions === string.length) {
                 matchFound = true;
             }
 
