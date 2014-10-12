@@ -126,12 +126,13 @@ gulp.task('copy:normalize', function () {
                .pipe(gulp.dest(template('<%= dist %>/css', dirs)));
 });
 
-gulp.task('jshint', function () {
+gulp.task('lint:js', function () {
     return gulp.src([
         'gulpfile.js',
-        template('<%= test %>/*.js', dirs),
-        template('<%= src %>/js/*.js', dirs)
-    ]).pipe(plugins.jshint())
+        template('<%= src %>/js/*.js', dirs),
+        template('<%= test %>/*.js', dirs)
+    ]).pipe(plugins.jscs())
+      .pipe(plugins.jshint())
       .pipe(plugins.jshint.reporter('jshint-stylish'))
       .pipe(plugins.jshint.reporter('fail'));
 });
@@ -151,7 +152,7 @@ gulp.task('archive', function (done) {
 
 gulp.task('build', function (done) {
     runSequence(
-        ['clean', 'jshint'],
+        ['clean', 'lint:js'],
         'copy',
     done);
 });

@@ -6,6 +6,7 @@
     "glob": "^4.0.6",
     "gulp": "^3.8.8",
     "gulp-header": "^1.1.1",
+    "gulp-jscs": "^1.1.2",
     "gulp-jshint": "^1.8.5",
     "gulp-load-plugins": "^0.7.0",
     "gulp-rename": "^1.2.0",
