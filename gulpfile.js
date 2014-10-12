@@ -136,6 +136,14 @@ gulp.task('jshint', function () {
       .pipe(plugins.jshint.reporter('fail'));
 });
 
+gulp.task('jscs', function () {
+    return gulp.src([
+        'gulpfile.js',
+        template('<%= test %>/*.js', dirs),
+        template('<%= src %>/js/*.js', dirs)
+    ]).pipe(plugins.jscs());
+});
+
 
 // -----------------------------------------------------------------------------
 // | Main tasks                                                                |
@@ -151,7 +159,7 @@ gulp.task('archive', function (done) {
 
 gulp.task('build', function (done) {
     runSequence(
-        ['clean', 'jshint'],
+        ['clean', 'jshint', 'jscs'],
         'copy',
     done);
 });
