@@ -129,7 +129,7 @@ gulp.task('copy:normalize', function () {
 gulp.task('jshint', function () {
     return gulp.src([
         'gulpfile.js',
-        'test/tests.js',
+        template('<%= test %>/*.js', dirs),
         template('<%= src %>/js/*.js', dirs)
     ]).pipe(plugins.jshint())
       .pipe(plugins.jshint.reporter('jshint-stylish'))

@@ -23,8 +23,9 @@
   "h5bp-configs": {
     "directories": {
       "archive": "archive",
+      "dist": "dist",
       "src": "src",
-      "dist": "dist"
+      "test": "test"
     }
   },
   "homepage": "http://h5bp.com/",
