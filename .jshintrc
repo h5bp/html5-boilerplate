@@ -1,22 +1,16 @@
 {
 
     "bitwise": true,
-    "camelcase": true,
-    "curly": true,
     "eqeqeq": true,
     "forin": true,
-    "immed": true,
-    "indent": 4,
     "latedef": true,
-    "newcap": true,
     "noarg": true,
+    "nonbsp": true,
     "nonew": true,
-    "quotmark": "single",
     "undef": true,
     "unused": true,
 
     "esnext": true,
-    "sub": true,
 
     "browser": true,
     "jquery": true,
