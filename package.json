@@ -1,4 +1,7 @@
 {
+  "bugs": {
+    "url": "https://github.com/h5bp/html5-boilerplate/issues"
+  },
   "devDependencies": {
     "apache-server-configs": "2.9.0",
     "archiver": "^0.11.0",
