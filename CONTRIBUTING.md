@@ -20,7 +20,7 @@ and [submitting pull requests](#pull-requests), but please respect the following
 restrictions:
 
 * Please **do not** use the issue tracker for personal support requests (use
-  [Stack Overflow](http://stackoverflow.com/questions/tagged/html5boilerplate)).
+  [Stack Overflow](https://stackoverflow.com/questions/tagged/html5boilerplate)).
 
 * Please **do not** derail or troll issues. Keep the discussion on topic and
   respect the opinions of others.
