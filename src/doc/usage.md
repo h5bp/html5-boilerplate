@@ -33,7 +33,7 @@ A basic HTML5 Boilerplate site initially looks something like this:
 │       └── modernizr.min.js
 ├── .htaccess
 ├── 404.html
-├── apple-touch-icon-precomposed.png
+├── apple-touch-icon.png
 ├── index.html
 ├── humans.txt
 ├── robots.txt

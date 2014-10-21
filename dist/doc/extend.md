@@ -579,16 +579,9 @@ on Apple's site.
 
 ### Apple Touch Icons
 
-Touch Icons can be seen as the favicons of mobile devices and tablets.
+The Apple touch icons can be seen as the favicons of iOS devices.
 
-If your site or icons are in a sub-directory, you will need to reference the
-icons using `link` elements placed in the HTML `head` of your document, e.g.:
-
-```html
-<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
-```
-
-The main sizes of the icons on iOS are:
+The main sizes of the Apple touch icons are:
 
 * `57×57px` – iPhone with @1x display and iPod Touch
 * `72×72px` – iPad and iPad mini with @1x display running iOS ≤ 6
@@ -608,18 +601,16 @@ Displays meaning:
 More information about the displays of iOS devices can be found
 [here](https://en.wikipedia.org/wiki/List_of_iOS_devices#Display).
 
-For non-Retina iPhone, iPod Touch, and Android 2.1+ devices you can use the
-example from above or replace the `apple-touch-icon-precomposed.png` within
-this project's root folder.
+In most cases, one `180×180px` touch icon named `apple-touch-icon.png`
+and including:
 
-In most cases, one `180×180px` touch icon named `apple-touch-icon-precomposed.png`
-is enough. If you use art-direction and want to have different content for each
-size, you can add more touch icons as written above.
+```html
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+```
 
-As of iOS 7, no special effects are applied to the touch icons. So, if you are
-only targeting iOS 7 and up, you don’t have to use `precomposed` anymore (but
-we [strongly recommend you
-do](https://mathiasbynens.be/notes/touch-icons#effects)!).
+in the `<head>` of the page is enough. If you use art-direction and/or
+want to have different content for each device, you can add more touch
+icons as written above.
 
 For a more comprehensive overview, please refer to Mathias' [article on Touch
 Icons](https://mathiasbynens.be/notes/touch-icons).
