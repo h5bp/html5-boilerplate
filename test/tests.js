@@ -18,7 +18,7 @@ var expectedFilesInDistDir = [
     '.gitignore',
     '.htaccess',
     '404.html',
-    'apple-touch-icon-precomposed.png',
+    'apple-touch-icon.png',
     'browserconfig.xml',
     'crossdomain.xml',
 

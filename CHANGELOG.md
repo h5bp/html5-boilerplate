@@ -1,5 +1,8 @@
 ### HEAD
 
+* Rename Apple touch icon to `apple-touch-icon.png` and add
+  `<link>` in `index.html`
+  ([#1622](https://github.com/h5bp/html5-boilerplate/issues/1622)).
 * Update Apache Server Configs to v2.10.0.
 * Add vertical centering for `iframe`
   ([#1613](https://github.com/h5bp/html5-boilerplate/issues/1613)).
