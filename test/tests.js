@@ -49,7 +49,7 @@ var expectedFilesInDistDir = [
         'js/main.js',
         'js/plugins.js',
         'js/vendor/',
-            'js/vendor/jquery-' + pkg.devDependencies.jquery + '.min.js',
+            'js/vendor/jquery-' + pkg.dependencies.jquery + '.min.js',
             'js/vendor/modernizr-2.8.3.min.js',
 
     'robots.txt',
@@ -165,12 +165,12 @@ function runTests() {
         });
 
         it('"index.html" should contain the correct jQuery version in the CDN URL', function (done) {
-            var string = 'ajax.googleapis.com/ajax/libs/jquery/' + pkg.devDependencies.jquery + '/jquery.min.js';
+            var string = 'ajax.googleapis.com/ajax/libs/jquery/' + pkg.dependencies.jquery + '/jquery.min.js';
             checkString(path.resolve(dirs.dist, 'index.html'), string, done);
         });
 
         it('"index.html" should contain the correct jQuery version in the local URL', function (done) {
-            var string = 'js/vendor/jquery-' + pkg.devDependencies.jquery + '.min.js';
+            var string = 'js/vendor/jquery-' + pkg.dependencies.jquery + '.min.js';
             checkString(path.resolve(dirs.dist, 'index.html'), string, done);
         });
 
