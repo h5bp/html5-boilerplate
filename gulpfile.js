@@ -80,13 +80,13 @@ gulp.task('copy:.htaccess', function () {
 
 gulp.task('copy:index.html', function () {
     return gulp.src(template('<%= src %>/index.html', dirs))
-               .pipe(plugins.replace(/{{JQUERY_VERSION}}/g, pkg.devDependencies.jquery))
+               .pipe(plugins.replace(/{{JQUERY_VERSION}}/g, pkg.dependencies.jquery))
                .pipe(gulp.dest(template('<%= dist %>', dirs)));
 });
 
 gulp.task('copy:jquery', function () {
     return gulp.src(['node_modules/jquery/dist/jquery.min.js'])
-               .pipe(plugins.rename('jquery-' + pkg.devDependencies.jquery + '.min.js'))
+               .pipe(plugins.rename('jquery-' + pkg.dependencies.jquery + '.min.js'))
                .pipe(gulp.dest(template('<%= dist %>/js/vendor', dirs)));
 });
 
