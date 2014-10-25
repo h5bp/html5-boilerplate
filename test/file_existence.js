@@ -7,16 +7,11 @@ var path = require('path');
 var pkg = require('./../package.json');
 var dirs = pkg['h5bp-configs'].directories;
 
-var expectedFilesInArchiveDir = [
-    pkg.name + '_v' + pkg.version + '.zip'
-];
-
-var expectedFilesInDistDir = [
+var expectedBaseFiles = [
 
     '.editorconfig',
     '.gitattributes',
     '.gitignore',
-    '.htaccess',
     '404.html',
     'apple-touch-icon.png',
     'browserconfig.xml',
@@ -58,7 +53,7 @@ var expectedFilesInDistDir = [
 
 ];
 
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 function checkFiles(directory, expectedFiles) {
 
@@ -110,75 +105,45 @@ function checkFiles(directory, expectedFiles) {
 
 }
 
-function checkString(file, string, done) {
+function getArchiveFileNames(dirs) {
 
-    var character = '';
-    var matchFound = false;
-    var matchedPositions = 0;
-    var readStream = fs.createReadStream(file, { 'encoding': 'utf8' });
+    var expectedFiles = [];
+    var property;
+    var suffix = '';
 
-    readStream.on('close', done);
-    readStream.on('error', done);
-    readStream.on('readable', function () {
+    for (property in dirs) {
+        if (dirs.hasOwnProperty(property)) {
 
-        // Read file until the string is found
-        // or the whole file has been read
-        while (matchFound !== true &&
-                (character = readStream.read(1)) !== null) {
+            suffix = dirs[property].replace(/^.*h5bp\+?/, '');
 
-            if (character === string.charAt(matchedPositions)) {
-                matchedPositions += 1;
-            } else {
-                matchedPositions = 0;
+            if (suffix !== '') {
+                suffix = '_with_' + suffix + '_configs';
             }
 
-            if (matchedPositions === string.length) {
-                matchFound = true;
-            }
-
+            expectedFiles.push(pkg.name + '_v' + pkg.version + suffix + '.zip');
         }
+    }
 
-        assert.equal(true, matchFound);
-        this.close();
-
-    });
+    return expectedFiles;
 
 }
 
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 function runTests() {
 
-    describe('Test if all the expected files are present in the "' + dirs.archive + '", and only them', function () {
-        checkFiles(dirs.archive, expectedFilesInArchiveDir);
-    });
+    describe('Test if all expected files are present the build directories, and only them', function () {
 
-    describe('Test if all the expected files are present in the "' + dirs.dist + '", and only them', function () {
-        checkFiles(dirs.dist, expectedFilesInDistDir);
-    });
-
-    describe('Test if files have the expected content', function () {
-
-        it('".htaccess" should have the "ErrorDocument..." line uncommented', function (done) {
-            var string = '\n\nErrorDocument 404 /404.html\n\n';
-            checkString(path.resolve(dirs.dist, '.htaccess'), string, done);
+        describe(dirs.dist.base, function () {
+            checkFiles(dirs.dist.base, expectedBaseFiles);
         });
 
-        it('"index.html" should contain the correct jQuery version in the CDN URL', function (done) {
-            var string = 'ajax.googleapis.com/ajax/libs/jquery/' + pkg.devDependencies.jquery + '/jquery.min.js';
-            checkString(path.resolve(dirs.dist, 'index.html'), string, done);
+        describe(dirs.dist.apache, function () {
+            checkFiles(dirs.dist.apache, expectedBaseFiles.concat('.htaccess'));
         });
 
-        it('"index.html" should contain the correct jQuery version in the local URL', function (done) {
-            var string = 'js/vendor/jquery-' + pkg.devDependencies.jquery + '.min.js';
-            checkString(path.resolve(dirs.dist, 'index.html'), string, done);
-        });
-
-        it('"main.css" should contain a custom banner', function (done) {
-            var string = '/*! HTML5 Boilerplate v' + pkg.version +
-                         ' | ' + pkg.license.type + ' License' +
-                         ' | ' + pkg.homepage + ' */\n\n/*\n';
-            checkString(path.resolve(dirs.dist, 'css/main.css'), string, done);
+        describe(dirs.archive, function () {
+            checkFiles(dirs.archive, getArchiveFileNames(dirs.dist));
         });
 
     });
