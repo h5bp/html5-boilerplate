@@ -1,4 +1,4 @@
-# Apache Server Configs v2.10.0 | MIT License
+# Apache Server Configs v2.11.0 | MIT License
 # https://github.com/h5bp/server-configs-apache
 
 # (!) Using `.htaccess` files slows down Apache, therefore, if you have
@@ -162,15 +162,20 @@ Options -MultiViews
 <IfModule mod_mime.c>
 
   # Data interchange
+
     AddType application/json                            json map topojson
     AddType application/ld+json                         jsonld
     AddType application/vnd.geo+json                    geojson
     AddType application/xml                             atom rdf rss xml
 
+
   # JavaScript
+
     # Normalize to standard type.
     # https://tools.ietf.org/html/rfc4329#section-7.2
+
     AddType application/javascript                      js
+
 
   # Manifest files
 
@@ -208,19 +213,28 @@ Options -MultiViews
     AddType application/x-web-app-manifest+json         webapp
     AddType text/cache-manifest                         appcache manifest
 
+
   # Media files
+
     AddType audio/mp4                                   f4a f4b m4a
     AddType audio/ogg                                   oga ogg opus
     AddType image/bmp                                   bmp
     AddType image/webp                                  webp
-    AddType image/x-icon                                cur ico
     AddType video/mp4                                   f4v f4p m4v mp4
     AddType video/ogg                                   ogv
     AddType video/webm                                  webm
     AddType video/x-flv                                 flv
     AddType image/svg+xml                               svg svgz
 
+    # Serving `.ico` image files with a different media type
+    # prevents Internet Explorer from displaying then as images:
+    # https://github.com/h5bp/html5-boilerplate/commit/37b5fec090d00f38de64b591bcddcb205aadf8ee
+
+    AddType image/x-icon                                cur ico
+
+
   # Web fonts
+
     AddType application/font-woff                       woff
     AddType application/font-woff2                      woff2
     AddType application/vnd.ms-fontobject               eot
@@ -236,7 +250,9 @@ Options -MultiViews
     AddType application/x-font-ttf                      ttc ttf
     AddType font/opentype                               otf
 
+
   # Other
+
     AddType application/octet-stream                    safariextz
     AddType application/x-bb-appworld                   bbaw
     AddType application/x-chrome-extension              crx
@@ -703,9 +719,11 @@ AddDefaultCharset utf-8
                                       "application/x-web-app-manifest+json" \
                                       "application/xhtml+xml" \
                                       "application/xml" \
+                                      "font/eot" \
                                       "font/opentype" \
                                       "image/bmp" \
                                       "image/svg+xml" \
+                                      "image/vnd.microsoft.icon" \
                                       "image/x-icon" \
                                       "text/cache-manifest" \
                                       "text/css" \
@@ -716,7 +734,9 @@ AddDefaultCharset utf-8
                                       "text/vnd.rim.location.xloc" \
                                       "text/vtt" \
                                       "text/x-component" \
+                                      "text/x-cross-domain-policy" \
                                       "text/xml"
+
     </IfModule>
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -811,6 +831,7 @@ FileETag None
     ExpiresByType text/xml                              "access plus 0 seconds"
 
   # Favicon (cannot be renamed!) and cursor images
+    ExpiresByType image/vnd.microsoft.icon              "access plus 1 week"
     ExpiresByType image/x-icon                          "access plus 1 week"
 
   # HTML
@@ -833,17 +854,33 @@ FileETag None
     ExpiresByType image/gif                             "access plus 1 month"
     ExpiresByType image/jpeg                            "access plus 1 month"
     ExpiresByType image/png                             "access plus 1 month"
+    ExpiresByType image/svg+xml                         "access plus 1 month"
     ExpiresByType video/mp4                             "access plus 1 month"
     ExpiresByType video/ogg                             "access plus 1 month"
     ExpiresByType video/webm                            "access plus 1 month"
 
   # Web fonts
-    ExpiresByType application/font-woff                 "access plus 1 month"
-    ExpiresByType application/font-woff2                "access plus 1 month"
+
+    # Embedded OpenType (EOT)
     ExpiresByType application/vnd.ms-fontobject         "access plus 1 month"
-    ExpiresByType application/x-font-ttf                "access plus 1 month"
+    ExpiresByType font/eot                              "access plus 1 month"
+
+    # OpenType
     ExpiresByType font/opentype                         "access plus 1 month"
-    ExpiresByType image/svg+xml                         "access plus 1 month"
+
+    # TrueType
+    ExpiresByType application/x-font-ttf                "access plus 1 month"
+
+    # Web Open Font Format (WOFF) 1.0
+    ExpiresByType application/font-woff                 "access plus 1 month"
+    ExpiresByType application/x-font-woff               "access plus 1 month"
+    ExpiresByType font/woff                             "access plus 1 month"
+
+    # Web Open Font Format (WOFF) 2.0
+    ExpiresByType application/font-woff2                "access plus 1 month"
+
+  # Other
+    ExpiresByType text/x-cross-domain-policy            "access plus 1 week"
 
 </IfModule>
 
