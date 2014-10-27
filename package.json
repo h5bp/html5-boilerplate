@@ -1,7 +1,8 @@
 {
   "devDependencies": {
     "apache-server-configs": "2.11.0",
-    "archiver": "^0.11.0",
+    "archiver": "^0.12.0",
+    "async": "^0.9.0",
     "del": "^0.1.3",
     "glob": "^4.0.6",
     "gulp": "^3.8.9",
@@ -11,9 +12,10 @@
     "gulp-load-plugins": "^0.7.0",
     "gulp-rename": "^1.2.0",
     "gulp-replace": "^0.4.0",
+    "gulp-util": "^3.0.1",
     "jquery": "1.11.1",
     "jshint-stylish": "^1.0.0",
-    "lodash": "^2.4.1",
+    "log-symbols": "^1.0.1",
     "mocha": "^2.0.1",
     "normalize.css": "3.0.2",
     "run-sequence": "^1.0.1"
@@ -23,10 +25,13 @@
   },
   "h5bp-configs": {
     "directories": {
-      "archive": "archive",
-      "dist": "dist",
-      "src": "src",
-      "test": "test"
+      "archive": "archive/",
+      "dist": {
+        "base": "dist/h5bp",
+        "apache": "dist/h5bp+apache"
+      },
+      "src": "src/",
+      "test": "test/"
     }
   },
   "homepage": "http://h5bp.com/",
