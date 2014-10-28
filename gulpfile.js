@@ -8,14 +8,13 @@ var plugins = require('gulp-load-plugins')(); // Load all gulp plugins
 
 var runSequence = require('run-sequence');    // Temporary solution until gulp 4
                                               // https://github.com/gulpjs/gulp/issues/355
-var template = require('lodash').template;
 
 var pkg = require('./package.json');
 var dirs = pkg['h5bp-configs'].directories;
 
-// -----------------------------------------------------------------------------
-// | Helper tasks                                                              |
-// -----------------------------------------------------------------------------
+// ---------------------------------------------------------------------
+// | Helper tasks                                                      |
+// ---------------------------------------------------------------------
 
 gulp.task('archive:create_archive_dir', function () {
     fs.mkdirSync(path.resolve(dirs.archive), '0755');
@@ -58,8 +57,8 @@ gulp.task('archive:zip', function (done) {
 
 gulp.task('clean', function (done) {
     require('del')([
-        template('<%= archive %>', dirs),
-        template('<%= dist %>', dirs)
+        dirs.archive,
+        dirs.dist
     ], done);
 });
 
@@ -75,19 +74,19 @@ gulp.task('copy', [
 gulp.task('copy:.htaccess', function () {
     return gulp.src('node_modules/apache-server-configs/dist/.htaccess')
                .pipe(plugins.replace(/# ErrorDocument/g, 'ErrorDocument'))
-               .pipe(gulp.dest(template('<%= dist %>', dirs)));
+               .pipe(gulp.dest(dirs.dist));
 });
 
 gulp.task('copy:index.html', function () {
-    return gulp.src(template('<%= src %>/index.html', dirs))
+    return gulp.src(dirs.src + '/index.html')
                .pipe(plugins.replace(/{{JQUERY_VERSION}}/g, pkg.devDependencies.jquery))
-               .pipe(gulp.dest(template('<%= dist %>', dirs)));
+               .pipe(gulp.dest(dirs.dist));
 });
 
 gulp.task('copy:jquery', function () {
     return gulp.src(['node_modules/jquery/dist/jquery.min.js'])
                .pipe(plugins.rename('jquery-' + pkg.devDependencies.jquery + '.min.js'))
-               .pipe(gulp.dest(template('<%= dist %>/js/vendor', dirs)));
+               .pipe(gulp.dest(dirs.dist + '/js/vendor'));
 });
 
 gulp.task('copy:main.css', function () {
@@ -96,9 +95,9 @@ gulp.task('copy:main.css', function () {
                     ' | ' + pkg.license.type + ' License' +
                     ' | ' + pkg.homepage + ' */\n\n';
 
-    return gulp.src(template('<%= src %>/css/main.css', dirs))
+    return gulp.src(dirs.src + '/css/main.css')
                .pipe(plugins.header(banner))
-               .pipe(gulp.dest(template('<%= dist %>/css', dirs)));
+               .pipe(gulp.dest(dirs.dist + '/css'));
 
 });
 
@@ -106,31 +105,31 @@ gulp.task('copy:misc', function () {
     return gulp.src([
 
         // Copy all files
-        template('<%= src %>/**/*', dirs),
+        dirs.src + '/**/*',
 
         // Exclude the following files
         // (other tasks will handle the copying of these files)
-        template('!<%= src %>/css/main.css', dirs),
-        template('!<%= src %>/index.html', dirs)
+        '!' + dirs.src + '/css/main.css',
+        '!' + dirs.src + '/index.html'
 
     ], {
 
         // Include hidden files by default
         dot: true
 
-    }).pipe(gulp.dest(template('<%= dist %>', dirs)));
+    }).pipe(gulp.dest(dirs.dist));
 });
 
 gulp.task('copy:normalize', function () {
     return gulp.src('node_modules/normalize.css/normalize.css')
-               .pipe(gulp.dest(template('<%= dist %>/css', dirs)));
+               .pipe(gulp.dest(dirs.dist + '/css'));
 });
 
 gulp.task('lint:js', function () {
     return gulp.src([
         'gulpfile.js',
-        template('<%= src %>/js/*.js', dirs),
-        template('<%= test %>/*.js', dirs)
+        dirs.src + '/js/*.js',
+        dirs.test + '/*.js'
     ]).pipe(plugins.jscs())
       .pipe(plugins.jshint())
       .pipe(plugins.jshint.reporter('jshint-stylish'))
@@ -138,9 +137,9 @@ gulp.task('lint:js', function () {
 });
 
 
-// -----------------------------------------------------------------------------
-// | Main tasks                                                                |
-// -----------------------------------------------------------------------------
+// ---------------------------------------------------------------------
+// | Main tasks                                                        |
+// ---------------------------------------------------------------------
 
 gulp.task('archive', function (done) {
     runSequence(

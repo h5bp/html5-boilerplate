@@ -58,7 +58,7 @@ var expectedFilesInDistDir = [
 
 ];
 
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 function checkFiles(directory, expectedFiles) {
 
@@ -110,75 +110,18 @@ function checkFiles(directory, expectedFiles) {
 
 }
 
-function checkString(file, string, done) {
-
-    var character = '';
-    var matchFound = false;
-    var matchedPositions = 0;
-    var readStream = fs.createReadStream(file, { 'encoding': 'utf8' });
-
-    readStream.on('close', done);
-    readStream.on('error', done);
-    readStream.on('readable', function () {
-
-        // Read file until the string is found
-        // or the whole file has been read
-        while (matchFound !== true &&
-                (character = readStream.read(1)) !== null) {
-
-            if (character === string.charAt(matchedPositions)) {
-                matchedPositions += 1;
-            } else {
-                matchedPositions = 0;
-            }
-
-            if (matchedPositions === string.length) {
-                matchFound = true;
-            }
-
-        }
-
-        assert.equal(true, matchFound);
-        this.close();
-
-    });
-
-}
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 function runTests() {
 
-    describe('Test if all the expected files are present in the "' + dirs.archive + '", and only them', function () {
-        checkFiles(dirs.archive, expectedFilesInArchiveDir);
-    });
+    describe('Test if all the expected files, and only them, are present in the build directories', function () {
 
-    describe('Test if all the expected files are present in the "' + dirs.dist + '", and only them', function () {
-        checkFiles(dirs.dist, expectedFilesInDistDir);
-    });
-
-    describe('Test if files have the expected content', function () {
-
-        it('".htaccess" should have the "ErrorDocument..." line uncommented', function (done) {
-            var string = '\n\nErrorDocument 404 /404.html\n\n';
-            checkString(path.resolve(dirs.dist, '.htaccess'), string, done);
+        describe(dirs.archive, function () {
+            checkFiles(dirs.archive, expectedFilesInArchiveDir);
         });
 
-        it('"index.html" should contain the correct jQuery version in the CDN URL', function (done) {
-            var string = 'ajax.googleapis.com/ajax/libs/jquery/' + pkg.devDependencies.jquery + '/jquery.min.js';
-            checkString(path.resolve(dirs.dist, 'index.html'), string, done);
-        });
-
-        it('"index.html" should contain the correct jQuery version in the local URL', function (done) {
-            var string = 'js/vendor/jquery-' + pkg.devDependencies.jquery + '.min.js';
-            checkString(path.resolve(dirs.dist, 'index.html'), string, done);
-        });
-
-        it('"main.css" should contain a custom banner', function (done) {
-            var string = '/*! HTML5 Boilerplate v' + pkg.version +
-                         ' | ' + pkg.license.type + ' License' +
-                         ' | ' + pkg.homepage + ' */\n\n/*\n';
-            checkString(path.resolve(dirs.dist, 'css/main.css'), string, done);
+        describe(dirs.dist, function () {
+            checkFiles(dirs.dist, expectedFilesInDistDir);
         });
 
     });
