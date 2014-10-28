@@ -3,7 +3,8 @@
 # http://docs.travis-ci.com
 
 after_success:
-  - npm run update_dist_directory
+  - curl -sSL "https://raw.githubusercontent.com/h5bp-bot/scripts/master/commit_build_changes.sh" |
+      bash /dev/stdin "Update content from the \`dist\` directory [skip ci]"
 
 env:
   global:
