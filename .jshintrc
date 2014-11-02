@@ -1,5 +1,8 @@
 {
 
+    // Enforcing options
+    // http://www.jshint.com/docs/options/#enforcing-options
+
     "bitwise": true,
     "eqeqeq": true,
     "forin": true,
@@ -10,7 +13,17 @@
     "undef": true,
     "unused": true,
 
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    // Relaxing options
+    // http://www.jshint.com/docs/options/#relaxing-options
+
     "esnext": true,
+
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    // Environments
+    // http://www.jshint.com/docs/options/#environments
 
     "browser": true,
     "jquery": true,
