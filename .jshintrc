@@ -1,5 +1,4 @@
 {
-
     "bitwise": true,
     "eqeqeq": true,
     "forin": true,
@@ -9,11 +8,8 @@
     "nonew": true,
     "undef": true,
     "unused": true,
-
     "esnext": true,
-
     "browser": true,
     "jquery": true,
     "node": true
-
 }
