@@ -23,7 +23,7 @@ after_success:
   # Note: The `commit_build_changes.sh` script will only run if the
   # commit was made to the `master` branch.
 
-  - curl -sSL "https://raw.githubusercontent.com/h5bp-bot/scripts/0.2.2/commit_build_changes.sh" |
+  - curl -sSL "https://raw.githubusercontent.com/h5bp-bot/scripts/0.4.0/commit_build_changes.sh" |
       bash /dev/stdin "Update content from the \`dist\` directory [skip ci]"
 
 env:
