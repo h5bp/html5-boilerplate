@@ -82,13 +82,9 @@ browsing your site is treated to the best possible user experience that
 browser can offer.
 
 If possible, we recommend that you remove the `meta` tag and send only the
-HTTP response header as the `meta` tag:
-
-* breaks validation (see also: [Validating
-  X-UA-Compatible](http://groups.google.com/group/html5boilerplate/browse_thread/thread/6d1b6b152aca8ed2))
-* will not always work if your site is served on a non-standard port, as
-  Internet Explorer's preference option `Display intranet sites in Compatibility
-  View` is checked by default
+HTTP response header as the `meta` tag will not always work if your site is
+served on a non-standard port, as Internet Explorer's preference option
+`Display intranet sites in Compatibility View` is checked by default.
 
 If you are using Apache as your webserver, including the
 [`.htaccess`](https://github.com/h5bp/server-configs-apache) file takes care of
