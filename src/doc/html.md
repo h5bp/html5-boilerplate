@@ -137,6 +137,32 @@ so that browsers lacking support for some of the new HTML5 elements are able to
 handle them properly. Therefore the Modernizr script is the only JavaScript
 file synchronously loaded at the top of the document.
 
+## What about polyfills?
+
+If you need to include [polyfills](https://remysharp.com/2010/10/08/what-is-a-polyfill) 
+in your project, you must make sure those load before any other JavaScript. If you're 
+using some polyfill CDN service, like [cdn.polyfill.io](http://cdn.polyfill.io/), 
+just put it before the other scripts in the bottom of the page:
+
+```html
+    <script src="//cdn.polyfill.io/v1/polyfill.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+</body>
+```
+
+If you like to just include the polyfills yourself, you could include them in
+`js/plugins.js`. When you have a bunch of polyfills to load in, you could
+also create a `polyfills.js` file in the `js/vendor` directory. Also using
+this technique, make sure the polyfills are all loaded before any other
+Javascript.
+
+There are some misconceptions about Modernizr and polyfills. It's important
+to understand that Modernizr just handles feature checking, not polyfilling
+itself. The only thing Modernizr does regarding polyfills is that the team
+maintains [a huge list of cross Browser polyfills](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills).
 
 ## The content area
 
