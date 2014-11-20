@@ -139,9 +139,9 @@ file synchronously loaded at the top of the document.
 
 ## What about polyfills?
 
-If you need to include [polyfills](https://remysharp.com/2010/10/08/what-is-a-polyfill) 
-in your project, you must make sure those load before any other JavaScript. If you're 
-using some polyfill CDN service, like [cdn.polyfill.io](http://cdn.polyfill.io/), 
+If you need to include [polyfills](https://remysharp.com/2010/10/08/what-is-a-polyfill)
+in your project, you must make sure those load before any other JavaScript. If you're
+using some polyfill CDN service, like [cdn.polyfill.io](http://cdn.polyfill.io/),
 just put it before the other scripts in the bottom of the page:
 
 ```html
@@ -213,6 +213,7 @@ Further information:
   Snippet](https://mathiasbynens.be/notes/async-analytics-snippet#universal-analytics)
 * [Introduction to
   Analytics.js](https://developers.google.com/analytics/devguides/collection/analyticsjs/)
+* [Google Analytics Demos & Tools](https://ga-dev-tools.appspot.com/)
 
 **N.B.** The Google Universal Analytics snippet is included by default mainly
 because Google Analytics is [currently one of the most popular tracking
