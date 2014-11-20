@@ -4,8 +4,8 @@ table of contents](TOC.md)
 # Extend and customise HTML5 Boilerplate
 
 Here is some useful advice for how you can make your project with HTML5
-Boilerplate even better. We don't want to include it all by default, as not
-everything fits with everyone's needs.
+Boilerplate even better. We don't want to include it all by default, as
+not everything fits with everyone's needs.
 
 
 * [App Stores](#app-stores)
@@ -24,25 +24,25 @@ everything fits with everyone's needs.
 
 ### Install a Chrome Web Store app
 
-Users can install a Chrome app directly from your website, as long as the app
-and site have been associated via Google's Webmaster Tools. Read more on
-[Chrome Web Store's Inline Installation
+Users can install a Chrome app directly from your website, as long as
+the app and site have been associated via Google's Webmaster Tools.
+Read more on [Chrome Web Store's Inline Installation
 docs](https://developer.chrome.com/webstore/inline_installation).
 
 ```html
 <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/APP_ID">
 ```
 
-### Smart App Banners in iOS 6 Safari
+### Smart App Banners in iOS 6+ Safari
 
-Stop bothering everyone with gross modals advertising your entry in the App Store.
-This bit of code will unintrusively allow the user the option to download your iOS
-app, or open it with some data about the user's current state on the website.
+Stop bothering everyone with gross modals advertising your entry in the
+App Store. Include the following [meta tag](https://developer.apple.com/library/IOS/documentation/AppleApplications/Reference/SafariWebContent/PromotingAppswithAppBanners/PromotingAppswithAppBanners.html#//apple_ref/doc/uid/TP40002051-CH6-SW2)
+will unintrusively allow the user the option to download your iOS app,
+or open it with some data about the user's current state on the website.
 
 ```html
 <meta name="apple-itunes-app" content="app-id=APP_ID,app-argument=SOME_TEXT">
 ```
-
 
 ## DNS prefetching
 
@@ -116,11 +116,6 @@ Microsoft Ajax Content Delivery Network:
 <link rel="dns-prefetch" href="//ajax.microsoft.com">
 <link rel="dns-prefetch" href="//ajax.aspnetcdn.com">
 ```
-
-### Browser support for DNS prefetching
-
-Chrome, Firefox 3.5+, Safari 5+, Opera (Unknown), IE 9 (called "Pre-resolution"
-on blogs.msdn.com)
 
 ### Further reading about DNS prefetching
 
@@ -398,8 +393,7 @@ plugin](https://www.google.com/search?ie=UTF-8&q=how+to+make+browser+search+plug
 
 ## Miscellaneous
 
-* Use [HTML5
-  polyfills](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills).
+* Use [polyfills](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills).
 
 * Use [Microformats](http://microformats.org/wiki/Main_Page) (via
   [microdata](http://microformats.org/wiki/microdata)) for optimum search
@@ -649,7 +643,3 @@ Same applies to the touch icons:
 ```html
 <link rel="icon" sizes="192x192" href="highres-icon.png">
 ```
-
-
-*Many thanks to [Brian Blakely](https://github.com/brianblakely) for
-contributing much of this information.*
