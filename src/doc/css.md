@@ -11,8 +11,10 @@ HTML5 Boilerplate's CSS includes:
 * [Placeholder media queries](#media-queries)
 * [Print styles](#print-styles)
 
-This starting CSS does not rely on the presence of conditional class names,
-conditional style sheets, or Modernizr, and it is ready to use no matter what
+This starting CSS does not rely on the presence of
+[conditional class names](http://www.paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/),
+[conditional style sheets](http://css-tricks.com/how-to-create-an-ie-only-stylesheet/),
+or [Modernizr](http://modernizr.com/), and it is ready to use no matter what
 your development preferences happen to be.
 
 

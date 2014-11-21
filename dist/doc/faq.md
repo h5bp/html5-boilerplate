@@ -50,8 +50,9 @@ A list of more complex HTTP servers can be found
 ### Why don't you automatically load the latest version of jQuery from the Google CDN?
 
 The [file](https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js) to which
-the Google CDN points to is [no longer updated and will stay locked at version
-`1.11.1` in order to prevent inadvertent web
+the Google [CDN](https://en.wikipedia.org/wiki/Content_delivery_network) points
+to is [no longer updated and will stay locked at version `1.11.1` in order to
+prevent inadvertent web
 breakage](http://blog.jquery.com/2014/07/03/dont-use-jquery-latest-js/).
 
 In general, version updating should be an intentional decision! You shouldn't
