@@ -1,12 +1,12 @@
 {
   "devDependencies": {
     "apache-server-configs": "2.11.0",
-    "archiver": "^0.12.0",
+    "archiver": "^0.13.0",
     "del": "^0.1.3",
     "glob": "^4.2.1",
     "gulp": "^3.8.10",
     "gulp-header": "^1.2.2",
-    "gulp-jscs": "^1.3.0",
+    "gulp-jscs": "^1.3.1",
     "gulp-jshint": "^1.9.0",
     "gulp-load-plugins": "^0.7.1",
     "gulp-rename": "^1.2.0",
