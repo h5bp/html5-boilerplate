@@ -12,7 +12,7 @@ framework, so you're free to architect your code in the way that you want.
 
 * Source: [https://github.com/h5bp/html5-boilerplate](https://github.com/h5bp/html5-boilerplate)
 * Homepage: [http://html5boilerplate.com](http://html5boilerplate.com)
-* Twitter: [@h5bp](http://twitter.com/h5bp)
+* Twitter: [@h5bp](https://twitter.com/h5bp)
 
 
 ## Quick start
@@ -35,7 +35,7 @@ Choose one of the following options:
 * Designed with progressive enhancement in mind.
 * Includes [Normalize.css](http://necolas.github.com/normalize.css/) for CSS
   normalizations and common bug fixes.
-* The latest [jQuery](http://jquery.com/) via CDN, with a local fallback.
+* The latest [jQuery](https://jquery.com/) via CDN, with a local fallback.
 * The latest [Modernizr](http://modernizr.com/) build for feature detection.
 * Placeholder CSS Media Queries.
 * Useful CSS helpers.
