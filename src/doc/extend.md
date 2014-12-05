@@ -643,3 +643,15 @@ Same applies to the touch icons:
 ```html
 <link rel="icon" sizes="192x192" href="highres-icon.png">
 ```
+
+### Theme Colour
+
+Theme colour for Chrome UI bleed on Android.
+For Colour Bleed/theme colour on Chrome UI on
+Android (inline with current colour bleed trends, such as Yosemite/iOS8
+etc).
+
+Content attribute should be a 6 digit hex code (at least for the moment, until official Moz docs are relased).
+```html
+<meta name="theme-color" content="#ffffff">
+```
