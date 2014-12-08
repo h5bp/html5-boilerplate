@@ -1,5 +1,6 @@
 ### HEAD
 
+* Add DNS Prefetching for included external domains
 * Update Apache Server Configs to v2.11.0.
 * Rename Apple touch icon to `apple-touch-icon.png` and add
   `<link>` in `index.html`
