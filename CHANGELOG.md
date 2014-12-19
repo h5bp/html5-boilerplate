@@ -1,5 +1,6 @@
 ### HEAD
 
+* Update to jQuery 1.11.2.
 * Update Apache Server Configs to v2.11.0.
 * Rename Apple touch icon to `apple-touch-icon.png` and add
   `<link>` in `index.html`
@@ -27,7 +28,6 @@
   ([#1559](https://github.com/h5bp/html5-boilerplate/issues/1559)).
 * Add `lang=""` to `<html>`
   ([#1542](https://github.com/h5bp/html5-boilerplate/issues/1542)).
-* Update to jQuery 1.11.1.
 * Use `<!doctype html>` instead of `<!DOCTYPE html>`
   ([#1522](https://github.com/h5bp/html5-boilerplate/issues/1522)).
 * Add `/browserconfig.xml` file and tile images
