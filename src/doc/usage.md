@@ -31,14 +31,18 @@ A basic HTML5 Boilerplate site initially looks something like this:
 │   └── vendor
 │       ├── jquery.min.js
 │       └── modernizr.min.js
+├── .editorconfig
 ├── .htaccess
 ├── 404.html
 ├── apple-touch-icon.png
+├── browserconfig.xml
 ├── index.html
 ├── humans.txt
 ├── robots.txt
 ├── crossdomain.xml
-└── favicon.ico
+├── favicon.ico
+├── tile-wide.png
+└── tile.png
 ```
 
 What follows is a general overview of each major part and how to use them.
@@ -74,6 +78,19 @@ corresponding server configs project listed in our [Server Configs
 
 A helpful custom 404 to get you started.
 
+### browserconfig.xml
+
+This file contains all settings regarding custom tiles for IE11.
+
+For more info on this topic, please refer to 
+[MSDN](http://msdn.microsoft.com/en-us/library/ie/dn455106.aspx).
+
+### .editorconfig
+
+The `.editorconfig` file is provided in order to encourage and help you and
+your team to maintain consistent coding styles between different
+editors and IDEs. [Read more about the `.editorconfig` file](misc.md#editorconfig).
+
 ### index.html
 
 This is the default HTML skeleton that should form the basis of all pages on
@@ -102,7 +119,8 @@ crossdomain.xml](misc.md#crossdomainxml).
 
 ### Icons
 
-Replace the default `favicon.ico` and Apple Touch Icon with your own.
+Replace the default `favicon.ico`, `tile.png`, `tile-wide.png` and Apple 
+Touch Icon with your own.
 
 If you want to use different Apple Touch Icons for different resolutions please
 refer to the [according documentation](extend.md#apple-touch-icons).
