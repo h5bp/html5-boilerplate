@@ -8,6 +8,7 @@ table of contents](TOC.md)
 * [Server Configuration](#server-configuration)
 * [crossdomain.xml](#crossdomainxml)
 * [robots.txt](#robotstxt)
+* [browserconfig.xml](#browserconfigxml)
 
 --
 
@@ -177,3 +178,21 @@ For more information about `robots.txt`, please see:
 
   * [robotstxt.org](http://www.robotstxt.org/)
   * [How Google handles the `robots.txt` file](https://developers.google.com/webmasters/control-crawl-index/docs/robots_txt)
+
+
+## browserconfig.xml
+
+The `browserconfig.xml` file is used to customize the tile displayed when users 
+pin your site to the Windows 8 start screen. In there you can define costum 
+tile colors, custom images or even [live tiles](http://msdn.microsoft.com/en-us/library/ie/dn455106.aspx#CreatingLiveTiles).
+
+By default, the file points to 2 placeholder tile images:
+
+* `tile.png` (558x558px): used for `Small`, `Medium` and `Large` tiles.
+  This image resizes automatically when necessary.
+* `tile-wide.png` (558x270px): user for `Wide` tiles.
+
+Notice that IE11 uses the same images when adding a site to the `favorites`.
+
+For more in-depth information about the `browserconfig.xml` file, please
+see [MSDN](http://msdn.microsoft.com/en-us/library/ie/dn320426%28v=vs.85%29.aspx).
