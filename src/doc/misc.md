@@ -183,7 +183,7 @@ For more information about `robots.txt`, please see:
 ## browserconfig.xml
 
 The `browserconfig.xml` file is used to customize the tile displayed when users 
-pin your site to the Windows 8 start screen. In there you can define costum 
+pin your site to the Windows 8.1 start screen. In there you can define custom 
 tile colors, custom images or even [live tiles](http://msdn.microsoft.com/en-us/library/ie/dn455106.aspx#CreatingLiveTiles).
 
 By default, the file points to 2 placeholder tile images:
