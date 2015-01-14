@@ -12,11 +12,7 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
-        <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script>
-            function b(o,i,l,r){i=document;l='script';r=i.createElement(l);r.src=o;i.getElementsByTagName(l)[0].parentNode.appendChild(r)}
-            window.Modernizr||b('js/vendor/modernizr-2.8.3.min.js')
-        </script>
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -27,7 +23,10 @@
         <p>Hello world! This is HTML5 Boilerplate.</p>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script>window.jQuery||b('js/vendor/jquery-1.11.2.min.js')</script>
+        <script>
+            function b(o,i,l,r){i=document;l='script';r=i.createElement(l);r.src=o;i.getElementsByTagName(l)[0].parentNode.appendChild(r)}
+            window.jQuery||b('js/vendor/jquery-1.11.2.min.js')
+        </script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
 
