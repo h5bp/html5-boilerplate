@@ -24,7 +24,6 @@
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>
-            function b(o,i,l,r){i=document;l='script';r=i.createElement(l);r.src=o;i.getElementsByTagName(l)[0].parentNode.appendChild(r)}
             window.jQuery||b('js/vendor/jquery-1.11.2.min.js')
         </script>
         <script src="js/plugins.js"></script>
@@ -32,6 +31,7 @@
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
+            function b(o,i,l,r){i=document;l='script';r=i.createElement(l);r.src=o;i.getElementsByTagName(l)[0].parentNode.appendChild(r)}
             (function(g,a){g.GoogleAnalyticsObject=a;g[a]||(g[a]=function(){(g[a].q=g[a].q||[]).push(arguments)})
             g[a].l=+new Date;b('//www.google-analytics.com/analytics.js')}(window,'ga'));
             ga('create', 'UA-XXXX-X','auto');ga('send','pageview');
