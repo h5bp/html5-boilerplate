@@ -1,7 +1,5 @@
 [HTML5 Boilerplate homepage](http://html5boilerplate.com)
 
-# Table of Contents
-
 ## Getting started
 
 * [Usage](usage.md) — Overview of the project contents.
@@ -25,9 +23,7 @@ The [H5BP organization](https://github.com/h5bp) maintains several projects
 that complement HTML5 Boilerplate, projects that can help you improve different
 aspects of your website/web app (e.g.: the performance, security, etc.).
 
-These projects are:
-
+* [Server Configs](https://github.com/h5bp/server-configs) — Fast & smart
+  configurations for web servers, like Apache and Nginx
 * [Ant Build Script](https://github.com/h5bp/ant-build-script) — Apache Ant
   based build script.
-* [Server Configs](https://github.com/h5bp/server-configs) — Boilerplate
-  configurations for various web servers.
