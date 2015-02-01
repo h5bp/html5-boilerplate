@@ -1,4 +1,4 @@
-### HEAD
+### 5.0
 
 * Update to jQuery 1.11.2.
 * Update Apache Server Configs to v2.11.0.
