@@ -199,7 +199,7 @@ world performance of your site and can show where you can optimize your specific
 site or application.
 
 
-### Google Universal Analytics Tracking Code
+### Asychronous Google Universal Analytics Tracking Code
 
 Finally, an optimized version of the Google Universal Analytics tracking code is
 included. Google recommends that this script be placed at the top of the page.
