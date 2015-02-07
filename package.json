@@ -1,7 +1,7 @@
 {
   "devDependencies": {
     "apache-server-configs": "2.11.0",
-    "archiver": "^0.13.0",
+    "archiver": "^0.14.2",
     "del": "^1.1.0",
     "glob": "^4.2.1",
     "gulp": "^3.8.10",
