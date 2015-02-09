@@ -4,29 +4,43 @@
 
 after_success:
 
-  # If the tests past, Travis will automatically download and execute
-  # the following script(s).
+  # Temporary workaround for:
+  # https://github.com/travis-ci/travis-ci/issues/929
 
-  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  - python travis_after_all.py
+  - export $(cat .to_export_back)
+  - |
 
-  # The `commit_build_changes.sh` script will run `npm run build`,
-  # and if that generates changes, it will commit them to the `master`
-  # branch:
-  #
-  #   * ensuring that the content from the `dist/` directory is always
-  #     in sync with the rest of the content
-  #
-  #   * removing the need to execute the build step locally everytime
-  #     a change is made (especially in the case of trivial changes
-  #     such as typos)
-  #
-  # Note: The `commit_build_changes.sh` script will only run if the
-  # commit was made to the `master` branch.
+      # If all the tests pass in all the runtimes, make Travis
+      # automatically download and execute the following script
 
-  - curl -sSL "https://raw.githubusercontent.com/h5bp-bot/scripts/0.6.0/commit_build_changes.sh" |
-      bash -s -- --branch "master"
-                 --commands "npm install && npm run build"
-                 --commit-message "Update content from the \`dist\` directory [skip ci]"
+      if [ "$BUILD_LEADER" == "YES" ]; then
+        if [ "$BUILD_AGGREGATE_STATUS" == "others_succeeded" ]; then \
+
+          # Clean up helper files
+          rm -rf travis_after_all.py .to_export_back && \
+
+          # The `commit_build_changes.sh` script will run the build,
+          # and if that generates changes, it will commit them to the
+          # `master` branch:
+          #
+          #   * ensuring that the content from the `dist/` directory
+          #     is always in sync with the rest of the content
+          #
+          #   * removing the need to execute the build step locally
+          #     everytime a change is made (especially in the case
+          #     of trivial changes such as typos)
+          #
+          # Note: The `commit_build_changes.sh` script will only run
+          # if the commit was made to the `master` branch.
+
+          curl -sSL "https://raw.githubusercontent.com/h5bp-bot/scripts/0.6.1/commit_build_changes.sh" |
+              bash -s -- --branch "master" \
+                         --commands "npm install && npm run build" \
+                         --commit-message "Update content from the \`dist\` directory [skip ci]";
+
+        fi
+      fi
 
 env:
   global:
@@ -59,6 +73,10 @@ git:
 language: node_js
 
 node_js:
+  - "iojs"
   - "0.12"
+
+script:
+  - curl -sSLo travis_after_all.py https://raw.github.com/dmakhno/travis_after_all/master/travis_after_all.py
 
 sudo: false
