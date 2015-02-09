@@ -1,5 +1,8 @@
 ### HEAD
 
+* Use `<meta http-equiv="x-ua-compatible" content="ie=edge">`<br>
+  instead of `<meta http-equiv="X-UA-Compatible" content="IE=edge">`
+  ([#1656](https://github.com/h5bp/html5-boilerplate/issues/1656)).
 * Update Apache Server Configs to v2.13.0.
 
 ### 5.0.0 (February 1, 2015)
