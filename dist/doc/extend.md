@@ -643,3 +643,20 @@ Same applies to the touch icons:
 ```html
 <link rel="icon" sizes="192x192" href="highres-icon.png">
 ```
+
+### Theme Color
+
+You can add the [`theme-color` meta extension](https://github.com/whatwg/meta-theme-color)
+in the `<head>` of your pages to suggest the color that browsers and
+OSes should use if they customize the display of individual pages in
+their UIs with varying colors.
+
+```html
+<meta name="theme-color" content="#ff69b4">
+```
+
+The `content` attribute extension can take any valid CSS color.
+
+Currently, the `theme-color` meta extension is supported by [Chrome 39+
+for Android Lollipop](http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android)
+and [Firefox OS 2.1+](https://twitter.com/ahmednefzaoui/status/492344698493997057).
