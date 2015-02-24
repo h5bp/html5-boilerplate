@@ -8,7 +8,7 @@ after_success:
   # https://github.com/travis-ci/travis-ci/issues/929
 
   - python travis_after_all.py
-  - export $(cat .to_export_back)
+  - export $(cat .to_export_back) &> /dev/null
   - |
 
       # If all the tests pass in all the runtimes, make Travis
@@ -65,7 +65,7 @@ env:
     #   * GitHub access token, see:
     #     https://help.github.com/articles/creating-an-access-token-for-command-line-use/
 
-    - secure: "mkLhS1ajE7gYNUdHsAfcW6vU9THb2DmPA01PQlXz2y/F3Ld0IwEpqrGGLWyg9ZSYr0g7xq+M46pPiZsfZgCYSLv0flA/RFLmiXcVQfap3BZf8sqTtE3M9AHuy9sxUgus2M9GA7Wupws2KC2PXZM0OT12GSSOCYQCLD3ySD4b4mE="
+    - secure: "OQnRHkXKdvSujTPm0DSXJFrso0zKltkso0e8zF/2GLI7ouv60ELHhYCrWFuoeefSJFbiPeH/9GXnTAv7y+gC08Ba/DSlXGaHl4db5xU/7AazzQR4YaTks6z0CfvlftdlimGOY27tuDU8hMfqHJKybJGcEvFKCVJms/7udYYh+CA="
 
 git:
   depth: 10
