@@ -1,4 +1,4 @@
-# Apache Server Configs v2.11.0 | MIT License
+# Apache Server Configs v2.12.0 | MIT License
 # https://github.com/h5bp/server-configs-apache
 
 # (!) Using `.htaccess` files slows down Apache, therefore, if you have
@@ -119,17 +119,21 @@ Options -MultiViews
 # designed for older versions of Internet Explorer, you might want to
 # consider enabling `Enterprise Mode` throughout your company.
 #
-# http://msdn.microsoft.com/en-us/library/ie/bg182625.aspx#docmode
+# https://msdn.microsoft.com/en-us/library/ie/bg182625.aspx#docmode
 # http://blogs.msdn.com/b/ie/archive/2014/04/02/stay-up-to-date-with-enterprise-mode-for-internet-explorer-11.aspx
 
 <IfModule mod_headers.c>
+
     Header set X-UA-Compatible "IE=edge"
+
     # `mod_headers` cannot match based on the content-type, however,
     # the `X-UA-Compatible` response header should be send only for
     # HTML documents and not for the other resources.
+
     <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|woff2?|xloc|xml|xpi)$">
         Header unset X-UA-Compatible
     </FilesMatch>
+
 </IfModule>
 
 # ----------------------------------------------------------------------
@@ -138,7 +142,7 @@ Options -MultiViews
 
 # Allow cookies to be set from iframes in Internet Explorer.
 #
-# http://msdn.microsoft.com/en-us/library/ms537343.aspx
+# https://msdn.microsoft.com/en-us/library/ms537343.aspx
 # http://www.w3.org/TR/2000/CR-P3P-20001215/
 
 # <IfModule mod_headers.c>
@@ -163,10 +167,12 @@ Options -MultiViews
 
   # Data interchange
 
+    AddType application/atom+xml                        atom
     AddType application/json                            json map topojson
     AddType application/ld+json                         jsonld
+    AddType application/rss+xml                         rss
     AddType application/vnd.geo+json                    geojson
-    AddType application/xml                             atom rdf rss xml
+    AddType application/xml                             rdf xml
 
 
   # JavaScript
@@ -219,12 +225,12 @@ Options -MultiViews
     AddType audio/mp4                                   f4a f4b m4a
     AddType audio/ogg                                   oga ogg opus
     AddType image/bmp                                   bmp
+    AddType image/svg+xml                               svg svgz
     AddType image/webp                                  webp
     AddType video/mp4                                   f4v f4p m4v mp4
     AddType video/ogg                                   ogv
     AddType video/webm                                  webm
     AddType video/x-flv                                 flv
-    AddType image/svg+xml                               svg svgz
 
     # Serving `.ico` image files with a different media type
     # prevents Internet Explorer from displaying then as images:
@@ -258,6 +264,7 @@ Options -MultiViews
     AddType application/x-chrome-extension              crx
     AddType application/x-opera-extension               oex
     AddType application/x-xpinstall                     xpi
+    AddType text/html                                   php
     AddType text/vcard                                  vcard vcf
     AddType text/vnd.rim.location.xloc                  xloc
     AddType text/vtt                                    vtt
@@ -327,7 +334,7 @@ AddDefaultCharset utf-8
 #
 # (4) Some cloud hosting services will require you set `RewriteBase`.
 #
-#     http://www.rackspace.com/knowledge_center/frequently-asked-question/why-is-modrewrite-not-working-on-my-site
+#     https://www.rackspace.com/knowledge_center/frequently-asked-question/why-is-modrewrite-not-working-on-my-site
 #     https://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewritebase
 #
 # (5) Depending on how your server is set up, you may also need to
@@ -335,6 +342,9 @@ AddDefaultCharset utf-8
 #     the rewrite engine.
 #
 #     https://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewriteoptions
+#
+# (6) Set %{ENV:PROTO} variable, to allow rewrites to redirect with the
+#     appropriate schema automatically (http or https).
 
 <IfModule mod_rewrite.c>
 
@@ -352,6 +362,12 @@ AddDefaultCharset utf-8
 
     # (5)
     # RewriteOptions <options>
+
+    # (6)
+    RewriteCond %{HTTPS} =on
+    RewriteRule ^ - [env=proto:https]
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^ - [env=proto:http]
 
 </IfModule>
 
@@ -394,7 +410,7 @@ AddDefaultCharset utf-8
     RewriteEngine On
     RewriteCond %{HTTPS} !=on
     RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-    RewriteRule ^ http://%1%{REQUEST_URI} [R=301,L]
+    RewriteRule ^ %{ENV:PROTO}://%1%{REQUEST_URI} [R=301,L]
 </IfModule>
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -410,7 +426,7 @@ AddDefaultCharset utf-8
 #     RewriteCond %{HTTP_HOST} !^www\. [NC]
 #     RewriteCond %{SERVER_ADDR} !=127.0.0.1
 #     RewriteCond %{SERVER_ADDR} !=::1
-#     RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+#     RewriteRule ^ %{ENV:PROTO}://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 # </IfModule>
 
 
@@ -453,13 +469,17 @@ AddDefaultCharset utf-8
 # https://www.owasp.org/index.php/Clickjacking
 
 # <IfModule mod_headers.c>
+
 #     Header set X-Frame-Options "DENY"
+
 #     # `mod_headers` cannot match based on the content-type, however,
 #     # the `X-Frame-Options` response header should be send only for
 #     # HTML documents and not for the other resources.
+
 #     <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|woff2?|xloc|xml|xpi)$">
 #         Header unset X-Frame-Options
 #     </FilesMatch>
+
 # </IfModule>
 
 # ----------------------------------------------------------------------
@@ -472,24 +492,29 @@ AddDefaultCharset utf-8
 # This can be done by setting a `Content Security Policy` which
 # whitelists trusted sources of content for your website.
 #
-# The example header below allows ONLY scripts that are loaded from the
-# current website's origin (no inline scripts, no CDN, etc). That almost
-# certainly won't work as-is for your website!
+# The example header below allows ONLY scripts that are loaded from
+# the current website's origin (no inline scripts, no CDN, etc).
+# That almost certainly won't work as-is for your website!
 #
-# For more details on how to craft a reasonable policy for your website,
-# read: http://www.html5rocks.com/en/tutorials/security/content-security-policy/
-# (or the specification: http://www.w3.org/TR/CSP11/). Also, to make
-# things easier, you can use an online CSP header generator such as:
-# http://cspisawesome.com/.
+# To make things easier, you can use an online CSP header generator
+# such as: http://cspisawesome.com/.
+#
+# http://content-security-policy.com/
+# http://www.html5rocks.com/en/tutorials/security/content-security-policy/
+# http://www.w3.org/TR/CSP11/).
 
 # <IfModule mod_headers.c>
+
 #     Header set Content-Security-Policy "script-src 'self'; object-src 'self'"
+
 #     # `mod_headers` cannot match based on the content-type, however,
 #     # the `Content-Security-Policy` response header should be send
 #     # only for HTML documents and not for the other resources.
+
 #     <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|woff2?|xloc|xml|xpi)$">
 #         Header unset Content-Security-Policy
 #     </FilesMatch>
+
 # </IfModule>
 
 # ----------------------------------------------------------------------
@@ -586,7 +611,7 @@ AddDefaultCharset utf-8
 # http://blogs.msdn.com/b/ieinternals/archive/2014/08/18/hsts-strict-transport-security-attacks-mitigations-deployment-https.aspx
 
 # <IfModule mod_headers.c>
-#     Header set Strict-Transport-Security "max-age=16070400; includeSubDomains"
+#     Header always set Strict-Transport-Security "max-age=16070400; includeSubDomains"
 # </IfModule>
 
 # ----------------------------------------------------------------------
@@ -602,7 +627,7 @@ AddDefaultCharset utf-8
 #
 # http://www.slideshare.net/hasegawayosuke/owasp-hasegawa
 # http://blogs.msdn.com/b/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx
-# http://msdn.microsoft.com/en-us/library/ie/gg622941.aspx
+# https://msdn.microsoft.com/en-us/library/ie/gg622941.aspx
 # https://mimesniff.spec.whatwg.org/
 
 <IfModule mod_headers.c>
@@ -635,7 +660,7 @@ AddDefaultCharset utf-8
 #     thereby, it's better to inform browsers to prevent the rendering
 #     of the page altogether, instead of attempting to modify it.
 #
-#     http://hackademix.net/2009/11/21/ies-xss-filter-creates-xss-vulnerabilities
+#     https://hackademix.net/2009/11/21/ies-xss-filter-creates-xss-vulnerabilities
 #
 # (!) Do not rely on the XSS filter to prevent XSS attacks! Ensure that
 #     you are taking all possible measures to prevent XSS attacks, the
@@ -646,19 +671,57 @@ AddDefaultCharset utf-8
 # https://www.owasp.org/index.php/Cross-site_Scripting_%28XSS%29
 
 # <IfModule mod_headers.c>
+
 #     #                           (1)    (2)
 #     Header set X-XSS-Protection "1; mode=block"
+
 #     # `mod_headers` cannot match based on the content-type, however,
 #     # the `X-XSS-Protection` response header should be send only for
 #     # HTML documents and not for the other resources.
+
 #     <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|woff2?|xloc|xml|xpi)$">
 #         Header unset X-XSS-Protection
 #     </FilesMatch>
+
 # </IfModule>
+
+# ----------------------------------------------------------------------
+# | Server-side technology information                                 |
+# ----------------------------------------------------------------------
+
+# Remove the `X-Powered-By` response header that:
+#
+#  * is set by some frameworks and server-side languages
+#    (e.g.: ASP.NET, PHP), and its value contains information
+#    about them (e.g.: their name, version number)
+#
+#  * doesn't provide any value as far as users are concern,
+#    and in some cases, the information provided by it can
+#    be used by attackers
+#
+# (!) If you can, you should disable the `X-Powered-By` header from the
+# language / framework level (e.g.: for PHP, you can do that by setting
+# `expose_php = off` in `php.ini`)
+#
+# https://php.net/manual/en/ini.core.php#ini.expose-php
+
+<IfModule mod_headers.c>
+    Header unset X-Powered-By
+</IfModule>
 
 # ----------------------------------------------------------------------
 # | Server software information                                        |
 # ----------------------------------------------------------------------
+
+# Prevent Apache from adding a trailing footer line containing
+# information about the server to the server-generated documents
+# (e.g.: error messages, directory listings, etc.)
+#
+# https://httpd.apache.org/docs/current/mod/core.html#serversignature
+
+ServerSignature Off
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Prevent Apache from sending in the `Server` response header its
 # exact version number, the description of the generic OS-type or
@@ -669,7 +732,7 @@ AddDefaultCharset utf-8
 #
 # https://httpd.apache.org/docs/current/mod/core.html#servertokens
 
-# ServerTokens Prod
+#ServerTokens Prod
 
 
 # ######################################################################
@@ -855,6 +918,7 @@ FileETag None
     ExpiresByType image/jpeg                            "access plus 1 month"
     ExpiresByType image/png                             "access plus 1 month"
     ExpiresByType image/svg+xml                         "access plus 1 month"
+    ExpiresByType image/webp                            "access plus 1 month"
     ExpiresByType video/mp4                             "access plus 1 month"
     ExpiresByType video/ogg                             "access plus 1 month"
     ExpiresByType video/webm                            "access plus 1 month"

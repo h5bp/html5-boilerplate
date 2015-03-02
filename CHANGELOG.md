@@ -1,3 +1,7 @@
+### HEAD
+
+* Update Apache Server Configs to v2.12.0.
+
 ### 5.0.0 (February 1, 2015)
 
 * Update to jQuery 1.11.2.
