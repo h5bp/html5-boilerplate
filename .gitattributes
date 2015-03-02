@@ -15,3 +15,7 @@
 *.sh    text eol=lf
 *.txt   text eol=lf
 *.xml   text eol=lf
+
+# Exclude the `.htaccess` file from GitHub's language statistics
+# https://github.com/github/linguist#using-gitattributes
+dist/.htaccess linguist-vendored
