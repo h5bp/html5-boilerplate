@@ -1,4 +1,4 @@
-[HTML5 Boilerplate homepage](http://html5boilerplate.com) | [Documentation
+[HTML5 Boilerplate homepage](https://html5boilerplate.com) | [Documentation
 table of contents](TOC.md)
 
 # Usage
@@ -82,8 +82,8 @@ A helpful custom 404 to get you started.
 
 This file contains all settings regarding custom tiles for IE11.
 
-For more info on this topic, please refer to 
-[MSDN](http://msdn.microsoft.com/en-us/library/ie/dn455106.aspx).
+For more info on this topic, please refer to
+[MSDN](https://msdn.microsoft.com/en-us/library/ie/dn455106.aspx).
 
 ### .editorconfig
 
@@ -119,7 +119,7 @@ crossdomain.xml](misc.md#crossdomainxml).
 
 ### Icons
 
-Replace the default `favicon.ico`, `tile.png`, `tile-wide.png` and Apple 
+Replace the default `favicon.ico`, `tile.png`, `tile-wide.png` and Apple
 Touch Icon with your own.
 
 If you want to use different Apple Touch Icons for different resolutions please

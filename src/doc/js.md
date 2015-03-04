@@ -1,4 +1,4 @@
-[HTML5 Boilerplate homepage](http://html5boilerplate.com) | [Documentation
+[HTML5 Boilerplate homepage](https://html5boilerplate.com) | [Documentation
 table of contents](TOC.md)
 
 # The JavaScript
@@ -20,7 +20,7 @@ other 3rd party scripts.
 One approach is to put jQuery plugins inside of a `(function($){ ...
 })(jQuery);` closure to make sure they're in the jQuery namespace safety
 blanket. Read more about [jQuery plugin
-authoring](http://docs.jquery.com/Plugins/Authoring#Getting_Started).
+authoring](https://learn.jquery.com/plugins/#Getting_Started).
 
 By default the `plugins.js` file contains a small script to avoid `console`
 errors in browsers that lack a `console`. The script will make sure that, if

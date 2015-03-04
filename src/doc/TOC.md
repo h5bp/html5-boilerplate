@@ -1,4 +1,4 @@
-[HTML5 Boilerplate homepage](http://html5boilerplate.com)
+[HTML5 Boilerplate homepage](https://html5boilerplate.com)
 
 ## Getting started
 
@@ -23,7 +23,7 @@ The [H5BP organization](https://github.com/h5bp) maintains several projects
 that complement HTML5 Boilerplate, projects that can help you improve different
 aspects of your website/web app (e.g.: the performance, security, etc.).
 
-* [Server Configs](https://github.com/h5bp/server-configs) — Fast & smart
-  configurations for web servers, like Apache and Nginx
-* [Ant Build Script](https://github.com/h5bp/ant-build-script) — Apache Ant
-  based build script.
+* [Server Configs](https://github.com/h5bp/server-configs) — Fast and
+  smart configurations for web servers such as Apache and Nginx.
+* [Ant Build Script](https://github.com/h5bp/ant-build-script) — Apache
+  Ant based build script.

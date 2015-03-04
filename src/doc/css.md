@@ -1,4 +1,4 @@
-[HTML5 Boilerplate homepage](http://html5boilerplate.com) | [Documentation
+[HTML5 Boilerplate homepage](https://html5boilerplate.com) | [Documentation
 table of contents](TOC.md)
 
 # The CSS
@@ -12,8 +12,8 @@ HTML5 Boilerplate's CSS includes:
 * [Print styles](#print-styles)
 
 This starting CSS does not rely on the presence of
-[conditional class names](http://www.paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/),
-[conditional style sheets](http://css-tricks.com/how-to-create-an-ie-only-stylesheet/),
+[conditional class names](https://www.paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/),
+[conditional style sheets](https://css-tricks.com/how-to-create-an-ie-only-stylesheet/),
 or [Modernizr](http://modernizr.com/), and it is ready to use no matter what
 your development preferences happen to be.
 
@@ -106,7 +106,7 @@ HTML5 Boilerplate makes it easy for you to get started with a
 [_mobile first_](http://www.lukew.com/presos/preso.asp?26) and [_responsive web
 design_](http://www.alistapart.com/articles/responsive-web-design/) approach to
 development. But it's worth remembering that there are [no silver
-bullets](http://www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/).
+bullets](http://blog.cloudfour.com/css-media-query-for-mobile-is-fools-gold/).
 
 We include placeholder media queries to help you build up your mobile styles for
 wider viewports and high-resolution displays. It's recommended that you adapt
@@ -154,7 +154,7 @@ At printing time, these styles will:
     are associated with
   * ensure that
     [orphans and widows](https://en.wikipedia.org/wiki/Widows_and_orphans) do
-    [not appear on printed pages](http://css-tricks.com/almanac/properties/o/orphans/)
+    [not appear on printed pages](https://css-tricks.com/almanac/properties/o/orphans/)
 
 The print styles are included along with the other `css` to [avoid the
 additional HTTP request](http://www.phpied.com/delay-loading-your-print-css/).

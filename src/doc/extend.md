@@ -1,4 +1,4 @@
-[HTML5 Boilerplate homepage](http://html5boilerplate.com) | [Documentation
+[HTML5 Boilerplate homepage](https://html5boilerplate.com) | [Documentation
 table of contents](TOC.md)
 
 # Extend and customise HTML5 Boilerplate
@@ -255,7 +255,7 @@ Mode](http://blogs.msdn.com/b/ie/archive/2012/01/31/web-sites-and-a-plug-in-free
 Enabling your application for pinning will allow IE9 users to add it to their
 Windows Taskbar and Start Menu. This comes with a range of new tools that you
 can easily configure with the elements below. See more [documentation on IE9
-Pinned Sites](http://msdn.microsoft.com/en-us/library/gg131029.aspx).
+Pinned Sites](https://msdn.microsoft.com/en-us/library/gg131029.aspx).
 
 ### Name the Pinned Site for Windows
 
@@ -339,7 +339,7 @@ even when your app isn't actively running. The badge's value can be a number,
 or one of a predefined list of glyphs.
 
 * [Tutorial on IEBlog with link to badge XML schema](http://blogs.msdn.com/b/ie/archive/2012/04/03/pinned-sites-in-windows-8.aspx)
-* [Available badge values](http://msdn.microsoft.com/en-us/library/ie/br212849.aspx)
+* [Available badge values](https://msdn.microsoft.com/en-us/library/ie/br212849.aspx)
 
 ```html
 <meta name="msapplication-badge" value="frequency=NUMBER_IN_MINUTES;polling-uri=http://www.example.com/path/to/file.xml">
@@ -356,8 +356,7 @@ value is boolean rather than a color. It's all or nothing.
 ```
 
 You can read about this useful element and more techniques in
-[Microsoft's documentation on adapting WebKit-oriented apps for IE10](http://blogs.windows.com/windows_phone/b/wpdev/archive/2012/11/15/adapting-your-webkit-optimized-site-for-internet-explorer-10.aspx).
-
+[Microsoft's documentation on adapting WebKit-oriented apps for IE10](http://blogs.windows.com/buildingapps/2012/11/15/adapting-your-webkit-optimized-site-for-internet-explorer-10/)
 
 ## Search
 
