@@ -1,6 +1,6 @@
 ### HEAD
 
-* Update Apache Server Configs to v2.12.0.
+* Update Apache Server Configs to v2.13.0.
 
 ### 5.0.0 (February 1, 2015)
 

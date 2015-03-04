@@ -1,4 +1,4 @@
-# Apache Server Configs v2.12.0 | MIT License
+# Apache Server Configs v2.13.0 | MIT License
 # https://github.com/h5bp/server-configs-apache
 
 # (!) Using `.htaccess` files slows down Apache, therefore, if you have
@@ -217,7 +217,7 @@ Options -MultiViews
     #       </Files>
 
     AddType application/x-web-app-manifest+json         webapp
-    AddType text/cache-manifest                         appcache manifest
+    AddType text/cache-manifest                         appcache
 
 
   # Media files
@@ -264,7 +264,6 @@ Options -MultiViews
     AddType application/x-chrome-extension              crx
     AddType application/x-opera-extension               oex
     AddType application/x-xpinstall                     xpi
-    AddType text/html                                   php
     AddType text/vcard                                  vcard vcf
     AddType text/vnd.rim.location.xloc                  xloc
     AddType text/vtt                                    vtt
