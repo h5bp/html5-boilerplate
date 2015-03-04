@@ -47,14 +47,14 @@ important because:
      Internet Explorer
 
 2) the meta tag for compatibility mode
-   (`<meta http-equiv="X-UA-Compatible" content="IE=edge">`):
+   (`<meta http-equiv="x-ua-compatible" content="ie=edge">`):
 
    * [needs to be included before all other tags except for the `<title>` and
      the other `<meta>`
      tags](http://msdn.microsoft.com/en-us/library/cc288325.aspx)
 
 
-### `X-UA-Compatible`
+### `x-ua-compatible`
 
 Internet Explorer 8/9/10 support [document compatibility
 modes](http://msdn.microsoft.com/en-us/library/cc288325.aspx) that affect the
@@ -63,10 +63,10 @@ visitor is using, let's say, Internet Explorer 9, it's possible that IE will not
 use the latest rendering engine, and instead, decide to render your page using
 the Internet Explorer 5.5 rendering engine.
 
-Specifying the `X-UA-Compatible` meta tag:
+Specifying the `x-ua-compatible` meta tag:
 
 ```html
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
 ```
 
 or sending the page with the following HTTP response header

@@ -230,18 +230,20 @@ $(function(){
 
 ### Prompt users to switch to "Desktop Mode" in IE10 Metro
 
-IE10 does not support plugins, such as Flash, in Metro mode. If your site
-requires plugins, you can let users know that via the X-UA-Compatible meta
-element, which will prompt them to switch to Desktop Mode.
+IE10 does not support plugins, such as Flash, in Metro mode. If
+your site requires plugins, you can let users know that via the
+`x-ua-compatible` meta element, which will prompt them to switch
+to Desktop Mode.
 
 ```html
-<meta http-equiv="X-UA-Compatible" content="requiresActiveX=true">
+<meta http-equiv="x-ua-compatible" content="requiresActiveX=true">
 ```
 
-Here's what it looks like alongside H5BP's default X-UA-Compatible values:
+Here's what it looks like alongside H5BP's default `x-ua-compatible`
+values:
 
 ```html
-<meta http-equiv="X-UA-Compatible" content="IE=edge,requiresActiveX=true">
+<meta http-equiv="x-ua-compatible" content="ie=edge,requiresActiveX=true">
 ```
 
 You can find more information in [Microsoft's IEBlog post about prompting for
