@@ -1,5 +1,7 @@
 ### HEAD
 
+* Remove the `visibility: hidden` declaration from `.hidden`
+  ([#1663](https://github.com/h5bp/html5-boilerplate/issues/1663)).
 * Use `<meta http-equiv="x-ua-compatible" content="ie=edge">`<br>
   instead of `<meta http-equiv="X-UA-Compatible" content="IE=edge">`
   ([#1656](https://github.com/h5bp/html5-boilerplate/issues/1656)).
