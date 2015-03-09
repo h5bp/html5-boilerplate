@@ -3,7 +3,7 @@
     "apache-server-configs": "2.13.0",
     "archiver": "^0.14.3",
     "del": "^1.1.1",
-    "glob": "^4.4.1",
+    "glob": "^5.0.1",
     "gulp": "^3.8.11",
     "gulp-header": "^1.2.2",
     "gulp-jscs": "^1.4.0",
