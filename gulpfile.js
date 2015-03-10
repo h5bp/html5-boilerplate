@@ -66,6 +66,7 @@ gulp.task('copy', [
     'copy:.htaccess',
     'copy:index.html',
     'copy:jquery',
+    'copy:license',
     'copy:main.css',
     'copy:misc',
     'copy:normalize'
@@ -87,6 +88,11 @@ gulp.task('copy:jquery', function () {
     return gulp.src(['node_modules/jquery/dist/jquery.min.js'])
                .pipe(plugins.rename('jquery-' + pkg.devDependencies.jquery + '.min.js'))
                .pipe(gulp.dest(dirs.dist + '/js/vendor'));
+});
+
+gulp.task('copy:license', function () {
+    return gulp.src('LICENSE.txt')
+               .pipe(gulp.dest(dirs.dist));
 });
 
 gulp.task('copy:main.css', function () {
