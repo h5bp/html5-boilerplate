@@ -105,6 +105,12 @@ gulp.task('copy:main.css', function () {
                .pipe(plugins.header(banner))
                .pipe(gulp.dest(dirs.dist + '/css'));
 
+    return gulp.src('css/main.css')
+                .pipe(plugins.autoprefixer({
+                    browsers: ['last 2 versions', 'ie >= 8'],
+                    cascade: false
+                }))
+                .pipe(gulp.dest('dist'));
 });
 
 gulp.task('copy:misc', function () {
@@ -141,7 +147,6 @@ gulp.task('lint:js', function () {
       .pipe(plugins.jshint.reporter('jshint-stylish'))
       .pipe(plugins.jshint.reporter('fail'));
 });
-
 
 // ---------------------------------------------------------------------
 // | Main tasks                                                        |
