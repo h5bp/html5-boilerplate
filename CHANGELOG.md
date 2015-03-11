@@ -1,5 +1,7 @@
 ### HEAD
 
+* Include the `LICENSE.txt` file in the `dist/` directory
+  ([#1655](https://github.com/h5bp/html5-boilerplate/issues/1655)).
 * Remove the `visibility: hidden` declaration from `.hidden`
   ([#1663](https://github.com/h5bp/html5-boilerplate/issues/1663)).
 * Use `<meta http-equiv="x-ua-compatible" content="ie=edge">`<br>
