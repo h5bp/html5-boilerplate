@@ -5,6 +5,7 @@
     "del": "^1.1.1",
     "glob": "^5.0.1",
     "gulp": "^3.8.11",
+    "gulp-autoprefixer": "^2.1.0",
     "gulp-header": "^1.2.2",
     "gulp-jscs": "^1.4.0",
     "gulp-jshint": "^1.9.2",
