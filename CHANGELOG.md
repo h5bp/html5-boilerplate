@@ -1,6 +1,7 @@
 ### HEAD
 
-* Use `https://` in the Google Universal Analytics snippet.
+* Use `https://` in the Google Universal Analytics snippet
+  ([eee759b](https://github.com/h5bp/html5-boilerplate/commit/eee759bfe175e850bbc8e4ad0682ec4fe4bd05d6)).
 * Include the `LICENSE.txt` file in the `dist/` directory
   ([#1655](https://github.com/h5bp/html5-boilerplate/issues/1655)).
 * Remove the `visibility: hidden` declaration from `.hidden`
