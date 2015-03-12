@@ -103,11 +103,11 @@ gulp.task('copy:main.css', function () {
 
     return gulp.src(dirs.src + '/css/main.css')
                .pipe(plugins.header(banner))
-                .pipe(plugins.autoprefixer({
+               .pipe(plugins.autoprefixer({
                     browsers: ['last 2 versions', 'ie >= 8'],
                     cascade: false
                }))
-               .pipe(gulp.dest(dirs.dist + '/css'))
+               .pipe(gulp.dest(dirs.dist + '/css'));
 });
 
 gulp.task('copy:misc', function () {
