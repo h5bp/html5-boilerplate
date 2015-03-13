@@ -57,7 +57,7 @@ Choose one of the following options:
 * Safari *(latest 2)*
 
 *This doesn't mean that HTML5 Boilerplate cannot be used in older browsers,
-just that we'll ensure compatibility with the ones mention above.*
+just that we'll ensure compatibility with the ones mentioned above.*
 
 If you need legacy browser support (IE 6+, Firefox 3.6+, Safari 4+) you can use
 [HTML5 Boilerplate v4](https://github.com/h5bp/html5-boilerplate/tree/v4), but
