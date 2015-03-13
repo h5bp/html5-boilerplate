@@ -31,7 +31,6 @@ Choose one of the following options:
 ## Features
 
 * HTML5 ready. Use the new elements with confidence.
-* Cross-browser compatible (Chrome, Firefox, IE8+, Opera, Safari).
 * Designed with progressive enhancement in mind.
 * Includes [Normalize.css](http://necolas.github.com/normalize.css/) for CSS
   normalizations and common bug fixes.
@@ -48,9 +47,22 @@ Choose one of the following options:
 * "Delete-key friendly." Easy to strip out parts you don't need.
 * Extensive inline and accompanying documentation.
 
-[HTML5 Boilerplate v4 provides legacy browser
-support](https://github.com/h5bp/html5-boilerplate/tree/v4) (IE 6+, Firefox
-3.6+, Safari 4+), but is no longer actively developed.
+
+## Browser support
+
+* Chrome *(latest 2)*
+* Firefox *(latest 2)*
+* Internet Explorer 8+
+* Opera *(latest 2)*
+* Safari *(latest 2)*
+
+*This doesn't mean that HTML5 Boilerplate cannot be used in older browsers,
+just that we'll ensure compatibility with the ones mentioned above.*
+
+If you need legacy browser support (IE 6+, Firefox 3.6+, Safari 4+) you can use
+[HTML5 Boilerplate v4](https://github.com/h5bp/html5-boilerplate/tree/v4), but
+is no longer actively developed.
+
 
 ## Documentation
 
