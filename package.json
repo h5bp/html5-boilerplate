@@ -9,7 +9,7 @@
     "gulp-header": "^1.2.2",
     "gulp-jscs": "^1.4.0",
     "gulp-jshint": "^1.9.2",
-    "gulp-load-plugins": "^0.8.1",
+    "gulp-load-plugins": "^0.9.0",
     "gulp-rename": "^1.2.0",
     "gulp-replace": "^0.5.3",
     "jquery": "1.11.2",
