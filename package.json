@@ -15,7 +15,7 @@
     "jquery": "1.11.2",
     "jshint-stylish": "^1.0.1",
     "mocha": "^2.1.0",
-    "normalize.css": "3.0.2",
+    "normalize.css": "3.0.3",
     "run-sequence": "^1.0.2"
   },
   "engines": {
