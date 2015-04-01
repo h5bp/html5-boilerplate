@@ -40,5 +40,5 @@
     "build": "gulp build",
     "test": "gulp archive && mocha --reporter spec --timeout 5000"
   },
-  "version": "5.0.0"
+  "version": "5.1.0"
 }

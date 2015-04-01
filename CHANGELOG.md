@@ -1,4 +1,4 @@
-### HEAD
+### 5.1.0 (April 1, 2015)
 
 * Update Normalize.css to `v3.0.3`.
 * Use `https://` in the Google Universal Analytics snippet
