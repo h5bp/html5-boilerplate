@@ -189,6 +189,7 @@ textarea {
 }
 
 @media print,
+       (min-resolution: 1.25dppx),
        (min-resolution: 120dpi) {
     /* Style adjustments for high resolution devices */
 }
