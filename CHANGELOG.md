@@ -1,3 +1,6 @@
+* Update high resolution media query
+  ([#1474](https://github.com/h5bp/html5-boilerplate/issues/1474))
+
 ### 5.1.0 (April 1, 2015)
 
 * Update Normalize.css to `v3.0.3`.
