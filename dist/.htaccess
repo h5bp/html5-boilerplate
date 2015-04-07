@@ -1,4 +1,4 @@
-# Apache Server Configs v2.13.0 | MIT License
+# Apache Server Configs v2.14.0 | MIT License
 # https://github.com/h5bp/server-configs-apache
 
 # (!) Using `.htaccess` files slows down Apache, therefore, if you have
@@ -130,7 +130,7 @@ Options -MultiViews
     # the `X-UA-Compatible` response header should be send only for
     # HTML documents and not for the other resources.
 
-    <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|woff2?|xloc|xml|xpi)$">
+    <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
         Header unset X-UA-Compatible
     </FilesMatch>
 
@@ -185,37 +185,7 @@ Options -MultiViews
 
   # Manifest files
 
-    # If you are providing a web application manifest file (see
-    # the specification: https://w3c.github.io/manifest/), it is
-    # recommended that you serve it with the `application/manifest+json`
-    # media type.
-    #
-    # Because the web application manifest file doesn't have its
-    # own unique file extension, you can set its media type either
-    # by matching:
-    #
-    # 1) the exact location of the file (this can be done using a
-    #    directive such as `<Location>`, but it will NOT work in
-    #    the `.htaccess` file, so you will have to do it in the main
-    #    server configuration file or inside of a `<VirtualHost>`
-    #    container)
-    #
-    #    e.g.:
-    #
-    #       <Location "/.well-known/manifest.json">
-    #           AddType application/manifest+json               json
-    #       </Location>
-    #
-    # 2) the filename (this can be problematic as you will need to
-    #    ensure that you don't have any other file with the same name
-    #    as the one you gave to your web application manifest file)
-    #
-    #    e.g.:
-    #
-    #       <Files "manifest.json">
-    #           AddType application/manifest+json               json
-    #       </Files>
-
+    AddType application/manifest+json                   webmanifest
     AddType application/x-web-app-manifest+json         webapp
     AddType text/cache-manifest                         appcache
 
@@ -297,11 +267,13 @@ AddDefaultCharset utf-8
                      .js \
                      .json \
                      .jsonld \
+                     .manifest \
                      .rdf \
                      .rss \
                      .topojson \
                      .vtt \
                      .webapp \
+                     .webmanifest \
                      .xloc \
                      .xml
 </IfModule>
@@ -475,7 +447,7 @@ AddDefaultCharset utf-8
 #     # the `X-Frame-Options` response header should be send only for
 #     # HTML documents and not for the other resources.
 
-#     <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|woff2?|xloc|xml|xpi)$">
+#     <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
 #         Header unset X-Frame-Options
 #     </FilesMatch>
 
@@ -510,7 +482,7 @@ AddDefaultCharset utf-8
 #     # the `Content-Security-Policy` response header should be send
 #     # only for HTML documents and not for the other resources.
 
-#     <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|woff2?|xloc|xml|xpi)$">
+#     <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
 #         Header unset Content-Security-Policy
 #     </FilesMatch>
 
@@ -678,7 +650,7 @@ AddDefaultCharset utf-8
 #     # the `X-XSS-Protection` response header should be send only for
 #     # HTML documents and not for the other resources.
 
-#     <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|woff2?|xloc|xml|xpi)$">
+#     <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
 #         Header unset X-XSS-Protection
 #     </FilesMatch>
 
@@ -878,9 +850,12 @@ FileETag None
     ExpiresDefault                                      "access plus 1 month"
 
   # CSS
+
     ExpiresByType text/css                              "access plus 1 year"
 
+
   # Data interchange
+
     ExpiresByType application/atom+xml                  "access plus 1 hour"
     ExpiresByType application/rdf+xml                   "access plus 1 hour"
     ExpiresByType application/rss+xml                   "access plus 1 hour"
@@ -892,25 +867,33 @@ FileETag None
     ExpiresByType application/xml                       "access plus 0 seconds"
     ExpiresByType text/xml                              "access plus 0 seconds"
 
+
   # Favicon (cannot be renamed!) and cursor images
+
     ExpiresByType image/vnd.microsoft.icon              "access plus 1 week"
     ExpiresByType image/x-icon                          "access plus 1 week"
 
   # HTML
+
     ExpiresByType text/html                             "access plus 0 seconds"
 
+
   # JavaScript
+
     ExpiresByType application/javascript                "access plus 1 year"
     ExpiresByType application/x-javascript              "access plus 1 year"
     ExpiresByType text/javascript                       "access plus 1 year"
 
-  # Manifest files
-    ExpiresByType application/manifest+json             "access plus 1 year"
 
+  # Manifest files
+
+    ExpiresByType application/manifest+json             "access plus 1 week"
     ExpiresByType application/x-web-app-manifest+json   "access plus 0 seconds"
     ExpiresByType text/cache-manifest                   "access plus 0 seconds"
 
+
   # Media files
+
     ExpiresByType audio/ogg                             "access plus 1 month"
     ExpiresByType image/bmp                             "access plus 1 month"
     ExpiresByType image/gif                             "access plus 1 month"
@@ -921,6 +904,7 @@ FileETag None
     ExpiresByType video/mp4                             "access plus 1 month"
     ExpiresByType video/ogg                             "access plus 1 month"
     ExpiresByType video/webm                            "access plus 1 month"
+
 
   # Web fonts
 
@@ -942,7 +926,9 @@ FileETag None
     # Web Open Font Format (WOFF) 2.0
     ExpiresByType application/font-woff2                "access plus 1 month"
 
+
   # Other
+
     ExpiresByType text/x-cross-domain-policy            "access plus 1 week"
 
 </IfModule>
@@ -994,5 +980,5 @@ FileETag None
 # <IfModule mod_rewrite.c>
 #     RewriteEngine On
 #     RewriteCond %{REQUEST_FILENAME} !-f
-#     RewriteRule ^(.+)\.(\d+)\.(bmp|css|cur|gif|ico|jpe?g|js|png|svgz?|webp)$ $1.$3 [L]
+#     RewriteRule ^(.+)\.(\d+)\.(bmp|css|cur|gif|ico|jpe?g|js|png|svgz?|webp|webmanifest)$ $1.$3 [L]
 # </IfModule>
