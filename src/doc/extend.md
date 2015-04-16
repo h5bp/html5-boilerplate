@@ -87,7 +87,7 @@ your site, for example) then you can queue up a domain name to be prefetched.
 
 ```html
 <link rel="dns-prefetch" href="//example.com">
-<link rel="dns-prefetch" href="//ajax.googleapis.com">
+<link rel="dns-prefetch" href="https://ajax.googleapis.com">
 ```
 
 You can use as many of these as you need, but it's best if they are all
@@ -107,7 +107,7 @@ Amazon S3:
 Google APIs:
 
 ```html
-<link rel="dns-prefetch" href="//ajax.googleapis.com">
+<link rel="dns-prefetch" href="https://ajax.googleapis.com">
 ```
 
 Microsoft Ajax Content Delivery Network:
