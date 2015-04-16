@@ -18,7 +18,7 @@ By default, HTML5 Boilerplate provides two `html` pages:
 The `no-js` class is provided in order to allow you to more easily and
 explicitly add custom styles based on whether JavaScript is disabled
 (`.no-js`) or enabled (`.js`). Using this technique also helps [avoid the
-FOUC](http://paulirish.com/2009/avoiding-the-fouc-v3/).
+FOUC](https://www.paulirish.com/2009/avoiding-the-fouc-v3/).
 
 
 ## Language attribute

@@ -1,6 +1,7 @@
 ### HEAD
 
-* Deprecate protocol-relative URLs ([#1694](https://github.com/h5bp/html5-boilerplate/issues/1694)).
+* Deprecate protocol-relative URLs
+  ([#1694](https://github.com/h5bp/html5-boilerplate/issues/1694)).
 * Update high resolution media query
   ([#1474](https://github.com/h5bp/html5-boilerplate/issues/1474)).
 * Update Apache Server Configs to `v2.14.0`.

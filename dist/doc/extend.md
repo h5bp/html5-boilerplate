@@ -356,7 +356,7 @@ value is boolean rather than a color. It's all or nothing.
 ```
 
 You can read about this useful element and more techniques in
-[Microsoft's documentation on adapting WebKit-oriented apps for IE10](http://blogs.windows.com/buildingapps/2012/11/15/adapting-your-webkit-optimized-site-for-internet-explorer-10/)
+[Microsoft's documentation on adapting WebKit-oriented apps for IE10](https://blogs.windows.com/buildingapps/2012/11/15/adapting-your-webkit-optimized-site-for-internet-explorer-10/)
 
 ## Search
 

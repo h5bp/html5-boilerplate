@@ -36,12 +36,12 @@ include a URL that will always point to the latest version, as that version:
 The main advantage of placing it in the `<head>` is that you will track the
 user's `pageview` even if they leave the page before it has been fully loaded.
 However, having the code at the bottom of the page [helps improve
-performance](http://stevesouders.com/efws/inline-scripts-bottom.php).
+performance](https://stevesouders.com/efws/inline-scripts-bottom.php).
 
 
 ### How can I integrate [Bootstrap](http://getbootstrap.com/) with HTML5 Boilerplate?
 
-One simple way is to use [Initializr](http://initializr.com) and create a
+One simple way is to use [Initializr](http://www.initializr.com/) and create a
 custom build that includes both HTML5 Boilerplate and
 [Bootstrap](http://getbootstrap.com/).
 
