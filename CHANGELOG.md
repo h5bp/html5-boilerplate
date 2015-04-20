@@ -1,3 +1,7 @@
+### HEAD
+
+* Simplify the Google Analytics snippet using `async` & `defer` ([#1660](https://github.com/h5bp/html5-boilerplate/pull/1660#issuecomment-89285678)).
+
 ### 5.3.0 (January 12, 2016)
 
 * Update jQuery to `v1.12.0`.
