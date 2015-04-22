@@ -488,6 +488,20 @@ AddDefaultCharset utf-8
 
 # </IfModule>
 
+# Upgrading legacy sites to HTTPS
+#
+# Transitioning large collections of unmodifiable legacy web content to encrypted, authenticated HTTPS connections
+# can be challenging as the content frequently includes links to insecure resources, triggering mixed content warnings.
+# To upgrade insecure resource HTTPS more easily, requests to HTTPS before fetching them. This change allows developers
+# to serve their hard-to-update legacy content via improving security for their users.
+#
+# https://w3c.github.io/webappsec/specs/upgrade/
+# https://googlechrome.github.io/samples/csp-upgrade-insecure-requests/index.html
+
+#<IfModule mod_headers.c>
+#  Header set Content-Security-Policy "upgrade-insecure-requests"
+#</IfModule>
+
 # ----------------------------------------------------------------------
 # | File access                                                        |
 # ----------------------------------------------------------------------
