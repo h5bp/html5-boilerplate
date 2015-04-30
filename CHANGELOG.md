@@ -1,4 +1,4 @@
-### HEAD
+### 5.2.0 (May 1, 2015)
 
 * Update jQuery to `v1.11.3`
   ([#1699](https://github.com/h5bp/html5-boilerplate/issues/1699)).
