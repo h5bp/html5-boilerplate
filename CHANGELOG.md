@@ -1,5 +1,7 @@
 ### HEAD
 
+* Update jQuery to `v1.11.3`
+  ([#1699](https://github.com/h5bp/html5-boilerplate/issues/1699)).
 * Deprecate protocol-relative URLs
   ([#1694](https://github.com/h5bp/html5-boilerplate/issues/1694)).
 * Update high resolution media query
