@@ -203,7 +203,7 @@ Options -MultiViews
     AddType video/x-flv                                 flv
 
     # Serving `.ico` image files with a different media type
-    # prevents Internet Explorer from displaying then as images:
+    # prevents Internet Explorer from displaying them as images:
     # https://github.com/h5bp/html5-boilerplate/commit/37b5fec090d00f38de64b591bcddcb205aadf8ee
 
     AddType image/x-icon                                cur ico
