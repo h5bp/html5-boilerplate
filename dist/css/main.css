@@ -211,7 +211,9 @@ textarea {
 @media print {
     *,
     *:before,
-    *:after {
+    *:after,
+    *:first-letter,
+    *:first-line {
         background: transparent !important;
         color: #000 !important; /* Black prints faster:
                                    http://www.sanbeiji.com/archives/953 */
