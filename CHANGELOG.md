@@ -1,3 +1,8 @@
+### HEAD
+
+* :first-letter and :first-line pseudo-elements are now printed in black
+  ([#1715](https://github.com/h5bp/html5-boilerplate/pull/1715)).
+
 ### 5.2.0 (May 1, 2015)
 
 * Update jQuery to `v1.11.3`
