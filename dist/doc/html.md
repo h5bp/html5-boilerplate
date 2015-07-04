@@ -13,7 +13,7 @@ By default, HTML5 Boilerplate provides two `html` pages:
 ## `index.html`
 
 
-### The `no-js` class
+### The `no-js` Class
 
 The `no-js` class is provided in order to allow you to more easily and
 explicitly add custom styles based on whether JavaScript is disabled
@@ -21,7 +21,7 @@ explicitly add custom styles based on whether JavaScript is disabled
 FOUC](https://www.paulirish.com/2009/avoiding-the-fouc-v3/).
 
 
-## Language attribute
+## Language Attribute
 
 Please consider specifying the language of your content by adding the `lang`
 attribute to `<html>` as in this example:
@@ -98,7 +98,18 @@ designed for older versions of Internet Explorer, you might want to consider
 enabling [Enterprise Mode](https://blogs.msdn.microsoft.com/ie/2014/04/02/stay-up-to-date-with-enterprise-mode-for-internet-explorer-11/) throughout your company.
 
 
-## Mobile viewport
+## Meta Description
+
+The `description` meta tag provides a short description of the page. 
+In some situations this description is used as a part of the snippet 
+shown in the search results.
+
+```html
+<meta name="description" content="This is a description">
+```
+
+
+## Mobile Viewport
 
 There are a few different options that you can use with the [`viewport` meta
 tag](https://docs.google.com/present/view?id=dkx3qtm_22dxsrgcf4 "Viewport and
@@ -137,7 +148,7 @@ so that browsers lacking support for some of the new HTML5 elements are able to
 handle them properly. Therefore the Modernizr script is the only JavaScript
 file synchronously loaded at the top of the document.
 
-## What about polyfills?
+## What About Polyfills?
 
 If you need to include [polyfills](https://remysharp.com/2010/10/08/what-is-a-polyfill)
 in your project, you must make sure those load before any other JavaScript. If you're
@@ -164,7 +175,7 @@ to understand that Modernizr just handles feature checking, not polyfilling
 itself. The only thing Modernizr does regarding polyfills is that the team
 maintains [a huge list of cross Browser polyfills](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills).
 
-## The content area
+## The Content Area
 
 The central part of the boilerplate template is pretty much empty. This is
 intentional, in order to make the boilerplate suitable for both web page and
