@@ -43,7 +43,7 @@ will be displayed within the browser and in search engine results.
 
 ### The order of the `<title>` and `<meta>` tags
 
-The order in which the `<title> and the `<meta>` tags are specified is
+The order in which the `<title>` and the `<meta>` tags are specified is
 important because:
 
 1) the charset declaration (`<meta charset="utf-8">`):
