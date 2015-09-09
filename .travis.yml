@@ -41,7 +41,7 @@ git:
 language: node_js
 
 node_js:
-  - "iojs"
   - "0.12"
+  - "4"
 
 sudo: false
