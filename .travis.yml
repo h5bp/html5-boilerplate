@@ -75,6 +75,7 @@ language: node_js
 node_js:
   - "iojs"
   - "0.12"
+  - "4"
 
 script:
   - curl -sSLo travis_after_all.py https://raw.github.com/dmakhno/travis_after_all/master/travis_after_all.py
