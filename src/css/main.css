@@ -56,7 +56,7 @@ video {
 }
 
 /*
- * Remove default fieldset styles.
+ * Remove default fieldset styles
  */
 
 fieldset {
@@ -66,7 +66,7 @@ fieldset {
 }
 
 /*
- * Allow only vertical resizing of textareas.
+ * Allow only vertical resizing of textareas
  */
 
 textarea {
