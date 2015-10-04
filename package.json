@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "@alrra/travis-scripts": "^1.1.1",
     "apache-server-configs": "2.14.0",
     "archiver": "^0.14.3",
     "del": "^1.1.1",
