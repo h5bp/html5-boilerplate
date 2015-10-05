@@ -61,7 +61,9 @@ gulp.task('clean', function (done) {
     require('del')([
         dirs.archive,
         dirs.dist
-    ], done);
+    ]).then(function () {
+        done();
+    });
 });
 
 gulp.task('copy', [
