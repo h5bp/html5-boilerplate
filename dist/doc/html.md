@@ -176,28 +176,32 @@ The main content area of the boilerplate includes a prompt to install an up to
 date browser for users of IE 6/7. If you intended to support IE 6/7, then you
 should remove the snippet of code.
 
-### Google CDN for jQuery
+### jQuery CDN for jQuery
 
-The Google CDN version of the jQuery JavaScript library is referenced towards
-the bottom of the page using a protocol-independent path (read more about this
-in the [FAQ](faq.md)). A local fallback of jQuery is included for rare instances
+The jQuery CDN version of the jQuery JavaScript library is referenced towards
+the bottom of the page. A local fallback of jQuery is included for rare instances
 when the CDN version might not be available, and to facilitate offline
 development.
 
-The Google CDN version is chosen over other [potential candidates (like the
-jQuery CDN](https://jquery.com/download/#using-jquery-with-a-cdn)) because
-it's fast in absolute terms and it has the best overall
-[penetration](http://httparchive.org/trends.php#perGlibs) which increases the
-odds of having a copy of the library in your user's browser cache.
+The jQuery CDN version was chosen over other potential candidates
+([like Google's Hosted Libraries](https://developers.google.com/speed/libraries/))
+because it's fast ([comparable or faster than Google by some
+measures](https://www.cdnperf.com/#jsdelivr,cdnjs,google,yandex,microsoft,jquery,bootstrapcdn/https/90))
+and, (unlike Google's CDN) is available to China's hundreds of millions of internet users.
+For many years we [chose](https://github.com/h5bp/html5-boilerplate/issues/1191)
+the Google Hosted version over the jQuery CDN because it was available
+over HTTPS (the jQuery CDN was not,) and it offered a better chance of
+hitting the cache lottery owing to the popularity of the Google CDN.
+The first issue is no longer valid and the second is far outweighed by
+being able to serve jQuery to Chinese users.
 
-While the Google CDN is a strong default solution your site or application may
+While the jQuery CDN is a strong default solution your site or application may
 require a different configuration. Testing your site with services like
 [WebPageTest](https://www.webpagetest.org/) and browser tools like
 [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) or
 [YSlow](https://developer.yahoo.com/yslow/) will help you examine the real
 world performance of your site and can show where you can optimize your specific
 site or application.
-
 
 ### Google Universal Analytics Tracking Code
 
