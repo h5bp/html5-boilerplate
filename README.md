@@ -54,6 +54,7 @@ Choose one of the following options:
 ## Browser support
 
 * Chrome *(latest 2)*
+* Edge *(latest 2)*
 * Firefox *(latest 2)*
 * Internet Explorer 8+
 * Opera *(latest 2)*
