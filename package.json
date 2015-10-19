@@ -2,7 +2,7 @@
   "devDependencies": {
     "@alrra/travis-scripts": "^1.1.1",
     "apache-server-configs": "2.14.0",
-    "archiver": "^0.15.1",
+    "archiver": "^0.16.0",
     "del": "^2.0.2",
     "glob": "^5.0.5",
     "gulp": "^3.8.11",
@@ -13,7 +13,7 @@
     "gulp-load-plugins": "^1.0.0-rc.1",
     "gulp-rename": "^1.2.0",
     "gulp-replace": "^0.5.3",
-    "jquery": "1.11.3",
+    "jquery": "2.1.4",
     "jshint-stylish": "^2.0.1",
     "mocha": "^2.2.4",
     "normalize.css": "3.0.3",
