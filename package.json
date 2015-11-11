@@ -4,7 +4,7 @@
     "apache-server-configs": "2.14.0",
     "archiver": "^0.16.0",
     "del": "^2.0.2",
-    "glob": "^5.0.5",
+    "glob": "^6.0.1",
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "^3.0.2",
     "gulp-header": "^1.2.2",
