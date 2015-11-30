@@ -47,7 +47,7 @@ gulp.task('archive:zip', function (done) {
         // permissions, so we need to add files individually
         archiver.append(fs.createReadStream(filePath), {
             'name': file,
-            'mode': fs.statSync(filePath)
+            'mode': fs.statSync(filePath).mode
         });
 
     });
