@@ -61,8 +61,7 @@ project](http://editorconfig.org/).
 
 ## Server Configuration
 
-H5BP includes a [`.htaccess`](#htaccess) file for the Apache HTTP server. If you are not using
-Apache as your web server, then you are encouraged to download a
+H5BP includes a [`.htaccess`](#htaccess) file for the [Apache HTTP server](http://httpd.apache.org/docs/). If you are not using Apache as your web server, then you are encouraged to download a
 [server configuration](https://github.com/h5bp/server-configs) that corresponds
 to your web server and environment.
 
@@ -104,8 +103,7 @@ In the repo the `.htaccess` is used for:
 When using `.htaccess` we recommend reading all inline comments (the rules after
 a `#`) in the file once. There is a bunch of optional stuff in it.
 
-If you want to know more about the `.htaccess` file check out
-https://httpd.apache.org/docs/current/howto/htaccess.html.
+If you want to know more about the `.htaccess` file check out the [Apache HTTP server docs](http://httpd.apache.org/docs/) or more specifically the [htaccess section](https://httpd.apache.org/docs/current/howto/htaccess.html).
 
 Notice that the original repo for the `.htaccess` file is [this
 one](https://github.com/h5bp/server-configs-apache).
