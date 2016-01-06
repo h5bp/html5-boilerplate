@@ -3,8 +3,6 @@ table of contents](TOC.md)
 
 # Frequently asked questions
 
-* [Why don't you automatically load the latest version of jQuery from the Google
-  CDN?](#why-dont-you-automatically-load-the-latest-version-of-jquery-from-the-google-cdn)
 * [Why is the Google Analytics code at the bottom? Google recommends it be
   placed in the `<head>`.](#why-is-the-google-analytics-code-at-the-bottom-google-recommends-it-be-placed-in-the-head)
 * [How can I integrate Bootstrap with HTML5
@@ -16,20 +14,6 @@ table of contents](TOC.md)
 
 --
 
-### Why don't you automatically load the latest version of jQuery from the Google CDN?
-
-The [file](https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js) to which
-the Google [CDN](https://en.wikipedia.org/wiki/Content_delivery_network) points
-to is [no longer updated and will stay locked at version `1.11.1` in order to
-prevent inadvertent web
-breakage](http://blog.jquery.com/2014/07/03/dont-use-jquery-latest-js/).
-
-In general, version updating should be an intentional decision! You shouldn't
-include a URL that will always point to the latest version, as that version:
-
- * may not be compatible with the existing plugins/code on the site
- * will have a very short cache time compare to the specific version,
-   which means that users won't get the benefits of long-term caching
 
 ### Why is the Google Analytics code at the bottom? Google recommends it be placed in the `<head>`.
 
