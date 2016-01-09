@@ -1,5 +1,6 @@
 ### HEAD
 
+* Update jQuery to `v1.12.0`.
 * Fetch `jQuery` from jQuery's CDN instead of Google's
   ([#1737](https://github.com/h5bp/html5-boilerplate/issues/1737),
    [#1739](https://github.com/h5bp/html5-boilerplate/issues/1739)).
