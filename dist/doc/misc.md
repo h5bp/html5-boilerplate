@@ -67,7 +67,7 @@ as your web server, then you are encouraged to download a
 [server configuration](https://github.com/h5bp/server-configs) that
 corresponds to your web server and environment.
 
-A `.htaccess` (hypertext access) file is a [Apache HTTP server
+A `.htaccess` (hypertext access) file is an [Apache HTTP server
 configuration file](https://github.com/h5bp/server-configs-apache).
 The `.htaccess` file is mostly used for:
 
