@@ -23,11 +23,11 @@ However, having the code at the bottom of the page [helps improve
 performance](https://stevesouders.com/efws/inline-scripts-bottom.php).
 
 
-### How can I integrate [Bootstrap](http://getbootstrap.com/) with HTML5 Boilerplate?
+### How can I integrate [Bootstrap](https://getbootstrap.com/) with HTML5 Boilerplate?
 
 One simple way is to use [Initializr](http://www.initializr.com/) and create a
 custom build that includes both HTML5 Boilerplate and
-[Bootstrap](http://getbootstrap.com/).
+[Bootstrap](https://getbootstrap.com/).
 
 Read more about how [HTML5 Boilerplate and Bootstrap complement each
 other](https://www.quora.com/Is-Bootstrap-a-complement-or-an-alternative-to-HTML5-Boilerplate-or-viceversa/answer/Nicolas-Gallagher).

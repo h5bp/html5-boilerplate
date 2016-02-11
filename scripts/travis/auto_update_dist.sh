@@ -28,4 +28,3 @@ $(npm bin)/travis-after-all && \
     $(npm bin)/commit-changes --branch "master" \
                               --commands "npm run build" \
                               --commit-message "Update content from the \`dist\` directory [skip ci]"
-

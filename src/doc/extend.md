@@ -121,7 +121,7 @@ Microsoft Ajax Content Delivery Network:
 
 * https://developer.mozilla.org/en-US/docs/Controlling_DNS_prefetching
 * https://dev.chromium.org/developers/design-documents/dns-prefetching
-* http://blogs.msdn.com/b/ie/archive/2011/03/17/internet-explorer-9-network-performance-improvements.aspx
+* https://blogs.msdn.microsoft.com/ie/2011/03/17/internet-explorer-9-network-performance-improvements/
 * http://dayofjs.com/videos/22158462/web-browsers_alex-russel
 
 
@@ -248,7 +248,7 @@ values:
 
 You can find more information in [Microsoft's IEBlog post about prompting for
 plugin use in IE10 Metro
-Mode](http://blogs.msdn.com/b/ie/archive/2012/01/31/web-sites-and-a-plug-in-free-web.aspx).
+Mode](https://blogs.msdn.microsoft.com/ie/2012/01/31/web-sites-and-a-plug-in-free-web/).
 
 ### IE Pinned Sites (IE9+)
 
@@ -322,7 +322,7 @@ need.
 
 Windows 8 adds the ability for you to provide a PNG tile image and specify the
 tile's background color. [Full details on the IE
-blog](http://blogs.msdn.com/b/ie/archive/2012/06/08/high-quality-visuals-for-pinned-sites-in-windows-8.aspx).
+blog](https://blogs.msdn.microsoft.com/ie/2012/06/08/high-quality-visuals-for-pinned-sites-in-windows-8/).
 
 * Create a 144x144 image of your site icon, filling all of the canvas, and
   using a transparent background.
@@ -338,7 +338,7 @@ tile in the Start screen. The user will be able to receive these badge updates
 even when your app isn't actively running. The badge's value can be a number,
 or one of a predefined list of glyphs.
 
-* [Tutorial on IEBlog with link to badge XML schema](http://blogs.msdn.com/b/ie/archive/2012/04/03/pinned-sites-in-windows-8.aspx)
+* [Tutorial on IEBlog with link to badge XML schema](https://blogs.msdn.microsoft.com/ie/2012/04/03/pinned-sites-in-windows-8/)
 * [Available badge values](https://msdn.microsoft.com/en-us/library/ie/br212849.aspx)
 
 ```html
@@ -347,7 +347,7 @@ or one of a predefined list of glyphs.
 
 ### Disable link highlighting upon tap in IE10
 
-Similar to [-webkit-tap-highlight-color](http://davidwalsh.name/mobile-highlight-color)
+Similar to [-webkit-tap-highlight-color](https://davidwalsh.name/mobile-highlight-color)
 in iOS Safari. Unlike that CSS property, this is an HTML meta element, and its
 value is boolean rather than a color. It's all or nothing.
 
@@ -471,16 +471,16 @@ Graph content
 templates](https://developers.facebook.com/docs/opengraph/objects/builtin/).
 Take full advantage of Facebook's support for complex data and activity by
 following the [Open Graph
-tutorial](https://developers.facebook.com/docs/opengraph/tutorial/). 
+tutorial](https://developers.facebook.com/docs/opengraph/tutorial/).
 
-For a reference of Open Graph's markup and properties, you may check 
-[Facebook's Open Graph Protocol reference](http://ogp.me/). Finally, 
-you can validate your markup with the [Facebook Object 
-Debugger](http://developers.facebook.com/tools/debug/) (needs 
+For a reference of Open Graph's markup and properties, you may check
+[Facebook's Open Graph Protocol reference](http://ogp.me/). Finally,
+you can validate your markup with the [Facebook Object
+Debugger](https://developers.facebook.com/tools/debug/) (needs
 registration to Facebook).
 
 ```html
-<meta property="fb:app_id" content="123456789"> 
+<meta property="fb:app_id" content="123456789">
 <meta property="og:url" content="http://www.example.com/path/to/page.html">
 <meta property="og:type" content="website">
 <meta property="og:title" content="">
@@ -498,7 +498,7 @@ that, as of this writing, Twitter requires that app developers activate Cards
 on a per-domain basis. You can read more about the various snippet formats
 and application process in the [official Twitter Cards
 documentation](https://dev.twitter.com/docs/cards), and you can validate
-your markup with the [Card validator](https://cards-dev.twitter.com/validator) 
+your markup with the [Card validator](https://cards-dev.twitter.com/validator)
 (needs registration to Twitter).
 
 ```html
@@ -513,18 +513,18 @@ your markup with the [Card validator](https://cards-dev.twitter.com/validator)
 
 ### Google+ / Schema.org
 
-Google also provides a snippet specification that serves a similar 
-purpose to Facebook's Open Graph or Twitter Cards. While it helps you 
-to control information displayed on Google+, this metadata is a subset 
-of [schema.org's microdata vocabulary](https://schema.org/), which 
-covers many other schemas that can describe the content of your pages 
-to search engines. For this reason, this metadata is more generic for 
-SEO, notably for Google's search-engine, although this vocabulary is 
-also used by Microsoft, Pinterest or Yandex. 
+Google also provides a snippet specification that serves a similar
+purpose to Facebook's Open Graph or Twitter Cards. While it helps you
+to control information displayed on Google+, this metadata is a subset
+of [schema.org's microdata vocabulary](https://schema.org/), which
+covers many other schemas that can describe the content of your pages
+to search engines. For this reason, this metadata is more generic for
+SEO, notably for Google's search-engine, although this vocabulary is
+also used by Microsoft, Pinterest or Yandex.
 
-You can validate your markup with the [Structured Data Testing 
-Tool](https://developers.google.com/structured-data/testing-tool/). 
-Also, please note that this markup requires to add attributes to your 
+You can validate your markup with the [Structured Data Testing
+Tool](https://developers.google.com/structured-data/testing-tool/).
+Also, please note that this markup requires to add attributes to your
 top `html` tag.
 
 ```html
@@ -698,5 +698,5 @@ their UIs with varying colors.
 The `content` attribute extension can take any valid CSS color.
 
 Currently, the `theme-color` meta extension is supported by [Chrome 39+
-for Android Lollipop](http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android)
+for Android Lollipop](https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android)
 and [Firefox OS 2.1+](https://twitter.com/ahmednefzaoui/status/492344698493997057).
