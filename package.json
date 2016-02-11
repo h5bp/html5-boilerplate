@@ -5,7 +5,7 @@
     ]
   },
   "devDependencies": {
-    "@alrra/travis-scripts": "^1.1.1",
+    "@alrra/travis-scripts": "^2.0.0",
     "apache-server-configs": "2.14.0",
     "archiver": "^0.21.0",
     "babel-core": "^6.5.1",
@@ -25,7 +25,8 @@
     "jshint-stylish": "^2.0.1",
     "mocha": "^2.2.4",
     "normalize.css": "3.0.3",
-    "run-sequence": "^1.0.2"
+    "run-sequence": "^1.0.2",
+    "travis-after-all": "^1.4.4"
   },
   "engines": {
     "node": ">=0.10.0"
