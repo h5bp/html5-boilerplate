@@ -30,14 +30,14 @@ gulp.task('archive:create_archive_dir', () => {
 gulp.task('archive:zip', (done) => {
 
     const archiveName = path.resolve(dirs.archive, `${pkg.name}_v${pkg.version}.zip`);
-    const archiver = archiver('zip');
+    const zip = archiver('zip');
     const files = glob.sync('**/*.*', {
         'cwd': dirs.dist,
         'dot': true // include hidden files
     });
     const output = fs.createWriteStream(archiveName);
 
-    archiver.on('error', (error) => {
+    zip.on('error', (error) => {
         done();
         throw error;
     });
@@ -48,17 +48,17 @@ gulp.task('archive:zip', (done) => {
 
         const filePath = path.resolve(dirs.dist, file);
 
-        // `archiver.bulk` does not maintain the file
+        // `zip.bulk` does not maintain the file
         // permissions, so we need to add files individually
-        archiver.append(fs.createReadStream(filePath), {
+        zip.append(fs.createReadStream(filePath), {
             'name': file,
             'mode': fs.statSync(filePath).mode
         });
 
     });
 
-    archiver.pipe(output);
-    archiver.finalize();
+    zip.pipe(output);
+    zip.finalize();
 
 });
 
