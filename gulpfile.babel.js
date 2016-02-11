@@ -83,19 +83,19 @@ gulp.task('copy', [
 
 gulp.task('copy:.htaccess', () => {
     return gulp.src('node_modules/apache-server-configs/dist/.htaccess')
-               .pipe(plugins.replace(/# ErrorDocument/g, 'ErrorDocument'))
+               .pipe(plugins().replace(/# ErrorDocument/g, 'ErrorDocument'))
                .pipe(gulp.dest(dirs.dist));
 });
 
 gulp.task('copy:index.html', () => {
     return gulp.src(`${dirs.src}/index.html`)
-               .pipe(plugins.replace(/{{JQUERY_VERSION}}/g, pkg.devDependencies.jquery))
+               .pipe(plugins().replace(/{{JQUERY_VERSION}}/g, pkg.devDependencies.jquery))
                .pipe(gulp.dest(dirs.dist));
 });
 
 gulp.task('copy:jquery', () => {
     return gulp.src(['node_modules/jquery/dist/jquery.min.js'])
-               .pipe(plugins.rename(`jquery-${pkg.devDependencies.jquery}.min.js`))
+               .pipe(plugins().rename(`jquery-${pkg.devDependencies.jquery}.min.js`))
                .pipe(gulp.dest(`${dirs.dist}/js/vendor`));
 });
 
@@ -106,11 +106,11 @@ gulp.task('copy:license', () => {
 
 gulp.task('copy:main.css', () => {
 
-    const banner = `/*! HTML5 Boilerplate v ${pkg.version} | ${pkg.license.type} License | ${pkg.homepage} */\n\n`;
+    const banner = `/*! HTML5 Boilerplate v${pkg.version} | ${pkg.license.type} License | ${pkg.homepage} */\n\n`;
 
     return gulp.src(`${dirs.src}/css/main.css`)
-               .pipe(plugins.header(banner))
-               .pipe(plugins.autoprefixer({
+               .pipe(plugins().header(banner))
+               .pipe(plugins().autoprefixer({
                    browsers: ['last 2 versions', 'ie >= 8', '> 1%'],
                    cascade: false
                }))
