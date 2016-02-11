@@ -25,6 +25,11 @@
   "engines": {
     "node": ">=0.10.0"
   },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
   "h5bp-configs": {
     "directories": {
       "archive": "archive",
