@@ -29,13 +29,13 @@ gulp.task('archive:create_archive_dir', () => {
 
 gulp.task('archive:zip', (done) => {
 
-    let archiveName = path.resolve(dirs.archive, `${pkg.name}_v${pkg.version}.zip`);
-    let archiver = archiver('zip');
-    let files = glob.sync('**/*.*', {
+    const archiveName = path.resolve(dirs.archive, `${pkg.name}_v${pkg.version}.zip`);
+    const archiver = archiver('zip');
+    const files = glob.sync('**/*.*', {
         'cwd': dirs.dist,
         'dot': true // include hidden files
     });
-    let output = fs.createWriteStream(archiveName);
+    const output = fs.createWriteStream(archiveName);
 
     archiver.on('error', (error) => {
         done();
@@ -46,7 +46,7 @@ gulp.task('archive:zip', (done) => {
 
     files.forEach( (file) => {
 
-        let filePath = path.resolve(dirs.dist, file);
+        const filePath = path.resolve(dirs.dist, file);
 
         // `archiver.bulk` does not maintain the file
         // permissions, so we need to add files individually
