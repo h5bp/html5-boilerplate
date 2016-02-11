@@ -1,8 +1,15 @@
 {
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
   "devDependencies": {
     "@alrra/travis-scripts": "^1.1.1",
     "apache-server-configs": "2.14.0",
     "archiver": "^0.21.0",
+    "babel-core": "^6.5.1",
+    "babel-preset-es2015": "^6.5.0",
     "del": "^2.0.2",
     "glob": "^6.0.1",
     "gulp": "^3.8.11",
