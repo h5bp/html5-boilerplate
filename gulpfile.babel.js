@@ -29,13 +29,13 @@ gulp.task('archive:create_archive_dir', () => {
 
 gulp.task('archive:zip', (done) => {
 
-    var archiveName = path.resolve(dirs.archive, `${pkg.name}_v${pkg.version}.zip`);
-    var archiver = archiver('zip');
-    var files = glob.sync('**/*.*', {
+    let archiveName = path.resolve(dirs.archive, `${pkg.name}_v${pkg.version}.zip`);
+    let archiver = archiver('zip');
+    let files = glob.sync('**/*.*', {
         'cwd': dirs.dist,
         'dot': true // include hidden files
     });
-    var output = fs.createWriteStream(archiveName);
+    let output = fs.createWriteStream(archiveName);
 
     archiver.on('error', (error) => {
         done();
@@ -46,7 +46,7 @@ gulp.task('archive:zip', (done) => {
 
     files.forEach( (file) => {
 
-        var filePath = path.resolve(dirs.dist, file);
+        let filePath = path.resolve(dirs.dist, file);
 
         // `archiver.bulk` does not maintain the file
         // permissions, so we need to add files individually
@@ -106,7 +106,7 @@ gulp.task('copy:license', () => {
 
 gulp.task('copy:main.css', () => {
 
-    var banner = `/*! HTML5 Boilerplate v ${pkg.version} | ${pkg.license.type} License | ${pkg.homepage} */\n\n`;
+    const banner = `/*! HTML5 Boilerplate v ${pkg.version} | ${pkg.license.type} License | ${pkg.homepage} */\n\n`;
 
     return gulp.src(`${dirs.src}/css/main.css`)
                .pipe(plugins.header(banner))
