@@ -471,12 +471,23 @@ Graph content
 templates](https://developers.facebook.com/docs/opengraph/objects/builtin/).
 Take full advantage of Facebook's support for complex data and activity by
 following the [Open Graph
-tutorial](https://developers.facebook.com/docs/opengraph/tutorial/).
+tutorial](https://developers.facebook.com/docs/opengraph/tutorial/). 
+
+For a reference of Open Graph's markup and properties, you may check 
+[Facebook's Open Graph Protocol reference](http://ogp.me/). Finally, 
+you can validate your markup with the [Facebook Object 
+Debugger](http://developers.facebook.com/tools/debug/) (needs 
+registration to Facebook).
 
 ```html
+<meta property="fb:app_id" content="123456789"> 
+<meta property="og:url" content="http://www.example.com/path/to/page.html">
+<meta property="og:type" content="website">
 <meta property="og:title" content="">
+<meta property="og:image" content="http://www.example.com/path/to/image.jpg">
 <meta property="og:description" content="">
-<meta property="og:image" content="">
+<meta property="og:site_name" content="">
+<meta property="article:author" content="">
 ```
 
 ### Twitter Cards
@@ -486,7 +497,9 @@ Graph. In fact, Twitter will use Open Graph when Cards is not available. Note
 that, as of this writing, Twitter requires that app developers activate Cards
 on a per-domain basis. You can read more about the various snippet formats
 and application process in the [official Twitter Cards
-documentation](https://dev.twitter.com/docs/cards).
+documentation](https://dev.twitter.com/docs/cards), and you can validate
+your markup with the [Card validator](https://cards-dev.twitter.com/validator) 
+(needs registration to Twitter).
 
 ```html
 <meta name="twitter:card" content="summary">
@@ -498,6 +511,32 @@ documentation](https://dev.twitter.com/docs/cards).
 <meta name="twitter:image" content="http://www.example.com/path/to/image.jpg">
 ```
 
+### Google+ / Schema.org
+
+Google also provides a snippet specification that serves a similar 
+purpose to Facebook's Open Graph or Twitter Cards. While it helps you 
+to control information displayed on Google+, this metadata is a subset 
+of [schema.org's microdata vocabulary](https://schema.org/), which 
+covers many other schemas that can describe the content of your pages 
+to search engines. For this reason, this metadata is more generic for 
+SEO, notably for Google's search-engine, although this vocabulary is 
+also used by Microsoft, Pinterest or Yandex. 
+
+You can validate your markup with the [Structured Data Testing 
+Tool](https://developers.google.com/structured-data/testing-tool/). 
+Also, please note that this markup requires to add attributes to your 
+top `html` tag.
+
+```html
+<html class="no-js" lang="" itemscope itemtype="http://schema.org/Article">
+    <head>
+
+        <link rel="author" href="">
+        <link rel="publisher" href="">
+        <meta itemprop="name" content="">
+        <meta itemprop="description" content="">
+        <meta itemprop="image" content="">
+```
 
 ## URLs
 
