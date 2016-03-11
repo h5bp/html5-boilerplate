@@ -118,9 +118,6 @@ remove these placeholder media queries. One possibility would be to work from
 wide viewports down, and use `max-width` media queries instead (e.g.:
 `@media only screen and (max-width: 480px)`).
 
-For more features that can help you in your mobile web development, take a look
-into our [Mobile Boilerplate](https://github.com/h5bp/mobile-boilerplate).
-
 
 ## Print styles
 
