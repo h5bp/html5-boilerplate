@@ -1,9 +1,19 @@
 # For more information about the configurations used
 # in this file, please see the Travis CI documentation:
-# http://docs.travis-ci.com
+# https://docs.travis-ci.com
 
 after_success:
-  - ./scripts/travis/auto_update_dist.sh
+  - |
+
+      # Automatically update the content from the `dist/` directory
+
+      $(npm bin)/travis-after-all \
+        && $(npm bin)/set-up-ssh -k "$encrypted_7289798db853_key" \
+                                 -iv "$encrypted_7289798db853_iv" \
+                                 --path-encrypted-key ".travis/github_deploy_key.enc" \
+        && $(npm bin)/commit-changes --branch "master" \
+                                     --commands "npm run build" \
+                                     --commit-message "Update content from the \`dist\` directory [skip ci]"
 
 env:
   global:

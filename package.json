@@ -5,7 +5,7 @@
     ]
   },
   "devDependencies": {
-    "@alrra/travis-scripts": "^2.0.0",
+    "@alrra/travis-scripts": "^2.1.0",
     "apache-server-configs": "2.14.0",
     "archiver": "^0.21.0",
     "babel-core": "^6.7.2",
