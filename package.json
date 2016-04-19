@@ -21,7 +21,7 @@
     "gulp-rename": "^1.2.0",
     "gulp-replace": "^0.5.3",
     "jquery": "1.12.2",
-    "jshint": "^2.8.0",
+    "jshint": "^2.9.2",
     "jshint-stylish": "^2.0.1",
     "mocha": "^2.2.4",
     "normalize.css": "3.0.3",
