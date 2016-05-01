@@ -22,7 +22,7 @@
     "gulp-replace": "^0.5.3",
     "jquery": "1.12.2",
     "jshint": "^2.8.0",
-    "jshint-stylish": "^2.0.1",
+    "jshint-stylish": "^2.2.0",
     "mocha": "^2.2.4",
     "normalize.css": "3.0.3",
     "run-sequence": "^1.0.2",
