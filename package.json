@@ -23,7 +23,7 @@
     "jquery": "1.12.2",
     "jshint": "^2.8.0",
     "jshint-stylish": "^2.0.1",
-    "mocha": "^2.2.4",
+    "mocha": "^2.5.3",
     "normalize.css": "3.0.3",
     "run-sequence": "^1.0.2",
     "travis-after-all": "^1.4.4"
