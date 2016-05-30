@@ -53,6 +53,7 @@ styles:
 You are free and even encouraged to modify or add to these base styles as your
 project requires.
 
+For accessibility, if you are using a background other than all-white (including an image behind text), and if the contrast with dark gray text is not enough, in main.css edit the section Base Styles: Opinionated Defaults by editing the html element's style value for color from "#222" (which is darkgray) to "#000" (which is black) (without quotation marks).
 
 ## Common helpers
 
