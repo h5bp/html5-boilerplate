@@ -26,3 +26,14 @@
 # https://github.com/github/linguist#using-gitattributes
 
 dist/.htaccess linguist-vendored
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Git Large File Storage common large file matching patternss
+# https://git-lfs.github.com/
+
+*.psd filter=lfs diff=lfs merge=lfs -text
+*.zip filter=lfs diff=lfs merge=lfs -text
+*.ai filter=lfs diff=lfs merge=lfs -text
+*.pdf filter=lfs diff=lfs merge=lfs -text
+*.doc filter=lfs diff=lfs merge=lfs -text
