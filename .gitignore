@@ -1,2 +1,4 @@
 archive
 node_modules
+tests
+dist

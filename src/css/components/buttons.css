@@ -1,0 +1,20 @@
+@import "../abstracts/variables.css";
+
+[role=button],
+input[type=submit],
+input[type=button],
+button{
+    transition:box-shadow .3s linear;
+    will-change: box-shadow;
+    font-family: var(--font-family);
+    text-align: center;
+    text-decoration: none;
+		outline: none;
+}
+
+[role=button]:hover,
+input[type=submit]:hover,
+input[type=button]:hover,
+button:hover{
+    box-shadow: 0 2px 4px var(--box-shadow-color);
+}

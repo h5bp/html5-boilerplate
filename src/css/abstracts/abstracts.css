@@ -1,0 +1,32 @@
+:root{
+    /* Coors */
+    --white: #fff;
+    --red: red;
+    --gray: #ccc;
+    --orange: #f90;
+    --black: #000;
+
+    /* Grid */
+    --box-width: 1280px;
+    --box-padding: 20px 40px;
+
+    /* Typography */
+    --font-family: "Arial";
+    --text-color: var(--black, #000);
+
+    /* Features */
+    --selection-background: #b3d4fc;
+    --selection-color: var(--white, #fff);
+    --over-background-color: var(--orange, orange);
+    --background-color: var(--white, #fff);
+
+    /* Inputs */
+    --input-border-raduis: 2px;
+    --input-indent: 20px;
+    --placeholder-color: var(--gray, gray);
+    --invalid-outline-color: var(--red, red);
+
+    /* Other */
+    --box-shadow-color: #888;
+    --hr-color: var(--gray, gray);
+}

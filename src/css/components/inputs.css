@@ -1,0 +1,26 @@
+@import "../abstracts/variables.css";
+
+input[type=text],
+input[type=email],
+input[type=tel],
+input[type=search],
+textarea{
+    border-radius: var(--input-border-raduis);
+    text-indent: var(--input-indent);
+		font-family: var(--font-family);
+    outline: none;
+		border: 0;
+    padding: 0;
+}
+input::-webkit-input-placeholder {
+    color: var(--placeholder-color);
+	  font-size: 18px;
+    transition: color .3s linear;
+    will-change: color;
+}
+input:focus::-webkit-input-placeholder {
+    color:transparent;
+}
+.test :invalid{
+    box-shadow: 0 0 10px var(--invalid-outline-color);
+}

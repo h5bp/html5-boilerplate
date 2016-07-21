@@ -9,24 +9,46 @@
     "apache-server-configs": "2.14.0",
     "archiver": "^0.21.0",
     "babel-core": "^6.7.2",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.10.3",
     "babel-preset-es2015": "^6.6.0",
+    "babel-preset-es2015-native-modules": "^6.9.1",
+    "babel-preset-stage-3": "^6.11.0",
     "del": "^2.0.2",
     "glob": "^7.0.3",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.0.2",
+    "gulp-add-src": "^0.2.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-connect": "^4.2.0",
+    "gulp-csso": "^2.0.0",
+    "gulp-foreach": "^0.1.0",
     "gulp-header": "^1.2.2",
+    "gulp-htmlmin": "^2.0.0",
+    "gulp-if": "^2.0.1",
+    "gulp-imagemin": "^3.0.2",
+    "gulp-jscrush": "^1.0.0",
     "gulp-jscs": "^3.0.1",
     "gulp-jshint": "^2.0.0",
-    "gulp-load-plugins": "^1.1.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-postcss": "^6.1.1",
     "gulp-rename": "^1.2.0",
     "gulp-replace": "^0.5.3",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-speckjs": "^1.0.1",
+    "imagemin-pngquant": "^5.0.0",
     "jquery": "1.12.2",
     "jshint": "^2.8.0",
     "jshint-stylish": "^2.0.1",
     "mocha": "^2.2.4",
     "normalize.css": "3.0.3",
-    "run-sequence": "^1.0.2",
-    "travis-after-all": "^1.4.4"
+    "path": "^0.12.7",
+    "postcss-css-variables": "^0.5.1",
+    "postcss-partial-import": "^2.0.0",
+    "require-dir": "^0.3.0",
+    "run-sequence": "^1.2.2",
+    "travis-after-all": "^1.4.4",
+    "webpack": "^2.1.0-beta.19"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -36,7 +58,8 @@
       "archive": "archive",
       "dist": "dist",
       "src": "src",
-      "test": "test"
+      "test": "test",
+      "tests": "tests"
     }
   },
   "homepage": "https://html5boilerplate.com/",
@@ -50,5 +73,8 @@
     "build": "gulp build",
     "test": "gulp archive && mocha --reporter spec --timeout 5000"
   },
-  "version": "5.3.0"
+  "version": "5.3.0",
+  "dependencies": {
+    "modernizr": "^3.3.1"
+  }
 }
