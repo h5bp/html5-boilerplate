@@ -9,12 +9,12 @@ import pkg from '../package.json';
 const dirs = pkg['h5bp-configs'].directories;
 
 gulp.task('archive:create_archive_dir', () => {
-    fs.mkdirSync(path.resolve(`../${dirs.archive}`), '0755');
+    fs.mkdirSync(path.resolve(dirs.archive), '0755');
 });
 
 gulp.task('archive:zip', (done) => {
 
-    const archiveName = path.resolve(`../${dirs.archive}`, `${pkg.name}_v${pkg.version}.zip`);
+    const archiveName = path.resolve(dirs.archive, `${pkg.name}_v${pkg.version}.zip`);
     const zip = archiver('zip');
     const files = glob.sync('**/*.*', {
         'cwd': `${dirs.dist}`,
@@ -31,7 +31,7 @@ gulp.task('archive:zip', (done) => {
 
     files.forEach( (file) => {
 
-        const filePath = path.resolve(`${dirs.dist}`, file);
+        const filePath = path.resolve(dirs.dist, file);
 
         // `zip.bulk` does not maintain the file
         // permissions, so we need to add files individually
