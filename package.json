@@ -6,7 +6,7 @@
   },
   "devDependencies": {
     "@alrra/travis-scripts": "^2.1.0",
-    "apache-server-configs": "2.14.0",
+    "apache-server-configs": "^2.14.0",
     "archiver": "^0.21.0",
     "babel-core": "^6.7.2",
     "babel-loader": "^6.2.4",
@@ -33,7 +33,7 @@
     "gulp-load-plugins": "^1.2.4",
     "gulp-postcss": "^6.1.1",
     "gulp-rename": "^1.2.0",
-    "gulp-replace": "^0.5.3",
+    "gulp-replace": "^0.5.4",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-speckjs": "^1.0.1",
     "imagemin-pngquant": "^5.0.0",

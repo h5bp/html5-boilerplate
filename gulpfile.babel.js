@@ -13,7 +13,7 @@ requireDir('./tasks', {recurse: true});
 // Tasks
 gulp.task('build', () => {
 	global.production = false;
-	runSequence("html", "css", "js", "misc");
+	runSequence("html", "css", "js", "misc", "img");
 });
 
 gulp.task('production', () => {

@@ -56,7 +56,7 @@ function runTests() {
             var string = '\n\nErrorDocument 404 /404.html\n\n';
             checkString(path.resolve(dir, '.htaccess'), string, done);
         });
-        
+
     });
 
 }
