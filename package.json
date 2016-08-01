@@ -18,6 +18,7 @@
     "glob": "^7.0.3",
     "gulp": "^3.9.1",
     "gulp-add-src": "^0.2.0",
+    "gulp-append-prepend": "^1.0.2",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-connect": "^4.2.0",
     "gulp-csso": "^2.0.0",

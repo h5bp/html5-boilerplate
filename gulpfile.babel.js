@@ -24,16 +24,17 @@ gulp.task('production', () => {
 // Watcher
 gulp.task('watch', () => {
     gulp.watch(`${dirs.src}/css/**/*.css`, ["css"]);
-    gulp.watch(`${dirs.src}/css/**/*.html`, ["html"]);
-    gulp.watch(`${dirs.src}/css/**/*.js`, ["js"]);
+    gulp.watch(`${dirs.src}/**/*.html`, ["html"]);
+    gulp.watch(`${dirs.src}/js/**/*.js`, ["js"]);
 });
 
 // Server
 gulp.task('connect', () => {
     connect.server({
         root: dirs.dist,
-        livereload: true
+        livereload: true,
+		port: 8888
     });
 });
 
-gulp.task('default', ['build', 'watch']);
+gulp.task('default', ['build', 'watch', 'connect']);
