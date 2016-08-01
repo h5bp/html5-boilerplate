@@ -4,18 +4,17 @@ import plugins from 'gulp-load-plugins';
 const dirs = pkg['h5bp-configs'].directories;
 
 gulp.task('misc', ['copy:.htaccess', 'copy:license'], () => {
-    console.log(`!${dirs.src}/css/**/*.css`);
     gulp.src([
-					// Copy all files
-					`${dirs.src}/**/*`,
+                    // Copy all files
+                    `${dirs.src}/**/*`,
 
-					// Exclude the following files
-					// (other tasks will handle the copying of these files)
-					`!${dirs.src}/css/**/*`,
-					`!${dirs.src}/js/**/*`,
-					`!${dirs.src}/img/**/*`,
-					`!${dirs.src}/**/*.html`
-				],{
+                    // Exclude the following files
+                    // (other tasks will handle the copying of these files)
+                    `!${dirs.src}/css/**/*`,
+                    `!${dirs.src}/js/**/*`,
+                    `!${dirs.src}/img/**/*`,
+                    `!${dirs.src}/**/*.html`
+                ],{
 
             // Include hidden files by default
             dot: true
