@@ -1,0 +1,1 @@
+import modernizr from 'modernizr';

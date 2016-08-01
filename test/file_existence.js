@@ -25,7 +25,6 @@ var expectedFilesInDistDir = [
     'css/', // for directories, a `/` character
             // should be included at the end
         'css/main.css',
-        'css/normalize.css',
 
     'doc/',
         'doc/TOC.md',
@@ -41,22 +40,16 @@ var expectedFilesInDistDir = [
     'humans.txt',
 
     'img/',
-        'img/.gitignore',
+        'img/tile-wide.png',
+        'img/tile.png',
 
     'index.html',
 
     'js/',
-        'js/main.js',
-        'js/plugins.js',
-        'js/vendor/',
-            'js/vendor/jquery-' + pkg.devDependencies.jquery + '.min.js',
-            'js/vendor/modernizr-2.8.3.min.js',
+        'js/app.js',
 
     'LICENSE.txt',
-    'robots.txt',
-    'tile-wide.png',
-    'tile.png'
-
+    'robots.txt'
 ];
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

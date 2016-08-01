@@ -1,0 +1,19 @@
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+main {
+	flex: 1;
+}
+
+section{
+	display: flex;
+	justify-content: center;
+}
+
+.box{
+	width: var(--box-width);
+	padding: var(--box-padding);
+}

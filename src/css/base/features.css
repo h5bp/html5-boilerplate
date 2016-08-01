@@ -1,0 +1,22 @@
+@import "../abstracts/variables.css";
+
+::selection {
+    background: var(--selection-background);
+    color: var(--selection-color);
+    text-shadow: none;
+}
+::-moz-selection {
+    background: var(--selection-background);
+    text-shadow: none;
+    color: var(--selection-color);
+}
+
+/* Color which visible when we scroll on mobile */
+body{
+    background-color: var(--over-background-color);
+}
+
+#wrapper,
+header{
+    background: var(--background-color);
+}
