@@ -686,7 +686,7 @@ Same applies to the touch icons:
 
 ### Theme Color
 
-You can add the [`theme-color` meta extension](https://github.com/whatwg/meta-theme-color)
+You can add the [`theme-color` meta extension](https://html.spec.whatwg.org/multipage/semantics.html#meta-theme-color)
 in the `<head>` of your pages to suggest the color that browsers and
 OSes should use if they customize the display of individual pages in
 their UIs with varying colors.
