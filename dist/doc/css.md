@@ -14,7 +14,7 @@ HTML5 Boilerplate's CSS includes:
 This starting CSS does not rely on the presence of
 [conditional class names](https://www.paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/),
 [conditional style sheets](https://css-tricks.com/how-to-create-an-ie-only-stylesheet/),
-or [Modernizr](http://modernizr.com/), and it is ready to use no matter what
+or [Modernizr](https://modernizr.com/), and it is ready to use no matter what
 your development preferences happen to be.
 
 
@@ -117,9 +117,6 @@ If you do not want to take the _mobile first_ approach, you can simply edit or
 remove these placeholder media queries. One possibility would be to work from
 wide viewports down, and use `max-width` media queries instead (e.g.:
 `@media only screen and (max-width: 480px)`).
-
-For more features that can help you in your mobile web development, take a look
-into our [Mobile Boilerplate](https://github.com/h5bp/mobile-boilerplate).
 
 
 ## Print styles

@@ -13,7 +13,7 @@ By default, HTML5 Boilerplate provides two `html` pages:
 ## `index.html`
 
 
-### The `no-js` class
+### The `no-js` Class
 
 The `no-js` class is provided in order to allow you to more easily and
 explicitly add custom styles based on whether JavaScript is disabled
@@ -21,7 +21,7 @@ explicitly add custom styles based on whether JavaScript is disabled
 FOUC](https://www.paulirish.com/2009/avoiding-the-fouc-v3/).
 
 
-## Language attribute
+## Language Attribute
 
 Please consider specifying the language of your content by adding the `lang`
 attribute to `<html>` as in this example:
@@ -95,10 +95,21 @@ Starting with Internet Explorer 11, [document modes are
 deprecated](https://msdn.microsoft.com/en-us/library/ie/bg182625.aspx#docmode).
 If your business still relies on older web apps and services that were
 designed for older versions of Internet Explorer, you might want to consider
-enabling [Enterprise Mode](http://blogs.msdn.com/b/ie/archive/2014/04/02/stay-up-to-date-with-enterprise-mode-for-internet-explorer-11.aspx) throughout your company.
+enabling [Enterprise Mode](https://blogs.msdn.microsoft.com/ie/2014/04/02/stay-up-to-date-with-enterprise-mode-for-internet-explorer-11/) throughout your company.
 
 
-## Mobile viewport
+## Meta Description
+
+The `description` meta tag provides a short description of the page. 
+In some situations this description is used as a part of the snippet 
+shown in the search results.
+
+```html
+<meta name="description" content="This is a description">
+```
+
+
+## Mobile Viewport
 
 There are a few different options that you can use with the [`viewport` meta
 tag](https://docs.google.com/present/view?id=dkx3qtm_22dxsrgcf4 "Viewport and
@@ -123,7 +134,7 @@ of these docs.
 
 HTML5 Boilerplate uses a custom build of Modernizr.
 
-[Modernizr](http://modernizr.com) is a JavaScript library which adds classes to
+[Modernizr](https://modernizr.com) is a JavaScript library which adds classes to
 the `html` element based on the results of feature test and which ensures that
 all browsers can make use of HTML5 elements (as it includes the HTML5 Shiv).
 This allows you to target parts of your CSS and JavaScript based on the
@@ -137,7 +148,7 @@ so that browsers lacking support for some of the new HTML5 elements are able to
 handle them properly. Therefore the Modernizr script is the only JavaScript
 file synchronously loaded at the top of the document.
 
-## What about polyfills?
+## What About Polyfills?
 
 If you need to include [polyfills](https://remysharp.com/2010/10/08/what-is-a-polyfill)
 in your project, you must make sure those load before any other JavaScript. If you're
@@ -164,7 +175,7 @@ to understand that Modernizr just handles feature checking, not polyfilling
 itself. The only thing Modernizr does regarding polyfills is that the team
 maintains [a huge list of cross Browser polyfills](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills).
 
-## The content area
+## The Content Area
 
 The central part of the boilerplate template is pretty much empty. This is
 intentional, in order to make the boilerplate suitable for both web page and
@@ -176,28 +187,32 @@ The main content area of the boilerplate includes a prompt to install an up to
 date browser for users of IE 6/7. If you intended to support IE 6/7, then you
 should remove the snippet of code.
 
-### Google CDN for jQuery
+### jQuery CDN for jQuery
 
-The Google CDN version of the jQuery JavaScript library is referenced towards
-the bottom of the page using a protocol-independent path (read more about this
-in the [FAQ](faq.md)). A local fallback of jQuery is included for rare instances
+The jQuery CDN version of the jQuery JavaScript library is referenced towards
+the bottom of the page. A local fallback of jQuery is included for rare instances
 when the CDN version might not be available, and to facilitate offline
 development.
 
-The Google CDN version is chosen over other [potential candidates (like the
-jQuery CDN](https://jquery.com/download/#using-jquery-with-a-cdn)) because
-it's fast in absolute terms and it has the best overall
-[penetration](http://httparchive.org/trends.php#perGlibs) which increases the
-odds of having a copy of the library in your user's browser cache.
+The jQuery CDN version was chosen over other potential candidates
+([like Google's Hosted Libraries](https://developers.google.com/speed/libraries/))
+because it's fast ([comparable or faster than Google by some
+measures](https://www.cdnperf.com/#jsdelivr,cdnjs,google,yandex,microsoft,jquery,bootstrapcdn/https/90))
+and, (unlike Google's CDN) is available to China's hundreds of millions of internet users.
+For many years we [chose](https://github.com/h5bp/html5-boilerplate/issues/1191)
+the Google Hosted version over the jQuery CDN because it was available
+over HTTPS (the jQuery CDN was not,) and it offered a better chance of
+hitting the cache lottery owing to the popularity of the Google CDN.
+The first issue is no longer valid and the second is far outweighed by
+being able to serve jQuery to Chinese users.
 
-While the Google CDN is a strong default solution your site or application may
+While the jQuery CDN is a strong default solution your site or application may
 require a different configuration. Testing your site with services like
 [WebPageTest](https://www.webpagetest.org/) and browser tools like
 [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) or
 [YSlow](https://developer.yahoo.com/yslow/) will help you examine the real
 world performance of your site and can show where you can optimize your specific
 site or application.
-
 
 ### Google Universal Analytics Tracking Code
 

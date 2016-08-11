@@ -1,6 +1,16 @@
 ### HEAD
 
-* Change print color for ::first-letter and ::first-line pseudo-elements
+* Update jQuery to `v1.12.2`.
+* Simplify the Google Analytics snippet using `async` & `defer` ([#1660](https://github.com/h5bp/html5-boilerplate/pull/1660#issuecomment-89285678)).
+
+### 5.3.0 (January 12, 2016)
+
+* Update jQuery to `v1.12.0`.
+* Fetch `jQuery` from jQuery's CDN instead of Google's
+  ([#1737](https://github.com/h5bp/html5-boilerplate/issues/1737),
+   [#1739](https://github.com/h5bp/html5-boilerplate/issues/1739)).
+* Change print color for `:first-letter` and `:first-line`
+  pseudo-elements
   ([#1715](https://github.com/h5bp/html5-boilerplate/pull/1715)).
 
 ### 5.2.0 (May 1, 2015)

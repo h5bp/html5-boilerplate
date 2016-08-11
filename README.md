@@ -37,7 +37,7 @@ Choose one of the following options:
   * [`Normalize.css`](https://necolas.github.com/normalize.css/)
     for CSS normalizations and common bug fixes
   * [`jQuery`](https://jquery.com/) via CDN, with a local fallback
-  * A custom build of  [`Modernizr`](http://modernizr.com/) for feature
+  * A custom build of  [`Modernizr`](https://modernizr.com/) for feature
     detection
   * [`Apache Server Configs`](https://github.com/h5bp/server-configs-apache)
     that, among other, improve the web site's performance and security
@@ -54,6 +54,7 @@ Choose one of the following options:
 ## Browser support
 
 * Chrome *(latest 2)*
+* Edge *(latest 2)*
 * Firefox *(latest 2)*
 * Internet Explorer 8+
 * Opera *(latest 2)*
