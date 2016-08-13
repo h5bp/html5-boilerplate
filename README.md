@@ -1,4 +1,4 @@
-# [HTML5 Boilerplate](https://html5boilerplate.com)
+# [HTML5 Boilerplate](https://html5boilerplate.com/)
 
 [![Build Status](https://travis-ci.org/h5bp/html5-boilerplate.svg)](https://travis-ci.org/h5bp/html5-boilerplate)
 [![devDependency Status](https://david-dm.org/h5bp/html5-boilerplate/dev-status.svg)](https://david-dm.org/h5bp/html5-boilerplate#info=devDependencies)
@@ -11,7 +11,7 @@ combined community knowledge. It does not impose a specific development
 philosophy or framework, so you're free to architect your code in the
 way that you want.
 
-* Homepage: [https://html5boilerplate.com](https://html5boilerplate.com)
+* Homepage: [https://html5boilerplate.com/](https://html5boilerplate.com/)
 * Source: [https://github.com/h5bp/html5-boilerplate](https://github.com/h5bp/html5-boilerplate)
 * Twitter: [@h5bp](https://twitter.com/h5bp)
 
@@ -22,7 +22,7 @@ Choose one of the following options:
 
 1. Download the latest stable release from
    [html5boilerplate.com](https://html5boilerplate.com/) or create a
-   custom build using [Initializr](http://www.initializr.com).
+   custom build using [Initializr](http://www.initializr.com/).
 2. Clone the git repo — `git clone
    https://github.com/h5bp/html5-boilerplate.git` - and checkout the
    [tagged release](https://github.com/h5bp/html5-boilerplate/releases)
@@ -37,7 +37,7 @@ Choose one of the following options:
   * [`Normalize.css`](https://necolas.github.com/normalize.css/)
     for CSS normalizations and common bug fixes
   * [`jQuery`](https://jquery.com/) via CDN, with a local fallback
-  * A custom build of  [`Modernizr`](https://modernizr.com/) for feature
+  * A custom build of [`Modernizr`](https://modernizr.com/) for feature
     detection
   * [`Apache Server Configs`](https://github.com/h5bp/server-configs-apache)
     that, among other, improve the web site's performance and security
