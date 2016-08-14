@@ -69,7 +69,7 @@ function runTests() {
 
         it('"main.css" should contain a custom banner', function (done) {
             var string = '/*! HTML5 Boilerplate v' + pkg.version +
-                         ' | ' + pkg.license.type + ' License' +
+                         ' | ' + pkg.license + ' License' +
                          ' | ' + pkg.homepage + ' */\n\n/*\n';
             checkString(path.resolve(dir, 'css/main.css'), string, done);
         });
