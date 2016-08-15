@@ -19,7 +19,6 @@ var expectedFilesInDistDir = [
     '.htaccess',
     '404.html',
     'apple-touch-icon.png',
-    'browserconfig.xml',
     'crossdomain.xml',
 
     'css/', // for directories, a `/` character
@@ -53,9 +52,7 @@ var expectedFilesInDistDir = [
             'js/vendor/modernizr-2.8.3.min.js',
 
     'LICENSE.txt',
-    'robots.txt',
-    'tile-wide.png',
-    'tile.png'
+    'robots.txt'
 
 ];
 
