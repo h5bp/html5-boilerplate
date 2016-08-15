@@ -1,4 +1,4 @@
-[HTML5 Boilerplate homepage](https://html5boilerplate.com) | [Documentation
+[HTML5 Boilerplate homepage](https://html5boilerplate.com/) | [Documentation
 table of contents](TOC.md)
 
 # The CSS
@@ -72,10 +72,10 @@ visually, while still have its content accessible to screen readers.
 See also:
 
 * [CSS in Action: Invisible Content Just for Screen Reader
-  Users](http://www.webaim.org/techniques/css/invisiblecontent/)
+  Users](http://webaim.org/techniques/css/invisiblecontent/)
 * [Hiding content for
-  accessibility](http://snook.ca/archives/html_and_css/hiding-content-for-accessibility)
-* [HTML5 Boilerplate - Issue #194](https://github.com/h5bp/html5-boilerplate/issues/194/).
+  accessibility](https://snook.ca/archives/html_and_css/hiding-content-for-accessibility)
+* [HTML5 Boilerplate - Issue #194](https://github.com/h5bp/html5-boilerplate/issues/194).
 
 #### `.invisible`
 
@@ -104,9 +104,9 @@ we use the [micro clearfix](http://nicolasgallagher.com/micro-clearfix-hack/).
 
 HTML5 Boilerplate makes it easy for you to get started with a
 [_mobile first_](http://www.lukew.com/presos/preso.asp?26) and [_responsive web
-design_](http://www.alistapart.com/articles/responsive-web-design/) approach to
+design_](http://alistapart.com/article/responsive-web-design) approach to
 development. But it's worth remembering that there are [no silver
-bullets](http://blog.cloudfour.com/css-media-query-for-mobile-is-fools-gold/).
+bullets](https://cloudfour.com/thinks/css-media-query-for-mobile-is-fools-gold/).
 
 We include placeholder media queries to help you build up your mobile styles for
 wider viewports and high-resolution displays. It's recommended that you adapt

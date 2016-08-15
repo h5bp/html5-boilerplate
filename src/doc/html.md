@@ -1,4 +1,4 @@
-[HTML5 Boilerplate homepage](https://html5boilerplate.com) | [Documentation
+[HTML5 Boilerplate homepage](https://html5boilerplate.com/) | [Documentation
 table of contents](TOC.md)
 
 # The HTML
@@ -92,7 +92,7 @@ the HTTP header. If you are using a different server, check out our [other
 server config](https://github.com/h5bp/server-configs).
 
 Starting with Internet Explorer 11, [document modes are
-deprecated](https://msdn.microsoft.com/en-us/library/ie/bg182625.aspx#docmode).
+deprecated](https://msdn.microsoft.com/library/bg182625.aspx#docmode).
 If your business still relies on older web apps and services that were
 designed for older versions of Internet Explorer, you might want to consider
 enabling [Enterprise Mode](https://blogs.msdn.microsoft.com/ie/2014/04/02/stay-up-to-date-with-enterprise-mode-for-internet-explorer-11/) throughout your company.
@@ -134,7 +134,7 @@ of these docs.
 
 HTML5 Boilerplate uses a custom build of Modernizr.
 
-[Modernizr](https://modernizr.com) is a JavaScript library which adds classes to
+[Modernizr](https://modernizr.com/) is a JavaScript library which adds classes to
 the `html` element based on the results of feature test and which ensures that
 all browsers can make use of HTML5 elements (as it includes the HTML5 Shiv).
 This allows you to target parts of your CSS and JavaScript based on the

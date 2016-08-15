@@ -161,14 +161,14 @@ ga('send', 'pageview');
 ### Track jQuery AJAX requests in Google Analytics
 
 An article by @JangoSteve explains how to [track jQuery AJAX requests in Google
-Analytics](http://www.alfajango.com/blog/track-jquery-ajax-requests-in-google-analytics/).
+Analytics](https://www.alfajango.com/blog/track-jquery-ajax-requests-in-google-analytics/).
 
 Add this to `plugins.js`:
 
 ```js
 /*
  * Log all jQuery AJAX requests to Google Analytics
- * See: http://www.alfajango.com/blog/track-jquery-ajax-requests-in-google-analytics/
+ * See: https://www.alfajango.com/blog/track-jquery-ajax-requests-in-google-analytics/
  */
 if (typeof ga !== "undefined" && ga !== null) {
     $(document).ajaxSend(function(event, xhr, settings){
@@ -399,7 +399,7 @@ plugin](https://www.google.com/search?ie=UTF-8&q=how+to+make+browser+search+plug
 * Use [Microformats](http://microformats.org/wiki/Main_Page) (via
   [microdata](http://microformats.org/wiki/microdata)) for optimum search
   results
-  [visibility](http://googlewebmastercentral.blogspot.com/2009/05/introducing-rich-snippets.html).
+  [visibility](https://webmasters.googleblog.com/2009/05/introducing-rich-snippets.html).
 
 * If you're building a web app you may want [native style momentum scrolling in
   iOS 5+](http://www.johanbrook.com/articles/native-style-momentum-scrolling-to-arrive-in-ios-5/)
