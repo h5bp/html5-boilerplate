@@ -1,4 +1,4 @@
-[HTML5 Boilerplate homepage](https://html5boilerplate.com) | [Documentation
+[HTML5 Boilerplate homepage](https://html5boilerplate.com/) | [Documentation
 table of contents](TOC.md)
 
 # Miscellaneous
@@ -30,7 +30,7 @@ globally ignore:
     excludesfile = ~/.gitignore
 ```
 
-* More on global ignores: https://help.github.com/articles/ignoring-files
+* More on global ignores: https://help.github.com/articles/ignoring-files/
 * Comprehensive set of ignores on GitHub: https://github.com/github/gitignore
 
 
@@ -144,7 +144,7 @@ For more information about `robots.txt`, please see:
 
 The `browserconfig.xml` file is used to customize the tile displayed when users
 pin your site to the Windows 8.1 start screen. In there you can define custom
-tile colors, custom images or even [live tiles](https://msdn.microsoft.com/en-us/library/ie/dn455106.aspx#CreatingLiveTiles).
+tile colors, custom images or even [live tiles](https://msdn.microsoft.com/library/dn455106.aspx#CreatingLiveTiles).
 
 By default, the file points to 2 placeholder tile images:
 
@@ -155,4 +155,4 @@ By default, the file points to 2 placeholder tile images:
 Notice that IE11 uses the same images when adding a site to the `favorites`.
 
 For more in-depth information about the `browserconfig.xml` file, please
-see [MSDN](https://msdn.microsoft.com/en-us/library/ie/dn320426.aspx).
+see [MSDN](https://msdn.microsoft.com/library/dn320426.aspx).
