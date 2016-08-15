@@ -20,7 +20,6 @@ var expectedFilesInDistDir = [
     '404.html',
     'apple-touch-icon.png',
     'browserconfig.xml',
-    'crossdomain.xml',
 
     'css/', // for directories, a `/` character
             // should be included at the end
