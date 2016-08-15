@@ -1,4 +1,4 @@
-/*! HTML5 Boilerplate v5.3.0 | undefined License | https://html5boilerplate.com/ */
+/*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
 
 /*
  * What follows is the result of much research on cross-browser styling.
@@ -244,6 +244,9 @@ textarea {
         content: "";
     }
 
+    pre {
+        white-space: pre-wrap !important;
+    }
     pre,
     blockquote {
         border: 1px solid #999;
@@ -262,10 +265,6 @@ textarea {
     tr,
     img {
         page-break-inside: avoid;
-    }
-
-    img {
-        max-width: 100% !important;
     }
 
     p,
