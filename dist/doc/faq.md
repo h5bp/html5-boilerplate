@@ -25,7 +25,7 @@ performance](https://stevesouders.com/efws/inline-scripts-bottom.php).
 
 ### How can I integrate [Bootstrap](https://getbootstrap.com/) with HTML5 Boilerplate?
 
-One simple way is to use [Initializr](http://www.initializr.com//) and create a
+One simple way is to use [Initializr](http://www.initializr.com/) and create a
 custom build that includes both HTML5 Boilerplate and
 [Bootstrap](https://getbootstrap.com/).
 
