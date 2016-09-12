@@ -20,11 +20,11 @@
     "gulp-load-plugins": "^1.1.0",
     "gulp-rename": "^1.2.0",
     "gulp-replace": "^0.5.3",
-    "jquery": "1.12.4",
+    "jquery": "3.1.0",
     "jshint": "^2.8.0",
     "jshint-stylish": "^2.0.1",
     "mocha": "^2.2.4",
-    "normalize.css": "3.0.3",
+    "normalize.css": "4.2.0",
     "run-sequence": "^1.0.2",
     "travis-after-all": "^1.4.4"
   },
