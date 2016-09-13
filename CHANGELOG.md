@@ -1,5 +1,7 @@
 ### HEAD
 
+* Tell users that IE 8 and 9 are outdated
+  ([#1747](https://github.com/h5bp/html5-boilerplate/issues/1747)).
 * Removed IE8 Support (upgrades jQuery and normalize.css to latest)
   ([#1524](https://github.com/h5bp/html5-boilerplate/issues/1524)).
 * Fix print styles for Internet Explorer 11
