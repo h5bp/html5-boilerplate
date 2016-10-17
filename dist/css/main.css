@@ -126,6 +126,8 @@ textarea {
 /*
  * Hide only visually, but have it available for screen readers:
  * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ * Beware of smushed off-screen accessible text:
+ * https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
  */
 
 .visuallyhidden {
@@ -137,6 +139,7 @@ textarea {
     padding: 0;
     position: absolute;
     width: 1px;
+    white-space: nowrap;
 }
 
 /*
