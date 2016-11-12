@@ -92,10 +92,12 @@ gulp.task('copy:index.html', (done) =>
     sri.hash('node_modules/jquery/dist/jquery.min.js', (err, hash) => {
         if (err) throw err
 
+        let version = pkg.devDependencies.jquery;
         gulp.src(`${dirs.src}/index.html`)
-            .pipe(plugins().replace(/{{JQUERY_VERSION}}/g, pkg.devDependencies.jquery))
+            .pipe(plugins().replace(/{{JQUERY_VERSION}}/g, version))
             .pipe(plugins().replace(/{{JQUERY_SRI_HASH}}/g, hash))
-            .pipe(gulp.dest(dirs.dist))
+            .pipe(gulp.dest(dirs.dist));
+        done();
     })
 );
 
