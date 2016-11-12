@@ -24,6 +24,7 @@
     "jshint": "^2.8.0",
     "jshint-stylish": "^2.0.1",
     "mocha": "^2.2.4",
+    "node-sri": "^1.1.1",
     "normalize.css": "4.2.0",
     "run-sequence": "^1.0.2",
     "travis-after-all": "^1.4.4"
