@@ -36,7 +36,7 @@ Choose one of the following options:
 * Includes:
   * [`Normalize.css`](https://necolas.github.com/normalize.css/)
     for CSS normalizations and common bug fixes
-  * [`jQuery`](https://jquery.com/) via CDN, with a local fallback
+  * [`jQuery`](https://jquery.com/) via CDN with [SRI Hash](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) and a local fallback
   * A custom build of [`Modernizr`](https://modernizr.com/) for feature
     detection
   * [`Apache Server Configs`](https://github.com/h5bp/server-configs-apache)
