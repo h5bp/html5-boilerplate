@@ -14,6 +14,7 @@ import runSequence from 'run-sequence';
 import archiver from 'archiver';
 import glob from 'glob';
 import del from 'del';
+import sri from 'node-sri'
 
 import pkg from './package.json';
 
@@ -87,10 +88,17 @@ gulp.task('copy:.htaccess', () =>
         .pipe(gulp.dest(dirs.dist))
 );
 
-gulp.task('copy:index.html', () =>
-    gulp.src(`${dirs.src}/index.html`)
-        .pipe(plugins().replace(/{{JQUERY_VERSION}}/g, pkg.devDependencies.jquery))
-        .pipe(gulp.dest(dirs.dist))
+gulp.task('copy:index.html', (done) =>
+    sri.hash('node_modules/jquery/dist/jquery.min.js', (err, hash) => {
+        if (err) throw err
+
+        let version = pkg.devDependencies.jquery;
+        gulp.src(`${dirs.src}/index.html`)
+            .pipe(plugins().replace(/{{JQUERY_VERSION}}/g, version))
+            .pipe(plugins().replace(/{{JQUERY_SRI_HASH}}/g, hash))
+            .pipe(gulp.dest(dirs.dist));
+        done();
+    })
 );
 
 gulp.task('copy:jquery', () =>
