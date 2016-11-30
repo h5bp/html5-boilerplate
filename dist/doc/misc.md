@@ -3,15 +3,15 @@ table of contents](TOC.md)
 
 # Miscellaneous
 
-* [.gitignore](#gitignore)
-* [.editorconfig](#editorconfig)
+* [`.gitignore`](#gitignore)
+* [`.editorconfig`](#editorconfig)
 * [Server Configuration](#server-configuration)
-* [robots.txt](#robotstxt)
-* [browserconfig.xml](#browserconfigxml)
+* [`robots.txt`](#robotstxt)
+* [`browserconfig.xml`](#browserconfigxml)
 
 --
 
-## .gitignore
+## `.gitignore`
 
 HTML5 Boilerplate includes a basic project-level `.gitignore`. This should
 primarily be used to avoid certain project-level files and directories from
@@ -34,7 +34,7 @@ globally ignore:
 * Comprehensive set of ignores on GitHub: https://github.com/github/gitignore
 
 
-## .editorconfig
+## `.editorconfig`
 
 The `.editorconfig` file is provided in order to encourage and help you and
 your team define and maintain consistent coding styles between different
@@ -80,7 +80,7 @@ The `.htaccess` file is mostly used for:
 If you have access to the main server configuration file (usually called
 `httpd.conf`), you should add the logic from the `.htaccess` file in, for
 example, a <Directory> section in the main configuration file. This is usually
-the recommended way, as using .htaccess files slows down Apache!
+the recommended way, as using `.htaccess` files slows down Apache!
 
 To enable Apache modules locally, please see:
 https://github.com/h5bp/server-configs-apache/wiki/How-to-enable-Apache-modules.
@@ -113,7 +113,7 @@ Notice that the original repo for the `.htaccess` file is [this
 one](https://github.com/h5bp/server-configs-apache).
 
 
-## robots.txt
+## `robots.txt`
 
 The `robots.txt` file is used to give instructions to web robots on what can
 be crawled from the website.
@@ -136,7 +136,7 @@ you want to block access to private content, use proper authentication instead.
 
 For more information about `robots.txt`, please see:
 
-  * [robotstxt.org](http://www.robotstxt.org/)
+  * [robotstxt.org](http://www.robotstxt.org)
   * [How Google handles the `robots.txt` file](https://developers.google.com/webmasters/control-crawl-index/docs/robots_txt)
 
 
@@ -148,7 +148,7 @@ tile colors, custom images or even [live tiles](https://msdn.microsoft.com/libra
 
 By default, the file points to 2 placeholder tile images:
 
-* `tile.png` (558x558px): used for `Small`, `Medium` and `Large` tiles.
+* `tile.png` (558x558px): used for `Small`, `Medium`, and `Large` tiles.
   This image resizes automatically when necessary.
 * `tile-wide.png` (558x270px): user for `Wide` tiles.
 
