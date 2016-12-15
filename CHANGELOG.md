@@ -1,6 +1,19 @@
 ### HEAD
 
-* Update jQuery to `v1.12.2`.
+* Tell users that IE 8 and 9 are outdated
+  ([#1747](https://github.com/h5bp/html5-boilerplate/issues/1747)).
+* Removed IE8 Support (upgrades jQuery and normalize.css to latest)
+  ([#1524](https://github.com/h5bp/html5-boilerplate/issues/1524)).
+* Fix print styles for Internet Explorer 11
+  ([#1799](https://github.com/h5bp/html5-boilerplate/issues/1799)).
+* Update doc links to https
+  ([#1889](https://github.com/h5bp/html5-boilerplate/issues/1889)).
+* Delete crossdomain.xml
+  ([#1881](https://github.com/h5bp/html5-boilerplate/issues/1881)).
+* Adds pre-wrap to PRE
+  ([#1742](https://github.com/h5bp/html5-boilerplate/issues/1742)).
+* Change license format to SPDX format
+  ([#1814](https://github.com/h5bp/html5-boilerplate/pull/1814)).
 * Simplify the Google Analytics snippet using `async` & `defer` ([#1660](https://github.com/h5bp/html5-boilerplate/pull/1660#issuecomment-89285678)).
 
 ### 5.3.0 (January 12, 2016)

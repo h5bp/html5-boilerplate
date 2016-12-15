@@ -1,4 +1,4 @@
-[HTML5 Boilerplate homepage](https://html5boilerplate.com) | [Documentation
+[HTML5 Boilerplate homepage](https://html5boilerplate.com/) | [Documentation
 table of contents](TOC.md)
 
 # Usage
@@ -39,7 +39,6 @@ A basic HTML5 Boilerplate site initially looks something like this:
 ├── index.html
 ├── humans.txt
 ├── robots.txt
-├── crossdomain.xml
 ├── favicon.ico
 ├── tile-wide.png
 └── tile.png
@@ -83,7 +82,7 @@ A helpful custom 404 to get you started.
 This file contains all settings regarding custom tiles for IE11.
 
 For more info on this topic, please refer to
-[MSDN](https://msdn.microsoft.com/en-us/library/ie/dn455106.aspx).
+[MSDN](https://msdn.microsoft.com/library/dn455106.aspx).
 
 ### .editorconfig
 
@@ -111,11 +110,6 @@ technology powering it.
 ### robots.txt
 
 Edit this file to include any pages you need hidden from search engines.
-
-### crossdomain.xml
-
-A template for working with cross-domain requests. [About
-crossdomain.xml](misc.md#crossdomainxml).
 
 ### Icons
 
