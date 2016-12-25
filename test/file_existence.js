@@ -1,17 +1,19 @@
 /* jshint mocha: true */
 
-var assert = require('assert');
-var fs = require('fs');
-var path = require('path');
+import assert from 'assert';
+import fs from 'fs';
+import path from 'path';
+import glob from 'glob';
 
-var pkg = require('./../package.json');
-var dirs = pkg['h5bp-configs'].directories;
+import pkg  from './../package.json';
 
-var expectedFilesInArchiveDir = [
-    pkg.name + '_v' + pkg.version + '.zip'
+const dirs = pkg['h5bp-configs'].directories;
+
+const expectedFilesInArchiveDir = [
+    `${pkg.name}_v${pkg.version}.zip`
 ];
 
-var expectedFilesInDistDir = [
+const expectedFilesInDistDir = [
 
     '.editorconfig',
     '.gitattributes',
@@ -48,7 +50,7 @@ var expectedFilesInDistDir = [
         'js/main.js',
         'js/plugins.js',
         'js/vendor/',
-            'js/vendor/jquery-' + pkg.devDependencies.jquery + '.min.js',
+            `js/vendor/jquery-${pkg.devDependencies.jquery}.min.js`,
             'js/vendor/modernizr-2.8.3.min.js',
 
     'LICENSE.txt',
@@ -63,7 +65,7 @@ var expectedFilesInDistDir = [
 function checkFiles(directory, expectedFiles) {
 
     // Get the list of files from the specified directory
-    var files = require('glob').sync('**/*', {
+    const files = glob.sync('**/*', {
         'cwd': directory,
         'dot': true,      // include hidden files
         'mark': true      // add a `/` character to directory matches
@@ -71,10 +73,10 @@ function checkFiles(directory, expectedFiles) {
 
     // Check if all expected files are present in the
     // specified directory, and are of the expected type
-    expectedFiles.forEach(function (file) {
+    expectedFiles.forEach( (file) => {
 
-        var ok = false;
-        var expectedFileType = (file.slice(-1) !== '/' ? 'regular file' : 'directory');
+        let ok = false;
+        const expectedFileType = (file.slice(-1) !== '/' ? 'regular file' : 'directory');
 
         // If file exists
         if (files.indexOf(file) !== -1) {
@@ -92,7 +94,7 @@ function checkFiles(directory, expectedFiles) {
 
         }
 
-        it('"' + file + '" should be present and it should be a ' + expectedFileType, function () {
+        it(`"${file}" should be present and it should be a ${expectedFileType}`, () =>{
             assert.equal(true, ok);
         });
 
@@ -100,10 +102,10 @@ function checkFiles(directory, expectedFiles) {
 
     // List all files that should be NOT
     // be present in the specified directory
-    (files.filter(function (file) {
+    (files.filter( (file) => {
         return expectedFiles.indexOf(file) === -1;
-    })).forEach(function (file) {
-        it('"' + file + '" should NOT be present', function () {
+    })).forEach( (file) => {
+        it(`"${file}" should NOT be present`, () => {
             assert(false);
         });
     });
@@ -114,13 +116,13 @@ function checkFiles(directory, expectedFiles) {
 
 function runTests() {
 
-    describe('Test if all the expected files, and only them, are present in the build directories', function () {
+    describe('Test if all the expected files, and only them, are present in the build directories', () => {
 
-        describe(dirs.archive, function () {
+        describe(dirs.archive, () => {
             checkFiles(dirs.archive, expectedFilesInArchiveDir);
         });
 
-        describe(dirs.dist, function () {
+        describe(dirs.dist, () => {
             checkFiles(dirs.dist, expectedFilesInDistDir);
         });
 
