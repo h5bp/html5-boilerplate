@@ -10,9 +10,37 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <style>{{NORMALIZE_CSS}}</style>
+        <style>{{CRITICAL_CSS}}</style>
+
+        <script>
+            (function (window, document, undefined) {
+                if (window.fetch) return
+                document.write('<script src="js/vendor/modernizr-2.8.3.min.js"><\/script>')
+                document.write('<link rel="stylesheet" href="css/non-critical.css">')
+            })(window, document)
+        </script>
+        <script>
+            (function (window, document, undefined) {
+                if (!window.fetch) return
+                {{FETCH_INJECT}}
+                fetchInject([
+                    'css/non-critical.css',
+                    'js/vendor/modernizr-2.8.3.min.js',
+                    'https://code.jquery.com/jquery-{{JQUERY_VERSION}}.min.js'
+                ])
+                    .then(() => fetchInject(['js/plugins.js']))
+                    .then(() => fetchInject(['js/main.js']))
+            })(window, document)
+        </script>
+
+        <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+        <script>
+        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+        ga('create', 'UA-XXXXX-Y', 'auto');
+        ga('send', 'pageview');
+        </script>
+        <script async src='https://www.google-analytics.com/analytics.js'></script>
     </head>
     <body>
         <!--[if lte IE 9]>
@@ -21,16 +49,13 @@
 
         <!-- Add your site or application content here -->
         <p>Hello world! This is HTML5 Boilerplate.</p>
-        <script src="https://code.jquery.com/jquery-{{JQUERY_VERSION}}.min.js" integrity="{{JQUERY_SRI_HASH}}" crossorigin="anonymous"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-
-        <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
         <script>
-            window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
-            ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
+            (function (window, document, undefined) {
+                if (window.fetch) return
+                window.jQuery || document.write('<script src="js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')
+                document.write('<script src="js/plugins.js"><\/script>')
+                document.write('<script src="js/main.js"><\/script>')
+            })(window, document)
         </script>
-        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
     </body>
 </html>
