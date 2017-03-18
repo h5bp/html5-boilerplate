@@ -1,20 +1,21 @@
 /* jshint mocha: true */
 
-var assert = require('assert');
-var fs = require('fs');
-var path = require('path');
+import assert from 'assert';
+import fs from 'fs';
+import path from 'path';
 
-var pkg = require('./../package.json');
-var dirs = pkg['h5bp-configs'].directories;
+import pkg from './../package.json';
+
+const dirs = pkg['h5bp-configs'].directories;
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 function checkString(file, string, done) {
 
-    var character = '';
-    var matchFound = false;
-    var matchedPositions = 0;
-    var readStream = fs.createReadStream(file, { 'encoding': 'utf8' });
+    let character = '';
+    let matchFound = false;
+    let matchedPositions = 0;
+    const readStream = fs.createReadStream(file, { 'encoding': 'utf8' });
 
     readStream.on('close', done);
     readStream.on('error', done);
@@ -48,29 +49,27 @@ function checkString(file, string, done) {
 
 function runTests() {
 
-    var dir = dirs.dist;
+    const dir = dirs.dist;
 
-    describe('Test if the files from the "' + dir + '" directory have the expected content', function () {
+    describe(`Test if the files from the "${dir}" directory have the expected content`, () => {
 
-        it('".htaccess" should have the "ErrorDocument..." line uncommented', function (done) {
-            var string = '\n\nErrorDocument 404 /404.html\n\n';
+        it('".htaccess" should have the "ErrorDocument..." line uncommented', (done) => {
+            const string = '\n\nErrorDocument 404 /404.html\n\n';
             checkString(path.resolve(dir, '.htaccess'), string, done);
         });
 
-        it('"index.html" should contain the correct jQuery version in the CDN URL', function (done) {
-            var string = 'code.jquery.com/jquery-' + pkg.devDependencies.jquery + '.min.js';
+        it('"index.html" should contain the correct jQuery version in the CDN URL', (done) => {
+            const string = `code.jquery.com/jquery-${pkg.devDependencies.jquery}.min.js`;
             checkString(path.resolve(dir, 'index.html'), string, done);
         });
 
-        it('"index.html" should contain the correct jQuery version in the local URL', function (done) {
-            var string = 'js/vendor/jquery-' + pkg.devDependencies.jquery + '.min.js';
+        it('"index.html" should contain the correct jQuery version in the local URL', (done) => {
+            const string = `js/vendor/jquery-${pkg.devDependencies.jquery}.min.js`;
             checkString(path.resolve(dir, 'index.html'), string, done);
         });
 
         it('"main.css" should contain a custom banner', function (done) {
-            var string = '/*! HTML5 Boilerplate v' + pkg.version +
-                         ' | ' + pkg.license + ' License' +
-                         ' | ' + pkg.homepage + ' */\n\n/*\n';
+            const string = `/*! HTML5 Boilerplate v${pkg.version} | ${pkg.license} License | ${pkg.homepage} */\n\n/*\n`;
             checkString(path.resolve(dir, 'css/main.css'), string, done);
         });
 
