@@ -135,6 +135,8 @@ textarea {
 .visuallyhidden {
     border: 0;
     clip: rect(0 0 0 0);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
     height: 1px;
     margin: -1px;
     overflow: hidden;
@@ -153,6 +155,8 @@ textarea {
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
     clip: auto;
+    -webkit-clip-path: none;
+    clip-path: none;
     height: auto;
     margin: 0;
     overflow: visible;

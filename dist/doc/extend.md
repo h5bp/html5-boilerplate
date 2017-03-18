@@ -362,10 +362,17 @@ You can read about this useful element and more techniques in
 
 ### Direct search spiders to your sitemap
 
-[Learn how to make a sitemap](http://www.sitemaps.org/protocol.html)
+After creating a [sitemap](http://www.sitemaps.org/protocol.html)
 
-```html
-<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+Submit it to search engine tool:
+* [Google](https://www.google.com/webmasters/tools/sitemap-list)
+* [Bing](http://www.bing.com/toolbox/webmaster)
+* [Yandex](https://webmaster.yandex.com/)
+* [Baidu](http://zhanzhang.baidu.com/)
+OR
+Insert the following line anywhere in your robots.txt file, specifying the path to your sitemap:
+```
+Sitemap: http://example.com/sitemap_location.xml
 ```
 
 ### Hide pages from search engines
