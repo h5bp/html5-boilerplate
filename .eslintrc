@@ -1,3 +1,12 @@
 {
-    "extends": "eslint:recommended"
+    "extends": "airbnb",
+    "env": {
+        "browser": true,
+        "mocha": true,
+        "es6": true
+    },
+    "rules": {
+        "no-plusplus": "off",
+        "no-cond-assign": "off"
+    }
 }

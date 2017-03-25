@@ -13,6 +13,10 @@
     "babel-register": "^6.8.0",
     "del": "^2.2.2",
     "eslint": "^3.18.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
     "glob": "^7.1.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
@@ -23,6 +27,7 @@
     "mocha": "^3.2.0",
     "node-sri": "^1.1.1",
     "normalize.css": "5.0.0",
+    "run-sequence": "^1.2.2",
     "travis-after-all": "^1.4.4"
   },
   "engines": {
