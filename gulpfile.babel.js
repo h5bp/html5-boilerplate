@@ -149,18 +149,6 @@ gulp.task('copy:normalize', () =>
         .pipe(gulp.dest(`${dirs.dist}/css`))
 );
 
-gulp.task('lint:js', () =>
-    gulp.src([
-        'gulpfile.js',
-        `${dirs.src}/js/*.js`,
-        `${dirs.test}/*.js`
-    ]).pipe(plugins().jscs())
-      .pipe(plugins().jshint())
-      .pipe(plugins().jshint.reporter('jshint-stylish'))
-      .pipe(plugins().jshint.reporter('fail'))
-);
-
-
 // ---------------------------------------------------------------------
 // | Main tasks                                                        |
 // ---------------------------------------------------------------------
@@ -175,7 +163,7 @@ gulp.task('archive', (done) => {
 
 gulp.task('build', (done) => {
     runSequence(
-        ['clean', 'lint:js'],
+        ['clean'],
         'copy',
     done)
 });
