@@ -22,6 +22,7 @@
     "gulp-autoprefixer": "^3.1.1",
     "gulp-header": "^1.8.8",
     "gulp-load-plugins": "^1.4.0",
+    "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
     "jquery": "3.2.0",
     "mocha": "^3.2.0",
