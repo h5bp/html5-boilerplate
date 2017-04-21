@@ -68,6 +68,11 @@ function runTests() {
             checkString(path.resolve(dir, 'index.html'), string, done);
         });
 
+        it('"index.html" should contain the correct Modernizr version in the local URL', (done) => {
+            const string = `js/vendor/modernizr-${pkg.devDependencies.modernizr}.min.js`;
+            checkString(path.resolve(dir, 'index.html'), string, done);
+        });
+
         it('"main.css" should contain a custom banner', function (done) {
             const string = `/*! HTML5 Boilerplate v${pkg.version} | ${pkg.license} License | ${pkg.homepage} */\n\n/*\n`;
             checkString(path.resolve(dir, 'css/main.css'), string, done);

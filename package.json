@@ -20,6 +20,7 @@
     "jshint": "^2.9.4",
     "jshint-stylish": "^2.2.1",
     "mocha": "^3.2.0",
+    "modernizr": "3.5.0",
     "node-sri": "^1.1.1",
     "normalize.css": "5.0.0",
     "run-sequence": "^1.2.2",
