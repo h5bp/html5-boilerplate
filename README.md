@@ -6,8 +6,8 @@
 HTML5 Boilerplate is a professional front-end template for building
 fast, robust, and adaptable web apps or sites.
 
-This project is the product of many years of iterative development and
-combined community knowledge. It does not impose a specific development
+This project is the product of years of iterative development and
+community knowledge. It does not impose a specific development
 philosophy or framework, so you're free to architect your code in the
 way that you want.
 
@@ -71,15 +71,14 @@ or [HTML5 Boilerplate v5](https://github.com/h5bp/html5-boilerplate/tree/v5.0.0)
 ## Documentation
 
 Take a look at the [documentation table of contents](dist/doc/TOC.md).
-This documentation is bundled with the project, which makes it readily
+This documentation is bundled with the project which makes it 
 available for offline reading and provides a useful starting point for
 any documentation you want to write about your project.
 
 
 ## Contributing
 
-Hundreds of developers have helped make the HTML5 Boilerplate what it is
-today. Anyone and everyone is welcome to [contribute](CONTRIBUTING.md),
+Hundreds of developers have helped to make the HTML5 Boilerplate. Anyone is welcome to [contribute](CONTRIBUTING.md),
 however, if you decide to get involved, please take a moment to review
 the [guidelines](CONTRIBUTING.md):
 
