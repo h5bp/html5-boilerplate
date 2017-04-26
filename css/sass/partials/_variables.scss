@@ -1,0 +1,17 @@
+//Core variables
+$fontFamily: sans-serif;
+$fontColor: #222;
+$defaultBrowserSize: 16;
+
+//Selection colors
+$selectionBgColor: #fe57a1;
+$selectionFontColor: #fff;
+
+//Anchor colors, as you can see some of the colors are hard-coded
+//eventual goal is to set the colors based on the initial anchor color
+//and calculate the remaining
+$anchorColor: #00e;
+$anchorHoverColor: adjust-hue($anchorColor, -26deg);
+$anchorVisitedColor: #551a8b;
+
+$invalidBgColor: #f0dddd;

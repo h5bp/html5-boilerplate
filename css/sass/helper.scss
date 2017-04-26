@@ -1,0 +1,63 @@
+/* ==|== non-semantic helper classes ========================================
+   Please define your styles before this section.
+   ========================================================================== */
+
+/* For image replacement */
+.ir { 
+	display: block; 
+	border: 0; 
+	text-indent: -999em; 
+	overflow: hidden; 
+	background-color: transparent; 
+	background-repeat: no-repeat; 
+	text-align: left; 
+	direction: ltr; 
+	*line-height: 0; 
+	br { 
+		display: none; 
+	}
+}
+
+/* Hide from both screenreaders and browsers: h5bp.com/u */
+.hidden { 
+	display: none !important; 
+	visibility: hidden; 
+}
+
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.visuallyhidden { 
+	border: 0; 
+	clip: rect(0 0 0 0); 
+	height: 1px; 
+	margin: -1px; 
+	overflow: hidden; 
+	padding: 0; 
+	position: absolute; 
+	width: 1px; 
+	&.focusable:active, &.focusable:focus { 
+	/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+		clip: auto; 
+		height: auto; 
+		@include add-margin();
+		overflow: visible; 
+		position: static; 
+		width: auto; 
+	}
+}
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { 
+	visibility: hidden; 
+}
+
+/* Contain floats: h5bp.com/q */
+.clearfix { 
+	*zoom: 1; 
+	&:before, &:after { 
+		content: ""; 
+		display: table; 
+	}
+	&:after { 
+		clear: both; 
+	}
+}

@@ -1,0 +1,144 @@
+//==|== SASS mixin styles =====================================================
+// All mixins will be placed here. For more information on mixins go here:
+// http://sass-lang.com/#mixins
+// or here:
+// http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#mixins
+// Author:
+// ========================================================================== */
+
+//this mixin will set the  list-style-type to none and remove any padding
+@mixin noListStyle {
+	list-style-type: none;
+	list-style-image: none;
+	padding: 0;
+	margin: 0;
+}
+
+//This mixin will add border at given position. If no position is given (or position is all)
+//then the border will be applied to all sides
+@mixin add-border($border-position: all, $border-size: 1px, $border-pattern: solid, $border-color: #000) {
+	@if $border-position == 'all' {
+		border: $border-size $border-pattern $border-color;
+	} @else {
+		border-#{$border-position}: $border-size $border-pattern $border-color;
+	}
+}
+
+//this mixin gives the flexibility to add margins to all sides and passing the values for
+//each side, or to specify each side exclusively
+@mixin add-margin($margin-position: all, $coordinates: 0 0 0 0) {
+	@if $margin-position == 'all' {
+		$top: nth($coordinates, 1);
+		$right: nth($coordinates, 2);
+		$bottom: nth($coordinates, 3);
+		$left: nth($coordinates, 4);
+		margin: $top $right $bottom $left;
+	} @else {
+		margin-#{$margin-side}: nth($coordinates, 1);
+	}
+}
+
+//this mixin will set the border-radius for either all sides or a specified
+//side
+@mixin add-border-radius($border-radius-position: all, $border-radius: 2px) {
+	@if $border-radius-position == 'all' {
+		border-radius: $border-radius;
+	} @else {
+		border-#{$border-radius-position}-radius: $border-radius;
+	}
+}
+
+//this mixin will add the hand/pointer cursor to any element that
+//will be treated as a link/clickable
+@mixin handCursor {
+	cursor: hand;
+	cursor: pointer;
+}
+
+//this mixin will create a linear-gradient. The parameters passed here are:
+//$pos: position of the gradient which defaults to top but can take bottom, left, or right
+//$G1-G10: these allow for 10 color stops values, color and length/percentage
+//$fallback: this is the fallback color that will be used for older browsers, if this parameter
+//is not provided then the first color stop is used. 
+@mixin linear-gradient($pos, $G1, $G2: false,
+                       $G3: false, $G4: false,
+                       $G5: false, $G6: false,
+                       $G7: false, $G8: false,
+                       $G9: false, $G10: false,
+                       $fallback: false) {
+                       
+  // Detect what type of value exists in $pos
+  $pos-type: type-of(nth($pos, 1));
+
+  // If $pos is missing from mixin, reassign vars and add default position
+  @if ($pos-type == color) or (nth($pos, 1) == "transparent")  {
+    $G10: $G9; $G9: $G8; $G8: $G7; $G7: $G6; $G6: $G5;
+     $G5: $G4; $G4: $G3; $G3: $G2; $G2: $G1; $G1: $pos;
+    $pos: top; // Default position
+	}
+	
+  $full: compact($G1, $G2, $G3, $G4, $G5, $G6, $G7, $G8, $G9, $G10);
+	
+  // Set $G1 as the default fallback color
+  $fallback-color: nth($G1, 1);
+
+  // If $fallback is a color use that color as the fallback color
+  @if type-of($fallback) == color {
+    $fallback-color: $fallback;
+  }
+
+  background: $fallback-color;
+  background: deprecated-webkit-gradient(linear, $full); // Safari <= 5.0
+  background:  -webkit-linear-gradient($pos, $full); // Safari 5.1+, Chrome
+  background:     -moz-linear-gradient($pos, $full);
+  background:      -ms-linear-gradient($pos, $full);
+  background:       -o-linear-gradient($pos, $full);
+  background: unquote("linear-gradient(#{$pos}, #{$full})"); 
+}
+
+//this mixin will set the position of an element and also set the top, right, bottom, and left
+//coordinates. If no position is provided then the default position will relative
+@mixin position ($position: relative, $coordinates: 0 0 0 0) {
+
+	@if type-of($position) == list {
+		$coordinates: $position;
+		$position: relative;
+	}
+
+  $top: nth($coordinates, 1);
+  $right: nth($coordinates, 2);
+  $bottom: nth($coordinates, 3);
+  $left: nth($coordinates, 4);
+
+  position: $position;
+
+  @if not(unitless($top)) {
+    top: $top;
+  }
+
+  @if not(unitless($right)) {
+    right: $right;
+  }
+
+  @if not(unitless($bottom)) {
+    bottom: $bottom;
+  }
+
+  @if not(unitless($left)) {
+    left: $left;
+  }
+}
+
+//this mixin will set the box-shadow values. It will also allow for the felxibility of
+//doing an inset shadow.
+@mixin box-shadow ($isInset: false, $hOffset: 0, $vOffset: 0, $blur: 0, $spread: 0, $color: #ccc) {
+	@if $isInset {
+		-moz-box-shadow: inset $hOffset $vOffset $blur $spread $color;
+		-webkit-box-shadow: inset $hOffset $vOffset $blur $spread $color;
+		box-shadow: inset $hOffset $vOffset $blur $spread $color;
+	} @else {
+		-moz-box-shadow: $hOffset $vOffset $blur $spread $color;
+		-webkit-box-shadow: $hOffset $vOffset $blur $spread $color;
+		box-shadow: $hOffset $vOffset $blur $spread $color;
+	}
+}
