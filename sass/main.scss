@@ -1,0 +1,30 @@
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ * 
+ * This file was built using the Sass, "Sassy CSS" Extension for CSS
+ *   http://sass-lang.com/
+ * This extension enhances CSS by adding in variables, mixins, nesting, interpolation,
+ *   arguments, and more. In short, it makes CSS fun again.
+ */
+
+/* ==========================================================================
+   Variables - Define all your variables here so the includes inherit them
+   ========================================================================== */
+  // Included are some example variables
+  $selection_background : #b3d4fc;
+  $font-size            : 1em;
+  
+  
+/* ==========================================================================
+   Import - Import all of the CSS sections
+   ========================================================================== */
+
+@import "defaults";
+@import "custom"; // Define your CSS here!
+@import "helpers";
+@import "media_queries";
+@import "print";
