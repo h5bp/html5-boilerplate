@@ -4,7 +4,7 @@
 [![devDependency Status](https://david-dm.org/h5bp/html5-boilerplate/dev-status.svg)](https://david-dm.org/h5bp/html5-boilerplate#info=devDependencies)
 
 HTML5 Boilerplate is a professional front-end template for building
-fast, robust, and adaptable web apps or sites.
+fast, robust, and adaptive web apps or sites.
 
 This project is the product of years of iterative development and
 community knowledge. It does not impose a specific development
