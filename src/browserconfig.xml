@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Please read: https://msdn.microsoft.com/en-us/library/ie/dn455106.aspx -->
+<!-- Browser configuration schema reference: https://msdn.microsoft.com/en-us/library/ie/dn455106.aspx -->
+<!-- Custom tiles in IE11: https://msdn.microsoft.com/en-us/library/dn455106.aspx -->
 <browserconfig>
     <msapplication>
         <tile>
-            <square70x70logo src="tile.png"/>
-            <square150x150logo src="tile.png"/>
-            <wide310x150logo src="tile-wide.png"/>
-            <square310x310logo src="tile.png"/>
+            <square70x70logo src="tile-128x128.png"/>
+            <square150x150logo src="tile-270x270.png"/>
+            <wide310x150logo src="tile-wide-558x270.png"/>
+            <square310x310logo src="tile-558x558.png"/>
+            <TileColor>#222222</TileColor>
         </tile>
     </msapplication>
 </browserconfig>
