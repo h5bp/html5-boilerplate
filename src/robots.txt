@@ -3,3 +3,6 @@
 # Allow crawling of all content
 User-agent: *
 Disallow:
+
+# www.sitemaps.org/
+Sitemap: /sitemap.xml
