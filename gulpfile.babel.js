@@ -14,7 +14,6 @@ import runSequence from 'run-sequence';
 import archiver from 'archiver';
 import glob from 'glob';
 import del from 'del';
-import sri from 'node-sri'
 
 import pkg from './package.json';
 
@@ -78,8 +77,7 @@ gulp.task('copy', [
     'copy:jquery',
     'copy:license',
     'copy:main.css',
-    'copy:misc',
-    'copy:normalize'
+    'copy:misc'
 ]);
 
 gulp.task('copy:.htaccess', () =>
@@ -88,18 +86,19 @@ gulp.task('copy:.htaccess', () =>
         .pipe(gulp.dest(dirs.dist))
 );
 
-gulp.task('copy:index.html', (done) =>
-    sri.hash('node_modules/jquery/dist/jquery.min.js', (err, hash) => {
-        if (err) throw err
+gulp.task('copy:index.html', (done) => {
+    const version = pkg.devDependencies.jquery;
+    const fetchInject = fs.readFileSync('node_modules/fetch-inject/dist/fetch-inject.min.js').toString()
+    const normalizeCSS = fs.readFileSync('node_modules/normalize.css/normalize.css').toString()
+    const criticalCSS = fs.readFileSync('src/css/critical.css').toString()
 
-        let version = pkg.devDependencies.jquery;
-        gulp.src(`${dirs.src}/index.html`)
-            .pipe(plugins().replace(/{{JQUERY_VERSION}}/g, version))
-            .pipe(plugins().replace(/{{JQUERY_SRI_HASH}}/g, hash))
-            .pipe(gulp.dest(dirs.dist));
-        done();
-    })
-);
+    gulp.src(`${dirs.src}/index.html`)
+    .pipe(plugins().replace(/{{JQUERY_VERSION}}/g, version))
+    .pipe(plugins().replace(/{{FETCH_INJECT}}/g, fetchInject))
+    .pipe(plugins().replace(/{{NORMALIZE_CSS}}/g, normalizeCSS))
+    .pipe(plugins().replace(/{{CRITICAL_CSS}}/g, criticalCSS))
+    .pipe(gulp.dest(dirs.dist));
+});
 
 gulp.task('copy:jquery', () =>
     gulp.src(['node_modules/jquery/dist/jquery.min.js'])
@@ -144,9 +143,9 @@ gulp.task('copy:misc', () =>
     }).pipe(gulp.dest(dirs.dist))
 );
 
-gulp.task('copy:normalize', () =>
-    gulp.src('node_modules/normalize.css/normalize.css')
-        .pipe(gulp.dest(`${dirs.dist}/css`))
+gulp.task('copy:fetch-inject', () =>
+    gulp.src('node_modules/fetch-inject/dist/fetch-inject.min.js')
+        .pipe(gulp.dest(`${dirs.dist}/js`))
 );
 
 gulp.task('lint:js', () =>
@@ -159,7 +158,6 @@ gulp.task('lint:js', () =>
       .pipe(plugins().jshint.reporter('jshint-stylish'))
       .pipe(plugins().jshint.reporter('fail'))
 );
-
 
 // ---------------------------------------------------------------------
 // | Main tasks                                                        |
