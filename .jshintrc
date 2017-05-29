@@ -1,7 +1,7 @@
 {
 
     // Enforcing options
-    // http://www.jshint.com/docs/options/#enforcing-options
+    // http://jshint.com/docs/options/#enforcing-options
 
     "bitwise": true,
     "eqeqeq": true,
@@ -16,14 +16,14 @@
     // - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     // Relaxing options
-    // http://www.jshint.com/docs/options/#relaxing-options
+    // http://jshint.com/docs/options/#relaxing-options
 
     "esnext": true,
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     // Environments
-    // http://www.jshint.com/docs/options/#environments
+    // http://jshint.com/docs/options/#environments
 
     "browser": true,
     "jquery": true,

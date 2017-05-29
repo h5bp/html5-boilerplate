@@ -1,4 +1,4 @@
-[HTML5 Boilerplate homepage](https://html5boilerplate.com)
+[HTML5 Boilerplate homepage](https://html5boilerplate.com/)
 
 ## Getting started
 
