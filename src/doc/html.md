@@ -124,8 +124,8 @@ HTML5 Boilerplate comes with a simple setup that strikes a good balance for gene
 ## Favicons and Touch Icon
 
 The shortcut icons should be put in the root directory of your site. HTML5
-Boilerplate comes with a default set of icons (include favicon and one Apple
-Touch Icon) that you can use as a baseline to create your own.
+Boilerplate comes with a default set of icons (include favicon and one [Apple
+Touch Icon](https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html)) that you can use as a baseline to create your own.
 
 Please refer to the more detailed description in the [Extend section](extend.md)
 of these docs.
