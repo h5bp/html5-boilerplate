@@ -1,0 +1,32 @@
+{
+
+    // Enforcing options
+    // http://jshint.com/docs/options/#enforcing-options
+
+    "bitwise": true,
+    "eqeqeq": true,
+    "forin": true,
+    "latedef": true,
+    "noarg": true,
+    "nonbsp": true,
+    "nonew": true,
+    "undef": true,
+    "unused": true,
+
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    // Relaxing options
+    // http://jshint.com/docs/options/#relaxing-options
+
+    "esnext": true,
+
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    // Environments
+    // http://jshint.com/docs/options/#environments
+
+    "browser": true,
+    "jquery": true,
+    "node": true
+
+}
