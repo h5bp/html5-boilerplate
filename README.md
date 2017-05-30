@@ -49,7 +49,8 @@ Choose one of the following options:
   errors in older browsers.
 * "Delete-key friendly." Easy to strip out parts you don't need.
 * Extensive inline and accompanying documentation.
-
+* Open Graph Meta tags. Now boost your social media presence. [NEW]
+* Color metas make mobile browser toolbar to match your website color scheme. [NEW]
 
 ## Browser support
 
