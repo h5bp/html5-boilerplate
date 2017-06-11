@@ -78,13 +78,13 @@ any documentation you want to write about your project.
 
 ## Contributing
 
-Hundreds of developers have helped to make the HTML5 Boilerplate. Anyone is welcome to [contribute](CONTRIBUTING.md),
+Hundreds of developers have helped to make the HTML5 Boilerplate. Anyone is welcome to [contribute](.github/CONTRIBUTING.md),
 however, if you decide to get involved, please take a moment to review
-the [guidelines](CONTRIBUTING.md):
+the [guidelines](.github/CONTRIBUTING.md):
 
-* [Bug reports](CONTRIBUTING.md#bugs)
-* [Feature requests](CONTRIBUTING.md#features)
-* [Pull requests](CONTRIBUTING.md#pull-requests)
+* [Bug reports](.github/CONTRIBUTING.md#bugs)
+* [Feature requests](.github/CONTRIBUTING.md#features)
+* [Pull requests](.github/CONTRIBUTING.md#pull-requests)
 
 
 ## License
