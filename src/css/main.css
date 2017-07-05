@@ -18,7 +18,9 @@ html {
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
  *
- * These selection rule sets have to be separate.
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
  * Customize the background color to match your design.
  */
 
