@@ -14,9 +14,12 @@ import runSequence from 'run-sequence';
 import archiver from 'archiver';
 import glob from 'glob';
 import del from 'del';
-import sri from 'node-sri'
+import sri from 'node-sri';
+import modernizr from 'modernizr';
 
 import pkg from './package.json';
+import modernizrConfig from './modernizr-config.json';
+
 
 const dirs = pkg['h5bp-configs'].directories;
 
@@ -93,8 +96,10 @@ gulp.task('copy:index.html', (done) =>
         if (err) throw err
 
         let version = pkg.devDependencies.jquery;
+        let modernizrVersion = pkg.devDependencies.modernizr;
         gulp.src(`${dirs.src}/index.html`)
             .pipe(plugins().replace(/{{JQUERY_VERSION}}/g, version))
+            .pipe(plugins().replace(/{{MODERNIZR_VERSION}}/g, modernizrVersion))
             .pipe(plugins().replace(/{{JQUERY_SRI_HASH}}/g, hash))
             .pipe(gulp.dest(dirs.dist));
         done();
@@ -149,6 +154,14 @@ gulp.task('copy:normalize', () =>
         .pipe(gulp.dest(`${dirs.dist}/css`))
 );
 
+gulp.task( 'modernizr', (done) =>{
+
+    modernizr.build(modernizrConfig, (code) => {
+        fs.writeFile(`${dirs.dist}/js/vendor/modernizr-${pkg.devDependencies.modernizr}.min.js`, code, done);
+    });
+
+});
+
 gulp.task('lint:js', () =>
     gulp.src([
         'gulpfile.js',
@@ -176,7 +189,7 @@ gulp.task('archive', (done) => {
 gulp.task('build', (done) => {
     runSequence(
         ['clean', 'lint:js'],
-        'copy',
+        'copy', 'modernizr',
     done)
 });
 
