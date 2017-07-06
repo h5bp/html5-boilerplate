@@ -209,8 +209,7 @@ being able to serve jQuery to Chinese users.
 While the jQuery CDN is a strong default solution your site or application may
 require a different configuration. Testing your site with services like
 [WebPageTest](https://www.webpagetest.org/) and browser tools like
-[PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) or
-[YSlow](https://developer.yahoo.com/yslow/) will help you examine the real
+[PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) will help you examine the real
 world performance of your site and can show where you can optimize your specific
 site or application.
 
