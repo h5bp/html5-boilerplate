@@ -1,25 +1,39 @@
 {
   "devDependencies": {
+    "@alrra/travis-scripts": "^3.0.1",
     "apache-server-configs": "2.14.0",
-    "archiver": "^0.14.3",
-    "del": "^1.1.1",
-    "glob": "^5.0.5",
-    "gulp": "^3.8.11",
-    "gulp-autoprefixer": "^2.1.0",
-    "gulp-header": "^1.2.2",
-    "gulp-jscs": "^1.5.1",
-    "gulp-jshint": "^1.9.2",
-    "gulp-load-plugins": "^0.10.0",
-    "gulp-rename": "^1.2.0",
-    "gulp-replace": "^0.5.3",
-    "jquery": "1.11.2",
-    "jshint-stylish": "^1.0.1",
-    "mocha": "^2.2.4",
-    "normalize.css": "3.0.3",
-    "run-sequence": "^1.0.2"
+    "archiver": "^1.3.0",
+    "babel-core": "^6.20.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-register": "^6.8.0",
+    "del": "^2.2.2",
+    "glob": "^7.1.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-header": "^1.8.8",
+    "gulp-jscs": "^4.0.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-load-plugins": "^1.4.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
+    "jquery": "3.2.1",
+    "jshint": "^2.9.4",
+    "jshint-stylish": "^2.2.1",
+    "mocha": "^3.2.0",
+    "modernizr": "3.5.0",
+    "node-sri": "^1.1.1",
+    "normalize.css": "5.0.0",
+    "run-sequence": "^1.2.2",
+    "travis-after-all": "^1.4.4"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=4",
+    "npm": ">=3"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
   },
   "h5bp-configs": {
     "directories": {
@@ -30,15 +44,12 @@
     }
   },
   "homepage": "https://html5boilerplate.com/",
-  "license": {
-    "type": "MIT",
-    "url": "https://github.com/h5bp/html5-boilerplate/blob/master/LICENSE.txt"
-  },
+  "license": "MIT",
   "name": "html5-boilerplate",
   "private": true,
   "scripts": {
     "build": "gulp build",
-    "test": "gulp archive && mocha --reporter spec --timeout 5000"
+    "test": "gulp archive && mocha --compilers js:babel-register --reporter spec --timeout 5000"
   },
-  "version": "5.1.0"
+  "version": "5.3.0"
 }

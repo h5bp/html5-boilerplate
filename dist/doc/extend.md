@@ -121,7 +121,7 @@ Microsoft Ajax Content Delivery Network:
 
 * https://developer.mozilla.org/en-US/docs/Controlling_DNS_prefetching
 * https://dev.chromium.org/developers/design-documents/dns-prefetching
-* http://blogs.msdn.com/b/ie/archive/2011/03/17/internet-explorer-9-network-performance-improvements.aspx
+* https://blogs.msdn.microsoft.com/ie/2011/03/17/internet-explorer-9-network-performance-improvements/
 * http://dayofjs.com/videos/22158462/web-browsers_alex-russel
 
 
@@ -161,14 +161,14 @@ ga('send', 'pageview');
 ### Track jQuery AJAX requests in Google Analytics
 
 An article by @JangoSteve explains how to [track jQuery AJAX requests in Google
-Analytics](http://www.alfajango.com/blog/track-jquery-ajax-requests-in-google-analytics/).
+Analytics](https://www.alfajango.com/blog/track-jquery-ajax-requests-in-google-analytics/).
 
 Add this to `plugins.js`:
 
 ```js
 /*
  * Log all jQuery AJAX requests to Google Analytics
- * See: http://www.alfajango.com/blog/track-jquery-ajax-requests-in-google-analytics/
+ * See: https://www.alfajango.com/blog/track-jquery-ajax-requests-in-google-analytics/
  */
 if (typeof ga !== "undefined" && ga !== null) {
     $(document).ajaxSend(function(event, xhr, settings){
@@ -248,7 +248,7 @@ values:
 
 You can find more information in [Microsoft's IEBlog post about prompting for
 plugin use in IE10 Metro
-Mode](http://blogs.msdn.com/b/ie/archive/2012/01/31/web-sites-and-a-plug-in-free-web.aspx).
+Mode](https://blogs.msdn.microsoft.com/ie/2012/01/31/web-sites-and-a-plug-in-free-web/).
 
 ### IE Pinned Sites (IE9+)
 
@@ -322,7 +322,7 @@ need.
 
 Windows 8 adds the ability for you to provide a PNG tile image and specify the
 tile's background color. [Full details on the IE
-blog](http://blogs.msdn.com/b/ie/archive/2012/06/08/high-quality-visuals-for-pinned-sites-in-windows-8.aspx).
+blog](https://blogs.msdn.microsoft.com/ie/2012/06/08/high-quality-visuals-for-pinned-sites-in-windows-8/).
 
 * Create a 144x144 image of your site icon, filling all of the canvas, and
   using a transparent background.
@@ -338,7 +338,7 @@ tile in the Start screen. The user will be able to receive these badge updates
 even when your app isn't actively running. The badge's value can be a number,
 or one of a predefined list of glyphs.
 
-* [Tutorial on IEBlog with link to badge XML schema](http://blogs.msdn.com/b/ie/archive/2012/04/03/pinned-sites-in-windows-8.aspx)
+* [Tutorial on IEBlog with link to badge XML schema](https://blogs.msdn.microsoft.com/ie/2012/04/03/pinned-sites-in-windows-8/)
 * [Available badge values](https://msdn.microsoft.com/en-us/library/ie/br212849.aspx)
 
 ```html
@@ -347,7 +347,7 @@ or one of a predefined list of glyphs.
 
 ### Disable link highlighting upon tap in IE10
 
-Similar to [-webkit-tap-highlight-color](http://davidwalsh.name/mobile-highlight-color)
+Similar to [-webkit-tap-highlight-color](https://davidwalsh.name/mobile-highlight-color)
 in iOS Safari. Unlike that CSS property, this is an HTML meta element, and its
 value is boolean rather than a color. It's all or nothing.
 
@@ -362,10 +362,17 @@ You can read about this useful element and more techniques in
 
 ### Direct search spiders to your sitemap
 
-[Learn how to make a sitemap](http://www.sitemaps.org/protocol.html)
+After creating a [sitemap](http://www.sitemaps.org/protocol.html)
 
-```html
-<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+Submit it to search engine tool:
+* [Google](https://www.google.com/webmasters/tools/sitemap-list)
+* [Bing](http://www.bing.com/toolbox/webmaster)
+* [Yandex](https://webmaster.yandex.com/)
+* [Baidu](http://zhanzhang.baidu.com/)
+OR
+Insert the following line anywhere in your robots.txt file, specifying the path to your sitemap:
+```
+Sitemap: http://example.com/sitemap_location.xml
 ```
 
 ### Hide pages from search engines
@@ -399,7 +406,7 @@ plugin](https://www.google.com/search?ie=UTF-8&q=how+to+make+browser+search+plug
 * Use [Microformats](http://microformats.org/wiki/Main_Page) (via
   [microdata](http://microformats.org/wiki/microdata)) for optimum search
   results
-  [visibility](http://googlewebmastercentral.blogspot.com/2009/05/introducing-rich-snippets.html).
+  [visibility](https://webmasters.googleblog.com/2009/05/introducing-rich-snippets.html).
 
 * If you're building a web app you may want [native style momentum scrolling in
   iOS 5+](http://www.johanbrook.com/articles/native-style-momentum-scrolling-to-arrive-in-ios-5/)
@@ -473,10 +480,21 @@ Take full advantage of Facebook's support for complex data and activity by
 following the [Open Graph
 tutorial](https://developers.facebook.com/docs/opengraph/tutorial/).
 
+For a reference of Open Graph's markup and properties, you may check
+[Facebook's Open Graph Protocol reference](http://ogp.me/). Finally,
+you can validate your markup with the [Facebook Object
+Debugger](https://developers.facebook.com/tools/debug/) (needs
+registration to Facebook).
+
 ```html
+<meta property="fb:app_id" content="123456789">
+<meta property="og:url" content="http://www.example.com/path/to/page.html">
+<meta property="og:type" content="website">
 <meta property="og:title" content="">
+<meta property="og:image" content="http://www.example.com/path/to/image.jpg">
 <meta property="og:description" content="">
-<meta property="og:image" content="">
+<meta property="og:site_name" content="">
+<meta property="article:author" content="">
 ```
 
 ### Twitter Cards
@@ -486,7 +504,9 @@ Graph. In fact, Twitter will use Open Graph when Cards is not available. Note
 that, as of this writing, Twitter requires that app developers activate Cards
 on a per-domain basis. You can read more about the various snippet formats
 and application process in the [official Twitter Cards
-documentation](https://dev.twitter.com/docs/cards).
+documentation](https://dev.twitter.com/docs/cards), and you can validate
+your markup with the [Card validator](https://cards-dev.twitter.com/validator)
+(needs registration to Twitter).
 
 ```html
 <meta name="twitter:card" content="summary">
@@ -498,6 +518,32 @@ documentation](https://dev.twitter.com/docs/cards).
 <meta name="twitter:image" content="http://www.example.com/path/to/image.jpg">
 ```
 
+### Google+ / Schema.org
+
+Google also provides a snippet specification that serves a similar
+purpose to Facebook's Open Graph or Twitter Cards. While it helps you
+to control information displayed on Google+, this metadata is a subset
+of [schema.org's microdata vocabulary](https://schema.org/), which
+covers many other schemas that can describe the content of your pages
+to search engines. For this reason, this metadata is more generic for
+SEO, notably for Google's search-engine, although this vocabulary is
+also used by Microsoft, Pinterest or Yandex.
+
+You can validate your markup with the [Structured Data Testing
+Tool](https://developers.google.com/structured-data/testing-tool/).
+Also, please note that this markup requires to add attributes to your
+top `html` tag.
+
+```html
+<html class="no-js" lang="" itemscope itemtype="http://schema.org/Article">
+    <head>
+
+        <link rel="author" href="">
+        <link rel="publisher" href="">
+        <meta itemprop="name" content="">
+        <meta itemprop="description" content="">
+        <meta itemprop="image" content="">
+```
 
 ## URLs
 
@@ -647,7 +693,7 @@ Same applies to the touch icons:
 
 ### Theme Color
 
-You can add the [`theme-color` meta extension](https://github.com/whatwg/meta-theme-color)
+You can add the [`theme-color` meta extension](https://html.spec.whatwg.org/multipage/semantics.html#meta-theme-color)
 in the `<head>` of your pages to suggest the color that browsers and
 OSes should use if they customize the display of individual pages in
 their UIs with varying colors.
@@ -659,5 +705,5 @@ their UIs with varying colors.
 The `content` attribute extension can take any valid CSS color.
 
 Currently, the `theme-color` meta extension is supported by [Chrome 39+
-for Android Lollipop](http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android)
+for Android Lollipop](https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android)
 and [Firefox OS 2.1+](https://twitter.com/ahmednefzaoui/status/492344698493997057).

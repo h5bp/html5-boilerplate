@@ -1,71 +1,23 @@
 # For more information about the configurations used
 # in this file, please see the Travis CI documentation:
-# http://docs.travis-ci.com
+# https://docs.travis-ci.com
 
 after_success:
-
-  # Temporary workaround for:
-  # https://github.com/travis-ci/travis-ci/issues/929
-
-  - python travis_after_all.py
-  - export $(cat .to_export_back) &> /dev/null
   - |
 
-      # If all the tests pass in all the runtimes, make Travis
-      # automatically download and execute the following script
+      # Automatically update the content from the `dist/` directory
 
-      if [ "$BUILD_LEADER" == "YES" ]; then
-        if [ "$BUILD_AGGREGATE_STATUS" == "others_succeeded" ]; then \
-
-          # Clean up helper files
-          rm -rf travis_after_all.py .to_export_back && \
-
-          # The `commit_build_changes.sh` script will run the build,
-          # and if that generates changes, it will commit them to the
-          # `master` branch:
-          #
-          #   * ensuring that the content from the `dist/` directory
-          #     is always in sync with the rest of the content
-          #
-          #   * removing the need to execute the build step locally
-          #     everytime a change is made (especially in the case
-          #     of trivial changes such as typos)
-          #
-          # Note: The `commit_build_changes.sh` script will only run
-          # if the commit was made to the `master` branch.
-
-          curl -sSL "https://raw.githubusercontent.com/h5bp-bot/scripts/0.6.1/commit_build_changes.sh" |
-              bash -s -- --branch "master" \
-                         --commands "npm install && npm run build" \
-                         --commit-message "Update content from the \`dist\` directory [skip ci]";
-
-        fi
-      fi
+      $(npm bin)/travis-after-all \
+        && $(npm bin)/set-up-ssh -k "$encrypted_7289798db853_key" \
+                                 -iv "$encrypted_7289798db853_iv" \
+                                 --path-encrypted-key ".travis/github_deploy_key.enc" \
+        && $(npm bin)/commit-changes --branch "master" \
+                                     --commands "npm run build" \
+                                     --commit-message "Update content from the \`dist\` directory [skip ci]"
 
 env:
   global:
-
-    # The `secure` key contains three encrypted environment variables
-    # (GH_TOKEN, GH_USER_EMAIL and GH_USER_NAME), the values of which
-    # are used by the scripts that are automatically executed by Travis.
-    #
-    # Note: The `secure` key will only work for this repository, so if
-    # you create your own fork, you will need to generate your own key:
-    #
-    #   travis encrypt -r "<username>/<repository>" \
-    #     GH_TOKEN="<your_github_access_token>" \
-    #     GH_USER_EMAIL="<your_email>" \
-    #     GH_USER_NAME="<your_name>"
-    #
-    # To learn more about how to generate the:
-    #
-    #   * `secure` key, see:
-    #     http://docs.travis-ci.com/user/encryption-keys/
-    #
-    #   * GitHub access token, see:
-    #     https://help.github.com/articles/creating-an-access-token-for-command-line-use/
-
-    - secure: "OQnRHkXKdvSujTPm0DSXJFrso0zKltkso0e8zF/2GLI7ouv60ELHhYCrWFuoeefSJFbiPeH/9GXnTAv7y+gC08Ba/DSlXGaHl4db5xU/7AazzQR4YaTks6z0CfvlftdlimGOY27tuDU8hMfqHJKybJGcEvFKCVJms/7udYYh+CA="
+    - secure: "uZ0R71TG9AR+kbfM9rwa8PPNr3f9E0C4OuA0s6g0Gq15bBcpVxPvus0/eJdW+O2NSzZE1GbzS//hBiP+chK/8X4DyNIRutlGk5RYdnTTFEaZo9jp0BvlvprUYlGgpprR/531zQ9ahkc0STwVvzurGzlcF4NNMiISAJJ1IdQZABc="
 
 git:
   depth: 10
@@ -73,10 +25,8 @@ git:
 language: node_js
 
 node_js:
-  - "iojs"
-  - "0.12"
-
-script:
-  - curl -sSLo travis_after_all.py https://raw.github.com/dmakhno/travis_after_all/master/travis_after_all.py
+  - 4
+  - 6
+  - 7
 
 sudo: false

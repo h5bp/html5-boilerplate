@@ -1,4 +1,4 @@
-[HTML5 Boilerplate homepage](https://html5boilerplate.com) | [Documentation
+[HTML5 Boilerplate homepage](https://html5boilerplate.com/) | [Documentation
 table of contents](TOC.md)
 
 # The JavaScript
@@ -34,4 +34,4 @@ This directory can be used to contain all 3rd party library code.
 
 Minified versions of the latest jQuery and Modernizr libraries are included by
 default. You may wish to create your own [custom Modernizr
-build](http://www.modernizr.com/download/).
+build](https://www.modernizr.com/download/).
