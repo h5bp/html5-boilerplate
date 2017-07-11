@@ -20,7 +20,6 @@ const expectedFilesInDistDir = [
     '.gitignore',
     '.htaccess',
     '404.html',
-    'apple-touch-icon.png',
     'browserconfig.xml',
 
     'css/', // for directories, a `/` character
@@ -40,6 +39,7 @@ const expectedFilesInDistDir = [
 
     'favicon.ico',
     'humans.txt',
+    'icon.png',
 
     'img/',
         'img/.gitignore',
@@ -55,6 +55,7 @@ const expectedFilesInDistDir = [
 
     'LICENSE.txt',
     'robots.txt',
+    'site.webmanifest',
     'tile-wide.png',
     'tile.png'
 
