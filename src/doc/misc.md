@@ -47,7 +47,7 @@ them to better suit your needs.
 
 In order for your editor/IDE to apply the
 [properties](http://editorconfig.org/#supported-properties) from the
-`.editorconfig` file, you will need to [install a
+`.editorconfig` file, you may need to [install a
 plugin]( http://editorconfig.org/#download).
 
 __N.B.__ If you aren't using the server configurations provided by HTML5
