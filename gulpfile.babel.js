@@ -124,7 +124,7 @@ gulp.task('copy:main.css', () => {
     gulp.src(`${dirs.src}/css/main.css`)
         .pipe(plugins().header(banner))
         .pipe(plugins().autoprefixer({
-            browsers: ['last 2 versions', 'ie >= 8', '> 1%'],
+            browsers: ['last 2 versions', 'ie >= 9', '> 1%'],
             cascade: false
         }))
         .pipe(gulp.dest(`${dirs.dist}/css`));
