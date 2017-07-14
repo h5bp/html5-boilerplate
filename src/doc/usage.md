@@ -34,14 +34,15 @@ A basic HTML5 Boilerplate site initially looks something like this:
 ├── .editorconfig
 ├── .htaccess
 ├── 404.html
-├── apple-touch-icon.png
 ├── browserconfig.xml
-├── index.html
-├── humans.txt
-├── robots.txt
 ├── favicon.ico
-├── tile-wide.png
-└── tile.png
+├── humans.txt
+├── icon.png
+├── index.html
+├── robots.txt
+├── site.webmanifest
+├── tile.png
+└── tile-wide.png
 ```
 
 What follows is a general overview of each major part and how to use them.
@@ -79,7 +80,7 @@ A helpful custom 404 to get you started.
 
 ### browserconfig.xml
 
-This file contains all settings regarding custom tiles for IE11.
+This file contains all settings regarding custom tiles for IE11 and Edge.
 
 For more info on this topic, please refer to
 [MSDN](https://msdn.microsoft.com/library/dn455106.aspx).
@@ -118,7 +119,3 @@ Touch Icon with your own.
 
 If you want to use different Apple Touch Icons for different resolutions please
 refer to the [according documentation](extend.md#apple-touch-icons).
-
-You might want to check out Hans' handy [HTML5 Boilerplate Favicon and Apple
-Touch Icon
-PSD-Template](https://drublic.de/blog/html5-boilerplate-favicons-psd-template/).
