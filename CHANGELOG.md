@@ -7,7 +7,7 @@
 * Fix links to CONTRIBUTING.md  ([#1951](https://github.com/h5bp/html5-boilerplate/pull/1951))
 * Adds .github folder and contents Fixes  ([#1948](https://github.com/h5bp/html5-boilerplate/pull/1948))
 * Modernizr 3, modernizr.config and ([#1940](https://github.com/h5bp/html5-boilerplate/pull/1940))
-* Housekeeing by @coliff (#1968 #1969 #1965 #1964 #1958 #1957 #1956)
+* Housekeeping by @coliff (#1968 #1969 #1965 #1964 #1958 #1957 #1956)
 * Update .gitattributes for Web Projects ([#1935](https://github.com/h5bp/html5-boilerplate/pull/1935))
 * Add the link for useful .gitignore templates ([#1936](https://github.com/h5bp/html5-boilerplate/pull/1936))
 * Node plumbing updated ([#1925](https://github.com/h5bp/html5-boilerplate/pull/1925)) ([#1928](https://github.com/h5bp/html5-boilerplate/pull/1928)) ([#1931](https://github.com/h5bp/html5-boilerplate/pull/1931))
