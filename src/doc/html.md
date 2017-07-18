@@ -184,7 +184,7 @@ web app development.
 ### Browser Upgrade Prompt
 
 The main content area of the boilerplate includes a prompt to install an up to
-date browser for users of IE 6/7. If you intended to support IE 6/7, then you
+date browser for users of IE 8 and lower. If you intended to support IE 8, then you
 should remove the snippet of code.
 
 ### jQuery CDN for jQuery
