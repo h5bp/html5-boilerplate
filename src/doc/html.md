@@ -120,8 +120,9 @@ HTML5 Boilerplate comes with a simple setup that strikes a good balance for gene
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1">
 ```
+
 ## Web App Manifest
-Html5 Boiplerplate includes a simple web app manifest file. 
+HTML5 Boilerplate includes a simple web app manifest file. 
 
 The web app manifest is a simple JSON file that allows you to control how your 
 app appears on a device's home screen, what it looks like when it launches
@@ -133,8 +134,8 @@ It's linked to from the HTML as follows:
 ```html
         <link rel="manifest" href="site.webmanifest">
 ```
-Our [site.webmanifest[(https://github.com/h5bp/html5-boilerplate/blob/master/src/site.webmanifest) contains a very skeletal "app" definition, just to show the basic usage. 
-You should fill this file out with [more information about your site or applicaion](https://developer.mozilla.org/en-US/docs/Web/Manifest)
+Our [site.webmanifest](https://github.com/h5bp/html5-boilerplate/blob/master/src/site.webmanifest) contains a very skeletal "app" definition, just to show the basic usage. 
+You should fill this file out with [more information about your site or application](https://developer.mozilla.org/en-US/docs/Web/Manifest)
 
 ## Favicons and Touch Icon
 
