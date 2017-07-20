@@ -22,17 +22,6 @@ not everything fits with everyone's needs.
 
 ## App Stores
 
-### Install a Chrome Web Store app
-
-Users can install a Chrome app directly from your website, as long as
-the app and site have been associated via Google's Webmaster Tools.
-Read more on [Chrome Web Store's Inline Installation
-docs](https://developer.chrome.com/webstore/inline_installation).
-
-```html
-<link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/APP_ID">
-```
-
 ### Smart App Banners in iOS 6+ Safari
 
 Stop bothering everyone with gross modals advertising your entry in the
