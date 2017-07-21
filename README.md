@@ -21,8 +21,7 @@ way that you want.
 Choose one of the following options:
 
 1. Download the latest stable release from
-   [html5boilerplate.com](https://html5boilerplate.com/) or create a
-   custom build using [Initializr](http://www.initializr.com/).
+   [html5boilerplate.com](https://html5boilerplate.com/).
 2. Clone the git repo — `git clone
    https://github.com/h5bp/html5-boilerplate.git` - and checkout the
    [tagged release](https://github.com/h5bp/html5-boilerplate/releases)
