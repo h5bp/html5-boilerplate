@@ -139,7 +139,7 @@ You should fill this file out with [more information about your site or applicat
 
 ## Favicons and Touch Icon
 
-The shortcut icons should be put in the root directory of your site. `favico.ico` 
+The shortcut icons should be put in the root directory of your site. `favicon.ico` 
 is automatically picked up by browsers if it's placed in the root.  HTML5
 Boilerplate comes with a default set of icons (include favicon and one Apple
 Touch Icon) that you can use as a baseline to create your own.
