@@ -14,7 +14,7 @@ like this:
 
 Cool, right? _It is_. That said, the smart defaults, baseline elements, default
 attribute values and various other utilities that HTML5 Boilerplate offers can
-serve as the foundation for whatever you're interesting in building.
+serve as the foundation for whatever you're interested in building.
 
 Even the basic use-case of a simple static site can be enhanced by manipulating
 the code through an automated build process. Moving up in complexity HTML5
