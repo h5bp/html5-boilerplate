@@ -9,36 +9,45 @@
 # Note that binary is a macro for -text -diff.
 ######################################################################
 
-## AUTO-DETECT - Handle line endings automatically for files detected
-## as text and leave all files detected as binary untouched.
-## This will handle all files NOT defined below.
+## AUTO-DETECT
+##   Handle line endings automatically for files detected as
+##   text and leave all files detected as binary untouched.
+##   This will handle all files NOT defined below.
 * text=auto
 
 ## SOURCE CODE
-*.bat    text
-*.coffee text
-*.css    text
-*.htm    text
-*.html   text
-*.inc    text
-*.ini    text
-*.js     text
-*.jsx    text
-*.json   text
-*.less   text
-*.php    text
-*.pl     text
-*.py     text
-*.rb     text
-*.sass   text
-*.scm    text
-*.scss   text
-*.sh     text
-*.sql    text
-*.styl   text
-*.ts     text
-*.xml    text
-*.xhtml  text
+*.bat      text eol=crlf
+*.coffee   text
+*.css      text
+*.htm      text
+*.html     text
+*.inc      text
+*.ini      text
+*.js       text
+*.json     text
+*.jsx      text
+*.less     text
+*.od       text
+*.onlydata text
+*.php      text
+*.pl       text
+*.py       text
+*.rb       text
+*.sass     text
+*.scm      text
+*.scss     text
+*.sh       text eol=lf
+*.sql      text
+*.styl     text
+*.tag      text
+*.ts       text
+*.tsx      text
+*.xml      text
+*.xhtml    text
+
+## DOCKER
+*.dockerignore    text
+Dockerfile    text
 
 ## DOCUMENTATION
 *.markdown   text
@@ -55,6 +64,8 @@ CHANGELOG    text
 CHANGES      text
 CONTRIBUTING text
 COPYING      text
+copyright    text
+*COPYRIGHT*  text
 INSTALL      text
 license      text
 LICENSE      text
@@ -73,12 +84,16 @@ TODO         text
 *.jade       text
 *.latte      text
 *.mustache   text
+*.njk        text
 *.phtml      text
 *.tmpl       text
+*.tpl        text
+*.twig       text
 
 ## LINTERS
 .csslintrc    text
 .eslintrc     text
+.htmlhintrc   text
 .jscsrc       text
 .jshintrc     text
 .jshintignore text
@@ -89,6 +104,7 @@ TODO         text
 *.cnf          text
 *.conf         text
 *.config       text
+.browserslistrc    text
 .editorconfig  text
 .gitattributes text
 .gitconfig     text
@@ -97,12 +113,13 @@ TODO         text
 *.npmignore    text
 *.yaml         text
 *.yml          text
+browserslist   text
 Makefile       text
 makefile       text
 
 ## HEROKU
-Procfile       text
-.slugignore    text
+Procfile    text
+.slugignore text
 
 ## GRAPHICS
 *.ai   binary
@@ -150,6 +167,7 @@ Procfile       text
 *.mp4  binary
 *.mpeg binary
 *.mpg  binary
+*.ogv  binary
 *.swc  binary
 *.swf  binary
 *.webm binary
@@ -157,6 +175,7 @@ Procfile       text
 ## ARCHIVES
 *.7z  binary
 *.gz  binary
+*.jar binary
 *.rar binary
 *.tar binary
 *.zip binary
