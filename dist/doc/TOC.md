@@ -25,5 +25,11 @@ aspects of your website/web app (e.g.: the performance, security, etc.).
 
 * [Server Configs](https://github.com/h5bp/server-configs) — Fast and
   smart configurations for web servers such as Apache and Nginx.
+    *  [Apache](https://github.com/h5bp/server-configs-apache)
+    *  [Google App Engine (GAE)](https://github.com/h5bp/server-configs-gae)
+    *  [Internet Information Services (IIS)](https://github.com/h5bp/server-configs-iis)
+    *  [lighttpd](https://github.com/h5bp/server-configs-lighttpd)
+    *  [Nginx](https://github.com/h5bp/server-configs-nginx)
+    *  [Node.js](https://github.com/h5bp/server-configs-node)
 * [Ant Build Script](https://github.com/h5bp/ant-build-script) — Apache
   Ant based build script.

@@ -24,6 +24,7 @@
     "node-sri": "^1.1.1",
     "normalize.css": "7.0.0",
     "run-sequence": "^2.0.0",
+    "strip-json-comments": "^2.0.1",
     "travis-after-all": "^1.4.5"
   },
   "engines": {
