@@ -77,6 +77,11 @@ See also:
   accessibility](https://snook.ca/archives/html_and_css/hiding-content-for-accessibility)
 * [HTML5 Boilerplate - Issue #194](https://github.com/h5bp/html5-boilerplate/issues/194).
 
+__N.B.__ [The visuallyhidden class can be an accessibility issue for users using high contrast modes.](https://www.paciellogroup.com/blog/2012/08/notes-on-accessible-css-image-sprites/)
+
+>Use JavaScript to detect when images are disabled and remove the CSS visually hidden display state of the text alternative.
+Use JavaScript to detect when Windows high contrast mode is enabled and remove the CSS visually hidden display state of the text alternative.
+
 #### `.invisible`
 
 The `invisible` class can be added to any element that you want to hide
