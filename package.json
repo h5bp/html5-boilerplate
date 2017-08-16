@@ -61,5 +61,9 @@
     "dist/",
     "modernizr-config.json",
     "README.md"
-  ]
+  ],
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/h5bp/html5-boilerplate.git"
+  }
 }
