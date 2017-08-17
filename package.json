@@ -47,10 +47,22 @@
   "homepage": "https://html5boilerplate.com/",
   "license": "MIT",
   "name": "html5-boilerplate",
-  "private": true,
   "scripts": {
     "build": "gulp build",
     "test": "gulp archive && mocha --compilers js:babel-register --reporter spec --timeout 5000"
   },
-  "version": "5.3.0"
+  "version": "6.0.0",
+  "description": "A professional front-end template for building fast, robust, and adaptable web apps or sites.",
+  "files": [
+    "CHANGELOG.md",
+    "LICENSE.txt",
+    "package.json",
+    "dist/",
+    "modernizr-config.json",
+    "README.md"
+  ],
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/h5bp/html5-boilerplate.git"
+  }
 }
