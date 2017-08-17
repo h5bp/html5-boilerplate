@@ -1,5 +1,6 @@
-### HEAD
+### 6.0.0 (August 17, 2017)
 
+* Fix Bug: .visuallyhidden on macOS VO fixes #1985 ([#1989](https://github.com/h5bp/html5-boilerplate/pull/1989))
 * Adds web app manifest file ([#1963](https://github.com/h5bp/html5-boilerplate/pull/1963))
 * Update to jQuery 3.2.1 ([#1942](https://github.com/h5bp/html5-boilerplate/pull/1942))
 * Improve ::selection documentation which became confusing after c7057be ([#1955](https://github.com/h5bp/html5-boilerplate/pull/1955))
