@@ -1,4 +1,4 @@
-/*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
+/*! HTML5 Boilerplate v6.0.1 | MIT License | https://html5boilerplate.com/ */
 
 /*
  * What follows is the result of much research on cross-browser styling.
@@ -136,13 +136,14 @@ textarea {
 
 .visuallyhidden {
     border: 0;
+    clip: rect(0 0 0 0);
     -webkit-clip-path: inset(50%);
     clip-path: inset(50%);
-    display: inline-block;
     height: 1px;
     margin: -1px;
     overflow: hidden;
     padding: 0;
+    position: absolute;
     width: 1px;
     white-space: nowrap; /* 1 */
 }

@@ -1,3 +1,8 @@
+### 6.0.1 (August 20, 2017)
+
+* Reverts .visuallyhidden (see [#1985](https://github.com/h5bp/html5-boilerplate/issues/1985))
+
+
 ### 6.0.0 (August 17, 2017)
 
 * Fix Bug: .visuallyhidden on macOS VO fixes #1985 ([#1989](https://github.com/h5bp/html5-boilerplate/pull/1989))
