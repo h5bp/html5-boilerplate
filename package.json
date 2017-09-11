@@ -51,7 +51,7 @@
     "build": "gulp build",
     "test": "gulp archive && mocha --compilers js:babel-register --reporter spec --timeout 5000"
   },
-  "version": "6.0.0",
+  "version": "6.0.1",
   "description": "A professional front-end template for building fast, robust, and adaptable web apps or sites.",
   "files": [
     "CHANGELOG.md",
