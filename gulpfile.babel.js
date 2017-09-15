@@ -93,7 +93,7 @@ gulp.task('copy:.htaccess', () =>
 
 gulp.task('copy:index.html', (done) =>
     sri.hash('node_modules/jquery/dist/jquery.min.js', (err, hash) => {
-        if (err) throw err
+        if (err) throw err;
 
         let version = pkg.devDependencies.jquery;
         let modernizrVersion = pkg.devDependencies.modernizr;
@@ -183,14 +183,14 @@ gulp.task('archive', (done) => {
         'build',
         'archive:create_archive_dir',
         'archive:zip',
-    done)
+    done);
 });
 
 gulp.task('build', (done) => {
     runSequence(
         ['clean', 'lint:js'],
         'copy', 'modernizr',
-    done)
+    done);
 });
 
 gulp.task('default', ['build']);
