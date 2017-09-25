@@ -26,6 +26,7 @@ Choose one of the following options:
    https://github.com/h5bp/html5-boilerplate.git` - and checkout the
    [tagged release](https://github.com/h5bp/html5-boilerplate/releases)
    you'd like to use.
+3. Run `npm install html5-boilerplate` and pull in what you need from the resulting `node_modules/html5-boilerplate/dist`
 
 
 ## Features
