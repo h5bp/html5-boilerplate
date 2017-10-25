@@ -20,7 +20,6 @@ const expectedFilesInDistDir = [
     '.gitignore',
     '.htaccess',
     '404.html',
-    'apple-touch-icon.png',
     'browserconfig.xml',
 
     'css/', // for directories, a `/` character
@@ -41,6 +40,8 @@ const expectedFilesInDistDir = [
     'favicon.ico',
     'humans.txt',
 
+    'icon.png',
+
     'img/',
         'img/.gitignore',
 
@@ -51,10 +52,11 @@ const expectedFilesInDistDir = [
         'js/plugins.js',
         'js/vendor/',
             `js/vendor/jquery-${pkg.devDependencies.jquery}.min.js`,
-            'js/vendor/modernizr-2.8.3.min.js',
+            `js/vendor/modernizr-${pkg.devDependencies.modernizr}.min.js`,
 
     'LICENSE.txt',
     'robots.txt',
+    'site.webmanifest',
     'tile-wide.png',
     'tile.png'
 
