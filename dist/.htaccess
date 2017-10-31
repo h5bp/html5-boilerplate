@@ -1,11 +1,11 @@
-# Apache Server Configs v2.14.0 | MIT License
+# Apache Server Configs v2.15.0 | MIT License
 # https://github.com/h5bp/server-configs-apache
 
 # (!) Using `.htaccess` files slows down Apache, therefore, if you have
 # access to the main server configuration file (which is usually called
 # `httpd.conf`), you should add this logic there.
 #
-# https://httpd.apache.org/docs/current/howto/htaccess.html.
+# https://httpd.apache.org/docs/current/howto/htaccess.html
 
 # ######################################################################
 # # CROSS-ORIGIN                                                       #
@@ -18,8 +18,8 @@
 # Allow cross-origin requests.
 #
 # https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS
-# http://enable-cors.org/
-# http://www.w3.org/TR/cors/
+# https://enable-cors.org/
+# https://www.w3.org/TR/cors/
 
 # <IfModule mod_headers.c>
 #     Header set Access-Control-Allow-Origin "*"
@@ -66,7 +66,7 @@
 # some of the attributes of the `PerformanceResourceTiming` object will
 # be set to zero.
 #
-# http://www.w3.org/TR/resource-timing/
+# https://www.w3.org/TR/resource-timing/
 # http://www.stevesouders.com/blog/2014/08/21/resource-timing-practical-tips/
 
 # <IfModule mod_headers.c>
@@ -120,7 +120,7 @@ Options -MultiViews
 # consider enabling `Enterprise Mode` throughout your company.
 #
 # https://msdn.microsoft.com/en-us/library/ie/bg182625.aspx#docmode
-# http://blogs.msdn.com/b/ie/archive/2014/04/02/stay-up-to-date-with-enterprise-mode-for-internet-explorer-11.aspx
+# https://blogs.msdn.microsoft.com/ie/2014/04/02/stay-up-to-date-with-enterprise-mode-for-internet-explorer-11/
 
 <IfModule mod_headers.c>
 
@@ -130,7 +130,7 @@ Options -MultiViews
     # the `X-UA-Compatible` response header should be send only for
     # HTML documents and not for the other resources.
 
-    <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
+    <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ic[os]|jpe?g|m?js|json(ld)?|m4[av]|manifest|map|markdown|md|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
         Header unset X-UA-Compatible
     </FilesMatch>
 
@@ -143,7 +143,7 @@ Options -MultiViews
 # Allow cookies to be set from iframes in Internet Explorer.
 #
 # https://msdn.microsoft.com/en-us/library/ms537343.aspx
-# http://www.w3.org/TR/2000/CR-P3P-20001215/
+# https://www.w3.org/TR/2000/CR-P3P-20001215/
 
 # <IfModule mod_headers.c>
 #     Header set P3P "policyref=\"/w3c/p3p.xml\", CP=\"IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT\""
@@ -180,7 +180,7 @@ Options -MultiViews
     # Normalize to standard type.
     # https://tools.ietf.org/html/rfc4329#section-7.2
 
-    AddType application/javascript                      js
+    AddType application/javascript                      js mjs
 
 
   # Manifest files
@@ -203,7 +203,7 @@ Options -MultiViews
     AddType video/x-flv                                 flv
 
     # Serving `.ico` image files with a different media type
-    # prevents Internet Explorer from displaying then as images:
+    # prevents Internet Explorer from displaying them as images:
     # https://github.com/h5bp/html5-boilerplate/commit/37b5fec090d00f38de64b591bcddcb205aadf8ee
 
     AddType image/x-icon                                cur ico
@@ -211,20 +211,12 @@ Options -MultiViews
 
   # Web fonts
 
-    AddType application/font-woff                       woff
-    AddType application/font-woff2                      woff2
+    AddType font/woff                                   woff
+    AddType font/woff2                                  woff2
     AddType application/vnd.ms-fontobject               eot
-
-    # Browsers usually ignore the font media types and simply sniff
-    # the bytes to figure out the font type.
-    # https://mimesniff.spec.whatwg.org/#matching-a-font-type-pattern
-    #
-    # However, Blink and WebKit based browsers will show a warning
-    # in the console if the following font types are served with any
-    # other media types.
-
-    AddType application/x-font-ttf                      ttc ttf
-    AddType font/opentype                               otf
+    AddType font/ttf                                    ttf
+    AddType font/collection                             ttc
+    AddType font/otf                                    otf
 
 
   # Other
@@ -234,6 +226,8 @@ Options -MultiViews
     AddType application/x-chrome-extension              crx
     AddType application/x-opera-extension               oex
     AddType application/x-xpinstall                     xpi
+    AddType text/calendar                               ics
+    AddType text/markdown                               markdown md
     AddType text/vcard                                  vcard vcf
     AddType text/vnd.rim.location.xloc                  xloc
     AddType text/vtt                                    vtt
@@ -264,10 +258,14 @@ AddDefaultCharset utf-8
                      .bbaw \
                      .css \
                      .geojson \
+                     .ics \
                      .js \
                      .json \
                      .jsonld \
                      .manifest \
+                     .markdown \
+                     .md \
+                     .mjs \
                      .rdf \
                      .rss \
                      .topojson \
@@ -352,7 +350,7 @@ AddDefaultCharset utf-8
 # <IfModule mod_rewrite.c>
 #    RewriteEngine On
 #    RewriteCond %{HTTPS} !=on
-#    RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+#    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 # </IfModule>
 
 # ----------------------------------------------------------------------
@@ -366,12 +364,19 @@ AddDefaultCharset utf-8
 # one.
 #
 # By default `Option 1` (no `www.`) is activated.
-# http://no-www.org/faq.php?q=class_b
+# https://web.archive.org/web/20161122074017/http://no-www.org/faq.php?q=class_b
 #
 # If you would prefer to use `Option 2`, just comment out all the
 # lines from `Option 1` and uncomment the ones from `Option 2`.
 #
 # (!) NEVER USE BOTH RULES AT THE SAME TIME!
+
+# (1) The two rules assume by default that both HTTP and HTTPS
+#     environnements are available for redirection.
+#     If your SSL certificate could not handle one of the domains
+#     used during redirection, you should turn the condition on.
+#
+#     https://github.com/h5bp/server-configs-apache/issues/52
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -379,7 +384,8 @@ AddDefaultCharset utf-8
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteCond %{HTTPS} !=on
+    # (1)
+    # RewriteCond %{HTTPS} !=on
     RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
     RewriteRule ^ %{ENV:PROTO}://%1%{REQUEST_URI} [R=301,L]
 </IfModule>
@@ -393,7 +399,8 @@ AddDefaultCharset utf-8
 
 # <IfModule mod_rewrite.c>
 #     RewriteEngine On
-#     RewriteCond %{HTTPS} !=on
+#     # (1)
+#     # RewriteCond %{HTTPS} !=on
 #     RewriteCond %{HTTP_HOST} !^www\. [NC]
 #     RewriteCond %{SERVER_ADDR} !=127.0.0.1
 #     RewriteCond %{SERVER_ADDR} !=::1
@@ -436,7 +443,7 @@ AddDefaultCharset utf-8
 # https://cure53.de/xfo-clickjacking.pdf.
 #
 # https://tools.ietf.org/html/rfc7034
-# http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx
+# https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-clickjacking-with-x-frame-options/
 # https://www.owasp.org/index.php/Clickjacking
 
 # <IfModule mod_headers.c>
@@ -447,7 +454,7 @@ AddDefaultCharset utf-8
 #     # the `X-Frame-Options` response header should be send only for
 #     # HTML documents and not for the other resources.
 
-#     <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
+#     <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ic[os]|jpe?g|m?js|json(ld)?|m4[av]|manifest|map|markdown|md|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
 #         Header unset X-Frame-Options
 #     </FilesMatch>
 
@@ -470,9 +477,9 @@ AddDefaultCharset utf-8
 # To make things easier, you can use an online CSP header generator
 # such as: http://cspisawesome.com/.
 #
-# http://content-security-policy.com/
-# http://www.html5rocks.com/en/tutorials/security/content-security-policy/
-# http://www.w3.org/TR/CSP11/).
+# https://content-security-policy.com/
+# https://www.html5rocks.com/en/tutorials/security/content-security-policy/
+# https://w3c.github.io/webappsec-csp/
 
 # <IfModule mod_headers.c>
 
@@ -482,7 +489,7 @@ AddDefaultCharset utf-8
 #     # the `Content-Security-Policy` response header should be send
 #     # only for HTML documents and not for the other resources.
 
-#     <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
+#     <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ic[os]|jpe?g|m?js|json(ld)?|m4[av]|manifest|map|markdown|md|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
 #         Header unset Content-Security-Policy
 #     </FilesMatch>
 
@@ -535,7 +542,7 @@ AddDefaultCharset utf-8
 # left by some text editors and can pose a security risk when anyone
 # has access to them.
 #
-# http://feross.org/cmsploit/
+# https://feross.org/cmsploit/
 #
 # (!) Update the `<FilesMatch>` regular expression from below to
 # include any files that might end up on your production server and
@@ -543,7 +550,7 @@ AddDefaultCharset utf-8
 # include: configuration files, files that contain metadata about the
 # project (e.g.: project dependencies), build scripts, etc..
 
-<FilesMatch "(^#.*#|\.(bak|conf|dist|fla|in[ci]|log|psd|sh|sql|sw[op])|~)$">
+<FilesMatch "(^#.*#|\.(bak|conf|dist|fla|in[ci]|log|orig|psd|sh|sql|sw[op])|~)$">
 
     # Apache < 2.3
     <IfModule !mod_authz_core.c>
@@ -577,9 +584,9 @@ AddDefaultCharset utf-8
 # (!) Remove the `includeSubDomains` optional directive if the website's
 # subdomains are not using HTTPS.
 #
-# http://www.html5rocks.com/en/tutorials/security/transport-layer-security/
+# https://www.html5rocks.com/en/tutorials/security/transport-layer-security/
 # https://tools.ietf.org/html/draft-ietf-websec-strict-transport-sec-14#section-6.1
-# http://blogs.msdn.com/b/ieinternals/archive/2014/08/18/hsts-strict-transport-security-attacks-mitigations-deployment-https.aspx
+# https://blogs.msdn.microsoft.com/ieinternals/2014/08/18/strict-transport-security/
 
 # <IfModule mod_headers.c>
 #     Header always set Strict-Transport-Security "max-age=16070400; includeSubDomains"
@@ -596,8 +603,8 @@ AddDefaultCharset utf-8
 # is serving user-uploaded content or content that could potentially be
 # treated as executable by the browser.
 #
-# http://www.slideshare.net/hasegawayosuke/owasp-hasegawa
-# http://blogs.msdn.com/b/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx
+# https://www.slideshare.net/hasegawayosuke/owasp-hasegawa
+# https://blogs.msdn.microsoft.com/ie/2008/07/02/ie8-security-part-v-comprehensive-protection/
 # https://msdn.microsoft.com/en-us/library/ie/gg622941.aspx
 # https://mimesniff.spec.whatwg.org/
 
@@ -637,8 +644,8 @@ AddDefaultCharset utf-8
 #     you are taking all possible measures to prevent XSS attacks, the
 #     most obvious being: validating and sanitizing your website's inputs.
 #
-# http://blogs.msdn.com/b/ie/archive/2008/07/02/ie8-security-part-iv-the-xss-filter.aspx
-# http://blogs.msdn.com/b/ieinternals/archive/2011/01/31/controlling-the-internet-explorer-xss-filter-with-the-x-xss-protection-http-header.aspx
+# https://blogs.msdn.microsoft.com/ie/2008/07/02/ie8-security-part-iv-the-xss-filter/
+# https://blogs.msdn.microsoft.com/ieinternals/2011/01/31/controlling-the-xss-filter/
 # https://www.owasp.org/index.php/Cross-site_Scripting_%28XSS%29
 
 # <IfModule mod_headers.c>
@@ -650,7 +657,7 @@ AddDefaultCharset utf-8
 #     # the `X-XSS-Protection` response header should be send only for
 #     # HTML documents and not for the other resources.
 
-#     <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
+#     <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ic[os]|jpe?g|m?js|json(ld)?|m4[av]|manifest|map|markdown|md|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
 #         Header unset X-XSS-Protection
 #     </FilesMatch>
 
@@ -666,9 +673,9 @@ AddDefaultCharset utf-8
 #    (e.g.: ASP.NET, PHP), and its value contains information
 #    about them (e.g.: their name, version number)
 #
-#  * doesn't provide any value as far as users are concern,
-#    and in some cases, the information provided by it can
-#    be used by attackers
+#  * doesn't provide any value to users, contributes to header
+#    bloat, and in some cases, the information it provides can
+#    expose vulnerabilities
 #
 # (!) If you can, you should disable the `X-Powered-By` header from the
 # language / framework level (e.g.: for PHP, you can do that by setting
@@ -753,17 +760,22 @@ ServerSignature Off
                                       "application/x-web-app-manifest+json" \
                                       "application/xhtml+xml" \
                                       "application/xml" \
+                                      "font/collection" \
                                       "font/eot" \
                                       "font/opentype" \
+                                      "font/otf" \
+                                      "font/ttf" \
                                       "image/bmp" \
                                       "image/svg+xml" \
                                       "image/vnd.microsoft.icon" \
                                       "image/x-icon" \
                                       "text/cache-manifest" \
+                                      "text/calendar" \
                                       "text/css" \
                                       "text/html" \
                                       "text/javascript" \
                                       "text/plain" \
+                                      "text/markdown" \
                                       "text/vcard" \
                                       "text/vnd.rim.location.xloc" \
                                       "text/vtt" \
@@ -865,6 +877,7 @@ FileETag None
     ExpiresByType application/schema+json               "access plus 0 seconds"
     ExpiresByType application/vnd.geo+json              "access plus 0 seconds"
     ExpiresByType application/xml                       "access plus 0 seconds"
+    ExpiresByType text/calendar                         "access plus 0 seconds"
     ExpiresByType text/xml                              "access plus 0 seconds"
 
 
@@ -892,6 +905,11 @@ FileETag None
     ExpiresByType text/cache-manifest                   "access plus 0 seconds"
 
 
+  # Markdown
+
+    ExpiresByType text/markdown                         "access plus 0 seconds"
+
+
   # Media files
 
     ExpiresByType audio/ogg                             "access plus 1 month"
@@ -908,15 +926,20 @@ FileETag None
 
   # Web fonts
 
+    # Collection
+    ExpiresByType font/collection                       "access plus 1 month"
+
     # Embedded OpenType (EOT)
     ExpiresByType application/vnd.ms-fontobject         "access plus 1 month"
     ExpiresByType font/eot                              "access plus 1 month"
 
     # OpenType
     ExpiresByType font/opentype                         "access plus 1 month"
+    ExpiresByType font/otf                              "access plus 1 month"
 
     # TrueType
     ExpiresByType application/x-font-ttf                "access plus 1 month"
+    ExpiresByType font/ttf                              "access plus 1 month"
 
     # Web Open Font Format (WOFF) 1.0
     ExpiresByType application/font-woff                 "access plus 1 month"
@@ -925,6 +948,7 @@ FileETag None
 
     # Web Open Font Format (WOFF) 2.0
     ExpiresByType application/font-woff2                "access plus 1 month"
+    ExpiresByType font/woff2                            "access plus 1 month"
 
 
   # Other
@@ -980,5 +1004,5 @@ FileETag None
 # <IfModule mod_rewrite.c>
 #     RewriteEngine On
 #     RewriteCond %{REQUEST_FILENAME} !-f
-#     RewriteRule ^(.+)\.(\d+)\.(bmp|css|cur|gif|ico|jpe?g|js|png|svgz?|webp|webmanifest)$ $1.$3 [L]
+#     RewriteRule ^(.+)\.(\d+)\.(bmp|css|cur|gif|ico|jpe?g|m?js|png|svgz?|webp|webmanifest)$ $1.$3 [L]
 # </IfModule>
