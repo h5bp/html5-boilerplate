@@ -7,7 +7,6 @@ table of contents](TOC.md)
 * [.editorconfig](#editorconfig)
 * [Server Configuration](#server-configuration)
 * [robots.txt](#robotstxt)
-* [humans.txt](#humanstxt)
 * [browserconfig.xml](#browserconfigxml)
 
 --
@@ -139,20 +138,6 @@ For more information about `robots.txt`, please see:
 
   * [robotstxt.org](http://www.robotstxt.org/)
   * [How Google handles the `robots.txt` file](https://developers.google.com/webmasters/control-crawl-index/docs/robots_txt)
-
-## humans.txt
-
-The `humans.txt` file is used to provide information about people involved with
-the website.
-
-The provided file contains three sections:
-
-  * `TEAM` - this is intented to list the group of people responsible for the website
-  * `THANKS` - this is intended to list the group of people that have contributed
-  to the webste
-  * `TECHNOLOGY COLOPHON` - the section lists technologies used to make the website
-  
-For more information about `humans.txt`, please see: http://humanstxt.org/
 
 
 ## browserconfig.xml
