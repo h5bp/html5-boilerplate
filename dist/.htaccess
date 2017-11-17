@@ -584,12 +584,28 @@ AddDefaultCharset utf-8
 # (!) Remove the `includeSubDomains` optional directive if the website's
 # subdomains are not using HTTPS.
 #
+# (1) If you want to submit your site for HSTS preload (2) you must
+#     * ensure the `includeSubDomains` directive to be present
+#     * the `preload` directive to be specified
+#     * the `mag-age` to be at least 31536000 seconds (1 year).
+#
+#     It is also advised (3) to only serve the HSTS header via a secure connection
+#     which can be done with either `env=https` or `"expr=%{HTTPS} == 'on'"` (4). The
+#     exact way depends on your environment and might just be tried.
+#
 # https://www.html5rocks.com/en/tutorials/security/transport-layer-security/
 # https://tools.ietf.org/html/draft-ietf-websec-strict-transport-sec-14#section-6.1
 # https://blogs.msdn.microsoft.com/ieinternals/2014/08/18/strict-transport-security/
-
+# (2) https://hstspreload.org/
+# (3) https://tools.ietf.org/html/draft-ietf-websec-strict-transport-sec-14#section-7.2
+# (4) https://stackoverflow.com/questions/24144552/how-to-set-hsts-header-from-htaccess-only-on-https/24145033#comment81632711_24145033
+#
 # <IfModule mod_headers.c>
 #     Header always set Strict-Transport-Security "max-age=16070400; includeSubDomains"
+#     # (1) or if HSTS preloading is desired:
+#     # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
+#     # (4) respectively…
+#     # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" "expr=%{HTTPS} == 'on'"
 # </IfModule>
 
 # ----------------------------------------------------------------------
