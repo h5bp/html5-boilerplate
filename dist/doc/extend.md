@@ -25,9 +25,7 @@ not everything fits with everyone's needs.
 ### Smart App Banners in iOS 6+ Safari
 
 Stop bothering everyone with gross modals advertising your entry in the
-App Store. Include the following [meta tag](https://developer.apple.com/library/IOS/documentation/AppleApplications/Reference/SafariWebContent/PromotingAppswithAppBanners/PromotingAppswithAppBanners.html#//apple_ref/doc/uid/TP40002051-CH6-SW2)
-will unintrusively allow the user the option to download your iOS app,
-or open it with some data about the user's current state on the website.
+App Store. Including the following [meta tag](https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/PromotingAppswithAppBanners/PromotingAppswithAppBanners.html) will unobtrusively give the user the option to download your iOS app,or open it with some data about the user's current state on the website.
 
 ```html
 <meta name="apple-itunes-app" content="app-id=APP_ID,app-argument=SOME_TEXT">

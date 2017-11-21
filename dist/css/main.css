@@ -227,6 +227,7 @@ textarea {
         background: transparent !important;
         color: #000 !important; /* Black prints faster:
                                    http://www.sanbeiji.com/archives/953 */
+        -webkit-box-shadow: none !important;
         box-shadow: none !important;
         text-shadow: none !important;
     }

@@ -18,7 +18,7 @@ serve as the foundation for whatever you're interested in building.
 
 Even the basic use-case of a simple static site can be enhanced by manipulating
 the code through an automated build process. Moving up in complexity HTML5
-Boilerplate can be integrated with whatever front-end framework, CMS or
+Boilerplate can be be integrated with whatever front-end framework, CMS or
 e-commerce platform you're working with. Mix-and-match to your heart's content.
 Use what you need (toss it in a blender if you need to) and discard the rest.
 HTML5 Boilerplate is a starting point, not a destination.
