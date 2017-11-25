@@ -4,7 +4,7 @@
     "apache-server-configs": "2.15.0",
     "archiver": "^2.1.0",
     "babel-core": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
     "del": "^3.0.0",
     "glob": "^7.1.2",
@@ -33,7 +33,7 @@
   },
   "babel": {
     "presets": [
-      "es2015"
+      "env"
     ]
   },
   "h5bp-configs": {
@@ -61,8 +61,8 @@
     "modernizr-config.json",
     "README.md"
   ],
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/h5bp/html5-boilerplate.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/h5bp/html5-boilerplate.git"
   }
 }
