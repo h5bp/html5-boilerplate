@@ -217,7 +217,7 @@ textarea {
 /* ==========================================================================
    Print styles.
    Inlined to avoid the additional HTTP request:
-   http://www.phpied.com/delay-loading-your-print-css/
+   https://www.phpied.com/delay-loading-your-print-css/
    ========================================================================== */
 
 @media print {
@@ -225,8 +225,7 @@ textarea {
     *:before,
     *:after {
         background: transparent !important;
-        color: #000 !important; /* Black prints faster:
-                                   http://www.sanbeiji.com/archives/953 */
+        color: #000 !important; /* Black prints faster */
         -webkit-box-shadow: none !important;
         box-shadow: none !important;
         text-shadow: none !important;
