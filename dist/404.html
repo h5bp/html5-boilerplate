@@ -33,10 +33,16 @@
         }
 
         p {
-            margin: 0 auto;
+            margin: 5px auto;
             width: 280px;
         }
-
+		a {
+			color: #555;
+			text-decoration: none;
+		}
+		a:hover {
+			text-decoration: underline;
+		}
         @media only screen and (max-width: 280px) {
 
             body, p {
@@ -54,7 +60,15 @@
 </head>
 <body>
     <h1>Page Not Found</h1>
-    <p>Sorry, but the page you were trying to view does not exist.</p>
+    <p>
+		Sorry, but the page you were trying to view does not exist. <br>
+		<a href="/">Click here to go to the home page</a>
+	</p>
+	<script>
+		document.body.addEventListener("click", function () {
+			window.location = "/";
+		})
+	</script>
 </body>
 </html>
 <!-- IE needs 512+ bytes: https://blogs.msdn.microsoft.com/ieinternals/2010/08/18/friendly-http-error-pages/ -->
