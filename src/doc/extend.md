@@ -407,7 +407,7 @@ scratch](http://www.rssboard.org/rss-specification)?
 
 Atom is similar to RSS, and you might prefer to use it instead of or in
 addition to it. [See what Atom's all
-about](http://www.atomenabled.org/developers/syndication/).
+about](https://en.wikipedia.org/wiki/Atom_(Web_standard)).
 
 ```html
 <link rel="alternate" type="application/atom+xml" title="Atom" href="/atom.xml">
