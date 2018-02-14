@@ -40,6 +40,8 @@ A basic HTML5 Boilerplate site initially looks something like this:
 │   └── vendor
 │       ├── jquery.min.js
 │       └── modernizr.min.js
+├── .well-known
+│   └── security.txt
 ├── .editorconfig
 ├── .htaccess
 ├── 404.html
@@ -120,6 +122,14 @@ technology powering it.
 ### robots.txt
 
 Edit this file to include any pages you need hidden from search engines.
+
+### .well-known
+
+RFC5785 [https://tools.ietf.org/html/rfc5785](https://tools.ietf.org/html/rfc5785) defines '.well-known' as a unique location for content discover.  It contains one file - security.txt.
+
+### security.txt
+
+When security risks in web services are discovered by independent security researchers who understand the severity of the risk, they often lack the channels to disclose them properly. As a result, security issues may be left unreported. Security.txt defines a standard to help organizations define the process for security researchers to disclose security vulnerabilities securely.
 
 ### Icons
 
