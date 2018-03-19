@@ -46,8 +46,8 @@
 *.xhtml    text
 
 ## DOCKER
-*.dockerignore    text
-Dockerfile    text
+*.dockerignore text
+Dockerfile     text
 
 ## DOCUMENTATION
 *.markdown   text
@@ -91,31 +91,33 @@ TODO         text
 *.twig       text
 
 ## LINTERS
+.babelrc      text
 .csslintrc    text
 .eslintrc     text
 .htmlhintrc   text
 .jscsrc       text
 .jshintrc     text
 .jshintignore text
+.prettierrc   text
 .stylelintrc  text
 
 ## CONFIGS
-*.bowerrc      text
-*.cnf          text
-*.conf         text
-*.config       text
-.browserslistrc    text
-.editorconfig  text
-.gitattributes text
-.gitconfig     text
-.gitignore     text
-.htaccess      text
-*.npmignore    text
-*.yaml         text
-*.yml          text
-browserslist   text
-Makefile       text
-makefile       text
+*.bowerrc       text
+*.cnf           text
+*.conf          text
+*.config        text
+.browserslistrc text
+.editorconfig   text
+.gitattributes  text
+.gitconfig      text
+.gitignore      text
+.htaccess       text
+*.npmignore     text
+*.yaml          text
+*.yml           text
+browserslist    text
+Makefile        text
+makefile        text
 
 ## HEROKU
 Procfile    text
