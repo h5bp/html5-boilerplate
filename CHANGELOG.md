@@ -1,3 +1,16 @@
+### 6.1.0 (Unreleased)
+
+* Update to jQuery 3.3.1 ([#2018](https://github.com/h5bp/html5-boilerplate/pull/2018))
+* Update to Modernizr v3.6 and Normalize v8 ([#2028](https://github.com/h5bp/html5-boilerplate/pull/2028)) 
+* Update Dev Dependencies ([#2032](https://github.com/h5bp/html5-boilerplate/pull/2032)) ([#2017](https://github.com/h5bp/html5-boilerplate/pull/2017)) ([#2010](https://github.com/h5bp/html5-boilerplate/pull/2010)) ([#2009](https://github.com/h5bp/html5-boilerplate/pull/2009))
+* Replace 'node-sri' with 'ssri' ([#2031](https://github.com/h5bp/html5-boilerplate/pull/2031))
+* Add .babelrc and .prettierrc to .gitattributes ([#2030](https://github.com/h5bp/html5-boilerplate/pull/2030))
+* Update .htaccess ([#2003](https://github.com/h5bp/html5-boilerplate/pull/2003))
+* Fixed JSHint errors  ([#1994](https://github.com/h5bp/html5-boilerplate/pull/1994))
+* Add CODE_OF_CONDUCT.md ([#2011](https://github.com/h5bp/html5-boilerplate/pull/2011))
+* Update Documentation ([#2029](https://github.com/h5bp/html5-boilerplate/pull/2029)) ([#2015](https://github.com/h5bp/html5-boilerplate/pull/2015)) ([#2007](https://github.com/h5bp/html5-boilerplate/pull/2007)) ([#2006](https://github.com/h5bp/html5-boilerplate/pull/2006)) ([#1996](https://github.com/h5bp/html5-boilerplate/pull/1996))
+
+
 ### 6.0.1 (August 20, 2017)
 
 * Reverts .visuallyhidden (see [#1985](https://github.com/h5bp/html5-boilerplate/issues/1985))
