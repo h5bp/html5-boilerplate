@@ -14,7 +14,7 @@ import runSequence from 'run-sequence';
 import archiver from 'archiver';
 import glob from 'glob';
 import del from 'del';
-import sri from 'node-sri';
+import ssri from 'ssri';
 import modernizr from 'modernizr';
 
 import pkg from './package.json';
@@ -91,20 +91,20 @@ gulp.task('copy:.htaccess', () =>
         .pipe(gulp.dest(dirs.dist))
 );
 
-gulp.task('copy:index.html', (done) =>
-    sri.hash('node_modules/jquery/dist/jquery.min.js', (err, hash) => {
-        if (err) throw err;
+gulp.task('copy:index.html', () => {
+    const hash = ssri.fromData(
+        fs.readFileSync('node_modules/jquery/dist/jquery.min.js'),
+        { algorithms: ['sha256'] }
+    );
+    let version = pkg.devDependencies.jquery;
+    let modernizrVersion = pkg.devDependencies.modernizr;
 
-        let version = pkg.devDependencies.jquery;
-        let modernizrVersion = pkg.devDependencies.modernizr;
-        gulp.src(`${dirs.src}/index.html`)
-            .pipe(plugins().replace(/{{JQUERY_VERSION}}/g, version))
-            .pipe(plugins().replace(/{{MODERNIZR_VERSION}}/g, modernizrVersion))
-            .pipe(plugins().replace(/{{JQUERY_SRI_HASH}}/g, hash))
-            .pipe(gulp.dest(dirs.dist));
-        done();
-    })
-);
+    gulp.src(`${dirs.src}/index.html`)
+        .pipe(plugins().replace(/{{JQUERY_VERSION}}/g, version))
+        .pipe(plugins().replace(/{{MODERNIZR_VERSION}}/g, modernizrVersion))
+        .pipe(plugins().replace(/{{JQUERY_SRI_HASH}}/g, hash.toString()))
+        .pipe(gulp.dest(dirs.dist));
+});
 
 gulp.task('copy:jquery', () =>
     gulp.src(['node_modules/jquery/dist/jquery.min.js'])
