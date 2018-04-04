@@ -29,7 +29,7 @@
     "travis-after-all": "^1.4.5"
   },
   "engines": {
-    "node": ">=4",
+    "node": ">=6",
     "npm": ">=3"
   },
   "babel": {
