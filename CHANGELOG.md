@@ -280,7 +280,7 @@
 * Remove `handheld.css` as it has very poor device support.
 * Remove touch-icon `link` elements from the HTML and include improved
   touch-icon support.
-* Remove the cache-busting query paramaters from files references in
+* Remove the cache-busting query parameters from files references in
   the HTML.
 * Remove IE6 PNGFix.
 
