@@ -219,7 +219,7 @@
 
 * Update to Modernizr 2.5.3.
 
-### 3.0.1 (February 08, 2012).
+### 3.0.1 (February 08, 2012)
 
 * Update to Modernizr 2.5.2 (includes html5shiv 3.3).
 
