@@ -219,7 +219,7 @@
 
 * Update to Modernizr 2.5.3.
 
-### 3.0.1 (February 08, 2012).
+### 3.0.1 (February 08, 2012)
 
 * Update to Modernizr 2.5.2 (includes html5shiv 3.3).
 
@@ -280,7 +280,7 @@
 * Remove `handheld.css` as it has very poor device support.
 * Remove touch-icon `link` elements from the HTML and include improved
   touch-icon support.
-* Remove the cache-busting query paramaters from files references in
+* Remove the cache-busting query parameters from files references in
   the HTML.
 * Remove IE6 PNGFix.
 

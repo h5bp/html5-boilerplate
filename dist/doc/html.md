@@ -23,7 +23,7 @@ FOUC](https://www.paulirish.com/2009/avoiding-the-fouc-v3/).
 
 ## Language Attribute
 
-Please consider specifying the language of your content by adding a [value](http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) to the `lang`
+Please consider specifying the language of your content by adding a [value](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) to the `lang`
 attribute in the `<html>` as in this example:
 
 ```html
