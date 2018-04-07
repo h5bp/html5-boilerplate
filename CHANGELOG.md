@@ -1,5 +1,6 @@
 ### 6.1.0 (Unreleased)
 
+* Migrate to eslint ([#2037](https://github.com/h5bp/html5-boilerplate/pull/2037)
 * Update to jQuery 3.3.1 ([#2018](https://github.com/h5bp/html5-boilerplate/pull/2018))
 * Update to Modernizr v3.6 and Normalize v8 ([#2028](https://github.com/h5bp/html5-boilerplate/pull/2028)) 
 * Update Dev Dependencies ([#2032](https://github.com/h5bp/html5-boilerplate/pull/2032)) ([#2017](https://github.com/h5bp/html5-boilerplate/pull/2017)) ([#2010](https://github.com/h5bp/html5-boilerplate/pull/2010)) ([#2009](https://github.com/h5bp/html5-boilerplate/pull/2009))
