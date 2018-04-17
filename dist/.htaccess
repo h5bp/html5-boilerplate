@@ -1,4 +1,4 @@
-# Apache Server Configs v2.15.0 | MIT License
+# Apache Server Configs v3.0.0 | MIT License
 # https://github.com/h5bp/server-configs-apache
 
 # (!) Using `.htaccess` files slows down Apache, therefore, if you have
@@ -73,7 +73,6 @@
 #     Header set Timing-Allow-Origin: "*"
 # </IfModule>
 
-
 # ######################################################################
 # # ERRORS                                                             #
 # ######################################################################
@@ -99,7 +98,6 @@ ErrorDocument 404 /404.html
 # https://httpd.apache.org/docs/current/content-negotiation.html#multiviews
 
 Options -MultiViews
-
 
 # ######################################################################
 # # INTERNET EXPLORER                                                  #
@@ -130,7 +128,7 @@ Options -MultiViews
     # the `X-UA-Compatible` response header should be send only for
     # HTML documents and not for the other resources.
 
-    <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ic[os]|jpe?g|m?js|json(ld)?|m4[av]|manifest|map|markdown|md|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
+    <FilesMatch "\.(appcache|atom|bbaw|bmp|br|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|gz|htc|ic[os]|jpe?g|m?js|json(ld)?|m4[av]|manifest|map|markdown|md|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|wasm|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
         Header unset X-UA-Compatible
     </FilesMatch>
 
@@ -148,7 +146,6 @@ Options -MultiViews
 # <IfModule mod_headers.c>
 #     Header set P3P "policyref=\"/w3c/p3p.xml\", CP=\"IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT\""
 # </IfModule>
-
 
 # ######################################################################
 # # MEDIA TYPES AND CHARACTER ENCODINGS                                #
@@ -177,10 +174,10 @@ Options -MultiViews
 
   # JavaScript
 
-    # Normalize to standard type.
-    # https://tools.ietf.org/html/rfc4329#section-7.2
+    # Servers should use text/javascript for JavaScript resources.
+    # https://html.spec.whatwg.org/multipage/scripting.html#scriptingLanguages
 
-    AddType application/javascript                      js mjs
+    AddType text/javascript                             js mjs
 
 
   # Manifest files
@@ -207,6 +204,11 @@ Options -MultiViews
     # https://github.com/h5bp/html5-boilerplate/commit/37b5fec090d00f38de64b591bcddcb205aadf8ee
 
     AddType image/x-icon                                cur ico
+
+
+  # WebAssembly
+
+    AddType application/wasm                            wasm
 
 
   # Web fonts
@@ -275,7 +277,6 @@ AddDefaultCharset utf-8
                      .xloc \
                      .xml
 </IfModule>
-
 
 # ######################################################################
 # # REWRITES                                                           #
@@ -354,8 +355,10 @@ AddDefaultCharset utf-8
 # </IfModule>
 
 # ----------------------------------------------------------------------
-# | Suppressing / Forcing the `www.` at the beginning of URLs          |
+# | Suppressing the `www.` at the beginning of URLs                    |
 # ----------------------------------------------------------------------
+
+# Rewrite www.example.com → example.com
 
 # The same content should never be available under two different
 # URLs, especially not with and without `www.` at the beginning.
@@ -363,24 +366,14 @@ AddDefaultCharset utf-8
 # you should choose one of the alternatives and redirect the other
 # one.
 #
-# By default `Option 1` (no `www.`) is activated.
-# https://web.archive.org/web/20161122074017/http://no-www.org/faq.php?q=class_b
-#
-# If you would prefer to use `Option 2`, just comment out all the
-# lines from `Option 1` and uncomment the ones from `Option 2`.
-#
-# (!) NEVER USE BOTH RULES AT THE SAME TIME!
+# (!) NEVER USE BOTH WWW-RELATED RULES AT THE SAME TIME!
 
-# (1) The two rules assume by default that both HTTP and HTTPS
-#     environnements are available for redirection.
+# (1) The rule assume by default that both HTTP and HTTPS
+#     environments are available for redirection.
 #     If your SSL certificate could not handle one of the domains
 #     used during redirection, you should turn the condition on.
 #
 #     https://github.com/h5bp/server-configs-apache/issues/52
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# Option 1: rewrite www.example.com → example.com
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
@@ -390,10 +383,27 @@ AddDefaultCharset utf-8
     RewriteRule ^ %{ENV:PROTO}://%1%{REQUEST_URI} [R=301,L]
 </IfModule>
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# ----------------------------------------------------------------------
+# | Forcing the `www.` at the beginning of URLs                        |
+# ----------------------------------------------------------------------
 
-# Option 2: rewrite example.com → www.example.com
+# Rewrite example.com → www.example.com
+
+# The same content should never be available under two different
+# URLs, especially not with and without `www.` at the beginning.
+# This can cause SEO problems (duplicate content), and therefore,
+# you should choose one of the alternatives and redirect the other
+# one.
 #
+# (!) NEVER USE BOTH WWW-RELATED RULES AT THE SAME TIME!
+
+# (1) The rule assume by default that both HTTP and HTTPS
+#     environments are available for redirection.
+#     If your SSL certificate could not handle one of the domains
+#     used during redirection, you should turn the condition on.
+#
+#     https://github.com/h5bp/server-configs-apache/issues/52
+
 # Be aware that the following might not be a good idea if you use "real"
 # subdomains for certain parts of your website.
 
@@ -406,7 +416,6 @@ AddDefaultCharset utf-8
 #     RewriteCond %{SERVER_ADDR} !=::1
 #     RewriteRule ^ %{ENV:PROTO}://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 # </IfModule>
-
 
 # ######################################################################
 # # SECURITY                                                           #
@@ -454,7 +463,7 @@ AddDefaultCharset utf-8
 #     # the `X-Frame-Options` response header should be send only for
 #     # HTML documents and not for the other resources.
 
-#     <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ic[os]|jpe?g|m?js|json(ld)?|m4[av]|manifest|map|markdown|md|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
+#     <FilesMatch "\.(appcache|atom|bbaw|bmp|br|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|gz|htc|ic[os]|jpe?g|m?js|json(ld)?|m4[av]|manifest|map|markdown|md|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|wasm|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
 #         Header unset X-Frame-Options
 #     </FilesMatch>
 
@@ -489,7 +498,7 @@ AddDefaultCharset utf-8
 #     # the `Content-Security-Policy` response header should be send
 #     # only for HTML documents and not for the other resources.
 
-#     <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ic[os]|jpe?g|m?js|json(ld)?|m4[av]|manifest|map|markdown|md|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
+#     <FilesMatch "\.(appcache|atom|bbaw|bmp|br|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|gz|htc|ic[os]|jpe?g|m?js|json(ld)?|m4[av]|manifest|map|markdown|md|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|wasm|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
 #         Header unset Content-Security-Policy
 #     </FilesMatch>
 
@@ -550,21 +559,11 @@ AddDefaultCharset utf-8
 # include: configuration files, files that contain metadata about the
 # project (e.g.: project dependencies), build scripts, etc..
 
-<FilesMatch "(^#.*#|\.(bak|conf|dist|fla|in[ci]|log|orig|psd|sh|sql|sw[op])|~)$">
-
-    # Apache < 2.3
-    <IfModule !mod_authz_core.c>
-        Order allow,deny
-        Deny from all
-        Satisfy All
-    </IfModule>
-
-    # Apache ≥ 2.3
-    <IfModule mod_authz_core.c>
+<IfModule mod_authz_core.c>
+    <FilesMatch "(^#.*#|\.(bak|conf|dist|fla|in[ci]|log|orig|psd|sh|sql|sw[op])|~)$">
         Require all denied
-    </IfModule>
-
-</FilesMatch>
+    </FilesMatch>
+</IfModule>
 
 # ----------------------------------------------------------------------
 # | HTTP Strict Transport Security (HSTS)                              |
@@ -581,15 +580,37 @@ AddDefaultCharset utf-8
 # server via HTTPS, regardless of what the users type in the browser's
 # address bar.
 #
+# (!) Be aware that this, once published, is not revokable and you must ensure
+# being able to serve the site via SSL for the duration you've specified
+# in max-age. When you don't have a valid SSL connection (anymore) your
+# visitors will see a nasty error message even when attempting to connect
+# via simple HTTP.
+#
 # (!) Remove the `includeSubDomains` optional directive if the website's
 # subdomains are not using HTTPS.
 #
+# (1) If you want to submit your site for HSTS preload (2) you must
+#     * ensure the `includeSubDomains` directive to be present
+#     * the `preload` directive to be specified
+#     * the `max-age` to be at least 31536000 seconds (1 year) according to the current status.
+#
+#     It is also advised (3) to only serve the HSTS header via a secure connection
+#     which can be done with either `env=https` or `"expr=%{HTTPS} == 'on'"` (4). The
+#     exact way depends on your environment and might just be tried.
+#
 # https://www.html5rocks.com/en/tutorials/security/transport-layer-security/
-# https://tools.ietf.org/html/draft-ietf-websec-strict-transport-sec-14#section-6.1
+# https://tools.ietf.org/html/rfc6797#section-6.1
 # https://blogs.msdn.microsoft.com/ieinternals/2014/08/18/strict-transport-security/
+# (2) https://hstspreload.org/
+# (3) https://tools.ietf.org/html/rfc6797#section-7.2
+# (4) https://stackoverflow.com/questions/24144552/how-to-set-hsts-header-from-htaccess-only-on-https/24145033#comment81632711_24145033
 
 # <IfModule mod_headers.c>
 #     Header always set Strict-Transport-Security "max-age=16070400; includeSubDomains"
+#     # (1) or if HSTS preloading is desired (respect (2) for current requirements):
+#     # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
+#     # (4) respectively… (respect (2) for current requirements):
+#     # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" "expr=%{HTTPS} == 'on'"
 # </IfModule>
 
 # ----------------------------------------------------------------------
@@ -657,8 +678,45 @@ AddDefaultCharset utf-8
 #     # the `X-XSS-Protection` response header should be send only for
 #     # HTML documents and not for the other resources.
 
-#     <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ic[os]|jpe?g|m?js|json(ld)?|m4[av]|manifest|map|markdown|md|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
+#     <FilesMatch "\.(appcache|atom|bbaw|bmp|br|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|gz|htc|ic[os]|jpe?g|m?js|json(ld)?|m4[av]|manifest|map|markdown|md|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|wasm|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
 #         Header unset X-XSS-Protection
+#     </FilesMatch>
+
+# </IfModule>
+
+# ----------------------------------------------------------------------
+# | Referrer Policy                                                    |
+# ----------------------------------------------------------------------
+
+# A web application uses HTTPS and a URL-based session identifier.
+# The web application might wish to link to HTTPS resources on other
+# web sites without leaking the user's session identifier in the URL.
+#
+# This can be done by setting a `Referrer Policy` which
+# whitelists trusted sources of content for your website.
+#
+# To check your referrer policy, you can use an online service
+# such as: https://securityheaders.io/.
+#
+# https://scotthelme.co.uk/a-new-security-header-referrer-policy/
+# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
+
+# <IfModule mod_headers.c>
+
+#     # no-referrer-when-downgrade (default)
+#     # This should be the user agent's default behavior if no policy is
+#     # specified.The origin is sent as referrer to a-priori as-much-secure
+#     # destination (HTTPS->HTTPS), but isn't sent to a less secure destination
+#     # (HTTPS->HTTP).
+
+#     Header set Referrer-Policy "no-referrer-when-downgrade"
+
+#     # `mod_headers` cannot match based on the content-type, however,
+#     # the `Referrer-Policy` response header should be send
+#     # only for HTML documents and not for the other resources.
+
+#     <FilesMatch "\.(appcache|atom|bbaw|bmp|br|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|gz|htc|ic[os]|jpe?g|m?js|json(ld)?|m4[av]|manifest|map|markdown|md|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|wasm|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
+#         Header unset Referrer-Policy
 #     </FilesMatch>
 
 # </IfModule>
@@ -712,7 +770,6 @@ ServerSignature Off
 
 #ServerTokens Prod
 
-
 # ######################################################################
 # # WEB PERFORMANCE                                                    #
 # ######################################################################
@@ -736,12 +793,6 @@ ServerSignature Off
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     # Compress all output labeled with one of the following media types.
-    #
-    # (!) For Apache versions below version 2.3.7 you don't need to
-    # enable `mod_filter` and can remove the `<IfModule mod_filter.c>`
-    # and `</IfModule>` lines as `AddOutputFilterByType` is still in
-    # the core directives.
-    #
     # https://httpd.apache.org/docs/current/mod/mod_filter.html#addoutputfilterbytype
 
     <IfModule mod_filter.c>
@@ -755,6 +806,7 @@ ServerSignature Off
                                       "application/schema+json" \
                                       "application/vnd.geo+json" \
                                       "application/vnd.ms-fontobject" \
+                                      "application/wasm" \
                                       "application/x-font-ttf" \
                                       "application/x-javascript" \
                                       "application/x-web-app-manifest+json" \
@@ -805,6 +857,117 @@ ServerSignature Off
     </IfModule>
 
 </IfModule>
+
+# ----------------------------------------------------------------------
+# | Brotli pre-compressed content                                      |
+# ----------------------------------------------------------------------
+
+# Serve brotli compressed CSS, JS, HTML, SVG, ICS and JSON files
+# if they exist and if the client accepts br encoding.
+#
+# (!) To make this part relevant, you need to generate encoded
+# files by your own. Enabling this part will not auto-generate
+# brotlied files.
+#
+# https://httpd.apache.org/docs/current/mod/mod_brotli.html#precompressed
+
+# <IfModule mod_headers.c>
+
+#     RewriteCond %{HTTP:Accept-Encoding} br
+#     RewriteCond %{REQUEST_FILENAME}\.br -f
+#     RewriteRule \.(css|ics|js|json|html|svg)$ %{REQUEST_URI}.br [L]
+
+#     # Prevent mod_deflate double gzip
+#     RewriteRule \.br$ - [E=no-gzip:1]
+
+#     <FilesMatch "\.br$">
+
+#         <IfModule mod_mime.c>
+#             # Serve correct content types
+#             AddType text/css              css.br
+#             AddType text/calendar         ics.br
+#             AddType text/javascript       js.br
+#             AddType application/json      json.br
+#             AddType text/html             html.br
+#             AddType image/svg+xml         svg.br
+
+#             # Serve correct content charset
+#             AddCharset utf-8 .css.br \
+#                              .ics.br \
+#                              .js.br \
+#                              .json.br
+#         </IfModule>
+
+#         # Force proxies to cache brotlied and non-brotlied files separately
+#         Header append Vary Accept-Encoding
+
+#     </FilesMatch>
+
+#     # Serve correct encoding type
+#     AddEncoding br .br
+
+# </IfModule>
+
+# ----------------------------------------------------------------------
+# | GZip pre-compressed content                                        |
+# ----------------------------------------------------------------------
+
+# Serve gzip compressed CSS, JS, HTML, SVG, ICS and JSON files
+# if they exist and if the client accepts gzip encoding.
+#
+# (!) To make this part relevant, you need to generate encoded
+# files by your own. Enabling this part will not auto-generate
+# gziped files.
+#
+# https://httpd.apache.org/docs/current/mod/mod_deflate.html#precompressed
+#
+# (1)
+# Removing default MIME Type for .gz files allowing to add custom
+# sub-types.
+# You may prefer using less generic extensions such as .html_gz in
+# order to keep default behavior regarding .gz files.
+# https://httpd.apache.org/docs/current/mod/mod_mime.html#removetype
+
+# <IfModule mod_headers.c>
+
+#     RewriteCond %{HTTP:Accept-Encoding} gzip
+#     RewriteCond %{REQUEST_FILENAME}\.gz -f
+#     RewriteRule \.(css|ics|js|json|html|svg)$ %{REQUEST_URI}.gz [L]
+
+#     # Prevent mod_deflate double gzip
+#     RewriteRule \.gz$ - [E=no-gzip:1]
+
+#     <FilesMatch "\.gz$">
+
+#         # Serve correct content types
+#         <IfModule mod_mime.c>
+#             # (1)
+#             RemoveType gz
+
+#             # Serve correct content types
+#             AddType text/css              css.gz
+#             AddType text/calendar         ics.gz
+#             AddType text/javascript       js.gz
+#             AddType application/json      json.gz
+#             AddType text/html             html.gz
+#             AddType image/svg+xml         svg.gz
+
+#             # Serve correct content charset
+#             AddCharset utf-8 .css.gz \
+#                              .ics.gz \
+#                              .js.gz \
+#                              .json.gz
+#         </IfModule>
+
+#         # Force proxies to cache gzipped and non-gzipped files separately
+#         Header append Vary Accept-Encoding
+
+#     </FilesMatch>
+
+#     # Serve correct encoding type
+#     AddEncoding gzip .gz
+
+# </IfModule>
 
 # ----------------------------------------------------------------------
 # | Content transformation                                             |
@@ -924,6 +1087,11 @@ FileETag None
     ExpiresByType video/webm                            "access plus 1 month"
 
 
+  # WebAssembly
+
+    ExpiresByType application/wasm                      "access plus 1 year"
+
+
   # Web fonts
 
     # Collection
@@ -1006,3 +1174,4 @@ FileETag None
 #     RewriteCond %{REQUEST_FILENAME} !-f
 #     RewriteRule ^(.+)\.(\d+)\.(bmp|css|cur|gif|ico|jpe?g|m?js|png|svgz?|webp|webmanifest)$ $1.$3 [L]
 # </IfModule>
+
