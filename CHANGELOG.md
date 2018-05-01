@@ -1,4 +1,4 @@
-### 6.1.0 (Unreleased)
+### 6.1.0 (May 1, 2018)
 
 * [Update Apache Server Configs to `v3.0.0`.](https://github.com/h5bp/html5-boilerplate/pull/2042)
 * Migrate to eslint ([#2037](https://github.com/h5bp/html5-boilerplate/pull/2037))
