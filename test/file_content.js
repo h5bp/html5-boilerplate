@@ -78,6 +78,11 @@ function runTests() {
       checkString(path.resolve(dir, 'css/main.css'), string, done);
     });
 
+    it('"print.css" should contain a custom banner', function (done) {
+      const string = `/*! HTML5 Boilerplate v${pkg.version} | ${pkg.license} License | ${pkg.homepage} */\n\n/*\n`;
+      checkString(path.resolve(dir, 'css/print.css'), string, done);
+    });
+
   });
 
 }
