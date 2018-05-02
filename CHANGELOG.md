@@ -1,3 +1,6 @@
+### ToDo ()
+* Add print.css as separate file [#2046](https://github.com/h5bp/html5-boilerplate/issues/2046)
+
 ### 6.1.0 (May 1, 2018)
 
 * [Update Apache Server Configs to `v3.0.0`.](https://github.com/h5bp/html5-boilerplate/pull/2042)
