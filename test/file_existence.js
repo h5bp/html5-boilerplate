@@ -25,7 +25,7 @@ const expectedFilesInDistDir = [
   'css/', // for directories, a `/` character
   // should be included at the end
   'css/main.css',
-  'css/print.css'
+  'css/print.css',
   'css/normalize.css',
 
   'doc/',
