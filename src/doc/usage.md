@@ -30,6 +30,7 @@ A basic HTML5 Boilerplate site initially looks something like this:
 ```
 .
 ├── css
+│   ├── print.css
 │   ├── main.css
 │   └── normalize.css
 ├── doc

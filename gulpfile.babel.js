@@ -81,6 +81,7 @@ gulp.task('copy', [
   'copy:jquery',
   'copy:license',
   'copy:main.css',
+  'copy:print.css',
   'copy:misc',
   'copy:normalize'
 ]);
@@ -130,6 +131,19 @@ gulp.task('copy:main.css', () => {
     .pipe(gulp.dest(`${dirs.dist}/css`));
 });
 
+gulp.task('copy:print.css', () => {
+
+  const banner = `/*! HTML5 Boilerplate v${pkg.version} | ${pkg.license} License | ${pkg.homepage} */\n\n`;
+
+  gulp.src(`${dirs.src}/css/print.css`)
+    .pipe(plugins().header(banner))
+    .pipe(plugins().autoprefixer({
+      browsers: ['last 2 versions', 'ie >= 9', '> 1%'],
+      cascade: false
+    }))
+    .pipe(gulp.dest(`${dirs.dist}/css`));
+});
+
 gulp.task('copy:misc', () =>
   gulp.src([
 
@@ -139,6 +153,7 @@ gulp.task('copy:misc', () =>
     // Exclude the following files
     // (other tasks will handle the copying of these files)
     `!${dirs.src}/css/main.css`,
+    `!${dirs.src}/css/print.css`,
     `!${dirs.src}/index.html`
 
   ], {
