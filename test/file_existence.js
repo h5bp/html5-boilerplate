@@ -73,8 +73,8 @@ function checkFiles(directory, expectedFiles) {
     'mark': true      // add a `/` character to directory matches
   });
 
-    // Check if all expected files are present in the
-    // specified directory, and are of the expected type
+  // Check if all expected files are present in the
+  // specified directory, and are of the expected type
   expectedFiles.forEach((file) => {
 
     let ok = false;
