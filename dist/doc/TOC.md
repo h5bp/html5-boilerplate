@@ -31,5 +31,4 @@ aspects of your website/web app (e.g.: the performance, security, etc.).
     *  [lighttpd](https://github.com/h5bp/server-configs-lighttpd)
     *  [Nginx](https://github.com/h5bp/server-configs-nginx)
     *  [Node.js](https://github.com/h5bp/server-configs-node)
-* [Ant Build Script](https://github.com/h5bp/ant-build-script) — Apache
-  Ant based build script.
+* [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions)
