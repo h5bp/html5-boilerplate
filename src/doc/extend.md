@@ -423,7 +423,7 @@ attribute should contain the location of your pingback service.
 ```
 
 * High-level explanation: https://codex.wordpress.org/Introduction_to_Blogging#Pingbacks
-* Step-by-step example case: http://www.hixie.ch/specs/pingback/pingback-1.0#TOC5
+* Step-by-step example case: https://www.hixie.ch/specs/pingback/pingback-1.0#TOC5
 * PHP pingback service: https://web.archive.org/web/20131211032834/http://blog.perplexedlabs.com/2009/07/15/xmlrpc-pingbacks-using-php/
 
 
@@ -465,7 +465,7 @@ Graph. In fact, Twitter will use Open Graph when Cards is not available. Note
 that, as of this writing, Twitter requires that app developers activate Cards
 on a per-domain basis. You can read more about the various snippet formats
 and application process in the [official Twitter Cards
-documentation](https://dev.twitter.com/docs/cards), and you can validate
+documentation](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards), and you can validate
 your markup with the [Card validator](https://cards-dev.twitter.com/validator)
 (needs registration to Twitter).
 
@@ -549,8 +549,7 @@ This can be done by adding the following annotations in your HTML pages:
 
 For more information please see:
 
-* https://developers.google.com/webmasters/smartphone-sites/details#separateurls
-* https://developers.google.com/webmasters/smartphone-sites/feature-phones
+* https://developers.google.com/search/mobile-sites/mobile-seo/separate-urls
 
 
 ## Web Apps
