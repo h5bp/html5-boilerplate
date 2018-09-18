@@ -20,13 +20,14 @@ way that you want.
 
 Choose one of the following options:
 
-1. Download the latest stable release from
-   [html5boilerplate.com](https://html5boilerplate.com/).
-2. Clone the git repo — `git clone
-   https://github.com/h5bp/html5-boilerplate.git` - and checkout the
-   [tagged release](https://github.com/h5bp/html5-boilerplate/releases)
-   you'd like to use.
-3. Run `npm install html5-boilerplate` and pull in what you need from the resulting `node_modules/html5-boilerplate/dist`
+- Download the latest stable release from
+  [html5boilerplate.com](https://html5boilerplate.com/).
+- Clone the git repo — `git clone
+  https://github.com/h5bp/html5-boilerplate.git` - and checkout the
+  [tagged release](https://github.com/h5bp/html5-boilerplate/releases)
+  you'd like to use.
+- Install with [npm](https://www.npmjs.com/): `npm install html5-boilerplate` and pull in what you need from the resulting `node_modules/html5-boilerplate/dist`
+- Install with [yarn](https://yarnpkg.com/): `yarn add html5-boilerplate`
 
 
 ## Features
