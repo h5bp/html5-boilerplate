@@ -25,7 +25,7 @@ not everything fits with everyone's needs.
 ### Smart App Banners in iOS 6+ Safari
 
 Stop bothering everyone with gross modals advertising your entry in the
-App Store. Including the following [meta tag](https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/PromotingAppswithAppBanners/PromotingAppswithAppBanners.html) will unobtrusively give the user the option to download your iOS app,or open it with some data about the user's current state on the website.
+App Store. Including the following [meta tag](https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/PromotingAppswithAppBanners/PromotingAppswithAppBanners.html) will unobtrusively give the user the option to download your iOS app, or open it with some data about the user's current state on the website.
 
 ```html
 <meta name="apple-itunes-app" content="app-id=APP_ID,app-argument=SOME_TEXT">
@@ -214,12 +214,12 @@ $(function(){
 
 ## Internet Explorer
 
-### IE Pinned Sites (IE9+)
+### IE Pinned Sites
 
-Enabling your application for pinning will allow IE9 users to add it to their
+Enabling your application for pinning will allow IE users to add it to their
 Windows Taskbar and Start Menu. This comes with a range of new tools that you
-can easily configure with the elements below. See more [documentation on IE9
-Pinned Sites](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/).
+can easily configure with the elements below. See more [documentation on IE 
+Pinned Sites](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/samples/gg491731(v%3dvs.85)).
 
 ### Name the Pinned Site for Windows
 
@@ -252,7 +252,7 @@ track the number of pinned users, like so:
 
 ### Recolor IE's controls manually for a Pinned Site
 
-IE9+ will automatically use the overall color of your Pinned Site's favicon to
+IE will automatically use the overall color of your Pinned Site's favicon to
 shade its browser buttons. UNLESS you give it another color here. Only use
 named colors (`red`) or hex colors (`#ff0000`).
 
@@ -297,7 +297,7 @@ blog](https://blogs.msdn.microsoft.com/ie/2012/06/08/high-quality-visuals-for-pi
 
 ### (Windows 8) Badges for Pinned Sites
 
-IE10 will poll an XML document for badge information to display on your app's
+IE will poll an XML document for badge information to display on your app's
 tile in the Start screen. The user will be able to receive these badge updates
 even when your app isn't actively running. The badge's value can be a number,
 or one of a predefined list of glyphs.
@@ -373,7 +373,7 @@ plugin](https://www.google.com/search?ie=UTF-8&q=how+to+make+browser+search+plug
   [visibility](https://webmasters.googleblog.com/2009/05/introducing-rich-snippets.html).
 
 * If you're building a web app you may want [native style momentum scrolling in
-  iOS 5+](http://www.johanbrook.com/articles/native-style-momentum-scrolling-to-arrive-in-ios-5/)
+  iOS 5+](https://www.johanbrook.com/writings/native-style-momentum-scrolling-to-arrive-in-ios-5/)
   using `-webkit-overflow-scrolling: touch`.
 
 * If you want to disable the translation prompt in Chrome or block Google
@@ -460,12 +460,10 @@ registration to Facebook).
 ### Twitter Cards
 
 Twitter provides a snippet specification that serves a similar purpose to Open
-Graph. In fact, Twitter will use Open Graph when Cards is not available. Note
-that, as of this writing, Twitter requires that app developers activate Cards
-on a per-domain basis. You can read more about the various snippet formats
-and application process in the [official Twitter Cards
-documentation](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards), and you can validate
-your markup with the [Card validator](https://cards-dev.twitter.com/validator)
+Graph. In fact, Twitter will use Open Graph when Cards is not available. You 
+can read more about the various snippet formats and application process in the 
+[official Twitter Cards documentation](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards), 
+and you can validate your markup with the [Card validator](https://cards-dev.twitter.com/validator)
 (needs registration to Twitter).
 
 ```html
@@ -487,7 +485,7 @@ of [schema.org's microdata vocabulary](https://schema.org/), which
 covers many other schemas that can describe the content of your pages
 to search engines. For this reason, this metadata is more generic for
 SEO, notably for Google's search-engine, although this vocabulary is
-also used by Microsoft, Pinterest or Yandex.
+also used by Microsoft, Pinterest and Yandex.
 
 You can validate your markup with the [Structured Data Testing
 Tool](https://developers.google.com/structured-data/testing-tool/).
@@ -516,16 +514,6 @@ the cleaner, more accurate `https://www.example.com/cart.html`.
 
 ```html
 <link rel="canonical" href="">
-```
-
-### Official shortlink
-
-Signal to the world "This is the shortened URL to use this page!" Poorly
-supported at this time. Learn more by reading the [article about shortlinks on
-the Microformats wiki](http://microformats.org/wiki/rel-shortlink).
-
-```html
-<link rel="shortlink" href="h5bp.com">
 ```
 
 ### Separate mobile URLs
@@ -579,38 +567,16 @@ on Apple's site.
 
 ### Apple Touch Icons
 
-The Apple touch icons can be seen as the favicons of iOS devices.
+Apple touch icons are used as icons when a user adds your webapp to the home 
+screen of aniOS devices.
 
-The main sizes of the Apple touch icons are:
-
-* `57×57px` – iPhone with @1x display and iPod Touch
-* `72×72px` – iPad and iPad mini with @1x display running iOS ≤ 6
-* `76×76px` – iPad and iPad mini with @1x display running iOS ≥ 7
-* `114×114px` – iPhone with @2x display running iOS ≤ 6
-* `120×120px` – iPhone with @2x and @3x display running iOS ≥ 7
-* `144×144px` – iPad and iPad mini with @2x display running iOS ≤ 6
-* `152×152px` – iPad and iPad mini with @2x display running iOS 7
-* `180×180px` – iPad and iPad mini with @2x display running iOS 8
-
-Displays meaning:
-
-* @1x - non-Retina
-* @2x - Retina
-* @3x - Retina HD
-
-More information about the displays of iOS devices can be found
-[here](https://en.wikipedia.org/wiki/List_of_iOS_devices#Display).
-
-In most cases, one `180×180px` touch icon named `icon.png`
-and including:
+Though the dimensions of the icon can vary between iOS devices and versions 
+one `180×180px` touch icon named `icon.png` and including the following in 
+the `<head>` of the page is enough:
 
 ```html
 <link rel="apple-touch-icon" href="icon.png">
 ```
-
-in the `<head>` of the page is enough. If you use art-direction and/or
-want to have different content for each device, you can add more touch
-icons as written above.
 
 For a more comprehensive overview, please refer to Mathias' [article on Touch
 Icons](https://mathiasbynens.be/notes/touch-icons).
@@ -620,18 +586,13 @@ Icons](https://mathiasbynens.be/notes/touch-icons).
 
 Apart from that it is possible to add start-up screens for web apps on iOS. This
 basically works by defining `apple-touch-startup-image` with an according link
-to the image. Since iOS devices have different screen resolutions it is
+to the image. Since iOS devices have different screen resolutions it maybe
 necessary to add media queries to detect which image to load. Here is an
-example for a retina iPhone:
+example for an iPhone:
 
 ```html
-<link rel="apple-touch-startup-image" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" href="img/startup-retina.png">
+<link rel="apple-touch-startup-image" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" href="img/startup.png">
 ```
-
-However, it is possible to detect which start-up image to use with JavaScript.
-The Mobile Boilerplate provides a useful function for this. Please see
-[helpers.js](https://github.com/h5bp/mobile-boilerplate/blob/v4.1.0/js/helper.js#L336-L383)
-for the implementation.
 
 
 ### Chrome Mobile web apps

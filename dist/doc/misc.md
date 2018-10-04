@@ -147,9 +147,9 @@ the website.
 
 The provided file contains three sections:
 
-  * `TEAM` - this is intented to list the group of people responsible for the website
+  * `TEAM` - this is intended to list the group of people responsible for the website
   * `THANKS` - this is intended to list the group of people that have contributed
-  to the webste
+  to the website
   * `TECHNOLOGY COLOPHON` - the section lists technologies used to make the website
   
 For more information about `humans.txt`, please see: http://humanstxt.org/
@@ -170,4 +170,4 @@ By default, the file points to 2 placeholder tile images:
 Notice that IE11 uses the same images when adding a site to the `favorites`.
 
 For more in-depth information about the `browserconfig.xml` file, please
-see [MSDN](https://msdn.microsoft.com/library/dn320426.aspx).
+see [MSDN](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/dn320426(v=vs.85)).
