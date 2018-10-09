@@ -7,7 +7,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "del": "^3.0.0",
-    "eslint": "^5.3.0",
+    "eslint": "^5.6.0",
     "eslint-config-recommended": "^3.0.0",
     "eslint-plugin-mocha": "^5.2.0",
     "glob": "^7.1.3",
