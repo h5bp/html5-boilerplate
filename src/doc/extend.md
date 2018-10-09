@@ -18,7 +18,7 @@ not everything fits with everyone's needs.
 * [Social Networks](#social-networks)
 * [URLs](#urls)
 * [Web Apps](#web-apps)
-
+* [security.txt](#security.txt)
 
 ## App Stores
 
@@ -626,3 +626,15 @@ The `content` attribute extension can take any valid CSS color.
 
 Currently, the `theme-color` meta extension is supported by [Chrome 39+
 for Android Lollipop](https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android).
+
+
+## security.txt
+
+When security risks in web services are discovered by users they often lack the
+channels to disclose them properly. As a result, security issues may be left unreported. 
+
+Security.txt defines a standard to help organizations define the process for 
+users to disclose security vulnerabilities securely. Include a text
+file on your server at `.well-known/security.txt` with the relevant contact details.
+
+Check [https://securitytxt.org/](https://securitytxt.org/) for more details.
