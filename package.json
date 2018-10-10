@@ -1,6 +1,5 @@
 {
   "devDependencies": {
-    "@alrra/travis-scripts": "^3.0.1",
     "apache-server-configs": "^3.0.0",
     "archiver": "^3.0.0",
     "babel-core": "^6.26.3",
@@ -26,8 +25,7 @@
     "normalize.css": "8.0.0",
     "run-sequence": "^2.2.1",
     "ssri": "^6.0.1",
-    "strip-json-comments": "^2.0.1",
-    "travis-after-all": "^1.4.5"
+    "strip-json-comments": "^2.0.1"
   },
   "engines": {
     "node": ">=6",
