@@ -1,7 +1,7 @@
 [HTML5 Boilerplate homepage](https://html5boilerplate.com/) | [Documentation
 table of contents](TOC.md)
 
-# The HTML
+# The HTML Page-->
 
 By default, HTML5 Boilerplate provides two `html` pages:
 
@@ -13,7 +13,7 @@ By default, HTML5 Boilerplate provides two `html` pages:
 ## `index.html`
 
 
-### The `no-js` Class
+### The `no-js` Class-->
 
 The `no-js` class is provided in order to allow you to more easily and
 explicitly add custom styles based on whether JavaScript is disabled
@@ -21,7 +21,7 @@ explicitly add custom styles based on whether JavaScript is disabled
 FOUC](https://www.paulirish.com/2009/avoiding-the-fouc-v3/).
 
 
-## Language Attribute
+## Language Attribute-->
 
 Please consider specifying the language of your content by adding a [value](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) to the `lang`
 attribute in the `<html>` as in this example:
@@ -30,7 +30,7 @@ attribute in the `<html>` as in this example:
 <html class="no-js" lang="en">
 ```
 
-### The order of the `<title>` and `<meta>` tags
+### The order of the `<title>` and `<meta>` tags-->
 
 The order in which the `<title>` and the `<meta>` tags are specified is
 important because:
@@ -98,7 +98,7 @@ designed for older versions of Internet Explorer, you might want to consider
 enabling [Enterprise Mode](https://blogs.msdn.microsoft.com/ie/2014/04/02/stay-up-to-date-with-enterprise-mode-for-internet-explorer-11/) throughout your company.
 
 
-## Meta Description
+## Meta Description-->
 
 The `description` meta tag provides a short description of the page. 
 In some situations this description is used as a part of the snippet 
@@ -109,7 +109,7 @@ shown in the search results.
 ```
 
 
-## Mobile Viewport
+## Mobile Viewport-->
 
 There are a few different options that you can use with the [`viewport` meta
 tag](https://docs.google.com/present/view?id=dkx3qtm_22dxsrgcf4 "Viewport and
@@ -121,7 +121,7 @@ HTML5 Boilerplate comes with a simple setup that strikes a good balance for gene
 <meta name="viewport" content="width=device-width, initial-scale=1">
 ```
 
-## Web App Manifest
+## Web App Manifest-->
 HTML5 Boilerplate includes a simple web app manifest file. 
 
 The web app manifest is a simple JSON file that allows you to control how your 
@@ -137,7 +137,7 @@ It's linked to from the HTML as follows:
 Our [site.webmanifest](https://github.com/h5bp/html5-boilerplate/blob/master/src/site.webmanifest) contains a very skeletal "app" definition, just to show the basic usage. 
 You should fill this file out with [more information about your site or application](https://developer.mozilla.org/en-US/docs/Web/Manifest)
 
-## Favicons and Touch Icon
+## Favicons and Touch Icon-->
 
 The shortcut icons should be put in the root directory of your site. `favicon.ico` 
 is automatically picked up by browsers if it's placed in the root.  HTML5
@@ -147,19 +147,19 @@ Touch Icon) that you can use as a baseline to create your own.
 Please refer to the more detailed description in the [Extend section](extend.md)
 of these docs.
 
-## The Content Area
+## The Content Area-->
 
 The central part of the boilerplate template is pretty much empty. This is
 intentional, in order to make the boilerplate suitable for both web page and
 web app development.
 
-### Browser Upgrade Prompt
+### Browser Upgrade Prompt-->
 
 The main content area of the boilerplate includes a prompt to install an up to
 date browser for users of IE 8 and lower. If you intended to support IE 8, then you
 should remove the snippet of code.
 
-## Modernizr
+## Modernizr-->
 
 HTML5 Boilerplate uses a custom build of Modernizr.
 
@@ -172,7 +172,7 @@ features supported by a browser.
 Starting with version 3 Modernizr can be customized using the [modernizr-config.json](https://github.com/h5bp/html5-boilerplate/blob/master/modernizr-config.json) and the
 [Modernizr command line utility](https://www.npmjs.com/package/modernizr-cli). 
 
-## What About Polyfills?
+## What About Polyfills?-->
 
 If you need to include [polyfills](https://remysharp.com/2010/10/08/what-is-a-polyfill)
 in your project, you must make sure those load before any other JavaScript. If you're
@@ -200,7 +200,7 @@ to understand that Modernizr just handles feature checking, not polyfilling
 itself. The only thing Modernizr does regarding polyfills is that the team
 maintains [a huge list of cross Browser polyfills](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills).
 
-### jQuery CDN for jQuery
+### jQuery CDN for jQuery-->
 
 The jQuery CDN version of the jQuery JavaScript library is referenced towards
 the bottom of the page. A local fallback of jQuery is included for rare instances
@@ -226,7 +226,7 @@ require a different configuration. Testing your site with services like
 world performance of your site and can show where you can optimize your specific
 site or application.
 
-### Google Universal Analytics Tracking Code
+### Google Universal Analytics Tracking Code-->
 
 Finally, an optimized version of the Google Universal Analytics tracking code is
 included. Google recommends that this script be placed at the top of the page.
