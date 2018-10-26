@@ -1,0 +1,27 @@
+{
+  "name": "alloy2019",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eslintrc.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/highalpha/html5-boilerplate.git"
+  },
+  "author": "Mark Williams",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/highalpha/html5-boilerplate/issues"
+  },
+  "homepage": "https://github.com/highalpha/html5-boilerplate#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.2"
+  }
+}
