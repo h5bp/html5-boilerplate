@@ -1,3 +1,7 @@
+// TODO: Concatenate all javascript files into one file
+// TODO: Merge all css files into one
+// TODO: Watch changes
+// TODO: Serve a HTTP server
 import fs from 'fs';
 import path from 'path';
 
@@ -34,6 +38,7 @@ gulp.task('archive:create_archive_dir', () => {
 gulp.task('archive:zip', (done) => {
 
   const archiveName = path.resolve(dirs.archive, `${pkg.name}_v${pkg.version}.zip`);
+  // TODO: archiver:WARN Invalid number of arguments, expected 2 less
   const zip = archiver('zip');
   const files = glob.sync('**/*.*', {
     'cwd': dirs.dist,
