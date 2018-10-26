@@ -76,20 +76,14 @@ gulp.task('clean', (done) => {
 });
 
 gulp.task('copy', [
-  'copy:.htaccess',
   'copy:index.html',
   'copy:jquery',
-  'copy:license',
   'copy:main.css',
-  'copy:misc',
-  'copy:normalize'
+  'copy:normalize',
+  'copy:license',
+  'copy:.htaccess',
+  'copy:misc'
 ]);
-
-gulp.task('copy:.htaccess', () =>
-  gulp.src('node_modules/apache-server-configs/dist/.htaccess')
-    .pipe(plugins().replace(/# ErrorDocument/g, 'ErrorDocument'))
-    .pipe(gulp.dest(dirs.dist))
-);
 
 gulp.task('copy:index.html', () => {
   const hash = ssri.fromData(
@@ -106,15 +100,16 @@ gulp.task('copy:index.html', () => {
     .pipe(gulp.dest(dirs.dist));
 });
 
+gulp.task('modernizr', (done) =>{
+  modernizr.build(modernizrConfig, (code) => {
+    fs.writeFile(`${dirs.dist}/js/vendor/modernizr-${pkg.devDependencies.modernizr}.min.js`, code, done);
+  });
+});
+
 gulp.task('copy:jquery', () =>
   gulp.src(['node_modules/jquery/dist/jquery.min.js'])
     .pipe(plugins().rename(`jquery-${pkg.devDependencies.jquery}.min.js`))
     .pipe(gulp.dest(`${dirs.dist}/js/vendor`))
-);
-
-gulp.task('copy:license', () =>
-  gulp.src('LICENSE.txt')
-    .pipe(gulp.dest(dirs.dist))
 );
 
 gulp.task('copy:main.css', () => {
@@ -128,6 +123,22 @@ gulp.task('copy:main.css', () => {
     }))
     .pipe(gulp.dest(`${dirs.dist}/css`));
 });
+
+gulp.task('copy:normalize', () =>
+  gulp.src('node_modules/normalize.css/normalize.css')
+    .pipe(gulp.dest(`${dirs.dist}/css`))
+);
+
+gulp.task('copy:license', () =>
+  gulp.src('LICENSE.txt')
+    .pipe(gulp.dest(dirs.dist))
+);
+
+gulp.task('copy:.htaccess', () =>
+  gulp.src('node_modules/apache-server-configs/dist/.htaccess')
+    .pipe(plugins().replace(/# ErrorDocument/g, 'ErrorDocument'))
+    .pipe(gulp.dest(dirs.dist))
+);
 
 gulp.task('copy:misc', () =>
   gulp.src([
@@ -147,19 +158,6 @@ gulp.task('copy:misc', () =>
 
   }).pipe(gulp.dest(dirs.dist))
 );
-
-gulp.task('copy:normalize', () =>
-  gulp.src('node_modules/normalize.css/normalize.css')
-    .pipe(gulp.dest(`${dirs.dist}/css`))
-);
-
-gulp.task('modernizr', (done) =>{
-
-  modernizr.build(modernizrConfig, (code) => {
-    fs.writeFile(`${dirs.dist}/js/vendor/modernizr-${pkg.devDependencies.modernizr}.min.js`, code, done);
-  });
-
-});
 
 gulp.task('lint:js', () =>
   gulp.src([
