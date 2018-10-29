@@ -8,6 +8,5 @@
   }],
   "start_url": "/?utm_source=homescreen",
   "background_color": "#fafafa",
-  "theme_color": "#fafafa",
-  "display": "standalone"
+  "theme_color": "#fafafa"
 }
