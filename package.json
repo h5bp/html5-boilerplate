@@ -12,12 +12,14 @@
     "glob": "^7.1.3",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^6.0.0",
+    "gulp-csso": "^3.0.1",
     "gulp-eslint": "^5.0.0",
     "gulp-header": "^2.0.5",
     "gulp-jscs": "^4.1.0",
     "gulp-load-plugins": "^1.5.0",
     "gulp-rename": "^1.4.0",
     "gulp-replace": "^1.0.0",
+    "gulp-uglify": "^3.0.1",
     "jquery": "3.3.1",
     "main.css": "1.0.0",
     "mocha": "^5.2.0",
@@ -41,7 +43,8 @@
       "archive": "archive",
       "dist": "dist",
       "src": "src",
-      "test": "test"
+      "test": "test",
+      "vendor": "node_modules"
     }
   },
   "homepage": "https://html5boilerplate.com/",
@@ -49,9 +52,10 @@
   "name": "html5-boilerplate",
   "scripts": {
     "build": "gulp build",
+    "build production": "gulp production",
     "test": "gulp archive && mocha --require babel-core/register --reporter spec --timeout 5000"
   },
-  "version": "6.1.0",
+  "version": "6.2.0",
   "description": "A professional front-end template for building fast, robust, and adaptable web apps or sites.",
   "files": [
     "CHANGELOG.md",

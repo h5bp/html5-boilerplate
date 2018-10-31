@@ -1,6 +1,7 @@
 {
   "short_name": "",
-  "name": "",
+  "name": "{{PACKAGE_NAME}}",
+  "lang": "en-US",
   "icons": [{
     "src": "icon.png",
     "type": "image/png",

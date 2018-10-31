@@ -1,7 +1,3 @@
-// TODO: Concatenate all javascript files into one file
-// TODO: Merge all css files into one
-// TODO: Watch changes
-// TODO: Serve a HTTP server
 import fs from 'fs';
 import path from 'path';
 
@@ -20,6 +16,8 @@ import glob from 'glob';
 import del from 'del';
 import ssri from 'ssri';
 import modernizr from 'modernizr';
+import csso from 'gulp-csso';
+import uglify from 'gulp-uglify';
 
 import pkg from './package.json';
 import modernizrConfig from './modernizr-config.json';
@@ -30,16 +28,18 @@ const dirs = pkg['h5bp-configs'].directories;
 // ---------------------------------------------------------------------
 // | Helper tasks                                                      |
 // ---------------------------------------------------------------------
-
-gulp.task('archive:create_archive_dir', () => {
-  fs.mkdirSync(path.resolve(dirs.archive), '0755');
+gulp.task('clean', (done) => {
+  del([
+    dirs.archive,
+    dirs.dist
+  ]).then(() => {
+    done();
+  });
 });
-
 gulp.task('archive:zip', (done) => {
 
   const archiveName = path.resolve(dirs.archive, `${pkg.name}_v${pkg.version}.zip`);
-  // TODO: archiver:WARN Invalid number of arguments, expected 2 less
-  const zip = archiver('zip');
+  const zip = archiver('zip', {});
   const files = glob.sync('**/*.*', {
     'cwd': dirs.dist,
     'dot': true // include hidden files
@@ -70,16 +70,14 @@ gulp.task('archive:zip', (done) => {
   zip.finalize();
 
 });
-
-gulp.task('clean', (done) => {
-  del([
-    dirs.archive,
-    dirs.dist
-  ]).then(() => {
-    done();
+gulp.task('archive:create_archive_dir', () => {
+  fs.mkdirSync(path.resolve(dirs.archive), '0755');
+});
+gulp.task('modernizr', (done) =>{
+  modernizr.build(modernizrConfig, (code) => {
+    fs.writeFile(`${dirs.dist}/js/vendor/modernizr-${pkg.devDependencies.modernizr}.min.js`, code, done);
   });
 });
-
 gulp.task('copy', [
   'copy:index.html',
   'copy:jquery',
@@ -89,38 +87,29 @@ gulp.task('copy', [
   'copy:.htaccess',
   'copy:misc'
 ]);
-
 gulp.task('copy:index.html', () => {
-  const hash = ssri.fromData(
-    fs.readFileSync('node_modules/jquery/dist/jquery.min.js'),
+  const jqueryHash = ssri.fromData(
+    fs.readFileSync(`${dirs.vendor}/jquery/dist/jquery.min.js`),
     {algorithms: ['sha256']}
   );
-  let version = pkg.devDependencies.jquery;
+  let jqueryVersion = pkg.devDependencies.jquery;
   let modernizrVersion = pkg.devDependencies.modernizr;
 
   gulp.src(`${dirs.src}/index.html`)
-    .pipe(plugins().replace(/{{JQUERY_VERSION}}/g, version))
+    .pipe(plugins().replace(/{{JQUERY_VERSION}}/g, jqueryVersion))
     .pipe(plugins().replace(/{{MODERNIZR_VERSION}}/g, modernizrVersion))
-    .pipe(plugins().replace(/{{JQUERY_SRI_HASH}}/g, hash.toString()))
+    .pipe(plugins().replace(/{{JQUERY_SRI_HASH}}/g, jqueryHash.toString()))
     .pipe(gulp.dest(dirs.dist));
 });
-
-gulp.task('modernizr', (done) =>{
-  modernizr.build(modernizrConfig, (code) => {
-    fs.writeFile(`${dirs.dist}/js/vendor/modernizr-${pkg.devDependencies.modernizr}.min.js`, code, done);
-  });
-});
-
-gulp.task('copy:jquery', () =>
-  gulp.src(['node_modules/jquery/dist/jquery.min.js'])
+gulp.task('copy:jquery', () => {
+  gulp.src([`${dirs.vendor}/jquery/dist/jquery.min.js`])
     .pipe(plugins().rename(`jquery-${pkg.devDependencies.jquery}.min.js`))
-    .pipe(gulp.dest(`${dirs.dist}/js/vendor`))
-);
-
+    .pipe(gulp.dest(`${dirs.dist}/js/vendor`));
+});
 gulp.task('copy:main.css', () => {
   const banner = `/*! HTML5 Boilerplate v${pkg.version} | ${pkg.license} License | ${pkg.homepage} */\n\n`;
 
-  gulp.src(`node_modules/main.css/dist/main.css`)
+  gulp.src(`${dirs.vendor}/main.css/dist/main.css`)
     .pipe(plugins().header(banner))
     .pipe(plugins().autoprefixer({
       browsers: ['last 2 versions', 'ie >= 9', '> 1%'],
@@ -128,24 +117,27 @@ gulp.task('copy:main.css', () => {
     }))
     .pipe(gulp.dest(`${dirs.dist}/css`));
 });
-
-gulp.task('copy:normalize', () =>
-  gulp.src('node_modules/normalize.css/normalize.css')
-    .pipe(gulp.dest(`${dirs.dist}/css`))
-);
-
-gulp.task('copy:license', () =>
+gulp.task('copy:normalize', () => {
+  gulp.src(`${dirs.vendor}/normalize.css/normalize.css`)
+    .pipe(gulp.dest(`${dirs.dist}/css`));
+});
+gulp.task('copy:license', () => {
   gulp.src('LICENSE.txt')
-    .pipe(gulp.dest(dirs.dist))
-);
-
-gulp.task('copy:.htaccess', () =>
-  gulp.src('node_modules/apache-server-configs/dist/.htaccess')
+    .pipe(gulp.dest(dirs.dist));
+});
+gulp.task('copy:.htaccess', () => {
+  gulp.src(`${dirs.vendor}/apache-server-configs/dist/.htaccess`)
     .pipe(plugins().replace(/# ErrorDocument/g, 'ErrorDocument'))
-    .pipe(gulp.dest(dirs.dist))
-);
+    .pipe(gulp.dest(dirs.dist));
+});
+gulp.task('copy:manifest', () => {
+  let packageName = pkg.name;
 
-gulp.task('copy:misc', () =>
+  gulp.src(`${dirs.src}/index.html`)
+    .pipe(plugins().replace(/{{PACKAGE_NAME}}/g, packageName))
+    .pipe(gulp.dest(dirs.dist));
+});
+gulp.task('copy:misc', () => {
   gulp.src([
 
     // Copy all files
@@ -161,18 +153,41 @@ gulp.task('copy:misc', () =>
     // Include hidden files by default
     dot: true
 
-  }).pipe(gulp.dest(dirs.dist))
-);
+  }).pipe(gulp.dest(dirs.dist));
+});
+gulp.task('minifier', [
+  'minifier:css',
+  'minifier:js',
+]);
+gulp.task('minifier:css', () => {
+  gulp.src([
+    `${dirs.dist}/css/*`,
 
-gulp.task('lint:js', () =>
+    // Avoid copy already minifier files
+    `!${dirs.dist}/css/vendor/*`
+  ])
+    .pipe(csso())
+    .pipe(gulp.dest(`${dirs.dist}/css`));
+});
+gulp.task('minifier:js', () => {
+  gulp.src([
+    `${dirs.dist}/js/*`,
+
+    // Avoid copy already minifier files
+    `!${dirs.dist}/js/vendor/*`
+  ])
+    .pipe(uglify())
+    .pipe(gulp.dest(`${dirs.dist}/css`));
+});
+gulp.task('lint:js', () => {
   gulp.src([
     'gulpfile.js',
     `${dirs.src}/js/*.js`,
     `${dirs.test}/*.js`
   ]).pipe(plugins().jscs())
     .pipe(plugins().eslint())
-    .pipe(plugins().eslint.failOnError())
-);
+    .pipe(plugins().eslint.failOnError());
+});
 
 
 // ---------------------------------------------------------------------
@@ -182,16 +197,21 @@ gulp.task('lint:js', () =>
 gulp.task('archive', (done) => {
   runSequence(
     'build',
+    'minifier',
     'archive:create_archive_dir',
     'archive:zip',
     done);
 });
-
 gulp.task('build', (done) => {
   runSequence(
     ['clean', 'lint:js'],
     'copy', 'modernizr',
     done);
 });
-
+gulp.task('production', (done) => {
+  runSequence(
+    ['clean', 'lint:js'],
+    'copy', 'modernizr', 'minifier',
+    done);
+});
 gulp.task('default', ['build']);
