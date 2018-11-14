@@ -1,0 +1,18 @@
+@function em($pixels) {
+ @return #{$pixels/16}em;
+}
+
+@mixin bp($point) {
+    @if $point == 480up {
+        @media (min-width: em(480)) { @content; }
+    }
+    @else if $point == 700up {
+        @media (min-width: em(700)) { @content; }
+    }
+    @else if $point == 820up {
+        @media (min-width: em(820)) { @content; }
+    }
+    @else if $point == 980up {
+        @media (min-width: em(980)) { @content; }
+    }
+}

@@ -1,0 +1,47 @@
+header {
+    display: block;
+    height: auto;
+    overflow: auto;
+
+    .logo {
+        float: left;
+        margin-right: 40px;
+
+        a {
+            display: block;
+            max-width: 120px;
+            margin-top: 28px;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+    nav {
+        float: left;
+
+        ul {
+            margin: 0;
+            list-style: none;
+            margin-top: 11px;
+
+            li {
+                display: inline-block;
+
+                a {
+                    display: block;
+                    padding: 20px;
+
+                    &:hover {
+                        color: lighten(#000000, 40%);
+                        transition: color .25s ease;
+                    }
+                }
+            }
+        }
+    }
+    .header-cta {
+        float: right;
+        margin: 20px 0;
+    }
+}

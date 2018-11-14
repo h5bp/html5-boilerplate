@@ -1,0 +1,187 @@
+.hero {
+    overflow: hidden;
+    padding-top: 100px;
+    padding-bottom: 200px;
+
+    .container {
+        position: relative;
+    }
+
+    h1 {
+        max-width: 75%;
+    }
+}
+
+
+// About Section
+
+.about {
+
+    .container {
+        position: relative;
+    }
+
+    .about-background-pattern {
+        position: absolute;
+        left: -200px;
+        top: 40%;
+        width: 250px;
+
+        img {
+            position: absolute;
+            width: 100%;
+
+        }
+    }
+}
+
+.about-buckets {
+    margin: 60px 0 40px 0;
+
+    ul {
+        overflow: auto;
+
+        li {
+            float: left;
+            width: 49%;
+        }
+    }
+}
+
+// Speakers Section
+
+.speakers-section {
+    position: relative;
+    margin-top: 140px;
+
+    .background-pattern {
+        position: absolute;
+        top: 40px;
+        left: 0;
+        z-index: -2;
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        img {
+            width: 100%;
+            // min-width: 1000px;
+        }
+
+    }
+
+    h1 {
+        max-width: 600px;
+        margin-bottom: 40px;
+    }
+
+    .speaker1 {
+        margin-top: 80px;
+    }
+    .speaker2 {
+        margin-top: 160px;
+    }
+    .speaker3 {
+        margin-top: 0px;
+        margin-right: 0 !important;
+    }
+}
+
+// Startups Section
+
+.startups {
+    margin-top: 140px;
+    overflow: auto;
+
+    .startups-content {
+        float: left;
+        width: 50%;
+    }
+
+    .startups-logos {
+        float: right;
+        width: 50%;
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-between;
+            padding-left: 80px;
+
+            li {
+                width: 30%;
+                margin: 20px 20%;
+                margin-right: 0 !important;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.location-section {
+    margin-top: 140px;
+    padding-bottom: 400px;
+    overflow: hidden;
+
+    .container {
+        position: relative;
+    }
+
+    .location-content {
+        display: inline-block;
+        width: 40%;
+    }
+
+    .location-venue {
+        position: absolute;
+        width: 800px;
+        top: 0;
+        right: -400px;
+
+
+        img {
+            width: 100%;
+        }
+    }
+    .location-pattern {
+        position: absolute;
+        left: 0;
+        bottom: -300px;
+        width: 400px;
+        padding-top: 100px;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.footer-cta {
+    text-align: center;
+
+    .logo2 {
+        margin: 40px auto 80px auto;
+        max-width: 300px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .banner {
+        margin: 0 auto;
+    }
+
+    h1 {
+        margin-bottom: 40px;
+        margin-top: 80px;
+    }
+    p {
+        margin: 0 auto;
+        margin-top: 80px;
+        max-width: 80%;
+    }
+}

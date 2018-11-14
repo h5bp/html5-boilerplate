@@ -1,0 +1,23 @@
+.agenda-hero {
+    padding-top: 100px;
+    padding-bottom: 200px;
+    overflow: hidden;
+
+    .container {
+        position: relative;
+    }
+
+    .agenda-background-pattern {
+        position: absolute;
+        top: -30px;
+        right: -100px;
+        display: block;
+        width: 400px;
+        height: 100%;
+
+        img {
+            width: 100%;
+            // min-width: 1000px;
+        }
+    }
+}

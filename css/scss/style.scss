@@ -1,8 +1,20 @@
-
-// Components
 @import "normalize";
 @import "main";
+
+// Variables
+@import "variables/colors";
+@import "variables/typography";
+@import "variables/media-queries";
+
 @import "global";
+
+// Components
+@import "components/header";
+@import "components/footer";
+@import "components/buttons";
+
 
 // Views
 @import "views/home";
+@import "views/speakers";
+@import "views/agenda";

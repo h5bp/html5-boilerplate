@@ -1,0 +1,38 @@
+$font_header: "HelveticaNeue-Thin", "Helvetica", sans-serif;
+$font_body: proxima-nova, sans-serif;
+
+body {
+    font-family: $font_body;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: $font_header;
+    margin: 0;
+}
+
+p {
+    font-family: $font_body;
+    color: #000000;
+    font-size: 1.3em;
+    line-height: 1.5em;
+}
+
+.smaller-p {
+    font-size: 1.1em;
+}
+
+h1 {
+    font-size: 3.6em;
+    letter-spacing: -1.35px;
+    line-height: 1.4em;
+    font-weight: 100;
+    color: #000000;
+}
+
+h2 {
+    font-size: 1.8em;
+    letter-spacing: -0.35px;
+    line-height: 1.4em;
+    font-weight: 100;
+    color: #000000;
+}

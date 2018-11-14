@@ -20,7 +20,20 @@ gulp.task('browserSync', function() {
 })
 
 gulp.task('default', ['browserSync', 'sass'], function(){
-    gulp.watch('css/scss/**/*.scss', ['sass']); 
-    gulp.watch('./*.html', browserSync.reload); 
+    gulp.watch('css/scss/**/*.scss', ['sass']);
+    gulp.watch('./*.html', browserSync.reload);
     gulp.watch('./js/**/*.js', browserSync.reload);
 })
+
+
+// var fileinclude = require('gulp-file-include'),
+//   gulp = require('gulp');
+//
+// gulp.task('fileinclude', function() {
+//   gulp.src(['index.html'])
+//     .pipe(fileinclude({
+//       prefix: '@@',
+//       basepath: '@file'
+//     }))
+//     .pipe(gulp.dest('includes/*.html'));
+// });

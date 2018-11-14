@@ -1,0 +1,64 @@
+.speakers-hero {
+    padding-top: 120px;
+
+    .container {
+        position: relative;
+    }
+
+    h1 {
+        padding-bottom: 80px;
+    }
+
+    .primary-speaker {
+        overflow: auto;
+
+        .speaker-image {
+            float: left;
+            width: 50%;
+
+            img {
+                width: 100%;
+            }
+        }
+        .speaker-content {
+            float: left;
+            width: 44%;
+            padding-left: 6%;
+        }
+    }
+}
+
+.speaker-content {
+    p {
+        margin: 0;
+    }
+}
+
+.social {
+    ul {
+        li {
+            display: inline-block;
+            padding-right: 16px;
+            a {
+                display: block;
+                width: 20px;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.speakers-grid {
+    padding: 80px 0;
+
+    .speaker-boxes {
+
+    }
+
+    .speaker-container {
+        margin-bottom: 40px;
+    }
+}

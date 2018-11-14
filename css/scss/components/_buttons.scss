@@ -1,0 +1,28 @@
+a {
+    text-decoration: none;
+    color: #000000;
+    font-family: $font_body;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: .9em;
+}
+
+.btn {
+    display: inline-block;
+    color: #ffffff;
+    background: $primary_color;
+    padding: 10px 30px;
+    font-size: 1em;
+    letter-spacing: .025em;
+    text-transform: uppercase;
+    font-weight: 700;
+
+    &:hover {
+        background: $primary_light;
+        transition: background .25s ease;
+    }
+
+    &.secondary-btn {
+        background: $secondary_color;
+    }
+}

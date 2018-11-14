@@ -1,4 +1,99 @@
+section, header, footer {
+    padding:0 20px 0 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
 .container {
-    background: red;
-    color: yellow;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.banner {
+    position: relative;
+
+    display: inline-block;
+    margin-top: 60px;
+    color: #ffffff;
+    background: $primary_color;
+    padding: 16px 40px;
+    font-size: 1.5em;
+    letter-spacing: .025em;
+    text-transform: uppercase;
+    font-weight: 700;
+
+    &:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: -20px;
+        right: -20px;
+        background: $primary_light;
+        height: 80%;
+        width: 98%;
+    }
+}
+
+// Tabbed Style
+.tab-style {
+    padding-left: 16%;
+}
+
+.background-pattern {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    z-index: -2;
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    img {
+        width: 100%;
+        // min-width: 1000px;
+    }
+
+}
+
+.hero-background-pattern {
+    position: absolute;
+    top: -90px;
+    right: -250px;
+    display: block;
+    width: 600px;
+    height: 100%;
+
+    img {
+        width: 100%;
+        // min-width: 1000px;
+    }
+}
+
+.speaker-boxes {
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+
+        .speaker-container {
+            width: 31.3%;
+            margin-right: 2%;
+
+            img {
+                width: 100%;
+            }
+
+            p {
+                margin: 0;
+            }
+        }
+    }
+
+    .smaller-p {
+        font-size: 1em;
+    }
 }
