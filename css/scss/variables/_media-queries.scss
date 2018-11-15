@@ -6,6 +6,9 @@
     @if $point == 480up {
         @media (min-width: em(480)) { @content; }
     }
+    @else if $point == 600up {
+        @media (min-width: em(700)) { @content; }
+    }
     @else if $point == 700up {
         @media (min-width: em(700)) { @content; }
     }

@@ -1,0 +1,44 @@
+footer {
+    padding: 40px 0 0 0;
+    background: #EEF0FB;
+
+    .banner2 {
+        text-align: center;
+    }
+
+    .sponsors {
+        display: flex;
+
+        li {
+            width: 33.33%;
+
+            a {
+                display: block;
+                padding: 80px 20px;
+
+                @include bp(820up) {
+                    padding: 80px 80px;
+                }
+
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.svb-capital {
+    margin-top: -10px;
+
+    @include bp(820up) {
+        margin-top: -30px;
+    }
+}
+
+.all-rights {
+    padding: 20px 0;
+    background: #DCE0F7;
+    text-align: center;
+}

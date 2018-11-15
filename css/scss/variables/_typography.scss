@@ -22,11 +22,16 @@ p {
 }
 
 h1 {
-    font-size: 3.6em;
-    letter-spacing: -1.35px;
+    font-size: 2.4em;
+    letter-spacing: -.8px;
     line-height: 1.4em;
     font-weight: 100;
     color: #000000;
+
+    @include bp(820up) {
+        font-size: 3.6em;
+        letter-spacing: -1.35px;
+    }
 }
 
 h2 {

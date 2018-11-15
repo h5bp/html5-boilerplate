@@ -1,5 +1,6 @@
 .speakers-hero {
     padding-top: 120px;
+    overflow: hidden;
 
     .container {
         position: relative;
@@ -13,28 +14,56 @@
         overflow: auto;
 
         .speaker-image {
-            float: left;
-            width: 50%;
+            display: block;
+            width: 100%;
+
+            @include bp(820up) {
+                float: left;
+                width: 50%;
+            }
 
             img {
                 width: 100%;
             }
         }
         .speaker-content {
-            float: left;
-            width: 44%;
-            padding-left: 6%;
+            width: 100%;
+
+            @include bp(820up) {
+                float: left;
+                width: 44%;
+                padding-left: 6%;
+                padding-top: 20px;
+            }
+
+            .smaller-p {
+                font-size: 1em;
+            }
         }
     }
 }
 
 .speaker-content {
+    padding-top: 10px;
+
+    @include bp(820up) {
+        padding-top: 40px;
+    }
+
     p {
         margin: 0;
+    }
+    hr {
+        width: 60px;
+    }
+    .smaller-p {
+        font-size: .8em;
     }
 }
 
 .social {
+    padding-top: 20px;
+
     ul {
         li {
             display: inline-block;
@@ -52,7 +81,7 @@
 }
 
 .speakers-grid {
-    padding: 80px 0;
+    padding: 80px 20px;
 
     .speaker-boxes {
 

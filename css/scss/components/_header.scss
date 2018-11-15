@@ -5,7 +5,11 @@ header {
 
     .logo {
         float: left;
-        margin-right: 40px;
+
+        @include bp(480up) {
+            float: left;
+            margin-right: 40px;
+        }
 
         a {
             display: block;
@@ -18,7 +22,11 @@ header {
         }
     }
     nav {
-        float: left;
+        float: right;
+
+        @include bp(480up) {
+            float: left;
+        }
 
         ul {
             margin: 0;
@@ -30,10 +38,12 @@ header {
 
                 a {
                     display: block;
-                    padding: 20px;
+                    padding: 20px 0px 10px 0px;
+                    margin: 0 20px;
 
                     &:hover {
-                        color: lighten(#000000, 40%);
+                        // color: lighten(#000000, 40%);
+                        color: $tertiary_color;
                         transition: color .25s ease;
                     }
                 }
@@ -41,7 +51,17 @@ header {
         }
     }
     .header-cta {
-        float: right;
-        margin: 20px 0;
+        display: inline-block;
+        margin: 0 auto;
+        text-align: center;
+
+        @include bp(480up) {
+            float: right;
+            margin: 20px 0;
+        }
     }
+}
+
+.page-active {
+    border-bottom: 4px solid $tertiary_color;
 }

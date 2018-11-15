@@ -1,6 +1,6 @@
 .agenda-hero {
     padding-top: 100px;
-    padding-bottom: 200px;
+    padding-bottom: 60px;
     overflow: hidden;
 
     .container {
@@ -9,15 +9,80 @@
 
     .agenda-background-pattern {
         position: absolute;
-        top: -30px;
+        top: -60px;
         right: -100px;
         display: block;
-        width: 400px;
-        height: 100%;
+        width: 200px;
+
+        @include bp(820up) {
+            top: -60px;
+            right: -100px;
+            width: 300px;
+        }
 
         img {
             width: 100%;
             // min-width: 1000px;
+        }
+    }
+}
+
+.agenda-section {
+
+    .agenda-items {
+
+        h1 {
+            font-family: $font_body;
+            display: block;
+            font-weight: 400;
+            font-size: 2em;
+        }
+
+        h2 {
+            font-family: $font_body;
+            font-weight: 600;
+            font-size: 1.4em;
+            padding-top: 20px;
+        }
+
+        h3 {
+            font-family: $font_body;
+            font-size: 1.2em;
+            font-style: italic;
+            font-weight: 100;
+        }
+        p {
+            font-size: .8em;
+            width: 80%;
+        }
+
+
+        li {
+            display: block;
+            padding: 40px 0;
+            border-bottom: 1px solid #000000;
+
+            @include bp(700up) {
+                display: flex;
+            }
+
+            .event-time {
+                font-size: 1.5em;
+                font-weight: 600;
+                width: 100%;
+                padding-top: 4px;
+
+                @include bp(700up) {
+                    width: 25%;
+                }
+            }
+            .event-details {
+                width: 100%;
+
+                @include bp(700up) {
+                    width: 75%;
+                }
+            }
         }
     }
 }

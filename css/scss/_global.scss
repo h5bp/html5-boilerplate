@@ -15,7 +15,6 @@ ul {
 
 .banner {
     position: relative;
-
     display: inline-block;
     margin-top: 60px;
     color: #ffffff;
@@ -38,19 +37,36 @@ ul {
     }
 }
 
+.banner2 {
+    font-size: 1.5em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #000000;
+}
+
 // Tabbed Style
 .tab-style {
-    padding-left: 16%;
+    padding-left: 0;
+
+    @include bp(820up) {
+        padding-left: 16%;
+    }
 }
+
+//Patterns
 
 .background-pattern {
     position: absolute;
-    top: 40px;
+    top: 0;
     left: 0;
+    width: 100%;
     z-index: -2;
     display: block;
-    width: 100%;
-    height: 100%;
+
+    @include bp(820up) {
+        top: 40px;
+        width: 100%;
+    }
 
     img {
         width: 100%;
@@ -61,11 +77,17 @@ ul {
 
 .hero-background-pattern {
     position: absolute;
-    top: -90px;
-    right: -250px;
+    top:-90px;
+    right:-150px;
     display: block;
-    width: 600px;
-    height: 100%;
+    width: 300px;
+    z-index: -2;
+
+    @include bp(820up) {
+        top: -90px;
+        right: -250px;
+        width: 600px;
+    }
 
     img {
         width: 100%;
@@ -80,8 +102,20 @@ ul {
         flex-wrap: wrap;
 
         .speaker-container {
-            width: 31.3%;
-            margin-right: 2%;
+            width: 100%;
+            margin-right: 0;
+
+            @include bp(480up) {
+                width: 48%;
+                margin-right: 2%;
+            }
+            @include bp(820up) {
+                width: 32%;
+
+                &:nth-child(3n) {
+                    margin-right: 0 !important;
+                }
+            }
 
             img {
                 width: 100%;
@@ -95,5 +129,61 @@ ul {
 
     .smaller-p {
         font-size: 1em;
+    }
+}
+
+// Footer
+.footer-cta {
+    overflow: hidden;
+    position: relative;
+    padding-top: 100px;
+    padding-bottom: 50px;
+
+    @include bp(820up) {
+        padding-bottom: 200px;
+    }
+
+    .container {
+        position: relative;
+    }
+
+    .logo2 {
+        margin: 40px 0 25px 0;
+        max-width: 300px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .banner {
+        margin: 0 auto;
+    }
+
+    h1 {
+        margin-bottom: 40px;
+        margin-top: 80px;
+        width: 100%;
+
+        @include bp(820up) {
+            width: 60%;
+        }
+    }
+    p {
+        margin-top: 40px;
+        max-width: 100%;
+
+        @include bp(820up) {
+            width: 80%;
+        }
+    }
+
+    .footer-cta-content {
+        width: 100%;
+
+        @include bp(820up) {
+            width: 80%;
+        }
+
     }
 }
