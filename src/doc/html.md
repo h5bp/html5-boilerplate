@@ -7,7 +7,7 @@ By default, HTML5 Boilerplate provides two `html` pages:
 
 * [`index.html`](#indexhtml) - a default HTML skeleton that should form the
   basis of all pages on your website
-* [`404.html`](#404html) - a placeholder 404 error page
+* `404.html` - a placeholder 404 error page
 
 
 ## `index.html`

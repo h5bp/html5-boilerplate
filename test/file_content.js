@@ -1,5 +1,3 @@
-/* jshint mocha: true */
-
 import assert from 'assert';
 import fs from 'fs';
 import path from 'path';
@@ -74,7 +72,7 @@ function runTests() {
     });
 
     it('"main.css" should contain a custom banner', function (done) {
-      const string = `/*! HTML5 Boilerplate v${pkg.version} | ${pkg.license} License | ${pkg.homepage} */\n\n/*\n`;
+      const string = `/*! HTML5 Boilerplate v${pkg.version} | ${pkg.license} License | ${pkg.homepage} */\n`;
       checkString(path.resolve(dir, 'css/main.css'), string, done);
     });
 

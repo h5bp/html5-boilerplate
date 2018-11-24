@@ -118,10 +118,9 @@ gulp.task('copy:license', () =>
 );
 
 gulp.task('copy:main.css', () => {
-
   const banner = `/*! HTML5 Boilerplate v${pkg.version} | ${pkg.license} License | ${pkg.homepage} */\n\n`;
 
-  gulp.src(`${dirs.src}/css/main.css`)
+  gulp.src(`node_modules/main.css/dist/main.css`)
     .pipe(plugins().header(banner))
     .pipe(plugins().autoprefixer({
       browsers: ['last 2 versions', 'ie >= 9', '> 1%'],
