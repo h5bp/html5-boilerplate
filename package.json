@@ -22,7 +22,7 @@
     "main.css": "1.0.0",
     "mocha": "^5.2.0",
     "modernizr": "3.6.0",
-    "normalize.css": "8.0.0",
+    "normalize.css": "8.0.1",
     "run-sequence": "^2.2.1",
     "ssri": "^6.0.1",
     "strip-json-comments": "^2.0.1"
