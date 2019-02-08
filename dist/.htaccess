@@ -1,4 +1,4 @@
-# Apache Server Configs v3.0.0 | MIT License
+# Apache Server Configs v3.1.0 | MIT License
 # https://github.com/h5bp/server-configs-apache
 
 # (!) Using `.htaccess` files slows down Apache, therefore, if you have
@@ -48,6 +48,8 @@
 # ----------------------------------------------------------------------
 
 # Allow cross-origin access to web fonts.
+#
+# https://developers.google.com/fonts/docs/troubleshooting
 
 <IfModule mod_headers.c>
     <FilesMatch "\.(eot|otf|tt[cf]|woff2?)$">
@@ -66,8 +68,9 @@
 # some of the attributes of the `PerformanceResourceTiming` object will
 # be set to zero.
 #
+# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Timing-Allow-Origin
 # https://www.w3.org/TR/resource-timing/
-# http://www.stevesouders.com/blog/2014/08/21/resource-timing-practical-tips/
+# https://www.stevesouders.com/blog/2014/08/21/resource-timing-practical-tips/
 
 # <IfModule mod_headers.c>
 #     Header set Timing-Allow-Origin: "*"
@@ -82,6 +85,7 @@
 # ----------------------------------------------------------------------
 
 # Customize what Apache returns to the client in case of an error.
+#
 # https://httpd.apache.org/docs/current/mod/core.html#errordocument
 
 ErrorDocument 404 /404.html
@@ -119,13 +123,14 @@ Options -MultiViews
 #
 # https://msdn.microsoft.com/en-us/library/ie/bg182625.aspx#docmode
 # https://blogs.msdn.microsoft.com/ie/2014/04/02/stay-up-to-date-with-enterprise-mode-for-internet-explorer-11/
+# https://msdn.microsoft.com/en-us/library/ff955275.aspx
 
 <IfModule mod_headers.c>
 
     Header set X-UA-Compatible "IE=edge"
 
     # `mod_headers` cannot match based on the content-type, however,
-    # the `X-UA-Compatible` response header should be send only for
+    # the `X-UA-Compatible` response header should be sent only for
     # HTML documents and not for the other resources.
 
     <FilesMatch "\.(appcache|atom|bbaw|bmp|br|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|gz|htc|ic[os]|jpe?g|m?js|json(ld)?|m4[av]|manifest|map|markdown|md|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|wasm|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
@@ -133,19 +138,6 @@ Options -MultiViews
     </FilesMatch>
 
 </IfModule>
-
-# ----------------------------------------------------------------------
-# | Iframes cookies                                                    |
-# ----------------------------------------------------------------------
-
-# Allow cookies to be set from iframes in Internet Explorer.
-#
-# https://msdn.microsoft.com/en-us/library/ms537343.aspx
-# https://www.w3.org/TR/2000/CR-P3P-20001215/
-
-# <IfModule mod_headers.c>
-#     Header set P3P "policyref=\"/w3c/p3p.xml\", CP=\"IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT\""
-# </IfModule>
 
 # ######################################################################
 # # MEDIA TYPES AND CHARACTER ENCODINGS                                #
@@ -346,11 +338,24 @@ AddDefaultCharset utf-8
 # ----------------------------------------------------------------------
 
 # Redirect from the `http://` to the `https://` version of the URL.
+#
 # https://wiki.apache.org/httpd/RewriteHTTPToHTTPS
+
+# (1) If you're using cPanel AutoSSL or the Let's Encrypt webroot
+#     method it will fail to validate the certificate if validation
+#     requests are redirected to HTTPS. Turn on the condition(s)
+#     you need.
+#
+#     https://www.iana.org/assignments/well-known-uris/well-known-uris.xhtml
+#     https://tools.ietf.org/html/draft-ietf-acme-acme-12
 
 # <IfModule mod_rewrite.c>
 #    RewriteEngine On
 #    RewriteCond %{HTTPS} !=on
+#    # (1)
+#    # RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/
+#    # RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[\w-]+$
+#    # RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
 #    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 # </IfModule>
 
@@ -368,7 +373,7 @@ AddDefaultCharset utf-8
 #
 # (!) NEVER USE BOTH WWW-RELATED RULES AT THE SAME TIME!
 
-# (1) The rule assume by default that both HTTP and HTTPS
+# (1) The rule assumes by default that both HTTP and HTTPS
 #     environments are available for redirection.
 #     If your SSL certificate could not handle one of the domains
 #     used during redirection, you should turn the condition on.
@@ -397,7 +402,7 @@ AddDefaultCharset utf-8
 #
 # (!) NEVER USE BOTH WWW-RELATED RULES AT THE SAME TIME!
 
-# (1) The rule assume by default that both HTTP and HTTPS
+# (1) The rule assumes by default that both HTTP and HTTPS
 #     environments are available for redirection.
 #     If your SSL certificate could not handle one of the domains
 #     used during redirection, you should turn the condition on.
@@ -451,6 +456,7 @@ AddDefaultCharset utf-8
 # against more than just clickjacking attacks:
 # https://cure53.de/xfo-clickjacking.pdf.
 #
+# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
 # https://tools.ietf.org/html/rfc7034
 # https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-clickjacking-with-x-frame-options/
 # https://www.owasp.org/index.php/Clickjacking
@@ -460,7 +466,7 @@ AddDefaultCharset utf-8
 #     Header set X-Frame-Options "DENY"
 
 #     # `mod_headers` cannot match based on the content-type, however,
-#     # the `X-Frame-Options` response header should be send only for
+#     # the `X-Frame-Options` response header should be sent only for
 #     # HTML documents and not for the other resources.
 
 #     <FilesMatch "\.(appcache|atom|bbaw|bmp|br|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|gz|htc|ic[os]|jpe?g|m?js|json(ld)?|m4[av]|manifest|map|markdown|md|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|wasm|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
@@ -484,18 +490,19 @@ AddDefaultCharset utf-8
 # That almost certainly won't work as-is for your website!
 #
 # To make things easier, you can use an online CSP header generator
-# such as: http://cspisawesome.com/.
+# such as: https://www.cspisawesome.com/.
 #
+# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
+# https://www.w3.org/TR/CSP3/
 # https://content-security-policy.com/
 # https://www.html5rocks.com/en/tutorials/security/content-security-policy/
-# https://w3c.github.io/webappsec-csp/
 
 # <IfModule mod_headers.c>
 
 #     Header set Content-Security-Policy "script-src 'self'; object-src 'self'"
 
 #     # `mod_headers` cannot match based on the content-type, however,
-#     # the `Content-Security-Policy` response header should be send
+#     # the `Content-Security-Policy` response header should be sent
 #     # only for HTML documents and not for the other resources.
 
 #     <FilesMatch "\.(appcache|atom|bbaw|bmp|br|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|gz|htc|ic[os]|jpe?g|m?js|json(ld)?|m4[av]|manifest|map|markdown|md|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|wasm|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
@@ -598,12 +605,14 @@ AddDefaultCharset utf-8
 #     which can be done with either `env=https` or `"expr=%{HTTPS} == 'on'"` (4). The
 #     exact way depends on your environment and might just be tried.
 #
-# https://www.html5rocks.com/en/tutorials/security/transport-layer-security/
-# https://tools.ietf.org/html/rfc6797#section-6.1
-# https://blogs.msdn.microsoft.com/ieinternals/2014/08/18/strict-transport-security/
 # (2) https://hstspreload.org/
 # (3) https://tools.ietf.org/html/rfc6797#section-7.2
 # (4) https://stackoverflow.com/questions/24144552/how-to-set-hsts-header-from-htaccess-only-on-https/24145033#comment81632711_24145033
+#
+# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security
+# https://tools.ietf.org/html/rfc6797#section-6.1
+# https://www.html5rocks.com/en/tutorials/security/transport-layer-security/
+# https://blogs.msdn.microsoft.com/ieinternals/2014/08/18/strict-transport-security/
 
 # <IfModule mod_headers.c>
 #     Header always set Strict-Transport-Security "max-age=16070400; includeSubDomains"
@@ -624,9 +633,8 @@ AddDefaultCharset utf-8
 # is serving user-uploaded content or content that could potentially be
 # treated as executable by the browser.
 #
-# https://www.slideshare.net/hasegawayosuke/owasp-hasegawa
+# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options
 # https://blogs.msdn.microsoft.com/ie/2008/07/02/ie8-security-part-v-comprehensive-protection/
-# https://msdn.microsoft.com/en-us/library/ie/gg622941.aspx
 # https://mimesniff.spec.whatwg.org/
 
 <IfModule mod_headers.c>
@@ -665,6 +673,7 @@ AddDefaultCharset utf-8
 #     you are taking all possible measures to prevent XSS attacks, the
 #     most obvious being: validating and sanitizing your website's inputs.
 #
+# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection
 # https://blogs.msdn.microsoft.com/ie/2008/07/02/ie8-security-part-iv-the-xss-filter/
 # https://blogs.msdn.microsoft.com/ieinternals/2011/01/31/controlling-the-xss-filter/
 # https://www.owasp.org/index.php/Cross-site_Scripting_%28XSS%29
@@ -675,7 +684,7 @@ AddDefaultCharset utf-8
 #     Header set X-XSS-Protection "1; mode=block"
 
 #     # `mod_headers` cannot match based on the content-type, however,
-#     # the `X-XSS-Protection` response header should be send only for
+#     # the `X-XSS-Protection` response header should be sent only for
 #     # HTML documents and not for the other resources.
 
 #     <FilesMatch "\.(appcache|atom|bbaw|bmp|br|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|gz|htc|ic[os]|jpe?g|m?js|json(ld)?|m4[av]|manifest|map|markdown|md|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|wasm|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
@@ -712,7 +721,7 @@ AddDefaultCharset utf-8
 #     Header set Referrer-Policy "no-referrer-when-downgrade"
 
 #     # `mod_headers` cannot match based on the content-type, however,
-#     # the `Referrer-Policy` response header should be send
+#     # the `Referrer-Policy` response header should be sent
 #     # only for HTML documents and not for the other resources.
 
 #     <FilesMatch "\.(appcache|atom|bbaw|bmp|br|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|gz|htc|ic[os]|jpe?g|m?js|json(ld)?|m4[av]|manifest|map|markdown|md|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|wasm|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
@@ -720,6 +729,29 @@ AddDefaultCharset utf-8
 #     </FilesMatch>
 
 # </IfModule>
+
+# ----------------------------------------------------------------------
+# | Disable TRACE HTTP Method                                          |
+# ----------------------------------------------------------------------
+
+# Prevent Apache from responding to `TRACE` HTTP request.
+#
+# The TRACE method, while apparently harmless, can be successfully
+# leveraged in some scenarios to steal legitimate users' credentials
+#
+# Modern browsers now prevent TRACE requests being made via JavaScript,
+# however, other ways of sending TRACE requests with browsers have been
+# discovered, such as using Java.
+#
+# (!) The `TraceEnable` directive will only work in the main server
+# configuration file, so don't try to enable it in the `.htaccess` file!
+#
+# https://tools.ietf.org/html/rfc7231#section-4.3.8
+# https://www.owasp.org/index.php/Cross_Site_Tracing
+# https://www.owasp.org/index.php/Test_HTTP_Methods_(OTG-CONFIG-006)
+# https://httpd.apache.org/docs/current/mod/core.html#traceenable
+
+# TraceEnable Off
 
 # ----------------------------------------------------------------------
 # | Server-side technology information                                 |
@@ -768,7 +800,7 @@ ServerSignature Off
 #
 # https://httpd.apache.org/docs/current/mod/core.html#servertokens
 
-#ServerTokens Prod
+# ServerTokens Prod
 
 # ######################################################################
 # # WEB PERFORMANCE                                                    #
@@ -781,7 +813,9 @@ ServerSignature Off
 <IfModule mod_deflate.c>
 
     # Force compression for mangled `Accept-Encoding` request headers
-    # https://developer.yahoo.com/blogs/ydn/pushing-beyond-gzipping-25601.html
+    #
+    # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding
+    # https://calendar.perfplanet.com/2010/pushing-beyond-gzipping/
 
     <IfModule mod_setenvif.c>
         <IfModule mod_headers.c>
@@ -793,6 +827,7 @@ ServerSignature Off
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     # Compress all output labeled with one of the following media types.
+    #
     # https://httpd.apache.org/docs/current/mod/mod_filter.html#addoutputfilterbytype
 
     <IfModule mod_filter.c>
@@ -850,6 +885,7 @@ ServerSignature Off
     # the response, and thus, wouldn't be able to understand the
     # content.
     #
+    # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding
     # https://httpd.apache.org/docs/current/mod/mod_mime.html#addencoding
 
     <IfModule mod_mime.c>
@@ -868,6 +904,10 @@ ServerSignature Off
 # (!) To make this part relevant, you need to generate encoded
 # files by your own. Enabling this part will not auto-generate
 # brotlied files.
+#
+# Note that some clients (eg. browsers) require a secure connection
+# to request brotli-compressed resources.
+# https://www.chromestatus.com/feature/5420797577396224
 #
 # https://httpd.apache.org/docs/current/mod/mod_brotli.html#precompressed
 
@@ -977,6 +1017,7 @@ ServerSignature Off
 # used by mobile network providers) from modifying the website's
 # content.
 #
+# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
 # https://tools.ietf.org/html/rfc2616#section-14.9.5
 #
 # (!) If you are using `mod_pagespeed`, please note that setting
@@ -997,6 +1038,7 @@ ServerSignature Off
 
 # Remove `ETags` as resources are sent with far-future expires headers.
 #
+# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag
 # https://developer.yahoo.com/performance/rules.html#etags
 # https://tools.ietf.org/html/rfc7232#section-2.3
 
@@ -1008,15 +1050,17 @@ ServerSignature Off
 FileETag None
 
 # ----------------------------------------------------------------------
-# | Expires headers                                                    |
+# | Cache expiration                                                   |
 # ----------------------------------------------------------------------
 
-# Serve resources with far-future expires headers.
+# Serve resources with far-future expiration date.
 #
 # (!) If you don't control versioning with filename-based
 # cache busting, you should consider lowering the cache times
 # to something like one week.
 #
+# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
+# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Expires
 # https://httpd.apache.org/docs/current/mod/mod_expires.html
 
 <IfModule mod_expires.c>
@@ -1143,6 +1187,7 @@ FileETag None
 #   specified files.
 
 # <IfModule mod_include.c>
+
 #     <FilesMatch "\.combined\.js$">
 #         Options +Includes
 #         AddOutputFilterByType INCLUDES application/javascript \
@@ -1150,11 +1195,13 @@ FileETag None
 #                                        text/javascript
 #         SetOutputFilter INCLUDES
 #     </FilesMatch>
+
 #     <FilesMatch "\.combined\.css$">
 #         Options +Includes
 #         AddOutputFilterByType INCLUDES text/css
 #         SetOutputFilter INCLUDES
 #     </FilesMatch>
+
 # </IfModule>
 
 # ----------------------------------------------------------------------
@@ -1167,11 +1214,10 @@ FileETag None
 #
 # To understand why this is important and even a better solution than
 # using something like `*.css?v231`, please see:
-# http://www.stevesouders.com/blog/2008/08/23/revving-filenames-dont-use-querystring/
+# https://www.stevesouders.com/blog/2008/08/23/revving-filenames-dont-use-querystring/
 
 # <IfModule mod_rewrite.c>
 #     RewriteEngine On
 #     RewriteCond %{REQUEST_FILENAME} !-f
-#     RewriteRule ^(.+)\.(\d+)\.(bmp|css|cur|gif|ico|jpe?g|m?js|png|svgz?|webp|webmanifest)$ $1.$3 [L]
+#     RewriteRule ^(.+)\.(\w+)\.(bmp|css|cur|gif|ico|jpe?g|m?js|png|svgz?|webp|webmanifest)$ $1.$3 [L]
 # </IfModule>
-
