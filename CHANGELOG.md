@@ -1,3 +1,16 @@
+### 7.0.0 (February 8, 2018)
+
+* Drop support for IE9/IE10 (usage of these versions is tiny and Microsoft officially ended support back in 2016. ([#2074](https://github.com/h5bp/html5-boilerplate/pull/2074))
+* Move the CSS to a separate repo ([#2066](https://github.com/h5bp/html5-boilerplate/pull/2066))
+* Add theme-color meta tag to index.html ([#2074](https://github.com/h5bp/html5-boilerplate/pull/2074))
+* Add 'install with yarn' steps to README ([#2063](https://github.com/h5bp/html5-boilerplate/pull/2063))
+* Improved Webmanifest ([#2060](https://github.com/h5bp/html5-boilerplate/pull/2060))
+* Upgrade Normalize to 8.0.1 ([#2104](https://github.com/h5bp/html5-boilerplate/pull/2104))
+* Update .htaccess ([#2110](https://github.com/h5bp/html5-boilerplate/pull/2110))
+* Remove instances of `shrink-to-fit=no` ([#2103](https://github.com/h5bp/html5-boilerplate/pull/2103))
+* Removes "display": "standalone" from manifest ([#2096](https://github.com/h5bp/html5-boilerplate/pull/2096))
+* Big Docs update - Fixed links, removed IE9/IE10 specific info, made touch icons section more concise, add details on security.txt and more tidying up ([#2074](https://github.com/h5bp/html5-boilerplate/pull/2031), [#2065](https://github.com/h5bp/html5-boilerplate/pull/2065), [#2062](https://github.com/h5bp/html5-boilerplate/pull/2062))
+
 ### 6.1.0 (May 1, 2018)
 
 * [Update Apache Server Configs to `v3.0.0`.](https://github.com/h5bp/html5-boilerplate/pull/2042)
