@@ -1,3 +1,6 @@
+### 7.0.1 (February 11, 2019)
+* Bumps main.css to current version ([#2112](https://github.com/h5bp/html5-boilerplate/pull/2112))
+
 ### 7.0.0 (February 8, 2019)
 
 * Drop support for IE9/IE10 (usage of these versions is tiny and Microsoft officially ended support back in 2016. ([#2074](https://github.com/h5bp/html5-boilerplate/pull/2074))
