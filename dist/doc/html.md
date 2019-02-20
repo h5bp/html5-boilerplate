@@ -61,7 +61,7 @@ MDN Web Docs](https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_m
 HTML5 Boilerplate comes with a simple setup that strikes a good balance for general use cases.
 
 ```html
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 ```
 
 If you want to take advantage of edge-to-edge displays of iPhone X/XS/XR you can do
@@ -129,7 +129,7 @@ just put it before the other scripts in the bottom of the page:
 
 ```html
     <script src="js/vendor/modernizr-3.6.0.min.js"></script>
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+    <script src="https://cdn.polyfill.io/v3/polyfill.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
     <script src="js/plugins.js"></script>
