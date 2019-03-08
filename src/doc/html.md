@@ -177,22 +177,29 @@ site or application.
 ### Google Universal Analytics Tracking Code
 
 Finally, an optimized version of the Google Universal Analytics tracking code is
-included. Google recommends that this script be placed at the top of the page.
+included.
+
+We use `analytics.js` rather than the newer `gtag.js` as 
+[it's faster and supports tasks and plugins](https://github.com/philipwalton/analyticsjs-boilerplate/issues/19#issuecomment-333714370)
+
+The beacon transport mechanism is used to send all hits [which saves HTTP requests and improves performance](https://philipwalton.com/articles/the-google-analytics-setup-i-use-on-every-site-i-build/#loading-analytics.js).
+
+Google recommends that this script be placed at the top of the page.
 Factors to consider: if you place this script at the top of the page, you’ll
 be able to count users who don’t fully load the page, and you’ll incur the max
 number of simultaneous connections of the browser.
 
 Further information:
 
-* [Optimizing the Google Universal Analytics
-  Snippet](https://mathiasbynens.be/notes/async-analytics-snippet#universal-analytics)
-* [Introduction to
+- [Introduction to
   Analytics.js](https://developers.google.com/analytics/devguides/collection/analyticsjs/)
-* [Google Analytics Demos & Tools](https://ga-dev-tools.appspot.com/)
+- [Google Analytics Demos & Tools](https://ga-dev-tools.appspot.com/)
 
-**N.B.** The Google Universal Analytics snippet is included by default mainly
+**N.B.** The Google Analytics snippet is included by default mainly
 because Google Analytics is [currently one of the most popular tracking
 solutions](https://trends.builtwith.com/analytics/Google-Analytics) out there.
 However, its usage isn't set in stone, and you SHOULD consider exploring the
 [alternatives](https://en.wikipedia.org/wiki/List_of_web_analytics_software)
-and use whatever suits your needs best!
+and use whatever suits your needs best.
+
+
