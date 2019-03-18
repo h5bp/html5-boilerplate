@@ -1,4 +1,13 @@
+### 7.1.0 (March 18, 2019)
+
+* Update Modernizr to 3.7.1 ([#2121](https://github.com/h5bp/html5-boilerplate/pull/2121))
+* Update Analytics docs and snippet ([#2118](https://github.com/h5bp/html5-boilerplate/pull/2118))
+* Minor docs updates ([#2115](https://github.com/h5bp/html5-boilerplate/pull/2115))
+* Minor devdeps updates ([#2114](https://github.com/h5bp/html5-boilerplate/pull/2114))
+* More succinct way of writing the IE conditional statement ([#2113](https://github.com/h5bp/html5-boilerplate/pull/2113))
+
 ### 7.0.1 (February 11, 2019)
+
 * Bumps main.css to current version ([#2112](https://github.com/h5bp/html5-boilerplate/pull/2112))
 
 ### 7.0.0 (February 8, 2019)
