@@ -165,7 +165,7 @@ the Google Hosted version over the jQuery CDN because it was available
 over HTTPS (the jQuery CDN was not,) and it offered a better chance of
 hitting the cache lottery owing to the popularity of the Google CDN.
 The first issue is no longer valid and the second is far outweighed by
-being able to serve jQuery to Chinese users.
+being able to serve jQuery to users in China.
 
 While the jQuery CDN is a strong default solution your site or application may
 require a different configuration. Testing your site with services like
