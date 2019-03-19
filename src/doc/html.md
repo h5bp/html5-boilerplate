@@ -155,6 +155,18 @@ the bottom of the page. A local fallback of jQuery is included for rare instance
 when the CDN version might not be available, and to facilitate offline
 development.
 
+The jQuery CDN version was chosen over other potential candidates
+([like Google's Hosted Libraries](https://developers.google.com/speed/libraries/))
+because it's fast ([comparable or faster than Google by some
+measures](https://www.cdnperf.com/#jsdelivr,cdnjs,google,yandex,microsoft,jquery,bootstrapcdn/https/90))
+and, (unlike Google's CDN) is available to China's hundreds of millions of internet users.
+For many years we [chose](https://github.com/h5bp/html5-boilerplate/issues/1191)
+the Google Hosted version over the jQuery CDN because it was available
+over HTTPS (the jQuery CDN was not,) and it offered a better chance of
+hitting the cache lottery owing to the popularity of the Google CDN.
+The first issue is no longer valid and the second is far outweighed by
+being able to serve jQuery to users in China.
+
 While the jQuery CDN is a strong default solution your site or application may
 require a different configuration. Testing your site with services like
 [WebPageTest](https://www.webpagetest.org/) and browser tools like
