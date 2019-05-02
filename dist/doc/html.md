@@ -80,7 +80,7 @@ control over the UI of a saved site or web app on a mobile device.
 It's linked to from the HTML as follows:
 
 ```html
-        <link rel="manifest" href="site.webmanifest">
+<link rel="manifest" href="site.webmanifest">
 ```
 Our [site.webmanifest](https://github.com/h5bp/html5-boilerplate/blob/master/src/site.webmanifest) contains a very skeletal "app" definition, just to show the basic usage. 
 You should fill this file out with [more information about your site or application](https://developer.mozilla.org/en-US/docs/Web/Manifest)
@@ -128,10 +128,10 @@ using a polyfill CDN service, like [cdn.polyfill.io](https://cdn.polyfill.io/),
 just put it before the other scripts in the bottom of the page:
 
 ```html
-    <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="js/vendor/modernizr-3.7.1.min.js"></script>
     <script src="https://cdn.polyfill.io/v3/polyfill.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.0.min.js"><\/script>')</script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
 </body>
