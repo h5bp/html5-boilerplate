@@ -1,4 +1,4 @@
-# Apache Server Configs v3.1.0 | MIT License
+# Apache Server Configs v3.2.1 | MIT License
 # https://github.com/h5bp/server-configs-apache
 
 # (!) Using `.htaccess` files slows down Apache, therefore, if you have
@@ -126,17 +126,7 @@ Options -MultiViews
 # https://msdn.microsoft.com/en-us/library/ff955275.aspx
 
 <IfModule mod_headers.c>
-
-    Header set X-UA-Compatible "IE=edge"
-
-    # `mod_headers` cannot match based on the content-type, however,
-    # the `X-UA-Compatible` response header should be sent only for
-    # HTML documents and not for the other resources.
-
-    <FilesMatch "\.(appcache|atom|bbaw|bmp|br|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|gz|htc|ic[os]|jpe?g|m?js|json(ld)?|m4[av]|manifest|map|markdown|md|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|wasm|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
-        Header unset X-UA-Compatible
-    </FilesMatch>
-
+    Header set X-UA-Compatible "IE=edge" "expr=%{CONTENT_TYPE} =~ m#text/html#i"
 </IfModule>
 
 # ######################################################################
@@ -160,8 +150,9 @@ Options -MultiViews
     AddType application/json                            json map topojson
     AddType application/ld+json                         jsonld
     AddType application/rss+xml                         rss
-    AddType application/vnd.geo+json                    geojson
-    AddType application/xml                             rdf xml
+    AddType application/geo+json                        geojson
+    AddType application/rdf+xml                         rdf
+    AddType application/xml                             xml
 
 
   # JavaScript
@@ -248,26 +239,24 @@ AddDefaultCharset utf-8
 # https://httpd.apache.org/docs/current/mod/mod_mime.html#addcharset
 
 <IfModule mod_mime.c>
-    AddCharset utf-8 .atom \
+    AddCharset utf-8 .appcache \
                      .bbaw \
                      .css \
-                     .geojson \
+                     .htc \
                      .ics \
                      .js \
                      .json \
-                     .jsonld \
                      .manifest \
+                     .map \
                      .markdown \
                      .md \
                      .mjs \
-                     .rdf \
-                     .rss \
                      .topojson \
                      .vtt \
-                     .webapp \
+                     .vcard \
+                     .vcf \
                      .webmanifest \
-                     .xloc \
-                     .xml
+                     .xloc
 </IfModule>
 
 # ######################################################################
@@ -462,17 +451,7 @@ AddDefaultCharset utf-8
 # https://www.owasp.org/index.php/Clickjacking
 
 # <IfModule mod_headers.c>
-
-#     Header set X-Frame-Options "DENY"
-
-#     # `mod_headers` cannot match based on the content-type, however,
-#     # the `X-Frame-Options` response header should be sent only for
-#     # HTML documents and not for the other resources.
-
-#     <FilesMatch "\.(appcache|atom|bbaw|bmp|br|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|gz|htc|ic[os]|jpe?g|m?js|json(ld)?|m4[av]|manifest|map|markdown|md|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|wasm|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
-#         Header unset X-Frame-Options
-#     </FilesMatch>
-
+#     Header set X-Frame-Options "DENY" "expr=%{CONTENT_TYPE} =~ m#text/html#i"
 # </IfModule>
 
 # ----------------------------------------------------------------------
@@ -485,30 +464,68 @@ AddDefaultCharset utf-8
 # This can be done by setting a `Content Security Policy` which
 # whitelists trusted sources of content for your website.
 #
-# The example header below allows ONLY scripts that are loaded from
-# the current website's origin (no inline scripts, no CDN, etc).
-# That almost certainly won't work as-is for your website!
+# There is no policy that fits all websites, you will have to modify
+# the `Content-Security-Policy` directives in the example below depending
+# on your needs.
 #
-# To make things easier, you can use an online CSP header generator
-# such as: https://www.cspisawesome.com/.
+# The example policy below aims to:
 #
+#  (1) Restrict all fetches by default to the origin of the current website
+#      by setting the `default-src` directive to `'self'` - which acts as a
+#      fallback to all "Fetch directives" (https://developer.mozilla.org/en-US/docs/Glossary/Fetch_directive).
+#
+#      This is convenient as you do not have to specify all Fetch directives
+#      that apply to your site, for example:
+#      `connect-src 'self'; font-src 'self'; script-src 'self'; style-src 'self'`, etc.
+#
+#      This restriction also means that you must explicitly define from
+#      which site(s) your website is allowed to load resources from.
+#
+#  (2) The `<base>` element is not allowed on the website. This is to
+#      prevent attackers from changing the locations of resources loaded
+#      from relative URLs.
+#
+#      If you want to use the `<base>` element, then `base-uri 'self'`
+#      can be used instead.
+#
+#  (3) Form submissions are only allowed from the current website by
+#      setting: `form-action 'self'`.
+#
+#  (4) Prevents all websites (including your own) from embedding your
+#      webpages within e.g. the `<iframe>` or `<object>` element by
+#      setting `frame-ancestors 'none'`.
+#
+#	   The `frame-ancestors` directive helps avoid "Clickjacking" attacks
+#      and is similar to the `X-Frame-Options` header.
+#
+#      Browsers that support the CSP header will ignore `X-Frame-Options`
+#      if `frame-ancestors` is also specified.
+#
+#  (5) Forces the browser to treat all the resources that are served over
+#      HTTP as if they were loaded securely over HTTPS by setting the
+#      `upgrade-insecure-requests` directive.
+#
+#      Please note that `upgrade-insecure-requests` does not ensure
+#      HTTPS for the top-level navigation. If you want to force the
+#      website itself to be loaded over HTTPS you must include the
+#      `Strict-Transport-Security` header.
+#
+# To make your CSP implementation easier, you can use an online CSP header
+# generator such as:
+# https://report-uri.com/home/generate/
+#
+# It is encouraged that you validate your CSP header using a CSP validator
+# such as:
+# https://csp-evaluator.withgoogle.com
+#
+# https://csp.withgoogle.com/docs/
 # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
-# https://www.w3.org/TR/CSP3/
-# https://content-security-policy.com/
 # https://www.html5rocks.com/en/tutorials/security/content-security-policy/
+# https://www.w3.org/TR/CSP/
 
 # <IfModule mod_headers.c>
-
-#     Header set Content-Security-Policy "script-src 'self'; object-src 'self'"
-
-#     # `mod_headers` cannot match based on the content-type, however,
-#     # the `Content-Security-Policy` response header should be sent
-#     # only for HTML documents and not for the other resources.
-
-#     <FilesMatch "\.(appcache|atom|bbaw|bmp|br|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|gz|htc|ic[os]|jpe?g|m?js|json(ld)?|m4[av]|manifest|map|markdown|md|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|wasm|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
-#         Header unset Content-Security-Policy
-#     </FilesMatch>
-
+#     #                                   (1)                 (2)              (3)                 (4)                     (5)
+#     Header set Content-Security-Policy "default-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests" "expr=%{CONTENT_TYPE} =~ m#text/html#i"
 # </IfModule>
 
 # ----------------------------------------------------------------------
@@ -679,18 +696,8 @@ AddDefaultCharset utf-8
 # https://www.owasp.org/index.php/Cross-site_Scripting_%28XSS%29
 
 # <IfModule mod_headers.c>
-
 #     #                           (1)    (2)
-#     Header set X-XSS-Protection "1; mode=block"
-
-#     # `mod_headers` cannot match based on the content-type, however,
-#     # the `X-XSS-Protection` response header should be sent only for
-#     # HTML documents and not for the other resources.
-
-#     <FilesMatch "\.(appcache|atom|bbaw|bmp|br|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|gz|htc|ic[os]|jpe?g|m?js|json(ld)?|m4[av]|manifest|map|markdown|md|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|wasm|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
-#         Header unset X-XSS-Protection
-#     </FilesMatch>
-
+#     Header set X-XSS-Protection "1; mode=block" "expr=%{CONTENT_TYPE} =~ m#text/html#i"
 # </IfModule>
 
 # ----------------------------------------------------------------------
@@ -711,23 +718,12 @@ AddDefaultCharset utf-8
 # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
 
 # <IfModule mod_headers.c>
-
 #     # no-referrer-when-downgrade (default)
 #     # This should be the user agent's default behavior if no policy is
 #     # specified.The origin is sent as referrer to a-priori as-much-secure
 #     # destination (HTTPS->HTTPS), but isn't sent to a less secure destination
 #     # (HTTPS->HTTP).
-
-#     Header set Referrer-Policy "no-referrer-when-downgrade"
-
-#     # `mod_headers` cannot match based on the content-type, however,
-#     # the `Referrer-Policy` response header should be sent
-#     # only for HTML documents and not for the other resources.
-
-#     <FilesMatch "\.(appcache|atom|bbaw|bmp|br|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|gz|htc|ic[os]|jpe?g|m?js|json(ld)?|m4[av]|manifest|map|markdown|md|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|wasm|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
-#         Header unset Referrer-Policy
-#     </FilesMatch>
-
+#     Header set Referrer-Policy "no-referrer-when-downgrade" "expr=%{CONTENT_TYPE} =~ m#text/html#i"
 # </IfModule>
 
 # ----------------------------------------------------------------------
@@ -775,6 +771,7 @@ AddDefaultCharset utf-8
 
 <IfModule mod_headers.c>
     Header unset X-Powered-By
+    Header always unset X-Powered-By
 </IfModule>
 
 # ----------------------------------------------------------------------
@@ -839,7 +836,7 @@ ServerSignature Off
                                       "application/rdf+xml" \
                                       "application/rss+xml" \
                                       "application/schema+json" \
-                                      "application/vnd.geo+json" \
+                                      "application/geo+json" \
                                       "application/vnd.ms-fontobject" \
                                       "application/wasm" \
                                       "application/x-font-ttf" \
@@ -847,15 +844,12 @@ ServerSignature Off
                                       "application/x-web-app-manifest+json" \
                                       "application/xhtml+xml" \
                                       "application/xml" \
-                                      "font/collection" \
                                       "font/eot" \
                                       "font/opentype" \
                                       "font/otf" \
-                                      "font/ttf" \
                                       "image/bmp" \
                                       "image/svg+xml" \
                                       "image/vnd.microsoft.icon" \
-                                      "image/x-icon" \
                                       "text/cache-manifest" \
                                       "text/calendar" \
                                       "text/css" \
@@ -1082,7 +1076,7 @@ FileETag None
     ExpiresByType application/json                      "access plus 0 seconds"
     ExpiresByType application/ld+json                   "access plus 0 seconds"
     ExpiresByType application/schema+json               "access plus 0 seconds"
-    ExpiresByType application/vnd.geo+json              "access plus 0 seconds"
+    ExpiresByType application/geo+json                  "access plus 0 seconds"
     ExpiresByType application/xml                       "access plus 0 seconds"
     ExpiresByType text/calendar                         "access plus 0 seconds"
     ExpiresByType text/xml                              "access plus 0 seconds"
