@@ -1,5 +1,6 @@
 FROM gitpod/workspace-full-vnc
 # add your tools here
+RUN sudo apt update
 RUN sudo apt-get install chromium-browser
 RUN sudo apt-get install firefox
 # Installing Opera
