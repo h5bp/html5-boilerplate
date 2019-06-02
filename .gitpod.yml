@@ -1,0 +1,8 @@
+image:
+  file: Dockerfile
+  context: .
+ports:
+- port: 80
+- port: 443
+tasks:
+- command: chromium
