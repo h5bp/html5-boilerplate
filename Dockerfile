@@ -1,6 +1,6 @@
 FROM gitpod/workspace-full-vnc
 # add your tools here
-RUN sudo apt-get install chromium
+RUN sudo apt-get install chromium-browser
 RUN sudo apt-get install firefox
 # Installing Opera
 RUN wget -qO- https://deb.opera.com/archive.key | sudo apt-key add - && sudo add-apt-repository "deb [arch=i386,amd64] https://deb.opera.com/opera-stable/ stable non-free"
