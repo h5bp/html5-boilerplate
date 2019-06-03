@@ -6,10 +6,10 @@ table of contents](TOC.md)
 HTML5 Boilerplate's CSS includes:
 
 * [Normalize.css](#normalizecss)
-* [Useful defaults](#useful-defaults)
-* [Common helpers](#common-helpers)
-* [Placeholder media queries](#media-queries)
-* [Print styles](#print-styles)
+* [Useful defaults](https://github.com/h5bp/main.css/blob/master/README.md#_basecss)
+* [Common helpers](https://github.com/h5bp/main.css/blob/master/README.md#_helperscss)
+* [Placeholder media queries](https://github.com/h5bp/main.css/blob/master/README.md#_mqscss)
+* [Print styles](https://github.com/h5bp/main.css/blob/master/README.md#_printcss)
 
 This starting CSS does not rely on the presence of
 [conditional class names](https://www.paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/),
