@@ -19,7 +19,7 @@
     "gulp-rename": "^1.4.0",
     "gulp-replace": "^1.0.0",
     "jquery": "3.4.1",
-    "main.css": "1.0.0",
+    "main.css": "2.0.0",
     "mocha": "^5.2.0",
     "modernizr": "3.7.1",
     "normalize.css": "8.0.1",
