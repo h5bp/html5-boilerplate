@@ -4,7 +4,7 @@
 * Update jQuery to v3.4.1 ([#2126](https://github.com/h5bp/html5-boilerplate/pull/2126))
 * Update Apache Server Configs to 3.2.1 ([#2128](https://github.com/h5bp/html5-boilerplate/pull/2128))
 * Update main.css to v2.0.0 ([#2135](https://github.com/h5bp/html5-boilerplate/pull/2135))
-* Docs updates ([#2122](https://github.com/h5bp/html5-boilerplate/pull/2122)), ([#2125](https://github.com/h5bp/html5-boilerplate/pull/2125))
+* Docs updates ([#2122](https://github.com/h5bp/html5-boilerplate/pull/2122)), ([#2125](https://github.com/h5bp/html5-boilerplate/pull/2125)), ([#2134](https://github.com/h5bp/html5-boilerplate/pull/2134)), ([#2137](https://github.com/h5bp/html5-boilerplate/pull/2137)), ([#2138](https://github.com/h5bp/html5-boilerplate/pull/2138))
 
 ### 7.1.0 (March 18, 2019)
 
