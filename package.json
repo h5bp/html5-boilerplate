@@ -15,7 +15,7 @@
     "gulp-eslint": "^5.0.0",
     "gulp-header": "^2.0.7",
     "gulp-jscs": "^4.1.0",
-    "gulp-load-plugins": "^1.5.0",
+    "gulp-load-plugins": "^1.6.0",
     "gulp-rename": "^1.4.0",
     "gulp-replace": "^1.0.0",
     "jquery": "3.4.1",
