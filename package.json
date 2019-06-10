@@ -28,7 +28,7 @@
     "strip-json-comments": "^2.0.1"
   },
   "engines": {
-    "node": ">=6",
+    "node": ">=8",
     "npm": ">=3"
   },
   "babel": {
