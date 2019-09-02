@@ -121,9 +121,9 @@ gulp.task('copy:misc', () =>
     `!${dirs.src}/css/main.css`,
     `!${dirs.src}/index.html`
   ], {
-      // Include hidden files by default
-      dot: true
-    }).pipe(gulp.dest(dirs.dist))
+    // Include hidden files by default
+    dot: true
+  }).pipe(gulp.dest(dirs.dist))
 );
 
 gulp.task('copy:normalize', () =>
@@ -180,4 +180,4 @@ gulp.task(
   )
 );
 
-gulp.task('default', gulp.series('build'))
+gulp.task('default', gulp.series('build'));
