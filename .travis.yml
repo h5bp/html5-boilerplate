@@ -8,9 +8,9 @@ git:
 language: node_js
 
 node_js:
-  - 6
   - 8
   - 9
+  - 10
 
 dist: trusty
 sudo: false

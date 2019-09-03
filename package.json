@@ -1,21 +1,21 @@
 {
   "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
     "apache-server-configs": "^3.2.1",
-    "archiver": "^3.0.0",
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
-    "babel-register": "^6.26.0",
-    "del": "^4.1.1",
+    "archiver": "^3.1.1",
+    "del": "^5.1.0",
     "eslint": "^5.16.0",
     "eslint-config-recommended": "^4.0.0",
     "eslint-plugin-mocha": "^5.3.0",
     "glob": "^7.1.4",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^6.1.0",
-    "gulp-eslint": "^5.0.0",
-    "gulp-header": "^2.0.7",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.0",
+    "gulp-eslint": "^6.0.0",
+    "gulp-header": "^2.0.9",
     "gulp-jscs": "^4.1.0",
-    "gulp-load-plugins": "^1.6.0",
+    "gulp-load-plugins": "^2.0.1",
     "gulp-rename": "^1.4.0",
     "gulp-replace": "^1.0.0",
     "jquery": "3.4.1",
@@ -23,7 +23,6 @@
     "mocha": "^5.2.0",
     "modernizr": "3.7.1",
     "normalize.css": "8.0.1",
-    "run-sequence": "^2.2.1",
     "ssri": "^6.0.1",
     "strip-json-comments": "^2.0.1"
   },
@@ -33,9 +32,14 @@
   },
   "babel": {
     "presets": [
-      "env"
+      "@babel/preset-env"
     ]
   },
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "IE 10"
+  ],
   "h5bp-configs": {
     "directories": {
       "archive": "archive",
@@ -49,7 +53,7 @@
   "name": "html5-boilerplate",
   "scripts": {
     "build": "gulp build",
-    "test": "gulp archive && mocha --require babel-core/register --reporter spec --timeout 5000"
+    "test": "gulp archive && mocha --require @babel/register --reporter spec --timeout 5000"
   },
   "version": "7.2.0",
   "description": "A professional front-end template for building fast, robust, and adaptable web apps or sites.",
