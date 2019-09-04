@@ -14,7 +14,6 @@
     "gulp-autoprefixer": "^7.0.0",
     "gulp-eslint": "^6.0.0",
     "gulp-header": "^2.0.9",
-    "gulp-jscs": "^4.1.0",
     "gulp-load-plugins": "^2.0.1",
     "gulp-rename": "^1.4.0",
     "gulp-replace": "^1.0.0",
@@ -68,5 +67,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/h5bp/html5-boilerplate.git"
-  }
+  },
+  "dependencies": {}
 }
