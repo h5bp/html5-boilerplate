@@ -141,8 +141,7 @@ gulp.task('lint:js', () =>
   gulp.src([
     `${dirs.src}/js/*.js`,
     `${dirs.test}/*.js`
-  ]).pipe(plugins().jscs())
-    .pipe(plugins().eslint())
+  ]).pipe(plugins().eslint())
     .pipe(plugins().eslint.failOnError())
 );
 
