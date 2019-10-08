@@ -49,6 +49,22 @@ shown in the search results.
 <meta name="description" content="This is a description">
 ```
 
+## Meta Keywords
+
+The `keywords` meta tag provides the list of most appropriate keywords related to the web page which helps in Search Engine Optimization for most of the Browsers.
+
+```html
+<meta name="description" content="html5-boilerplate, web development">
+```
+
+## Meta Author
+
+The `author` meta tag provides the name of the author of the webpage which generally the owner of the website or the webpage or the author of the article on a given web page.
+
+```html
+<meta name="author" content="Code Franky">
+```
+
 Google's [Create good meta descriptions](https://support.google.com/webmasters/answer/35624?hl=en#meta-descriptions)
 documentation has useful tips on creating an effective description.
 
