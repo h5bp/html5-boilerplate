@@ -1,4 +1,25 @@
 {
+  "name": "html5-boilerplate",
+  "version": "7.2.0",
+  "homepage": "https://html5boilerplate.com/",
+  "license": "MIT",
+  "description": "A professional front-end template for building fast, robust, and adaptable web apps or sites.",
+  "keywords": [
+    "h5bp",
+    "template",
+    "front-end"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/h5bp/html5-boilerplate.git"
+  },
+  "bugs": {
+    "url" : "https://github.com/h5bp/html5-boilerplate/issues"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "test": "gulp archive && mocha --require @babel/register --reporter spec --timeout 5000"
+  },
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
@@ -47,15 +68,6 @@
       "test": "test"
     }
   },
-  "homepage": "https://html5boilerplate.com/",
-  "license": "MIT",
-  "name": "html5-boilerplate",
-  "scripts": {
-    "build": "gulp build",
-    "test": "gulp archive && mocha --require @babel/register --reporter spec --timeout 5000"
-  },
-  "version": "7.2.0",
-  "description": "A professional front-end template for building fast, robust, and adaptable web apps or sites.",
   "files": [
     "CHANGELOG.md",
     "LICENSE.txt",
@@ -64,9 +76,5 @@
     "modernizr-config.json",
     "README.md"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/h5bp/html5-boilerplate.git"
-  },
   "dependencies": {}
 }
