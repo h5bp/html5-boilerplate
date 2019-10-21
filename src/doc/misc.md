@@ -84,7 +84,7 @@ example, a <Directory> section in the main configuration file. This is usually
 the recommended way, as using .htaccess files slows down Apache!
 
 To enable Apache modules locally, please see:
-https://github.com/h5bp/server-configs-apache/wiki/How-to-enable-Apache-modules.
+https://github.com/h5bp/server-configs-apache#enable-apache-httpd-modules.
 
 In the repo the `.htaccess` is used for:
 
