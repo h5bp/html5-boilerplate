@@ -9,7 +9,7 @@ Information about the default JavaScript included in the project.
 
 This file can be used to contain or reference your site/app JavaScript code.
 If you're working on something more advanced you might replace this file
-entirely. That's cool. 
+entirely. That's cool.
 
 ## plugins.js
 
@@ -32,5 +32,5 @@ This directory can be used to contain all 3rd party library code.
 
 Minified versions of the latest jQuery and Modernizr libraries are included by
 default. You may wish to create your own [custom Modernizr
-build with the online builder](https://www.modernizr.com/download/) or [command
+build with the online builder](https://modernizr.com/download/) or [command
 line tool](https://modernizr.com/docs#command-line-config).
