@@ -1,3 +1,9 @@
+## 7.3.0 (October XX, 2019)
+
+  * Updated to Gulp 4 ([#2151](https://github.com/h5bp/html5-boilerplate/pull/2151))
+  * Updated package.json ([#2162](https://github.com/h5bp/html5-boilerplate/pull/#2162)) and enabled package-lock.json ([abe2087](https://github.com/h5bp/html5-boilerplate/commit/abe20877fdb569c84aa0a1f8ae12c51c51e41250)),([#2145](https://github.com/h5bp/html5-boilerplate/pull/#2145))
+
+
 ### 7.2.0 (June 4, 2019)
 
 * Remove `defer` from Google Analytics snippet ([#2132](https://github.com/h5bp/html5-boilerplate/pull/2132))
