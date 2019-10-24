@@ -1,6 +1,6 @@
 {
   "name": "html5-boilerplate",
-  "version": "7.2.0",
+  "version": "7.3.0",
   "homepage": "https://html5boilerplate.com/",
   "license": "MIT",
   "description": "A professional front-end template for building fast, robust, and adaptable web apps or sites.",
@@ -14,7 +14,7 @@
     "url": "https://github.com/h5bp/html5-boilerplate.git"
   },
   "bugs": {
-    "url" : "https://github.com/h5bp/html5-boilerplate/issues"
+    "url": "https://github.com/h5bp/html5-boilerplate/issues"
   },
   "scripts": {
     "build": "gulp build",
@@ -30,7 +30,7 @@
     "eslint": "^6.5.1",
     "eslint-config-recommended": "^4.0.0",
     "eslint-plugin-mocha": "^6.2.0",
-    "glob": "^7.1.4",
+    "glob": "^7.1.5",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-eslint": "^6.0.0",
@@ -40,7 +40,7 @@
     "gulp-replace": "^1.0.0",
     "jquery": "3.4.1",
     "main.css": "2.0.0",
-    "mocha": "^6.2.1",
+    "mocha": "^6.2.2",
     "modernizr": "3.7.1",
     "normalize.css": "8.0.1",
     "ssri": "^7.0.1",
