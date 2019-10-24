@@ -137,7 +137,7 @@ you want to block access to private content, use proper authentication instead.
 
 For more information about `robots.txt`, please see:
 
-  * [robotstxt.org](http://www.robotstxt.org/)
+  * [robotstxt.org](https://www.robotstxt.org/)
   * [How Google handles the `robots.txt` file](https://developers.google.com/webmasters/control-crawl-index/docs/robots_txt)
 
 ## humans.txt
