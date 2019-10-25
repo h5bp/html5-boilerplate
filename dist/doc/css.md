@@ -18,8 +18,7 @@ your development preferences happen to be.
 ## Normalize.css
 
 In order to make browsers render all elements more consistently and in line
-with modern standards, we include
-[Normalize.css](https://necolas.github.io/normalize.css/) — a modern, HTML5-ready
+with modern standards, we include Normalize.css — a modern, HTML5-ready
 alternative to CSS resets.
 
 As opposed to CSS resets, Normalize.css:
@@ -32,8 +31,7 @@ As opposed to CSS resets, Normalize.css:
 * has better documentation
 
 For more information about Normalize.css, please refer to its [project
-page](https://necolas.github.com/normalize.css/), as well as this
-[blog post](http://nicolasgallagher.com/about-normalize-css/).
+page](https://necolas.github.io/normalize.css/).
 
 
 ## main.css
@@ -48,4 +46,4 @@ styles:
 * style the prompt that is displayed to users using an outdated browser
 * and more...
 
-These styles are included in [main.css](https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css). See the [main.css](https://github.com/h5bp/main.css) project [documentation](https://github.com/h5bp/main.css/blob/master/README.md#features) for a full discussion of these styles. 
+These styles are included in [main.css](https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css). See the [main.css](https://github.com/h5bp/main.css) project [documentation](https://github.com/h5bp/main.css/blob/master/README.md#features) for a full discussion of these styles.
