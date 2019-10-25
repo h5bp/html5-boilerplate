@@ -5,8 +5,6 @@ table of contents](TOC.md)
 
 * [Why is the Google Analytics code at the bottom? Google recommends it be
   placed in the `<head>`.](#why-is-the-google-analytics-code-at-the-bottom-google-recommends-it-be-placed-in-the-head)
-* [How can I integrate Bootstrap with HTML5
-  Boilerplate?](#how-can-i-integrate-bootstrap-with-html5-boilerplate)
 * [Do I need to upgrade my site each time a new version of HTML5 Boilerplate is
   released?](#do-i-need-to-upgrade-my-site-each-time-a-new-version-of-html5-boilerplate-is-released)
 * [Where can I get help with support
