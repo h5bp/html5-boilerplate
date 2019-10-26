@@ -1,6 +1,6 @@
 {
   "name": "html5-boilerplate",
-  "version": "7.3.0",
+  "version": "7.3.0-beta",
   "homepage": "https://html5boilerplate.com/",
   "license": "MIT",
   "description": "A professional front-end template for building fast, robust, and adaptable web apps or sites.",
@@ -41,7 +41,7 @@
     "jquery": "3.4.1",
     "main.css": "2.0.0",
     "mocha": "^6.2.2",
-    "modernizr": "3.7.1",
+    "modernizr": "3.8.0",
     "normalize.css": "8.0.1",
     "ssri": "^7.0.1",
     "strip-json-comments": "^3.0.1"
