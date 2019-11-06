@@ -23,15 +23,19 @@ way that you want.
 
 Choose one of the following options:
 
-- Download the latest stable release from
-  [html5boilerplate.com](https://html5boilerplate.com/).
-- Clone the git repo — `git clone
+* Download the latest stable release from
+  [html5boilerplate.com](https://html5boilerplate.com/). This is a snapshot of the `dist` folder. On Windows, Mac and from the graphical file manager on Linux unzipping this folder will output to a folder named something like `html5-boilerplate_v7.3.0`From the command line will need to create a folder and unzip the contents into that folder.
+
+  ```bash
+  mkdir html5-boilerplate
+  unzip html5-boilerplate*.zip -d html5-boilerplate
+  ```
+
+* Clone the git repo — `git clone
   https://github.com/h5bp/html5-boilerplate.git` - and checkout the
   [tagged release](https://github.com/h5bp/html5-boilerplate/releases)
-  you'd like to use.
-- Install with [npm](https://www.npmjs.com/): `npm install html5-boilerplate` and pull in what you need from the resulting `node_modules/html5-boilerplate/dist`
-- Install with [yarn](https://yarnpkg.com/): `yarn add html5-boilerplate`
-
+  you'd like to use. The `dist` folder represents the latest version of the project for end users. 
+* Install with [npm](https://www.npmjs.com/): `npm install html5-boilerplate` or [yarn](https://yarnpkg.com/): `yarn add html5-boilerplate`. The resulting `node_modules/html5-boilerplate/dist` folder represents the latest version of the project for end users. Depending on what you want to use and how you want to use it, you may have to copy and paste the contents of that folder into your project directory.
 
 ## Features
 
@@ -70,14 +74,12 @@ just that we'll ensure compatibility with the ones mentioned above.*
 If you need legacy browser support you can use [HTML5 Boilerplate v6](https://github.com/h5bp/html5-boilerplate/releases/tag/6.1.0) (IE9/IE10)
 or [HTML5 Boilerplate v5](https://github.com/h5bp/html5-boilerplate/releases/tag/5.3.0) (IE 8). They are no longer actively developed.
 
-
 ## Documentation
 
 Take a look at the [documentation table of contents](dist/doc/TOC.md).
 This documentation is bundled with the project which makes it 
 available for offline reading and provides a useful starting point for
 any documentation you want to write about your project.
-
 
 ## Contributing
 
@@ -88,7 +90,6 @@ the [guidelines](.github/CONTRIBUTING.md):
 * [Bug reports](.github/CONTRIBUTING.md#bugs)
 * [Feature requests](.github/CONTRIBUTING.md#features)
 * [Pull requests](.github/CONTRIBUTING.md#pull-requests)
-
 
 ## License
 
