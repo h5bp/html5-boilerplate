@@ -21,16 +21,16 @@
     "test": "gulp archive && mocha --require @babel/register --reporter spec --timeout 5000"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@babel/preset-env": "^7.6.3",
-    "@babel/register": "^7.6.2",
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/register": "^7.7.0",
     "apache-server-configs": "^3.2.1",
     "archiver": "^3.1.1",
     "del": "^5.1.0",
-    "eslint": "^6.5.1",
+    "eslint": "^6.6.0",
     "eslint-config-recommended": "^4.0.0",
-    "eslint-plugin-mocha": "^6.2.0",
-    "glob": "^7.1.5",
+    "eslint-plugin-mocha": "^6.2.1",
+    "glob": "^7.1.6",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-eslint": "^6.0.0",
@@ -43,11 +43,11 @@
     "mocha": "^6.2.2",
     "modernizr": "3.8.0",
     "normalize.css": "8.0.1",
-    "ssri": "^7.0.1",
+    "ssri": "^7.1.0",
     "strip-json-comments": "^3.0.1"
   },
   "engines": {
-    "node": ">=8",
+    "node": ">=10",
     "npm": ">=3"
   },
   "babel": {
