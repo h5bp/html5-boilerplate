@@ -1,3 +1,12 @@
+### 7.3.0 (November 19, 2019)
+* Updated to Modernizr 3.8 ([2b2bb45](https://github.com/h5bp/html5-boilerplate/commit/2b2bb453916b4b09a6f0929340290dc2505f7ce9))
+* Updated to Gulp 4 ([#2151](https://github.com/h5bp/html5-boilerplate/pull/2151))
+* Updated package.json ([#2162](https://github.com/h5bp/html5-boilerplate/pull/#2162)) and enabled package-lock.json ([abe2087](https://github.com/h5bp/html5-boilerplate/commit/abe20877fdb569c84aa0a1f8ae12c51c51e41250)),([#2145](https://github.com/h5bp/html5-boilerplate/pull/#2145))
+* Remove redundant rules from .editorconfig ([#2157](https://github.com/h5bp/html5-boilerplate/pull/2157))
+* Small docs maintenance updates ([#2155](https://github.com/h5bp/html5-boilerplate/pull/2155)), ([#2164](https://github.com/h5bp/html5-boilerplate/pull/2164)), ([#2165](https://github.com/h5bp/html5-boilerplate/pull/2165)), ([#2167](https://github.com/h5bp/html5-boilerplate/pull/2167)) & ([#2168](https://github.com/h5bp/html5-boilerplate/pull/2168))
+* Bump lowest supported version of node to 8.x ([#2142](https://github.com/h5bp/html5-boilerplate/pull/2142))
+* Remove .jscsrc config and remove gulp-jscs from package.json ([#2153](https://github.com/h5bp/html5-boilerplate/pull/2153))
+
 ### 7.2.0 (June 4, 2019)
 
 * Remove `defer` from Google Analytics snippet ([#2132](https://github.com/h5bp/html5-boilerplate/pull/2132))
@@ -36,20 +45,18 @@
 * [Update Apache Server Configs to `v3.0.0`.](https://github.com/h5bp/html5-boilerplate/pull/2042)
 * Migrate to eslint ([#2037](https://github.com/h5bp/html5-boilerplate/pull/2037))
 * Update to jQuery 3.3.1 ([#2018](https://github.com/h5bp/html5-boilerplate/pull/2018))
-* Update to Modernizr v3.6 and Normalize v8 ([#2028](https://github.com/h5bp/html5-boilerplate/pull/2028)) 
+* Update to Modernizr v3.6 and Normalize v8 ([#2028](https://github.com/h5bp/html5-boilerplate/pull/2028))
 * Update Dev Dependencies ([#2032](https://github.com/h5bp/html5-boilerplate/pull/2032)) ([#2017](https://github.com/h5bp/html5-boilerplate/pull/2017)) ([#2010](https://github.com/h5bp/html5-boilerplate/pull/2010)) ([#2009](https://github.com/h5bp/html5-boilerplate/pull/2009))
 * Replace 'node-sri' with 'ssri' ([#2031](https://github.com/h5bp/html5-boilerplate/pull/2031))
 * Add .babelrc and .prettierrc to .gitattributes ([#2030](https://github.com/h5bp/html5-boilerplate/pull/2030))
 * Update .htaccess ([#2003](https://github.com/h5bp/html5-boilerplate/pull/2003))
-* Fixed JSHint errors  ([#1994](https://github.com/h5bp/html5-boilerplate/pull/1994))
+* Fixed JSHint errors ([#1994](https://github.com/h5bp/html5-boilerplate/pull/1994))
 * Add CODE_OF_CONDUCT.md ([#2011](https://github.com/h5bp/html5-boilerplate/pull/2011))
 * Update Documentation ([#2029](https://github.com/h5bp/html5-boilerplate/pull/2029)) ([#2015](https://github.com/h5bp/html5-boilerplate/pull/2015)) ([#2007](https://github.com/h5bp/html5-boilerplate/pull/2007)) ([#2006](https://github.com/h5bp/html5-boilerplate/pull/2006)) ([#1996](https://github.com/h5bp/html5-boilerplate/pull/1996))
-
 
 ### 6.0.1 (August 20, 2017)
 
 * Reverts .visuallyhidden (see [#1985](https://github.com/h5bp/html5-boilerplate/issues/1985))
-
 
 ### 6.0.0 (August 17, 2017)
 
@@ -58,8 +65,8 @@
 * Update to jQuery 3.2.1 ([#1942](https://github.com/h5bp/html5-boilerplate/pull/1942))
 * Improve ::selection documentation which became confusing after c7057be ([#1955](https://github.com/h5bp/html5-boilerplate/pull/1955))
 * refactor(html): update browsehappy to https instead of http ([#1952](https://github.com/h5bp/html5-boilerplate/pull/1952))
-* Fix links to CONTRIBUTING.md  ([#1951](https://github.com/h5bp/html5-boilerplate/pull/1951))
-* Adds .github folder and contents Fixes  ([#1948](https://github.com/h5bp/html5-boilerplate/pull/1948))
+* Fix links to CONTRIBUTING.md ([#1951](https://github.com/h5bp/html5-boilerplate/pull/1951))
+* Adds .github folder and contents Fixes ([#1948](https://github.com/h5bp/html5-boilerplate/pull/1948))
 * Modernizr 3, modernizr.config and ([#1940](https://github.com/h5bp/html5-boilerplate/pull/1940))
 * Housekeeping by @coliff (#1968 #1969 #1965 #1964 #1958 #1957 #1956)
 * Update .gitattributes for Web Projects ([#1935](https://github.com/h5bp/html5-boilerplate/pull/1935))
@@ -91,7 +98,7 @@
 * Update jQuery to `v1.12.0`.
 * Fetch `jQuery` from jQuery's CDN instead of Google's
   ([#1737](https://github.com/h5bp/html5-boilerplate/issues/1737),
-   [#1739](https://github.com/h5bp/html5-boilerplate/issues/1739)).
+  [#1739](https://github.com/h5bp/html5-boilerplate/issues/1739)).
 * Change print color for `:first-letter` and `:first-line`
   pseudo-elements
   ([#1715](https://github.com/h5bp/html5-boilerplate/pull/1715)).
@@ -141,7 +148,7 @@
   ([#1567](https://github.com/h5bp/html5-boilerplate/pull/1567)).
 * Add `/.editorconfig` file
   ([#1561](https://github.com/h5bp/html5-boilerplate/issues/1561),
-   [#1564](https://github.com/h5bp/html5-boilerplate/issues/1564)).
+  [#1564](https://github.com/h5bp/html5-boilerplate/issues/1564)).
 * Add `auto` to the Google Universal Analytics tracker create method
   ([#1562](https://github.com/h5bp/html5-boilerplate/issues/1562)).
 * Add `timeline` and `timelineEnd` to the list of `console` methods
@@ -160,7 +167,7 @@
   ([#1477](https://github.com/h5bp/html5-boilerplate/issues/1477)).
 * Remove image replacement helper class `.ir`
   ([#1472](https://github.com/h5bp/html5-boilerplate/issues/1472),
-   [#1475](https://github.com/h5bp/html5-boilerplate/issues/1475)).
+  [#1475](https://github.com/h5bp/html5-boilerplate/issues/1475)).
 * Add vertical centering for `svg`
   ([#1453](https://github.com/h5bp/html5-boilerplate/issues/1453)).
 * Redesign 404 page
@@ -169,7 +176,7 @@
   ([#1050](https://github.com/h5bp/html5-boilerplate/issues/1050)).
 * Remove IE conditional classes
   ([#1187](https://github.com/h5bp/html5-boilerplate/issues/1187),
-   [#1290](https://github.com/h5bp/html5-boilerplate/issues/1290)).
+  [#1290](https://github.com/h5bp/html5-boilerplate/issues/1290)).
 
 ### 4.3.0 (September 10, 2013)
 
@@ -180,11 +187,11 @@
 * Update to Apache Server Configs 1.1.0.
 * Add `initial-scale=1` to the viewport `meta`
   ([#1398](https://github.com/h5bp/html5-boilerplate/pull/1398)).
-* Vertical centering for audio-, canvas- and video-tags
+* Vertical centering for audio, canvas and video-tags
   ([#1326](https://github.com/h5bp/html5-boilerplate/issues/1326)).
 * Remove Google Chrome Frame related code
   ([#1379](https://github.com/h5bp/html5-boilerplate/pull/1379),
-   [#1396](https://github.com/h5bp/html5-boilerplate/pull/1396)).
+  [#1396](https://github.com/h5bp/html5-boilerplate/pull/1396)).
 * Update to Google Universal Analytics
   ([#1347](https://github.com/h5bp/html5-boilerplate/issues/1347)).
 * Update to jQuery 1.10.2.
@@ -227,7 +234,7 @@
 
 * Further improvements to `console` method stubbing
   ([#1206](https://github.com/h5bp/html5-boilerplate/issues/1206),
-   [#1229](https://github.com/h5bp/html5-boilerplate/pull/1229)).
+  [#1229](https://github.com/h5bp/html5-boilerplate/pull/1229)).
 * Update to jQuery 1.8.2.
 * Update to Modernizr 2.6.2.
 * Minor additions to the documentation.
@@ -236,7 +243,7 @@
 
 * Improve the Apache compression configuration
   ([#1012](https://github.com/h5bp/html5-boilerplate/issues/1012),
-   [#1173](https://github.com/h5bp/html5-boilerplate/issues/1173)).
+  [#1173](https://github.com/h5bp/html5-boilerplate/issues/1173)).
 * Add a HiDPI example media query
   ([#1127](https://github.com/h5bp/html5-boilerplate/issues/1127)).
 * Add bundled docs
