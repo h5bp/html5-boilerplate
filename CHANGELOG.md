@@ -1,4 +1,4 @@
-### 7.3.0 (November 7, 2019)
+### 7.3.0 (November 19, 2019)
 * Updated to Modernizr 3.8 ([2b2bb45](https://github.com/h5bp/html5-boilerplate/commit/2b2bb453916b4b09a6f0929340290dc2505f7ce9))
 * Updated to Gulp 4 ([#2151](https://github.com/h5bp/html5-boilerplate/pull/2151))
 * Updated package.json ([#2162](https://github.com/h5bp/html5-boilerplate/pull/#2162)) and enabled package-lock.json ([abe2087](https://github.com/h5bp/html5-boilerplate/commit/abe20877fdb569c84aa0a1f8ae12c51c51e41250)),([#2145](https://github.com/h5bp/html5-boilerplate/pull/#2145))
