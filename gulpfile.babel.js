@@ -19,7 +19,7 @@ import modernizrConfig from './modernizr-config.json';
 const dirs = pkg['h5bp-configs'].directories;
 
 // ---------------------------------------------------------------------
-// | Helper tasks                                                      |
+// | Helper tasks                               -- ADd comments                        |
 // ---------------------------------------------------------------------
 
 gulp.task('archive:create_archive_dir', (done) => {
