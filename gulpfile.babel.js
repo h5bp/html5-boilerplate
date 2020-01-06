@@ -5,6 +5,7 @@ import gulp from 'gulp';
 
 // Load all gulp plugins automatically
 // and attach them to the `plugins` object
+// Adding a comment
 import plugins from 'gulp-load-plugins';
 
 import archiver from 'archiver';
