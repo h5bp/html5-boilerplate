@@ -10,7 +10,6 @@ HTML5 Boilerplate's CSS includes:
 
 This starting CSS does not rely on the presence of
 [conditional class names](https://www.paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/),
-[conditional style sheets](https://css-tricks.com/how-to-create-an-ie-only-stylesheet/),
 or [Modernizr](https://modernizr.com/), and it is ready to use no matter what
 your development preferences happen to be.
 
