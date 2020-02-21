@@ -18,8 +18,7 @@ other 3rd party scripts for a simple site.
 
 One approach is to put jQuery plugins inside of a `(function($){ ...
 })(jQuery);` closure to make sure they're in the jQuery namespace safety
-blanket. Read more about [jQuery plugin
-authoring](https://learn.jquery.com/plugins/#Getting_Started).
+blanket. Read more about [jQuery plugin authoring](https://learn.jquery.com/plugins/).
 
 By default the `plugins.js` file contains a small script to avoid `console`
 errors in browsers that lack a `console`. The script will make sure that, if
