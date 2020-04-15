@@ -101,12 +101,6 @@ The central part of the boilerplate template is pretty much empty. This is
 intentional, in order to make the boilerplate suitable for both web page and
 web app development.
 
-### Browser Upgrade Prompt
-
-The main content area of the boilerplate includes a prompt to install an up to
-date browser for users of IE 9 and lower. If you intended to support IE, then you
-should edit or remove the snippet of code.
-
 ## Modernizr
 
 HTML5 Boilerplate uses a custom build of Modernizr.
