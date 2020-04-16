@@ -12,7 +12,7 @@ table of contents](TOC.md)
 
 ---
 
-### Why is the Google Analytics code at the bottom? Google recommends it be placed in the `<head>`.
+## Why is the Google Analytics code at the bottom? Google recommends it be placed in the `<head>`.
 
 The main advantage of placing it in the `<head>` is that you will track the
 user's `pageview` even if they leave the page before it has been fully loaded.
@@ -28,13 +28,13 @@ reinforces that scripts at the bottom are the right move. (Usually I
 concatenate and minify all my scripts into one .js file — the GA snippet being
 the suffix.)
 
-### Do I need to upgrade my site each time a new version of HTML5 Boilerplate is released?
+## Do I need to upgrade my site each time a new version of HTML5 Boilerplate is released?
 
 No, just as you don't normally replace the foundation of a house once it
 was built. However, there is nothing stopping you from trying to work in the
 latest changes, but you'll have to assess the costs/benefits of doing so.
 
-### Where can I get help with support questions?
+## Where can I get help with support questions?
 
 Please ask for help on
 [StackOverflow](https://stackoverflow.com/questions/tagged/html5boilerplate).

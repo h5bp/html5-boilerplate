@@ -27,7 +27,7 @@ HTML5 Boilerplate is a starting point, not a destination.
 
 A basic HTML5 Boilerplate site initially looks something like this:
 
-```
+``` bash
 .
 ├── css
 │   ├── main.css

@@ -9,9 +9,7 @@ By default, HTML5 Boilerplate provides two `html` pages:
   basis of all pages on your website
 * `404.html` - a placeholder 404 error page
 
-
 ## `index.html`
-
 
 ### The `no-js` Class
 
@@ -20,8 +18,7 @@ explicitly add custom styles based on whether JavaScript is disabled
 (`.no-js`) or enabled (`.js`). Using this technique also helps [avoid the
 FOUC](https://www.paulirish.com/2009/avoiding-the-fouc-v3/).
 
-
-## Language Attribute
+### Language Attribute
 
 Please consider specifying the language of your content by adding a [value](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) to the `lang`
 attribute in the `<html>` as in this example:
@@ -39,7 +36,7 @@ be controlled by an attacker, such as a `<title>` element) in order to avoid a
 potential [encoding-related security issue](https://code.google.com/archive/p/doctype-mirror/wikis/ArticleUtf7.wiki)
 in Internet Explorer
 
-## Meta Description
+### Meta Description
 
 The `description` meta tag provides a short description of the page.
 In some situations this description is used as a part of the snippet
@@ -52,7 +49,7 @@ shown in the search results.
 Google's [Create good meta descriptions](https://support.google.com/webmasters/answer/35624?hl=en#meta-descriptions)
 documentation has useful tips on creating an effective description.
 
-## Mobile Viewport
+### Mobile Viewport
 
 There are a few different options that you can use with the [`viewport` meta
 tag](https://docs.google.com/present/view?id=dkx3qtm_22dxsrgcf4 "Viewport and
@@ -68,7 +65,7 @@ If you want to take advantage of edge-to-edge displays of iPhone X/XS/XR you can
 so with additional viewport parameters. [Check the WebKit blog](https://webkit.org/blog/7929/designing-websites-for-iphone-x/)
 for details.
 
-## Web App Manifest
+### Web App Manifest
 
 HTML5 Boilerplate includes a simple web app manifest file.
 
@@ -82,10 +79,11 @@ It's linked to from the HTML as follows:
 ```html
 <link rel="manifest" href="site.webmanifest">
 ```
+
 Our [site.webmanifest](https://github.com/h5bp/html5-boilerplate/blob/master/src/site.webmanifest) contains a very skeletal "app" definition, just to show the basic usage.
 You should fill this file out with [more information about your site or application](https://developer.mozilla.org/en-US/docs/Web/Manifest)
 
-## Favicons and Touch Icon
+### Favicons and Touch Icon
 
 The shortcut icons should be put in the root directory of your site. `favicon.ico`
 is automatically picked up by browsers if it's placed in the root.  HTML5
@@ -95,13 +93,13 @@ Touch Icon) that you can use as a baseline to create your own.
 Please refer to the more detailed description in the [Extend section](extend.md)
 of these docs.
 
-## The Content Area
+### The Content Area
 
 The central part of the boilerplate template is pretty much empty. This is
 intentional, in order to make the boilerplate suitable for both web page and
 web app development.
 
-## Modernizr
+### Modernizr
 
 HTML5 Boilerplate uses a custom build of Modernizr.
 
@@ -114,7 +112,7 @@ features supported by a browser.
 Starting with version 3 Modernizr can be customized using the [modernizr-config.json](https://github.com/h5bp/html5-boilerplate/blob/master/modernizr-config.json) and the
 [Modernizr command line utility](https://www.npmjs.com/package/modernizr-cli).
 
-## What About Polyfills?
+### What About Polyfills?
 
 If you need to include [polyfills](https://remysharp.com/2010/10/08/what-is-a-polyfill)
 in your project, you must make sure those load before any other JavaScript. If you're
@@ -182,7 +180,6 @@ that full IP address is never available to the Google Analytics property admin.
 By anonymizing the IP address you can make your site more GDPR-compliant as a
 full IP address can be defined as PII (personally identifiable information.)
 
-
 The beacon transport mechanism is used to send all hits [which saves HTTP requests and improves performance](https://philipwalton.com/articles/the-google-analytics-setup-i-use-on-every-site-i-build/#loading-analytics.js).
 
 Google recommends that this script be placed at the top of the page.
@@ -192,9 +189,9 @@ number of simultaneous connections of the browser.
 
 Further information:
 
-- [Introduction to
+* [Introduction to
   Analytics.js](https://developers.google.com/analytics/devguides/collection/analyticsjs/)
-- [Google Analytics Demos & Tools](https://ga-dev-tools.appspot.com/)
+* [Google Analytics Demos & Tools](https://ga-dev-tools.appspot.com/)
 
 **N.B.** The Google Analytics snippet is included by default mainly
 because Google Analytics is [currently one of the most popular tracking
@@ -202,5 +199,3 @@ solutions](https://trends.builtwith.com/analytics/Google-Analytics) out there.
 However, its usage isn't set in stone, and you SHOULD consider exploring the
 [alternatives](https://en.wikipedia.org/wiki/List_of_web_analytics_software)
 and use whatever suits your needs best.
-
-
