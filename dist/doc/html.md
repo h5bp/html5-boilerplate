@@ -176,6 +176,13 @@ included.
 We use `analytics.js` rather than the newer `gtag.js` as
 [it's faster and supports tasks and plugins](https://github.com/philipwalton/analyticsjs-boilerplate/issues/19#issuecomment-333714370)
 
+Starting with version 8 we, by default, [anonymize IP addresses](href="https://support.google.com/analytics/answer/2763052?hl=en).
+By default Google Analytics records the full IP address of a user visiting the site, but
+that full IP address is never available to the Google Analytics property admin.
+By anonymizing the IP address you can make your site more GDPR-compliant as a
+full IP address can be defined as PII (personally identifiable information.)
+
+
 The beacon transport mechanism is used to send all hits [which saves HTTP requests and improves performance](https://philipwalton.com/articles/the-google-analytics-setup-i-use-on-every-site-i-build/#loading-analytics.js).
 
 Google recommends that this script be placed at the top of the page.

@@ -128,21 +128,6 @@ Setup](https://developers.google.com/analytics/devguides/collection/analyticsjs/
 [Pageview](https://developers.google.com/analytics/devguides/collection/analyticsjs/pages),
 and [Event](https://developers.google.com/analytics/devguides/collection/analyticsjs/events) Docs.
 
-### Anonymize IP addresses
-
-In some countries, no personal data may be transferred outside jurisdictions
-that do not have similarly strict laws (i.e. from Germany to outside the EU).
-Thus a webmaster using the Google Universal Analytics may have to ensure that
-no personal (trackable) data is transferred to the US. You can do that with
-[the `ga('set', 'anonymizeIp', true);`
-parameter](https://developers.google.com/analytics/devguides/collection/analyticsjs/advanced#anonymizeip)
-before sending any events/pageviews. In use it looks like this:
-
-```js
-ga('create', 'UA-XXXXX-X', 'auto');
-ga('set', 'anonymizeIp', true);
-ga('send', 'pageview');
-```
 
 ### Track jQuery AJAX requests in Google Analytics
 
@@ -218,7 +203,7 @@ $(function(){
 
 Enabling your application for pinning will allow IE users to add it to their
 Windows Taskbar and Start Menu. This comes with a range of new tools that you
-can easily configure with the elements below. See more [documentation on IE 
+can easily configure with the elements below. See more [documentation on IE
 Pinned Sites](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/samples/gg491731(v%3dvs.85)).
 
 ### Name the Pinned Site for Windows
@@ -460,9 +445,9 @@ registration to Facebook).
 ### Twitter Cards
 
 Twitter provides a snippet specification that serves a similar purpose to Open
-Graph. In fact, Twitter will use Open Graph when Cards is not available. You 
-can read more about the various snippet formats and application process in the 
-[official Twitter Cards documentation](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards), 
+Graph. In fact, Twitter will use Open Graph when Cards is not available. You
+can read more about the various snippet formats and application process in the
+[official Twitter Cards documentation](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards),
 and you can validate your markup with the [Card validator](https://cards-dev.twitter.com/validator)
 (needs registration to Twitter).
 
@@ -566,11 +551,11 @@ on Apple's site.
 
 ### Apple Touch Icons
 
-Apple touch icons are used as icons when a user adds your webapp to the home 
+Apple touch icons are used as icons when a user adds your webapp to the home
 screen of aniOS devices.
 
-Though the dimensions of the icon can vary between iOS devices and versions 
-one `180×180px` touch icon named `icon.png` and including the following in 
+Though the dimensions of the icon can vary between iOS devices and versions
+one `180×180px` touch icon named `icon.png` and including the following in
 the `<head>` of the page is enough:
 
 ```html
@@ -630,9 +615,9 @@ for Android Lollipop](https://developers.google.com/web/updates/2014/11/Support-
 ## security.txt
 
 When security risks in web services are discovered by users they often lack the
-channels to disclose them properly. As a result, security issues may be left unreported. 
+channels to disclose them properly. As a result, security issues may be left unreported.
 
-Security.txt defines a standard to help organizations define the process for 
+Security.txt defines a standard to help organizations define the process for
 users to disclose security vulnerabilities securely. Include a text
 file on your server at `.well-known/security.txt` with the relevant contact details.
 
