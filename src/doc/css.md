@@ -8,17 +8,17 @@ HTML5 Boilerplate's CSS includes:
 * [Normalize.css](#normalizecss)
 * [main.css](#maincss)
 
-This starting CSS does not rely on the presence of
-[conditional class names](https://www.paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/),
+This starting CSS does not rely on the presence of [conditional class
+names](https://www.paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/),
 or [Modernizr](https://modernizr.com/), and it is ready to use no matter what
 your development preferences happen to be.
 
 
 ## Normalize.css
 
-In order to make browsers render all elements more consistently and in line
-with modern standards, we include Normalize.css — a modern, HTML5-ready
-alternative to CSS resets.
+In order to make browsers render all elements more consistently and in line with
+modern standards, we include Normalize.css — a modern, HTML5-ready alternative
+to CSS resets.
 
 As opposed to CSS resets, Normalize.css:
 
@@ -35,8 +35,7 @@ page](https://necolas.github.io/normalize.css/).
 
 ## main.css
 
-Several base styles are included that build upon `Normalize.css`. These
-styles:
+Several base styles are included that build upon `Normalize.css`. These styles:
 
 * provide basic typography settings that improve text readability
 * protect against unwanted `text-shadow` during text highlighting
@@ -45,4 +44,8 @@ styles:
 * style the prompt that is displayed to users using an outdated browser
 * and more...
 
-These styles are included in [main.css](https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css). See the [main.css](https://github.com/h5bp/main.css) project [documentation](https://github.com/h5bp/main.css/blob/master/README.md#features) for a full discussion of these styles.
+These styles are included in
+[main.css](https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css).
+See the [main.css](https://github.com/h5bp/main.css) project
+[documentation](https://github.com/h5bp/main.css/blob/master/README.md#features)
+for a full discussion of these styles.

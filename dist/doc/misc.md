@@ -34,7 +34,6 @@ globally ignore:
 * More on global ignores: https://help.github.com/articles/ignoring-files/
 * Comprehensive set of ignores on GitHub: https://github.com/github/gitignore
 
-
 ## .editorconfig
 
 The `.editorconfig` file is provided in order to encourage and help you and
@@ -58,7 +57,6 @@ access to `.editorconfig` files, as they can disclose sensitive information!
 For more details, please refer to the [EditorConfig
 project](https://editorconfig.org/).
 
-
 ## Server Configuration
 
 H5BP includes a [`.htaccess`](#htaccess) file for the [Apache HTTP
@@ -80,11 +78,10 @@ The `.htaccess` file is mostly used for:
 
 If you have access to the main server configuration file (usually called
 `httpd.conf`), you should add the logic from the `.htaccess` file in, for
-example, a <Directory> section in the main configuration file. This is usually
+example, a `<Directory>` section in the main configuration file. This is usually
 the recommended way, as using .htaccess files slows down Apache!
 
-To enable Apache modules locally, please see:
-https://github.com/h5bp/server-configs-apache#enable-apache-httpd-modules.
+To enable Apache modules locally, please see [the Apache modules documentation](https://github.com/h5bp/server-configs-apache#enable-apache-httpd-modules)
 
 In the repo the `.htaccess` is used for:
 
@@ -113,7 +110,6 @@ section](https://httpd.apache.org/docs/current/howto/htaccess.html).
 Notice that the original repo for the `.htaccess` file is [this
 one](https://github.com/h5bp/server-configs-apache).
 
-
 ## robots.txt
 
 The `robots.txt` file is used to give instructions to web robots on what can
@@ -121,8 +117,8 @@ be crawled from the website.
 
 By default, the file provided by this project includes the next two lines:
 
- * `User-agent: *` -  the following rules apply to all web robots
- * `Disallow:` - everything on the website is allowed to be crawled
+* `User-agent: *` -  the following rules apply to all web robots
+* `Disallow:` - everything on the website is allowed to be crawled
 
 If you want to disallow certain pages you will need to specify the path in a
 `Disallow` directive (e.g.: `Disallow: /path`) or, if you want to disallow
@@ -137,8 +133,8 @@ you want to block access to private content, use proper authentication instead.
 
 For more information about `robots.txt`, please see:
 
-  * [robotstxt.org](https://www.robotstxt.org/)
-  * [How Google handles the `robots.txt` file](https://developers.google.com/webmasters/control-crawl-index/docs/robots_txt)
+* [robotstxt.org](https://www.robotstxt.org/)
+* [How Google handles the `robots.txt` file](https://developers.google.com/webmasters/control-crawl-index/docs/robots_txt)
 
 ## humans.txt
 
@@ -147,13 +143,12 @@ the website.
 
 The provided file contains three sections:
 
-  * `TEAM` - this is intended to list the group of people responsible for the website
-  * `THANKS` - this is intended to list the group of people that have contributed
+* `TEAM` - this is intended to list the group of people responsible for the website
+* `THANKS` - this is intended to list the group of people that have contributed
   to the website
-  * `TECHNOLOGY COLOPHON` - the section lists technologies used to make the website
+* `TECHNOLOGY COLOPHON` - the section lists technologies used to make the website
 
 For more information about `humans.txt`, please see: http://humanstxt.org/
-
 
 ## browserconfig.xml
 
