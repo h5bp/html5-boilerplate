@@ -27,7 +27,7 @@ HTML5 Boilerplate is a starting point, not a destination.
 
 A basic HTML5 Boilerplate site initially looks something like this:
 
-``` bash
+```
 .
 ├── css
 │   ├── main.css
@@ -80,8 +80,9 @@ refer to the [Apache Server Configs
 repository](https://github.com/h5bp/server-configs-apache).
 
 Host your site on a server other than Apache? You're likely to find the
-corresponding server configs project listed in our [Server Configs
-](https://github.com/h5bp/server-configs/blob/master/README.md) repository.
+corresponding server configs project listed in our [Server
+Configs](https://github.com/h5bp/server-configs/blob/master/README.md)
+repository.
 
 ### 404.html
 
@@ -91,14 +92,14 @@ A helpful custom 404 to get you started.
 
 This file contains all settings regarding custom tiles for IE11 and Edge.
 
-For more info on this topic, please refer to
-[Microsoft's Docs](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/dn320426(v=vs.85)).
+For more info on this topic, please refer to [Microsoft's
+Docs](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/dn320426(v=vs.85)).
 
 ### .editorconfig
 
-The `.editorconfig` file is provided in order to encourage and help you and
-your team to maintain consistent coding styles between different
-editors and IDEs. [Read more about the `.editorconfig` file](misc.md#editorconfig).
+The `.editorconfig` file is provided in order to encourage and help you and your
+team to maintain consistent coding styles between different editors and IDEs.
+[Read more about the `.editorconfig` file](misc.md#editorconfig).
 
 ### index.html
 
@@ -123,8 +124,8 @@ Edit this file to include any pages you need hidden from search engines.
 
 ### Icons
 
-Replace the default `favicon.ico`, `tile.png`, `tile-wide.png` and Apple
-Touch Icon with your own.
+Replace the default `favicon.ico`, `tile.png`, `tile-wide.png` and Apple Touch
+Icon with your own.
 
 If you want to use different Apple Touch Icons for different resolutions please
 refer to the [according documentation](extend.md#apple-touch-icons).
