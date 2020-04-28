@@ -29,7 +29,7 @@ function, thus, preventing the browser from throwing an error.
 
 This directory can be used to contain all 3rd party library code.
 
-Minified versions of the latest jQuery and Modernizr libraries are included by
+Our custom build of the Modernizr library is included by
 default. You may wish to create your own [custom Modernizr build with the online
 builder](https://modernizr.com/download/) or [command line
 tool](https://modernizr.com/docs#command-line-config).
