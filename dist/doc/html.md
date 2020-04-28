@@ -158,12 +158,12 @@ As of v8.0.0 we no longer include jQuery by default. Web development has
 changed a lot since we started this project and while many millions of sites
 still use jQuery there are many sites and applications that don't. 10 years ago
 jQuery _was_ JavaScript for most developers. That's not the case any more so
-we've made the decidsion to remove jQuery from the project.
+we've made the decision to remove jQuery from the project.
 
-If you're intrested in including it, you can easily install jQuery using the
+If you're interested in including it, you can easily install jQuery using the
 following command:
 
-``` shell
+```
 npm install jQuery
 ```
 
