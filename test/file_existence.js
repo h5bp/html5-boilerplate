@@ -19,7 +19,6 @@ const expectedFilesInDistDir = [
   '.htaccess',
   '404.html',
   'package.json',
-  'package-lock.json',
   'browserconfig.xml',
 
   'css/', // for directories, a `/` character
@@ -71,6 +70,7 @@ function checkFiles(directory, expectedFiles) {
     'cwd': directory,
     'ignore': [
       '**/node_modules/**',
+      'package-lock.json',
       '**/dist/**',
       '**/.cache/**',
     ],

@@ -34,6 +34,7 @@ gulp.task('archive:zip', (done) => {
     'cwd': dirs.dist,
     'ignore': [
       '**/node_modules/**',
+      'package-lock.json',
       '**/dist/**',
       '**/.cache/**',
     ],
