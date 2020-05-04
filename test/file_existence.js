@@ -49,7 +49,6 @@ const expectedFilesInDistDir = [
   'js/main.js',
   'js/plugins.js',
   'js/vendor/',
-  `js/vendor/jquery-${pkg.devDependencies.jquery}.min.js`,
   `js/vendor/modernizr-${pkg.devDependencies.modernizr}.min.js`,
 
   'LICENSE.txt',

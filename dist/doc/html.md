@@ -135,8 +135,6 @@ it before the other scripts in the bottom of the page:
 ```html
     <script src="js/vendor/modernizr-3.10.0.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.5.0.min.js"><\/script>')</script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
 </body>
@@ -154,7 +152,33 @@ The only thing Modernizr does regarding polyfills is that the team maintains [a
 huge list of cross Browser
 polyfills](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills).
 
-### jQuery CDN for jQuery
+### jQuery
+
+As of v8.0.0 we no longer include jQuery by default. Web development has
+changed a lot since we started this project and while many millions of sites
+still use jQuery there are many sites and applications that don't. 10 years ago
+jQuery _was_ JavaScript for most developers. That's not the case any more so
+we've made the decision to remove jQuery from the project.
+
+If you're interested in including it, you can easily install jQuery using the
+following command:
+
+```
+npm install jQuery
+```
+
+You can then copy the minified file into the `vendor` folder and add jQuery
+to the `index.html` manually.
+
+For reference the last version of the snippet we used to include jQuery looked
+like the following:
+
+``` html
+<script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-3.5.0.min.js"><\/script>')</script>
+```
+
+#### jQuery CDN for jQuery
 
 The jQuery CDN version of the jQuery JavaScript library is referenced towards
 the bottom of the page. A local fallback of jQuery is included for rare
