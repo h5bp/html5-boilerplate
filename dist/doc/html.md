@@ -67,10 +67,42 @@ general use cases.
 <meta name="viewport" content="width=device-width, initial-scale=1">
 ```
 
-If you want to take advantage of edge-to-edge displays of iPhone X/XS/XR you can
-do so with additional viewport parameters. [Check the WebKit
+If you want to take advantage of edge-to-edge displays of iPhone X/XS/XR you
+can do so with additional viewport parameters. [Check the WebKit
 blog](https://webkit.org/blog/7929/designing-websites-for-iphone-x/) for
 details.
+
+### Open Graph Metadata
+
+The [Open Graph Protocol](https://ogp.me/) allows you to define the way your
+site is presented when referenced on third party sites and applications
+(Facebook, Twitter, Linkedin). The protocol provides a series of meta elements
+that define the details of your site. The required attributes define the title,
+preview image, URL, and [type](https://ogp.me/#types) (e.g., video, music,
+website, article.)
+
+``` html
+<meta property="og:title" content="" />
+<meta property="og:type" content="" />
+<meta property="og:url" content="" />
+<meta property="og:image" content="" />
+```
+
+In addition to these four attributes there are many more attributes you can use
+to add more richness to the description of your site. This just represents the
+most basic implementation.
+
+To see a working example, the following is the open graph metadata for the HTML5
+Boilerplate site. In addition to the required fields we add `og:description` to
+describe the site in more detail.
+
+``` html
+<meta name="og:url" content="https://html5boilerplate.com/">
+<meta name="og:title" content="HTML5 ★ BOILERPLATE">
+<meta name="og:type" content="website">
+<meta name="og:description" content="The web’s most popular front-end template which helps you build fast, robust, and adaptable web apps or sites.">
+<meta name="og:image" content="https://html5boilerplate.com/icon.png">
+```
 
 ### Web App Manifest
 
