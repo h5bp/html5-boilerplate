@@ -38,7 +38,7 @@
     "gulp-load-plugins": "^2.0.3",
     "gulp-rename": "^1.4.0",
     "gulp-replace": "^1.0.0",
-    "main.css": "2.0.0",
+    "main.css": "2.1.0",
     "mocha": "^6.2.3",
     "modernizr": "3.11.0",
     "normalize.css": "8.0.1",

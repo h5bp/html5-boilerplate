@@ -120,7 +120,6 @@ gulp.task('copy:normalize', () =>
 
 gulp.task('modernizr', (done) => {
   modernizr.build(modernizrConfig, (code) => {
-    fs.mkdirSync(`${dirs.dist}/js/vendor/`);
     fs.writeFile(`${dirs.dist}/js/vendor/modernizr-${pkg.devDependencies.modernizr}.min.js`, code, done);
   });
 });
