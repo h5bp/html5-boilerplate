@@ -119,8 +119,12 @@ gulp.task('copy:normalize', () =>
 );
 
 gulp.task('modernizr', (done) => {
-  modernizr.build(modernizrConfig, (code) => {
+  // TODO: rework this flow instead of just reacting to the fact that the jQuery step is gone
+  if (!fs.existsSync(`${dirs.dist}/js/vendor/`)){
     fs.mkdirSync(`${dirs.dist}/js/vendor/`);
+  } 
+  
+  modernizr.build(modernizrConfig, (code) => {
     fs.writeFile(`${dirs.dist}/js/vendor/modernizr-${pkg.devDependencies.modernizr}.min.js`, code, done);
   });
 });
