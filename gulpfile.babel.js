@@ -31,6 +31,12 @@ gulp.task('archive:zip', (done) => {
   const zip = archiver('zip');
   const files = glob.sync('**/*.*', {
     'cwd': dirs.dist,
+    'ignore': [
+      '**/node_modules/**',
+      'package-lock.json',
+      '**/dist/**',
+      '**/.cache/**',
+    ],
     'dot': true // include hidden files
   });
   const output = fs.createWriteStream(archiveName);

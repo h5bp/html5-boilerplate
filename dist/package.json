@@ -1,0 +1,21 @@
+{
+  "name": "html5-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "start": "npm run build",
+    "build": "parcel build index.html",
+    "dev": "parcel index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}
