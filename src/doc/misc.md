@@ -31,7 +31,7 @@ globally ignore:
     excludesfile = ~/.gitignore
 ```
 
-* More on global ignores: https://help.github.com/articles/ignoring-files/
+* More on global ignores: [https://help.github.com/articles/ignoring-files/](https://help.github.com/en/github/using-git/ignoring-files)
 * Comprehensive set of ignores on GitHub: https://github.com/github/gitignore
 
 ## .editorconfig
@@ -134,7 +134,7 @@ you want to block access to private content, use proper authentication instead.
 For more information about `robots.txt`, please see:
 
 * [robotstxt.org](https://www.robotstxt.org/)
-* [How Google handles the `robots.txt` file](https://developers.google.com/webmasters/control-crawl-index/docs/robots_txt)
+* [How Google handles the `robots.txt` file](https://developers.google.com/search/reference/robots_txt)
 
 ## humans.txt
 
@@ -154,7 +154,7 @@ For more information about `humans.txt`, please see: http://humanstxt.org/
 
 The `browserconfig.xml` file is used to customize the tile displayed when users
 pin your site to the Windows 8.1 start screen. In there you can define custom
-tile colors, custom images or even [live tiles](https://msdn.microsoft.com/library/dn455106.aspx#CreatingLiveTiles).
+tile colors, custom images or even [live tiles](https://docs.microsoft.com/previous-versions/windows/internet-explorer/ie-developer/samples/dn455106(v=vs.85)).
 
 By default, the file points to 2 placeholder tile images:
 
