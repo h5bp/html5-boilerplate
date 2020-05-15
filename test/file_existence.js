@@ -18,6 +18,7 @@ const expectedFilesInDistDir = [
   '.gitignore',
   '.htaccess',
   '404.html',
+  'package.json',
   'browserconfig.xml',
 
   'css/', // for directories, a `/` character
@@ -66,6 +67,12 @@ function checkFiles(directory, expectedFiles) {
   // Get the list of files from the specified directory
   const files = glob.sync('**/*', {
     'cwd': directory,
+    'ignore': [
+      '**/node_modules/**',
+      'package-lock.json',
+      '**/dist/**',
+      '**/.cache/**',
+    ],
     'dot': true,      // include hidden files
     'mark': true      // add a `/` character to directory matches
   });

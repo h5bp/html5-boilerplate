@@ -1,0 +1,21 @@
+{
+  "name": " ",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "start": "npm run build && npm run dev",
+    "build": "parcel build index.html",
+    "dev": "parcel index.html --open",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "h5bp",
+    "template",
+    "front-end"
+  ],
+  "author": "",
+  "license": "",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}
