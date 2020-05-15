@@ -32,7 +32,7 @@ to the `lang` attribute in the `<html>` as in this example:
 
 The charset declaration (`<meta charset="utf-8">`) must be included completely
 within the [first 1024 bytes of the
-document](https://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#charset)
+document](https://html.spec.whatwg.org/multipage/semantics.html#charset)
 and should be specified as early as possible (before any content that could be
 controlled by an attacker, such as a `<title>` element) in order to avoid a
 potential [encoding-related security
@@ -76,10 +76,10 @@ details.
 
 The [Open Graph Protocol](https://ogp.me/) allows you to define the way your
 site is presented when referenced on third party sites and applications
-(Facebook, Twitter, Linkedin). The protocol provides a series of meta elements
+(Facebook, Twitter, LinkedIn). The protocol provides a series of meta elements
 that define the details of your site. The required attributes define the title,
 preview image, URL, and [type](https://ogp.me/#types) (e.g., video, music,
-website, article.)
+website, article).
 
 ``` html
 <meta property="og:title" content="" />
@@ -161,7 +161,7 @@ utility](https://www.npmjs.com/package/modernizr-cli).
 If you need to include
 [polyfills](https://remysharp.com/2010/10/08/what-is-a-polyfill) in your
 project, you must make sure those load before any other JavaScript. If you're
-using a polyfill CDN service, like [polyfill.io](https://polyfill.io/), just put
+using a polyfill CDN service, like [polyfill.io](https://polyfill.io/v3/), just put
 it before the other scripts in the bottom of the page:
 
 ```html
@@ -202,39 +202,12 @@ npm install jQuery
 You can then copy the minified file into the `vendor` folder and add jQuery
 to the `index.html` manually.
 
-For reference the last version of the snippet we used to include jQuery looked
-like the following:
+To load jQuery from a CDN with a local fallback you can use the following:
 
 ``` html
-<script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-3.5.0.min.js"><\/script>')</script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-3.5.1.min.js"><\/script>')</script>
 ```
-
-#### jQuery CDN for jQuery
-
-The jQuery CDN version of the jQuery JavaScript library is referenced towards
-the bottom of the page. A local fallback of jQuery is included for rare
-instances when the CDN version might not be available, and to facilitate offline
-development.
-
-The jQuery CDN version was chosen over other potential candidates ([like
-Google's Hosted Libraries](https://developers.google.com/speed/libraries/))
-because it's fast ([comparable or faster than Google by some
-measures](https://www.cdnperf.com/#jsdelivr,cdnjs,google,yandex,microsoft,jquery,bootstrapcdn/https/90))
-and, (unlike Google's CDN) is available to China's hundreds of millions of
-internet users. For many years we
-[chose](https://github.com/h5bp/html5-boilerplate/issues/1191) the Google Hosted
-version over the jQuery CDN because it was available over HTTPS (the jQuery CDN
-was not,) and it offered a better chance of hitting the cache lottery owing to
-the popularity of the Google CDN. The first issue is no longer valid and the
-second is far outweighed by being able to serve jQuery to users in China.
-
-While the jQuery CDN is a strong default solution your site or application may
-require a different configuration. Testing your site with services like
-[WebPageTest](https://www.webpagetest.org/) and browser tools like [PageSpeed
-Insights](https://developers.google.com/speed/pagespeed/insights/) will help you
-examine the real world performance of your site and can show where you can
-optimize your specific site or application.
 
 ### Google Universal Analytics Tracking Code
 

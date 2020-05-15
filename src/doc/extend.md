@@ -55,18 +55,6 @@ already be in the client cache and will not block the loading of the foreign
 content. Fewer requests result in faster page load times. The perception of this
 is increased on a mobile platform where DNS latency can be greater.
 
-#### Disable implicit prefetching
-
-```html
-<meta http-equiv="x-dns-prefetch-control" content="off">
-```
-
-Even with X-DNS-Prefetch-Control meta tag (or http header) browsers will still
-prefetch any explicit dns-prefetch links.
-
-**_WARNING:_** THIS MAY MAKE YOUR SITE SLOWER IF YOU RELY ON RESOURCES FROM
-FOREIGN DOMAINS.
-
 ### Explicit prefetches
 
 Typically the browser only scans the HTML for foreign domains. If you have
@@ -110,7 +98,7 @@ Microsoft Ajax Content Delivery Network:
 
 * https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
 * https://dev.chromium.org/developers/design-documents/dns-prefetching
-* https://blogs.msdn.microsoft.com/ie/2011/03/17/internet-explorer-9-network-performance-improvements/
+* https://docs.microsoft.com/en-us/archive/blogs/ie/internet-explorer-9-network-performance-improvements
 
 
 ## Google Universal Analytics
@@ -274,7 +262,7 @@ right-click. Each Task goes to the specified URL, and gets its own mini icon
 
 Windows 8 adds the ability for you to provide a PNG tile image and specify the
 tile's background color. [Full details on the IE
-blog](https://blogs.msdn.microsoft.com/ie/2012/06/08/high-quality-visuals-for-pinned-sites-in-windows-8/).
+blog](https://docs.microsoft.com/en-us/archive/blogs/ie/high-quality-visuals-for-pinned-sites-in-windows-8).
 
 * Create a 144x144 image of your site icon, filling all of the canvas, and using
   a transparent background.
@@ -291,7 +279,7 @@ when your app isn't actively running. The badge's value can be a number, or one
 of a predefined list of glyphs.
 
 * [Tutorial on IEBlog with link to badge XML
-  schema](https://blogs.msdn.microsoft.com/ie/2012/04/03/pinned-sites-in-windows-8/)
+schema](https://docs.microsoft.com/en-us/archive/blogs/ie/pinned-sites-in-windows-8)
 * [Available badge
   values](https://docs.microsoft.com/en-us/uwp/schemas/tiles/badgeschema/element-badge)
 
@@ -312,7 +300,7 @@ value is boolean rather than a color. It's all or nothing.
 
 You can read about this useful element and more techniques in [Microsoft's
 documentation on adapting WebKit-oriented apps for
-IE10](https://blogs.windows.com/buildingapps/2012/11/15/adapting-your-webkit-optimized-site-for-internet-explorer-10/)
+IE10](https://blogs.windows.com/windowsdeveloper/2012/11/15/adapting-your-webkit-optimized-site-for-internet-explorer-10/)
 
 ## Search
 
@@ -389,7 +377,7 @@ plugin](https://www.google.com/search?ie=UTF-8&q=how+to+make+browser+search+plug
 ### RSS
 
 Have an RSS feed? Link to it here. Want to [learn how to write an RSS feed from
-scratch](http://www.rssboard.org/rss-specification)?
+scratch](https://www.rssboard.org/rss-specification)?
 
 ```html
 <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml">
@@ -485,7 +473,7 @@ search-engine, although this vocabulary is also used by Microsoft, Pinterest and
 Yandex.
 
 You can validate your markup with the [Structured Data Testing
-Tool](https://developers.google.com/structured-data/testing-tool/). Also, please
+Tool](https://search.google.com/structured-data/testing-tool). Also, please
 note that this markup requires to add attributes to your top `html` tag.
 
 ```html
@@ -558,7 +546,7 @@ added to the Home Screen on iOS:
 ```
 
 For further information please read the [official
-documentation](https://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html)
+documentation](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html)
 on Apple's site.
 
 
