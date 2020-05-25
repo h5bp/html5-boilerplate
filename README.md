@@ -18,7 +18,6 @@ way that you want.
 * Source: [https://github.com/h5bp/html5-boilerplate](https://github.com/h5bp/html5-boilerplate)
 * Twitter: [@h5bp](https://twitter.com/h5bp)
 
-
 ## Quick start
 
 Choose one of the following options:
@@ -34,8 +33,18 @@ Choose one of the following options:
 * Clone the git repo — `git clone
   https://github.com/h5bp/html5-boilerplate.git` - and checkout the
   [tagged release](https://github.com/h5bp/html5-boilerplate/releases)
-  you'd like to use. The `dist` folder represents the latest version of the project for end users. 
+  you'd like to use. The `dist` folder represents the latest version of the project for end users.
+
 * Install with [npm](https://www.npmjs.com/): `npm install html5-boilerplate` or [yarn](https://yarnpkg.com/): `yarn add html5-boilerplate`. The resulting `node_modules/html5-boilerplate/dist` folder represents the latest version of the project for end users. Depending on what you want to use and how you want to use it, you may have to copy and paste the contents of that folder into your project directory.
+
+* Using our new [create-html5-boilerplate](https://github.com/h5bp/create-html5-boilerplate) project, instantly fetch the latest npm published package (or any version available on npm) with `npx`, `npm init` or `yarn create` withut having to install any dependencies. Running the following `npx` command installs the latest version into a folder called `new-site`
+  
+  ```
+  npx create-html5-boilerplate new-site
+  cd new-site
+  npm install
+  npm start
+  ```
 
 ## Features
 
@@ -44,11 +53,11 @@ Choose one of the following options:
 * Includes:
   * [`Normalize.css`](https://necolas.github.com/normalize.css/)
     for CSS normalizations and common bug fixes
-  * [`jQuery`](https://jquery.com/) via CDN with [SRI Hash](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) and a local fallback
   * A custom build of [`Modernizr`](https://modernizr.com/) for feature
     detection
   * [`Apache Server Configs`](https://github.com/h5bp/server-configs-apache)
     that improve the web site's performance and security
+* Placeholder 
 * Placeholder CSS Media Queries.
 * Useful CSS helper classes.
 * Default print styles, performance optimized.
@@ -56,7 +65,7 @@ Choose one of the following options:
 * Protection against any stray `console` statements causing JavaScript
   errors in older browsers.
 * "Delete-key friendly." Easy to strip out parts you don't need.
-* Extensive inline and accompanying documentation.
+* Extensive documentation.
 
 
 ## Browser support
