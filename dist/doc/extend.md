@@ -7,7 +7,6 @@ Here is some useful advice for how you can make your project with HTML5
 Boilerplate even better. We don't want to include it all by default, as not
 everything fits with everyone's needs.
 
-
 * [App Stores](#app-stores)
 * [DNS prefetching](#dns-prefetching)
 * [Google Universal Analytics](#google-universal-analytics)
@@ -100,7 +99,6 @@ Microsoft Ajax Content Delivery Network:
 * https://dev.chromium.org/developers/design-documents/dns-prefetching
 * https://docs.microsoft.com/en-us/archive/blogs/ie/internet-explorer-9-network-performance-improvements
 
-
 ## Google Universal Analytics
 
 ### More tracking settings
@@ -119,7 +117,6 @@ Setup](https://developers.google.com/analytics/devguides/collection/analyticsjs/
 and
 [Event](https://developers.google.com/analytics/devguides/collection/analyticsjs/events)
 Docs.
-
 
 ### Track jQuery AJAX requests in Google Analytics
 

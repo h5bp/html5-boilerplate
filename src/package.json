@@ -13,7 +13,11 @@
     "template",
     "front-end"
   ],
-  "author": "",
+  "author": {
+    "name" : "",
+    "email" : "", 
+    "url" : ""
+    },
   "license": "",
   "devDependencies": {
     "parcel-bundler": "^1.12.4"
