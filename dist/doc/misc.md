@@ -174,18 +174,18 @@ see [MSDN](https://docs.microsoft.com/previous-versions/windows/internet-explore
 use in modern JavaScript development. [The full documentation is available](https://docs.npmjs.com/files/package.json)
 if you're interested. The fields we provide are as follows:
 
-* `title` - the title of your site. If you expect to publish your application
+* `title` - the title of your project. If you expect to publish your application
   to npm, then the name needs to follow [certain guidelines](https://docs.npmjs.com/files/package.json#name)
   and be unique.
-* `version` - indicates the version of your application using semantic
+* `version` - indicates the version of your site application using semantic
   versioning ([semver](https://docs.npmjs.com/misc/semver))
 * `description` - describes your site.
-* `scripts` - is a JavaScript object containting commands that can be run in a
+* `scripts` - is a JavaScript object containing commands that can be run in a
   node environment. There are many [built-in keys](https://docs.npmjs.com/misc/scripts)
-  related to the pacakge lifecycle that node understands autoamtically. You can
+  related to the package lifecycle that node understands automatically. You can
   also define custom scripts for use with your application development. We
-  provide three that work with Parcel to get you up and running quickly with a
-  bunlder for your assets and a simple development server.
+  provide three custom scripts that work with Parcel to get you up and running
+  quickly with a bundler for your assets and a simple development server.
   
   * `start` builds your site and starts a server
   * `build` builds your `index.html` using Parcel
@@ -198,7 +198,7 @@ if you're interested. The fields we provide are as follows:
   field if there's more than one author.
 * `license` - the license for your application. Must conform to
   [specific rules](https://docs.npmjs.com/files/package.json#license)
-* `devDependencies` - devevelopment dependencies for your package. In our case
-  it's a single dependency, Parcel, which we use to bundle files and run a 
+* `devDependencies` - development dependencies for your package. In our case
+  it's a single dependency, Parcel, which we use to bundle files and run a
   simple web server.
   

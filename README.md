@@ -50,7 +50,7 @@ Choose one of the following options:
 * Using our new [create-html5-boilerplate](https://github.com/h5bp/create-html5-boilerplate)
   project, instantly fetch the latest npm published package (or any version
   available on npm) with `npx`, `npm init` or `yarn create` withut having to
-  install any dependencies. Running the following `npx` command installs the 
+  install any dependencies. Running the following `npx` command installs the
   latest version into a folder called `new-site`
   
   ```
@@ -63,7 +63,7 @@ Choose one of the following options:
 ## Features
 
 * A finely-tuned starter template. Reap the benefits of 10 years of analysis
-  and experimentation by over 200 contributors.
+  research and experimentation by over 200 contributors.
 * Designed with progressive enhancement in mind.
 * Includes:
   * [`Normalize.css`](https://necolas.github.com/normalize.css/)
@@ -102,16 +102,16 @@ or [HTML5 Boilerplate v5](https://github.com/h5bp/html5-boilerplate/releases/tag
 
 ## Documentation
 
-Take a look at the [documentation table of contents](dist/doc/TOC.md).
-This documentation is bundled with the project which makes it 
-available for offline reading and provides a useful starting point for
-any documentation you want to write about your project.
+Take a look at the [documentation table of contents](dist/doc/TOC.md). This
+documentation is bundled with the project which makes it available for offline
+reading and provides a useful starting point for any documentation you want to
+write about your project.
 
 ## Contributing
 
 Hundreds of developers have helped to make the HTML5 Boilerplate. Anyone is
-welcome to [contribute](.github/CONTRIBUTING.md), however, if you decide to 
-get involved, please take a moment to review the [guidelines](.github/CONTRIBUTING.md):
+welcome to [contribute](.github/CONTRIBUTING.md), however, if you decide to get
+involved, please take a moment to review the [guidelines](.github/CONTRIBUTING.md):
 
 * [Bug reports](.github/CONTRIBUTING.md#bugs)
 * [Feature requests](.github/CONTRIBUTING.md#features)
