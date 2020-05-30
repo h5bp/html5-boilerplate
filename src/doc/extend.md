@@ -287,21 +287,6 @@ schema](https://docs.microsoft.com/en-us/archive/blogs/ie/pinned-sites-in-window
 <meta name="msapplication-badge" value="frequency=NUMBER_IN_MINUTES;polling-uri=https://www.example.com/path/to/file.xml">
 ```
 
-### Disable link highlighting upon tap in IE10
-
-Similar to
-[-webkit-tap-highlight-color](https://davidwalsh.name/mobile-highlight-color) in
-iOS Safari. Unlike that CSS property, this is an HTML meta element, and its
-value is boolean rather than a color. It's all or nothing.
-
-```html
-<meta name="msapplication-tap-highlight" content="no" />
-```
-
-You can read about this useful element and more techniques in [Microsoft's
-documentation on adapting WebKit-oriented apps for
-IE10](https://blogs.windows.com/windowsdeveloper/2012/11/15/adapting-your-webkit-optimized-site-for-internet-explorer-10/)
-
 ## Search
 
 ### Direct search spiders to your sitemap
