@@ -8,12 +8,6 @@ HTML5 Boilerplate's CSS includes:
 * [Normalize.css](#normalizecss)
 * [main.css](#maincss)
 
-This starting CSS does not rely on the presence of [conditional class
-names](https://www.paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/),
-or [Modernizr](https://modernizr.com/), and it is ready to use no matter what
-your development preferences happen to be.
-
-
 ## Normalize.css
 
 In order to make browsers render all elements more consistently and in line with
@@ -31,7 +25,6 @@ As opposed to CSS resets, Normalize.css:
 
 For more information about Normalize.css, please refer to its [project
 page](https://necolas.github.io/normalize.css/).
-
 
 ## main.css
 

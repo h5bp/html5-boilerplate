@@ -205,7 +205,7 @@ to the `index.html` manually.
 To load jQuery from a CDN with a local fallback you can use the following:
 
 ``` html
-<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.5.1.min.js"><\/script>')</script>
 ```
 
@@ -218,7 +218,7 @@ We use `analytics.js` rather than the newer `gtag.js` as [it's faster and
 supports tasks and
 plugins](https://github.com/philipwalton/analyticsjs-boilerplate/issues/19#issuecomment-333714370)
 
-Starting with version 8 we, by default, [anonymize IP
+Starting with version 8.0.0 we, by default, [anonymize IP
 addresses](href="https://support.google.com/analytics/answer/2763052?hl=en). By
 default Google Analytics records the full IP address of a user visiting the
 site, but that full IP address is never available to the Google Analytics

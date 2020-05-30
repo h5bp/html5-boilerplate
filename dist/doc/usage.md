@@ -38,7 +38,6 @@ A basic HTML5 Boilerplate site initially looks something like this:
 │   ├── main.js
 │   ├── plugins.js
 │   └── vendor
-│       ├── jquery.min.js
 │       └── modernizr.min.js
 ├── .editorconfig
 ├── .htaccess
@@ -117,6 +116,11 @@ corresponding snippet at the bottom to include your analytics ID.
 
 Edit this file to include the team that worked on your site/app, and the
 technology powering it.
+
+### package.jsom
+
+Edit this file to describe your application, add dependencies, scripts and
+other properties related to node based development and the npm registry
 
 ### robots.txt
 

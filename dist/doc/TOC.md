@@ -32,5 +32,6 @@ aspects of your website/web app (e.g.: the performance, security, etc.).
   * [lighttpd](https://github.com/h5bp/server-configs-lighttpd)
   * [Nginx](https://github.com/h5bp/server-configs-nginx)
   * [Node.js](https://github.com/h5bp/server-configs-node)
-* [Front-end Developer Interview
-  Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions)
+* [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions)
+* [create-html5-boilerplate](https://github.com/h5bp/create-html5-boilerplate) — Quick start HTML5 Boilerplate development
+* [main.css](https://github.com/h5bp/main.css) — the main.css file included with HTML5 Boilerplate

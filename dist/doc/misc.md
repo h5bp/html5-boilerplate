@@ -9,6 +9,7 @@ table of contents](TOC.md)
 * [robots.txt](#robotstxt)
 * [humans.txt](#humanstxt)
 * [browserconfig.xml](#browserconfigxml)
+* [package.json](#packagejson)
 
 --
 
@@ -166,3 +167,38 @@ Notice that IE11 uses the same images when adding a site to the `favorites`.
 
 For more in-depth information about the `browserconfig.xml` file, please
 see [MSDN](https://docs.microsoft.com/previous-versions/windows/internet-explorer/ie-developer/platform-apis/dn320426(v=vs.85)).
+
+## package.json
+
+`package.json` is used to define attributes of your site or application for
+use in modern JavaScript development. [The full documentation is available](https://docs.npmjs.com/files/package.json)
+if you're interested. The fields we provide are as follows:
+
+* `title` - the title of your project. If you expect to publish your application
+  to npm, then the name needs to follow [certain guidelines](https://docs.npmjs.com/files/package.json#name)
+  and be unique.
+* `version` - indicates the version of your site application using semantic
+  versioning ([semver](https://docs.npmjs.com/misc/semver))
+* `description` - describes your site.
+* `scripts` - is a JavaScript object containing commands that can be run in a
+  node environment. There are many [built-in keys](https://docs.npmjs.com/misc/scripts)
+  related to the package lifecycle that node understands automatically. You can
+  also define custom scripts for use with your application development. We
+  provide three custom scripts that work with Parcel to get you up and running
+  quickly with a bundler for your assets and a simple development server.
+  
+  * `start` builds your site and starts a server
+  * `build` builds your `index.html` using Parcel
+  * `dev` serves your `index.html` with a simple development server
+  
+* `keywords` - an array of keywords used to discover your app in the npm
+  registry
+* `author` - defines the author (via `name`, `email` and `url` fields) of a
+  package. There is also an alternative [contributors](https://docs.npmjs.com/files/package.json#people-fields-author-contributors)
+  field if there's more than one author.
+* `license` - the license for your application. Must conform to
+  [specific rules](https://docs.npmjs.com/files/package.json#license)
+* `devDependencies` - development dependencies for your package. In our case
+  it's a single dependency, Parcel, which we use to bundle files and run a
+  simple web server.
+  
