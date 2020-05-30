@@ -49,7 +49,7 @@ Choose one of the following options:
 
 * Using our new [create-html5-boilerplate](https://github.com/h5bp/create-html5-boilerplate)
   project, instantly fetch the latest npm published package (or any version
-  available on npm) with `npx`, `npm init` or `yarn create` withut having to
+  available on npm) with `npx`, `npm init` or `yarn create` without having to
   install any dependencies. Running the following `npx` command installs the
   latest version into a folder called `new-site`
   
