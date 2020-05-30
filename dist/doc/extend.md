@@ -167,7 +167,7 @@ Add this function after `ga` is defined:
 
 ### Track page scroll
 
-Add this function after `ga` is defined:
+Add this function after `ga` is defined. Note, the following snippet requires jQuery.
 
 ```js
 $(function(){
