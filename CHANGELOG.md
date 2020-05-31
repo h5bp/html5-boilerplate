@@ -1,4 +1,17 @@
-### 7.3.0 (November 19, 2019)
+# Changelog
+
+## 8.0.0 (June XX, 2020)
+
+* Add a sample package.json with basic Parcel commands ([#2227](https://github.com/h5bp/html5-boilerplate/pull/2229)), ([231e047](https://github.com/h5bp/html5-boilerplate/commit/231e047d270316b454156dc261e6e04da660e2a2))
+* Add sample Open Graph metadata ([#2235](https://github.com/h5bp/html5-boilerplate/pull/2235))
+* Update Modernizr to 3.11.2 ([84ae9cc](https://github.com/h5bp/html5-boilerplate/commit/84ae9cc91188bea4edb8ec91e2a25a2a7f7837a6))
+* Remove jQuery ([#2225](https://github.com/h5bp/html5-boilerplate/pull/2225))
+* Update main.css to 2.1.0 ([#2234](https://github.com/h5bp/html5-boilerplate/pull/2234))
+* Remove Browser Upgrade Prompt [23c4112](https://github.com/h5bp/html5-boilerplate/commit/23c4112db067262c715ebad861ec892c29c3cdaa)
+* Docs updates ([#2251](https://github.com/h5bp/html5-boilerplate/pull/2251)), [#2253](https://github.com/h5bp/html5-boilerplate/pull/2253), [#2245](https://github.com/h5bp/html5-boilerplate/pull/2245), ([#2220](https://github.com/h5bp/html5-boilerplate/pull/2220))
+
+## 7.3.0 (November 19, 2019)
+
 * Updated to Modernizr 3.8 ([2b2bb45](https://github.com/h5bp/html5-boilerplate/commit/2b2bb453916b4b09a6f0929340290dc2505f7ce9))
 * Updated to Gulp 4 ([#2151](https://github.com/h5bp/html5-boilerplate/pull/2151))
 * Updated package.json ([#2162](https://github.com/h5bp/html5-boilerplate/pull/#2162)) and enabled package-lock.json ([abe2087](https://github.com/h5bp/html5-boilerplate/commit/abe20877fdb569c84aa0a1f8ae12c51c51e41250)),([#2145](https://github.com/h5bp/html5-boilerplate/pull/#2145))
@@ -7,7 +20,7 @@
 * Bump lowest supported version of node to 8.x ([#2142](https://github.com/h5bp/html5-boilerplate/pull/2142))
 * Remove .jscsrc config and remove gulp-jscs from package.json ([#2153](https://github.com/h5bp/html5-boilerplate/pull/2153))
 
-### 7.2.0 (June 4, 2019)
+## 7.2.0 (June 4, 2019)
 
 * Remove `defer` from Google Analytics snippet ([#2132](https://github.com/h5bp/html5-boilerplate/pull/2132))
 * Update jQuery to v3.4.1 ([#2126](https://github.com/h5bp/html5-boilerplate/pull/2126))
@@ -15,7 +28,7 @@
 * Update main.css to v2.0.0 ([#2135](https://github.com/h5bp/html5-boilerplate/pull/2135))
 * Docs updates ([#2122](https://github.com/h5bp/html5-boilerplate/pull/2122)), ([#2125](https://github.com/h5bp/html5-boilerplate/pull/2125)), ([#2134](https://github.com/h5bp/html5-boilerplate/pull/2134)), ([#2137](https://github.com/h5bp/html5-boilerplate/pull/2137)), ([#2138](https://github.com/h5bp/html5-boilerplate/pull/2138))
 
-### 7.1.0 (March 18, 2019)
+## 7.1.0 (March 18, 2019)
 
 * Update Modernizr to 3.7.1 ([#2121](https://github.com/h5bp/html5-boilerplate/pull/2121))
 * Update Analytics docs and snippet ([#2118](https://github.com/h5bp/html5-boilerplate/pull/2118))
@@ -23,11 +36,11 @@
 * Minor devdeps updates ([#2114](https://github.com/h5bp/html5-boilerplate/pull/2114))
 * More succinct way of writing the IE conditional statement ([#2113](https://github.com/h5bp/html5-boilerplate/pull/2113))
 
-### 7.0.1 (February 11, 2019)
+## 7.0.1 (February 11, 2019)
 
 * Bumps main.css to current version ([#2112](https://github.com/h5bp/html5-boilerplate/pull/2112))
 
-### 7.0.0 (February 8, 2019)
+## 7.0.0 (February 8, 2019)
 
 * Drop support for IE9/IE10 (usage of these versions is tiny and Microsoft officially ended support back in 2016. ([#2074](https://github.com/h5bp/html5-boilerplate/pull/2074))
 * Move the CSS to a separate repo ([#2066](https://github.com/h5bp/html5-boilerplate/pull/2066))
@@ -40,7 +53,7 @@
 * Removes "display": "standalone" from manifest ([#2096](https://github.com/h5bp/html5-boilerplate/pull/2096))
 * Big Docs update - Fixed links, removed IE9/IE10 specific info, made touch icons section more concise, add details on security.txt and more tidying up ([#2074](https://github.com/h5bp/html5-boilerplate/pull/2031), [#2065](https://github.com/h5bp/html5-boilerplate/pull/2065), [#2062](https://github.com/h5bp/html5-boilerplate/pull/2062))
 
-### 6.1.0 (May 1, 2018)
+## 6.1.0 (May 1, 2018)
 
 * [Update Apache Server Configs to `v3.0.0`.](https://github.com/h5bp/html5-boilerplate/pull/2042)
 * Migrate to eslint ([#2037](https://github.com/h5bp/html5-boilerplate/pull/2037))
@@ -54,11 +67,11 @@
 * Add CODE_OF_CONDUCT.md ([#2011](https://github.com/h5bp/html5-boilerplate/pull/2011))
 * Update Documentation ([#2029](https://github.com/h5bp/html5-boilerplate/pull/2029)) ([#2015](https://github.com/h5bp/html5-boilerplate/pull/2015)) ([#2007](https://github.com/h5bp/html5-boilerplate/pull/2007)) ([#2006](https://github.com/h5bp/html5-boilerplate/pull/2006)) ([#1996](https://github.com/h5bp/html5-boilerplate/pull/1996))
 
-### 6.0.1 (August 20, 2017)
+## 6.0.1 (August 20, 2017)
 
 * Reverts .visuallyhidden (see [#1985](https://github.com/h5bp/html5-boilerplate/issues/1985))
 
-### 6.0.0 (August 17, 2017)
+## 6.0.0 (August 17, 2017)
 
 * Fix Bug: .visuallyhidden on macOS VO fixes #1985 ([#1989](https://github.com/h5bp/html5-boilerplate/pull/1989))
 * Adds web app manifest file ([#1963](https://github.com/h5bp/html5-boilerplate/pull/1963))
@@ -93,7 +106,7 @@
   ([#1814](https://github.com/h5bp/html5-boilerplate/pull/1814)).
 * Simplify the Google Analytics snippet using `async` & `defer` ([#1660](https://github.com/h5bp/html5-boilerplate/pull/1660#issuecomment-89285678)).
 
-### 5.3.0 (January 12, 2016)
+## 5.3.0 (January 12, 2016)
 
 * Update jQuery to `v1.12.0`.
 * Fetch `jQuery` from jQuery's CDN instead of Google's
@@ -103,7 +116,7 @@
   pseudo-elements
   ([#1715](https://github.com/h5bp/html5-boilerplate/pull/1715)).
 
-### 5.2.0 (May 1, 2015)
+## 5.2.0 (May 1, 2015)
 
 * Update jQuery to `v1.11.3`
   ([#1699](https://github.com/h5bp/html5-boilerplate/issues/1699)).
@@ -113,7 +126,7 @@
   ([#1474](https://github.com/h5bp/html5-boilerplate/issues/1474)).
 * Update Apache Server Configs to `v2.14.0`.
 
-### 5.1.0 (April 1, 2015)
+## 5.1.0 (April 1, 2015)
 
 * Update Normalize.css to `v3.0.3`.
 * Use `https://` in the Google Universal Analytics snippet
@@ -125,7 +138,7 @@
   ([#1656](https://github.com/h5bp/html5-boilerplate/issues/1656)).
 * Update Apache Server Configs to `v2.13.0`.
 
-### 5.0.0 (February 1, 2015)
+## 5.0.0 (February 1, 2015)
 
 * Update to jQuery 1.11.2.
 * Update Apache Server Configs to v2.11.0.
@@ -178,7 +191,7 @@
   ([#1187](https://github.com/h5bp/html5-boilerplate/issues/1187),
   [#1290](https://github.com/h5bp/html5-boilerplate/issues/1290)).
 
-### 4.3.0 (September 10, 2013)
+## 4.3.0 (September 10, 2013)
 
 * Use one `apple-touch-icon` instead of six
   ([#1367](https://github.com/h5bp/html5-boilerplate/issues/1367)).
@@ -197,7 +210,7 @@
 * Update to jQuery 1.10.2.
 * Update to Normalize.css 1.1.3.
 
-### 4.2.0 (April 8, 2013)
+## 4.2.0 (April 8, 2013)
 
 * Remove Google Analytics protocol check
   ([#1319](https://github.com/h5bp/html5-boilerplate/pull/1319)).
@@ -208,12 +221,12 @@
 * Use a protocol relative URL for the 404 template script.
 * Update to jQuery 1.9.1.
 
-### 4.1.0 (January 21, 2013)
+## 4.1.0 (January 21, 2013)
 
 * Update to Normalize.css 1.1.0.
 * Update to jQuery 1.9.0.
 
-### 4.0.3 (January 12, 2013)
+## 4.0.3 (January 12, 2013)
 
 * Use 32x32 favicon.ico
   ([#1286](https://github.com/h5bp/html5-boilerplate/pull/1286)).
@@ -224,13 +237,13 @@
 * Update HiDPI example media query
   ([#1127](https://github.com/h5bp/html5-boilerplate/issues/1127)).
 
-### 4.0.2 (December 9, 2012)
+## 4.0.2 (December 9, 2012)
 
 * Update placeholder icons.
 * Update to Normalize.css 1.0.2.
 * Update to jQuery 1.8.3.
 
-### 4.0.1 (October 20, 2012)
+## 4.0.1 (October 20, 2012)
 
 * Further improvements to `console` method stubbing
   ([#1206](https://github.com/h5bp/html5-boilerplate/issues/1206),
@@ -239,7 +252,7 @@
 * Update to Modernizr 2.6.2.
 * Minor additions to the documentation.
 
-### 4.0.0 (August 28, 2012)
+## 4.0.0 (August 28, 2012)
 
 * Improve the Apache compression configuration
   ([#1012](https://github.com/h5bp/html5-boilerplate/issues/1012),
@@ -270,15 +283,15 @@
 * Remove superfluous inline comments
   ([#1150](https://github.com/h5bp/html5-boilerplate/issues/1150)).
 
-### 3.0.2 (February 19, 2012)
+## 3.0.2 (February 19, 2012)
 
 * Update to Modernizr 2.5.3.
 
-### 3.0.1 (February 08, 2012)
+## 3.0.1 (February 08, 2012)
 
 * Update to Modernizr 2.5.2 (includes html5shiv 3.3).
 
-### 3.0.0 (February 06, 2012)
+## 3.0.0 (February 06, 2012)
 
 * Improvements to `.htaccess`.
 * Improve 404 design.
@@ -307,7 +320,7 @@
 * Remove explicit Site Speed tracking for Google Analytics. It's now
   enabled by default.
 
-### 2.0.0 (August 10, 2011)
+## 2.0.0 (August 10, 2011)
 
 * Change starting CSS to be based on normalize.css instead of reset.css
   ([#500](https://github.com/h5bp/html5-boilerplate/issues/500)).
@@ -339,7 +352,7 @@
   the HTML.
 * Remove IE6 PNGFix.
 
-### 1.0.0 (March 21, 2011)
+## 1.0.0 (March 21, 2011)
 
 * Rewrite build script to make it more customizable and flexible.
 * Add a humans.txt.
