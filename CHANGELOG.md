@@ -6,7 +6,7 @@
 * Add sample Open Graph metadata ([#2235](https://github.com/h5bp/html5-boilerplate/pull/2235))
 * Update Modernizr to 3.11.2 ([84ae9cc](https://github.com/h5bp/html5-boilerplate/commit/84ae9cc91188bea4edb8ec91e2a25a2a7f7837a6))
 * Remove jQuery ([#2225](https://github.com/h5bp/html5-boilerplate/pull/2225))
-* Set anonymizeIp to true in GA snippet ([#2219](https://github.com/h5bp/html5-boilerplate/pull/2219))
+* Set anonymizeIp to true in Google Analytics snippet ([#2219](https://github.com/h5bp/html5-boilerplate/pull/2219))
 * Update main.css to 2.1.0 ([#2234](https://github.com/h5bp/html5-boilerplate/pull/2234))
 * Remove Browser Upgrade Prompt ([23c4112](https://github.com/h5bp/html5-boilerplate/commit/23c4112db067262c715ebad861ec892c29c3cdaa))
 * Docs updates ([#2251](https://github.com/h5bp/html5-boilerplate/pull/2251)), ([#2253](https://github.com/h5bp/html5-boilerplate/pull/2253)), ([#2245](https://github.com/h5bp/html5-boilerplate/pull/2245)), ([#2220](https://github.com/h5bp/html5-boilerplate/pull/2220))
