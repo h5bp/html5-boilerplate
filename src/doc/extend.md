@@ -334,11 +334,6 @@ plugin](https://www.google.com/search?ie=UTF-8&q=how+to+make+browser+search+plug
   results
   [visibility](https://webmasters.googleblog.com/2009/05/introducing-rich-snippets.html).
 
-* If you're building a web app you may want [native style momentum scrolling in
-  iOS
-  5+](https://www.johanbrook.com/writings/native-style-momentum-scrolling-to-arrive-in-ios-5/)
-  using `-webkit-overflow-scrolling: touch`.
-
 * If you want to disable the translation prompt in Chrome or block Google
   Translate from translating your web page, use [`<meta name="google"
   content="notranslate">`](https://support.google.com/webmasters/answer/79812).
@@ -427,7 +422,7 @@ Facebook).
 
 Twitter provides a snippet specification that serves a similar purpose to Open
 Graph. In fact, Twitter will use Open Graph when Cards is not available. You can
-read more about the various snippet formats and application process in the
+read more about the various snippet formats in the
 [official Twitter Cards
 documentation](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards),
 and you can validate your markup with the [Card
@@ -460,13 +455,13 @@ note that this markup requires to add attributes to your top `html` tag.
 
 ```html
 <html class="no-js" lang="" itemscope itemtype="https://schema.org/Article">
-    <head>
+  <head>
 
-        <link rel="author" href="">
-        <link rel="publisher" href="">
-        <meta itemprop="name" content="">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="">
+    <link rel="author" href="">
+    <link rel="publisher" href="">
+    <meta itemprop="name" content="">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="">
 ```
 
 ## URLs
@@ -521,7 +516,7 @@ added to the Home Screen on iOS:
 ```
 
 * You can use `apple-mobile-web-app-title` to add a specific sites name for the
-  Home Screen icon. This works since iOS 6.
+  Home Screen icon.
 
 ```html
 <meta name="apple-mobile-web-app-title" content="">
@@ -535,7 +530,7 @@ on Apple's site.
 ### Apple Touch Icons
 
 Apple touch icons are used as icons when a user adds your webapp to the home
-screen of aniOS devices.
+screen of an iOS devices.
 
 Though the dimensions of the icon can vary between iOS devices and versions one
 `180×180px` touch icon named `icon.png` and including the following in the
