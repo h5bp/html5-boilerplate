@@ -16,7 +16,8 @@ jobs:
         id: get_version
         run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
       - name: Create Zip Folder  
-        run: zip -r ${{ steps.get_version.outputs.VERSION }}.zip ./dist
+        working-directory: dist
+        run: zip -r ../html5-boilerplate_${{ steps.get_version.outputs.VERSION }}.zip ./ 
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -34,8 +35,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./${{ steps.get_version.outputs.VERSION }}.zip
-          asset_name: ${{ steps.get_version.outputs.VERSION }}.zip
+          asset_path: ./html5-boilerplate_${{ steps.get_version.outputs.VERSION }}.zip
+          asset_name: html5-boilerplate_${{ steps.get_version.outputs.VERSION }}.zip
           asset_content_type: application/zip
       - name: Setup Node
         uses: actions/setup-node@v1
