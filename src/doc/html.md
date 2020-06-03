@@ -235,11 +235,15 @@ consider: if you place this script at the top of the page, you’ll be able to
 count users who don’t fully load the page, and you’ll incur the max number of
 simultaneous connections of the browser.
 
+Please be aware that while Google [states that it is fully GDPR compliant](https://privacy.google.com/businesses/compliance/),
+it is still possible to use analytics to violate GDPR.
+
 Further information:
 
 * [Introduction to
   Analytics.js](https://developers.google.com/analytics/devguides/collection/analyticsjs/)
 * [Google Analytics Demos & Tools](https://ga-dev-tools.appspot.com/)
+* [Privacy Controls in Google Analytics](https://support.google.com/analytics/answer/9019185?hl=en)
 
 **N.B.** The Google Analytics snippet is included by default mainly because
 Google Analytics is [currently one of the most popular tracking
