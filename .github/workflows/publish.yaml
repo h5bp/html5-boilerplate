@@ -16,7 +16,7 @@ jobs:
         id: get_version
         run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
       - name: Create Zip Folder  
-        run: zip -r --junk-paths ${{ steps.get_version.outputs.VERSION }}.zip ./dist
+        run: zip -r ${{ steps.get_version.outputs.VERSION }}.zip ./dist
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
