@@ -52,7 +52,7 @@ Choose one of the following options:
   available on npm) with `npx`, `npm init` or `yarn create` without having to
   install any dependencies. Running the following `npx` command installs the
   latest version into a folder called `new-site`
-  
+
   ```
   npx create-html5-boilerplate new-site
   cd new-site
@@ -62,7 +62,7 @@ Choose one of the following options:
 
 ## Features
 
-* A finely-tuned starter template. Reap the benefits of 10 years of analysis
+* A finely-tuned starter template. Reap the benefits of 10 years of analysis,
   research and experimentation by over 200 contributors.
 * Designed with progressive enhancement in mind.
 * Includes:
