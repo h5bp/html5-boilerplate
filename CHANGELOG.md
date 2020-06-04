@@ -1,6 +1,6 @@
 # Changelog
 
-## 8.0.0 (June XX, 2020)
+## 8.0.0 (June 04, 2020)
 
 * Add a sample package.json with basic Parcel commands ([#2227](https://github.com/h5bp/html5-boilerplate/pull/2229)), ([231e047](https://github.com/h5bp/html5-boilerplate/commit/231e047d270316b454156dc261e6e04da660e2a2))
 * Add sample Open Graph metadata ([#2235](https://github.com/h5bp/html5-boilerplate/pull/2235))
@@ -9,7 +9,8 @@
 * Set anonymizeIp to true in Google Analytics snippet ([#2219](https://github.com/h5bp/html5-boilerplate/pull/2219))
 * Update main.css to 2.1.0 ([#2234](https://github.com/h5bp/html5-boilerplate/pull/2234))
 * Remove Browser Upgrade Prompt ([23c4112](https://github.com/h5bp/html5-boilerplate/commit/23c4112db067262c715ebad861ec892c29c3cdaa))
-* Docs updates ([#2251](https://github.com/h5bp/html5-boilerplate/pull/2251)), ([#2253](https://github.com/h5bp/html5-boilerplate/pull/2253)), ([#2245](https://github.com/h5bp/html5-boilerplate/pull/2245)), ([#2220](https://github.com/h5bp/html5-boilerplate/pull/2220))
+* Create new publish action ([#2260](https://github.com/h5bp/html5-boilerplate/pull/2260)), ([#2241](https://github.com/h5bp/html5-boilerplate/pull/2241))
+* Docs updates ([#2251](https://github.com/h5bp/html5-boilerplate/pull/2251)), ([#2253](https://github.com/h5bp/html5-boilerplate/pull/2253)), ([#2245](https://github.com/h5bp/html5-boilerplate/pull/2245)), ([#2220](https://github.com/h5bp/html5-boilerplate/pull/2220)), ([#2263](https://github.com/h5bp/html5-boilerplate/pull/2263)), ([#2262](https://github.com/h5bp/html5-boilerplate/pull/2262))
 
 ## 7.3.0 (November 19, 2019)
 
