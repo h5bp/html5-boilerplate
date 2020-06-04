@@ -219,7 +219,7 @@ supports tasks and
 plugins](https://github.com/philipwalton/analyticsjs-boilerplate/issues/19#issuecomment-333714370)
 
 Starting with version 8.0.0 we, by default, [anonymize IP
-addresses](href="https://support.google.com/analytics/answer/2763052?hl=en). By
+addresses](https://support.google.com/analytics/answer/2763052). By
 default Google Analytics records the full IP address of a user visiting the
 site, but that full IP address is never available to the Google Analytics
 property admin. By anonymizing the IP address you can make your site more
@@ -235,11 +235,15 @@ consider: if you place this script at the top of the page, you’ll be able to
 count users who don’t fully load the page, and you’ll incur the max number of
 simultaneous connections of the browser.
 
+Please be aware that while Google [states that it is fully GDPR compliant](https://privacy.google.com/businesses/compliance/),
+it is still possible to use analytics to violate GDPR.
+
 Further information:
 
 * [Introduction to
   Analytics.js](https://developers.google.com/analytics/devguides/collection/analyticsjs/)
 * [Google Analytics Demos & Tools](https://ga-dev-tools.appspot.com/)
+* [Privacy Controls in Google Analytics](https://support.google.com/analytics/answer/9019185)
 
 **N.B.** The Google Analytics snippet is included by default mainly because
 Google Analytics is [currently one of the most popular tracking
