@@ -193,8 +193,8 @@ if you're interested. The fields we provide are as follows:
 
 * `keywords` - an array of keywords used to discover your app in the npm
   registry
-* `author` - defines the author (via `name`, `email` and `url` fields) of a
-  package. There is also an alternative [contributors](https://docs.npmjs.com/files/package.json#people-fields-author-contributors)
+* `author` - defines the author of a package. There is also an alternative
+  [contributors](https://docs.npmjs.com/files/package.json#people-fields-author-contributors)
   field if there's more than one author.
 * `license` - the license for your application. Must conform to
   [specific rules](https://docs.npmjs.com/files/package.json#license)
