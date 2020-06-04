@@ -186,11 +186,11 @@ if you're interested. The fields we provide are as follows:
   also define custom scripts for use with your application development. We
   provide three custom scripts that work with Parcel to get you up and running
   quickly with a bundler for your assets and a simple development server.
-  
+
   * `start` builds your site and starts a server
   * `build` builds your `index.html` using Parcel
   * `dev` serves your `index.html` with a simple development server
-  
+
 * `keywords` - an array of keywords used to discover your app in the npm
   registry
 * `author` - defines the author (via `name`, `email` and `url` fields) of a
@@ -201,4 +201,3 @@ if you're interested. The fields we provide are as follows:
 * `devDependencies` - development dependencies for your package. In our case
   it's a single dependency, Parcel, which we use to bundle files and run a
   simple web server.
-  

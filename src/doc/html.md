@@ -82,10 +82,10 @@ preview image, URL, and [type](https://ogp.me/#types) (e.g., video, music,
 website, article).
 
 ``` html
-<meta property="og:title" content="" />
-<meta property="og:type" content="" />
-<meta property="og:url" content="" />
-<meta property="og:image" content="" />
+<meta property="og:title" content="">
+<meta property="og:type" content="">
+<meta property="og:url" content="">
+<meta property="og:image" content="">
 ```
 
 In addition to these four attributes there are many more attributes you can use
