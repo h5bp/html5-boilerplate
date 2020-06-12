@@ -196,7 +196,7 @@ If you're interested in including it, you can easily install jQuery using the
 following command:
 
 ```
-npm install jQuery
+npm install jquery
 ```
 
 You can then copy the minified file into the `vendor` folder and add jQuery
