@@ -14,12 +14,23 @@ import modernizr from 'modernizr';
 
 import pkg from './package.json';
 import modernizrConfig from './modernizr-config.json';
+import sass from 'gulp-sass';
+import cssImport  from 'gulp-cssimport';
 
 const dirs = pkg['h5bp-configs'].directories;
 
 // ---------------------------------------------------------------------
 // | Helper tasks                                                      |
 // ---------------------------------------------------------------------
+
+
+const tildeImporter = (url, prev, done) => {
+	if (url[0] === '~') {
+	  url = path.resolve('node_modules', url.substr(1));
+	}
+  
+	return { file: url };
+}
 
 gulp.task('archive:create_archive_dir', (done) => {
   fs.mkdirSync(path.resolve(dirs.archive), '0755');
@@ -96,14 +107,29 @@ gulp.task('copy:license', () =>
 gulp.task('copy:main.css', () => {
   const banner = `/*! HTML5 Boilerplate v${pkg.version} | ${pkg.license} License | ${pkg.homepage} */\n\n`;
 
-  return gulp.src('node_modules/main.css/dist/main.css')
+  return gulp.src(`${dirs.src}/css/*.scss`)
     .pipe(plugins().header(banner))
-    .pipe(plugins().autoprefixer({
-      cascade: false
-    }))
-    .pipe(gulp.dest(`${dirs.dist}/css`));
+    .pipe(gulp.dest(`${dirs.dist}/scss`));
 });
-
+gulp.task('build:main.css', () => {
+  const banner = `/*! HTML5 Boilerplate v${pkg.version} | ${pkg.license} License | ${pkg.homepage} */\n\n`;
+  return gulp.src(`${dirs.src}/css/*.scss`)
+  .pipe(
+    sass({
+      // outputStyle: 'compact',
+      importer: tildeImporter,
+      includePaths: [
+        'node_modules', 'bower_components', 'src', '.'
+      ]
+    }).on('error', sass.logError)
+  )
+  .pipe(cssImport())
+  .pipe(plugins().header(banner))
+  .pipe(plugins().autoprefixer({
+    cascade: false
+  }))
+  .pipe(gulp.dest(`${dirs.dist}/css`));
+});
 gulp.task('copy:misc', () =>
   gulp.src([
     // Copy all files
@@ -153,6 +179,7 @@ gulp.task(
     'copy:index.html',
     'copy:license',
     'copy:main.css',
+    'build:main.css',
     'copy:misc',
     'copy:normalize'
   )
