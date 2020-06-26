@@ -1,7 +1,7 @@
 # [HTML5 Boilerplate](https://html5boilerplate.com/)
 
 [![LICENSE](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/h5bp/html5-boilerplate/blob/master/LICENSE.txt)
-![Build status](https://github.com/h5bp/html5-boilerplate/workflows/Tests/badge.svg)
+![Build status](https://github.com/h5bp/html5-boilerplate/workflows/Build%20status/badge.svg)
 [![devDependency Status](https://david-dm.org/h5bp/html5-boilerplate/dev-status.svg)](https://david-dm.org/h5bp/html5-boilerplate#info=devDependencies)
 [![NPM Downloads](https://img.shields.io/npm/dt/html5-boilerplate.svg)](https://www.npmjs.com/package/html5-boilerplate)
 [![github-stars-image](https://img.shields.io/github/stars/h5bp/html5-boilerplate.svg?label=github%20stars)](https://github.com/h5bp/html5-boilerplate)
