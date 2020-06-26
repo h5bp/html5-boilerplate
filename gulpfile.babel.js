@@ -104,6 +104,13 @@ gulp.task('copy:license', () =>
     .pipe(gulp.dest(dirs.dist))
 );
 
+gulp.task('copy:main.css', () => {
+  const banner = `/*! HTML5 Boilerplate v${pkg.version} | ${pkg.license} License | ${pkg.homepage} */\n\n`;
+
+  return gulp.src(`${dirs.src}/css/*.scss`)
+    .pipe(plugins().header(banner))
+    .pipe(gulp.dest(`${dirs.dist}/scss`));
+});
 gulp.task('build:main.css', () => {
   const banner = `/*! HTML5 Boilerplate v${pkg.version} | ${pkg.license} License | ${pkg.homepage} */\n\n`;
   return gulp.src(`${dirs.src}/css/*.scss`)
@@ -171,6 +178,7 @@ gulp.task(
     'copy:.htaccess',
     'copy:index.html',
     'copy:license',
+    'copy:main.css',
     'build:main.css',
     'copy:misc',
     'copy:normalize'
