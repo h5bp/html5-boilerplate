@@ -40,7 +40,7 @@
     "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.1.0",
     "main.css": "2.1.0",
-    "mocha": "^7.2.0",
+    "mocha": "^8.0.1",
     "modernizr": "3.11.2",
     "node-sass": "^4.14.1",
     "normalize.css": "8.0.1",
