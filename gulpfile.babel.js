@@ -115,7 +115,7 @@ gulp.task('build:main.css', () => {
   return gulp.src(`${dirs.dist}/scss/main.scss`)
   .pipe(
     sass({
-      // outputStyle: 'compact',
+      outputStyle: 'expanded',
       includePaths: ['node_modules']
     }).on('error', sass.logError)
   )
