@@ -96,7 +96,7 @@ gulp.task('copy:license', () =>
 );
 
 gulp.task('copy:css', () => {
-  return gulp.src(`node_modules/main.css/dist/_*.css`)
+  return gulp.src(`node_modules/main.css/src/_*.css`)
     .pipe(rename((path) => {
       path.extname = ".scss";
     }))
@@ -166,6 +166,16 @@ gulp.task('lint:js', () =>
 // ---------------------------------------------------------------------
 // | Main tasks                                                        |
 // ---------------------------------------------------------------------
+
+gulp.task(
+  'css',
+  gulp.series(
+    'copy:css',
+    'copy:main.css',
+    'build:main.css',
+  )
+);
+
 gulp.task(
   'copy',
   gulp.series(
@@ -174,9 +184,9 @@ gulp.task(
     'copy:license',
     'copy:css',
     'copy:main.css',
-    'build:main.css',
     'copy:misc',
-    'copy:normalize'
+    'copy:normalize',
+    'css'
   )
 );
 
