@@ -131,7 +131,7 @@ gulp.task('copy:misc', () =>
 
     // Exclude the following files
     // (other tasks will handle the copying of these files)
-    `!${dirs.src}/css/main.css`,
+    `!${dirs.src}/css/main.scss`,
     `!${dirs.src}/index.html`
   ], {
     // Include hidden files by default
