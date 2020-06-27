@@ -26,6 +26,14 @@ const expectedFilesInDistDir = [
   'css/main.css',
   'css/normalize.css',
 
+  'scss/',
+  'scss/_base.scss',
+  'scss/_custom.scss',
+  'scss/_helpers.scss',
+  'scss/_mqs.scss',
+  'scss/_print.scss',
+  'scss/main.scss',
+
   'doc/',
   'doc/TOC.md',
   'doc/css.md',
