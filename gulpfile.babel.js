@@ -23,15 +23,6 @@ const dirs = pkg['h5bp-configs'].directories;
 // | Helper tasks                                                      |
 // ---------------------------------------------------------------------
 
-
-const tildeImporter = (url, prev, done) => {
-	if (url[0] === '~') {
-	  url = path.resolve('node_modules', url.substr(1));
-	}
-  
-	return { file: url };
-}
-
 gulp.task('archive:create_archive_dir', (done) => {
   fs.mkdirSync(path.resolve(dirs.archive), '0755');
   done();
