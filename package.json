@@ -33,7 +33,6 @@
     "glob": "^7.1.6",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
-    "gulp-cssimport": "^7.0.0",
     "gulp-eslint": "^6.0.0",
     "gulp-header": "^2.0.9",
     "gulp-load-plugins": "^2.0.3",

@@ -15,7 +15,7 @@ import modernizr from 'modernizr';
 import pkg from './package.json';
 import modernizrConfig from './modernizr-config.json';
 import sass from 'gulp-sass';
-import cssImport  from 'gulp-cssimport';
+import rename from 'gulp-rename';
 
 const dirs = pkg['h5bp-configs'].directories;
 
@@ -104,27 +104,30 @@ gulp.task('copy:license', () =>
     .pipe(gulp.dest(dirs.dist))
 );
 
+gulp.task('copy:css', () => {
+  return gulp.src(`node_modules/main.css/dist/_*.css`)
+    .pipe(rename((path) => {
+      path.extname = ".scss";
+    }))
+    .pipe(gulp.dest(`${dirs.dist}/scss`))
+});
+
 gulp.task('copy:main.css', () => {
   const banner = `/*! HTML5 Boilerplate v${pkg.version} | ${pkg.license} License | ${pkg.homepage} */\n\n`;
 
-  return gulp.src(`${dirs.src}/css/*.scss`)
-    .pipe(plugins().header(banner))
-    .pipe(gulp.dest(`${dirs.dist}/scss`));
+  return gulp.src((`${dirs.src}/css/main.scss`))
+  .pipe(plugins().header(banner))
+  .pipe(gulp.dest(`${dirs.dist}/scss`));
 });
+
 gulp.task('build:main.css', () => {
-  const banner = `/*! HTML5 Boilerplate v${pkg.version} | ${pkg.license} License | ${pkg.homepage} */\n\n`;
-  return gulp.src(`${dirs.src}/css/*.scss`)
+  return gulp.src(`${dirs.dist}/scss/main.scss`)
   .pipe(
     sass({
       // outputStyle: 'compact',
-      importer: tildeImporter,
-      includePaths: [
-        'node_modules', 'bower_components', 'src', '.'
-      ]
+      includePaths: ['node_modules']
     }).on('error', sass.logError)
   )
-  .pipe(cssImport())
-  .pipe(plugins().header(banner))
   .pipe(plugins().autoprefixer({
     cascade: false
   }))
@@ -178,6 +181,7 @@ gulp.task(
     'copy:.htaccess',
     'copy:index.html',
     'copy:license',
+    'copy:css',
     'copy:main.css',
     'build:main.css',
     'copy:misc',
