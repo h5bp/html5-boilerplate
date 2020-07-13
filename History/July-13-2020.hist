@@ -1,0 +1,118 @@
+    1  lsblk
+    2  free
+    3  sudo apt install mc
+    4  NetworkManager
+    5  sudo NetworkManager
+    6  lsusb
+    7  sudo su
+    8  exit
+    9  apt search vivaldi
+   10  sudo su
+   11  Networkmanager
+   12  history 
+   13  ls
+   14  cd Udemy/
+   15  ls
+   16  cd Complete-NodeJS-Developer-Course/
+   17  ls
+   18  ls -al
+   19  git status
+   20  git config --list
+   21  git config --global user.name "gene@AsusRyzen3"
+   22  which hostname
+   23  sudo mc
+   24  exit
+   25  ls -al
+   26  sudo su
+   27  cd ~
+   28  ls -al
+   29  pwd
+   30  cd ..
+   31  ls -al
+   32  cd gene/
+   33  mc
+   34  sudo sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+   35  sudo apt install curl
+   36  sudo apt update
+   37  sudo apt upgrade
+   38  sudo kill 6278
+   39  sudo apt upgrade
+   40  htop
+   41  sudo su
+   42  sudo sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+   43  sudo apt install curl
+   44  sudo sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+   45  apt search zsh
+   46  sudo apt install zsh
+   47  sudo sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+   48  sudo mc
+   49  ./firefox/firefox
+   50  NetworkManager
+   51  sudo NetworkManager
+   52  cd Udemy/
+   53  ls
+   54  cd Complete-NodeJS-Developer-Course/
+   55  git status
+   56  git branch --set-upstream-to=origin/master master
+   57  git pull
+   58  ls -al
+   59  cd History/
+   60  ls
+   61  cd ..
+   62  cd Git-Github-Masterclass/
+   63  git pull
+   64  git branch --set-upstream-to=origin/master master
+   65  git pull origin master
+   66  git status
+   67  cd ..
+   68  history 
+   69  ls -al
+   70  git remote
+   71  cd Complete-NodeJS-Developer-Course/
+   72  git remote
+   73  cd ..
+   74  cd Git-Github-Masterclass/
+   75  ls
+   76  history 
+   77  git status
+   78  ls -al
+   79  ls
+   80  mkdir Html5-Boilerplate
+   81  cd Html5-Boilerplate/
+   82  cd ..
+   83  mkdir History
+   84  history > ./History/July-13-2020.hist
+   85  git status
+   86  cd ..
+   87  ls
+   88  cd Complete-NodeJS-Developer-Course/
+   89  git status
+   90  cd ..
+   91  cd Git-Github-Masterclass/
+   92  cd Html5-Boilerplate/
+   93  git status 
+   94  git clone https://github.com/the-genemachine/html5-boilerplate.git
+   95  ls
+   96  ls -al
+   97  cd html5-boilerplate/
+   98  ls
+   99  ls -al
+  100  cd ..
+  101  cd /
+  102  cd home/gene/Udemy/Git-Github-Masterclass/
+  103  ls -al
+  104  cd Html5-Boilerplate/
+  105  ls
+  106  ls -al
+  107  cd ..
+  108  ls -al
+  109  ls
+  110  git clone https://github.com/the-genemachine/html5-boilerplate.git
+  111  ls
+  112  cd html5-boilerplate/
+  113  ls
+  114  ls -al
+  115  git status
+  116  mkdir History
+  117  git status
+  118  history > ./History/July-13-2020.hist
