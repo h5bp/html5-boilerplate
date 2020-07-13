@@ -11,4 +11,14 @@
    8        0.931 git log | grep commit | measure
    9        0.809 git log | grep author | measure
   10        0.819 git log | grep Date: | measure
+  11        0.013 Get-History > ./History/July-13-2020.pwsh
+  12        0.010 git status
+  13        0.009 git add ./History/July-13-2020.pwsh
+  14        0.016 git commit
+  15        0.014 git commit -m "Powershell History"
+  16       11.345 git push
+  17     1:57.630 git log
+  18        0.009 git diff fe5934e1 13ad3b0a
+  19        0.011 git diff e784ec58 13ad3b0a
+  20        0.010 Get-History
 
