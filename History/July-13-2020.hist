@@ -116,3 +116,12 @@
   116  mkdir History
   117  git status
   118  history > ./History/July-13-2020.hist
+  119  git status
+  120  git add History/
+  121  git commit -m "BASH History"
+  122  git push 
+  123  git log
+  124  git log | grep Date:
+  125  git log | grep Author
+  126  git log | grep unknown
+  127  history > ./History/July-13-2020.hist
