@@ -1,0 +1,14 @@
+
+  Id     Duration CommandLine
+  --     -------- -----------
+   1        0.143 ls a-l
+   2        0.009 ls
+   3        0.006 cd ./Udemy/Git-Github-Masterclass/
+   4        0.010 ls
+   5        0.004 cd ./html5-boilerplate/
+   6        0.025 Get-History
+   7        2.720 git log
+   8        0.931 git log | grep commit | measure
+   9        0.809 git log | grep author | measure
+  10        0.819 git log | grep Date: | measure
+
