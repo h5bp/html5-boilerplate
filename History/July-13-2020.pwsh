@@ -21,4 +21,17 @@
   18        0.009 git diff fe5934e1 13ad3b0a
   19        0.011 git diff e784ec58 13ad3b0a
   20        0.010 Get-History
+  21        0.012 Get-History > ./History/July-13-2020.pwsh
+  22        0.010 git status
+  23        0.011 git add ./History/July-13-2020.pwsh
+  24        0.012 git commit -m "Powershell History"
+  25       12.800 git push
+  26        0.010 Get-History
+  27        0.007 git status
+  28        0.008 ls -al
+  29        0.002 cd ./History/
+  30        0.005 ls
+  31        0.007 cat ./July-13-2020.pwsh
+  32        0.224 Get-History > ./History/July-13-2020.pwsh
+  33        0.002 cd ..
 
