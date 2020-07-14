@@ -1,0 +1,38 @@
+
+  Id     Duration CommandLine
+  --     -------- -----------
+  45        0.003 Clear-History
+  46        0.004 Get-History
+  47       27.878 git log
+  48        0.012 git show
+  49        0.012 git show 15718acb
+  50       58.902 git show e784ec58
+  51        0.011 git show HEAD
+  52        0.008 ls -al
+  53        0.002 cd ..
+  54        0.010 ls -al
+  55        0.008 git show HEAD
+  56        0.008 git status 
+  57        0.002 cd ./html5-boilerplate/
+  58        0.010 git status 
+  59        0.011 git show HEAD~2
+  60        0.010 git show HEAD~3
+  61        0.010 git show HEAD~1
+  62       15.273 git show HEAD~4
+  63        0.021 git show HEAD~5
+  64        0.017 Get-ChildItem
+  65     1:05.183 git annotate ./gulpfile.babel.js
+  66        3.952 git annotate ./gulpfile.babel.js # list all changes to the file
+  67        0.008 ls -al
+  68        0.024 Get-History > ./History/July-14-2020.pwsh
+  69        0.021 git annotate ./gulpfile.babel.js | measure
+  70        0.033 git annotate ./gulpfile.babel.js | grep Rob
+  71        0.030 git annotate ./gulpfile.babel.js | grep Rob | measure
+  72        0.002 cd ..
+  73        0.005 ls
+  74        0.001 cd ./html5-boilerplate/
+  75        0.006 ls
+  76        0.006 ls -al
+  77        0.013 git annotate ./History/July-13-2020.pwsh
+  78        0.021 Get-History
+
