@@ -1,0 +1,38 @@
+
+  Id     Duration CommandLine
+  --     -------- -----------
+  88        0.001 Clear-History
+  89        0.052 open .
+  90        0.010 git status
+  91        0.014 git commit -a -m "Change 404 page..."
+  92        0.010 git status
+  93       18.080 git push origin master
+  94        0.006 Get-History
+  95        0.009 git checkout -- ./dist/404.html  # revert to a previous version of the file
+  96        0.009 git status
+  97        0.008 git checkout -- ./dist/404.html  # revert to a previous version of the file that hasn't been commited or unstaged
+  98        0.009 git checkout -- ./dist/404.html  # revert to a previous version of the file that hasn't been commited or unstaged
+  99        0.010 git status
+ 100        0.008 git add ./dist/404.html
+ 101        0.010 git status
+ 102        0.008 git checkout -- ./dist/404.html  # revert to a previous version of the file that hasn't been commited or unstaged
+ 103        0.000 # with git checkout changes are not reverted since its been add/staged
+ 104        0.010 git reset HEAD ./dist/404.html # revert a staged file
+ 105        0.010 git reset HEAD ./dist/404.html # unstage a staged file but not undo
+ 106        0.007 git status
+ 107        0.010 git checkout -- ./dist/404.html  # undo changes after unstaging
+ 108        0.008 git status
+ 109       26.938 git log # get hash for recent commit
+ 110        0.008 git checkout --d41f170a ./dist/404.html  # undo changes after committing
+ 111        0.009 git checkout d41f170a ./dist/404.html  # undo changes after committing
+ 112        0.001 # last command didn't work
+ 113       23.267 git log # get hash for recent commit
+ 114        0.010 git checkout --d41f170a ./dist/404.html  # undo changes after committing
+ 115        0.000 # use a " . " for working with multiple files
+ 116        0.008 git add . # an example to add multiple files
+ 117        0.009 git status
+ 118     5:12.891 git log
+ 119        0.007 git remote -v
+ 120        0.010 git status
+ 121        0.012 Get-History
+
