@@ -5,4 +5,8 @@ node_modules
 dist
 .cache
 
+# ignore file
 /credentals.py
+
+# ignore file just txt file
+text/*.txt
