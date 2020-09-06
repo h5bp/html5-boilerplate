@@ -15,6 +15,8 @@ import modernizr from 'modernizr';
 import pkg from './package.json';
 import modernizrConfig from './modernizr-config.json';
 
+// test editioning for testbranch in github
+
 const dirs = pkg['h5bp-configs'].directories;
 
 // ---------------------------------------------------------------------
