@@ -168,7 +168,7 @@ it before the other scripts in the bottom of the page:
     <script src="js/vendor/modernizr-3.10.0.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js"></script>
     <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/app.js"></script>
 </body>
 ```
 
