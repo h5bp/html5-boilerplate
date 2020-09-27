@@ -93,13 +93,16 @@ gulp.task('copy:license', () =>
     .pipe(gulp.dest(dirs.dist))
 );
 
-gulp.task('copy:main.css', () => {
+gulp.task('copy:style', () => {
   const banner = `/*! HTML5 Boilerplate v${pkg.version} | ${pkg.license} License | ${pkg.homepage} */\n\n`;
 
   return gulp.src('node_modules/main.css/dist/main.css')
     .pipe(plugins().header(banner))
     .pipe(plugins().autoprefixer({
       cascade: false
+    }))
+    .pipe(plugins().rename({
+      basename: 'style'
     }))
     .pipe(gulp.dest(`${dirs.dist}/css`));
 });
@@ -128,8 +131,8 @@ gulp.task('modernizr', (done) => {
   // TODO: rework this flow instead of just reacting to the fact that the jQuery step is gone
   if (!fs.existsSync(`${dirs.dist}/js/vendor/`)){
     fs.mkdirSync(`${dirs.dist}/js/vendor/`);
-  } 
-  
+  }
+
   modernizr.build(modernizrConfig, (code) => {
     fs.writeFile(`${dirs.dist}/js/vendor/modernizr-${pkg.devDependencies.modernizr}.min.js`, code, done);
   });
@@ -152,7 +155,7 @@ gulp.task(
     'copy:.htaccess',
     'copy:index.html',
     'copy:license',
-    'copy:main.css',
+    'copy:style',
     'copy:misc',
     'copy:normalize'
   )
