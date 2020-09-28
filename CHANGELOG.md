@@ -2,7 +2,7 @@
 
 ## 9.0.0 (TBD)
 
-* Rename CSS file and JS file
+* Rename CSS file [#2342](https://github.com/h5bp/html5-boilerplate/pull/2342) and JS file [#2341](https://github.com/h5bp/html5-boilerplate/pull/2341)
 
 ## 8.0.0 (June 04, 2020)
 
