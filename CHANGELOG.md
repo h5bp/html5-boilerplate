@@ -1,9 +1,5 @@
 # Changelog
 
-## 9.0.0 (TBD)
-
-* Rename CSS output file from `main.css` to `style.css` in build process  ([#2342](https://github.com/h5bp/html5-boilerplate/pull/2342))
-
 ## 8.0.0 (June 04, 2020)
 
 * Add a sample package.json with basic Parcel commands ([#2227](https://github.com/h5bp/html5-boilerplate/pull/2229)), ([231e047](https://github.com/h5bp/html5-boilerplate/commit/231e047d270316b454156dc261e6e04da660e2a2))
