@@ -34,7 +34,7 @@ Choose one of the following options:
   unzip html5-boilerplate*.zip -d html5-boilerplate
   ```
 
-* Clone the git repo — `git clone
+* Clone the git repository — `git clone
   https://github.com/h5bp/html5-boilerplate.git` - and checkout the
   [tagged release](https://github.com/h5bp/html5-boilerplate/releases)
   you'd like to use. The `dist` folder represents the latest version of the
@@ -87,11 +87,11 @@ Choose one of the following options:
 ## Browser support
 
 * Chrome *(latest 2)*
-* Edge *(latest 2)*
+* MS Edge *(latest 2)*
 * Firefox *(latest 2)*
 * Internet Explorer 11
 * Opera *(latest 2)*
-* Safari *(latest 2)*
+* Apple Safari *(latest 2)*
 
 *This doesn't mean that HTML5 Boilerplate cannot be used in older browsers,
 just that we'll ensure compatibility with the ones mentioned above.*
