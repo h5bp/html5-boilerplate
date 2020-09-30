@@ -48,7 +48,6 @@ const expectedFilesInDistDir = [
 
   'js/',
   'js/app.js',
-  'js/plugins.js',
   'js/vendor/',
   `js/vendor/modernizr-${pkg.devDependencies.modernizr}.min.js`,
 
