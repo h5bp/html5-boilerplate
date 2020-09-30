@@ -5,7 +5,7 @@ table of contents](TOC.md)
 
 Information about the default JavaScript included in the project.
 
-## main.js
+## app.js
 
 This file can be used to contain or reference your site/app JavaScript code. If
 you're working on something more advanced you might replace this file entirely.
