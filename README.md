@@ -1,4 +1,6 @@
+----------------------------------------------------
 # [HTML5 Boilerplate](https://html5boilerplate.com/)
+----------------------------------------------------
 
 [![Build status](https://github.com/h5bp/html5-boilerplate/workflows/Build%20status/badge.svg)](https://github.com/h5bp/html5-boilerplate/actions?query=workflow%3A%22Build+status%22+branch%3Amaster)
 [![LICENSE](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/h5bp/html5-boilerplate/blob/master/LICENSE.txt)
@@ -6,10 +8,10 @@
 [![NPM Downloads](https://img.shields.io/npm/dt/html5-boilerplate.svg)](https://www.npmjs.com/package/html5-boilerplate)
 [![github-stars-image](https://img.shields.io/github/stars/h5bp/html5-boilerplate.svg?label=github%20stars)](https://github.com/h5bp/html5-boilerplate)
 
-HTML5 Boilerplate is a professional front-end template for building
+->HTML5 Boilerplate is a professional front-end template for building
 fast, robust, and adaptable web apps or sites.
 
-This project is the product of over 10 years of iterative development and
+->This project is the product of over 10 years of iterative development and
 community knowledge. It does not impose a specific development
 philosophy or framework, so you're free to architect your code in the
 way that you want.
@@ -18,9 +20,11 @@ way that you want.
 * Source: [https://github.com/h5bp/html5-boilerplate](https://github.com/h5bp/html5-boilerplate)
 * Twitter: [@h5bp](https://twitter.com/h5bp)
 
+--------------
 ## Quick start
+--------------
 
-Choose one of the following options:
+->Choose one of the following options:
 
 * Download the latest stable release from
   [html5boilerplate.com](https://html5boilerplate.com/). This zip file is a
@@ -59,9 +63,9 @@ Choose one of the following options:
   npm install
   npm start
   ```
-
+-----------
 ## Features
-
+-----------
 * A finely-tuned starter template. Reap the benefits of 10 years of analysis,
   research and experimentation by over 200 contributors.
 * Designed with progressive enhancement in mind.
@@ -84,7 +88,9 @@ Choose one of the following options:
 * "Delete-key friendly." Easy to strip out parts you don't need.
 * Extensive documentation.
 
+------------------
 ## Browser support
+------------------
 
 * Chrome *(latest 2)*
 * Edge *(latest 2)*
@@ -96,20 +102,24 @@ Choose one of the following options:
 *This doesn't mean that HTML5 Boilerplate cannot be used in older browsers,
 just that we'll ensure compatibility with the ones mentioned above.*
 
-If you need legacy browser support you can use [HTML5 Boilerplate v6](https://github.com/h5bp/html5-boilerplate/releases/tag/6.1.0) (IE9/IE10)
+->If you need legacy browser support you can use [HTML5 Boilerplate v6](https://github.com/h5bp/html5-boilerplate/releases/tag/6.1.0) (IE9/IE10)
 or [HTML5 Boilerplate v5](https://github.com/h5bp/html5-boilerplate/releases/tag/5.3.0)
 (IE 8). They are no longer actively developed.
 
+----------------
 ## Documentation
+----------------
 
-Take a look at the [documentation table of contents](dist/doc/TOC.md). This
+->Take a look at the [documentation table of contents](dist/doc/TOC.md). This
 documentation is bundled with the project which makes it available for offline
 reading and provides a useful starting point for any documentation you want to
 write about your project.
 
+---------------
 ## Contributing
+---------------
 
-Hundreds of developers have helped to make the HTML5 Boilerplate. Anyone is
+->Hundreds of developers have helped to make the HTML5 Boilerplate. Anyone is
 welcome to [contribute](.github/CONTRIBUTING.md), however, if you decide to get
 involved, please take a moment to review the [guidelines](.github/CONTRIBUTING.md):
 
@@ -117,6 +127,8 @@ involved, please take a moment to review the [guidelines](.github/CONTRIBUTING.m
 * [Feature requests](.github/CONTRIBUTING.md#features)
 * [Pull requests](.github/CONTRIBUTING.md#pull-requests)
 
+----------
 ## License
+----------
 
-The code is available under the [MIT license](LICENSE.txt).
+->The code is available under the [MIT license](LICENSE.txt).
