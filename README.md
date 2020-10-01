@@ -18,7 +18,7 @@ way that you want.
 * Source: [https://github.com/h5bp/html5-boilerplate](https://github.com/h5bp/html5-boilerplate)
 * Twitter: [@h5bp](https://twitter.com/h5bp)
 
-## Quick start
+## QUICK START
 
 Choose one of the following options:
 
@@ -60,7 +60,7 @@ Choose one of the following options:
   npm start
   ```
 
-## Features
+## FEATURES
 
 * A finely-tuned starter template. Reap the benefits of 10 years of analysis,
   research and experimentation by over 200 contributors.
@@ -84,7 +84,7 @@ Choose one of the following options:
 * "Delete-key friendly." Easy to strip out parts you don't need.
 * Extensive documentation.
 
-## Browser support
+## BROWSER SUPOORT
 
 * Chrome *(latest 2)*
 * Edge *(latest 2)*
@@ -100,14 +100,14 @@ If you need legacy browser support you can use [HTML5 Boilerplate v6](https://gi
 or [HTML5 Boilerplate v5](https://github.com/h5bp/html5-boilerplate/releases/tag/5.3.0)
 (IE 8). They are no longer actively developed.
 
-## Documentation
+## DOCUMATION
 
 Take a look at the [documentation table of contents](dist/doc/TOC.md). This
 documentation is bundled with the project which makes it available for offline
 reading and provides a useful starting point for any documentation you want to
 write about your project.
 
-## Contributing
+## CONTRIBUTION
 
 Hundreds of developers have helped to make the HTML5 Boilerplate. Anyone is
 welcome to [contribute](.github/CONTRIBUTING.md), however, if you decide to get
