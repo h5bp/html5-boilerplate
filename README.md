@@ -1,4 +1,5 @@
-# [HTML5 Boilerplate](https://html5boilerplate.com/)
+# [HTML5 Boilerplate]
+(https://html5boilerplate.com/)
 
 [![Build status](https://github.com/h5bp/html5-boilerplate/workflows/Build%20status/badge.svg)](https://github.com/h5bp/html5-boilerplate/actions?query=workflow%3A%22Build+status%22+branch%3Amaster)
 [![LICENSE](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/h5bp/html5-boilerplate/blob/master/LICENSE.txt)
@@ -14,9 +15,9 @@ community knowledge. It does not impose a specific development
 philosophy or framework, so you're free to architect your code in the
 way that you want.
 
-* Homepage: [https://html5boilerplate.com/](https://html5boilerplate.com/)
-* Source: [https://github.com/h5bp/html5-boilerplate](https://github.com/h5bp/html5-boilerplate)
-* Twitter: [@h5bp](https://twitter.com/h5bp)
+* Homepage:- [https://html5boilerplate.com/](https://html5boilerplate.com/)
+* Source:- [https://github.com/h5bp/html5-boilerplate](https://github.com/h5bp/html5-boilerplate)
+* Twitter:- [@h5bp](https://twitter.com/h5bp)
 
 ## Quick start
 
