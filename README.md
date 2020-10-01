@@ -7,16 +7,19 @@
 [![github-stars-image](https://img.shields.io/github/stars/h5bp/html5-boilerplate.svg?label=github%20stars)](https://github.com/h5bp/html5-boilerplate)
 
 HTML5 Boilerplate is a professional front-end template for building
-fast, robust, and adaptable web apps or sites.
+fast,
+robust, and
+adaptable web apps 
+or sites.
 
 This project is the product of over 10 years of iterative development and
 community knowledge. It does not impose a specific development
 philosophy or framework, so you're free to architect your code in the
 way that you want.
 
-* Homepage: [https://html5boilerplate.com/](https://html5boilerplate.com/)
-* Source: [https://github.com/h5bp/html5-boilerplate](https://github.com/h5bp/html5-boilerplate)
-* Twitter: [@h5bp](https://twitter.com/h5bp)
+1 Homepage: [https://html5boilerplate.com/](https://html5boilerplate.com/)
+2 Source: [https://github.com/h5bp/html5-boilerplate](https://github.com/h5bp/html5-boilerplate)
+3 Twitter: [@h5bp](https://twitter.com/h5bp)
 
 ## Quick start
 
@@ -86,12 +89,12 @@ Choose one of the following options:
 
 ## Browser support
 
-* Chrome *(latest 2)*
-* Edge *(latest 2)*
-* Firefox *(latest 2)*
-* Internet Explorer 11
-* Opera *(latest 2)*
-* Safari *(latest 2)*
+1. Chrome *(latest 2)*
+2. Edge *(latest 2)*
+3. Firefox *(latest 2)*
+4. Internet Explorer 11
+5. Opera *(latest 2)*
+6. Safari *(latest 2)*
 
 *This doesn't mean that HTML5 Boilerplate cannot be used in older browsers,
 just that we'll ensure compatibility with the ones mentioned above.*
