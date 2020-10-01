@@ -7,7 +7,7 @@
 [![github-stars-image](https://img.shields.io/github/stars/h5bp/html5-boilerplate.svg?label=github%20stars)](https://github.com/h5bp/html5-boilerplate)
 
 HTML5 Boilerplate is a professional front-end template for building
-fast, robust, and adaptable web apps or sites.
+fast, robust, and adaptable web apps or sites. HTML boilerplate to start off all your future projects. We encourage this, and there are many starting points online to help you build your own HTML template.
 
 This project is the product of over 10 years of iterative development and
 community knowledge. It does not impose a specific development
