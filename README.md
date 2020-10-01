@@ -22,7 +22,7 @@ way that you want.
 
 Choose one of the following options:
 
-* Download the latest stable release from
+* Download the latest stable release from# [HTML5 Boilerplate](https://html5boilerplate.com/)
   [html5boilerplate.com](https://html5boilerplate.com/). This zip file is a
   snapshot of the `dist` folder. On Windows, Mac and from the file manager on
   Linux unzipping this folder will output to a folder named something like
