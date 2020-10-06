@@ -109,9 +109,9 @@ write about your project.
 
 ## Contributing
 
-Hundreds of developers have helped to make the HTML5 Boilerplate. Anyone is
+Hundreds of developers have helped us to make this HTML5 Boilerplate. Anyone is
 welcome to [contribute](.github/CONTRIBUTING.md), however, if you decide to get
-involved, please take a moment to review the [guidelines](.github/CONTRIBUTING.md):
+involved, please take a moment to review this [guidelines](.github/CONTRIBUTING.md):
 
 * [Bug reports](.github/CONTRIBUTING.md#bugs)
 * [Feature requests](.github/CONTRIBUTING.md#features)
