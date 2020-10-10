@@ -83,7 +83,7 @@ Choose one of the following options:
   errors in older browsers.
 * "Delete-key friendly." Easy to strip out parts you don't need.
 * Extensive documentation.
-
+This is currently maintained by Vlad Tansky.
 ## Browser support
 
 * Chrome *(latest 2)*
