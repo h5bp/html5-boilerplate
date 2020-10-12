@@ -224,6 +224,12 @@ property admin. By anonymizing the IP address you can make your site more
 GDPR-compliant as a full IP address can be defined as PII (personally
 identifiable information.)
 
+Though Google's initiative in providing an IP anonymization feature is
+commendable, pinging Google with visitors' IP addresses still potentially
+exposes meta-data of users to Google. For those privacy-minded among us,
+the Google Analytics code snippet is `<!--commented-out-->` by default.
+To enable the Google Analytics code, simply uncomment it.
+
 The beacon transport mechanism is used to send all hits [which saves HTTP
 requests and improves
 performance](https://philipwalton.com/articles/the-google-analytics-setup-i-use-on-every-site-i-build/#loading-analytics.js).
