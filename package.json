@@ -35,7 +35,7 @@
     "gulp-autoprefixer": "^7.0.1",
     "gulp-eslint": "^6.0.0",
     "gulp-header": "^2.0.9",
-    "gulp-load-plugins": "^2.0.4",
+    "gulp-load-plugins": "^2.0.5",
     "gulp-rename": "^2.0.0",
     "gulp-replace": "^1.0.0",
     "main.css": "2.1.0",
