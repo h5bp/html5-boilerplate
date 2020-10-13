@@ -102,10 +102,9 @@ or [HTML5 Boilerplate v5](https://github.com/h5bp/html5-boilerplate/releases/tag
 
 ## Documentation
 
-Take a look at the [documentation table of contents](dist/doc/TOC.md). This
-documentation is bundled with the project which makes it available for offline
-reading and provides a useful starting point for any documentation you want to
-write about your project.
+[documentation table of contents](dist/doc/TOC.md). This documentation is bundled 
+with the project which makes it available for offline reading and provides a useful 
+starting point for any documentation you want to write about your project.
 
 ## Contributing
 
