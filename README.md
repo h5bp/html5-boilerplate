@@ -23,7 +23,7 @@ way that you want.
 Choose one of the following options:
 
 * Download the latest stable release from
-  [html5boilerplate.com](https://html5boilerplate.com/). This zip file is a
+  [html5boilerplate (Click on the orange button and it will be automatically downloaded)](https://html5boilerplate.com/). This zip file is a
   snapshot of the `dist` folder. On Windows, Mac and from the file manager on
   Linux unzipping this folder will output to a folder named something like
   `html5-boilerplate_v7.3.0`. From the command line will need to create a
