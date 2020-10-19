@@ -39,7 +39,7 @@
     "gulp-rename": "^2.0.0",
     "gulp-replace": "^1.0.0",
     "main.css": "2.1.0",
-    "mocha": "^8.0.1",
+    "mocha": "^8.2.0",
     "modernizr": "3.11.3",
     "normalize.css": "8.0.1",
     "strip-json-comments": "^3.1.0"
