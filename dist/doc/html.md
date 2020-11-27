@@ -37,7 +37,7 @@ and should be specified as early as possible (before any content that could be
 controlled by an attacker, such as a `<title>` element) in order to avoid a
 potential [encoding-related security
 issue](https://code.google.com/archive/p/doctype-mirror/wikis/ArticleUtf7.wiki)
-in Internet Explorer
+in Internet Explorer.
 
 ### Meta Description
 
