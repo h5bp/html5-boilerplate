@@ -165,7 +165,7 @@ using a polyfill CDN service, like [polyfill.io](https://polyfill.io/v3/), just 
 it before the other scripts in the bottom of the page:
 
 ```html
-    <script src="js/vendor/modernizr-3.10.0.min.js"></script>
+    <script src="js/vendor/modernizr-3.11.4.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js"></script>
     <script src="js/app.js"></script>
 </body>
@@ -203,7 +203,7 @@ to the `index.html` manually.
 To load jQuery from a CDN with a local fallback you can use the following:
 
 ``` html
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.5.1.min.js"><\/script>')</script>
 ```
 
