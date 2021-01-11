@@ -24,7 +24,7 @@
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "@babel/register": "^7.12.10",
-    "apache-server-configs": "^4.0.0",
+    "apache-server-configs": "^4.1.0",
     "archiver": "^5.1.0",
     "del": "^6.0.0",
     "eslint": "^7.17.0",
