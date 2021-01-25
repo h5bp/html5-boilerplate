@@ -13,3 +13,5 @@
 
     CSS3, HTML5
     Apache Server Configs, Modernizr, Normalize.css, main.css, Parcel
+
+# ERROR CODE 404
