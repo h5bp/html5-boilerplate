@@ -1,7 +1,7 @@
 # humanstxt.org/
 # The humans responsible & technology colophon
 
-# TEAM
+# TEAMS
 
     <name> -- <role> -- <twitter>
 
