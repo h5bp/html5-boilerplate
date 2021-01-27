@@ -97,11 +97,11 @@ Boilerplate site. In addition to the required fields we add `og:description` to
 describe the site in more detail.
 
 ``` html
-<meta name="og:url" content="https://html5boilerplate.com/">
-<meta name="og:title" content="HTML5 ★ BOILERPLATE">
-<meta name="og:type" content="website">
-<meta name="og:description" content="The web’s most popular front-end template which helps you build fast, robust, and adaptable web apps or sites.">
-<meta name="og:image" content="https://html5boilerplate.com/icon.png">
+<meta property="og:url" content="https://html5boilerplate.com/">
+<meta property="og:title" content="HTML5 ★ BOILERPLATE">
+<meta property="og:type" content="website">
+<meta property="og:description" content="The web’s most popular front-end template which helps you build fast, robust, and adaptable web apps or sites.">
+<meta property="og:image" content="https://html5boilerplate.com/icon.png">
 ```
 
 ### Web App Manifest
