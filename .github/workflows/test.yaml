@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [10.x, 12.x]
+        node-version: [12.x, 14.x]
     steps:
       - name: Get npm cache directory
         id: npm-cache
@@ -25,7 +25,7 @@ jobs:
             ${{ runner.os }}-node-
       - uses: actions/checkout@v2
       - name: Run tests ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
