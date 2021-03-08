@@ -29,7 +29,7 @@
     "del": "^6.0.0",
     "eslint": "^7.21.0",
     "eslint-config-recommended": "^4.1.0",
-    "eslint-plugin-mocha": "^8.0.0",
+    "eslint-plugin-mocha": "^8.1.0",
     "glob": "^7.1.6",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
