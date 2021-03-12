@@ -21,8 +21,8 @@
     "test": "gulp archive && mocha --require @babel/register --reporter spec --timeout 5000"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.8",
-    "@babel/preset-env": "^7.13.9",
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
     "@babel/register": "^7.13.8",
     "apache-server-configs": "^4.1.0",
     "archiver": "^5.3.0",
@@ -39,10 +39,10 @@
     "gulp-rename": "^2.0.0",
     "gulp-replace": "^1.0.0",
     "main.css": "2.1.0",
-    "mocha": "^8.3.1",
+    "mocha": "^8.3.2",
     "modernizr": "3.11.4",
     "normalize.css": "8.0.1",
-    "strip-json-comments": "^3.1.0"
+    "strip-json-comments": "^3.1.1"
   },
   "engines": {
     "node": ">=10",
