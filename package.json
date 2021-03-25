@@ -40,7 +40,7 @@
     "gulp-replace": "^1.0.0",
     "main.css": "2.1.0",
     "mocha": "^8.3.2",
-    "modernizr": "3.11.4",
+    "modernizr": "3.11.6",
     "normalize.css": "8.0.1",
     "strip-json-comments": "^3.1.1"
   },
