@@ -21,7 +21,7 @@
     "test": "gulp archive && mocha --require @babel/register --reporter spec --timeout 5000"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.10",
+    "@babel/core": "^7.13.14",
     "@babel/preset-env": "^7.13.12",
     "@babel/register": "^7.13.8",
     "apache-server-configs": "^4.1.0",
