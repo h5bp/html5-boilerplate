@@ -5,3 +5,8 @@ updates:
     schedule:
       interval: weekly
     versioning-strategy: increase
+  - package-ecosystem: npm
+    directory: "/src/"
+    schedule:
+      interval: weekly
+    versioning-strategy: increase
