@@ -12,6 +12,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.12.5"
+    "parcel": "^2.0.0-beta.2"
   }
 }
