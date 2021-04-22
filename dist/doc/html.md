@@ -164,9 +164,9 @@ using a polyfill CDN service, like [polyfill.io](https://polyfill.io/v3/), just 
 it before the other scripts in the bottom of the page:
 
 ```html
-    <script src="js/vendor/modernizr-3.11.6.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js"></script>
-    <script src="js/app.js"></script>
+  <script src="js/vendor/modernizr-3.11.7.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js"></script>
+  <script src="js/app.js"></script>
 </body>
 ```
 
