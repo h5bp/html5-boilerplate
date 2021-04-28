@@ -66,7 +66,7 @@ Choose one of the following options:
   research and experimentation by over 200 contributors.
 * Designed with progressive enhancement in mind.
 * Includes:
-  * [`Normalize.css`](https://necolas.github.com/normalize.css/)
+  * [`Normalize.css`](https://necolas.github.io/normalize.css/)
     for CSS normalizations and common bug fixes
   * A custom build of [`Modernizr`](https://modernizr.com/) for feature
     detection
