@@ -1,0 +1,68 @@
+{
+  "short_name": "",
+  "name": "",
+  "icons": [
+    {
+      "src": "/icons/icon-144.png",
+      "type": "image/png",
+      "sizes": "144x144",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ],
+  "start_url": "/?utm_source=homescreen",
+  "background_color": "#fafafa",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#fafafa",
+  "shortcuts": [
+    {
+      "name": "Site Search",
+      "short_name": "Search",
+      "description": "This is the search page of the website ",
+      "url": "/search/?utm_source=searchpage",
+      "icons": [
+        {
+          "src": "/icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "All Posts",
+      "short_name": "Archive",
+      "description": "This directory contains all the posts",
+      "url": "/archive/?utm_source=archivepage",
+      "icons": [
+        {
+          "src": "/icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "description": "",
+  "screenshots": [
+    {
+      "src": "/images/screenshot1.png",
+      "type": "image/png",
+      "sizes": "540x720"
+    },
+    {
+      "src": "/images/screenshot2.jpg",
+      "type": "image/jpg",
+      "sizes": "540x720"
+    }
+  ]
+}
