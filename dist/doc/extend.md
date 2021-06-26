@@ -25,7 +25,7 @@ everything fits with everyone's needs.
 
 Stop bothering everyone with gross modals advertising your entry in the App
 Store. Including the following [meta
-tag](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/PromotingAppswithAppBanners/PromotingAppswithAppBanners.html)
+tag](https://developer.apple.com/documentation/webkit/promoting_apps_with_smart_app_banners)
 will unobtrusively give the user the option to download your iOS app, or open it
 with some data about the user's current state on the website.
 
@@ -72,32 +72,11 @@ Charset](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-cha
 element (which should go right at the top of the `head`), so the browser can act
 on them ASAP.
 
-#### Common Prefetch Links
-
-Amazon S3:
-
-```html
-<link rel="dns-prefetch" href="//s3.amazonaws.com">
-```
-
-Google APIs:
-
-```html
-<link rel="dns-prefetch" href="https://ajax.googleapis.com">
-```
-
-Microsoft Ajax Content Delivery Network:
-
-```html
-<link rel="dns-prefetch" href="//ajax.microsoft.com">
-<link rel="dns-prefetch" href="//ajax.aspnetcdn.com">
-```
 
 ### Further reading about DNS prefetching
 
 * https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
 * https://dev.chromium.org/developers/design-documents/dns-prefetching
-* https://docs.microsoft.com/en-us/archive/blogs/ie/internet-explorer-9-network-performance-improvements
 
 ## Google Universal Analytics
 
