@@ -27,7 +27,7 @@
     "apache-server-configs": "^4.1.0",
     "archiver": "^5.3.0",
     "del": "^6.0.0",
-    "eslint": "^7.30.0",
+    "eslint": "^7.31.0",
     "eslint-config-recommended": "^4.1.0",
     "eslint-plugin-mocha": "^9.0.0",
     "glob": "^7.1.7",
