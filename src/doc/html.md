@@ -59,7 +59,7 @@ There are a few different options that you can use with the
 [`viewport` meta tag](https://docs.google.com/present/view?id=dkx3qtm_22dxsrgcf4 
 "Viewport and Media Queries - The Complete Idiot's Guide"). 
 You can find out more in [
-the MDN Web Docs](https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag).
+the MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag).
 HTML5 Boilerplate comes with a simple setup that strikes a good balance for general use cases.
 
 ```html
