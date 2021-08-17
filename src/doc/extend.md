@@ -551,8 +551,14 @@ Currently, the `theme-color` meta extension is supported by [Chrome 39+ for
 Android
 Lollipop](https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android).
 
+### humans.txt
 
-## security.txt
+You can include a `humans.txt` file in the root of your site which can be used
+to provide information about people involved with the website.
+
+For more information about `humans.txt`, please see: https://humanstxt.org/
+
+### security.txt
 
 When security risks in web services are discovered by users they often lack the
 channels to disclose them properly. As a result, security issues may be left

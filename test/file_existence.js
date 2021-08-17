@@ -37,7 +37,6 @@ const expectedFilesInDistDir = [
   'doc/usage.md',
 
   'favicon.ico',
-  'humans.txt',
 
   'icon.png',
 
