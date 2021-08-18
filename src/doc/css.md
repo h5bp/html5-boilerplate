@@ -38,7 +38,7 @@ Several base styles are included that build upon `Normalize.css`. These styles:
 * and more...
 
 These styles are included in
-[style.css](https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/style.css)
+[style.css](https://github.com/h5bp/html5-boilerplate/blob/main/dist/css/style.css)
 using [main.css](https://github.com/h5bp/main.css) project.
-See the main.css [documentation](https://github.com/h5bp/main.css/blob/master/README.md#features)
+See the main.css [documentation](https://github.com/h5bp/main.css/blob/main/README.md#features)
 for a full discussion of these styles.
