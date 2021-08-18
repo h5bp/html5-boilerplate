@@ -137,20 +137,6 @@ For more information about `robots.txt`, please see:
 * [robotstxt.org](https://www.robotstxt.org/)
 * [How Google handles the `robots.txt` file](https://developers.google.com/search/reference/robots_txt)
 
-## humans.txt
-
-The `humans.txt` file is used to provide information about people involved with
-the website.
-
-The provided file contains three sections:
-
-* `TEAM` - this is intended to list the group of people responsible for the website
-* `THANKS` - this is intended to list the group of people that have contributed
-  to the website
-* `TECHNOLOGY COLOPHON` - the section lists technologies used to make the website
-
-For more information about `humans.txt`, please see: http://humanstxt.org/
-
 ## browserconfig.xml
 
 The `browserconfig.xml` file is used to customize the tile displayed when users
