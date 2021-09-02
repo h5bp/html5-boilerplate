@@ -17,6 +17,7 @@ everything fits with everyone's needs.
 * [Social Networks](#social-networks)
 * [URLs](#urls)
 * [Web Apps](#web-apps)
+* [humans.txt](#humanstxt)
 * [security.txt](#security.txt)
 
 ## App Stores
