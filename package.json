@@ -30,7 +30,7 @@
     "eslint": "^7.32.0",
     "eslint-config-recommended": "^4.1.0",
     "eslint-plugin-mocha": "^9.0.0",
-    "glob": "^7.1.7",
+    "glob": "^7.2.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-eslint": "^6.0.0",
