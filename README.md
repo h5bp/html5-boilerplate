@@ -62,7 +62,7 @@ Choose one of the following options:
 
 ## Features
 
-* A finely-tuned starter template. Reap the benefits of 10 years of analysis,
+* A finely-tuned starter template. Read the benefits of 10 years of analysis,
   research and experimentation by over 200 contributors.
 * Designed with progressive enhancement in mind.
 * Includes:
