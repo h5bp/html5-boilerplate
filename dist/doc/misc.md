@@ -7,7 +7,6 @@ table of contents](TOC.md)
 * [.editorconfig](#editorconfig)
 * [Server Configuration](#server-configuration)
 * [robots.txt](#robotstxt)
-* [humans.txt](#humanstxt)
 * [browserconfig.xml](#browserconfigxml)
 * [package.json](#packagejson)
 
