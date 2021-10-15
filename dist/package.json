@@ -12,6 +12,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "parcel-bundler": "v2.0.0-rc.0"
+    "@parcel/transformer-webmanifest": "^2.0.0",
+    "@parcel/packager-raw-url": "^2.0.0",
+    "parcel": "v2.0.0"
   }
 }
