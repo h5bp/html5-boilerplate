@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:svg="http://www.w3.org/2000/svg" id="svg2" viewBox="0 0 610 610" version="1.1">
+  <g id="layer4" transform="translate(5 -397.36)">
+    <g id="g4158">
+      <rect id="rect5840" stroke-linejoin="round" ry="1.5381" height="600" width="600" stroke="#4a0" y="402.36" x="0" stroke-width="10" fill="none"/>
+      <g id="g6230" transform="matrix(7.9355 0 0 7.6209 -3896.4 -4327.7)">
+        <path id="path6189" fill="#4a0" d="m527.97 642.79c1.2224 0 0.66196 0.98412 0.66196 2.2065l1.5446 47.661c0 1.2224-0.98411 2.2065-2.2065 2.2065s-2.2065-0.98412-2.2065-2.2065l1.3791-47.661c0-1.2224-0.39497-2.2065 0.82745-2.2065z"/>
+        <g id="g6185" transform="matrix(.47771 0 0 .47771 355.83 541.84)">
+          <path id="path6187" fill="#4a0" d="m364.54 244.44s-7.4761-17.297 23.214-28.571c17.5-6.4286 17.143-16.429 17.143-16.429s3.5714 45-26.429 49.286-8.1318 1.8054-12.362-1.0988-4.23 8.6494-3.6618 12.816l-3.9143 0.1894s6.566-17.236 9.5964-19.256l-3.5871 3.0634z"/>
+        </g>
+        <g id="g6218" transform="matrix(0 -.3625 .3625 0 433.71 790.66)">
+          <path id="path6220" fill="#4a0" d="m364.54 244.44s-7.4761-17.297 23.214-28.571c17.5-6.4286 17.143-16.429 17.143-16.429s3.5714 45-26.429 49.286-8.1318 1.8054-12.362-1.0988-4.23 8.6494-3.6618 12.816l-3.9143 0.1894s6.566-17.236 9.5964-19.256l-3.5871 3.0634z"/>
+        </g>
+        <g id="g6222" transform="matrix(.34931 0 0 .34931 401.69 558.2)">
+          <path id="path6224" fill="#4a0" d="m364.54 244.44s-7.4761-17.297 23.214-28.571c17.5-6.4286 17.143-16.429 17.143-16.429s3.5714 45-26.429 49.286-8.1318 1.8054-12.362-1.0988-4.23 8.6494-3.6618 12.816l-3.9143 0.1894s6.566-17.236 9.5964-19.256l-3.5871 3.0634z"/>
+        </g>
+        <g id="g6226" transform="matrix(0 -.26265 .26265 0 459.73 738.79)">
+          <path id="path6228" fill="#4a0" d="m364.54 244.44s-7.4761-17.297 23.214-28.571c17.5-6.4286 17.143-16.429 17.143-16.429s3.5714 45-26.429 49.286-8.1318 1.8054-12.362-1.0988-4.23 8.6494-3.6618 12.816l-3.9143 0.1894s6.566-17.236 9.5964-19.256l-3.5871 3.0634z"/>
+        </g>
+      </g>
+    </g>
+  </g>
+  <metadata>
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>
+        <dc:publisher>
+          <cc:Agent rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title>eco green plant icon</dc:title>
+        <dc:date>2012-05-30T14:25:24</dc:date>
+        <dc:description>clip art, clipart, ecology, green, icon, plant, </dc:description>
+        <dc:source>http://openclipart.org/detail/170298/eco-green-plant-icon-by-cybergedeon</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>dominiquechappard</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>clip art</rdf:li>
+            <rdf:li>clipart</rdf:li>
+            <rdf:li>ecology</rdf:li>
+            <rdf:li>green</rdf:li>
+            <rdf:li>icon</rdf:li>
+            <rdf:li>plant</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>
