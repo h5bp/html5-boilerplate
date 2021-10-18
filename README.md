@@ -78,7 +78,6 @@ Choose one of the following options:
 * Placeholder CSS Media Queries.
 * Useful CSS helper classes.
 * Default print styles, performance optimized.
-* An optimized version of the Google Universal Analytics snippet.
 * Protection against any stray `console` statements causing JavaScript
   errors in older browsers.
 * "Delete-key friendly." Easy to strip out parts you don't need.
