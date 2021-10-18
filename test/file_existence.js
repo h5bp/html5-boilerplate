@@ -40,6 +40,7 @@ const expectedFilesInDistDir = [
   'humans.txt',
 
   'icon.png',
+  'icon.svg',
 
   'img/',
   'img/.gitignore',

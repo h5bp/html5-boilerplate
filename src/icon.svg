@@ -1,18 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 25.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 192 192" style="enable-background:new 0 0 192 192;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#222222;}
-	.st1{fill:#E08524;}
-	.st2{fill:#466770;}
-	.st3{fill:#304A51;}
-</style>
-<rect class="st0" width="192" height="192"/>
-<polygon class="st1" points="68.8,75.1 18.1,75.1 58.5,105.7 44.8,155 85.9,126.2 128.9,157.1 113.8,105.1 153.9,75.1 104.3,75.1 
-	86,26 "/>
-<polygon class="st2" points="87.9,26.4 104.1,33.7 118.8,73.2 105.3,73.2 "/>
-<polygon class="st3" points="46,156.7 62.7,165.5 100.7,138.8 86,128.6 "/>
-<polygon class="st2" points="116.6,106 132.1,114.4 148.7,168 131.1,157.9 "/>
-<polygon class="st3" points="156.1,75.9 172,84.1 132.1,114.4 116.6,106 "/>
-</svg>
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 192 192" style="enable-background:new 0 0 192 192" xml:space="preserve"><style>.st2{fill:#466770}.st3{fill:#304a51}</style><path style="fill:#222" d="M0 0h192v192H0z"/><path style="fill:#e08524" d="M68.8 75.1H18.1l40.4 30.6L44.8 155l41.1-28.8 43 30.9-15.1-52 40.1-30h-49.6L86 26z"/><path class="st2" d="m87.9 26.4 16.2 7.3 14.7 39.5h-13.5z"/><path class="st3" d="m46 156.7 16.7 8.8 38-26.7L86 128.6z"/><path class="st2" d="m116.6 106 15.5 8.4 16.6 53.6-17.6-10.1z"/><path class="st3" d="m156.1 75.9 15.9 8.2-39.9 30.3-15.5-8.4z"/></svg>
