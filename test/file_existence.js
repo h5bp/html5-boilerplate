@@ -39,6 +39,7 @@ const expectedFilesInDistDir = [
   'favicon.ico',
 
   'icon.png',
+  'icon.svg',
 
   'img/',
   'img/.gitignore',

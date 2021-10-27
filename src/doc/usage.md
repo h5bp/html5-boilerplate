@@ -45,6 +45,7 @@ A basic HTML5 Boilerplate site initially looks something like this:
 ├── favicon.ico
 ├── humans.txt
 ├── icon.png
+├── icon.svg
 ├── index.html
 ├── package.json
 ├── robots.txt
