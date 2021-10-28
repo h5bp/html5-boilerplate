@@ -3,4 +3,4 @@
 # Useful .gitignore templates: https://github.com/github/gitignore
 node_modules
 dist
-.parcel-cache
+.cache

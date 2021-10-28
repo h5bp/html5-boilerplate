@@ -2,7 +2,9 @@
   "name": " ",
   "version": "0.0.1",
   "description": "",
-  "keywords": [""],
+  "keywords": [
+    ""
+  ],
   "license": "",
   "author": "",
   "scripts": {
@@ -12,8 +14,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@parcel/transformer-webmanifest": "^2.0.0",
     "@parcel/packager-raw-url": "^2.0.0",
-    "parcel": "v2.0.0"
+    "@parcel/transformer-webmanifest": "^2.0.0",
+    "parcel": "v2.0.0",
+    "parcel-namer-without-hash": "0.0.1"
   }
 }
