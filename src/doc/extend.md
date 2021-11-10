@@ -9,7 +9,6 @@ everything fits with everyone's needs.
 
 * [App Stores](#app-stores)
 * [DNS prefetching](#dns-prefetching)
-* [Google Universal Analytics](#google-universal-analytics)
 * [Internet Explorer](#internet-explorer)
 * [Miscellaneous](#miscellaneous)
 * [News Feeds](#news-feeds)
@@ -79,73 +78,6 @@ on them ASAP.
 * https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
 * https://dev.chromium.org/developers/design-documents/dns-prefetching
 
-## Google Universal Analytics
-
-### More tracking settings
-
-The [optimized Google Universal Analytics
-snippet](https://mathiasbynens.be/notes/async-analytics-snippet#universal-analytics)
-included with HTML5 Boilerplate includes something like this:
-
-```js
-ga('create', 'UA-XXXXX-X', 'auto'); ga('send', 'pageview');
-```
-
-To customize further, see Google's [Advanced
-Setup](https://developers.google.com/analytics/devguides/collection/analyticsjs/),
-[Pageview](https://developers.google.com/analytics/devguides/collection/analyticsjs/pages),
-and
-[Event](https://developers.google.com/analytics/devguides/collection/analyticsjs/events)
-Docs.
-
-### Track JavaScript errors in Google Analytics
-
-Add this function after `ga` is defined:
-
-```js
-(function(window){
-    var undefined,
-        link = function (href) {
-            var a = window.document.createElement('a');
-            a.href = href;
-            return a;
-        };
-    window.onerror = function (message, file, line, column) {
-        var host = link(file).hostname;
-        ga('send', {
-          'hitType': 'event',
-          'eventCategory': (host == window.location.hostname || host == undefined || host == '' ? '' : 'external ') + 'error',
-          'eventAction': message,
-          'eventLabel': (file + ' LINE: ' + line + (column ? ' COLUMN: ' + column : '')).trim(),
-          'nonInteraction': 1
-        });
-    };
-}(window));
-```
-
-### Track page scroll
-
-Add this function after `ga` is defined. Note, the following snippet requires jQuery.
-
-```js
-$(function(){
-    var isDuplicateScrollEvent,
-        scrollTimeStart = new Date,
-        $window = $(window),
-        $document = $(document),
-        scrollPercent;
-
-    $window.scroll(function() {
-        scrollPercent = Math.round(100 * ($window.height() + $window.scrollTop())/$document.height());
-        if (scrollPercent > 90 && !isDuplicateScrollEvent) { //page scrolled to 90%
-            isDuplicateScrollEvent = 1;
-            ga('send', 'event', 'scroll',
-                'Window: ' + $window.height() + 'px; Document: ' + $document.height() + 'px; Time: ' + Math.round((new Date - scrollTimeStart )/1000,1) + 's'
-            );
-        }
-    });
-});
-```
 
 ## Internet Explorer
 
