@@ -83,21 +83,16 @@ Choose one of the following options:
 * Extensive documentation.
 
 ## Browser support
-
-* Chrome *(latest 2)*
-* Edge *(latest 2)*
-* Firefox *(latest 2)*
-* Internet Explorer 11
-* Opera *(latest 2)*
-* Safari *(latest 2)*
-
-*This doesn't mean that HTML5 Boilerplate cannot be used in older browsers,
-just that we'll ensure compatibility with the ones mentioned above.*
-
-If you need legacy browser support you can use [HTML5 Boilerplate v6](https://github.com/h5bp/html5-boilerplate/releases/tag/6.1.0) (IE9/IE10)
-or [HTML5 Boilerplate v5](https://github.com/h5bp/html5-boilerplate/releases/tag/5.3.0)
-(IE 8). They are no longer actively developed.
-
+You can find our range of supported browsers in our [package.json](https://github.com/h5bp/html5-boilerplate/blob/main/package.json#L56-L62)
+```json
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "Firefox ESR",
+    "not dead",
+    "IE 11"
+  ],
+```
 ## Documentation
 
 Take a look at the [documentation table of contents](dist/doc/TOC.md). This
