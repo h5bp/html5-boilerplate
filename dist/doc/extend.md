@@ -370,30 +370,6 @@ the cleaner, more accurate `https://www.example.com/cart.html`.
 <link rel="canonical" href="">
 ```
 
-### Separate mobile URLs
-
-If you use separate URLs for desktop and mobile users, you should consider
-helping search engine algorithms better understand the configuration on your web
-site.
-
-This can be done by adding the following annotations in your HTML pages:
-
-* on the desktop page, add the `link rel="alternate"` tag pointing to the
-  corresponding mobile URL, e.g.:
-
-  `<link rel="alternate" media="only screen and (max-width: 640px)"
-  href="https://m.example.com/page.html" >`
-
-* on the mobile page, add the `link rel="canonical"` tag pointing to the
-  corresponding desktop URL, e.g.:
-
-  `<link rel="canonical" href="https://www.example.com/page.html">`
-
-For more information please see:
-
-* https://developers.google.com/search/mobile-sites/mobile-seo/separate-urls
-
-
 ## Web Apps
 
 There are a couple of meta tags that provide information about a web app when
