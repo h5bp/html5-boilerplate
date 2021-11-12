@@ -33,8 +33,9 @@ jobs:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           source-directory: 'dist'
-          destination-github-username: 'rlarsen'
+          destination-github-username: 'h5bp'
           destination-repository-name: 'html5-boilerplate-template'
+          user-name: 'roblarsen'
           user-email: rob@htmlcssjavascript.com
           commit-message: "The latest and greatest from transmetropolitan"
           
