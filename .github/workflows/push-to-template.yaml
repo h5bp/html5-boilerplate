@@ -1,10 +1,8 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Push to template repository
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -20,22 +18,23 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Setup Node
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: 12
+          node-version: 'lts/*'
       - name: Install dependencies
         run: npm ci
       - name: Build
         run:  npm run build
       - name: Pushes to another repository
-        uses: cpina/github-action-push-to-another-repository@master
+        uses: cpina/github-action-push-to-another-repository@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           source-directory: 'dist'
-          destination-github-username: 'vltansky'
+          destination-github-username: 'h5bp'
           destination-repository-name: 'html5-boilerplate-template'
-          user-email: vl.tansky@gmail.com
+          user-email: rob@htmlcssjavascript.com
+          commit-message: "The latest and greatest from transmetropolitan"
+          
