@@ -10,10 +10,7 @@ import plugins from 'gulp-load-plugins';
 import archiver from 'archiver';
 import glob from 'glob';
 import del from 'del';
-import modernizr from 'modernizr';
-
 import pkg from './package.json';
-import modernizrConfig from './modernizr-config.json';
 
 const dirs = pkg['h5bp-configs'].directories;
 
@@ -127,17 +124,6 @@ gulp.task('copy:normalize', () =>
     .pipe(gulp.dest(`${dirs.dist}/css`))
 );
 
-gulp.task('modernizr', (done) => {
-  // TODO: rework this flow instead of just reacting to the fact that the jQuery step is gone
-  if (!fs.existsSync(`${dirs.dist}/js/vendor/`)){
-    fs.mkdirSync(`${dirs.dist}/js/vendor/`);
-  }
-
-  modernizr.build(modernizrConfig, (code) => {
-    fs.writeFile(`${dirs.dist}/js/vendor/modernizr-${pkg.devDependencies.modernizr}.min.js`, code, done);
-  });
-});
-
 gulp.task('lint:js', () =>
   gulp.src([
     `${dirs.src}/js/*.js`,
@@ -165,8 +151,7 @@ gulp.task(
   'build',
   gulp.series(
     gulp.parallel('clean', 'lint:js'),
-    'copy',
-    'modernizr'
+    'copy'
   )
 );
 

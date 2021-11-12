@@ -2,7 +2,9 @@
   "name": " ",
   "version": "0.0.1",
   "description": "",
-  "keywords": [""],
+  "keywords": [
+    ""
+  ],
   "license": "",
   "author": "",
   "scripts": {
@@ -13,5 +15,8 @@
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.5"
+  },
+  "dependencies": {
+    "modernizr-esm": "^2.0.0"
   }
 }
