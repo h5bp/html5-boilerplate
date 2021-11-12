@@ -37,5 +37,5 @@ jobs:
           destination-repository-name: 'html5-boilerplate-template'
           user-name: 'roblarsen'
           user-email: rob@htmlcssjavascript.com
-          commit-message: "The latest and greatest from transmetropolitan"
+          commit-message: "The latest and greatest from HTML5 Boilerplate"
           
