@@ -4,14 +4,15 @@ module.exports = {
     es6: true,
     mocha: true
   },
-  plugins: ["mocha"],
-  extends: "eslint:recommended",
+  plugins: ['mocha'],
+  extends: 'eslint:recommended',
   parserOptions: {
-    sourceType: "module"
+    sourceType: 'module'
   },
   rules: {
-    indent: ["error", 2],
-    quotes: ["error", "single"],
-    semi: ["error", "always"]
-  }
+    'indent': ['error', 2],
+    'quotes': ['error', 'single'],
+    'no-undef': ['off'],
+    'semi': ['error', 'always']
+  },
 };
