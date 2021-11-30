@@ -2,16 +2,19 @@
   "name": " ",
   "version": "0.0.1",
   "description": "",
-  "keywords": [""],
+  "keywords": [
+    ""
+  ],
   "license": "",
   "author": "",
   "scripts": {
-    "build": "parcel build index.html",
-    "dev": "parcel index.html --open",
-    "start": "npm run build && npm run dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --open --port 8080"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.12.5"
+    "webpack": "^5.64.1",
+    "html-webpack-plugin": "^5.5.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.5.0"
   }
 }

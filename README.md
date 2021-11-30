@@ -56,7 +56,7 @@ Choose one of the following options:
   npx create-html5-boilerplate new-site
   cd new-site
   npm install
-  npm start
+  npm run start
   ```
 
 ## Features
@@ -72,7 +72,7 @@ Choose one of the following options:
   * [`Apache Server Configs`](https://github.com/h5bp/server-configs-apache)
     that improve the web site's performance and security
 * Placeholder Open Graph elements and attributes.
-* An example package.json file with [Parcel](https://parceljs.org/) commands
+* An example package.json file with [WebPack](https://webpack.js.org/) commands
   built in to jumpstart application development
 * Placeholder CSS Media Queries.
 * Useful CSS helper classes.

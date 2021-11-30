@@ -20,6 +20,7 @@ const expectedFilesInDistDir = [
   '404.html',
   'package.json',
   'browserconfig.xml',
+  'webpack.config.js',
 
   'css/', // for directories, a `/` character
   // should be included at the end

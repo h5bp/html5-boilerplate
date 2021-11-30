@@ -2,16 +2,17 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
-    mocha: true
+    mocha: true,
+    node : true
   },
-  plugins: ["mocha"],
-  extends: "eslint:recommended",
+  plugins: ['mocha'],
+  extends: 'eslint:recommended',
   parserOptions: {
-    sourceType: "module"
+    sourceType: 'module'
   },
   rules: {
-    indent: ["error", 2],
-    quotes: ["error", "single"],
-    semi: ["error", "always"]
+    indent: ['error', 2],
+    quotes: ['error', 'single'],
+    semi: ['error', 'always']
   }
 };
