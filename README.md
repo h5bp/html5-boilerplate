@@ -56,7 +56,7 @@ Choose one of the following options:
   npx create-html5-boilerplate new-site
   cd new-site
   npm install
-  npm start
+  npm run start
   ```
 
 ## Features

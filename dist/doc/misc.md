@@ -172,10 +172,8 @@ if you're interested. The fields we provide are as follows:
   provide three custom scripts that work with WebPack to get you up and running
   quickly with a bundler for your assets and a simple development server.
 
-  * `start` builds your site and starts a server
-  * `build` builds your `index.html` using WebPack
-  * `dev` serves your `index.html` with a simple development server
-
+  * `start` serves your `index.html` with a simple development server
+  
 * `keywords` - an array of keywords used to discover your app in the npm
   registry
 * `author` - defines the author of a package. There is also an alternative
