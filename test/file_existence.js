@@ -27,16 +27,6 @@ const expectedFilesInDistDir = [
   'css/normalize.css',
   'css/style.css',
 
-  'doc/',
-  'doc/TOC.md',
-  'doc/css.md',
-  'doc/extend.md',
-  'doc/faq.md',
-  'doc/html.md',
-  'doc/js.md',
-  'doc/misc.md',
-  'doc/usage.md',
-
   'favicon.ico',
 
   'icon.png',
