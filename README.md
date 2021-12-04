@@ -101,6 +101,9 @@ You can find our range of supported browsers in our [package.json](https://githu
   ],
 ```
 
+[That configuration translates to this full list of browsers.](https://browserslist.dev/?q=ID4gMC41JSwgICAgIGxhc3QgMiB2ZXJzaW9ucywgICAgIEZpcmVmb3ggRVNSLCAgICBub3QgZGVhZCwgICAgIElFIDEx)
+
+
 ## Documentation
 
 Take a look at the [documentation table of contents](doc/TOC.md). This
