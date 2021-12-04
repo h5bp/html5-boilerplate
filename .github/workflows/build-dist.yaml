@@ -26,7 +26,7 @@ jobs:
         uses: actions/setup-node@v2.4.1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm ci
+      - run: npm install
       - run: npm run build
       - name: commit  
         uses: stefanzweifel/git-auto-commit-action@v4
