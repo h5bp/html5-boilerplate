@@ -7,6 +7,7 @@ HTML5 Boilerplate's CSS includes:
 
 * [Normalize.css](#normalizecss)
 * [style.css](#stylecss)
+* [custom.css](#customcss)
 
 ## Normalize.css
 
@@ -42,3 +43,10 @@ These styles are included in
 using [main.css](https://github.com/h5bp/main.css) project.
 See the main.css [documentation](https://github.com/h5bp/main.css/blob/main/README.md#features)
 for a full discussion of these styles.
+
+## custom.css
+
+Home page styles are included in `custom.css`. These styles:
+
+* provide basic styles for `index.html`
+
