@@ -23,7 +23,7 @@
   "devDependencies": {
     "@babel/core": "^7.16.7",
     "@babel/preset-env": "^7.16.8",
-    "@babel/register": "^7.16.7",
+    "@babel/register": "^7.16.9",
     "apache-server-configs": "^5.0.0",
     "archiver": "^5.3.0",
     "del": "^6.0.0",
