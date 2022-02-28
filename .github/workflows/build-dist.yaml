@@ -25,7 +25,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: build
-        uses: actions/setup-node@v2.5.1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install
