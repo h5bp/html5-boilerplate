@@ -17,27 +17,31 @@ way that you want.
 * Source: [https://github.com/h5bp/html5-boilerplate](https://github.com/h5bp/html5-boilerplate)
 * Twitter: [@h5bp](https://twitter.com/h5bp)
 
+## About This Repository
+
+This repository is where HTML5-Boilerplate is authored. Some of the tools,
+files and processes that you see here are solely for the _production_ of
+HTML5-Boilerplate and are not _part_ of HTML5-Boilerplate. For one example, the
+[gulpfile.babel.js](https://github.com/h5bp/html5-boilerplate/blob/main/gulpfile.babel.js)
+script is used to build the project. It's not part of the project itself and
+doesn't appear in the published version of the project.
+
+The artifact that we publish is represented by the contents of the `/dist`
+folder. Everything else is used to author the project.
+
+Think of it this way, in the same way that you don't close [vuejs/core](https://github.com/vuejs/core)
+to create a Vue.js app, you don't need to clone this repository to work with
+HTML5-Boilerplate.
+
+So, if you're lookinig for a quick start template to build a web site or
+application, look at the options in the
+[Quick Start section of this document](https://github.com/h5bp/html5-boilerplate#quick-start)
+
+If you want to help us _improve_ HTML5 Boilerplate then you can start [here](.github/CONTRIBUTING.md).  
+
 ## Quick start
 
 Choose one of the following options:
-
-* Download the latest stable release from
-  [html5boilerplate.com](https://html5boilerplate.com/). This zip file is a
-  snapshot of the `dist` folder. On Windows, Mac and from the file manager on
-  Linux unzipping this folder will output to a folder named something like
-  `html5-boilerplate_v7.3.0`. From the command line will need to create a
-  folder and unzip the contents into that folder.
-
-  ```bash
-  mkdir html5-boilerplate
-  unzip html5-boilerplate*.zip -d html5-boilerplate
-  ```
-
-* Clone the git repo — `git clone
-  https://github.com/h5bp/html5-boilerplate.git` - and checkout the
-  [tagged release](https://github.com/h5bp/html5-boilerplate/releases)
-  you'd like to use. The `dist` folder represents the latest version of the
-  project for end users.
 
 * Install with [npm](https://www.npmjs.com/): `npm install html5-boilerplate`
   or [yarn](https://yarnpkg.com/): `yarn add html5-boilerplate`. The resulting
@@ -62,6 +66,25 @@ Choose one of the following options:
 * Using our new [Template Repository](https://github.com/h5bp/html5-boilerplate-template)
   create a new GitHub repository based on the latest code from the main branch of HTML5
   Boilerplate.
+
+* Clone the git repo — `git clone
+  https://github.com/h5bp/html5-boilerplate.git` - and checkout the
+  [tagged release](https://github.com/h5bp/html5-boilerplate/releases)
+  you'd like to use. The `dist` folder represents the latest version of the
+  project for end users.
+
+* Download the latest stable release from
+  [html5boilerplate.com](https://html5boilerplate.com/). This zip file is a
+  snapshot of the `dist` folder. On Windows, Mac and from the file manager on
+  Linux unzipping this folder will output to a folder named something like
+  `html5-boilerplate_v7.3.0`. From the command line will need to create a
+  folder and unzip the contents into that folder.
+
+  ```bash
+  mkdir html5-boilerplate
+  unzip html5-boilerplate*.zip -d html5-boilerplate
+  ```
+
 
 ## Features
 
