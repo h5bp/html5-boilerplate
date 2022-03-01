@@ -36,18 +36,11 @@ So, if you're looking for a quick start template to build a web site or
 application, look at the options in the
 [Quick Start section of this document](https://github.com/h5bp/html5-boilerplate#quick-start)
 
-If you want to help us _improve_ HTML5 Boilerplate then you can start with the documentation [here](.github/CONTRIBUTING.md), which includes steps to clone this repo and getting it set up for development.
+If you want to help us _improve_ HTML5 Boilerplate then you can start with the documentation [here](.github/CONTRIBUTING.md), which includes steps to clone this repo in order to get it set up for development.
 
 ## Quick start
 
 Choose one of the following options:
-
-* Install with [npm](https://www.npmjs.com/): `npm install html5-boilerplate`
-  or [yarn](https://yarnpkg.com/): `yarn add html5-boilerplate`. The resulting
-  `node_modules/html5-boilerplate/dist` folder represents the latest version of
-  the project for end users. Depending on what you want to use and how you want
-  to use it, you may have to copy and paste the contents of that folder into
-  your project directory.
 
 * Using the [create-html5-boilerplate](https://github.com/h5bp/create-html5-boilerplate)
   script, instantly fetch the latest npm published package (or any version
@@ -65,6 +58,14 @@ Choose one of the following options:
 * Using our new [Template Repository](https://github.com/h5bp/html5-boilerplate-template)
   create a new GitHub repository based on the latest code from the main branch of HTML5
   Boilerplate.
+  
+* Install with [npm](https://www.npmjs.com/): `npm install html5-boilerplate`
+  or [yarn](https://yarnpkg.com/): `yarn add html5-boilerplate`. The resulting
+  `node_modules/html5-boilerplate/dist` folder represents the latest version of
+  the project for end users. Depending on what you want to use and how you want
+  to use it, you may have to copy and paste the contents of that folder into
+  your project directory.
+
 
 * Download the latest stable release from
   [html5boilerplate.com](https://html5boilerplate.com/). This zip file is a
