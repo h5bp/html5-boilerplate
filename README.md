@@ -122,7 +122,7 @@ You can find our range of supported browsers in our [package.json](https://githu
 
 ## Documentation
 
-Take a look at the [documentation table of contents](doc/TOC.md). This
+Take a look at the [documentation table of contents](docs/TOC.md). This
 documentation is bundled with the project which makes it available for offline
 reading and provides a useful starting point for any documentation you want to
 write about your project.
