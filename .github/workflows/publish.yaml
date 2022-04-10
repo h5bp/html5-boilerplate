@@ -5,8 +5,13 @@ on:
     tags:
     - 'v*'
 
+permissions:
+  contents: read
+
 jobs:
   build:
+    permissions:
+      contents: write  # for actions/create-release to create a release
     name: Upload Release Asset
     runs-on: ubuntu-latest
     steps:
