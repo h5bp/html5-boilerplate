@@ -30,7 +30,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm install
       - run: npm run build
-      - name: commit  
+      - name: commit
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "[Bot] Update dist"

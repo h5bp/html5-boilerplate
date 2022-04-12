@@ -45,8 +45,7 @@
     "strip-json-comments": "^4.0.0"
   },
   "engines": {
-    "node": ">=10",
-    "npm": ">=3"
+    "node": ">=14"
   },
   "babel": {
     "presets": [
