@@ -39,6 +39,20 @@ potential
 [encoding-related security issue](https://code.google.com/archive/p/doctype-mirror/wikis/ArticleUtf7.wiki)
 in Internet Explorer.
 
+### document.browsingTopics alert
+
+In some cases, a third-party script can collect browsing interest information about users
+using new experimental functionality called Topics API. The first script in the page header
+will alert you if a script is attempting to do this.  The line can be removed if your site
+is turning off Topics API with a Permissions-Policy, running without third-party scripts,
+or if you are using Topics API.
+
+The line can be changed to send an analytics event to check if third-party scripts begin trying
+to use Topics API in production.
+
+For more information, see [Google's Topics API: Rebranding FLoC Without Addressing Key 
+Privacy Issues](https://brave.com/web-standards-at-brave/7-googles-topics-api/)
+
 ### Meta Description
 
 The `description` meta tag provides a short description of the page. In some
