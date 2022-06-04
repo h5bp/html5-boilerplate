@@ -1,12 +1,13 @@
 [HTML5 Boilerplate homepage](https://html5boilerplate.com) | [Documentation
 table of contents](TOC.md)
 
-# Extend and customise HTML5 Boilerplate
+# Extend and customize HTML5 Boilerplate
 
 Here is some useful advice for how you can make your project with HTML5
 Boilerplate even better. We don't want to include it all by default, as not
 everything fits with everyone's needs.
 
+* [Server Configuration](#server-configuration)
 * [App Stores](#app-stores)
 * [DNS prefetching](#dns-prefetching)
 * [Internet Explorer](#internet-explorer)
@@ -18,6 +19,18 @@ everything fits with everyone's needs.
 * [Web Apps](#web-apps)
 * [humans.txt](#humanstxt)
 * [security.txt](#security.txt)
+
+
+## Server Configuration
+
+We no longer include a [`.htaccess`](#htaccess) file for the [Apache HTTP
+server](https://httpd.apache.org/docs/) in HTML5 Boilerplate by default, however if you are
+using a web server, then we encourage you to checkout out the [server configuration](https://github.com/h5bp/server-configs)
+that corresponds to your web server and environment.
+
+These repos offer a collection of configuration snippets that can help your server improve the
+website's performance and security, while also ensuring that resources are served with the
+correct content-type and are accessible, if needed, even cross-domain.
 
 ## App Stores
 

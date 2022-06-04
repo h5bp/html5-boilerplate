@@ -51,11 +51,6 @@ function runTests() {
 
   describe(`Test if the files from the "${dir}" directory have the expected content`, () => {
 
-    it('".htaccess" should have the "ErrorDocument..." line uncommented', (done) => {
-      const string = '\n\nErrorDocument 404 /404.html\n\n';
-      checkString(path.resolve(dir, '.htaccess'), string, done);
-    });
-
     it('"index.html" should contain the correct Modernizr version in the local URL', (done) => {
       const string = `js/vendor/modernizr-${pkg.devDependencies.modernizr}.min.js`;
       checkString(path.resolve(dir, 'index.html'), string, done);

@@ -73,12 +73,6 @@ gulp.task('clean', (done) => {
   });
 });
 
-gulp.task('copy:.htaccess', () =>
-  gulp.src('node_modules/apache-server-configs/dist/.htaccess')
-    .pipe(plugins().replace(/# ErrorDocument/g, 'ErrorDocument'))
-    .pipe(gulp.dest(dirs.dist))
-);
-
 gulp.task('copy:index.html', () => {
 
   let modernizrVersion = pkg.devDependencies.modernizr;
@@ -150,14 +144,13 @@ gulp.task('lint:js', () =>
 // | Main tasks                                                        |
 // ---------------------------------------------------------------------
 gulp.task(
-  'copy',
+  "copy",
   gulp.series(
-    'copy:.htaccess',
-    'copy:index.html',
-    'copy:license',
-    'copy:style',
-    'copy:misc',
-    'copy:normalize'
+    "copy:index.html",
+    "copy:license",
+    "copy:style",
+    "copy:misc",
+    "copy:normalize"
   )
 );
 

@@ -16,7 +16,6 @@ const expectedFilesInDistDir = [
   '.editorconfig',
   '.gitattributes',
   '.gitignore',
-  '.htaccess',
   '404.html',
   'package.json',
   'browserconfig.xml',
