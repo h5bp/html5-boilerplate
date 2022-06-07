@@ -33,11 +33,7 @@ to the `lang` attribute in the `<html>` as in this example:
 The charset declaration (`<meta charset="utf-8">`) must be included completely
 within the
 [first 1024 bytes of the document](https://html.spec.whatwg.org/multipage/semantics.html#charset)
-and should be specified as early as possible (before any content that could be
-controlled by an attacker, such as a `<title>` element) in order to avoid a
-potential
-[encoding-related security issue](https://code.google.com/archive/p/doctype-mirror/wikis/ArticleUtf7.wiki)
-in Internet Explorer.
+and should be specified as early as possible.
 
 ### Meta Description
 

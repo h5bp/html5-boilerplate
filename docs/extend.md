@@ -10,7 +10,6 @@ everything fits with everyone's needs.
 * [Server Configuration](#server-configuration)
 * [App Stores](#app-stores)
 * [DNS prefetching](#dns-prefetching)
-* [Internet Explorer](#internet-explorer)
 * [Miscellaneous](#miscellaneous)
 * [News Feeds](#news-feeds)
 * [Search](#search)
@@ -92,104 +91,6 @@ on them ASAP.
 * https://dev.chromium.org/developers/design-documents/dns-prefetching
 
 
-## Internet Explorer
-
-### IE Pinned Sites
-
-Enabling your application for pinning will allow IE users to add it to their
-Windows Taskbar and Start Menu. This comes with a range of new tools that you
-can easily configure with the elements below. See more [documentation on IE
-Pinned
-Sites](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/samples/gg491731(v%3dvs.85)).
-
-### Name the Pinned Site for Windows
-
-Without this rule, Windows will use the page title as the name for your
-application.
-
-```html
-<meta name="application-name" content="Sample Title">
-```
-
-### Give your Pinned Site a tooltip
-
-You know — a tooltip. A little textbox that appears when the user holds their
-mouse over your Pinned Site's icon.
-
-```html
-<meta name="msapplication-tooltip" content="A description of what this site does.">
-```
-
-### Set a default page for your Pinned Site
-
-If the site should go to a specific URL when it is pinned (such as the
-homepage), enter it here. One idea is to send it to a special URL so you can
-track the number of pinned users, like so:
-`https://www.example.com/index.html?pinned=true`
-
-```html
-<meta name="msapplication-starturl" content="https://www.example.com/index.html?pinned=true">
-```
-
-### Recolor IE's controls manually for a Pinned Site
-
-IE will automatically use the overall color of your Pinned Site's favicon to
-shade its browser buttons. UNLESS you give it another color here. Only use named
-colors (`red`) or hex colors (`#ff0000`).
-
-```html
-<meta name="msapplication-navbutton-color" content="#ff0000">
-```
-
-### Manually set the window size of a Pinned Site
-
-If the site should open at a certain window size once pinned, you can specify
-the dimensions here. It only supports static pixel dimensions. 800x600 minimum.
-
-```html
-<meta name="msapplication-window" content="width=800;height=600">
-```
-
-### Jump List "Tasks" for Pinned Sites
-
-Add Jump List Tasks that will appear when the Pinned Site's icon gets a
-right-click. Each Task goes to the specified URL, and gets its own mini icon
-(essentially a favicon, a 16x16 .ICO). You can add as many of these as you need.
-
-```html
-<meta name="msapplication-task" content="name=Task 1;action-uri=http://host/Page1.html;icon-uri=http://host/icon1.ico">
-<meta name="msapplication-task" content="name=Task 2;action-uri=http://microsoft.com/Page2.html;icon-uri=http://host/icon2.ico">
-```
-
-### (Windows 8) High quality visuals for Pinned Sites
-
-Windows 8 adds the ability for you to provide a PNG tile image and specify the
-tile's background color. [Full details on the IE
-blog](https://docs.microsoft.com/en-us/archive/blogs/ie/high-quality-visuals-for-pinned-sites-in-windows-8).
-
-* Create a 144x144 image of your site icon, filling all of the canvas, and using
-  a transparent background.
-* Save this image as a 32-bit PNG and optimize it without reducing colour-depth.
-  It can be named whatever you want (e.g. `metro-tile.png`).
-* To reference the tile and its color, add the HTML `meta` elements described in
-  the IE Blog post.
-
-### (Windows 8) Badges for Pinned Sites
-
-IE will poll an XML document for badge information to display on your app's tile
-in the Start screen. The user will be able to receive these badge updates even
-when your app isn't actively running. The badge's value can be a number, or one
-of a predefined list of glyphs.
-
-* [Tutorial on IEBlog with link to badge XML
-schema](https://docs.microsoft.com/en-us/archive/blogs/ie/pinned-sites-in-windows-8)
-* [Available badge
-  values](https://docs.microsoft.com/en-us/uwp/schemas/tiles/badgeschema/element-badge)
-
-```html
-<meta name="msapplication-badge" value="frequency=NUMBER_IN_MINUTES;polling-uri=https://www.example.com/path/to/file.xml">
-```
-
 ## Search
 
 ### Direct search spiders to your sitemap
@@ -218,12 +119,12 @@ value your sanity. This is an HTML-centric way of achieving that.
 
 **_WARNING:_** DO NOT INCLUDE ON PAGES THAT SHOULD APPEAR IN SEARCH ENGINES.
 
-### Firefox and IE Search Plugins
+### Search Plugins
 
 Sites with in-site search functionality should be strongly considered for a
 browser search plugin. A "search plugin" is an XML file which defines how your
 plugin behaves in the browser. [How to make a browser search
-plugin](https://www.google.com/search?ie=UTF-8&q=how+to+make+browser+search+plugin).
+plugin](https://developer.mozilla.org/en-US/docs/Web/OpenSearch).
 
 ```html
 <link rel="search" title="" type="application/opensearchdescription+xml" href="">
@@ -438,22 +339,6 @@ for an iPhone:
 <link rel="apple-touch-startup-image" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" href="img/startup.png">
 ```
 
-
-### Chrome Mobile web apps
-
-Chrome Mobile has a specific meta tag for making apps [installable to the
-homescreen](https://developer.chrome.com/multidevice/android/installtohomescreen)
-which tries to be a more generic replacement to Apple's proprietary meta tag:
-
-```html
-<meta name="mobile-web-app-capable" content="yes">
-```
-
-Same applies to the touch icons:
-
-```html
-<link rel="icon" sizes="192x192" href="highres-icon.png">
-```
 
 ### Theme Color
 
