@@ -40,7 +40,6 @@ A basic HTML5 Boilerplate site initially looks something like this:
 │       └── modernizr.min.js
 ├── .editorconfig
 ├── 404.html
-├── browserconfig.xml
 ├── favicon.ico
 ├── humans.txt
 ├── icon.png
@@ -76,13 +75,6 @@ get you started. [About the JavaScript](js.md).
 ### 404.html
 
 A helpful custom 404 to get you started.
-
-### browserconfig.xml
-
-This file contains all settings regarding custom tiles for IE11 and Edge.
-
-For more info on this topic, please refer to [Microsoft's
-Docs](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/dn320426(v=vs.85)).
 
 ### .editorconfig
 

@@ -7,7 +7,6 @@ table of contents](TOC.md)
 * [.editorconfig](#editorconfig)
 * [Server Configuration](#server-configuration)
 * [robots.txt](#robotstxt)
-* [browserconfig.xml](#browserconfigxml)
 * [package.json](#packagejson)
 
 --
@@ -82,23 +81,6 @@ For more information about `robots.txt`, please see:
 
 * [robotstxt.org](https://www.robotstxt.org/)
 * [How Google handles the `robots.txt` file](https://developers.google.com/search/reference/robots_txt)
-
-## browserconfig.xml
-
-The `browserconfig.xml` file is used to customize the tile displayed when users
-pin your site to the Windows 8.1 start screen. In there you can define custom
-tile colors, custom images or even [live tiles](https://docs.microsoft.com/previous-versions/windows/internet-explorer/ie-developer/samples/dn455106(v=vs.85)).
-
-By default, the file points to 2 placeholder tile images:
-
-* `tile.png` (558x558px): used for `Small`, `Medium` and `Large` tiles.
-  This image resizes automatically when necessary.
-* `tile-wide.png` (558x270px): user for `Wide` tiles.
-
-Notice that IE11 uses the same images when adding a site to the `favorites`.
-
-For more in-depth information about the `browserconfig.xml` file, please
-see [MSDN](https://docs.microsoft.com/previous-versions/windows/internet-explorer/ie-developer/platform-apis/dn320426(v=vs.85)).
 
 ## package.json
 
