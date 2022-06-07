@@ -39,7 +39,6 @@ A basic HTML5 Boilerplate site initially looks something like this:
 │   └── vendor
 │       └── modernizr.min.js
 ├── .editorconfig
-├── .htaccess
 ├── 404.html
 ├── browserconfig.xml
 ├── favicon.ico
@@ -73,17 +72,6 @@ as the location and basis for your own project's documentation.
 This directory should contain all your project's JS files. Libraries, plugins,
 and custom code can all be included here. It includes some initial JS to help
 get you started. [About the JavaScript](js.md).
-
-### .htaccess
-
-The default web server configs are for Apache. For more information, please
-refer to the [Apache Server Configs
-repository](https://github.com/h5bp/server-configs-apache).
-
-Host your site on a server other than Apache? You're likely to find the
-corresponding server configs project listed in our [Server
-Configs](https://github.com/h5bp/server-configs/blob/master/README.md)
-repository.
 
 ### 404.html
 
