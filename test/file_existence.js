@@ -18,7 +18,6 @@ const expectedFilesInDistDir = [
   '.gitignore',
   '404.html',
   'package.json',
-  'browserconfig.xml',
   'webpack.config.js',
 
   'css/', // for directories, a `/` character
