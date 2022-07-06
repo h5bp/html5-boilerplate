@@ -24,3 +24,28 @@ Let's take a look at how we configure our `main` branch.
 
 #### `main`
 
+`main` is the default branch and is our only protected branch. We use feature
+branches to add features and/or fix issues in the codebase. Other project
+configurations might require a long-running, similarly protected, `development`
+branch but for us the single protected `main` branch is enough for our
+purposes.
+
+
+Our branch protection rules are as follows:
+
+* We require a pull request (PR) with one approving reviewer to merge code
+* In addition to the PR and approving reviewer, we require three status checks
+to pass before code can be merged
+    * Build with Node 16
+    * Build with Node 14
+    * LGTM analysis: JavaScript
+* We *allow* force pushes for project admins. While force pushes can create
+some head scratching moments for people who have cloned the repo and update
+before and after the force push, the ability to clean up the `HEAD` of a
+public branch like this in an emergency is useful.
+
+#### Github Actions That Run on `main`
+
+
+
+
