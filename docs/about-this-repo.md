@@ -44,7 +44,22 @@ some head scratching moments for people who have cloned the repo and update
 before and after the force push, the ability to clean up the `HEAD` of a
 public branch like this in an emergency is useful.
 
-#### Github Actions That Run on `main`
+#### Github Actions and Other Checks That Run on `main`
+
+* We run a simle *build status* check. This is the most basic test you can run
+and is absolutely vital. If you can't build your porject you're in trouble.
+Currently we're testing against Node 14 and 16.  
+* We take advantage of our access to *CodeQL analysis* Free for research and
+open source don't you know :) We don't have a ton of surface area to cover, 
+but it's nice to have this powerful code scanning tool available to us. 
+* We run a *dependency review* scan to see if any newly added dependencies add 
+known security flaws. This is important for even us, but for a project that 
+uses a larger number of third party dependencies, this sort of check is vital. 
+* Since we're fan of the "belt and suspenders" approach to security, we also 
+run a *LGTM.com* scan as well as the CodeQL scans. This tool, built on top of
+CodeQl can shake out different issues so it's nice to have the pair. 
+
+
 
 
 
