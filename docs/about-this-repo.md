@@ -20,6 +20,9 @@ to the repo and require a review to merge code. In addition we run several
 code quality checks on every pull request to make sure we're not introducing
 anything we don't want into the codebase. 
 
+We take advantage of the "draft" feature for PRs. This way we have visibility
+throughout the life of the PR.
+
 Let's take a look at how we configure our `main` branch. 
 
 #### `main`
@@ -58,6 +61,8 @@ uses a larger number of third party dependencies, this sort of check is vital.
 * Since we're fan of the "belt and suspenders" approach to security, we also 
 run a *LGTM.com* scan as well as the CodeQL scans. This tool, built on top of
 CodeQl can shake out different issues so it's nice to have the pair. 
+
+
 
 
 
