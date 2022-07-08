@@ -12,6 +12,18 @@ Open source projects get the full power of the platform  and as a project
 we like to experiment with new GitHub features. Our current configuration
 might help you figure out some things you want to do in your own projects. 
 
+### General Configuration
+
+This section outlines the basic configuration options we use. 
+
+* We have a stub of a Wiki still, so we have wikis turned on. The most
+interesting page that remains is a history of the project written several
+years ago.
+* We use the Issues feature heavily. We don't yet have Issue Templates set
+up, but we do have adding them as an issue, so we'll take advantage of them
+at some point.
+* Discussions are enabled, but they haven't been very useful so far. 
+
 ### Pull Requests
 
 The most visible portion of our configuration is the way we handle pull 
