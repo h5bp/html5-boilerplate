@@ -73,6 +73,27 @@ uses a larger number of third party dependencies, this sort of check is vital.
 * Since we're fan of the "belt and suspenders" approach to security, we also 
 run a *LGTM.com* scan as well as the CodeQL scans. This tool, built on top of
 CodeQl can shake out different issues so it's nice to have the pair. 
+* We push any changes to `main` to our [HTML5\-Boilerplate Template Repo](https://github.com/h5bp/html5-boilerplate-template)
+
+Since we've talked about some of our Actions, let's look at the full configuration
+of our `.github` folder. 
+
+### .github Folder
+
+* workflows
+    * build-dist.yaml
+    * codeql-analysis.yml
+    * dependency-review.yml
+    * publish.yaml
+    * push-to-template.yaml
+    * test.yaml
+* CODE_OF_CONDUCT.md
+* CONTRIBUTING.md
+* *ISSUE_TEMPLATE.md
+* PULL_REQUEST_TEMPLATE.md
+* SUPPORT.md
+* dependabot.yml
+
 
 
 
