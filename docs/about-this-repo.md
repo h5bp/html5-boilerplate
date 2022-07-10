@@ -81,8 +81,16 @@ of our `.github` folder.
 ### .github Folder
 
 * workflows
-    * build-dist.yaml
-    * codeql-analysis.yml
+    * `build-dist.yaml` is currently broken. We can't push to `main` without a
+    code review, so this task is blocked. What I would like, (are you there,
+    GitHub, it's me, Rob) is to allow Actions to bypass branch protection
+    rules. I think we'll have to basically write a mini-bot that opens a PR 
+    whenever there are changes to `main` and then pushes to the same branch
+    until the PR is closed. In some ways that will be better as it will be less
+    noisy in terms of bot pushes to main. 
+    * `codeql-analysis.yml` controls our CodeQL action. We use the defaults. If
+    you're building someothing with more JAvaScript footprint, you can tweak
+    the settings for this job. 
     * dependency-review.yml
     * publish.yaml
     * push-to-template.yaml
