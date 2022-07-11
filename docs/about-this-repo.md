@@ -91,10 +91,14 @@ of our `.github` folder.
     * `codeql-analysis.yml` controls our CodeQL action. We use the defaults. If
     you're building someothing with more JAvaScript footprint, you can tweak
     the settings for this job. 
-    * dependency-review.yml
-    * publish.yaml
-    * push-to-template.yaml
-    * test.yaml
+    * `dependency-review.yml` does what it says on the tin- it tests newly 
+    introduced dependencies for vultnerabilities.
+    * `publish.yaml` is the action that publishes all the various versions of
+    the project. When we create a new tag and push it to GitHub, this script
+    publishes our npm package and creates a GitHub release and attaches a zip
+    file of our `dist` folder.
+    * `push-to-template.yaml` pushes the `HEAD` of `main` to our tempate repo
+    * `test.yaml` runs our test suite.
 * CODE_OF_CONDUCT.md
 * CONTRIBUTING.md
 * *ISSUE_TEMPLATE.md
