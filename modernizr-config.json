@@ -13,18 +13,5 @@
     "setClasses"
   ],
   "feature-detects": [
-    "test/custom-elements",
-    "test/history",
-    "test/pointerevents",
-    "test/postmessage",
-    "test/webgl",
-    "test/websockets",
-    "test/css/animations",
-    "test/css/columns",
-    "test/css/flexbox",
-    "test/elem/picture",
-    "test/img/sizes",
-    "test/img/srcset",
-    "test/workers/webworkers"
   ]
 }
