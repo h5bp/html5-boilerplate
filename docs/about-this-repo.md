@@ -99,12 +99,15 @@ of our `.github` folder.
     file of our `dist` folder.
     * `push-to-template.yaml` pushes the `HEAD` of `main` to our tempate repo
     * `test.yaml` runs our test suite.
-* CODE_OF_CONDUCT.md
-* CONTRIBUTING.md
-* *ISSUE_TEMPLATE.md
-* PULL_REQUEST_TEMPLATE.md
-* SUPPORT.md
-* dependabot.yml
+* `CODE_OF_CONDUCT.md` is our Code of Conduct, based on
+[Contributor Covenant.](https://www.contributor-covenant.org/)
+* `CONTRIBUTING.md` contains our contribution guidelines. 
+* `ISSUE_TEMPLATE.md`is our new issue boilerplate.
+* `PULL_REQUEST_TEMPLATE.md`is our new PR boilerplate.
+* `SUPPORT.md`points people to different (non-HTML5-Boilerplate) support 
+resources
+* `dependabot.yml`is our Dependabot configuration. We do `npm`, monthly on
+two separate `package.json` files, one in `src` and one in project root. 
 
 
 
