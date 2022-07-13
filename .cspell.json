@@ -1,0 +1,23 @@
+{
+  "version": "0.2",
+  "words": [
+    "devdeps",
+    "FOUC",
+    "lighttpd",
+    "robotstxt",
+    "vuejs"
+  ],
+  "language": "en,en-GB,en-US",
+  "allowCompoundWords": true,
+  "files": [
+    "**/*.md"
+  ],
+  "ignoreRegExpList": [
+    "\\_\\w+",
+    "\\#\\w+"
+  ],
+  "ignorePaths": [
+    ".cspell.json"
+  ],
+  "useGitignore": true
+}
