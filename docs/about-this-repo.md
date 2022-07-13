@@ -61,7 +61,7 @@ public branch like this in an emergency is useful.
 
 #### GitHub Actions and Other Checks That Run on `main`
 
-* We run a simle *build status* check. This is the most basic test you can run
+* We run a simple *build status* check. This is the most basic test you can run
 and is absolutely vital. If you can't build your porject you're in trouble.
 Currently we're testing against Node 14 and 16.  
 * We take advantage of our access to *CodeQL analysis* Free for research and
@@ -98,6 +98,7 @@ of our `.github` folder.
     publishes our npm package and creates a GitHub release and attaches a zip
     file of our `dist` folder.
     * `push-to-template.yaml` pushes the `HEAD` of `main` to our tempate repo
+    * `spellcheck.yml` automatically checks markdown files for typos with cSpell.
     * `test.yaml` runs our test suite.
 * `CODE_OF_CONDUCT.md` is our Code of Conduct, based on
 [Contributor Covenant.](https://www.contributor-covenant.org/)
@@ -114,11 +115,3 @@ two separate `package.json` files, one in `src` and one in project root.
 That covers most of the interesting GitHub features and functionality that we
 use. We're going to continue to keep this document up to date as we change 
 things or new GitHub features.
-
-
-
-
-
-
-
-
