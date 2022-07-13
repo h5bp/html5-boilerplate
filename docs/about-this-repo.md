@@ -59,7 +59,7 @@ some head scratching moments for people who have cloned the repo and update
 before and after the force push, the ability to clean up the `HEAD` of a
 public branch like this in an emergency is useful.
 
-#### Github Actions and Other Checks That Run on `main`
+#### GitHub Actions and Other Checks That Run on `main`
 
 * We run a simle *build status* check. This is the most basic test you can run
 and is absolutely vital. If you can't build your porject you're in trouble.
