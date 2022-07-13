@@ -1,9 +1,11 @@
 {
   "version": "0.2",
   "words": [
+    "codeql",
     "devdeps",
     "FOUC",
     "lighttpd",
+    "modernizr",
     "robotstxt",
     "vuejs"
   ],
