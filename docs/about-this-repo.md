@@ -62,7 +62,7 @@ public branch like this in an emergency is useful.
 #### GitHub Actions and Other Checks That Run on `main`
 
 * We run a simple *build status* check. This is the most basic test you can run
-and is absolutely vital. If you can't build your porject you're in trouble.
+and is absolutely vital. If you can't build your project you're in trouble.
 Currently we're testing against Node 14 and 16.  
 * We take advantage of our access to *CodeQL analysis* Free for research and
 open source don't you know :) We don't have a ton of surface area to cover, 
@@ -89,15 +89,15 @@ of our `.github` folder.
     until the PR is closed. In some ways that will be better as it will be less
     noisy in terms of bot pushes to main. 
     * `codeql-analysis.yml` controls our CodeQL action. We use the defaults. If
-    you're building someothing with more JAvaScript footprint, you can tweak
+    you're building something with more JAvaScript footprint, you can tweak
     the settings for this job. 
     * `dependency-review.yml` does what it says on the tin- it tests newly 
-    introduced dependencies for vultnerabilities.
+    introduced dependencies for vulnerabilities.
     * `publish.yaml` is the action that publishes all the various versions of
     the project. When we create a new tag and push it to GitHub, this script
     publishes our npm package and creates a GitHub release and attaches a zip
     file of our `dist` folder.
-    * `push-to-template.yaml` pushes the `HEAD` of `main` to our tempate repo
+    * `push-to-template.yaml` pushes the `HEAD` of `main` to our template repo
     * `spellcheck.yml` automatically checks markdown files for typos with cSpell.
     * `test.yaml` runs our test suite.
 * `CODE_OF_CONDUCT.md` is our Code of Conduct, based on
