@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "archiver": "^5.3.1",
+    "copy-webpack-plugin": "^11.0.0",
     "del": "^6.1.1",
     "eslint": "^8.18.0",
     "eslint-config-recommended": "^4.1.0",
@@ -67,8 +68,5 @@
     "dist/",
     "modernizr-config.json",
     "README.md"
-  ],
-  "dependencies": {
-    
-  }
+  ]
 }
