@@ -9,7 +9,8 @@
   "author": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --open --port 8080"
+    "start": "webpack-dev-server --open --port 8080",
+    "build": "webpack build"
   },
   "devDependencies": {
     "webpack": "^5.73.0",
