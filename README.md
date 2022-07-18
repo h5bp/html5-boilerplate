@@ -106,7 +106,7 @@ Choose one of the following options:
 
 HTML5-Boilerplate supports the latest, stable releases of all major browsers. 
 
-You can find our range of supported browsers in our [package.json](https://github.com/h5bp/html5-boilerplate/blob/main/package.json#L55-L59) At present we extend the [browserlist default](https://github.com/browserslist/browserslist#full-list) with the addition of [FireFox ESR.](https://www.mozilla.org/en-US/firefox/enterprise/). IE 11 is not supported.
+You can find our range of supported browsers in our [package.json](https://github.com/h5bp/html5-boilerplate/blob/main/package.json#L55-L59) At present we alter the [browserlist default](https://github.com/browserslist/browserslist#full-list) by dropping IE 11.
 
 ```json
   "browserslist": [
@@ -118,7 +118,7 @@ You can find our range of supported browsers in our [package.json](https://githu
   ],
 ```
 
-[That configuration translates to this full list of browsers.](https://browserslist.dev/?q=ID4gMC41JSwgICAgIGxhc3QgMiB2ZXJzaW9ucywgICAgIEZpcmVmb3ggRVNSLCAgICBub3QgZGVhZCwgICAgIElFIDEx)
+[That configuration translates to this full list of browsers.](https://browserslist.dev/?q=ID4gMC41JSwgICAgIGxhc3QgMiB2ZXJzaW9ucywgICAgIEZpcmVmb3ggRVNSLCAgICBub3QgZGVhZCwgICAgIG5vdCBJRSAxMQ)
 
 ## Documentation
 
