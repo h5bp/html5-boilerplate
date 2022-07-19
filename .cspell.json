@@ -5,10 +5,10 @@
     "devdeps",
     "FOUC",
     "lighttpd",
+    "mkdir",
     "modernizr",
     "robotstxt",
-    "vuejs",
-    "mkdir"
+    "vuejs"
   ],
   "language": "en,en-GB,en-US",
   "allowCompoundWords": true,
