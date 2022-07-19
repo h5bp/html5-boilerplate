@@ -112,3 +112,5 @@ Icon with your own.
 
 If you want to use different Apple Touch Icons for different resolutions please
 refer to the [according documentation](extend.md#apple-touch-icons).
+
+
