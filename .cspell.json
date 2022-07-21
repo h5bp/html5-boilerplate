@@ -5,6 +5,7 @@
     "devdeps",
     "FOUC",
     "lighttpd",
+    "mkdir",
     "modernizr",
     "robotstxt",
     "vuejs"
