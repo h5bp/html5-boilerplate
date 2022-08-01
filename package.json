@@ -25,7 +25,7 @@
     "@babel/preset-env": "^7.18.9",
     "@babel/register": "^7.18.9",
     "archiver": "^5.3.1",
-    "del": "^6.1.1",
+    "del": "^7.0.0",
     "eslint": "^8.21.0",
     "eslint-config-recommended": "^4.1.0",
     "eslint-plugin-mocha": "^10.1.0",
