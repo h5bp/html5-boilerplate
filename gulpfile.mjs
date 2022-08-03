@@ -8,7 +8,7 @@ import gulpRename from "gulp-rename";
 import gulpReplace from "gulp-replace";
 import archiver from 'archiver';
 import glob from 'glob';
-import del from 'del';
+import { deleteSync } from 'del';
 import modernizr from 'modernizr';
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
@@ -65,12 +65,11 @@ gulp.task('archive:zip', (done) => {
 });
 
 gulp.task('clean', (done) => {
-  del([
+  deleteSync([
     dirs.archive,
     dirs.dist
-  ]).then(() => {
-    done();
-  });
+  ])
+  done();
 });
 
 gulp.task('copy:index.html', () => {
