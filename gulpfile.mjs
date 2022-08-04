@@ -1,11 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 import gulp from 'gulp';
-import gulpAutoPrefixer from "gulp-autoprefixer";
+import gulpAutoPrefixer from 'gulp-autoprefixer';
 import gulpEslint from 'gulp-eslint';
-import gulpHeader from "gulp-header";
-import gulpRename from "gulp-rename";
-import gulpReplace from "gulp-replace";
+import gulpHeader from 'gulp-header';
+import gulpRename from 'gulp-rename';
+import gulpReplace from 'gulp-replace';
 import archiver from 'archiver';
 import glob from 'glob';
 import { deleteSync } from 'del';
@@ -68,7 +68,7 @@ gulp.task('clean', (done) => {
   deleteSync([
     dirs.archive,
     dirs.dist
-  ])
+  ]);
   done();
 });
 
@@ -143,13 +143,13 @@ gulp.task('lint:js', () =>
 // | Main tasks                                                        |
 // ---------------------------------------------------------------------
 gulp.task(
-  "copy",
+  'copy',
   gulp.series(
-    "copy:index.html",
-    "copy:license",
-    "copy:style",
-    "copy:misc",
-    "copy:normalize"
+    'copy:index.html',
+    'copy:license',
+    'copy:style',
+    'copy:misc',
+    'copy:normalize'
   )
 );
 

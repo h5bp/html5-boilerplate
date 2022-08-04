@@ -18,7 +18,7 @@
   },
   "scripts": {
     "build": "gulp build",
-    "test": "gulp archive && mocha --require @babel/register --reporter spec --timeout 5000"
+    "test": "gulp archive && mocha --reporter spec --timeout 5000"
   },
   "devDependencies": {
     "archiver": "^5.3.1",

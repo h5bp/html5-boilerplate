@@ -2,7 +2,7 @@ import assert from 'assert';
 import fs from 'fs';
 import path from 'path';
 
-import pkg from './../package.json';
+import pkg from '../package.json';
 
 const dirs = pkg['h5bp-configs'].directories;
 
