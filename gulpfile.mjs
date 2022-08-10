@@ -1,19 +1,19 @@
 import fs from 'fs';
 import path from 'path';
-
 import gulp from 'gulp';
-
-// Load all gulp plugins automatically
-// and attach them to the `plugins` object
-import plugins from 'gulp-load-plugins';
-
+import gulpAutoPrefixer from 'gulp-autoprefixer';
+import gulpEslint from 'gulp-eslint';
+import gulpHeader from 'gulp-header';
+import gulpRename from 'gulp-rename';
+import gulpReplace from 'gulp-replace';
 import archiver from 'archiver';
 import glob from 'glob';
-import del from 'del';
+import { deleteSync } from 'del';
 import modernizr from 'modernizr';
-
-import pkg from './package.json';
-import modernizrConfig from './modernizr-config.json';
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const pkg = require('./package.json');
+const modernizrConfig = require('./modernizr-config.json');
 
 const dirs = pkg['h5bp-configs'].directories;
 
@@ -65,12 +65,11 @@ gulp.task('archive:zip', (done) => {
 });
 
 gulp.task('clean', (done) => {
-  del([
+  deleteSync([
     dirs.archive,
     dirs.dist
-  ]).then(() => {
-    done();
-  });
+  ]);
+  done();
 });
 
 gulp.task('copy:index.html', () => {
@@ -78,7 +77,7 @@ gulp.task('copy:index.html', () => {
   let modernizrVersion = pkg.devDependencies.modernizr;
 
   return gulp.src(`${dirs.src}/index.html`)
-    .pipe(plugins().replace(/{{MODERNIZR_VERSION}}/g, modernizrVersion))
+    .pipe(gulpReplace(/{{MODERNIZR_VERSION}}/g, modernizrVersion))
     .pipe(gulp.dest(dirs.dist));
 });
 
@@ -91,11 +90,11 @@ gulp.task('copy:style', () => {
   const banner = `/*! HTML5 Boilerplate v${pkg.version} | ${pkg.license} License | ${pkg.homepage} */\n\n`;
 
   return gulp.src('node_modules/main.css/dist/main.css')
-    .pipe(plugins().header(banner))
-    .pipe(plugins().autoprefixer({
+    .pipe(gulpHeader(banner))
+    .pipe(gulpAutoPrefixer({
       cascade: false
     }))
-    .pipe(plugins().rename({
+    .pipe(gulpRename({
       basename: 'style'
     }))
     .pipe(gulp.dest(`${dirs.dist}/css`));
@@ -135,22 +134,22 @@ gulp.task('modernizr', (done) => {
 gulp.task('lint:js', () =>
   gulp.src([
     `${dirs.src}/js/*.js`,
-    `${dirs.test}/*.js`
-  ]).pipe(plugins().eslint())
-    .pipe(plugins().eslint.failOnError())
+    `${dirs.test}/*.mjs`
+  ]).pipe(gulpEslint())
+    .pipe(gulpEslint.failOnError())
 );
 
 // ---------------------------------------------------------------------
 // | Main tasks                                                        |
 // ---------------------------------------------------------------------
 gulp.task(
-  "copy",
+  'copy',
   gulp.series(
-    "copy:index.html",
-    "copy:license",
-    "copy:style",
-    "copy:misc",
-    "copy:normalize"
+    'copy:index.html',
+    'copy:license',
+    'copy:style',
+    'copy:misc',
+    'copy:normalize'
   )
 );
 

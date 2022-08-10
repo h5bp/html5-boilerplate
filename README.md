@@ -22,7 +22,7 @@ way that you want.
 This repository is where HTML5-Boilerplate is authored. Some of the tools,
 files and processes that you see here are solely for the _production_ of
 HTML5 Boilerplate and are not _part_ of HTML5 Boilerplate. For one example, the
-[gulpfile.babel.js](https://github.com/h5bp/html5-boilerplate/blob/main/gulpfile.babel.js)
+[gulpfile.mjs](https://github.com/h5bp/html5-boilerplate/blob/main/gulpfile.mjs)
 script is used to _build_ the project. It's not part of the project itself.
 
 The project we publish is represented by the contents of the `/dist/`
