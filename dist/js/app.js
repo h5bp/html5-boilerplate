@@ -1,1 +1,3 @@
-function puneethsthebloodyibeibe() {}
+function puneethsthebloodyibeibe() {
+  window.print("GREATLIFE");
+}
