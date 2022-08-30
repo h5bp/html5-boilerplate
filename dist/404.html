@@ -37,11 +37,26 @@
       width: 280px;
     }
 
-    
+    @media only screen and (max-width: 280px) {
+
+      body,
+      p {
+        width: 95%;
+      }
+
+      h1 {
+        font-size: 1.5em;
+        margin: 0 0 0.3em;
+      }
+
+    }
   </style>
 </head>
 
-
+<body>
+  <h1>OOPS, Not Found</h1>
+  <p>PS:TBIB, view not exist.</p>
+</body>
 
 </html>
 <!-- IE needs 512+ bytes: https://docs.microsoft.com/archive/blogs/ieinternals/friendly-http-error-pages -->
