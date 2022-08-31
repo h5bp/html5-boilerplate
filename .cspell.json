@@ -8,7 +8,8 @@
     "mkdir",
     "modernizr",
     "robotstxt",
-    "vuejs"
+    "vuejs",
+    "cpina"
   ],
   "language": "en,en-GB,en-US",
   "allowCompoundWords": true,
