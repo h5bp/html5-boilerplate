@@ -23,30 +23,30 @@ This repository is where HTML5-Boilerplate is authored. Some of the tools,
 files and processes that you see here are solely for the _production_ of
 HTML5 Boilerplate and are not _part_ of HTML5 Boilerplate. For one example, the
 [gulpfile.mjs](https://github.com/h5bp/html5-boilerplate/blob/main/gulpfile.mjs)
-script is used to _build_ the project. It's not part of the project itself.
+the script is used to _build_ the project. It's not part of the project itself.
 
 The project we publish is represented by the contents of the `/dist/`
 folder. Everything else in this repository is used to author the project.
 
-Think of it this way, in the same way that you don't clone [vuejs/core](https://github.com/vuejs/core)
+Think of it this way, in the same way, that you don't clone [vuejs/core](https://github.com/vuejs/core)
 to create a Vue.js app, you don't need to clone this repository to start a new
 site or app based on HTML5 Boilerplate.
 
-So, if you're looking for a quick start template to build a web site or
+So, if you're looking for a quick start template to build a website or
 application, look at the options in the
 [Quick Start section of this document](https://github.com/h5bp/html5-boilerplate#quick-start)
 
-If you want to help us _improve_ HTML5 Boilerplate then you can start with the documentation [here](.github/CONTRIBUTING.md), which includes steps to clone this repo in order to get it set up for development.
+If you want to help us _improve_ HTML5 Boilerplate then you can start with the documentation [here](.github/CONTRIBUTING.md), which includes steps to clone this repo to get it set up for development.
 
 ## Quick start
 
 Choose one of the following options:
 
 * Using the [create-html5-boilerplate](https://github.com/h5bp/create-html5-boilerplate)
-  script, instantly fetch the latest npm published package (or any version
+  the script, instantly fetch the latest npm published package (or any version
   available on npm) with `npx`, `npm init` or `yarn create` without having to
   install any dependencies. Running the following `npx` command installs the
-  latest version into a folder called `new-site`
+  the latest version into a folder called `new-site`
 
   ```bash
   npx create-html5-boilerplate new-site
@@ -90,7 +90,7 @@ Choose one of the following options:
   * A custom build of [`Modernizr`](https://modernizr.com/) for feature
     detection
   * [`Apache Server Configs`](https://github.com/h5bp/server-configs-apache)
-    that improve the web site's performance and security
+    that improve the website's performance and security
 * Placeholder Open Graph elements and attributes.
 * An example package.json file with [WebPack](https://webpack.js.org/) commands
   built in to jumpstart application development
