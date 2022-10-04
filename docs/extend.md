@@ -55,7 +55,7 @@ request.
 ### Implicit prefetches
 
 There is a lot of prefetching done for you automatically by the browser. When
-the browser encounters an anchor in your html that does not share the same
+the browser encounters an anchor in your HTML that does not share the same
 domain name as the current location the browser requests, from the client OS,
 the IP address for this new domain. The client first checks its cache and then,
 lacking a cached copy, makes a request from a DNS server. These requests happen
@@ -69,7 +69,7 @@ is increased on a mobile platform where DNS latency can be greater.
 ### Explicit prefetches
 
 Typically the browser only scans the HTML for foreign domains. If you have
-resources that are outside of your HTML (a javascript request to a remote server
+resources that are outside of your HTML (a JavaScript request to a remote server
 or a CDN that hosts content that may not be present on every page of your site,
 for example) then you can queue up a domain name to be prefetched.
 

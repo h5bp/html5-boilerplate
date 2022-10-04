@@ -92,17 +92,17 @@ if you're interested. The fields we provide are as follows:
   to npm, then the name needs to follow [certain guidelines](https://docs.npmjs.com/files/package.json#name)
   and be unique.
 * `version` - indicates the version of your site application using semantic
-  versioning ([semver](https://docs.npmjs.com/misc/semver))
+  versioning ([SemVer](https://semver.org/))
 * `description` - describes your site.
 * `scripts` - is a JavaScript object containing commands that can be run in a
   node environment. There are many [built-in keys](https://docs.npmjs.com/misc/scripts)
   related to the package lifecycle that node understands automatically. You can
   also define custom scripts for use with your application development. We
-  provide three custom scripts that work with WebPack to get you up and running
+  provide three custom scripts that work with webpack to get you up and running
   quickly with a bundler for your assets and a simple development server.
 
   * `start` serves your `index.html` with a simple development server
-  
+
 * `keywords` - an array of keywords used to discover your app in the npm
   registry
 * `author` - defines the author of a package. There is also an alternative
@@ -111,4 +111,4 @@ if you're interested. The fields we provide are as follows:
 * `license` - the license for your application. Must conform to
   [specific rules](https://docs.npmjs.com/files/package.json#license)
 * `devDependencies` - development dependencies for your package. In our case
- we have several dependencies used by WebPack, which we use as a simple development server.
+ we have several dependencies used by webpack, which we use as a simple development server.

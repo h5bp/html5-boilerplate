@@ -58,7 +58,7 @@ Choose one of the following options:
 * Using our new [Template Repository](https://github.com/h5bp/html5-boilerplate-template)
   create a new GitHub repository based on the latest code from the main branch of HTML5
   Boilerplate.
-  
+
 * Install with [npm](https://www.npmjs.com/): `npm install html5-boilerplate`
   or [yarn](https://yarnpkg.com/): `yarn add html5-boilerplate`. The resulting
   `node_modules/html5-boilerplate/dist` folder represents the latest version of
@@ -71,7 +71,7 @@ Choose one of the following options:
   [html5boilerplate.com](https://html5boilerplate.com/). This zip file is a
   snapshot of the `dist` folder. On Windows, Mac and from the file manager on
   Linux unzipping this folder will output to a folder named something like
-  `html5-boilerplate_v7.3.0`. From the command line will need to create a
+  `html5-boilerplate_v7.3.0`. From the command-line will need to create a
   folder and unzip the contents into that folder.
 
   ```bash
