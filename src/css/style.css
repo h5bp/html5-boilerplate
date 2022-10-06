@@ -88,3 +88,19 @@ h1 {
     font-family: 'Roboto-Light';
     margin-bottom: 0px;
 }
+
+@media screen and (max-width: 1000px ) {
+    .first-section {
+        margin-top: 20px;
+        flex-direction: column;
+    }
+
+    .left-column {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 100px;
+    }
+}
