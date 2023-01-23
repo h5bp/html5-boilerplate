@@ -2,6 +2,7 @@
   "name": " ",
   "version": "0.0.1",
   "description": "",
+  "private": true,
   "keywords": [
     ""
   ],
@@ -15,6 +16,6 @@
     "webpack": "^5.74.0",
     "html-webpack-plugin": "^5.5.0",
     "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^4.9.3"
+    "webpack-dev-server": "^4.11.1"
   }
 }
