@@ -1,0 +1,27 @@
+{
+  "version": "0.2",
+  "words": [
+    "codeql",
+    "devdeps",
+    "FOUC",
+    "lighttpd",
+    "mkdir",
+    "modernizr",
+    "robotstxt",
+    "vuejs",
+    "cpina"
+  ],
+  "language": "en,en-GB,en-US",
+  "allowCompoundWords": true,
+  "files": [
+    "**/*.md"
+  ],
+  "ignoreRegExpList": [
+    "\\_\\w+",
+    "\\#\\w+"
+  ],
+  "ignorePaths": [
+    ".cspell.json"
+  ],
+  "useGitignore": true
+}
