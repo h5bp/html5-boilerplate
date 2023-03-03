@@ -64,6 +64,5 @@
     "dist/",
     "modernizr-config.json",
     "README.md"
-  ],
-  "dependencies": {}
+  ]
 }
