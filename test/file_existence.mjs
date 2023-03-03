@@ -1,7 +1,7 @@
 import assert from 'assert';
 import fs from 'fs';
 import path from 'path';
-import glob from 'glob';
+import { globSync } from 'glob';
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const pkg = require('../package.json');
@@ -53,7 +53,7 @@ const expectedFilesInDistDir = [
 function checkFiles(directory, expectedFiles) {
 
   // Get the list of files from the specified directory
-  const files = glob.sync('**/*', {
+  const files = globSync('**/*', {
     'cwd': directory,
     'ignore': [
       '**/node_modules/**',
