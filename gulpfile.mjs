@@ -7,7 +7,7 @@ import gulpHeader from 'gulp-header';
 import gulpRename from 'gulp-rename';
 import gulpReplace from 'gulp-replace';
 import archiver from 'archiver';
-import glob from 'glob';
+import { globSync } from 'glob'
 import { deleteSync } from 'del';
 import modernizr from 'modernizr';
 import { createRequire } from 'module';
@@ -29,7 +29,7 @@ gulp.task('archive:create_archive_dir', (done) => {
 gulp.task('archive:zip', (done) => {
   const archiveName = path.resolve(dirs.archive, `${pkg.name}_v${pkg.version}.zip`);
   const zip = archiver('zip');
-  const files = glob.sync('**/*.*', {
+  const files = globSync('**/*.*', {
     'cwd': dirs.dist,
     'ignore': [
       '**/node_modules/**',
