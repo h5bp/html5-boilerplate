@@ -41,7 +41,6 @@ A basic HTML5 Boilerplate site initially looks something like this:
 ├── .editorconfig
 ├── 404.html
 ├── favicon.ico
-├── humans.txt
 ├── icon.png
 ├── icon.svg
 ├── index.html
@@ -90,11 +89,6 @@ need to integrate this starting HTML with your setup.
 
 Make sure that you update the URLs for the referenced CSS and JavaScript if you
 modify the directory structure at all.
-
-### humans.txt
-
-Edit this file to include the team that worked on your site/app, and the
-technology powering it.
 
 ### package.json
 
