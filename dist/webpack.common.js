@@ -1,14 +1,10 @@
+const path = require('path');
 const HtmlWebpackPlugin =  require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  mode : 'development',
-  entry : './js/app.js',
-  devServer: {
-    liveReload: true,
-    hot: true,
-    open: true,
-    static: ['./'],
+  entry: {
+    app: './js/app.js',
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -28,5 +24,10 @@ module.exports = {
         { from: 'tile.png', to: 'tile.png'}
       ],
     })
-  ]
+  ],
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true,
+  },
 };
