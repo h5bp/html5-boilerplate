@@ -134,6 +134,7 @@ gulp.task('modernizr', (done) => {
 gulp.task('lint:js', () =>
   gulp.src([
     `${dirs.src}/js/*.js`,
+    `${dirs.src}/*.js`,
     `${dirs.test}/*.mjs`
   ]).pipe(gulpEslint())
     .pipe(gulpEslint.failOnError())
