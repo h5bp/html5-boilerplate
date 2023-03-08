@@ -18,8 +18,9 @@ const expectedFilesInDistDir = [
   '.gitignore',
   '404.html',
   'package.json',
-  'webpack.config.js',
-
+  'webpack.comoon.js',
+  'webpack.config.dev.js',
+  'webpack.config.prod.js',
   'css/', // for directories, a `/` character
   // should be included at the end
   'css/normalize.css',
