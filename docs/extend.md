@@ -16,7 +16,6 @@ everything fits with everyone's needs.
 * [Social Networks](#social-networks)
 * [URLs](#urls)
 * [Web Apps](#web-apps)
-* [humans.txt](#humanstxt)
 * [security.txt](#security.txt)
 
 
@@ -357,13 +356,6 @@ The `content` attribute extension can take any valid CSS color.
 Currently, the `theme-color` meta extension is supported by [Chrome 39+ for
 Android
 Lollipop](https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android).
-
-### humans.txt
-
-You can include a `humans.txt` file in the root of your site which can be used
-to provide information about people involved with the website.
-
-For more information about `humans.txt`, please see: https://humanstxt.org/
 
 ### security.txt
 

@@ -41,7 +41,6 @@ A basic HTML5 Boilerplate site initially looks something like this:
 ├── .editorconfig
 ├── 404.html
 ├── favicon.ico
-├── humans.txt
 ├── icon.png
 ├── icon.svg
 ├── index.html
