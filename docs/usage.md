@@ -143,9 +143,10 @@ Both the production and development scripts inherit from this common script.
 
 #### webpack.config.dev.js
 
-This devevelopment configuration defines the behavior of development server.
+This development configuration defines the behavior of development server.
 
 #### webpack.config.prod.js
+
 This production configuration defines the behavior of the production build. 
 
 It copies the following files and folders to the dist folder:
