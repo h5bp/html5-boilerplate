@@ -49,7 +49,9 @@ A basic HTML5 Boilerplate site initially looks something like this:
 ├── site.webmanifest
 ├── tile.png
 ├── tile-wide.png
-└── webpack.config.js
+└── webpack.common.js
+└── webpack.config.dev.js
+└── webpack.config.prod.js
 ```
 
 What follows is a general overview of each major part and how to use them.
@@ -106,3 +108,62 @@ Icon with your own.
 
 If you want to use different Apple Touch Icons for different resolutions please
 refer to the [according documentation](extend.md#apple-touch-icons).
+
+### Webpack
+
+The project contains a simple [webpack](https://webpack.js.org/) configuration. 
+
+To get started developing a site with a development server, run the following 
+commands from within the `/dist/` folder in the project's repo or within the 
+root folder of the dowloaded project files, the folder created by `npm install`
+or the project folder created by running [create\-html5\-boilerplate](https://github.com/h5bp/create-html5-boilerplate) 
+
+```
+npm install
+npm run start
+```
+
+This will start a Webpack development server with hot reloading of edited files. 
+
+To package a site for production run 
+
+```
+npm run build
+```
+
+This command will bundle up the site's JavaScript and copy over static assets to 
+the newly created `dist` folder. 
+
+
+There are three files:
+
+#### webpack.common.js
+
+Both the production and development scripts inherit from this common script.
+
+#### webpack.config.dev.js
+
+This development configuration defines the behavior of development server.
+
+#### webpack.config.prod.js
+
+This production configuration defines the behavior of the production build. 
+
+It copies the following files and folders to the dist folder:
+
+* css
+* img
+* js/vendor
+* 404.html    
+* favicon.ico  
+* icon.png  
+* icon.svg    
+* index.html    
+* robots.txt  
+* site.webmanifest 
+* tile.png  
+* tile-wide.png
+
+`js/vendor` is copied over in order to allow you to use unprocessed JS files 
+(like Modernizr) in addition to the files bundled based on the project's entry
+point `app.js.` 
