@@ -59,7 +59,7 @@ the MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_met
 HTML5 Boilerplate comes with a simple setup that strikes a good balance for general use cases.
 
 ```html
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width">
 ```
 
 If you want to take advantage of edge-to-edge displays of iPhone X/XS/XR you
