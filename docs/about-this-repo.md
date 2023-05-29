@@ -103,12 +103,12 @@ of our `.github` folder.
 * `CODE_OF_CONDUCT.md` is our Code of Conduct, based on
 [Contributor Covenant.](https://www.contributor-covenant.org/)
 * `CONTRIBUTING.md` contains our contribution guidelines. 
-* `ISSUE_TEMPLATE.md`is our new issue boilerplate.
-* `PULL_REQUEST_TEMPLATE.md`is our new PR boilerplate.
-* `SUPPORT.md`points people to different (non-HTML5-Boilerplate) support 
+* `ISSUE_TEMPLATE.md` is our new issue boilerplate.
+* `PULL_REQUEST_TEMPLATE.md` is our new PR boilerplate.
+* `SUPPORT.md` points people to different (non-HTML5-Boilerplate) support 
 resources
-* `dependabot.yml`is our Dependabot configuration. We do `npm`, monthly on
-two separate `package.json` files, one in `src` and one in project root. 
+* `dependabot.yml` is our Dependabot configuration. We do `npm`, monthly on
+two separate `package.json`  files, one in `src` and one in project root. 
 
 ---
 
