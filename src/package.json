@@ -19,6 +19,6 @@
     "webpack": "^5.81.0",
     "webpack-cli": "^5.0.2",
     "webpack-dev-server": "^4.13.3",
-    "webpack-merge": "^5.8.0"
+    "webpack-merge": "^5.9.0"
   }
 }
