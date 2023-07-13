@@ -17,7 +17,7 @@
     "copy-webpack-plugin": "^11.0.0",
     "html-webpack-plugin": "^5.5.3",
     "webpack": "^5.88.1",
-    "webpack-cli": "^5.0.2",
+    "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.13.3",
     "webpack-merge": "^5.9.0"
   }
