@@ -37,7 +37,7 @@
     "mocha": "^10.2.0",
     "modernizr": "3.12.0",
     "normalize.css": "8.0.1",
-    "strip-json-comments": "^5.0.0"
+    "strip-json-comments": "^5.0.1"
   },
   "engines": {
     "node": ">=14"
