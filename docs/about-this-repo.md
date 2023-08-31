@@ -51,8 +51,8 @@ Our branch protection rules are as follows:
 * We require a pull request (PR) with one approving reviewer to merge code
 * In addition to the PR and approving reviewer, we require three status checks
 to pass before code can be merged
+    * Build with Node 18
     * Build with Node 16
-    * Build with Node 14
     * LGTM analysis: JavaScript
 * We *allow* force pushes for project admins. While force pushes can create
 some head scratching moments for people who have cloned the repo and update
@@ -63,7 +63,7 @@ public branch like this in an emergency is useful.
 
 * We run a simple *build status* check. This is the most basic test you can run
 and is absolutely vital. If you can't build your project you're in trouble.
-Currently we're testing against Node 14 and 16.  
+Currently we're testing against Node 16 and 18.  
 * We take advantage of our access to *CodeQL analysis* Free for research and
 open source don't you know :) We don't have a ton of surface area to cover, 
 but it's nice to have this powerful code scanning tool available to us. 
@@ -103,12 +103,12 @@ of our `.github` folder.
 * `CODE_OF_CONDUCT.md` is our Code of Conduct, based on
 [Contributor Covenant.](https://www.contributor-covenant.org/)
 * `CONTRIBUTING.md` contains our contribution guidelines. 
-* `ISSUE_TEMPLATE.md`is our new issue boilerplate.
-* `PULL_REQUEST_TEMPLATE.md`is our new PR boilerplate.
-* `SUPPORT.md`points people to different (non-HTML5-Boilerplate) support 
+* `ISSUE_TEMPLATE.md` is our new issue boilerplate.
+* `PULL_REQUEST_TEMPLATE.md` is our new PR boilerplate.
+* `SUPPORT.md` points people to different (non-HTML5-Boilerplate) support 
 resources
-* `dependabot.yml`is our Dependabot configuration. We do `npm`, monthly on
-two separate `package.json` files, one in `src` and one in project root. 
+* `dependabot.yml` is our Dependabot configuration. We do `npm`, monthly on
+two separate `package.json`  files, one in `src` and one in project root. 
 
 ---
 

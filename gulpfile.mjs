@@ -115,11 +115,6 @@ gulp.task('copy:misc', () =>
   }).pipe(gulp.dest(dirs.dist))
 );
 
-gulp.task('copy:normalize', () =>
-  gulp.src('node_modules/normalize.css/normalize.css')
-    .pipe(gulp.dest(`${dirs.dist}/css`))
-);
-
 gulp.task('modernizr', (done) => {
   // TODO: rework this flow instead of just reacting to the fact that the jQuery step is gone
   if (!fs.existsSync(`${dirs.dist}/js/vendor/`)){
@@ -149,8 +144,7 @@ gulp.task(
     'copy:index.html',
     'copy:license',
     'copy:style',
-    'copy:misc',
-    'copy:normalize'
+    'copy:misc'
   )
 );
 
