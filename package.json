@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "archiver": "^6.0.0",
-    "del": "^7.0.0",
+    "del": "^7.1.0",
     "eslint": "^8.46.0",
     "eslint-config-recommended": "^4.1.0",
     "eslint-plugin-mocha": "^10.1.0",
