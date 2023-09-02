@@ -9,11 +9,9 @@ import gulpReplace from 'gulp-replace';
 import archiver from 'archiver';
 import { globSync } from 'glob'
 import { deleteSync } from 'del';
-import modernizr from 'modernizr';
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const pkg = require('./package.json');
-const modernizrConfig = require('./modernizr-config.json');
 
 const dirs = pkg['h5bp-configs'].directories;
 
@@ -74,10 +72,7 @@ gulp.task('clean', (done) => {
 
 gulp.task('copy:index.html', () => {
 
-  let modernizrVersion = pkg.devDependencies.modernizr;
-
   return gulp.src(`${dirs.src}/index.html`)
-    .pipe(gulpReplace(/{{MODERNIZR_VERSION}}/g, modernizrVersion))
     .pipe(gulp.dest(dirs.dist));
 });
 
@@ -115,16 +110,6 @@ gulp.task('copy:misc', () =>
   }).pipe(gulp.dest(dirs.dist))
 );
 
-gulp.task('modernizr', (done) => {
-  // TODO: rework this flow instead of just reacting to the fact that the jQuery step is gone
-  if (!fs.existsSync(`${dirs.dist}/js/vendor/`)){
-    fs.mkdirSync(`${dirs.dist}/js/vendor/`);
-  }
-
-  modernizr.build(modernizrConfig, (code) => {
-    fs.writeFile(`${dirs.dist}/js/vendor/modernizr-${pkg.devDependencies.modernizr}.min.js`, code, done);
-  });
-});
 
 gulp.task('lint:js', () =>
   gulp.src([
@@ -152,8 +137,7 @@ gulp.task(
   'build',
   gulp.series(
     gulp.parallel('clean', 'lint:js'),
-    'copy',
-    'modernizr'
+    'copy'
   )
 );
 
