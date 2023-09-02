@@ -36,8 +36,6 @@ A basic HTML5 Boilerplate site initially looks something like this:
 ├── img
 ├── js
 │   ├── app.js
-│   └── vendor
-│       └── modernizr.min.js
 ├── .editorconfig
 ├── 404.html
 ├── favicon.ico
@@ -153,7 +151,6 @@ It copies the following files and folders to the dist folder:
 
 * css
 * img
-* js/vendor
 * 404.html    
 * favicon.ico  
 * icon.png  
@@ -163,7 +160,3 @@ It copies the following files and folders to the dist folder:
 * site.webmanifest 
 * tile.png  
 * tile-wide.png
-
-`js/vendor` is copied over in order to allow you to use unprocessed JS files 
-(like Modernizr) in addition to the files bundled based on the project's entry
-point `app.js.` 
