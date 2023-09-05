@@ -44,4 +44,4 @@ jobs:
         uses: CasperWA/push-protected@v2
         with:
           token: ${{ secrets.API_TOKEN_GITHUB }}
-        branch: main
+          branch: main
