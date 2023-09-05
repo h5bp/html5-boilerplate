@@ -39,3 +39,9 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "[Bot] Update dist"
+
+      - name: Pushing to the protected branch 'main'
+        uses: CasperWA/push-protected@v2
+        with:
+          token: ${{ secrets.API_TOKEN_GITHUB }}
+        branch: main
