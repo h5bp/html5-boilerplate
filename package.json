@@ -21,8 +21,8 @@
     "test": "gulp archive && mocha --reporter spec --timeout 5000"
   },
   "devDependencies": {
-    "archiver": "^5.3.1",
-    "del": "^7.0.0",
+    "archiver": "^6.0.0",
+    "del": "^7.1.0",
     "eslint": "^8.46.0",
     "eslint-config-recommended": "^4.1.0",
     "eslint-plugin-mocha": "^10.1.0",
@@ -35,7 +35,6 @@
     "gulp-replace": "^1.1.4",
     "main.css": "3.0.0",
     "mocha": "^10.2.0",
-    "modernizr": "3.12.0",
     "strip-json-comments": "^5.0.1"
   },
   "engines": {
@@ -61,7 +60,6 @@
     "LICENSE.txt",
     "package.json",
     "dist/",
-    "modernizr-config.json",
     "README.md"
   ]
 }

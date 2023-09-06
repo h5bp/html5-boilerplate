@@ -15,7 +15,6 @@ way that you want.
 
 * [Homepage](https://html5boilerplate.com/)
 * [Source Code](https://github.com/h5bp/html5-boilerplate)
-* [Twitter(@h5pb)](https://twitter.com/h5bp)
 
 ## About This Repository
 
@@ -85,8 +84,6 @@ Choose one of the following options:
   research and experimentation by over 200 contributors.
 * Designed with progressive enhancement in mind.
 * Includes:
-  * A custom build of [`Modernizr`](https://modernizr.com/) for feature
-    detection.
   * Placeholder Open Graph elements and attributes.
   * An example package.json file with [WebPack](https://webpack.js.org/) commands
   built in to jumpstart application development.
