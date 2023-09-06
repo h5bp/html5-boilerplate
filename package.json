@@ -60,7 +60,6 @@
     "LICENSE.txt",
     "package.json",
     "dist/",
-    "modernizr-config.json",
     "README.md"
   ]
 }

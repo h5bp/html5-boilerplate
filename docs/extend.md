@@ -132,9 +132,6 @@ plugin](https://developer.mozilla.org/en-US/docs/Web/OpenSearch).
 
 ## Miscellaneous
 
-* Use
-  [polyfills](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills).
-
 * Use [Microformats](http://microformats.org/wiki/Main_Page) (via
   [microdata](http://microformats.org/wiki/microdata)) for optimum search
   results
