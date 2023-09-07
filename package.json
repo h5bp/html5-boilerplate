@@ -18,6 +18,7 @@
   },
   "scripts": {
     "build": "gulp build",
+    "prettier": "prettier --write ./**/*.{js,json,md,mjs,yml}",
     "test": "gulp archive && mocha --reporter spec --timeout 5000"
   },
   "devDependencies": {
@@ -35,6 +36,7 @@
     "gulp-replace": "^1.1.4",
     "main.css": "3.0.0",
     "mocha": "^10.2.0",
+    "prettier": "3.0.3",
     "strip-json-comments": "^5.0.1"
   },
   "engines": {

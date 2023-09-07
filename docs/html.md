@@ -5,9 +5,9 @@ table of contents](TOC.md)
 
 By default, HTML5 Boilerplate provides two `html` pages:
 
-* [`index.html`](#indexhtml) - a default HTML skeleton that should form the
+- [`index.html`](#indexhtml) - a default HTML skeleton that should form the
   basis of all pages on your website
-* `404.html` - a placeholder 404 error page
+- `404.html` - a placeholder 404 error page
 
 ## `index.html`
 
@@ -52,8 +52,7 @@ documentation has useful tips on creating an effective description.
 ### Mobile Viewport
 
 There are a few different options that you can use with the
-[`viewport` meta tag](https://docs.google.com/present/view?id=dkx3qtm_22dxsrgcf4
-"Viewport and Media Queries - The Complete Idiot's Guide").
+[`viewport` meta tag](https://docs.google.com/present/view?id=dkx3qtm_22dxsrgcf4 "Viewport and Media Queries - The Complete Idiot's Guide").
 You can find out more in [
 the MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag).
 HTML5 Boilerplate comes with a simple setup that strikes a good balance for general use cases.
@@ -135,5 +134,3 @@ of these docs.
 The central part of the boilerplate template is pretty much empty. This is
 intentional, in order to make the boilerplate suitable for both web page and web
 app development.
-
-
