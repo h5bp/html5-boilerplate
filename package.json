@@ -37,7 +37,8 @@
     "main.css": "3.0.0",
     "mocha": "^10.2.0",
     "prettier": "3.0.3",
-    "strip-json-comments": "^5.0.1"
+    "strip-json-comments": "^5.0.1",
+    "webpack-cli": "^5.1.4"
   },
   "engines": {
     "node": ">=14"
