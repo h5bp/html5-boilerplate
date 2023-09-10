@@ -41,8 +41,6 @@ const expectedFilesInDistDir = [
   'LICENSE.txt',
   'robots.txt',
   'site.webmanifest',
-  'tile-wide.png',
-  'tile.png',
 ];
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

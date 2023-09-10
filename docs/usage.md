@@ -46,8 +46,6 @@ A basic HTML5 Boilerplate site initially looks something like this:
 ├── package.json
 ├── robots.txt
 ├── site.webmanifest
-├── tile.png
-├── tile-wide.png
 └── webpack.common.js
 └── webpack.config.dev.js
 └── webpack.config.prod.js
@@ -102,8 +100,7 @@ Edit this file to include any pages you need hidden from search engines.
 
 ### Icons
 
-Replace the default `favicon.ico`, `tile.png`, `tile-wide.png` and Apple Touch
-Icon with your own.
+Replace the default `favicon.ico` and Apple Touch Icon with your own.
 
 If you want to use different Apple Touch Icons for different resolutions please
 refer to the [according documentation](extend.md#apple-touch-icons).
@@ -159,8 +156,6 @@ It copies the following files and folders to the dist folder:
 - index.html
 - robots.txt
 - site.webmanifest
-- tile.png
-- tile-wide.png
 
 `js/vendor` is copied over in order to allow you to use unprocessed JS files
 in addition to the files bundled based on the project's entry point `app.js.`
