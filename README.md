@@ -13,8 +13,8 @@ community knowledge. It does not impose a specific development
 philosophy or framework, so you're free to architect your code in the
 way that you want.
 
-* [Homepage](https://html5boilerplate.com/)
-* [Source Code](https://github.com/h5bp/html5-boilerplate)
+- [Homepage](https://html5boilerplate.com/)
+- [Source Code](https://github.com/h5bp/html5-boilerplate)
 
 ## About This Repository
 
@@ -41,7 +41,7 @@ If you want to help us _improve_ HTML5 Boilerplate then you can start with the d
 
 Choose one of the following options:
 
-* Using the [create-html5-boilerplate](https://github.com/h5bp/create-html5-boilerplate)
+- Using the [create-html5-boilerplate](https://github.com/h5bp/create-html5-boilerplate)
   script, instantly fetch the latest npm published package (or any version
   available on npm) with `npx`, `npm init` or `yarn create` without having to
   install any dependencies. Running the following `npx` command installs the
@@ -54,19 +54,18 @@ Choose one of the following options:
   npm run start
   ```
 
-* Using our new [Template Repository](https://github.com/h5bp/html5-boilerplate-template)
+- Using our new [Template Repository](https://github.com/h5bp/html5-boilerplate-template)
   create a new GitHub repository based on the latest code from the main branch of HTML5
   Boilerplate.
 
-* Install with [npm](https://www.npmjs.com/): `npm install html5-boilerplate`
+- Install with [npm](https://www.npmjs.com/): `npm install html5-boilerplate`
   or [yarn](https://yarnpkg.com/): `yarn add html5-boilerplate`. The resulting
   `node_modules/html5-boilerplate/dist` folder represents the latest version of
   the project for end users. Depending on what you want to use and how you want
   to use it, you may have to copy and paste the contents of that folder into
   your project directory.
 
-
-* Download the latest stable release from
+- Download the latest stable release from
   [here](https://github.com/h5bp/html5-boilerplate/releases/download/v8.0.0/html5-boilerplate_v8.0.0.zip). This zip file is a
   snapshot of the `dist` folder. On Windows, Mac and from the file manager on
   Linux unzipping this folder will output to a folder named something like
@@ -80,36 +79,25 @@ Choose one of the following options:
 
 ## Features
 
-* A finely-tuned starter template: Reap the benefits of 10 years of analysis,
+- A finely-tuned starter template: Reap the benefits of 10 years of analysis,
   research and experimentation by over 200 contributors.
-* Designed with progressive enhancement in mind.
-* Includes:
-  * Placeholder Open Graph elements and attributes.
-  * An example package.json file with [WebPack](https://webpack.js.org/) commands
-  built in to jumpstart application development.
-  * Placeholder CSS Media Queries.
-  * Useful CSS helper classes.
-  * Default print styles, performance optimized.
-  * "Delete-key friendly." Easy to strip out parts you don't need.
-  * Extensive documentation.
+- Designed with progressive enhancement in mind.
+- Includes:
+  - Placeholder Open Graph elements and attributes.
+  - An example package.json file with [WebPack](https://webpack.js.org/) commands
+    built in to jumpstart application development.
+  - Placeholder CSS Media Queries.
+  - Useful CSS helper classes.
+  - Default print styles, performance optimized.
+  - "Delete-key friendly." Easy to strip out parts you don't need.
+  - Extensive documentation.
 
 ## Browser Support
 
-HTML5-Boilerplate supports the latest, stable releases of all major browsers. 
+HTML5-Boilerplate supports the latest, stable releases of all major browsers.
 
-You can find our range of supported browsers in our [package.json](https://github.com/h5bp/html5-boilerplate/blob/main/package.json#L55-L59) At present we alter the [browserlist default](https://github.com/browserslist/browserslist#full-list) by dropping IE 11.
-
-```json
-  "browserslist": [
-    "> 0.5%",
-    "last 2 versions",
-    "Firefox ESR",
-    "not dead",
-    "not IE 11"
-  ],
-```
-
-That configuration translates to this [full list of browsers](https://browserslist.dev/?q=ID4gMC41JSwgICAgIGxhc3QgMiB2ZXJzaW9ucywgICAgIEZpcmVmb3ggRVNSLCAgICBub3QgZGVhZCwgICAgIG5vdCBJRSAxMQ).
+Check the `default` configuration from [Browserslist](https://browsersl.ist/#q=defaults)
+for more details on browsers and versions covered.
 
 ## Documentation
 
@@ -124,9 +112,9 @@ Hundreds of developers have helped to make the HTML5 Boilerplate. Anyone is
 welcome to [contribute](.github/CONTRIBUTING.md). However, if you decide to get
 involved, please take a moment to review the [guidelines](.github/CONTRIBUTING.md):
 
-* [Bug reports](.github/CONTRIBUTING.md#bugs)
-* [Feature requests](.github/CONTRIBUTING.md#features)
-* [Pull requests](.github/CONTRIBUTING.md#pull-requests)
+- [Bug reports](.github/CONTRIBUTING.md#bugs)
+- [Feature requests](.github/CONTRIBUTING.md#features)
+- [Pull requests](.github/CONTRIBUTING.md#pull-requests)
 
 ## License
 

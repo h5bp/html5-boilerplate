@@ -18,10 +18,11 @@
   },
   "scripts": {
     "build": "gulp build",
+    "prettier": "prettier --write ./**/*.{js,json,md,mjs,yml}",
     "test": "gulp archive && mocha --reporter spec --timeout 5000"
   },
   "devDependencies": {
-    "archiver": "^6.0.0",
+    "archiver": "^6.0.1",
     "del": "^7.1.0",
     "eslint": "^8.46.0",
     "eslint-config-recommended": "^4.1.0",
@@ -32,21 +33,14 @@
     "gulp-eslint": "^6.0.0",
     "gulp-header": "^2.0.9",
     "gulp-rename": "^2.0.0",
-    "gulp-replace": "^1.1.4",
     "main.css": "3.0.0",
     "mocha": "^10.2.0",
+    "prettier": "3.0.3",
     "strip-json-comments": "^5.0.1"
   },
   "engines": {
     "node": ">=14"
   },
-  "browserslist": [
-    "> 0.5%",
-    "last 2 versions",
-    "Firefox ESR",
-    "not dead",
-    "not IE 11"
-  ],
   "h5bp-configs": {
     "directories": {
       "archive": "archive",

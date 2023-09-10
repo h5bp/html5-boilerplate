@@ -26,7 +26,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Run tests ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:

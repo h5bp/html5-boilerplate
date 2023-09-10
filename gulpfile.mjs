@@ -5,9 +5,8 @@ import gulpAutoPrefixer from 'gulp-autoprefixer';
 import gulpEslint from 'gulp-eslint';
 import gulpHeader from 'gulp-header';
 import gulpRename from 'gulp-rename';
-import gulpReplace from 'gulp-replace';
 import archiver from 'archiver';
-import { globSync } from 'glob'
+import { globSync } from 'glob';
 import { deleteSync } from 'del';
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
@@ -25,17 +24,20 @@ gulp.task('archive:create_archive_dir', (done) => {
 });
 
 gulp.task('archive:zip', (done) => {
-  const archiveName = path.resolve(dirs.archive, `${pkg.name}_v${pkg.version}.zip`);
+  const archiveName = path.resolve(
+    dirs.archive,
+    `${pkg.name}_v${pkg.version}.zip`,
+  );
   const zip = archiver('zip');
   const files = globSync('**/*.*', {
-    'cwd': dirs.dist,
-    'ignore': [
+    cwd: dirs.dist,
+    ignore: [
       '**/node_modules/**',
       'package-lock.json',
       '**/dist/**',
       '**/.cache/**',
     ],
-    'dot': true // include hidden files
+    dot: true, // include hidden files
   });
   const output = fs.createWriteStream(archiveName);
 
@@ -52,8 +54,8 @@ gulp.task('archive:zip', (done) => {
     // `zip.bulk` does not maintain the file
     // permissions, so we need to add files individually
     zip.append(fs.createReadStream(filePath), {
-      'name': file,
-      'mode': fs.statSync(filePath).mode
+      name: file,
+      mode: fs.statSync(filePath).mode,
     });
   });
 
@@ -63,61 +65,62 @@ gulp.task('archive:zip', (done) => {
 });
 
 gulp.task('clean', (done) => {
-  deleteSync([
-    dirs.archive,
-    dirs.dist
-  ]);
+  deleteSync([dirs.archive, dirs.dist]);
   done();
 });
 
 gulp.task('copy:index.html', () => {
-
-  return gulp.src(`${dirs.src}/index.html`)
-    .pipe(gulp.dest(dirs.dist));
+  return gulp.src(`${dirs.src}/index.html`).pipe(gulp.dest(dirs.dist));
 });
 
 gulp.task('copy:license', () =>
-  gulp.src('LICENSE.txt')
-    .pipe(gulp.dest(dirs.dist))
+  gulp.src('LICENSE.txt').pipe(gulp.dest(dirs.dist)),
 );
 
 gulp.task('copy:style', () => {
   const banner = `/*! HTML5 Boilerplate v${pkg.version} | ${pkg.license} License | ${pkg.homepage} */\n\n`;
 
-  return gulp.src('node_modules/main.css/dist/main.css')
+  return gulp
+    .src('node_modules/main.css/dist/main.css')
     .pipe(gulpHeader(banner))
-    .pipe(gulpAutoPrefixer({
-      cascade: false
-    }))
-    .pipe(gulpRename({
-      basename: 'style'
-    }))
+    .pipe(
+      gulpAutoPrefixer({
+        cascade: false,
+      }),
+    )
+    .pipe(
+      gulpRename({
+        basename: 'style',
+      }),
+    )
     .pipe(gulp.dest(`${dirs.dist}/css`));
 });
 
 gulp.task('copy:misc', () =>
-  gulp.src([
-    // Copy all files
-    `${dirs.src}/**/*`,
+  gulp
+    .src(
+      [
+        // Copy all files
+        `${dirs.src}/**/*`,
 
-    // Exclude the following files
-    // (other tasks will handle the copying of these files)
-    `!${dirs.src}/css/main.css`,
-    `!${dirs.src}/index.html`
-  ], {
-    // Include hidden files by default
-    dot: true
-  }).pipe(gulp.dest(dirs.dist))
+        // Exclude the following files
+        // (other tasks will handle the copying of these files)
+        `!${dirs.src}/css/main.css`,
+        `!${dirs.src}/index.html`,
+      ],
+      {
+        // Include hidden files by default
+        dot: true,
+      },
+    )
+    .pipe(gulp.dest(dirs.dist)),
 );
 
-
 gulp.task('lint:js', () =>
-  gulp.src([
-    `${dirs.src}/js/*.js`,
-    `${dirs.src}/*.js`,
-    `${dirs.test}/*.mjs`
-  ]).pipe(gulpEslint())
-    .pipe(gulpEslint.failOnError())
+  gulp
+    .src([`${dirs.src}/js/*.js`, `${dirs.src}/*.js`, `${dirs.test}/*.mjs`])
+    .pipe(gulpEslint())
+    .pipe(gulpEslint.failOnError()),
 );
 
 // ---------------------------------------------------------------------
@@ -125,29 +128,14 @@ gulp.task('lint:js', () =>
 // ---------------------------------------------------------------------
 gulp.task(
   'copy',
-  gulp.series(
-    'copy:index.html',
-    'copy:license',
-    'copy:style',
-    'copy:misc'
-  )
+  gulp.series('copy:index.html', 'copy:license', 'copy:style', 'copy:misc'),
 );
 
-gulp.task(
-  'build',
-  gulp.series(
-    gulp.parallel('clean', 'lint:js'),
-    'copy'
-  )
-);
+gulp.task('build', gulp.series(gulp.parallel('clean', 'lint:js'), 'copy'));
 
 gulp.task(
   'archive',
-  gulp.series(
-    'build',
-    'archive:create_archive_dir',
-    'archive:zip'
-  )
+  gulp.series('build', 'archive:create_archive_dir', 'archive:zip'),
 );
 
 gulp.task('default', gulp.series('build'));
