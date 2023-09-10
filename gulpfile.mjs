@@ -5,7 +5,6 @@ import gulpAutoPrefixer from 'gulp-autoprefixer';
 import gulpEslint from 'gulp-eslint';
 import gulpHeader from 'gulp-header';
 import gulpRename from 'gulp-rename';
-import gulpReplace from 'gulp-replace';
 import archiver from 'archiver';
 import { globSync } from 'glob';
 import { deleteSync } from 'del';
