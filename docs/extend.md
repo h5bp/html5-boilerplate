@@ -7,17 +7,16 @@ Here is some useful advice for how you can make your project with HTML5
 Boilerplate even better. We don't want to include it all by default, as not
 everything fits with everyone's needs.
 
-* [Server Configuration](#server-configuration)
-* [App Stores](#app-stores)
-* [DNS prefetching](#dns-prefetching)
-* [Miscellaneous](#miscellaneous)
-* [News Feeds](#news-feeds)
-* [Search](#search)
-* [Social Networks](#social-networks)
-* [URLs](#urls)
-* [Web Apps](#web-apps)
-* [security.txt](#security.txt)
-
+- [Server Configuration](#server-configuration)
+- [App Stores](#app-stores)
+- [DNS prefetching](#dns-prefetching)
+- [Miscellaneous](#miscellaneous)
+- [News Feeds](#news-feeds)
+- [Search](#search)
+- [Social Networks](#social-networks)
+- [URLs](#urls)
+- [Web Apps](#web-apps)
+- [security.txt](#security.txt)
 
 ## Server Configuration
 
@@ -83,12 +82,10 @@ Charset](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-cha
 element (which should go right at the top of the `head`), so the browser can act
 on them ASAP.
 
-
 ### Further reading about DNS prefetching
 
-* https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
-* https://dev.chromium.org/developers/design-documents/dns-prefetching
-
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
+- https://dev.chromium.org/developers/design-documents/dns-prefetching
 
 ## Search
 
@@ -97,11 +94,13 @@ on them ASAP.
 After creating a [sitemap](https://www.sitemaps.org/protocol.html)
 
 Submit it to search engine tool:
-* [Google](https://www.google.com/webmasters/tools/sitemap-list)
-* [Bing](https://www.bing.com/toolbox/webmaster)
-* [Yandex](https://webmaster.yandex.com/)
-* [Baidu](https://zhanzhang.baidu.com/) OR Insert the following line anywhere in
+
+- [Google](https://www.google.com/webmasters/tools/sitemap-list)
+- [Bing](https://www.bing.com/toolbox/webmaster)
+- [Yandex](https://webmaster.yandex.com/)
+- [Baidu](https://zhanzhang.baidu.com/) OR Insert the following line anywhere in
   your robots.txt file, specifying the path to your sitemap:
+
 ```
 Sitemap: https://example.com/sitemap_location.xml
 ```
@@ -129,28 +128,26 @@ plugin](https://developer.mozilla.org/en-US/docs/Web/OpenSearch).
 <link rel="search" title="" type="application/opensearchdescription+xml" href="">
 ```
 
-
 ## Miscellaneous
 
-* Use [Microformats](http://microformats.org/wiki/Main_Page) (via
+- Use [Microformats](http://microformats.org/wiki/Main_Page) (via
   [microdata](http://microformats.org/wiki/microdata)) for optimum search
   results
   [visibility](https://webmasters.googleblog.com/2009/05/introducing-rich-snippets.html).
 
-* If you want to disable the translation prompt in Chrome or block Google
+- If you want to disable the translation prompt in Chrome or block Google
   Translate from translating your web page, use [`<meta name="google"
-  content="notranslate">`](https://support.google.com/webmasters/answer/79812).
+content="notranslate">`](https://support.google.com/webmasters/answer/79812).
   To disable translation for a particular section of the web page, add
   [`class="notranslate"`](https://support.google.com/translate/?hl=en#2641276).
 
-* If you want to disable the automatic detection and formatting of possible
+- If you want to disable the automatic detection and formatting of possible
   phone numbers in Safari on iOS, use [`<meta name="format-detection"
-  content="telephone=no">`](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html).
+content="telephone=no">`](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html).
 
-* Avoid development/stage websites "leaking" into SERPs (search engine results
+- Avoid development/stage websites "leaking" into SERPs (search engine results
   page) by [implementing X-Robots-tag
   headers](https://github.com/h5bp/html5-boilerplate/issues/804).
-
 
 ## News Feeds
 
@@ -167,7 +164,7 @@ scratch](https://www.rssboard.org/rss-specification)?
 
 Atom is similar to RSS, and you might prefer to use it instead of or in addition
 to it. [See what Atom's all
-about](https://en.wikipedia.org/wiki/Atom_(Web_standard)).
+about](<https://en.wikipedia.org/wiki/Atom_(Web_standard)>).
 
 ```html
 <link rel="alternate" type="application/atom+xml" title="Atom" href="/atom.xml">
@@ -182,14 +179,12 @@ should contain the location of your pingback service.
 <link rel="pingback" href="">
 ```
 
-* High-level explanation:
+- High-level explanation:
   https://codex.wordpress.org/Introduction_to_Blogging#Pingbacks
-* Step-by-step example case:
+- Step-by-step example case:
   https://www.hixie.ch/specs/pingback/pingback-1.0#TOC5
-* PHP pingback service:
+- PHP pingback service:
   https://web.archive.org/web/20131211032834/http://blog.perplexedlabs.com/2009/07/15/xmlrpc-pingbacks-using-php/
-
-
 
 ## Social Networks
 
@@ -285,7 +280,7 @@ the cleaner, more accurate `https://www.example.com/cart.html`.
 There are a couple of meta tags that provide information about a web app when
 added to the Home Screen on iOS:
 
-* Adding `apple-mobile-web-app-capable` will make your web app chrome-less and
+- Adding `apple-mobile-web-app-capable` will make your web app chrome-less and
   provide the default iOS app view. You can control the color scheme of the
   default view by adding `apple-mobile-web-app-status-bar-style`.
 
@@ -294,7 +289,7 @@ added to the Home Screen on iOS:
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 ```
 
-* You can use `apple-mobile-web-app-title` to add a specific sites name for the
+- You can use `apple-mobile-web-app-title` to add a specific sites name for the
   Home Screen icon.
 
 ```html
@@ -304,7 +299,6 @@ added to the Home Screen on iOS:
 For further information please read the [official
 documentation](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html)
 on Apple's site.
-
 
 ### Apple Touch Icons
 
@@ -322,7 +316,6 @@ Though the dimensions of the icon can vary between iOS devices and versions one
 For a more comprehensive overview, please refer to Mathias' [article on Touch
 Icons](https://mathiasbynens.be/notes/touch-icons).
 
-
 ### Apple Touch Startup Image
 
 Apart from that it is possible to add start-up screens for web apps on iOS. This
@@ -334,7 +327,6 @@ for an iPhone:
 ```html
 <link rel="apple-touch-startup-image" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" href="img/startup.png">
 ```
-
 
 ### Theme Color
 

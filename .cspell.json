@@ -13,15 +13,8 @@
   ],
   "language": "en,en-GB,en-US",
   "allowCompoundWords": true,
-  "files": [
-    "**/*.md"
-  ],
-  "ignoreRegExpList": [
-    "\\_\\w+",
-    "\\#\\w+"
-  ],
-  "ignorePaths": [
-    ".cspell.json"
-  ],
+  "files": ["**/*.md"],
+  "ignoreRegExpList": ["\\_\\w+", "\\#\\w+"],
+  "ignorePaths": [".cspell.json"],
   "useGitignore": true
 }
