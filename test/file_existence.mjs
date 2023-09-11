@@ -30,7 +30,7 @@ const expectedFilesInDistDir = [
   'icon.svg',
 
   'img/',
-  'img/.gitignore',
+  'img/.gitkeep',
 
   'index.html',
 
