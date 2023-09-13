@@ -35,6 +35,20 @@ within the
 [first 1024 bytes of the document](https://html.spec.whatwg.org/multipage/semantics.html#charset)
 and should be specified as early as possible.
 
+### document.browsingTopics alert
+
+In some cases, a third-party script can collect browsing interest information about users
+using new experimental functionality called Topics API. The first script in the page header
+will alert you if a script is attempting to do this.  The line can be removed if your site
+is turning off Topics API with a Permissions-Policy, running without third-party scripts,
+or if you are using Topics API.
+
+The line can be changed to send an analytics event to check if third-party scripts begin trying
+to use Topics API in production.
+
+For more information, see [Google's Topics API: Rebranding FLoC Without Addressing Key 
+Privacy Issues](https://brave.com/web-standards-at-brave/7-googles-topics-api/)
+
 ### Meta Description
 
 The `description` meta tag provides a short description of the page. In some
