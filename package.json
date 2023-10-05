@@ -39,7 +39,8 @@
     "strip-json-comments": "^5.0.1"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=16",
+    "npm": ">=8"
   },
   "h5bp-configs": {
     "directories": {
