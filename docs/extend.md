@@ -130,14 +130,14 @@ plugin](https://developer.mozilla.org/en-US/docs/Web/OpenSearch).
 
 ## Miscellaneous
 
-- Use [Microformats](http://microformats.org/wiki/Main_Page) (via
-  [microdata](http://microformats.org/wiki/microdata)) for optimum search
+- Use [Microformats](https://microformats.org/wiki/Main_Page) (via
+  [microdata](https://microformats.org/wiki/microdata)) for optimum search
   results
-  [visibility](https://webmasters.googleblog.com/2009/05/introducing-rich-snippets.html).
+  [visibility](https://developers.google.com/search/blog/2009/05/introducing-rich-snippets).
 
 - If you want to disable the translation prompt in Chrome or block Google
   Translate from translating your web page, use [`<meta name="google"
-content="notranslate">`](https://support.google.com/webmasters/answer/79812).
+content="notranslate">`](https://developers.google.com/search/docs/crawling-indexing/special-tags).
   To disable translation for a particular section of the web page, add
   [`class="notranslate"`](https://support.google.com/translate/?hl=en#2641276).
 
