@@ -222,10 +222,7 @@ Twitter provides a snippet specification that serves a similar purpose to Open
 Graph. In fact, Twitter will use Open Graph when Cards is not available. You can
 read more about the various snippet formats in the
 [official Twitter Cards
-documentation](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards),
-and you can validate your markup with the [Card
-validator](https://cards-dev.twitter.com/validator) (needs registration to
-Twitter).
+documentation](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards).
 
 ```html
 <meta name="twitter:card" content="summary">
@@ -248,7 +245,7 @@ search-engine, although this vocabulary is also used by Microsoft, Pinterest and
 Yandex.
 
 You can validate your markup with the [Structured Data Testing
-Tool](https://search.google.com/structured-data/testing-tool). Also, please
+Tool](https://developers.google.com/search/docs/appearance/structured-data). Also, please
 note that this markup requires to add attributes to your top `html` tag.
 
 ```html
