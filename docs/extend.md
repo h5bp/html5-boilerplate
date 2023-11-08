@@ -130,14 +130,14 @@ plugin](https://developer.mozilla.org/en-US/docs/Web/OpenSearch).
 
 ## Miscellaneous
 
-- Use [Microformats](http://microformats.org/wiki/Main_Page) (via
-  [microdata](http://microformats.org/wiki/microdata)) for optimum search
+- Use [Microformats](https://microformats.org/wiki/Main_Page) (via
+  [microdata](https://microformats.org/wiki/microdata)) for optimum search
   results
-  [visibility](https://webmasters.googleblog.com/2009/05/introducing-rich-snippets.html).
+  [visibility](https://developers.google.com/search/blog/2009/05/introducing-rich-snippets).
 
 - If you want to disable the translation prompt in Chrome or block Google
   Translate from translating your web page, use [`<meta name="google"
-content="notranslate">`](https://support.google.com/webmasters/answer/79812).
+content="notranslate">`](https://developers.google.com/search/docs/crawling-indexing/special-tags).
   To disable translation for a particular section of the web page, add
   [`class="notranslate"`](https://support.google.com/translate/?hl=en#2641276).
 
@@ -222,10 +222,7 @@ Twitter provides a snippet specification that serves a similar purpose to Open
 Graph. In fact, Twitter will use Open Graph when Cards is not available. You can
 read more about the various snippet formats in the
 [official Twitter Cards
-documentation](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards),
-and you can validate your markup with the [Card
-validator](https://cards-dev.twitter.com/validator) (needs registration to
-Twitter).
+documentation](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards).
 
 ```html
 <meta name="twitter:card" content="summary">
@@ -248,7 +245,7 @@ search-engine, although this vocabulary is also used by Microsoft, Pinterest and
 Yandex.
 
 You can validate your markup with the [Structured Data Testing
-Tool](https://search.google.com/structured-data/testing-tool). Also, please
+Tool](https://developers.google.com/search/docs/appearance/structured-data). Also, please
 note that this markup requires to add attributes to your top `html` tag.
 
 ```html

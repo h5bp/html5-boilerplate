@@ -25,11 +25,6 @@ restrictions:
 - Please **do not** derail or troll issues. Keep the discussion on topic and
   respect the opinions of others.
 
-- Please **do not** open issues or pull requests regarding the code in
-  [`.htaccess`](https://github.com/h5bp/server-configs-apache),
-  [`Normalize.css`](https://github.com/necolas/normalize.css) (open them in
-  their respective repositories).
-
 <a name="bugs"></a>
 
 ## Bug reports
@@ -126,25 +121,50 @@ included in the project:
    git checkout -b <topic-branch-name>
    ```
 
-4. Commit your changes in logical chunks. Please adhere to these [git commit
+4. Install locked dependencies:
+
+   ```bash
+   npm ci
+   ```
+
+   Ensure that your `node` and `npm` versions are compatible with the `engines`
+   specification in `package.json`.
+
+5. Commit your changes in logical chunks. Please adhere to these [git commit
    message guidelines](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
    or your code is unlikely be merged into the main project. Use Git's
    [interactive rebase](https://help.github.com/articles/about-git-rebase/)
    feature to tidy up your commits before making them public.
 
-5. Locally merge (or rebase) the upstream development branch into your topic branch:
+6. Locally merge (or rebase) the upstream development branch into your topic branch:
 
    ```bash
    git pull [--rebase] upstream main
    ```
 
-6. Push your topic branch up to your fork:
+7. Update any applicable test cases and run tests:
+
+   ```bash
+   npm run test
+   ```
+
+   Tests must cover changes and pass to be accepted.
+
+8. Run build and commit changes to dist:
+
+   ```bash
+   npm run build
+   git add dist/
+   git commit
+   ```
+
+9. Push your topic branch up to your fork:
 
    ```bash
    git push origin <topic-branch-name>
    ```
 
-7. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/)
+10. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/)
    with a clear title and description.
 
 **IMPORTANT**: By submitting a patch, you agree to allow the project
