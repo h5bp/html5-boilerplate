@@ -1,7 +1,7 @@
 # About This Repo
 
 This document outlines the configuration of this repo as well as the basic
-process we use to manage the project. As Github has matured as a platform
+process we use to manage the project. As GitHub has matured as a platform
 and HTML5 Boilerplate has matured as a project there are a lot of lessons
 to be learned from the way we run the show here.
 
@@ -68,9 +68,7 @@ Our branch protection rules are as follows:
 - We run a _dependency review_ scan to see if any newly added dependencies add
   known security flaws. This is important for even us, but for a project that
   uses a larger number of third party dependencies, this sort of check is vital.
-- Since we're fan of the "belt and suspenders" approach to security, we also
-  run a _LGTM.com_ scan as well as the CodeQL scans. This tool, built on top of
-  CodeQl can shake out different issues so it's nice to have the pair.
+- We also run a CodeQL scans to check for security issues and problems.
 - We push any changes to `main` to our [HTML5\-Boilerplate Template Repo](https://github.com/h5bp/html5-boilerplate-template)
 
 Since we've talked about some of our Actions, let's look at the full configuration
@@ -79,7 +77,7 @@ of our `.github` folder.
 ### .github Folder
 
 - workflows
-  - `build-dist.yaml` is currently broken. We can't push to `main` without a
+  - `build-dist.yml` is currently broken. We can't push to `main` without a
     code review, so this task is blocked. What I would like, (are you there,
     GitHub, it's me, Rob) is to allow Actions to bypass branch protection
     rules. I think we'll have to basically write a mini-bot that opens a PR
@@ -87,17 +85,17 @@ of our `.github` folder.
     until the PR is closed. In some ways that will be better as it will be less
     noisy in terms of bot pushes to main.
   - `codeql-analysis.yml` controls our CodeQL action. We use the defaults. If
-    you're building something with more JAvaScript footprint, you can tweak
+    you're building something with more JavaScript footprint, you can tweak
     the settings for this job.
   - `dependency-review.yml` does what it says on the tin- it tests newly
     introduced dependencies for vulnerabilities.
-  - `publish.yaml` is the action that publishes all the various versions of
+  - `publish.yml` is the action that publishes all the various versions of
     the project. When we create a new tag and push it to GitHub, this script
     publishes our npm package and creates a GitHub release and attaches a zip
     file of our `dist` folder.
-  - `push-to-template.yaml` pushes the `HEAD` of `main` to our template repo
+  - `push-to-template.yml` pushes the `HEAD` of `main` to our template repo
   - `spellcheck.yml` automatically checks markdown files for typos with cSpell.
-  - `test.yaml` runs our test suite.
+  - `test.yml` runs our test suite.
 - `CODE_OF_CONDUCT.md` is our Code of Conduct, based on
   [Contributor Covenant.](https://www.contributor-covenant.org/)
 - `CONTRIBUTING.md` contains our contribution guidelines.
