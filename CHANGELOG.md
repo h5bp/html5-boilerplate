@@ -2,6 +2,23 @@
 
 ## 9.0.0 (TBD)
 
+- Removing tile images [#3023](https://github.com/h5bp/html5-boilerplate/pull/3023)
+- Add Prettier [#3011](https://github.com/h5bp/html5-boilerplate/pull/3011)
+- Remove Modernizr [#3002](https://github.com/h5bp/html5-boilerplate/issues/3002)
+- Drop Normalize.css [#2960](https://github.com/h5bp/html5-boilerplate/pull/2960)
+- Create WebPack build to ship with the project [#2650](https://github.com/h5bp/html5-boilerplate/issues/2650)
+- Sets package to private by default [#2888](https://github.com/h5bp/html5-boilerplate/pull/2888)
+- Removes Babel and upgrades our gulpfile to use ES Modules [#2831](https://github.com/h5bp/html5-boilerplate/pull/2831)
+- Farewell Internet Explorer! [#2773](https://github.com/h5bp/html5-boilerplate/issues/2773)
+- Remove apache-server-configs/.htaccess [#2779](https://github.com/h5bp/html5-boilerplate/pull/2779)
+- Moving docs out of src and dist [#2655](https://github.com/h5bp/html5-boilerplate/pull/2655)
+- Replace Parcel with Webpack [#2641](https://github.com/h5bp/html5-boilerplate/pull/2641)
+- Add SVG Favicon [#2554](https://github.com/h5bp/html5-boilerplate/issues/2554)
+- Remove Google Analytics [#2547](https://github.com/h5bp/html5-boilerplate/issues/2547)
+- Rename master branch to main [#2583](https://github.com/h5bp/html5-boilerplate/issues/2583)
+- Remove humans.txt [#2584](https://github.com/h5bp/html5-boilerplate/pull/2584)
+- Add a template repository [#2391](https://github.com/h5bp/html5-boilerplate/pull/2391)
+- Remove plugins js [#2346](https://github.com/h5bp/html5-boilerplate/pull/2346)
 - Rename CSS file [#2342](https://github.com/h5bp/html5-boilerplate/pull/2342) and JS file [#2341](https://github.com/h5bp/html5-boilerplate/pull/2341)
 
 ## 8.0.0 (June 04, 2020)

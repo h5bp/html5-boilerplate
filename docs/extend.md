@@ -16,7 +16,7 @@ everything fits with everyone's needs.
 - [Social Networks](#social-networks)
 - [URLs](#urls)
 - [Web Apps](#web-apps)
-- [security.txt](#security.txt)
+- [security.txt](#securitytxt)
 
 ## Server Configuration
 
@@ -339,9 +339,7 @@ colors.
 
 The `content` attribute extension can take any valid CSS color.
 
-Currently, the `theme-color` meta extension is supported by [Chrome 39+ for
-Android
-Lollipop](https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android).
+For browser support details, refer to [Can I Use](https://caniuse.com/meta-theme-color).
 
 ### security.txt
 

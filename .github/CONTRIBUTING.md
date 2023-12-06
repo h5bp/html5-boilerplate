@@ -165,7 +165,7 @@ included in the project:
    ```
 
 10. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/)
-   with a clear title and description.
+    with a clear title and description.
 
 **IMPORTANT**: By submitting a patch, you agree to allow the project
 owners to license your work under the terms of the [MIT License](LICENSE.txt).

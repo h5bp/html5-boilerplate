@@ -3,7 +3,7 @@ name: publish
 on:
   push:
     tags:
-    - 'v*'
+      - "v*"
 
 permissions:
   contents: read
@@ -11,7 +11,7 @@ permissions:
 jobs:
   build:
     permissions:
-      contents: write  # for actions/create-release to create a release
+      contents: write # for actions/create-release to create a release
     name: Upload Release Asset
     runs-on: ubuntu-latest
     steps:
