@@ -1,6 +1,6 @@
 # Changelog
 
-## 9.0.0 (TBD)
+## 9.0.0 (December 6,2024)
 
 - Removing tile images [#3023](https://github.com/h5bp/html5-boilerplate/pull/3023)
 - Add Prettier [#3011](https://github.com/h5bp/html5-boilerplate/pull/3011)
