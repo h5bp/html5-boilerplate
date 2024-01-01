@@ -24,7 +24,7 @@
   "devDependencies": {
     "archiver": "^6.0.1",
     "del": "^7.1.0",
-    "eslint": "^8.55.0",
+    "eslint": "^8.56.0",
     "eslint-config-recommended": "^4.1.0",
     "eslint-plugin-mocha": "^10.2.0",
     "glob": "^10.3.10",
