@@ -12,7 +12,7 @@ This project is the product of over 10 years of iterative development and
 community knowledge. It does not impose a specific development
 philosophy or framework, so you're free to architect your code in the
 way that you want.
-
+<!--  -->
 - [Homepage](https://html5boilerplate.com/)
 - [Source Code](https://github.com/h5bp/html5-boilerplate)
 
