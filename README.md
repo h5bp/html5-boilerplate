@@ -31,7 +31,7 @@ Think of it this way, in the same way that you don't clone [vuejs/core](https://
 to create a Vue.js app, you don't need to clone this repository to start a new
 site or app based on HTML5 Boilerplate.
 
-So, if you're looking for a quick start template to build a web site or
+So, if you're looking for a quick start template to build a website or
 application, look at the options in the
 [Quick Start](https://github.com/h5bp/html5-boilerplate#quick-start) section of this document.
 
