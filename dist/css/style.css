@@ -15,6 +15,7 @@ html {
   color: #222;
   font-size: 1em;
   line-height: 1.4;
+  background-color: #000;
 }
 
 /*
@@ -154,7 +155,7 @@ textarea {
 .clearfix::before,
 .clearfix::after {
   content: "";
-  display: table;
+  color: #000;
 }
 
 .clearfix::after {
@@ -178,6 +179,8 @@ textarea {
   /* Style adjustments for high resolution devices */
 }
 
+
+/*Esto es un comentario aleatorio*/
 /* ==========================================================================
    Print styles.
    Inlined to avoid the additional HTTP request:
