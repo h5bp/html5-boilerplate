@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Get tag
         id: get_version
-        run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
+        run: echo VERSION=$(echo $GITHUB_REF | cut -d / -f 3) >> "$GITHUB_OUTPUT"
       - name: Create Zip Folder
         working-directory: dist
         run: zip -r ../html5-boilerplate_${{ steps.get_version.outputs.VERSION }}.zip ./
