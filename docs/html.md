@@ -80,6 +80,7 @@ website, article).
 <meta property="og:type" content="">
 <meta property="og:url" content="">
 <meta property="og:image" content="">
+<meta property="og:image:alt" content="">
 ```
 
 In addition to these four attributes there are many more attributes you can use
@@ -96,6 +97,8 @@ describe the site in more detail.
 <meta property="og:type" content="website">
 <meta property="og:description" content="The web’s most popular front-end template which helps you build fast, robust, and adaptable web apps or sites.">
 <meta property="og:image" content="https://html5boilerplate.com/icon.png">
+<!-- Empty for decorative images. -->
+<meta property="og:image:alt" content="">
 ```
 
 ### Web App Manifest
