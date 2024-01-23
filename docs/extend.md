@@ -211,6 +211,8 @@ Facebook).
 <meta property="og:type" content="website">
 <meta property="og:title" content="">
 <meta property="og:image" content="https://www.example.com/path/to/image.jpg">
+<!-- Empty for decorative images. -->
+<meta property="og:image:alt" content="Example image depicting...">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="">
 <meta property="article:author" content="">
