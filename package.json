@@ -22,7 +22,7 @@
     "test": "gulp archive && mocha --reporter spec --timeout 5000"
   },
   "devDependencies": {
-    "archiver": "^6.0.1",
+    "archiver": "^7.0.0",
     "del": "^7.1.0",
     "eslint": "^8.55.0",
     "eslint-config-recommended": "^4.1.0",
