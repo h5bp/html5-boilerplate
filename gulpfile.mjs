@@ -109,6 +109,7 @@ gulp.task('copy:misc', () =>
         `!${dirs.src}/index.html`,
       ],
       {
+        encoding: false,
         // Include hidden files by default
         dot: true,
       },
