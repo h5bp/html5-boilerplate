@@ -28,7 +28,7 @@
     "eslint-config-recommended": "^4.1.0",
     "eslint-plugin-mocha": "^10.3.0",
     "glob": "^10.3.10",
-    "gulp": "^4.0.2",
+    "gulp": "^5.0.0",
     "gulp-autoprefixer": "^9.0.0",
     "gulp-eslint": "^6.0.0",
     "gulp-header": "^2.0.9",
