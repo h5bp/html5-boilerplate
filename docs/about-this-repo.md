@@ -50,8 +50,8 @@ Our branch protection rules are as follows:
 - We require a pull request (PR) with one approving reviewer to merge code
 - In addition to the PR and approving reviewer, we require three status checks
   to pass before code can be merged
+  _ Build with Node 20
   _ Build with Node 18
-  _ Build with Node 16 \* LGTM analysis: JavaScript
 - We _allow_ force pushes for project admins. While force pushes can create
   some head scratching moments for people who have cloned the repo and update
   before and after the force push, the ability to clean up the `HEAD` of a
