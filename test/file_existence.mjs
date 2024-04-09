@@ -56,7 +56,8 @@ function checkFiles(directory, expectedFiles) {
       '**/.cache/**',
     ],
     dot: true, // include hidden files
-    mark: true, // add a `/` character to directory matches
+    mark: true, // add a `/` character to directory matches,
+    posix: true, //https://github.com/isaacs/node-glob/issues/467
   });
 
   // Check if all expected files are present in the
