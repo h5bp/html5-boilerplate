@@ -26,7 +26,7 @@ body:
       label: Reduced test cases
       description: Include links [reduced test case](https://css-tricks.com/reduced-test-cases/) links.
     validations:
-      required: true
+      required: false
   - type: dropdown
     id: os
     attributes:
@@ -51,6 +51,7 @@ body:
         - Firefox
         - Microsoft Edge
         - Opera
+        - Development Environment
   - type: input
     id: version
     attributes:
