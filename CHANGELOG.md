@@ -1,7 +1,14 @@
 # Changelog
 
-## 9.0.0 (December 6, 2023)
+## 9.0.1 (April 11, 2023)
+- Fixed tests on Windows, adds Windows Testing Action [#3110](https://github.com/h5bp/html5-boilerplate/pull/3110)
+- Add og:image:alt for accessibility [#3066](https://github.com/h5bp/html5-boilerplate/pull/3066)
+- Upgrade to Gulp 5 [#3100](https://github.com/h5bp/html5-boilerplate/pull/3100) [#3105](https://github.com/h5bp/html5-boilerplate/pull/3105)
+- ci: Use GITHUB_OUTPUT envvar instead of set-output command [#3068](https://github.com/h5bp/html5-boilerplate/pull/3068)
+- Readme and Changelog updates [#3055](https://github.com/h5bp/html5-boilerplate/pull/3055) [#3057](https://github.com/h5bp/html5-boilerplate/pull/3057) [#3064](https://github.com/h5bp/html5-boilerplate/pull/3064)
 
+
+## 9.0.0 (December 6, 2023)
 - Removing tile images [#3023](https://github.com/h5bp/html5-boilerplate/pull/3023)
 - Add Prettier [#3011](https://github.com/h5bp/html5-boilerplate/pull/3011)
 - Remove Modernizr [#3002](https://github.com/h5bp/html5-boilerplate/issues/3002)
