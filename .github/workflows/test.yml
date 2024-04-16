@@ -1,4 +1,4 @@
-name: Build status
+name: Build status (Ubuntu)
 
 on:
   push:
