@@ -9,6 +9,7 @@ on:
     branches:
       - main
       - "!dependabot/**"
+  workflow_dispatch:
 
 jobs:
   analyze:
@@ -27,6 +28,7 @@ jobs:
         uses: github/codeql-action/init@v3
         with:
           languages: "javascript"
+          queries: +security-and-quality
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3

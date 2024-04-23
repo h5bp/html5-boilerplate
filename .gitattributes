@@ -16,6 +16,8 @@
 *.js    text eol=lf
 *.json  text eol=lf
 *.md    text eol=lf
+*.mjs   text eol=lf
 *.sh    text eol=lf
 *.txt   text eol=lf
 *.xml   text eol=lf
+*.yml   text eol=lf

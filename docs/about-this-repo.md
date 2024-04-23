@@ -95,7 +95,8 @@ of our `.github` folder.
     file of our `dist` folder.
   - `push-to-template.yml` pushes the `HEAD` of `main` to our template repo
   - `spellcheck.yml` automatically checks markdown files for typos with cSpell.
-  - `test.yml` runs our test suite.
+  - `test.yml` runs our test suite on Ubuntu.
+  - `test-windows.yml` runs our test suite on Windows.
 - `CODE_OF_CONDUCT.md` is our Code of Conduct, based on
   [Contributor Covenant.](https://www.contributor-covenant.org/)
 - `CONTRIBUTING.md` contains our contribution guidelines.
