@@ -5,7 +5,6 @@ table of contents](TOC.md)
 
 - [.gitignore](#gitignore)
 - [.editorconfig](#editorconfig)
-- [Server Configuration](#server-configuration)
 - [robots.txt](#robotstxt)
 - [package.json](#packagejson)
 

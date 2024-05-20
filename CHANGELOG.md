@@ -1,6 +1,6 @@
 # Changelog
 
-## 9.0.1 (April 11, 2023)
+## 9.0.1 (April 11, 2024)
 
 - Fixed tests on Windows, adds Windows Testing Action [#3110](https://github.com/h5bp/html5-boilerplate/pull/3110)
 - Add og:image:alt for accessibility [#3066](https://github.com/h5bp/html5-boilerplate/pull/3066)
