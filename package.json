@@ -35,7 +35,7 @@
     "gulp-rename": "^2.0.0",
     "main.css": "3.0.0",
     "mocha": "^10.4.0",
-    "prettier": "3.2.5",
+    "prettier": "3.3.2",
     "strip-json-comments": "^5.0.1"
   },
   "engines": {
