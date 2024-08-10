@@ -244,24 +244,4 @@ textarea {
     page-break-after: avoid;
   }
 }
-/* Default (Light Mode) Styles */
-body {
-  background-color: #ffffff;
-  color: #000000;
-}
-
-/* Dark Mode Styles */
-body.dark-mode {
-  background-color: #121212;
-  color: #ffffff;
-}
-
-/* Example: Other Elements */
-.header {
-  background-color: #f0f0f0; /* Light Mode */
-}
-
-body.dark-mode .header {
-  background-color: #1e1e1e; /* Dark Mode */
-}
 
