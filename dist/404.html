@@ -15,7 +15,7 @@
       color: #888;
       display: table;
       font-family: sans-serif;
-      height: 100%;
+      height: 60%;
       text-align: center;
       width: 100%;
     }
@@ -30,7 +30,12 @@
       color: #555;
       font-size: 2em;
       font-weight: 400;
+      padding:10px;
+      
     }
+    h1:hover{
+        color:#999;
+      }
 
     p {
       margin: 0 auto;
@@ -49,13 +54,24 @@
         margin: 0 0 0.3em;
       }
 
+      
+
     }
+    .error404{
+        font-size: 50px;
+        padding:20px;
+        font-weight: bold;
+      }
+      .error404:hover{
+        color:#999;
+      }
   </style>
 </head>
 
 <body>
-  <h1>Page Not Found</h1>
-  <p>Sorry, but the page you were trying to view does not exist.</p>
+  <h1 class="error404">Error 404</h1>
+  <h1>Page Not Found!</h1>
+  <p>Sorry, the page you were trying to view does not exist.</p>
 </body>
 
 </html>
