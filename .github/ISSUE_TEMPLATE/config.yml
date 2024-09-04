@@ -1,3 +1,4 @@
+blank_issues_enabled: false
 contact_links:
   - name: Ask the community
     url: https://github.com/h5bp/html5-boilerplate/discussions/new
