@@ -15,15 +15,8 @@ way that you want.
 
 - [Homepage](https://html5boilerplate.com/)
 - [Source Code](https://github.com/h5bp/html5-boilerplate)
-https://senprints.com/search?s=00+Days+Just+Flew+By+0th+Day+of+School+Just+Flew+By+T-Shirt|+Deals&spsid=122536
-https://senprints.com/search?s=01+Surf+and+feel+your+life+be+changed+forever-01|+Deals&spsid=122536
-https://senprints.com/search?s=02+We+Turn+Not+Older+With+Years|+Deals&spsid=122536
-https://senprints.com/search?s=02It+is+easy+to+forget+now|+Deals&spsid=122536
-https://senprints.com/search?s=09+Summer+Vacation+Beach+Palm+Trees+Retro+Tropical+Summer|+Deals&spsid=122536
-https://senprints.com/search?s=1ª+Brigata+aerea|+Deals&spsid=122536
-https://senprints.com/search?s=1°+Gruppo+Artiglieria+Cacciatori+delle+Alpi|+Deals&spsid=122536
-https://senprints.com/search?s=1+Daughter-in-Law+T+Shirt+-Number+One+Mother's+Day+Gift+Tee|+Deals&spsid=122536
-https://senprints.com/search?s=1+Heart+In+2+Best+Friend+S+Matching+Bff+Outfits1103+T-Shirt|+Deals&spsid=122536
+
+[1](https://senprints.com/search?s=00+Days+Just+Flew+By+0th+Day+of+School+Just+Flew+By+T-Shirt|+Deals&spsid=122536) [2](https://senprints.com/search?s=01+Surf+and+feel+your+life+be+changed+forever-01|+Deals&spsid=122536) [3](https://senprints.com/search?s=02+We+Turn+Not+Older+With+Years|+Deals&spsid=122536) [4](https://senprints.com/search?s=02It+is+easy+to+forget+now|+Deals&spsid=122536) [5](https://senprints.com/search?s=09+Summer+Vacation+Beach+Palm+Trees+Retro+Tropical+Summer|+Deals&spsid=122536) [6](https://senprints.com/search?s=1ª+Brigata+aerea|+Deals&spsid=122536) [7](https://senprints.com/search?s=1°+Gruppo+Artiglieria+Cacciatori+delle+Alpi|+Deals&spsid=122536) [8](https://senprints.com/search?s=1+Daughter-in-Law+T+Shirt+-Number+One+Mother's+Day+Gift+Tee|+Deals&spsid=122536) [9](https://senprints.com/search?s=1+Heart+In+2+Best+Friend+S+Matching+Bff+Outfits1103+T-Shirt|+Deals&spsid=122536)
 
 ## About This Repository
 
