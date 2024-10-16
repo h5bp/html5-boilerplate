@@ -119,3 +119,25 @@ involved, please take a moment to review the [guidelines](.github/CONTRIBUTING.m
 ## License
 
 The code is available under the [MIT license](LICENSE.txt).
+- https://medium.com/@colerchang/beyond-good-evil-20th-anniversary-edition-a-timeless-classic-reimagined-b9c24a3017ba
+- https://medium.com/@colerchang/crafting-cold-emails-with-chatgpt-a-comprehensive-guide-cbaecc63df3d
+- https://medium.com/@colerchang/how-to-create-and-sell-personalised-wall-art-a-guide-for-home-decor-entrepreneurs-ece7b74d9e64
+- https://medium.com/@colerchang/how-to-make-money-with-spotify-playlists-the-ultimate-step-by-step-guide-b91c5843c288
+- https://medium.com/@colerchang/how-to-run-a-successful-freelancing-business-bcc0933a5c84
+- https://medium.com/@colerchang/ideo-gram-ai-prompt-sample-for-triptych-style-99e1db325d0a
+- https://medium.com/@colerchang/july-game-releases-must-play-titles-5c6fd442d2fa
+- https://medium.com/@colerchang/learn-how-to-create-a-b-split-test-campaigns-with-mailchimp-7aad8e89e79c
+- https://medium.com/@colerchang/linux-hits-an-all-time-high-marketshare-on-steam-hardware-survey-1ffc4d01e249
+- https://medium.com/@colerchang/list/reading-list
+- https://medium.com/@colerchang/mastering-ai-interactions-a-guide-to-advanced-prompting-techniques-773e9a9bbdc1
+- https://medium.com/@colerchang/mastering-the-art-of-ai-how-to-use-ai-for-image-creation-2de9db7e8597
+- https://medium.com/@colerchang/mastering-the-fundamentals-of-email-marketing-for-freelancers-1ea119ad73ae
+- https://medium.com/@colerchang/maximizing-workplace-efficiency-with-chatgpt-from-presentations-to-data-analysis-a0677efa012a
+- https://medium.com/@colerchang/monetize-spotifyhow-to-monetize-spotify-using-bots-4522ec55bd27
+- https://medium.com/@colerchang/selling-on-ebay-complete-course-start-an-ebay-business-06fdd0882a49
+- https://medium.com/@colerchang/simple-vector-logo-of-three-happy-sugar-cubes-holding-hands-like-a-parents-and-child-c64188d2f41e
+- https://medium.com/@colerchang/the-future-of-accounting-how-ai-will-transform-the-industry-2d6086b5f20b
+- https://medium.com/@colerchang/the-future-of-creativity-how-ai-image-generators-are-transforming-visual-design-9e8608ece6ab
+- https://medium.com/@colerchang/the-legend-of-heroes-kai-no-kiseki-farewell-o-zemuria-a-comprehensive-overview-3662f0ab5524
+- https://medium.com/@colerchang/the-ultimate-guide-to-starting-and-scaling-a-successful-aliexpress-dropshipping-business-3de952f77ed8
+- https://medium.com/@colerchang/understanding-spotify-stream-farms-risks-strategies-and-ethics-eaf00fe47173
