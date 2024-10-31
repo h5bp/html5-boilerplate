@@ -4,7 +4,14 @@
 [![LICENSE](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/h5bp/html5-boilerplate/blob/main/LICENSE.txt)
 [![NPM Downloads](https://img.shields.io/npm/dt/html5-boilerplate.svg)](https://www.npmjs.com/package/html5-boilerplate)
 [![github-stars-image](https://img.shields.io/github/stars/h5bp/html5-boilerplate.svg?label=github%20stars)](https://github.com/h5bp/html5-boilerplate)
-
+- https://medium.com/@AdPrintify
+- https://medium.com/@AdPrintify/-643372c1af5e
+- https://medium.com/@AdPrintify/goats-make-me-happy-embracing-quirkiness-and-the-joys-of-animal-love-72a4ba1516f8
+- https://medium.com/@AdPrintify/james-bond-island-phang-nga-bay-thailand-13d878e5b194
+- https://medium.com/@AdPrintify/mom-life-the-t-shirt-that-became-a-movement-a975464dae20
+- https://medium.com/@AdPrintify/royal-barge-procession-700-years-of-thai-unity-tradition-and-artistry-in-celebrating-national-c5f1477e1896
+- https://medium.com/@AdPrintify/the-icu-nurse-tee-honor-dedication-and-the-heart-of-critical-care-73c35ebb2046
+- https://medium.com/@AdPrintify/turning-glass-into-art-the-power-of-creative-superpowers-f2a27be3f1b5
 HTML5 Boilerplate is a professional front-end template for building
 fast, robust, and adaptable web apps or sites.
 
