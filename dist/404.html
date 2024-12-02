@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Page Not Found</title>
+  <title>Oops, Not Found</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     * {
@@ -12,7 +12,7 @@
     }
 
     html {
-      color: #888;
+      color: red;
       display: table;
       font-family: sans-serif;
       height: 100%;
@@ -26,13 +26,23 @@
       margin: 2em auto;
     }
 
+    .container{
+      padding: 1rem 2rem;
+      background-color: black;
+      width: 50vw;
+      margin: auto;
+      font-family: "Comic Sans MS";
+    }
+
     h1 {
-      color: #555;
+      padding: 1rem 2rem;
+      color: green;
       font-size: 2em;
       font-weight: 400;
     }
 
     p {
+      padding: 1rem 2rem;
       margin: 0 auto;
       width: 280px;
     }
@@ -54,8 +64,11 @@
 </head>
 
 <body>
-  <h1>Page Not Found</h1>
-  <p>Sorry, but the page you were trying to view does not exist.</p>
+  <div class="container">
+
+    <h1>Oops... Not Found</h1>
+    <p>Sorry, this <strong>Git and GitHub Masterclass</strong> page you were trying to view does not exist.</p>
+  </div>
 </body>
 
 </html>
