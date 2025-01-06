@@ -42,6 +42,15 @@ function runTests() {
   const dir = dirs.dist;
 
   describe(`Test if the files from the "${dir}" directory have the expected content`, () => {
+
+    before(() => {
+      console.log('Starting tests...');
+    });
+
+    after(() => {
+      console.log('Tests complete.');
+    });
+    
     it('"style.css" should contain a custom banner', function (done) {
       const string = `/*! HTML5 Boilerplate v${pkg.version} | ${pkg.license} License | ${pkg.homepage} */\n`;
       checkString(path.resolve(dir, 'css/style.css'), string, done);
