@@ -1,33 +1,31 @@
-<!doctype html>
-<html class="no-js" lang="">
-
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-  <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="">
+<title>Mortgage Loan Eligibility</title>
+<script>
+async function checkEligibility() {
+const income = document.getElementById("income").value;
+const creditScore = document.getElementById("creditScore").value;
+const dti = document.getElementById("dti").value;
+const loanAmount = document.getElementById("loanAmount").value;
 
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-  <meta property="og:image:alt" content="">
+const response = await fetch("https://your-api-gateway-url.com", {
+method: "POST",
+body: JSON.stringify({ income, creditScore, dti, loanAmount }),
+headers: { "Content-Type": "application/json" }
+});
 
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
-
-  <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#fafafa">
+const data = await response.json();
+alert("Eligibility Result: " + data.message);
+}
+</script>
 </head>
-
 <body>
-
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
-  <script src="js/app.js"></script>
-
+<h2>Mortgage Loan Eligibility Checker</h2>
+<label>Annual Income ($):</label> <input type="number" id="income"><br>
+<label>Credit Score:</label> <input type="number" id="creditScore"><br>
+<label>Debt-to-Income Ratio (%):</label> <input type="number" id="dti"><br>
+<label>Loan Amount ($):</label> <input type="number" id="loanAmount"><br>
+<button onclick="checkEligibility()">Check Eligibility</button>
 </body>
-
 </html>
