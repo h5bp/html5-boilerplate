@@ -251,7 +251,7 @@ Tool](https://developers.google.com/search/docs/appearance/structured-data). Als
 note that this markup requires to add attributes to your top `html` tag.
 
 ```html
-<html class="no-js" lang="" itemscope itemtype="https://schema.org/Article">
+<html lang="" itemscope itemtype="https://schema.org/Article">
   <head>
 
     <link rel="author" href="">
