@@ -1,12 +1,21 @@
-const path = require('path');
-
 module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+    ],
+  },
+  devtool: 'inline-source-map',
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
   entry: {
-    app: './js/app.js',
+    app: './scripts/app.ts',
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    clean: true,
-    filename: './js/app.js',
+    filename: './scripts/app.js',
   },
 };

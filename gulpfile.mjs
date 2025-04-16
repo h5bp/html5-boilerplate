@@ -120,7 +120,7 @@ gulp.task('copy:misc', () =>
 
 gulp.task('lint:js', () =>
   gulp
-    .src([`${dirs.src}/js/*.js`, `${dirs.src}/*.js`, `${dirs.test}/*.mjs`])
+    .src([`${dirs.src}/scripts/*.ts`,`${dirs.src}/scripts/*.js`, `${dirs.src}/*.js`, `${dirs.test}/*.mjs`])
     .pipe(gulpEslint())
     .pipe(gulpEslint.failOnError()),
 );
