@@ -1,21 +1,28 @@
 {
   "name": "html5-boilerplate",
   "version": "9.0.1",
-  "homepage": "https://html5boilerplate.com/",
-  "license": "MIT",
   "description": "A professional front-end template for building fast, robust, and adaptable web apps or sites.",
   "keywords": [
     "h5bp",
     "template",
     "front-end"
   ],
+  "homepage": "https://html5boilerplate.com/",
+  "bugs": {
+    "url": "https://github.com/h5bp/html5-boilerplate/issues"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/h5bp/html5-boilerplate.git"
   },
-  "bugs": {
-    "url": "https://github.com/h5bp/html5-boilerplate/issues"
-  },
+  "license": "MIT",
+  "files": [
+    "CHANGELOG.md",
+    "LICENSE.txt",
+    "package.json",
+    "dist/",
+    "README.md"
+  ],
   "scripts": {
     "build": "gulp build",
     "prettier": "prettier --write ./**/*.{js,json,md,mjs,yml}",
@@ -39,8 +46,10 @@
     "strip-json-comments": "^5.0.1"
   },
   "engines": {
-    "node": ">=18",
-    "npm": ">=10"
+    "node": ">=20"
+  },
+  "volta": {
+    "node": "20.19.1"
   },
   "h5bp-configs": {
     "directories": {
@@ -49,12 +58,5 @@
       "src": "src",
       "test": "test"
     }
-  },
-  "files": [
-    "CHANGELOG.md",
-    "LICENSE.txt",
-    "package.json",
-    "dist/",
-    "README.md"
-  ]
+  }
 }
