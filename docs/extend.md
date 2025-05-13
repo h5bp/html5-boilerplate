@@ -149,6 +149,13 @@ content="telephone=no">`](https://developer.apple.com/library/archive/documentat
   page) by [implementing X-Robots-tag
   headers](https://github.com/h5bp/html5-boilerplate/issues/804).
 
+- Apply JavaScript-dependent CSS styles using [the `scripting` media
+  feature](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/scripting).
+  Use `@media (scripting: none) { ... }` to target browsers with JavaScript
+  disabled, or `@media (scripting: enabled) { ... }` to target browsers with
+  JavaScript enabled. Using this technique also helps [avoid the
+  FOUC](https://www.paulirish.com/2009/avoiding-the-fouc-v3/).
+
 ## News Feeds
 
 ### RSS
@@ -251,7 +258,7 @@ Tool](https://developers.google.com/search/docs/appearance/structured-data). Als
 note that this markup requires to add attributes to your top `html` tag.
 
 ```html
-<html class="no-js" lang="" itemscope itemtype="https://schema.org/Article">
+<html lang="" itemscope itemtype="https://schema.org/Article">
   <head>
 
     <link rel="author" href="">

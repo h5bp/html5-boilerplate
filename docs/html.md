@@ -11,13 +11,6 @@ By default, HTML5 Boilerplate provides two `html` pages:
 
 ## `index.html`
 
-### The `no-js` Class
-
-The `no-js` class is provided in order to allow you to more easily and
-explicitly add custom styles based on whether JavaScript is disabled (`.no-js`)
-or enabled (`.js`). Using this technique also helps [avoid the
-FOUC](https://www.paulirish.com/2009/avoiding-the-fouc-v3/).
-
 ### Language Attribute
 
 Please consider specifying the language of your content by adding a
@@ -25,7 +18,7 @@ Please consider specifying the language of your content by adding a
 to the `lang` attribute in the `<html>` as in this example:
 
 ```html
-<html class="no-js" lang="en">
+<html lang="en">
 ```
 
 ### The order of the `<title>` and `<meta>` tags
