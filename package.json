@@ -34,7 +34,7 @@
     "gulp-header": "^2.0.9",
     "gulp-rename": "^2.0.0",
     "main.css": "3.0.0",
-    "mocha": "^11.1.0",
+    "mocha": "^11.5.0",
     "prettier": "3.5.3",
     "strip-json-comments": "^5.0.1"
   },
