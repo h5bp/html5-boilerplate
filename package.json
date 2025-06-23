@@ -43,7 +43,7 @@
     "main.css": "3.0.0",
     "mocha": "^11.5.0",
     "prettier": "3.5.3",
-    "strip-json-comments": "^5.0.1"
+    "strip-json-comments": "^5.0.2"
   },
   "engines": {
     "node": ">=20"
