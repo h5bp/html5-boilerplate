@@ -77,7 +77,7 @@ Choose one of the following options:
   unzip html5-boilerplate*.zip -d html5-boilerplate
   ```
 
-## Features
+## Features of this file 
 
 - A finely-tuned starter template: Reap the benefits of 10 years of analysis,
   research and experimentation by over 200 contributors.
