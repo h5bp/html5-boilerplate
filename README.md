@@ -16,7 +16,7 @@ way that you want.
 - [Homepage](https://html5boilerplate.com/)
 - [Source Code](https://github.com/h5bp/html5-boilerplate)
 
-## About This Repository
+## About The Repository
 
 This repository is where HTML5-Boilerplate is authored. Some of the tools,
 files and processes that you see here are solely for the _production_ of
