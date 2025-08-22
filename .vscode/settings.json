@@ -11,5 +11,6 @@
   "eslint.validate": ["javascript", "typescript"],
   "editor.formatOnSave": true,
   "editor.renderWhitespace": "all",
-  "files.trimTrailingWhitespace": true
+  "files.trimTrailingWhitespace": true,
+  "liveServer.settings.port": 5501
 }
