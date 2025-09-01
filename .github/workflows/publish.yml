@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Get tag
         id: get_version
         run: echo VERSION=$(echo $GITHUB_REF | cut -d / -f 3) >> "$GITHUB_OUTPUT"
