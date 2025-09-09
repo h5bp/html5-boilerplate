@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import gulp from 'gulp';
 import gulpAutoPrefixer from 'gulp-autoprefixer';
-import gulpEslint from 'gulp-eslint';
+import gulpEslint from 'gulp-eslint-new';
 import gulpHeader from 'gulp-header';
 import gulpRename from 'gulp-rename';
 import archiver from 'archiver';
