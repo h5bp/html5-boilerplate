@@ -34,6 +34,7 @@ const expectedFilesInDistDir = [
 
   'index.html',
 
+  'eslint.config.mjs',
   'js/',
   'js/app.js',
   'js/vendor/',
