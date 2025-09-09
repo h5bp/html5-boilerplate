@@ -1,20 +1,26 @@
-name: Build status (Ubuntu)
+name: Build status
 
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [18.x, 20.x]
+        node-version:
+          - 20
+          - 22
+          - 24
+        os: [ubuntu-latest, windows-latest]
+
     steps:
       - name: Get npm cache directory
         id: npm-cache
