@@ -16,7 +16,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          persist-credentials: false
       - name: Get tag
         id: get_version
         run: echo VERSION=$(echo $GITHUB_REF | cut -d / -f 3) >> "$GITHUB_OUTPUT"
@@ -25,7 +27,7 @@ jobs:
         run: zip -r ../html5-boilerplate_${{ steps.get_version.outputs.VERSION }}.zip ./
       - name: Create Release
         id: create_release
-        uses: actions/create-release@v1
+        uses: actions/create-release@0cb9c9b65d5d1901c1f53e5e66eaf4afd303e70e # v1.1.4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -35,7 +37,7 @@ jobs:
           prerelease: false
       - name: Upload Release Asset
         id: upload-release-asset
-        uses: actions/upload-release-asset@v1
+        uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 # v1.0.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -44,7 +46,7 @@ jobs:
           asset_name: html5-boilerplate_${{ steps.get_version.outputs.VERSION }}.zip
           asset_content_type: application/zip
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
           node-version: 20
           registry-url: https://registry.npmjs.org/
