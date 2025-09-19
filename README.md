@@ -1,6 +1,6 @@
 1. Integrantes
 Lucas vieira Garcia - lucas.garciavieira@outlook.com
-Hércules
+Hércules - Herculano.henriques@gmail.com
 
 2. Repositorio
 Fork do HTML5 Boilerplate: https://github.com/h5bp/html5-boilerplate
