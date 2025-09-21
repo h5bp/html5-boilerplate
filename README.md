@@ -1,4 +1,4 @@
-Integrantes Lucas vieira Garcia - lucas.garciavieira@outlook.com Herculano Henriques Chingui Chitungo - herculano.henriques@gmail.com
+Integrantes Lucas vieira Garcia - lucas.garciavieira@outlook.com & Herculano Henriques Chingui Chitungo - herculano.henriques@gmail.com
 
 Repositorio Fork do HTML5 Boilerplate: https://github.com/h5bp/html5-boilerplate https://github.com/Lucasvieiragarcia/html5-boilerplate snapshot inicial v0.1
 
