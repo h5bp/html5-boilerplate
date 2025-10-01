@@ -31,7 +31,7 @@
   "devDependencies": {
     "@eslint/js": "^9.35.0",
     "archiver": "^7.0.1",
-    "del": "^8.0.0",
+    "del": "^8.0.1",
     "eslint": "^9.35.0",
     "eslint-plugin-mocha": "^11.1.0",
     "glob": "^11.0.3",
