@@ -1,0 +1,91 @@
+/* css/main.css */
+
+/* ==========================================================================
+   Estilos da Galeria Responsiva
+   ========================================================================== */
+
+.galeria-container {
+  max-width: 1200px; /* Define uma largura máxima para o conteúdo */
+  margin: 40px auto; /* Centraliza o container */
+  padding: 0 15px; /* Adiciona espaçamento lateral */
+  font-family: sans-serif;
+}
+
+.galeria-titulo {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.galeria-grid {
+  display: grid;
+  gap: 1.5rem; /* Espaçamento entre as imagens */
+}
+
+.galeria-item {
+  margin: 0;
+  /* Requisito: Reserva de espaço para a imagem */
+  overflow: hidden; /* Garante que a imagem não ultrapasse a borda arredondada */
+  border-radius: 8px; /* Opcional: bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Opcional: sombra sutil */
+}
+
+.galeria-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Faz a imagem cobrir todo o espaço sem distorcer */
+
+  /* Requisito: Reserva de espaço (largura/altura) */
+  /* Isso previne o "layout shift" enquanto as imagens carregam */
+  aspect-ratio: 3 / 2; /* Proporção 3:2. Ajuste conforme suas imagens */
+  background-color: #eee; /* Cor de fundo enquanto a imagem carrega */
+}
+
+.galeria-item figcaption {
+  padding: 10px;
+  background-color: #fff;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+
+/* ==========================================================================
+   Responsividade da Galeria (Media Queries)
+   ========================================================================== */
+
+/*
+ * Requisito: 1-2 colunas para mobile
+ */
+
+/* 1. Estilo base (Mobile First): 1 coluna */
+.galeria-grid {
+  grid-template-columns: 1fr;
+}
+
+/* 2. A partir de 480px: 2 colunas */
+@media (min-width: 480px) {
+  .galeria-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/*
+ * Requisito: 2-4 colunas para desktop
+ */
+
+/* 3. A partir de 768px (Tablets e Desktops pequenos): 3 colunas */
+@media (min-width: 768px) {
+  .galeria-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 4. A partir de 1024px (Desktops maiores): 4 colunas */
+@media (min-width: 1024px) {
+  .galeria-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
