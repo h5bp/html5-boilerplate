@@ -34,7 +34,7 @@
     "del": "^8.0.1",
     "eslint": "^9.35.0",
     "eslint-plugin-mocha": "^11.1.0",
-    "glob": "^11.0.3",
+    "glob": "^11.1.0",
     "globals": "^16.4.0",
     "gulp": "^5.0.1",
     "gulp-autoprefixer": "^9.0.0",
