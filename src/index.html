@@ -1,15 +1,18 @@
 <!doctype html>
-<html lang="">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+  <title>HTML5 Boilerplate Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="">
+  <meta name="description" content="A simple responsive demo showcasing semantic HTML and modern CSS">
 
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
+  <meta property="og:title" content="HTML5 Boilerplate Demo">
+  <meta property="og:type" content="website">
   <meta property="og:url" content="">
   <meta property="og:image" content="">
   <meta property="og:image:alt" content="">
@@ -23,11 +26,73 @@
 </head>
 
 <body>
+  <header>
+    <nav>
+      <div class="container">
+        <h1>HTML5 Boilerplate</h1>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
+  <main>
+    <section id="hero" class="hero">
+      <div class="container">
+        <h2>Welcome to HTML5 Boilerplate</h2>
+        <p>A professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
+        <a href="#about" class="btn">Learn More</a>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <h2>About</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Semantic HTML</h3>
+            <p>Uses semantic HTML5 elements for better structure and accessibility.</p>
+          </div>
+          <div class="card">
+            <h3>Modern CSS</h3>
+            <p>Incorporates modern CSS techniques like Flexbox and Grid for responsive layouts.</p>
+          </div>
+          <div class="card">
+            <h3>Performance</h3>
+            <p>Optimized for performance with best practices built-in.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features">
+      <div class="container">
+        <h2>Features</h2>
+        <div class="flex-container">
+          <article>
+            <h3>Responsive Design</h3>
+            <p>Adapts seamlessly to different screen sizes and devices.</p>
+          </article>
+          <article>
+            <h3>Cross-browser Compatible</h3>
+            <p>Works consistently across modern browsers.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <p>&copy; 2024 HTML5 Boilerplate. All rights reserved.</p>
+      <p>Contact us at <a href="mailto:info@html5boilerplate.com">info@html5boilerplate.com</a></p>
+    </div>
+  </footer>
+
   <script src="js/app.js"></script>
-
 </body>
 
 </html>
