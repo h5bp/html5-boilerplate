@@ -38,7 +38,7 @@ jobs:
 
       - name: Create Pull Request for dist changes
         if: steps.git-diff.outputs.changed == 'true'
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v8
         with:
           commit-message: "chore(dist): update dist folder after build"
           title: "chore(dist): update dist folder after build"
