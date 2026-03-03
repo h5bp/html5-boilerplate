@@ -62,14 +62,14 @@ Our branch protection rules are as follows:
 
 - We run a simple _build status_ check. This is the most basic test you can run
   and is absolutely vital. If you can't build your project you're in trouble.
-  Currently we're testing against Node 16 and 18.
+  Currently we're testing against Node 20, 22, and 24.
 - We take advantage of our access to _CodeQL analysis_ Free for research and
   open source don't you know :) We don't have a ton of surface area to cover,
   but it's nice to have this powerful code scanning tool available to us.
 - We run a _dependency review_ scan to see if any newly added dependencies add
   known security flaws. This is important for even us, but for a project that
   uses a larger number of third party dependencies, this sort of check is vital.
-- We also run a CodeQL scans to check for security issues and problems.
+- We also run CodeQL scans to check for security issues and problems.
 - We push any changes to `main` to our [HTML5\-Boilerplate Template Repo](https://github.com/h5bp/html5-boilerplate-template)
 
 Since we've talked about some of our Actions, let's look at the full configuration
