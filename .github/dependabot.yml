@@ -5,11 +5,31 @@ updates:
     schedule:
       interval: monthly
     versioning-strategy: increase
+    cooldown:
+      default-days: 7
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+  
   - package-ecosystem: npm
     directory: "/src/"
     schedule:
       interval: monthly
     versioning-strategy: increase
+    cooldown:
+      default-days: 7
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
