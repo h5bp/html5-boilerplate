@@ -26,7 +26,7 @@ jobs:
         id: npm-cache
         run: |
           echo "dir=$(npm config get cache)" >> "$GITHUB_OUTPUT"
-      - uses: actions/cache@6f8efc29b200d32929f49075959781ed54ec270c # v3.5.0
+      - uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5.0.4
         with:
           path: ${{ steps.npm-cache.outputs.dir }}
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
