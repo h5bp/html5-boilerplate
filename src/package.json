@@ -14,7 +14,7 @@
     "build": "webpack --config webpack.config.prod.js"
   },
   "devDependencies": {
-    "copy-webpack-plugin": "^13.0.1",
+    "copy-webpack-plugin": "^14.0.0",
     "html-webpack-plugin": "^5.6.6",
     "webpack": "^5.105.3",
     "webpack-cli": "^6.0.1",
