@@ -46,7 +46,7 @@ jobs:
           asset_name: html5-boilerplate_${{ steps.get_version.outputs.VERSION }}.zip
           asset_content_type: application/zip
       - name: Setup Node
-        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
           node-version: 20
           registry-url: https://registry.npmjs.org/
