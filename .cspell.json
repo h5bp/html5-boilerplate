@@ -17,4 +17,5 @@
   "ignoreRegExpList": ["\\_\\w+", "\\#\\w+"],
   "ignorePaths": [".cspell.json"],
   "useGitignore": true
+  hello
 }
