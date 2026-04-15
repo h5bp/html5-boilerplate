@@ -225,23 +225,24 @@ Facebook).
 <meta property="article:author" content="">
 ```
 
-### Twitter Cards
+### Social Media Sharing
 
-Twitter provides a snippet specification that serves a similar purpose to Open
-Graph. In fact, Twitter will use Open Graph when Cards is not available. You can
-read more about the various snippet formats in the
-[official Twitter Cards
-documentation](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards).
+Twitter (X) now reads [Open Graph meta tags](https://ogp.me/) directly. 
+Open Graph is the universal standard for social media sharing across all 
+platforms (Facebook, LinkedIn, Twitter/X, etc.).
+
+Add these Open Graph tags to your `<head>`:
 
 ```html
-<meta name="twitter:card" content="summary">
-<meta name="twitter:site" content="@site_account">
-<meta name="twitter:creator" content="@individual_account">
-<meta name="twitter:url" content="https://www.example.com/path/to/page.html">
-<meta name="twitter:title" content="">
-<meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://www.example.com/path/to/image.jpg">
+<meta property="og:title" content="Your Page Title">
+<meta property="og:description" content="Page description">
+<meta property="og:image" content="thumbnail.jpg">
+<meta property="og:url" content="https://www.example.com/page.html">
+<meta property="og:type" content="website">
 ```
+Note: Twitter Cards documentation has been deprecated and removed by X.
+The meta tags above work for all social platforms including X.
+
 
 ### Schema.org
 
