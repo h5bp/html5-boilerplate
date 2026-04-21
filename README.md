@@ -2,8 +2,8 @@
 
 [![Build status](https://github.com/h5bp/html5-boilerplate/workflows/Build%20status/badge.svg)](https://github.com/h5bp/html5-boilerplate/actions?query=workflow%3A%22Build+status%22+branch%3Amain)
 [![LICENSE](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/h5bp/html5-boilerplate/blob/main/LICENSE.txt)
-[![NPM Downloads](https://img.shields.io/npm/dt/html5-boilerplate.svg?label=GitHub%20Stars)](https://www.npmjs.com/package/html5-boilerplate)
-[![GitHub Stars](https://img.shields.io/github/stars/h5bp/html5-boilerplate.svg)](https://github.com/h5bp/html5-boilerplate)
+[![NPM Downloads](https://img.shields.io/npm/dt/html5-boilerplate.svg)](https://www.npmjs.com/package/html5-boilerplate)
+[![GitHub Stars](https://img.shields.io/github/stars/h5bp/html5-boilerplate.svg?label=GitHub%20Stars)](https://github.com/h5bp/html5-boilerplate)
 
 HTML5 Boilerplate is a professional front-end template for building
 fast, robust, and adaptable web apps or sites.
