@@ -48,9 +48,8 @@ purposes.
 Our branch protection rules are as follows:
 
 - We require a pull request (PR) with one approving reviewer to merge code
-- In addition to the PR and approving reviewer, we require three status checks
+- In addition to the PR and approving reviewer, we require two status checks
   to pass before code can be merged
-  _ Build with Node 20
   _ Build with Node 22
   _ Build with Node 24
 - We _allow_ force pushes for project admins. While force pushes can create
@@ -62,7 +61,7 @@ Our branch protection rules are as follows:
 
 - We run a simple _build status_ check. This is the most basic test you can run
   and is absolutely vital. If you can't build your project you're in trouble.
-  Currently we're testing against Node 16 and 18.
+  Currently we're testing against Node 22 and 24.
 - We take advantage of our access to _CodeQL analysis_ Free for research and
   open source don't you know :) We don't have a ton of surface area to cover,
   but it's nice to have this powerful code scanning tool available to us.
