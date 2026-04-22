@@ -45,6 +45,10 @@
     "mocha": "^11.7.5",
     "prettier": "3.6.2"
   },
+  "overrides": {
+    "diff": "^8.0.3",
+    "serialize-javascript": "^7.0.5"
+  },
   "engines": {
     "node": ">=20"
   },
