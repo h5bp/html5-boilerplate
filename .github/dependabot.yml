@@ -5,12 +5,37 @@ updates:
     schedule:
       interval: weekly
     versioning-strategy: increase
+    cooldown:
+      default-days: 7
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+  
   - package-ecosystem: npm
     directory: "/src/"
     schedule:
       interval: weekly
     versioning-strategy: increase
+    cooldown:
+      default-days: 7
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
-      interval: weekly
+      interval: monthly
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+    open-pull-requests-limit: 2
