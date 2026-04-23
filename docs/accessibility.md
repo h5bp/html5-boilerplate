@@ -3,29 +3,42 @@ table of contents](TOC.md)
 
 # Accessibility
 
-HTML5 Boilerplate includes useful accessibility-friendly defaults, such as a
-configurable `lang` attribute in the HTML template and helper classes in
-`style.css`. The accessibility of the finished site still depends on the
-structure, labels, and interactions you add on top of those defaults.
+HTML5 Boilerplate includes a few accessibility-friendly starting points, such
+as a configurable `lang` attribute in the HTML template and helper classes in
+`style.css`. This guide focuses on a few first steps you can take to make a
+site easier to use with keyboards, screen readers, and zoomed text.
 
-## Start with semantic HTML
+## Set the page language
 
-Prefer native HTML elements before ARIA whenever possible. Elements such as
+Start by setting the `lang` attribute on the root `<html>` element. This helps
+screen readers choose the right pronunciation rules and gives browsers better
+information about the page.
+
+```html
+<html lang="en">
+```
+
+The [HTML documentation](html.md#language-attribute) covers this in the default
+template.
+
+## Use semantic HTML first
+
+Prefer native HTML elements before adding extra attributes. Elements such as
 `<header>`, `<nav>`, `<main>`, `<footer>`, `<button>`, and `<label>` already
-communicate meaning to browsers and assistive technology without extra roles.
+carry meaning for browsers and assistive technology.
 
 Keep the page outline predictable by using a single `<h1>` for the page title
 and nesting headings in order for each section of content.
 
 ```html
 <header>...</header>
-<nav aria-label="Primary">...</nav>
+<nav>...</nav>
 
 <main id="main">
   <h1>Page title</h1>
 
-  <section aria-labelledby="news-heading">
-    <h2 id="news-heading">Latest news</h2>
+  <section>
+    <h2>Latest news</h2>
     ...
   </section>
 </main>
@@ -37,14 +50,14 @@ and nesting headings in order for each section of content.
 
 Pages with repeated navigation should offer a way to jump straight to the main
 content. HTML5 Boilerplate already includes `.visually-hidden` and
-`.visually-hidden.focusable`, which makes a skip link available to keyboard and
-screen-reader users without leaving it visible all the time.
+`.visually-hidden.focusable`, which can be used to hide a skip link until it
+receives keyboard focus.
 
 ```html
 <a class="visually-hidden focusable" href="#main">Skip to main content</a>
 
 <header>...</header>
-<nav aria-label="Primary">...</nav>
+<nav>...</nav>
 <main id="main">
   ...
 </main>
@@ -56,13 +69,11 @@ Every form control needs an accessible name. Use a visible `<label>` whenever
 possible, and keep important guidance outside of placeholder text so it remains
 available after the user starts typing.
 
-Use `aria-describedby` to connect an input with additional hint or error text.
-
 ```html
 <form>
   <label for="email">Email address</label>
-  <p id="email-help">Use an address you check regularly.</p>
-  <input id="email" name="email" type="email" aria-describedby="email-help">
+  <p>Use an address you check regularly.</p>
+  <input id="email" name="email" type="email">
 </form>
 ```
 
@@ -93,11 +104,16 @@ is currently focused.
 }
 ```
 
-## Use ARIA to supplement HTML, not replace it
+## Use ARIA only when HTML is not enough
 
-ARIA can fill gaps when native HTML cannot express a relationship or accessible
-name, but it is not a substitute for semantic markup. Start with correct HTML
-first, then add ARIA only where it improves the experience.
+ARIA stands for Accessible Rich Internet Applications. It adds extra meaning to
+elements when plain HTML cannot express a name, state, or relationship on its
+own.
+
+In practice, ARIA should be used sparingly. Start with semantic HTML first, and
+only add ARIA when it solves a specific problem. For example, ARIA can help
+associate hint or error text with a form control, but it is not a replacement
+for real labels, headings, and buttons.
 
 ## Quick checks before shipping
 
