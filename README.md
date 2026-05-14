@@ -107,7 +107,7 @@ reading and provides a useful starting point for any documentation you want to
 write about your project.
 
 ## Contributing
-
+https://github.com/Khong-Vao
 Hundreds of developers have helped to make the HTML5 Boilerplate. Anyone is
 welcome to [contribute](.github/CONTRIBUTING.md). However, if you decide to get
 involved, please take a moment to review the [guidelines](.github/CONTRIBUTING.md):
