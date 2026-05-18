@@ -33,7 +33,7 @@
     "archiver": "^7.0.1",
     "del": "^8.0.1",
     "eslint": "^9.35.0",
-    "eslint-plugin-mocha": "^11.1.0",
+    "eslint-plugin-mocha": "^11.2.0",
     "glob": "^13.0.6",
     "globals": "^16.4.0",
     "gulp": "^5.0.1",
