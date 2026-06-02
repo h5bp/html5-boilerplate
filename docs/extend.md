@@ -225,28 +225,10 @@ Facebook).
 <meta property="article:author" content="">
 ```
 
-### Twitter Cards
-
-Twitter provides a snippet specification that serves a similar purpose to Open
-Graph. In fact, Twitter will use Open Graph when Cards is not available. You can
-read more about the various snippet formats in the
-[official Twitter Cards
-documentation](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards).
-
-```html
-<meta name="twitter:card" content="summary">
-<meta name="twitter:site" content="@site_account">
-<meta name="twitter:creator" content="@individual_account">
-<meta name="twitter:url" content="https://www.example.com/path/to/page.html">
-<meta name="twitter:title" content="">
-<meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://www.example.com/path/to/image.jpg">
-```
-
 ### Schema.org
 
 Google also provides a snippet specification that serves a similar purpose to
-Facebook's Open Graph or Twitter Cards. This metadata is a subset of
+Facebook's Open Graph or X Cards. This metadata is a subset of
 [schema.org's microdata vocabulary](https://schema.org/), which covers many
 other schemas that can describe the content of your pages to search engines. For
 this reason, this metadata is more generic for SEO, notably for Google's
