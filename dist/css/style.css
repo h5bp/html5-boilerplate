@@ -18,7 +18,8 @@ html {
 }
 
 /*
- * Remove text-shadow in selection highlight
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
  *
  * Customize the background color to match your design.
  */
@@ -171,9 +172,9 @@ textarea {
 }
 
 @media print,
-(-webkit-min-device-pixel-ratio: 1.25),
-(min-resolution: 1.25dppx),
-(min-resolution: 120dpi) {
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
   /* Style adjustments for high resolution devices */
 }
 
@@ -184,7 +185,6 @@ textarea {
    ========================================================================== */
 
 @media print {
-
   *,
   *::before,
   *::after {
@@ -244,3 +244,4 @@ textarea {
     page-break-after: avoid;
   }
 }
+
