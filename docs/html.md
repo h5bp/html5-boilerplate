@@ -63,7 +63,7 @@ details.
 
 The [Open Graph Protocol](https://ogp.me) allows you to define the way your
 site is presented when referenced on third party sites and applications
-(Facebook, Twitter, LinkedIn). The protocol provides a series of meta elements
+(Facebook, X, LinkedIn). The protocol provides a series of meta elements
 that define the details of your site. The required attributes define the title,
 preview image, URL, and [type](https://ogp.me/#types) (e.g., video, music,
 website, article).
