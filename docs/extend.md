@@ -347,7 +347,7 @@ scrollbars, and the default canvas color.
 ```
 
 Only list color schemes that your page actually supports. The first value is the
-preferred scheme.
+preferred scheme for user agent UI.
 
 ### Theme Color
 
