@@ -334,6 +334,21 @@ for an iPhone:
 <link rel="apple-touch-startup-image" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" href="img/startup.png">
 ```
 
+### Color Scheme
+
+You can add the [`color-scheme` meta
+extension](https://html.spec.whatwg.org/multipage/semantics.html#meta-color-scheme)
+in the `<head>` of your pages to indicate which color schemes the page supports.
+Browsers can use this information for built-in UI, such as form controls,
+scrollbars, and the default canvas color.
+
+```html
+<meta name="color-scheme" content="light dark">
+```
+
+Only list color schemes that your page actually supports. The first value is the
+preferred scheme.
+
 ### Theme Color
 
 You can add the [`theme-color` meta
