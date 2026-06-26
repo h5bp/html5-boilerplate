@@ -26,14 +26,15 @@
   "scripts": {
     "build": "gulp build",
     "prettier": "prettier --write ./**/*.{js,json,md,mjs,yml}",
-    "test": "gulp archive && mocha --reporter spec --timeout 5000"
+    "test": "gulp archive && mocha --reporter spec --timeout 5000",
+    "lint": "eslint ."
   },
   "devDependencies": {
-    "@eslint/js": "^9.35.0",
+    "@eslint/js": "^10.0.1",
     "archiver": "^7.0.1",
     "del": "^8.0.1",
-    "eslint": "^9.35.0",
-    "eslint-plugin-mocha": "^11.2.0",
+    "eslint": "^10.5.0",
+    "eslint-plugin-mocha": "^11.3.0",
     "glob": "^13.0.6",
     "globals": "^16.4.0",
     "gulp": "^5.0.1",
