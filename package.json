@@ -44,17 +44,17 @@
     "gulp-rename": "^2.1.0",
     "main.css": "3.0.0",
     "mocha": "^11.7.5",
-    "prettier": "3.6.2"
+    "prettier": "3.8.4"
   },
   "overrides": {
     "diff": "^8.0.3",
     "serialize-javascript": "^7.0.5"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "volta": {
-    "node": "20.19.1"
+    "node": "22.23.1"
   },
   "h5bp-configs": {
     "directories": {
