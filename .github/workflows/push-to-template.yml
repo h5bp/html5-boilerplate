@@ -13,6 +13,7 @@ jobs:
     steps:
       - name: Get npm cache directory
         id: npm-cache
+        shell: bash
         run: |
           echo "dir=$(npm config get cache)" >> "$GITHUB_OUTPUT"
       - uses: actions/cache@v6.1.0
