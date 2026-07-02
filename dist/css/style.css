@@ -16,6 +16,13 @@ html {
   font-size: 1em;
   line-height: 1.4;
 }
+body {
+  background-color: var(--color-bg, #ffffff);
+  color: var(--color-text, #000000);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+}
 
 /*
  * Remove text-shadow in selection highlight:
@@ -84,6 +91,66 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+
+ :root {
+  --color-bg: #f9fafb;
+  --color-text: #111827;
+  --color-muted: #6b7280;
+  --color-border: #e5e7eb;
+  --color-surface: #ffffff;
+  --color-accent: #2563eb;
+}
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+}
+.container {
+  max-width: 1100px;
+  margin-inline: auto;
+  padding: 1.5rem;
+}
+.site-header,
+.site-footer {
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+  border-style: solid;
+  border-width: 0;
+}
+
+.site-header {
+  border-bottom-width: 1px;
+}
+
+.site-footer {
+  border-top-width: 1px;
+  margin-top: 3rem;
+  color: var(--color-muted);
+}
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1.25rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -91,6 +158,7 @@ textarea {
 /*
  * Hide visually and from screen readers
  */
+
 
 .hidden,
 [hidden] {
