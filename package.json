@@ -36,7 +36,7 @@
     "eslint": "^10.6.0",
     "eslint-plugin-mocha": "^11.3.0",
     "glob": "^13.0.6",
-    "globals": "^16.4.0",
+    "globals": "^17.7.0",
     "gulp": "^5.0.1",
     "gulp-autoprefixer": "^10.0.0",
     "gulp-eslint-new": "^2.6.2",
