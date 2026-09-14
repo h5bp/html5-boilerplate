@@ -14,7 +14,7 @@ updates:
         update-types:
           - "minor"
           - "patch"
-  
+
   - package-ecosystem: npm
     directory: "/src/"
     schedule:
