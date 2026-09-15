@@ -129,6 +129,17 @@ npm run build
 This command will bundle up the site's JavaScript and copy over static assets to
 the newly created `dist` folder.
 
+#### TypeScript
+
+HTML5 Boilerplate does not include TypeScript by default, but the webpack setup
+can compile it with a few changes:
+
+1. Install TypeScript and a webpack loader such as `ts-loader`.
+1. Rename `js/app.js` to `js/app.ts`.
+1. Update `webpack.common.js` so the `app` entry points to `./js/app.ts`.
+1. Add a loader rule for `.ts` files and add `.ts` to `resolve.extensions`.
+1. Add a `tsconfig.json` that matches your browser support and build target.
+
 There are three files:
 
 #### webpack.common.js
