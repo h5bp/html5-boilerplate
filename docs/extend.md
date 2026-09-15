@@ -345,6 +345,14 @@ colors.
 
 The `content` attribute extension can take any valid CSS color.
 
+You can also provide multiple `theme-color` tags with `media` attributes when
+the page should use different colors for light and dark color schemes:
+
+```html
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+```
+
 For browser support details, refer to [Can I Use](https://caniuse.com/meta-theme-color).
 
 ### security.txt
