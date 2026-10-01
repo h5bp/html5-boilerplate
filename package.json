@@ -33,7 +33,7 @@
     "@eslint/js": "^10.0.1",
     "archiver": "^7.0.1",
     "del": "^8.0.1",
-    "eslint": "^10.10.0",
+    "eslint": "^10.11.0",
     "eslint-plugin-mocha": "^12.0.2",
     "glob": "^13.0.6",
     "globals": "^17.12.0",
@@ -43,8 +43,8 @@
     "gulp-header": "^2.0.12",
     "gulp-rename": "^2.1.0",
     "main.css": "3.0.0",
-    "mocha": "^12.0.0",
-    "prettier": "3.9.6"
+    "mocha": "^12.0.2",
+    "prettier": "3.9.9"
   },
   "overrides": {
     "diff": "^8.0.3",
