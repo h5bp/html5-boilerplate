@@ -3,9 +3,15 @@ name: Build and PR dist changes
 on:
   push:
     branches: [main]
+permissions:
+  contents: read
+
 
 jobs:
   build-and-pr-dist:
+    permissions:
+      contents: write
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
