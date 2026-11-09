@@ -107,6 +107,7 @@ refer to the [according documentation](extend.md#apple-touch-icons).
 ### Webpack
 
 The project contains a simple [webpack](https://webpack.js.org/) configuration.
+It requires Node.js 22.15.0 or later.
 
 To get started developing a site with a development server, run the following
 commands from within the `/dist/` folder in the project's repo or within the
