@@ -45,7 +45,8 @@ Choose one of the following options:
   script, instantly fetch the latest npm published package (or any version
   available on npm) with `npx`, `npm init` or `yarn create` without having to
   install any dependencies. Running the following `npx` command installs the
-  latest version into a folder called `new-site`
+  latest version into a folder called `new-site`. The included webpack tooling
+  requires Node.js 22.15.0 or later.
 
   ```bash
   npx create-html5-boilerplate new-site

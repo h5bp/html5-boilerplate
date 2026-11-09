@@ -5,7 +5,7 @@ import gulpAutoPrefixer from 'gulp-autoprefixer';
 import gulpEslint from 'gulp-eslint-new';
 import gulpHeader from 'gulp-header';
 import gulpRename from 'gulp-rename';
-import archiver from 'archiver';
+import { ZipArchive } from 'archiver';
 import { globSync } from 'glob';
 import { deleteSync } from 'del';
 import { createRequire } from 'module';
@@ -28,7 +28,7 @@ gulp.task('archive:zip', (done) => {
     dirs.archive,
     `${pkg.name}_v${pkg.version}.zip`,
   );
-  const zip = archiver('zip');
+  const zip = new ZipArchive();
   const files = globSync('**/*.*', {
     cwd: dirs.dist,
     ignore: [
@@ -41,11 +41,8 @@ gulp.task('archive:zip', (done) => {
   });
   const output = fs.createWriteStream(archiveName);
 
-  zip.on('error', (error) => {
-    done();
-    throw error;
-  });
-
+  zip.on('error', done);
+  output.on('error', done);
   output.on('close', done);
 
   files.forEach((file) => {
@@ -61,7 +58,6 @@ gulp.task('archive:zip', (done) => {
 
   zip.pipe(output);
   zip.finalize();
-  done();
 });
 
 gulp.task('clean', (done) => {
@@ -107,6 +103,8 @@ gulp.task('copy:misc', () =>
         // (other tasks will handle the copying of these files)
         `!${dirs.src}/css/main.css`,
         `!${dirs.src}/index.html`,
+        `!${dirs.src}/node_modules`,
+        `!${dirs.src}/node_modules/**`,
         `!**/.DS_Store`,
       ],
       {
