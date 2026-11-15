@@ -6,7 +6,7 @@ on:
 
 jobs:
   build-and-pr-dist:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     steps:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -38,7 +38,7 @@ jobs:
 
       - name: Create Pull Request for dist changes
         if: steps.git-diff.outputs.changed == 'true'
-        uses: peter-evans/create-pull-request@v8
+        uses: peter-evans/create-pull-request@3ffccacd46053766916f087ce41d627c0b8cf2d1 # v8.1.3
         with:
           commit-message: "chore(dist): update dist folder after build"
           title: "chore(dist): update dist folder after build"
