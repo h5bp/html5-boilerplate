@@ -3,6 +3,9 @@ table of contents](TOC.md)
 
 # The HTML
 
+For broader guidance on skip links, form labels, image alternatives, and focus
+styles, see [Accessibility](accessibility.md).
+
 By default, HTML5 Boilerplate provides two `html` pages:
 
 - [`index.html`](#indexhtml) - a default HTML skeleton that should form the
